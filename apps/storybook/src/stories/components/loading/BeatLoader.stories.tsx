@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from '@marmot-ui/styles'
-import { BeatLoader } from '@marmot-ui/loader'
-import type { BeatLoaderProps } from '@marmot-ui/loader'
+import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { BeatLoader } from '@pikas-ui/loader'
+import type { BeatLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {

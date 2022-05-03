@@ -1,1 +1,1 @@
-module.exports = require('@marmot-ui/config/eslint-preset-next')
+module.exports = require('@pikas-ui/config/eslint-preset-next')

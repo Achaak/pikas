@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from '@marmot-ui/styles'
-import { ClipLoader } from '@marmot-ui/loader'
-import type { ClipLoaderProps } from '@marmot-ui/loader'
+import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { ClipLoader } from '@pikas-ui/loader'
+import type { ClipLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {

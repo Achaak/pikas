@@ -1,1 +1,1 @@
-module.exports = require("@marmot-ui/config/prettier-preset");
+module.exports = require('@pikas-ui/config/prettier-preset')

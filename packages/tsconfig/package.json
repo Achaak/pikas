@@ -1,5 +1,5 @@
 {
-  "name": "@marmot-ui/tsconfig",
+  "name": "@pikas-ui/tsconfig",
   "version": "0.0.0",
   "private": true,
   "main": "index.js",

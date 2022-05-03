@@ -1,6 +1,6 @@
-import { globalStyles, styled, Colors } from '@marmot-ui/styles'
-import { BarLoader } from '@marmot-ui/loader'
-import type { BarLoaderProps } from '@marmot-ui/loader'
+import { globalStyles, styled, Colors } from '@pikas-ui/styles'
+import { BarLoader } from '@pikas-ui/loader'
+import type { BarLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {

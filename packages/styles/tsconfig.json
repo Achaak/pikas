@@ -1,5 +1,5 @@
 {
-  "extends": "@marmot-ui/tsconfig/package-default.json",
+  "extends": "@pikas-ui/tsconfig/package-default.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "compilerOptions": {

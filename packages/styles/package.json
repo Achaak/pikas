@@ -1,6 +1,6 @@
 {
-  "name": "@marmot-ui/styles",
-  "version": "1.0.0",
+  "name": "@pikas-ui/styles",
+  "version": "1.0.7",
   "private": false,
   "description": "",
   "main": "./dist/index.js",
@@ -20,8 +20,8 @@
     "@stitches/react": "^1.2.8"
   },
   "devDependencies": {
-    "@marmot-ui/config": "workspace:*",
-    "@marmot-ui/tsconfig": "workspace:*",
+    "@pikas-ui/config": "workspace:*",
+    "@pikas-ui/tsconfig": "workspace:*",
     "@types/node": "^17.0.31",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",

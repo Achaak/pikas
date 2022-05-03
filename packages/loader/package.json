@@ -1,6 +1,6 @@
 {
-  "name": "@marmot-ui/loader",
-  "version": "1.0.0",
+  "name": "@pikas-ui/loader",
+  "version": "1.0.7",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -19,25 +19,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Achaak/marmot-ui.git"
+    "url": "git+https://github.com/Achaak/pikas-ui.git"
   },
   "author": {
     "name": "Axel Lavoie",
     "email": "axel.lavoie@gmail.com"
   },
   "bugs": {
-    "url": "https://github.com/Achaak/marmot-ui/issues"
+    "url": "https://github.com/Achaak/pikas-ui/issues"
   },
-  "homepage": "https://github.com/Achaak/marmot-ui#readme",
+  "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@marmot-ui/styles": "workspace:*",
+    "@pikas-ui/styles": "1.0.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-spinners": "^0.11.0"
   },
   "devDependencies": {
-    "@marmot-ui/config": "workspace:*",
-    "@marmot-ui/tsconfig": "workspace:*",
+    "@pikas-ui/config": "workspace:*",
+    "@pikas-ui/tsconfig": "workspace:*",
     "@types/node": "^17.0.31",
     "@types/react": "^18.0.6",
     "@types/react-dom": "^18.0.2",

@@ -1,6 +1,7 @@
 {
-  "name": "@marmot-ui/storybook",
-  "version": "1.0.0",
+  "name": "@pikas-ui/storybook",
+  "version": "1.0.7",
+  "private": true,
   "scripts": {
     "build": "build-storybook",
     "dev": "start-storybook -p 6006",
@@ -22,16 +23,16 @@
     ]
   },
   "dependencies": {
-    "@marmot-ui/styles": "workspace:*",
-    "@marmot-ui/loader": "workspace:*",
+    "@pikas-ui/styles": "1.0.7",
+    "@pikas-ui/loader": "1.0.7",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
   },
   "devDependencies": {
-    "@marmot-ui/config": "workspace:*",
-    "@marmot-ui/tsconfig": "workspace:*",
+    "@pikas-ui/config": "workspace:*",
+    "@pikas-ui/tsconfig": "workspace:*",
     "@babel/core": "^7.17.10",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",

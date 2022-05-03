@@ -1,5 +1,5 @@
 {
-  "extends": "@marmot-ui/tsconfig/nextjs.json",
+  "extends": "@pikas-ui/tsconfig/nextjs.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/stories/packagesui/modals/.stories.tsx"],
   "exclude": ["node_modules"],
   "compilerOptions": {

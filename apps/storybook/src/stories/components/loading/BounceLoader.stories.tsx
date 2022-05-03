@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from '@marmot-ui/styles'
-import { BounceLoader } from '@marmot-ui/loader'
-import type { BounceLoaderProps } from '@marmot-ui/loader'
+import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { BounceLoader } from '@pikas-ui/loader'
+import type { BounceLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {

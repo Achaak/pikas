@@ -74,14 +74,6 @@ export const Colors = {
 
   TRANSPARENT: 'rgba(0, 0, 0, 0)',
 
-  FACEBOOK: '#3b5998',
-  GOOGLE: '#DB4437',
-  APPLE: '#fbfbfd',
-  GITHUB: '#333333',
-  TWITTER: '#1da1f2',
-  DISCORD: '#7289da',
-  LINKEDIN: '#0077b5',
-
   BACKGROUND: '#EDF6FF',
 }
 

@@ -1,5 +1,5 @@
-import type { ColorsType } from '@marmot-ui/styles'
-import { theme } from '@marmot-ui/styles'
+import type { ColorsType } from '@pikas-ui/styles'
+import { theme } from '@pikas-ui/styles'
 import { ClipLoader as ClipLoaderDefault } from 'react-spinners'
 import React from 'react'
 

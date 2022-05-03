@@ -66,14 +66,6 @@ export const darkTheme = createTheme('dark-theme', {
 
     TRANSPARENT: 'rgba(0, 0, 0, 0)',
 
-    FACEBOOK: '#3b5998',
-    GOOGLE: '#DB4437',
-    APPLE: '#fbfbfd',
-    GITHUB: '#ffffff',
-    TWITTER: '#1da1f2',
-    DISCORD: '#7289da',
-    LINKEDIN: '#0077b5',
-
     BACKGROUND: '#242424',
   },
 })

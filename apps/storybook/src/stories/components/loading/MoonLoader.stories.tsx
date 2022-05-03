@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from '@marmot-ui/styles'
-import { MoonLoader } from  '@marmot-ui/loader'
-import type { MoonLoaderProps } from  '@marmot-ui/loader'
+import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { MoonLoader } from '@pikas-ui/loader'
+import type { MoonLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {

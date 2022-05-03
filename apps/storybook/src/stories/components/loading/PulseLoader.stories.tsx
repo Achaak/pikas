@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from '@marmot-ui/styles'
-import { PulseLoader } from '@marmot-ui/loader'
-import type { PulseLoaderProps } from '@marmot-ui/loader'
+import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { PulseLoader } from '@pikas-ui/loader'
+import type { PulseLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {

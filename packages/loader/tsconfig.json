@@ -1,5 +1,5 @@
 {
-  "extends": "@marmot-ui/tsconfig/package-react.json",
+  "extends": "@pikas-ui/tsconfig/package-react.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "tsup.config.ts", "dist"],
   "compilerOptions": {
