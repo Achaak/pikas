@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from 'marmot-ui/dist/styles'
-import { RingLoading } from 'marmot-ui/dist/components/loading/ring'
-import type { RingLoadingProps } from 'marmot-ui/dist/components/loading/ring'
+import { Colors, globalStyles, styled } from '@marmot-ui/styles'
+import { RingLoader } from '@marmot-ui/loader'
+import type { RingLoaderProps } from '@marmot-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loading/RingLoader',
-  component: RingLoading,
+  title: 'Components/Loader/RingLoader',
+  component: RingLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -34,21 +34,21 @@ export default {
       },
     },
     loading: {
-      description: 'Loading',
+      description: 'Loader',
       type: {
         name: 'boolean',
         required: false,
       },
     },
   },
-} as Meta<RingLoadingProps>
+} as Meta<RingLoaderProps>
 
-const Template: Story<RingLoadingProps> = (args) => {
+const Template: Story<RingLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <RingLoading {...args} />
+      <RingLoader {...args} />
     </Container>
   )
 }

@@ -22,7 +22,8 @@
     ]
   },
   "dependencies": {
-    "marmot-ui": "workspace:*",
+    "@marmot-ui/styles": "workspace:*",
+    "@marmot-ui/loader": "workspace:*",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "webpack": "^5.72.0",

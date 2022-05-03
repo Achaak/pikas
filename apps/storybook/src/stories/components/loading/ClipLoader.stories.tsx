@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from 'marmot-ui/dist/styles'
-import { ClipLoading } from 'marmot-ui/dist/components/loading/clip'
-import type { ClipLoadingProps } from 'marmot-ui/dist/components/loading/clip'
+import { Colors, globalStyles, styled } from '@marmot-ui/styles'
+import { ClipLoader } from '@marmot-ui/loader'
+import type { ClipLoaderProps } from '@marmot-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loading/ClipLoader',
-  component: ClipLoading,
+  title: 'Components/Loader/ClipLoader',
+  component: ClipLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -34,21 +34,21 @@ export default {
       },
     },
     loading: {
-      description: 'Loading',
+      description: 'Loader',
       type: {
         name: 'boolean',
         required: false,
       },
     },
   },
-} as Meta<ClipLoadingProps>
+} as Meta<ClipLoaderProps>
 
-const Template: Story<ClipLoadingProps> = (args) => {
+const Template: Story<ClipLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <ClipLoading {...args} />
+      <ClipLoader {...args} />
     </Container>
   )
 }

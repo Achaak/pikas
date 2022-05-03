@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from 'marmot-ui/dist/styles'
-import { PulseLoading } from 'marmot-ui/dist/components/loading/pulse'
-import type { PulseLoadingProps } from 'marmot-ui/dist/components/loading/pulse'
+import { Colors, globalStyles, styled } from '@marmot-ui/styles'
+import { PulseLoader } from '@marmot-ui/loader'
+import type { PulseLoaderProps } from '@marmot-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loading/PulseLoader',
-  component: PulseLoading,
+  title: 'Components/Loader/PulseLoader',
+  component: PulseLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -34,21 +34,21 @@ export default {
       },
     },
     loading: {
-      description: 'Loading',
+      description: 'Loader',
       type: {
         name: 'boolean',
         required: false,
       },
     },
   },
-} as Meta<PulseLoadingProps>
+} as Meta<PulseLoaderProps>
 
-const Template: Story<PulseLoadingProps> = (args) => {
+const Template: Story<PulseLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <PulseLoading {...args} />
+      <PulseLoader {...args} />
     </Container>
   )
 }

@@ -1,0 +1,33 @@
+{
+  "name": "@marmot-ui/styles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "lint": "cross-env TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "dependencies": {
+    "@stitches/react": "^1.2.8"
+  },
+  "devDependencies": {
+    "@marmot-ui/config": "workspace:*",
+    "@marmot-ui/tsconfig": "workspace:*",
+    "@types/node": "^17.0.31",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.14.0",
+    "prettier": "^2.6.2",
+    "tsup": "^5.12.6",
+    "typescript": "4.5.5"
+  }
+}

@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from 'marmot-ui/dist/styles'
-import { BeatLoading } from 'marmot-ui/dist/components/loading/beat'
-import type { BeatLoadingProps } from 'marmot-ui/dist/components/loading/beat'
+import { Colors, globalStyles, styled } from '@marmot-ui/styles'
+import { BeatLoader } from '@marmot-ui/loader'
+import type { BeatLoaderProps } from '@marmot-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loading/BeatLoader',
-  component: BeatLoading,
+  title: 'Components/Loader/BeatLoader',
+  component: BeatLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -34,21 +34,21 @@ export default {
       },
     },
     loading: {
-      description: 'Loading',
+      description: 'Loader',
       type: {
         name: 'boolean',
         required: false,
       },
     },
   },
-} as Meta<BeatLoadingProps>
+} as Meta<BeatLoaderProps>
 
-const Template: Story<BeatLoadingProps> = (args) => {
+const Template: Story<BeatLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <BeatLoading {...args} />
+      <BeatLoader {...args} />
     </Container>
   )
 }

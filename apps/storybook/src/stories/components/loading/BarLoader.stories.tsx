@@ -1,6 +1,6 @@
-import { globalStyles, styled, Colors } from 'marmot-ui/dist/styles'
-import { BarLoading } from 'marmot-ui/dist/components/loading/bar'
-import type { BarLoadingProps } from 'marmot-ui/dist/components/loading/bar'
+import { globalStyles, styled, Colors } from '@marmot-ui/styles'
+import { BarLoader } from '@marmot-ui/loader'
+import type { BarLoaderProps } from '@marmot-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loading/BarLoader',
-  component: BarLoading,
+  title: 'Components/Loader/BarLoader',
+  component: BarLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -34,21 +34,21 @@ export default {
       },
     },
     loading: {
-      description: 'Loading',
+      description: 'Loader',
       type: {
         name: 'boolean',
         required: false,
       },
     },
   },
-} as Meta<BarLoadingProps>
+} as Meta<BarLoaderProps>
 
-const Template: Story<BarLoadingProps> = (args) => {
+const Template: Story<BarLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <BarLoading {...args} />
+      <BarLoader {...args} />
     </Container>
   )
 }

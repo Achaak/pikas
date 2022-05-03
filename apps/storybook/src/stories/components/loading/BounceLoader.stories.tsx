@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from 'marmot-ui/dist/styles'
-import { BounceLoading } from 'marmot-ui/dist/components/loading/bounce'
-import type { BounceLoadingProps } from 'marmot-ui/dist/components/loading/bounce'
+import { Colors, globalStyles, styled } from '@marmot-ui/styles'
+import { BounceLoader } from '@marmot-ui/loader'
+import type { BounceLoaderProps } from '@marmot-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loading/BounceLoader',
-  component: BounceLoading,
+  title: 'Components/Loader/BounceLoader',
+  component: BounceLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -34,21 +34,21 @@ export default {
       },
     },
     loading: {
-      description: 'Loading',
+      description: 'Loader',
       type: {
         name: 'boolean',
         required: false,
       },
     },
   },
-} as Meta<BounceLoadingProps>
+} as Meta<BounceLoaderProps>
 
-const Template: Story<BounceLoadingProps> = (args) => {
+const Template: Story<BounceLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <BounceLoading {...args} />
+      <BounceLoader {...args} />
     </Container>
   )
 }

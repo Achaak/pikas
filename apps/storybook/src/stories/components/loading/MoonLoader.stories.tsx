@@ -1,6 +1,6 @@
-import { Colors, globalStyles, styled } from 'marmot-ui/dist/styles'
-import { MoonLoading } from 'marmot-ui/dist/components/loading/moon'
-import type { MoonLoadingProps } from 'marmot-ui/dist/components/loading/moon'
+import { Colors, globalStyles, styled } from '@marmot-ui/styles'
+import { MoonLoader } from  '@marmot-ui/loader'
+import type { MoonLoaderProps } from  '@marmot-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loading/MoonLoader',
-  component: MoonLoading,
+  title: 'Components/Loader/MoonLoader',
+  component: MoonLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -34,21 +34,21 @@ export default {
       },
     },
     loading: {
-      description: 'Loading',
+      description: 'Loader',
       type: {
         name: 'boolean',
         required: false,
       },
     },
   },
-} as Meta<MoonLoadingProps>
+} as Meta<MoonLoaderProps>
 
-const Template: Story<MoonLoadingProps> = (args) => {
+const Template: Story<MoonLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <MoonLoading {...args} />
+      <MoonLoader {...args} />
     </Container>
   )
 }
