@@ -1,6 +1,7 @@
 {
   "name": "@marmot-ui/loader",
   "version": "1.0.0",
+  "private": false,
   "description": "",
   "license": "MIT",
   "main": "./dist/index.js",

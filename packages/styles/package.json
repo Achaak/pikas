@@ -1,6 +1,7 @@
 {
   "name": "@marmot-ui/styles",
   "version": "1.0.0",
+  "private": false,
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
