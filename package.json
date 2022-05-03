@@ -1,56 +1,27 @@
 {
-  "name": "marmot-ui",
-  "version": "1.0.0",
-  "description": "",
-  "license": "MIT",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist/**/*"
+  "name": "@marmot-ui/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "lint": "eslint src --fix",
-    "clean": "rm -rf node_modules && rm -rf dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Achaak/marmot-ui.git"
-  },
-  "author": {
-    "name": "Axel Lavoie",
-    "email": "axel.lavoie@gmail.com"
-  },
-  "bugs": {
-    "url": "https://github.com/Achaak/marmot-ui/issues"
-  },
-  "homepage": "https://github.com/Achaak/marmot-ui#readme",
-  "dependencies": {
-    "@stitches/react": "^1.2.8",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-spinners": "^0.11.0"
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "dev": "turbo run dev --parallel",
+    "start": "turbo run start --parallel",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "pre-lint": "turbo run pre-lint"
   },
   "devDependencies": {
-    "@types/node": "^17.0.31",
-    "@types/react": "^18.0.6",
-    "@types/react-dom": "^18.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.22.0",
-    "@typescript-eslint/parser": "^5.22.0",
-    "eslint": "^8.14.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jest": "26.1.5",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.5.0",
-    "prettier": "^2.6.2",
-    "tsup": "^5.12.6",
-    "typescript": "4.5.5"
+    "prettier": "latest",
+    "turbo": "latest"
   },
-  "node": "12.20.0 || 14.13.1 || >=16.0.0",
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
   "packageManager": "pnpm@7.0.0"
 }
