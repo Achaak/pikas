@@ -14,8 +14,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "lint": "eslint src --fix",
-    "clean": "rm -rf node_modules && rm -rf dist"
+    "lint": "cross-env TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "repository": {
     "type": "git",

@@ -17,8 +17,8 @@ importers:
     specifiers:
       '@babel/core': ^7.17.10
       '@pikas-ui/config': workspace:*
-      '@pikas-ui/loader': 1.0.6
-      '@pikas-ui/styles': 1.0.6
+      '@pikas-ui/loader': 1.0.7
+      '@pikas-ui/styles': 1.0.7
       '@pikas-ui/tsconfig': workspace:*
       '@storybook/addon-actions': ^6.4.22
       '@storybook/addon-essentials': ^6.4.22
@@ -50,6 +50,35 @@ importers:
       '@storybook/testing-library': 0.0.11_react-dom@18.0.0+react@18.0.0
       babel-loader: 8.2.5_887a5110397f957d9e06dd05497793db
 
+  packages/button:
+    specifiers:
+      '@pikas-ui/config': workspace:*
+      '@pikas-ui/loader': 1.0.7
+      '@pikas-ui/styles': 1.0.7
+      '@pikas-ui/tsconfig': workspace:*
+      '@types/node': ^17.0.31
+      '@types/react': ^18.0.6
+      '@types/react-dom': ^18.0.2
+      eslint: ^8.14.0
+      react: ^18.1.0
+      react-dom: ^18.1.0
+      tsup: ^5.12.6
+      typescript: 4.5.5
+    dependencies:
+      '@pikas-ui/loader': link:../loader
+      '@pikas-ui/styles': link:../styles
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@pikas-ui/config': link:../config
+      '@pikas-ui/tsconfig': link:../tsconfig
+      '@types/node': 17.0.31
+      '@types/react': 18.0.8
+      '@types/react-dom': 18.0.3
+      eslint: 8.14.0
+      tsup: 5.12.6_typescript@4.5.5
+      typescript: 4.5.5
+
   packages/config:
     specifiers:
       '@next/eslint-plugin-next': 12.1.5
@@ -78,10 +107,37 @@ importers:
       eslint-plugin-storybook: 0.5.11_eslint@8.14.0+typescript@4.6.4
       typescript: 4.6.4
 
+  packages/icons:
+    specifiers:
+      '@pikas-ui/config': workspace:*
+      '@pikas-ui/styles': 1.0.7
+      '@pikas-ui/tsconfig': workspace:*
+      '@types/node': ^17.0.31
+      '@types/react': ^18.0.6
+      '@types/react-dom': ^18.0.2
+      eslint: ^8.14.0
+      react: ^18.1.0
+      react-dom: ^18.1.0
+      tsup: ^5.12.6
+      typescript: 4.5.5
+    dependencies:
+      '@pikas-ui/styles': link:../styles
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@pikas-ui/config': link:../config
+      '@pikas-ui/tsconfig': link:../tsconfig
+      '@types/node': 17.0.31
+      '@types/react': 18.0.8
+      '@types/react-dom': 18.0.3
+      eslint: 8.14.0
+      tsup: 5.12.6_typescript@4.5.5
+      typescript: 4.5.5
+
   packages/loader:
     specifiers:
       '@pikas-ui/config': workspace:*
-      '@pikas-ui/styles': 1.0.6
+      '@pikas-ui/styles': 1.0.7
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^17.0.31
       '@types/react': ^18.0.6
