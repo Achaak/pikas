@@ -1,6 +1,6 @@
 import { Colors, globalStyles, styled } from '@pikas-ui/styles'
-import { BeatLoader } from '@pikas-ui/loader'
-import type { BeatLoaderProps } from '@pikas-ui/loader'
+import { RingLoader } from '@pikas-ui/loader'
+import type { RingLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loader/BeatLoader',
-  component: BeatLoader,
+  title: '@pikas-ui/loader/RingLoader',
+  component: RingLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -41,14 +41,14 @@ export default {
       },
     },
   },
-} as Meta<BeatLoaderProps>
+} as Meta<RingLoaderProps>
 
-const Template: Story<BeatLoaderProps> = (args) => {
+const Template: Story<RingLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <BeatLoader {...args} />
+      <RingLoader {...args} />
     </Container>
   )
 }
@@ -56,6 +56,6 @@ const Template: Story<BeatLoaderProps> = (args) => {
 export const Example = Template.bind({})
 Example.args = {
   color: 'PRIMARY',
-  size: 20,
+  size: 60,
   loading: true,
 }

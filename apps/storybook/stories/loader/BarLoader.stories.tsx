@@ -8,7 +8,7 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loader/BarLoader',
+  title: '@pikas-ui/loader/BarLoader',
   component: BarLoader,
   argTypes: {
     color: {

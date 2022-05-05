@@ -1,9 +1,16 @@
-import type { ColorsType, CSS } from '@pikas-ui/styles'
+import type {
+  ColorsType,
+  CSS,
+  FontsWeightsType,
+  BorderRadiusType,
+  FontsSizesType,
+} from '@pikas-ui/styles'
 import { styled, theme } from '@pikas-ui/styles'
 import React, { forwardRef, useCallback } from 'react'
 
-import type { SVGComponentIcon } from '../../../icons/types'
+import type { IconProps } from '@pikas-ui/icons'
 import { BeatLoader } from '@pikas-ui/loader'
+import fontColorContrast from 'font-color-contrast'
 
 const ButtonDOM = styled('button', {
   all: 'unset',
@@ -74,73 +81,57 @@ const ButtonDOM = styled('button', {
         },
       },
     },
+    // fontSize: {
+    //   xs: {
+    //     fontSize: '$EM-X-SMALL',
 
-    borderRadius: {
-      sm: {
-        br: 1,
-      },
-      md: {
-        br: 2,
-      },
-      lg: {
-        br: 3,
-      },
-      round: {
-        br: 'round',
-      },
-    },
-    fontSize: {
-      xs: {
-        fontSize: '$EM-X-SMALL',
+    //     svg: {
+    //       height: 16,
+    //     },
+    //   },
+    //   xxs: {
+    //     fontSize: '$EM-X-SMALL',
 
-        svg: {
-          height: 16,
-        },
-      },
-      xxs: {
-        fontSize: '$EM-X-SMALL',
+    //     svg: {
+    //       height: 16,
+    //     },
+    //   },
+    //   sm: {
+    //     fontSize: '$EM-SMALL',
 
-        svg: {
-          height: 16,
-        },
-      },
-      sm: {
-        fontSize: '$EM-SMALL',
+    //     svg: {
+    //       height: 16,
+    //     },
+    //   },
+    //   md: {
+    //     fontSize: '$EM-MEDIUM',
 
-        svg: {
-          height: 16,
-        },
-      },
-      md: {
-        fontSize: '$EM-MEDIUM',
+    //     svg: {
+    //       height: 20,
+    //     },
+    //   },
+    //   lg: {
+    //     fontSize: '$EM-LARGE',
 
-        svg: {
-          height: 20,
-        },
-      },
-      lg: {
-        fontSize: '$EM-LARGE',
+    //     svg: {
+    //       height: 24,
+    //     },
+    //   },
+    //   xl: {
+    //     fontSize: '$EM-X-LARGE',
 
-        svg: {
-          height: 24,
-        },
-      },
-      xl: {
-        fontSize: '$EM-X-LARGE',
+    //     svg: {
+    //       height: 28,
+    //     },
+    //   },
+    //   xxl: {
+    //     fontSize: '$EM-XX-LARGE',
 
-        svg: {
-          height: 28,
-        },
-      },
-      xxl: {
-        fontSize: '$EM-XX-LARGE',
-
-        svg: {
-          height: 32,
-        },
-      },
-    },
-
+    //     svg: {
+    //       height: 32,
+    //     },
+    //   },
+    // },
     padding: {
       sm: {
         padding: '4px 24px',
@@ -150,21 +141,6 @@ const ButtonDOM = styled('button', {
       },
       lg: {
         padding: '16px 40px',
-      },
-    },
-
-    fontWeight: {
-      light: {
-        fontWeight: '$LIGHT',
-      },
-      normal: {
-        fontWeight: '$NORMAL',
-      },
-      medium: {
-        fontWeight: '$MEDIUM',
-      },
-      bold: {
-        fontWeight: '$BOLD',
       },
     },
 
@@ -223,29 +199,60 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
+export const ButtonTypeType = {
+  button: true,
+  submit: true,
+  reset: true,
+}
+
+export const ButtonPaddingType = {
+  sm: true,
+  md: true,
+  lg: true,
+}
+
+export const ButtonTextTransformType = {
+  capitalize: true,
+  uppercase: true,
+  default: true,
+  none: true,
+}
+
+export const ButtonEffectType = {
+  globalScale: true,
+  boxScale: true,
+  opacity: true,
+}
+
+export const ButtonGapType = {
+  sm: true,
+  md: true,
+  lg: true,
+}
+
 export interface ButtonProps {
   children?: React.ReactNode
   fullWidth?: boolean
-  type?: 'button' | 'submit' | 'reset'
+  type?: keyof typeof ButtonTypeType
   id?: string
   name?: string
   onClick?: () => void
   style?: CSS
   form?: string
   loading?: boolean
-  disable?: boolean
-  borderRadius?: 'round' | 'sm' | 'md' | 'lg'
-  padding?: 'sm' | 'md' | 'lg'
-  gap?: 'sm' | 'md' | 'lg'
-  fontSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
-  fontWeight?: 'light' | 'normal' | 'medium' | 'bold'
-  textTransform?: 'capitalize' | `uppercase` | 'none' | 'default'
+  disabled?: boolean
+  borderRadius?: BorderRadiusType
+  padding?: keyof typeof ButtonPaddingType
+  gap?: keyof typeof ButtonGapType
+  fontSize?: FontsSizesType
+  fontWeight?: FontsWeightsType
+  textTransform?: keyof typeof ButtonTextTransformType
   color?: ColorsType
   outlined?: boolean
-  effect?: 'globalScale' | 'boxScale' | 'opacity'
+  effect?: keyof typeof ButtonEffectType
   href?: string
-  LeftIcon?: React.FC<SVGComponentIcon>
-  RightIcon?: React.FC<SVGComponentIcon>
+  LeftIcon?: React.FC<IconProps>
+  RightIcon?: React.FC<IconProps>
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -260,7 +267,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       padding,
       form,
       loading,
-      disable,
+      disabled,
       borderRadius,
       fontSize,
       textTransform,
@@ -277,12 +284,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) {
     const handleClick = useCallback((): void => {
-      if (disable || loading) {
+      if (disabled || loading) {
         return
       }
 
       onClick?.()
-    }, [disable, onClick, loading])
+    }, [disabled, onClick, loading])
 
     const getContent = (): React.ReactNode => {
       return (
@@ -298,11 +305,31 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <Content
             textTransform={textTransform}
             gap={gap}
-            style={{ opacity: loading ? 0 : 1 }}
+            css={{
+              opacity: loading ? 0 : 1,
+            }}
           >
-            {LeftIcon ? <LeftIcon /> : null}
+            {LeftIcon ? (
+              <LeftIcon
+                styles={{
+                  svg: {
+                    height: `1em`,
+                    width: `1em`,
+                  },
+                }}
+              />
+            ) : null}
             <span>{children}</span>
-            {RightIcon ? <RightIcon /> : null}
+            {RightIcon ? (
+              <RightIcon
+                styles={{
+                  svg: {
+                    height: `1em`,
+                    width: `1em`,
+                  },
+                }}
+              />
+            ) : null}
           </Content>
         </>
       )
@@ -310,36 +337,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const getColors = (): CSS => {
       if (!outlined) {
-        let colors: CSS = {
+        const colors: CSS = {
           backgroundColor: `$${color}`,
           borderColor: `$${color}`,
-          color: '$WHITE',
+          color: fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7),
 
           svg: {
-            fill: '$WHITE',
+            fill: fontColorContrast(
+              theme.colors[color || 'PRIMARY'].value,
+              0.7
+            ),
           },
-        }
-
-        if (color === 'PRIMARY_LIGHTEST_2' || color === 'APPLE') {
-          colors = {
-            ...colors,
-
-            color: '$BLACK',
-
-            svg: {
-              fill: '$BLACK',
-            },
-          }
-        } else if (color === 'WHITE') {
-          colors = {
-            ...colors,
-
-            color: '$PRIMARY',
-
-            svg: {
-              fill: '$PRIMARY',
-            },
-          }
         }
 
         return colors
@@ -366,14 +374,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           type={type}
           id={id}
           onClick={handleClick}
-          fontSize={fontSize}
-          borderRadius={borderRadius}
-          state={disable}
+          state={disabled}
           padding={padding}
-          fontWeight={fontWeight}
-          effect={disable ? undefined : effect}
+          effect={disabled ? undefined : effect}
           css={{
             width: fullWidth ? '100%' : 'auto',
+            br: borderRadius,
+            fontWeight: `$${fontWeight}`,
+
+            fontSize: `$${fontSize}`,
 
             ...getColors(),
             ...style,
@@ -392,14 +401,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         id={id}
         name={name}
         onClick={handleClick}
-        fontSize={fontSize}
-        borderRadius={borderRadius}
-        state={disable}
+        state={disabled}
         padding={padding}
-        fontWeight={fontWeight}
-        effect={disable ? undefined : effect}
+        effect={disabled ? undefined : effect}
         css={{
           width: fullWidth ? '100%' : 'auto',
+          br: borderRadius,
+          fontWeight: `$${fontWeight}`,
+
+          fontSize: `$${fontSize}`,
 
           ...getColors(),
           ...style,
@@ -414,14 +424,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.defaultProps = {
   type: 'button',
   fullWidth: false,
-  disable: false,
+  disabled: false,
   loading: false,
   borderRadius: 'md',
-  fontSize: 'md',
+  fontSize: 'EM-MEDIUM',
   padding: 'md',
   textTransform: 'default',
   color: 'PRIMARY',
-  fontWeight: 'normal',
+  fontWeight: 'NORMAL',
   gap: 'md',
   effect: 'opacity',
 }

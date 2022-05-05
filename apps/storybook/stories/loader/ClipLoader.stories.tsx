@@ -1,6 +1,6 @@
 import { Colors, globalStyles, styled } from '@pikas-ui/styles'
-import { PulseLoader } from '@pikas-ui/loader'
-import type { PulseLoaderProps } from '@pikas-ui/loader'
+import { ClipLoader } from '@pikas-ui/loader'
+import type { ClipLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loader/PulseLoader',
-  component: PulseLoader,
+  title: '@pikas-ui/loader/ClipLoader',
+  component: ClipLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -41,14 +41,14 @@ export default {
       },
     },
   },
-} as Meta<PulseLoaderProps>
+} as Meta<ClipLoaderProps>
 
-const Template: Story<PulseLoaderProps> = (args) => {
+const Template: Story<ClipLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <PulseLoader {...args} />
+      <ClipLoader {...args} />
     </Container>
   )
 }
@@ -56,6 +56,6 @@ const Template: Story<PulseLoaderProps> = (args) => {
 export const Example = Template.bind({})
 Example.args = {
   color: 'PRIMARY',
-  size: 20,
+  size: 60,
   loading: true,
 }

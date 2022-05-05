@@ -1,19 +1,34 @@
-export const borderRadius = {
-  br: (value: 1 | 2 | 3 | 4 | 'round'): Record<string, unknown> => {
+export const BorderRadius = {
+  xs: true,
+  sm: true,
+  md: true,
+  lg: true,
+  xl: true,
+  round: true,
+}
+
+export type BorderRadiusType = keyof typeof BorderRadius
+
+export const BR = {
+  br: (value: BorderRadiusType): Record<string, unknown> => {
     switch (value) {
-      case 1:
+      case 'xs':
+        return {
+          borderRadius: 2,
+        }
+      case 'sm':
         return {
           borderRadius: 4,
         }
-      case 2:
+      case 'md':
         return {
           borderRadius: 8,
         }
-      case 3:
+      case 'lg':
         return {
           borderRadius: 16,
         }
-      case 4:
+      case 'xl':
         return {
           borderRadius: 32,
         }
@@ -23,21 +38,25 @@ export const borderRadius = {
         }
     }
   },
-  brTL: (value: 1 | 2 | 3 | 4 | 'round'): Record<string, unknown> => {
+  brTL: (value: BorderRadiusType): Record<string, unknown> => {
     switch (value) {
-      case 1:
+      case 'xs':
+        return {
+          borderTopLeftRadius: 2,
+        }
+      case 'sm':
         return {
           borderTopLeftRadius: 4,
         }
-      case 2:
+      case 'md':
         return {
           borderTopLeftRadius: 8,
         }
-      case 3:
+      case 'lg':
         return {
           borderTopLeftRadius: 16,
         }
-      case 4:
+      case 'xl':
         return {
           borderTopLeftRadius: 32,
         }
@@ -47,21 +66,25 @@ export const borderRadius = {
         }
     }
   },
-  brTR: (value: 1 | 2 | 3 | 4 | 'round'): Record<string, unknown> => {
+  brTR: (value: BorderRadiusType): Record<string, unknown> => {
     switch (value) {
-      case 1:
+      case 'xs':
+        return {
+          borderTopRightRadius: 2,
+        }
+      case 'sm':
         return {
           borderTopRightRadius: 4,
         }
-      case 2:
+      case 'md':
         return {
           borderTopRightRadius: 8,
         }
-      case 3:
+      case 'lg':
         return {
           borderTopRightRadius: 16,
         }
-      case 4:
+      case 'xl':
         return {
           borderTopRightRadius: 32,
         }
@@ -71,21 +94,25 @@ export const borderRadius = {
         }
     }
   },
-  brBL: (value: 1 | 2 | 3 | 4 | 'round'): Record<string, unknown> => {
+  brBL: (value: BorderRadiusType): Record<string, unknown> => {
     switch (value) {
-      case 1:
+      case 'xs':
+        return {
+          borderBottomLeftRadius: 2,
+        }
+      case 'sm':
         return {
           borderBottomLeftRadius: 4,
         }
-      case 2:
+      case 'md':
         return {
           borderBottomLeftRadius: 8,
         }
-      case 3:
+      case 'lg':
         return {
           borderBottomLeftRadius: 16,
         }
-      case 4:
+      case 'xl':
         return {
           borderBottomLeftRadius: 32,
         }
@@ -95,21 +122,25 @@ export const borderRadius = {
         }
     }
   },
-  brBR: (value: 1 | 2 | 3 | 4 | 'round'): Record<string, unknown> => {
+  brBR: (value: BorderRadiusType): Record<string, unknown> => {
     switch (value) {
-      case 1:
+      case 'xs':
+        return {
+          borderBottomRightRadius: 2,
+        }
+      case 'sm':
         return {
           borderBottomRightRadius: 4,
         }
-      case 2:
+      case 'md':
         return {
           borderBottomRightRadius: 8,
         }
-      case 3:
+      case 'lg':
         return {
           borderBottomRightRadius: 16,
         }
-      case 4:
+      case 'xl':
         return {
           borderBottomRightRadius: 32,
         }

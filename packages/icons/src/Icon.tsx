@@ -8,7 +8,7 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface ButtonProps {
+export interface IconProps {
   children?: React.ReactNode
   className?: string
   size?: number | string
@@ -20,7 +20,7 @@ export interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Icon: React.FC<IconProps> = ({
   children,
   className,
   color,
@@ -35,10 +35,10 @@ export const Button: React.FC<ButtonProps> = ({
       css={{
         ...styles?.container,
         svg: {
-          ...styles?.svg,
           fill: color?.includes('#') ? color : `$${color}`,
           width: size,
           height: size,
+          ...styles?.svg,
         },
       }}
     >

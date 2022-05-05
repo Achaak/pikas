@@ -1,6 +1,6 @@
 import { Colors, globalStyles, styled } from '@pikas-ui/styles'
-import { ClipLoader } from '@pikas-ui/loader'
-import type { ClipLoaderProps } from '@pikas-ui/loader'
+import { BounceLoader } from '@pikas-ui/loader'
+import type { BounceLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loader/ClipLoader',
-  component: ClipLoader,
+  title: '@pikas-ui/loader/BounceLoader',
+  component: BounceLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -41,14 +41,14 @@ export default {
       },
     },
   },
-} as Meta<ClipLoaderProps>
+} as Meta<BounceLoaderProps>
 
-const Template: Story<ClipLoaderProps> = (args) => {
+const Template: Story<BounceLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <ClipLoader {...args} />
+      <BounceLoader {...args} />
     </Container>
   )
 }

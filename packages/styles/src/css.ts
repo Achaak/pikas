@@ -1,7 +1,7 @@
 import type { CSS as CSSStitches } from '@stitches/react'
 import { createStitches } from '@stitches/react'
 
-import { borderRadius } from './borderRadius.js'
+import { BR } from './borderRadius.js'
 import { BorderStyles } from './borderStyles.js'
 import { BorderWidths } from './borderWidths.js'
 import { Colors } from './colors.js'
@@ -46,33 +46,7 @@ export const stitchesConfig = createStitches({
   },
   utils: {
     ...gap,
-    ...borderRadius,
-    m: (value: number | string) => ({
-      marginTop: value,
-      marginBottom: value,
-      marginLeft: value,
-      marginRight: value,
-    }),
-    mt: (value: number | string) => ({
-      marginTop: value,
-    }),
-    mr: (value: number | string) => ({
-      marginRight: value,
-    }),
-    mb: (value: number | string) => ({
-      marginBottom: value,
-    }),
-    ml: (value: number | string) => ({
-      marginLeft: value,
-    }),
-    mx: (value: number | string) => ({
-      marginLeft: value,
-      marginRight: value,
-    }),
-    my: (value: number | string) => ({
-      marginTop: value,
-      marginBottom: value,
-    }),
+    ...BR,
     linearGradient: (value: number | string) => ({
       backgroundImage: `linear-gradient(${value})`,
     }),
