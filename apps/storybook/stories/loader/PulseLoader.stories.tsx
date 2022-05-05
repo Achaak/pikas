@@ -1,6 +1,6 @@
 import { Colors, globalStyles, styled } from '@pikas-ui/styles'
-import { MoonLoader } from '@pikas-ui/loader'
-import type { MoonLoaderProps } from '@pikas-ui/loader'
+import { PulseLoader } from '@pikas-ui/loader'
+import type { PulseLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loader/MoonLoader',
-  component: MoonLoader,
+  title: '@pikas-ui/loader/PulseLoader',
+  component: PulseLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -41,14 +41,14 @@ export default {
       },
     },
   },
-} as Meta<MoonLoaderProps>
+} as Meta<PulseLoaderProps>
 
-const Template: Story<MoonLoaderProps> = (args) => {
+const Template: Story<PulseLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <MoonLoader {...args} />
+      <PulseLoader {...args} />
     </Container>
   )
 }
@@ -56,6 +56,6 @@ const Template: Story<MoonLoaderProps> = (args) => {
 export const Example = Template.bind({})
 Example.args = {
   color: 'PRIMARY',
-  size: 60,
+  size: 20,
   loading: true,
 }

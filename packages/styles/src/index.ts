@@ -1,3 +1,6 @@
 export * from './css.js'
 export * from './colors.js'
+export * from './fontWeights.js'
+export * from './fontSizes.js'
+export * from './borderRadius.js'
 export * from './dark_theme.js'

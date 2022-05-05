@@ -1,6 +1,6 @@
 import { Colors, globalStyles, styled } from '@pikas-ui/styles'
-import { BounceLoader } from '@pikas-ui/loader'
-import type { BounceLoaderProps } from '@pikas-ui/loader'
+import { BeatLoader } from '@pikas-ui/loader'
+import type { BeatLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
@@ -8,8 +8,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: 'Components/Loader/BounceLoader',
-  component: BounceLoader,
+  title: '@pikas-ui/loader/BeatLoader',
+  component: BeatLoader,
   argTypes: {
     color: {
       description: 'Color',
@@ -41,14 +41,14 @@ export default {
       },
     },
   },
-} as Meta<BounceLoaderProps>
+} as Meta<BeatLoaderProps>
 
-const Template: Story<BounceLoaderProps> = (args) => {
+const Template: Story<BeatLoaderProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <BounceLoader {...args} />
+      <BeatLoader {...args} />
     </Container>
   )
 }
@@ -56,6 +56,6 @@ const Template: Story<BounceLoaderProps> = (args) => {
 export const Example = Template.bind({})
 Example.args = {
   color: 'PRIMARY',
-  size: 60,
+  size: 20,
   loading: true,
 }
