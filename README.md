@@ -3,7 +3,6 @@
 ## To-do list
 ### Features
 #### @pikas-ui/inputs
-- Add Button
 - Add Textfield
 - Add Textarea
 - Add Select
@@ -16,4 +15,6 @@
 
 ### Documentation
 - @pikas-ui/styles
+- @pikas-ui/button
+- @pikas-ui/icons
 - @pikas-ui/loader
