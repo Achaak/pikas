@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/storybook",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": true,
   "scripts": {
     "build": "build-storybook",
@@ -23,10 +23,11 @@
     ]
   },
   "dependencies": {
-    "@pikas-ui/button": "1.0.9",
-    "@pikas-ui/icons": "1.0.9",
-    "@pikas-ui/loader": "1.0.9",
-    "@pikas-ui/styles": "1.0.9",
+    "@pikas-ui/button": "1.0.10",
+    "@pikas-ui/icons": "1.0.10",
+    "@pikas-ui/loader": "1.0.10",
+    "@pikas-ui/separator": "1.0.10",
+    "@pikas-ui/styles": "1.0.10",
     "http-server": "^14.1.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",

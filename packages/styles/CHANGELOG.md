@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.10
+
+### Patch Changes
+
+- Add separator
+
 ## 1.0.9
 
 ### Patch Changes

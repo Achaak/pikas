@@ -1,7 +1,7 @@
 {
-  "name": "@pikas-ui/loader",
+  "name": "@pikas-ui/separator",
   "version": "1.0.10",
-  "private": false,
+  "private": true,
   "description": "",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -31,9 +31,9 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@pikas-ui/styles": "1.0.10",
+    "@radix-ui/react-separator": "^0.1.4",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-spinners": "^0.11.0"
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",

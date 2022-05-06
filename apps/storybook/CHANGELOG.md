@@ -1,5 +1,16 @@
 # @pikas-ui/storybook
 
+## 1.0.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/button@1.0.10
+  - @pikas-ui/icons@1.0.10
+  - @pikas-ui/loader@1.0.10
+  - @pikas-ui/separator@1.0.10
+  - @pikas-ui/styles@1.0.10
+
 ## 1.0.9
 
 ### Patch Changes
