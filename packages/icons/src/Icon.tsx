@@ -35,7 +35,11 @@ export const Icon: React.FC<IconProps> = ({
       css={{
         ...styles?.container,
         svg: {
-          fill: color?.includes('#') ? color : `$${color}`,
+          fill: color
+            ? color?.includes('#')
+              ? color
+              : `$${color}`
+            : undefined,
           width: size,
           height: size,
           ...styles?.svg,

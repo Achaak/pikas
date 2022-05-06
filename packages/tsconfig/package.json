@@ -5,7 +5,6 @@
   "main": "index.js",
   "files": [
     "base.json",
-    "next.json",
     "package-default.json",
     "package-react.json",
     "storybook.json"

@@ -219,8 +219,34 @@ const IconTest: React.FC<IconProps> = (props) => {
   )
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
+  children: 'Button',
+  color: 'PRIMARY',
+  outlined: false,
+  padding: 'md',
+  disabled: false,
+  fullWidth: false,
+  loading: false,
+  LeftIcon: undefined,
+  RightIcon: undefined,
+  borderRadius: 'md',
+  fontSize: 'EM-XXX-LARGE',
+  effect: 'opacity',
+  fontWeight: 'MEDIUM',
+  href: undefined,
+  id: undefined,
+  form: undefined,
+  gap: 'md',
+  name: undefined,
+  onClick: console.log,
+  style: {},
+  textTransform: 'none',
+  type: 'button',
+}
+
+export const WithIcon = Template.bind({})
+WithIcon.args = {
   children: 'Button',
   color: 'PRIMARY',
   outlined: false,

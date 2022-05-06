@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.9
+
+### Patch Changes
+
+- Fix button icon
+
 ## 1.0.8
 
 ### Patch Changes
