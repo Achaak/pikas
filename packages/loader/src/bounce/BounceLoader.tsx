@@ -7,16 +7,19 @@ export interface BounceLoaderProps {
   size: number | string
   color: ColorsType
   loading?: boolean
+  speedMultiplier?: number
 }
 
 export const BounceLoader: React.FC<BounceLoaderProps> = ({
   size,
   color,
   loading,
+  speedMultiplier,
 }) => {
   return (
     <BounceLoaderDefault
       size={size}
+      speedMultiplier={speedMultiplier}
       color={theme.colors[color].value}
       loading={loading}
     />

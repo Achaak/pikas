@@ -7,16 +7,19 @@ export interface ClipLoaderProps {
   size: number | string
   color: ColorsType
   loading?: boolean
+  speedMultiplier?: number
 }
 
 export const ClipLoader: React.FC<ClipLoaderProps> = ({
   size,
   color,
   loading,
+  speedMultiplier,
 }) => {
   return (
     <ClipLoaderDefault
       size={size}
+      speedMultiplier={speedMultiplier}
       color={theme.colors[color].value}
       loading={loading}
     />

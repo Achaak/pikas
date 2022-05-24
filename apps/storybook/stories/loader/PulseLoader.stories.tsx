@@ -19,24 +19,24 @@ export default {
         required: true,
       },
     },
-    height: {
-      description: 'Height',
-      type: {
-        name: 'number',
-        required: true,
-      },
-    },
-    width: {
-      description: 'Width',
-      type: {
-        name: 'number',
-        required: true,
-      },
-    },
     loading: {
       description: 'Loader',
       type: {
         name: 'boolean',
+        required: false,
+      },
+    },
+    speedMultiplier: {
+      description: 'Speed multiplier',
+      type: {
+        name: 'number',
+        required: false,
+      },
+    },
+    size: {
+      description: 'Size',
+      type: {
+        name: 'number',
         required: false,
       },
     },

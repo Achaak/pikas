@@ -7,16 +7,19 @@ export interface MoonLoaderProps {
   size: number | string
   color: ColorsType
   loading?: boolean
+  speedMultiplier?: number
 }
 
 export const MoonLoader: React.FC<MoonLoaderProps> = ({
   size,
   color,
   loading,
+  speedMultiplier,
 }) => {
   return (
     <MoonLoaderDefault
       size={size}
+      speedMultiplier={speedMultiplier}
       color={theme.colors[color].value}
       loading={loading}
     />

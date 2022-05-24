@@ -8,6 +8,7 @@ export interface BarLoaderProps {
   height: number
   color: ColorsType
   loading?: boolean
+  speedMultiplier?: number
 }
 
 export const BarLoader: React.FC<BarLoaderProps> = ({
@@ -15,11 +16,13 @@ export const BarLoader: React.FC<BarLoaderProps> = ({
   height,
   color,
   loading,
+  speedMultiplier,
 }) => {
   return (
     <BarLoaderDefault
       width={width}
       height={height}
+      speedMultiplier={speedMultiplier}
       color={theme.colors[color].value}
       loading={loading}
     />

@@ -40,6 +40,13 @@ export default {
         required: false,
       },
     },
+    speedMultiplier: {
+      description: 'Speed multiplier',
+      type: {
+        name: 'number',
+        required: false,
+      },
+    },
   },
 } as Meta<BarLoaderProps>
 
