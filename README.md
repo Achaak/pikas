@@ -10,8 +10,6 @@
 - Add Checkbox
 - Add Slider
 - Add Switch
-#### @pikas-ui/loader
-- Add more loader
 
 ### Documentation
 - @pikas-ui/styles
