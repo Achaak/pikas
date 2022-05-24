@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.11
+
+### Patch Changes
+
+- Add ButtonIcon
+
 ## 1.0.10
 
 ### Patch Changes

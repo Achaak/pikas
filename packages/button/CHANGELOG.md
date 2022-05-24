@@ -1,5 +1,15 @@
 # @pikas-ui/button
 
+## 1.0.11
+
+### Patch Changes
+
+- Add ButtonIcon
+- Updated dependencies
+  - @pikas-ui/icons@1.0.11
+  - @pikas-ui/loader@1.0.11
+  - @pikas-ui/styles@1.0.11
+
 ## 1.0.10
 
 ### Patch Changes
