@@ -1,18 +1,22 @@
 import type {
   ColorsType,
   CSS,
-  FontsWeightsType,
   BorderRadiusType,
-  FontsSizesType,
+  SizesType,
 } from '@pikas-ui/styles'
-import { styled, theme } from '@pikas-ui/styles'
+import { styled, theme, Sizes } from '@pikas-ui/styles'
 import React, { forwardRef, useCallback } from 'react'
+import type {
+  ButtonTypeType,
+  ButtonEffectType,
+  ButtonPaddingType,
+} from '../types'
 
 import type { IconProps } from '@pikas-ui/icons'
-import { BeatLoader } from '@pikas-ui/loader'
+import { ClipLoader } from '@pikas-ui/loader'
 import fontColorContrast from 'font-color-contrast'
 
-const ButtonDOM = styled('button', {
+const ButtonIconDOM = styled('button', {
   all: 'unset',
   cursor: 'pointer',
   outline: 'none',
@@ -81,66 +85,15 @@ const ButtonDOM = styled('button', {
         },
       },
     },
-    // fontSize: {
-    //   xs: {
-    //     fontSize: '$EM-X-SMALL',
-
-    //     svg: {
-    //       height: 16,
-    //     },
-    //   },
-    //   xxs: {
-    //     fontSize: '$EM-X-SMALL',
-
-    //     svg: {
-    //       height: 16,
-    //     },
-    //   },
-    //   sm: {
-    //     fontSize: '$EM-SMALL',
-
-    //     svg: {
-    //       height: 16,
-    //     },
-    //   },
-    //   md: {
-    //     fontSize: '$EM-MEDIUM',
-
-    //     svg: {
-    //       height: 20,
-    //     },
-    //   },
-    //   lg: {
-    //     fontSize: '$EM-LARGE',
-
-    //     svg: {
-    //       height: 24,
-    //     },
-    //   },
-    //   xl: {
-    //     fontSize: '$EM-X-LARGE',
-
-    //     svg: {
-    //       height: 28,
-    //     },
-    //   },
-    //   xxl: {
-    //     fontSize: '$EM-XX-LARGE',
-
-    //     svg: {
-    //       height: 32,
-    //     },
-    //   },
-    // },
     padding: {
       sm: {
-        padding: '4px 24px',
+        padding: 4,
       },
       md: {
-        padding: '8px 32px',
+        padding: 8,
       },
       lg: {
-        padding: '16px 40px',
+        padding: 16,
       },
     },
 
@@ -157,35 +110,6 @@ const Content = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-
-  variants: {
-    textTransform: {
-      capitalize: {
-        textTransform: 'capitalize',
-      },
-      uppercase: {
-        textTransform: 'uppercase',
-      },
-      default: {
-        'span::first-letter': {
-          textTransform: 'uppercase',
-        },
-      },
-      none: {},
-    },
-
-    gap: {
-      sm: {
-        customGap: 4,
-      },
-      md: {
-        customGap: 8,
-      },
-      lg: {
-        customGap: 16,
-      },
-    },
-  },
 })
 
 const LoadingContainer = styled('div', {
@@ -199,40 +123,8 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
-export const ButtonTypeType = {
-  button: true,
-  submit: true,
-  reset: true,
-}
-
-export const ButtonPaddingType = {
-  sm: true,
-  md: true,
-  lg: true,
-}
-
-export const ButtonTextTransformType = {
-  capitalize: true,
-  uppercase: true,
-  default: true,
-  none: true,
-}
-
-export const ButtonEffectType = {
-  globalScale: true,
-  boxScale: true,
-  opacity: true,
-}
-
-export const ButtonGapType = {
-  sm: true,
-  md: true,
-  lg: true,
-}
-
-export interface ButtonProps {
-  children?: React.ReactNode
-  fullWidth?: boolean
+export interface ButtonIconProps {
+  Icon: React.FC<IconProps>
   type?: keyof typeof ButtonTypeType
   id?: string
   name?: string
@@ -243,23 +135,17 @@ export interface ButtonProps {
   disabled?: boolean
   borderRadius?: BorderRadiusType
   padding?: keyof typeof ButtonPaddingType
-  gap?: keyof typeof ButtonGapType
-  fontSize?: FontsSizesType
-  fontWeight?: FontsWeightsType
-  textTransform?: keyof typeof ButtonTextTransformType
+  size?: SizesType
   color?: ColorsType
   outlined?: boolean
   effect?: keyof typeof ButtonEffectType
   href?: string
-  LeftIcon?: React.FC<IconProps>
-  RightIcon?: React.FC<IconProps>
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   function Forward(
     {
       type,
-      fullWidth,
       id,
       name,
       color,
@@ -269,17 +155,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading,
       disabled,
       borderRadius,
-      fontSize,
-      textTransform,
-      fontWeight,
       effect,
       onClick,
-      children,
-      gap,
       href,
-      LeftIcon,
-      RightIcon,
       outlined,
+      Icon,
+      size,
     },
     ref
   ) {
@@ -295,41 +176,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       return (
         <>
           <LoadingContainer>
-            <BeatLoader
-              size={theme.fontSizes['EM-XX-SMALL'].value}
+            <ClipLoader
+              size={Sizes[size || 'md']}
               color="WHITE"
               loading={loading}
             />
           </LoadingContainer>
 
           <Content
-            textTransform={textTransform}
-            gap={gap}
             css={{
               opacity: loading ? 0 : 1,
             }}
           >
-            {LeftIcon ? (
-              <LeftIcon
-                styles={{
-                  svg: {
-                    height: `1em`,
-                    width: `1em`,
-                  },
-                }}
-              />
-            ) : null}
-            <span>{children}</span>
-            {RightIcon ? (
-              <RightIcon
-                styles={{
-                  svg: {
-                    height: `1em`,
-                    width: `1em`,
-                  },
-                }}
-              />
-            ) : null}
+            <Icon size={Sizes[size || 'md']} />
           </Content>
         </>
       )
@@ -368,7 +227,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (href) {
       return (
-        <ButtonDOM
+        <ButtonIconDOM
           as="a"
           href={href}
           type={type}
@@ -378,23 +237,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           padding={padding}
           effect={disabled ? undefined : effect}
           css={{
-            width: fullWidth ? '100%' : 'auto',
             br: borderRadius,
-            fontWeight: `$${fontWeight}`,
-
-            fontSize: `$${fontSize}`,
 
             ...getColors(),
             ...style,
           }}
         >
           {getContent()}
-        </ButtonDOM>
+        </ButtonIconDOM>
       )
     }
 
     return (
-      <ButtonDOM
+      <ButtonIconDOM
         ref={ref}
         form={form}
         type={type}
@@ -405,33 +260,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         padding={padding}
         effect={disabled ? undefined : effect}
         css={{
-          width: fullWidth ? '100%' : 'auto',
           br: borderRadius,
-          fontWeight: `$${fontWeight}`,
-
-          fontSize: `$${fontSize}`,
 
           ...getColors(),
           ...style,
         }}
       >
         {getContent()}
-      </ButtonDOM>
+      </ButtonIconDOM>
     )
   }
 )
 
-Button.defaultProps = {
+ButtonIcon.defaultProps = {
   type: 'button',
-  fullWidth: false,
   disabled: false,
   loading: false,
   borderRadius: 'md',
-  fontSize: 'EM-MEDIUM',
-  padding: 'md',
-  textTransform: 'default',
   color: 'PRIMARY',
-  fontWeight: 'NORMAL',
-  gap: 'md',
+  size: 'md',
   effect: 'opacity',
 }

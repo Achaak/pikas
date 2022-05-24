@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- Add separator
+- Add ButtonIcon
 - Updated dependencies
   - @pikas-ui/styles@1.0.10
 

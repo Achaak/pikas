@@ -1,15 +1,14 @@
-import { FontSizes, FontWeights, globalStyles, styled } from '@pikas-ui/styles'
+import { globalStyles, Sizes, styled } from '@pikas-ui/styles'
 import {
-  Button,
+  ButtonIcon,
   ButtonEffectType,
   ButtonPaddingType,
   ButtonTypeType,
 } from '@pikas-ui/button'
-import type { ButtonProps } from '@pikas-ui/button'
+import type { ButtonIconProps } from '@pikas-ui/button'
 import type { Story, Meta } from '@storybook/react'
 import { BorderRadius } from '@pikas-ui/styles'
 import { Colors } from '@pikas-ui/styles'
-import { ButtonTextTransformType } from '@pikas-ui/button'
 import type { IconProps } from '@pikas-ui/icons'
 import { Icon } from '@pikas-ui/icons'
 
@@ -18,25 +17,9 @@ const Container = styled('div', {
 })
 
 export default {
-  title: '@pikas-ui/button/default',
-  component: Button,
+  title: '@pikas-ui/button/buttonIcon',
+  component: ButtonIcon,
   argTypes: {
-    LeftIcon: {
-      description: 'Left Icon',
-      type: {
-        name: 'other',
-        value: 'Icon',
-        required: false,
-      },
-    },
-    RightIcon: {
-      description: 'Right Icon',
-      type: {
-        name: 'other',
-        value: 'Icon',
-        required: false,
-      },
-    },
     borderRadius: {
       description: 'Border radius',
       type: {
@@ -60,13 +43,6 @@ export default {
         required: false,
       },
     },
-    fullWidth: {
-      description: 'Full width',
-      type: {
-        name: 'boolean',
-        required: false,
-      },
-    },
     loading: {
       description: 'Loader',
       type: {
@@ -74,34 +50,10 @@ export default {
         required: false,
       },
     },
-    children: {
-      description: 'Children',
-      type: {
-        name: 'other',
-        value: 'React.ReactNode',
-        required: false,
-      },
-    },
-    fontSize: {
-      description: 'Font size',
-      type: {
-        name: 'enum',
-        value: Object.keys(FontSizes),
-        required: false,
-      },
-    },
     onClick: {
       description: 'Function to call on click',
       type: {
         name: 'function',
-        required: false,
-      },
-    },
-    fontWeight: {
-      description: 'Font weight',
-      type: {
-        name: 'enum',
-        value: Object.keys(FontWeights),
         required: false,
       },
     },
@@ -149,27 +101,11 @@ export default {
         required: false,
       },
     },
-    gap: {
-      description: 'Gap',
-      type: {
-        name: 'enum',
-        value: Object.keys(ButtonPaddingType),
-        required: false,
-      },
-    },
     type: {
       description: 'Type',
       type: {
         name: 'enum',
         value: Object.keys(ButtonTypeType),
-        required: false,
-      },
-    },
-    textTransform: {
-      description: 'Text transform',
-      type: {
-        name: 'enum',
-        value: Object.keys(ButtonTextTransformType),
         required: false,
       },
     },
@@ -188,15 +124,31 @@ export default {
         required: false,
       },
     },
+    Icon: {
+      description: 'Icon',
+      type: {
+        name: 'other',
+        value: 'Icon',
+        required: false,
+      },
+    },
+    size: {
+      description: 'Size',
+      type: {
+        name: 'enum',
+        value: Object.keys(Sizes),
+        required: false,
+      },
+    },
   },
-} as Meta<ButtonProps>
+} as Meta<ButtonIconProps>
 
-const Template: Story<ButtonProps> = (args) => {
+const Template: Story<ButtonIconProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <Button {...args} />
+      <ButtonIcon {...args} />
     </Container>
   )
 }
@@ -221,52 +173,20 @@ const IconTest: React.FC<IconProps> = (props) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  children: 'Button',
   color: 'PRIMARY',
   outlined: false,
   padding: 'md',
   disabled: false,
-  fullWidth: false,
   loading: false,
-  LeftIcon: undefined,
-  RightIcon: undefined,
   borderRadius: 'md',
-  fontSize: 'EM-XXX-LARGE',
   effect: 'opacity',
-  fontWeight: 'MEDIUM',
   href: undefined,
   id: undefined,
   form: undefined,
-  gap: 'md',
   name: undefined,
   onClick: console.log,
   style: {},
-  textTransform: 'none',
   type: 'button',
-}
-
-export const WithIcon = Template.bind({})
-WithIcon.args = {
-  children: 'Button',
-  color: 'PRIMARY',
-  outlined: false,
-  padding: 'md',
-  disabled: false,
-  fullWidth: false,
-  loading: false,
-  LeftIcon: IconTest,
-  RightIcon: undefined,
-  borderRadius: 'md',
-  fontSize: 'EM-XXX-LARGE',
-  effect: 'opacity',
-  fontWeight: 'MEDIUM',
-  href: undefined,
-  id: undefined,
-  form: undefined,
-  gap: 'lg',
-  name: undefined,
-  onClick: console.log,
-  style: {},
-  textTransform: 'none',
-  type: 'button',
+  Icon: IconTest,
+  size: 'md',
 }

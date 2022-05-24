@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- Add separator
+- Add ButtonIcon
 
 ## 1.0.9
 
