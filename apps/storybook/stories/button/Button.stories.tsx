@@ -4,10 +4,10 @@ import {
   ButtonEffectType,
   ButtonPaddingType,
   ButtonTypeType,
+  BorderRadius,
 } from '@pikas-ui/button'
 import type { ButtonProps } from '@pikas-ui/button'
 import type { Story, Meta } from '@storybook/react'
-import { BorderRadius } from '@pikas-ui/styles'
 import { Colors } from '@pikas-ui/styles'
 import { ButtonTextTransformType } from '@pikas-ui/button'
 import type { IconProps } from '@pikas-ui/icons'
@@ -71,14 +71,6 @@ export default {
       description: 'Loader',
       type: {
         name: 'boolean',
-        required: false,
-      },
-    },
-    children: {
-      description: 'Children',
-      type: {
-        name: 'other',
-        value: 'React.ReactNode',
         required: false,
       },
     },
@@ -196,7 +188,7 @@ const Template: Story<ButtonProps> = (args) => {
 
   return (
     <Container>
-      <Button {...args} />
+      <Button {...args}>Button</Button>
     </Container>
   )
 }
@@ -221,7 +213,6 @@ const IconTest: React.FC<IconProps> = (props) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  children: 'Button',
   color: 'PRIMARY',
   outlined: false,
   padding: 'md',
