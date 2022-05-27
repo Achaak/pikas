@@ -4,8 +4,8 @@ import {
   ButtonEffectType,
   ButtonPaddingType,
   ButtonTypeType,
-  BorderRadius,
 } from '@pikas-ui/button'
+import { BorderRadius } from '@pikas-ui/styles'
 import type { ButtonProps } from '@pikas-ui/button'
 import type { Story, Meta } from '@storybook/react'
 import { Colors } from '@pikas-ui/styles'
