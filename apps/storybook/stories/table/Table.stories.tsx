@@ -336,6 +336,7 @@ Example.args = {
       type: 'data',
       header: 'Age',
       id: 'age',
+      size: 3,
     },
     {
       type: 'group',

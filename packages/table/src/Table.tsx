@@ -1,24 +1,124 @@
 import React, { useEffect } from 'react'
-import {
+import type {
   ColumnDef,
-  createTable,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
   OnChangeFn,
   PaginationState,
   Render,
   RowSelectionState,
   SortingState,
+} from '@tanstack/react-table'
+import {
+  createTable,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
   useTableInstance,
 } from '@tanstack/react-table'
-import { Overwrite } from '@tanstack/table-core'
+import type { Overwrite } from '@tanstack/table-core'
+import { styled, theme } from '@pikas-ui/styles'
+import fontColorContrast from 'font-color-contrast'
+
+const TableStyled = styled('table', {
+  width: '100%',
+  borderCollapse: 'collapse',
+  br: 'sm',
+  overflow: 'hidden',
+
+  variants: {
+    variant: {
+      default: {},
+      light: {},
+    },
+  },
+})
+
+const Thead = styled('thead', {
+  variants: {
+    variant: {
+      default: {
+        backgroundColor: '$PRIMARY',
+        color: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
+      },
+      light: {},
+    },
+  },
+})
+
+const Tbody = styled('tbody', {
+  variants: {
+    variant: {
+      default: {
+        'tr:nth-child(2n)': {
+          backgroundColor: '$GRAY_LIGHTER',
+        },
+      },
+      light: {},
+    },
+  },
+})
+
+const Tfoot = styled('tfoot', {
+  variants: {
+    variant: {
+      default: {
+        backgroundColor: '$PRIMARY',
+        color: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
+      },
+      light: {},
+    },
+  },
+})
+
+const Tr = styled('tr', {
+  variants: {
+    variant: {
+      default: {},
+      light: {},
+    },
+  },
+})
+
+const Th = styled('th', {
+  variants: {
+    variant: {
+      default: {
+        padding: '8px 16px',
+        textAlign: 'left',
+        fontWeight: '$MEDIUM',
+      },
+      light: {},
+    },
+  },
+})
+
+const ThSpan = styled('span', {
+  variants: {
+    variant: {
+      default: {},
+      light: {},
+    },
+  },
+})
+
+const Td = styled('td', {
+  variants: {
+    variant: {
+      default: {
+        padding: 16,
+      },
+      light: {},
+    },
+  },
+})
 
 interface Columns {
   type: 'group' | 'data'
   header: string
   id: string
+  style?: {
+    textAlign?: 'left' | 'right' | 'center'
+  }
 }
 
 interface ColumnGroup extends Columns {
@@ -33,13 +133,20 @@ interface ColumnData extends Columns {
 
 type AllColumns = ColumnGroup | ColumnData
 
+export const TableVariantType = {
+  default: true,
+  light: true,
+}
+
 export interface TableProps {
+  variant?: keyof typeof TableVariantType
   data: Record<string, unknown>[]
   hasTfoot?: boolean
   pagination?: {
     active: boolean
     state?: PaginationState
     onPaginationChange?: OnChangeFn<PaginationState>
+    values?: number[]
   }
   selection?: {
     active: boolean
@@ -88,11 +195,11 @@ const createDataColumn = ({
     enableSorting: enableSorting,
   })
 
-const createGroupColumn = (column: ColumnGroup): ColumnResult =>
+const createGroupColumn = ({ header, group }: ColumnGroup): ColumnResult =>
   table.createGroup({
-    header: column.header,
+    header: header,
     footer: (props) => props.column.id,
-    columns: column.group.map((c) => createColumn(c)),
+    columns: group.map((c) => createColumn(c)),
   })
 
 export const Table: React.FC<TableProps> = ({
@@ -102,6 +209,7 @@ export const Table: React.FC<TableProps> = ({
   columns,
   selection,
   sorting,
+  variant,
 }) => {
   const [selectionState, setSelectionState] = React.useState(
     selection?.defaultState || {}
@@ -113,6 +221,16 @@ export const Table: React.FC<TableProps> = ({
       table.createDisplayColumn({
         id: 'select',
         header: ({ instance }) => (
+          <input
+            type="checkbox"
+            {...{
+              checked: instance.getIsAllRowsSelected(),
+              indeterminate: `${instance.getIsSomeRowsSelected()}`,
+              onChange: instance.getToggleAllRowsSelectedHandler(),
+            }}
+          />
+        ),
+        footer: ({ instance }) => (
           <input
             type="checkbox"
             {...{
@@ -186,87 +304,128 @@ export const Table: React.FC<TableProps> = ({
     getSortedRowModel: sorting?.active ? getSortedRowModel() : undefined,
   })
 
+  console.log(instance.getHeaderGroups())
   return (
     <>
-      <table>
-        <thead>
+      <TableStyled variant={variant}>
+        <Thead variant={variant}>
           {instance.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <Tr key={headerGroup.id} variant={variant}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id} colSpan={header.colSpan}>
+                <Th
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  variant={variant}
+                  css={
+                    {
+                      //...header.style,
+                    }
+                  }
+                >
                   {header.isPlaceholder ? null : (
-                    <div
-                      {...{
-                        className: header.column.getCanSort()
-                          ? 'cursor-pointer select-none'
-                          : '',
-                        onClick: header.column.getToggleSortingHandler(),
+                    <ThSpan
+                      css={{
+                        ...(header.column.getCanSort()
+                          ? {
+                              cursor: 'pointer',
+                              userSelect: 'none',
+                            }
+                          : {}),
                       }}
+                      onClick={header.column.getToggleSortingHandler()}
                     >
                       {header.renderHeader()}
                       {{
                         asc: ' 🔼',
                         desc: ' 🔽',
                       }[header.column.getIsSorted() as string] ?? null}
-                    </div>
+                    </ThSpan>
                   )}
-                </th>
+                </Th>
               ))}
-            </tr>
+            </Tr>
           ))}
-        </thead>
-        <tbody>
+        </Thead>
+        <Tbody variant={variant}>
           {instance.getRowModel().rows.map((row) => {
             return (
-              <tr key={row.id}>
+              <Tr key={row.id} variant={variant}>
                 {row.getVisibleCells().map((cell) => {
-                  return <td key={cell.id}>{cell.renderCell()}</td>
+                  return (
+                    <Td key={cell.id} variant={variant}>
+                      {cell.renderCell()}
+                    </Td>
+                  )
                 })}
-              </tr>
+              </Tr>
             )
           })}
-        </tbody>
+        </Tbody>
         {hasTfoot ? (
-          <tfoot>
+          <Tfoot variant={variant}>
             {instance.getFooterGroups().map((footerGroup) => (
-              <tr key={footerGroup.id}>
+              <Tr key={footerGroup.id} variant={variant}>
                 {footerGroup.headers.map((header) => (
-                  <th key={header.id} colSpan={header.colSpan}>
-                    {header.isPlaceholder ? null : header.renderFooter()}
-                  </th>
+                  <Th
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    variant={variant}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <ThSpan
+                        css={{
+                          ...(header.column.getCanSort()
+                            ? {
+                                cursor: 'pointer',
+                                userSelect: 'none',
+                              }
+                            : {}),
+                        }}
+                        onClick={header.column.getToggleSortingHandler()}
+                      >
+                        {header.renderHeader()}
+                        {{
+                          asc: ' 🔼',
+                          desc: ' 🔽',
+                        }[header.column.getIsSorted() as string] ?? null}
+                      </ThSpan>
+                    )}
+                  </Th>
                 ))}
-              </tr>
+              </Tr>
             ))}
-          </tfoot>
+          </Tfoot>
         ) : null}
-      </table>
+      </TableStyled>
 
       {pagination?.active ? (
         <div className="flex items-center gap-2">
           <button
             className="border rounded p-1"
-            onClick={() => instance.setPageIndex(0)}
+            onClick={(): void => instance.setPageIndex(0)}
             disabled={!instance.getCanPreviousPage()}
           >
             {'<<'}
           </button>
           <button
             className="border rounded p-1"
-            onClick={() => instance.previousPage()}
+            onClick={(): void => instance.previousPage()}
             disabled={!instance.getCanPreviousPage()}
           >
             {'<'}
           </button>
           <button
             className="border rounded p-1"
-            onClick={() => instance.nextPage()}
+            onClick={(): void => instance.nextPage()}
             disabled={!instance.getCanNextPage()}
           >
             {'>'}
           </button>
           <button
             className="border rounded p-1"
-            onClick={() => instance.setPageIndex(instance.getPageCount() - 1)}
+            onClick={(): void =>
+              instance.setPageIndex(instance.getPageCount() - 1)
+            }
             disabled={!instance.getCanNextPage()}
           >
             {'>>'}
@@ -283,7 +442,7 @@ export const Table: React.FC<TableProps> = ({
             <input
               type="number"
               defaultValue={instance.getState().pagination.pageIndex + 1}
-              onChange={(e) => {
+              onChange={(e): void => {
                 const page = e.target.value ? Number(e.target.value) - 1 : 0
                 instance.setPageIndex(page)
               }}
@@ -292,11 +451,11 @@ export const Table: React.FC<TableProps> = ({
           </span>
           <select
             value={instance.getState().pagination.pageSize}
-            onChange={(e) => {
+            onChange={(e): void => {
               instance.setPageSize(Number(e.target.value))
             }}
           >
-            {[10, 20, 30, 40, 50].map((pageSize) => (
+            {(pagination.values || [10, 20, 30, 40, 50]).map((pageSize) => (
               <option key={pageSize} value={pageSize}>
                 Show {pageSize}
               </option>
@@ -308,4 +467,8 @@ export const Table: React.FC<TableProps> = ({
       <div>{instance.getRowModel().rows.length} Rows</div>
     </>
   )
+}
+
+Table.defaultProps = {
+  variant: 'default',
 }
