@@ -336,7 +336,6 @@ Example.args = {
       type: 'data',
       header: 'Age',
       id: 'age',
-      size: 3,
     },
     {
       type: 'group',
@@ -347,6 +346,9 @@ Example.args = {
           type: 'data',
           header: 'First Name',
           id: 'firstName',
+          style: {
+            textAlign: 'center',
+          },
         },
         {
           type: 'data',
@@ -359,20 +361,20 @@ Example.args = {
   hasTfoot: true,
   selection: {
     active: true,
-    defaultState: [
-      {
-        0: true,
-      },
-    ],
+    defaultState: {
+      0: true,
+    },
     onRowSelectionChange: console.log,
   },
   sorting: {
     active: true,
-    sorting: [
+    state: [
       {
-        1: true,
+        id: 'age',
+        desc: true,
       },
     ],
+
     onSortingChange: console.log,
   },
   pagination: {
