@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import type {
-  ColumnDef,
   OnChangeFn,
   PaginationState,
-  Render,
   RowSelectionState,
   SortingState,
 } from '@tanstack/react-table'
@@ -15,7 +13,6 @@ import {
   getSortedRowModel,
   useTableInstance,
 } from '@tanstack/react-table'
-import type { Overwrite } from '@tanstack/table-core'
 import type { CSS } from '@pikas-ui/styles'
 import { styled, theme } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
@@ -195,74 +192,34 @@ const Td = styled('td', {
   },
 })
 
-type ColumnResult = ColumnDef<
-  Overwrite<
-    {
-      Renderer: Render
-      Rendered: React.ReactNode | JSX.Element
-    },
-    {
-      Row: Record<string, unknown>
-    }
-  >
->
-
-const table = createTable().setRowType<Record<string, unknown>>()
-
-const createColumn = (column: AllColumns): ColumnResult => {
-  switch (column.type) {
-    case 'group':
-      return createGroupColumn(column)
-    default:
-      return createDataColumn(column)
-  }
-}
-
-const createDataColumn = ({
-  header,
-  id,
-  enableSorting,
-}: ColumnData): ColumnResult =>
-  table.createDataColumn(id, {
-    header: () => header,
-    footer: (props) => props.column.id,
-    enableSorting: enableSorting,
-  })
-
-const createGroupColumn = ({ header, group }: ColumnGroup): ColumnResult =>
-  table.createGroup({
-    header: header,
-    footer: (props) => props.column.id,
-    columns: group.map((c) => createColumn(c)),
-  })
-
 interface Columns {
   type: 'group' | 'data'
   header: string
-  id: string
   style?: CSS
 }
 
-interface ColumnGroup extends Columns {
+interface ColumnGroup<T> extends Columns {
   type: 'group'
-  group: AllColumns[]
+  id: string
+  group: AllColumns<T>[]
 }
 
-interface ColumnData extends Columns {
+interface ColumnData<T> extends Columns {
   type: 'data'
+  id: keyof T
   enableSorting?: boolean
 }
 
-export type AllColumns = ColumnGroup | ColumnData
+export type AllColumns<T> = ColumnGroup<T> | ColumnData<T>
 
 export const TableVariantType = {
   default: true,
   light: true,
 }
 
-export interface TableProps {
+export interface TableProps<T extends Record<string, unknown>> {
   variant?: keyof typeof TableVariantType
-  data: Record<string, unknown>[]
+  data: T[]
   hasTfoot?: boolean
   pagination?: {
     active: boolean
@@ -280,7 +237,7 @@ export interface TableProps {
     state?: SortingState
     onSortingChange?: OnChangeFn<SortingState>
   }
-  columns: AllColumns[]
+  columns: AllColumns<T>[]
   styles?: {
     table?: CSS
     thead?: CSS
@@ -297,7 +254,7 @@ export interface TableProps {
   }
 }
 
-export const Table: React.FC<TableProps> = ({
+export const Table = <T extends Record<string, unknown>>({
   data,
   hasTfoot,
   pagination,
@@ -307,11 +264,51 @@ export const Table: React.FC<TableProps> = ({
   variant,
   styles,
   padding,
-}) => {
+}: TableProps<T>): JSX.Element => {
+  type Column = any // TODO: fix
+  // type Column = ColumnDef<
+  //   Overwrite<
+  //     {
+  //       Renderer: Render
+  //       Rendered: JSX.Element | React.ReactNode
+  //     },
+  //     {
+  //       Row: T
+  //     }
+  //   >
+  // >
+  const [table] = useState(createTable().setRowType<T>())
   const [selectionState, setSelectionState] = React.useState(
     selection?.defaultState || {}
   )
   const [sortingState, setSortingState] = React.useState<SortingState>([])
+
+  const createColumn = (column: AllColumns<T>): Column => {
+    switch (column.type) {
+      case 'group':
+        return createGroupColumn(column)
+      default:
+        return createDataColumn(column)
+    }
+  }
+
+  const createDataColumn = ({
+    header,
+    id,
+    enableSorting,
+  }: ColumnData<T>): Column =>
+    table.createDataColumn(id, {
+      header: () => header,
+      footer: (props: any) => props.column.id,
+      enableSorting: enableSorting,
+    } as any) // TODO: fix
+
+  const createGroupColumn = ({ header, group }: ColumnGroup<T>): Column =>
+    table.createGroup({
+      header: header,
+      footer: (props) => props.column.id,
+      columns: group.map((c) => createColumn(c)),
+    })
 
   const columnsMemo = React.useMemo(
     () => [

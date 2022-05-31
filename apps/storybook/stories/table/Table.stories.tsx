@@ -9,10 +9,19 @@ export default {
   argTypes: {},
 } as Meta<TableProps>
 
+interface UserType {
+  firstName: string
+  lastName: string
+  age: number
+  visits: number
+  status: string
+  progress: number
+}
+
 const Template: Story<TableProps> = (args) => {
   globalStyles()
 
-  return <Table {...args} />
+  return <Table<UserType> {...args} />
 }
 
 export const Example = Template.bind({})
