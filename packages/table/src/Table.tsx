@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react'
 import type {
   OnChangeFn,
@@ -66,7 +67,10 @@ const Thead = styled('thead', {
           },
         },
       },
-      light: {},
+      light: {
+        borderBottom: '1px solid',
+        borderColor: '$GRAY_LIGHT',
+      },
     },
   },
 })
@@ -117,7 +121,10 @@ const Tfoot = styled('tfoot', {
           },
         },
       },
-      light: {},
+      light: {
+        borderTop: '1px solid',
+        borderColor: '$GRAY',
+      },
     },
   },
 })
@@ -135,7 +142,16 @@ const Tr = styled('tr', {
           },
         },
       },
-      light: {},
+      light: {
+        transition: 'all 0.2s ease-in-out',
+
+        '&:hover': {
+          td: {
+            color: '$PRIMARY',
+            fontWeight: '$MEDIUM',
+          },
+        },
+      },
     },
   },
 })
@@ -147,7 +163,10 @@ const Th = styled('th', {
         textAlign: 'left',
         fontWeight: '$MEDIUM',
       },
-      light: {},
+      light: {
+        textAlign: 'left',
+        fontWeight: '$MEDIUM',
+      },
     },
     padding: {
       sm: {

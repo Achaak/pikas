@@ -1,9 +1,9 @@
 import type { AllColumns } from './Table'
 
-export const findInColumn = (
+export const findInColumn = <T>(
   id: string,
-  column: AllColumns
-): AllColumns | null => {
+  column: AllColumns<T>
+): AllColumns<T> | null => {
   if (column.id === id) {
     return column
   }
@@ -20,10 +20,10 @@ export const findInColumn = (
   return null
 }
 
-export const findInColumns = (
+export const findInColumns = <T>(
   id: string,
-  columns: AllColumns[]
-): AllColumns | null => {
+  columns: AllColumns<T>[]
+): AllColumns<T> | null => {
   for (const column of columns) {
     const found = findInColumn(id, column)
     if (found) {

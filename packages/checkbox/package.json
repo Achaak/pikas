@@ -1,5 +1,5 @@
 {
-  "name": "@pikas-ui/icons",
+  "name": "@pikas-ui/checkbox",
   "version": "1.0.13",
   "private": false,
   "description": "",
@@ -15,8 +15,7 @@
     "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint src --fix",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "generate:boxicons": "ts-node ./src/boxicons/generate"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "repository": {
     "type": "git",
@@ -31,10 +30,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@iconify/react": "^3.2.2",
     "@pikas-ui/styles": "1.0.13",
-    "boxicons": "^2.1.2",
-    "iconify-icon": "^0.0.6",
+    "@pikas-ui/text": "1.0.13",
+    "@radix-ui/react-checkbox": "^0.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
@@ -45,7 +43,6 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
     "eslint": "^8.16.0",
-    "ts-node": "^10.8.0",
     "tsup": "^6.0.1",
     "typescript": "4.7.2"
   },

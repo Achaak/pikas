@@ -389,4 +389,5 @@ Example.args = {
   pagination: {
     active: true,
   },
+  variant: 'light',
 }
