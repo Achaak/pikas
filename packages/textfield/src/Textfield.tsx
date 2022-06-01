@@ -1,7 +1,16 @@
-import type { BorderRadiusType, CSS, FontsSizesType } from '@pikas-ui/styles'
+import type { IconProps } from '@pikas-ui/icons'
+import type {
+  ShadowsType,
+  ColorsType,
+  CSS,
+  FontsSizesType,
+  BorderRadiusType,
+} from '@pikas-ui/styles'
+import { theme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
+import fontColorContrast from 'font-color-contrast'
 import React, { useRef } from 'react'
 
 const Container = styled('div', {
@@ -16,45 +25,30 @@ const InputContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: '$GRAY_LIGHTEST_1',
 
   variants: {
-    variant: {
-      'box-inside': {
-        boxShadow: '$DIMINUTION_2',
-      },
-    },
-    borderColor: {
-      primary: {
-        borderColor: '$PRIMARY',
-      },
-    },
-    borderSize: {
+    borderWidth: {
       sm: {
-        border: '1px solid',
+        borderWidth: 1,
       },
       md: {
-        border: '2px solid',
+        borderWidth: 2,
       },
       lg: {
-        border: '3px solid',
+        borderWidth: 3,
       },
     },
     padding: {
       sm: {
-        padding: '4px 12px',
+        padding: '4px 8px',
       },
       md: {
         padding: '8px 16px',
       },
       lg: {
-        padding: '16px 24px',
+        padding: '16px 32px',
       },
     },
-  },
-
-  defaultVariants: {
-    variant: 'box-inside',
   },
 })
 
@@ -71,12 +65,40 @@ const LeftContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  variants: {
+    padding: {
+      sm: {
+        marginRight: 4,
+      },
+      md: {
+        marginRight: 8,
+      },
+      lg: {
+        marginRight: 16,
+      },
+    },
+  },
 })
 
 const RightContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  variants: {
+    padding: {
+      sm: {
+        marginLeft: 4,
+      },
+      md: {
+        marginLeft: 8,
+      },
+      lg: {
+        marginLeft: 16,
+      },
+    },
+  },
 })
 
 export const TextfieldTypeType = {
@@ -96,39 +118,46 @@ export const TextfieldTypeType = {
   week: true,
 }
 
-interface TextfieldDefaultProps {
+export const TextfieldPaddingType = {
+  sm: true,
+  md: true,
+  lg: true,
+}
+
+export const TextfieldBorderWidthType = {
+  sm: true,
+  md: true,
+  lg: true,
+}
+
+export type TextfieldProps = {
   placeholder?: string
   type?: keyof typeof TextfieldTypeType
   id?: string
   label?: string
   name?: string
-  variant?: 'box-inside' // Todo
+  boxShadow?: ShadowsType | 'none'
   borderRadius?: BorderRadiusType
-  padding?: 'sm' | 'md' | 'lg' // Todo
+  padding?: keyof typeof TextfieldPaddingType
   fontSize?: FontsSizesType
-  borderColor?: 'primary' // Todo
-  borderSize?: 'sm' | 'md' | 'lg' // Todo
+  borderColor?: ColorsType
+  backgroundColor?: ColorsType
+  borderWidth?: keyof typeof TextfieldBorderWidthType
   textError?: string
 
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   defaultValue?: string | number
   autoComplete?: string
-  left?: React.ReactNode
-  right?: React.ReactNode
+  LeftIcon?: React.FC<IconProps>
+  RightIcon?: React.FC<IconProps>
   styles?: {
     container?: CSS
     inputContainer?: CSS
     input?: CSS
   }
-}
-
-interface TextfieldTypeNumberProps extends TextfieldDefaultProps {
-  type?: 'number'
   min?: number
   max?: number
 }
-
-export type TextfieldProps = TextfieldDefaultProps & TextfieldTypeNumberProps
 
 export const Textfield: React.FC<TextfieldProps> = ({
   id = '',
@@ -136,7 +165,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
   type,
   onChange,
   placeholder,
-  variant,
+  boxShadow,
   borderRadius,
   padding,
   fontSize,
@@ -144,13 +173,14 @@ export const Textfield: React.FC<TextfieldProps> = ({
   label,
   styles,
   borderColor,
-  borderSize,
+  borderWidth,
   defaultValue,
   autoComplete,
   min,
   max,
-  left,
-  right,
+  LeftIcon,
+  RightIcon,
+  backgroundColor,
 }) => {
   const ref = useRef<HTMLInputElement>(null)
 
@@ -180,16 +210,40 @@ export const Textfield: React.FC<TextfieldProps> = ({
       {label ? <Label htmlFor={id}>{label}</Label> : null}
 
       <InputContainer
-        borderColor={borderColor}
-        borderSize={borderSize}
-        variant={variant}
+        borderWidth={borderWidth}
         padding={padding}
         css={{
           br: borderRadius,
+          borderColor: `$${borderColor}`,
+          backgroundColor: `$${backgroundColor}`,
+          boxShadow: `$${boxShadow}`,
           ...styles?.inputContainer,
         }}
       >
-        {left && <LeftContainer htmlFor={id}>{left}</LeftContainer>}
+        {LeftIcon && (
+          <LeftContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+            }}
+          >
+            <LeftIcon
+              styles={{
+                svg: {
+                  height: `1em`,
+                  width: `1em`,
+                  color: fontColorContrast(
+                    theme.colors[backgroundColor || 'WHITE'].value,
+                    0.7
+                  ),
+                },
+              }}
+            />
+          </LeftContainer>
+        )}
         <Input
           ref={ref}
           id={id}
@@ -203,9 +257,36 @@ export const Textfield: React.FC<TextfieldProps> = ({
           max={max}
           css={{
             ...styles?.input,
+            color: fontColorContrast(
+              theme.colors[backgroundColor || 'WHITE'].value,
+              0.7
+            ),
           }}
         />
-        {right && <RightContainer htmlFor={id}>{right}</RightContainer>}
+        {RightIcon && (
+          <RightContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+            }}
+          >
+            <RightIcon
+              styles={{
+                svg: {
+                  height: `1em`,
+                  width: `1em`,
+                  color: fontColorContrast(
+                    theme.colors[backgroundColor || 'WHITE'].value,
+                    0.7
+                  ),
+                },
+              }}
+            />
+          </RightContainer>
+        )}
       </InputContainer>
 
       {textError && <TextError style={{ marginTop: 5 }}>{textError}</TextError>}
@@ -216,4 +297,6 @@ export const Textfield: React.FC<TextfieldProps> = ({
 Textfield.defaultProps = {
   padding: 'md',
   borderRadius: 'md',
+  backgroundColor: 'GRAY_LIGHTEST_1',
+  boxShadow: 'DIMINUTION_1',
 }

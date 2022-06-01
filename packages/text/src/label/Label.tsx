@@ -3,7 +3,7 @@ import { styled } from '@pikas-ui/styles'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import React from 'react'
 
-const LabelStyled = styled(LabelPrimitive.Root, {
+const LabelStyled = styled(LabelPrimitive.Label, {
   fontSize: '$EM-SMALL',
   fontWeight: '$MEDIUM',
   marginBottom: 4,

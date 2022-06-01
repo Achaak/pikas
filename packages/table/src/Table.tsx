@@ -189,7 +189,6 @@ const Th = styled('th', {
 
 const ThSpan = styled('span', {
   display: 'flex',
-  alignItems: 'center',
 
   variants: {
     variant: {
@@ -217,6 +216,10 @@ const Td = styled('td', {
       },
     },
   },
+})
+
+const TdContent = styled('div', {
+  display: 'flex',
 })
 
 interface Columns {
@@ -326,13 +329,15 @@ export const Table = <T extends Record<string, unknown>>({
   }: ColumnData<T>): Column =>
     table.createDataColumn(id, {
       header: () => header,
+      id: id,
       footer: (props: any) => props.column.id,
       enableSorting: enableSorting,
     } as any) // TODO: fix
 
-  const createGroupColumn = ({ header, group }: ColumnGroup<T>): Column =>
+  const createGroupColumn = ({ header, group, id }: ColumnGroup<T>): Column =>
     table.createGroup({
       header: header,
+      id: id,
       footer: (props) => props.column.id,
       columns: group.map((c) => createColumn(c)),
     })
@@ -450,7 +455,6 @@ export const Table = <T extends Record<string, unknown>>({
                   variant={variant}
                   css={{
                     ...styles?.th,
-                    ...findInColumns(header.id, columns)?.style,
                   }}
                   padding={padding?.th}
                 >
@@ -458,6 +462,7 @@ export const Table = <T extends Record<string, unknown>>({
                     <ThSpan
                       css={{
                         ...styles?.thSpan,
+                        ...findInColumns(header.column.id, columns)?.style,
                         ...(header.column.getCanSort()
                           ? {
                               cursor: 'pointer',
@@ -516,11 +521,16 @@ export const Table = <T extends Record<string, unknown>>({
                       variant={variant}
                       css={{
                         ...styles?.td,
-                        ...findInColumns(cell.column.id, columns)?.style,
                       }}
                       padding={padding?.td}
                     >
-                      {cell.renderCell()}
+                      <TdContent
+                        css={{
+                          ...findInColumns(cell.column.id, columns)?.style,
+                        }}
+                      >
+                        {cell.renderCell()}
+                      </TdContent>
                     </Td>
                   )
                 })}
@@ -539,7 +549,6 @@ export const Table = <T extends Record<string, unknown>>({
                     variant={variant}
                     css={{
                       ...styles?.th,
-                      ...findInColumns(header.id, columns)?.style,
                     }}
                     padding={padding?.th}
                   >
@@ -547,6 +556,7 @@ export const Table = <T extends Record<string, unknown>>({
                       <ThSpan
                         css={{
                           ...styles?.thSpan,
+                          ...findInColumns(header.column.id, columns)?.style,
                           ...(header.column.getCanSort()
                             ? {
                                 cursor: 'pointer',

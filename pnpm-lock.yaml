@@ -20,9 +20,12 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 1.0.13
       '@pikas-ui/loader': 1.0.13
+      '@pikas-ui/select': 1.0.13
       '@pikas-ui/separator': 1.0.13
       '@pikas-ui/styles': 1.0.13
       '@pikas-ui/table': 1.0.13
+      '@pikas-ui/text': 1.0.13
+      '@pikas-ui/textfield': 1.0.13
       '@pikas-ui/tooltip': 1.0.13
       '@pikas-ui/tsconfig': workspace:*
       '@storybook/addon-essentials': ^6.5.5
@@ -47,9 +50,12 @@ importers:
       '@pikas-ui/button': link:../../packages/button
       '@pikas-ui/icons': link:../../packages/icons
       '@pikas-ui/loader': link:../../packages/loader
+      '@pikas-ui/select': link:../../packages/select
       '@pikas-ui/separator': link:../../packages/separator
       '@pikas-ui/styles': link:../../packages/styles
       '@pikas-ui/table': link:../../packages/table
+      '@pikas-ui/text': link:../../packages/text
+      '@pikas-ui/textfield': link:../../packages/textfield
       '@pikas-ui/tooltip': link:../../packages/tooltip
       http-server: 14.1.0
       react: 18.1.0
