@@ -19,6 +19,7 @@ import { styled, theme } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { Pagination } from './pagination'
 import { findInColumns } from './utils'
+import { IconByName } from '@pikas-ui/icons'
 
 const TableStyled = styled('table', {
   width: '100%',
@@ -40,6 +41,10 @@ const Thead = styled('thead', {
       default: {
         backgroundColor: '$PRIMARY',
         color: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
+
+        svg: {
+          fill: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
+        },
 
         tr: {
           borderTop: '1px solid',
@@ -183,6 +188,9 @@ const Th = styled('th', {
 })
 
 const ThSpan = styled('span', {
+  display: 'flex',
+  alignItems: 'center',
+
   variants: {
     variant: {
       default: {},
@@ -461,8 +469,34 @@ export const Table = <T extends Record<string, unknown>>({
                     >
                       {header.renderHeader()}
                       {{
-                        asc: ' 🔼',
-                        desc: ' 🔽',
+                        asc: (
+                          <IconByName
+                            name="bx:chevron-up"
+                            styles={{
+                              container: {
+                                marginLeft: 4,
+                              },
+                              svg: {
+                                height: `1em`,
+                                width: `1em`,
+                              },
+                            }}
+                          />
+                        ),
+                        desc: (
+                          <IconByName
+                            name="bx:chevron-down"
+                            styles={{
+                              container: {
+                                marginLeft: 4,
+                              },
+                              svg: {
+                                height: `1em`,
+                                width: `1em`,
+                              },
+                            }}
+                          />
+                        ),
                       }[header.column.getIsSorted() as string] ?? null}
                     </ThSpan>
                   )}
@@ -524,8 +558,34 @@ export const Table = <T extends Record<string, unknown>>({
                       >
                         {header.renderHeader()}
                         {{
-                          asc: ' 🔼',
-                          desc: ' 🔽',
+                          asc: (
+                            <IconByName
+                              name="bx:chevron-up"
+                              styles={{
+                                container: {
+                                  marginLeft: 4,
+                                },
+                                svg: {
+                                  height: `1em`,
+                                  width: `1em`,
+                                },
+                              }}
+                            />
+                          ),
+                          desc: (
+                            <IconByName
+                              name="bx:chevron-down"
+                              styles={{
+                                container: {
+                                  marginLeft: 4,
+                                },
+                                svg: {
+                                  height: `1em`,
+                                  width: `1em`,
+                                },
+                              }}
+                            />
+                          ),
                         }[header.column.getIsSorted() as string] ?? null}
                       </ThSpan>
                     )}

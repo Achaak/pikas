@@ -7,6 +7,6 @@ export interface IconProps {
     container?: CSS
     svg?: CSS
   }
-  color?: ColorsType | string
+  color?: ColorsType | (string & Record<string, unknown>)
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 }

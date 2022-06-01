@@ -1,9 +1,8 @@
-import { styled } from '@adonis/styles'
+import { styled } from '@pikas-ui/styles'
+import { IconByName } from '@pikas-ui/icons'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import type { AriaRole, ChangeEvent, ReactNode } from 'react'
 import { forwardRef, useEffect, useState } from 'react'
-
-import { BxCheck } from '../../../icons/bx-check'
 
 const Container = styled('div', {
   display: 'flex',
@@ -78,13 +77,13 @@ const StyledCheckbox = styled('label', {
     },
     borderRadius: {
       1: {
-        br: 1,
+        br: 'sm',
       },
       2: {
-        br: 2,
+        br: 'md',
       },
       3: {
-        br: 3,
+        br: 'lg',
       },
       round: {
         br: 'round',
@@ -214,7 +213,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             size={size}
             focus={focused}
           >
-            {checkedState && <BxCheck size={20} />}
+            {checkedState && <IconByName name="bx:check" size={20} />}
           </StyledCheckbox>
 
           {label ? <Label htmlFor={id}>{label}</Label> : null}

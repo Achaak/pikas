@@ -23,7 +23,13 @@ export const RiseLoader: React.FC<RiseLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={theme.colors[color].value}
+      color={
+        color
+          ? color?.includes('#')
+            ? color
+            : theme.colors[color as ColorsType].value
+          : undefined
+      }
       loading={loading}
     />
   )

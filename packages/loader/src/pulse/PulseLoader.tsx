@@ -20,7 +20,13 @@ export const PulseLoader: React.FC<PulseLoaderProps> = ({
     <PulseLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={theme.colors[color].value}
+      color={
+        color
+          ? color?.includes('#')
+            ? color
+            : theme.colors[color as ColorsType].value
+          : undefined
+      }
       loading={loading}
     />
   )

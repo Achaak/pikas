@@ -1,5 +1,5 @@
 {
-  "name": "@pikas-ui/icons",
+  "name": "@pikas-ui/button",
   "version": "1.0.13",
   "private": false,
   "description": "",
@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@iconify/react": "^3.2.2",
+    "@pikas-ui/icons": "1.0.13",
+    "@pikas-ui/loader": "1.0.13",
     "@pikas-ui/styles": "1.0.13",
-    "boxicons": "^2.1.2",
-    "iconify-icon": "^0.0.6",
+    "font-color-contrast": "^11.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

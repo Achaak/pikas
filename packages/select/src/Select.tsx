@@ -1,12 +1,10 @@
-import type { ColorsType, CSS } from '@adonis/styles'
-import { styled } from '@adonis/styles'
+import type { ColorsType, CSS } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles'
+import { IconByName } from '@pikas-ui/icons'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import { useEffect, useState } from 'react'
 
-import { BxCheck } from '../../../icons/bx-check'
-import { BxsChevronDown } from '../../../icons/bxs-chevron-down'
-import { BxsChevronUp } from '../../../icons/bxs-chevron-up'
 import { Text } from '../../text'
 import { Textfield } from '../textfield'
 
@@ -37,7 +35,7 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   alignItems: 'center',
   justifyContent: 'space-between',
   boxSizing: 'border-box',
-  br: 1,
+  br: 'sm',
   padding: '0 16px',
   cursor: 'pointer',
   borderWidth: 2,
@@ -48,13 +46,13 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   variants: {
     borderRadius: {
       sm: {
-        br: 1,
+        br: 'sm',
       },
       md: {
-        br: 2,
+        br: 'md',
       },
       lg: {
-        br: 3,
+        br: 'lg',
       },
       round: {
         br: 'round',
@@ -93,7 +91,7 @@ const Icon = styled(SelectPrimitive.Icon, {
 
 const Content = styled(SelectPrimitive.Content, {
   backgroundColor: '$WHITE',
-  br: 1,
+  br: 'sm',
   boxShadow: '$ELEVATION_1',
 })
 
@@ -148,7 +146,7 @@ const Item = styled(SelectPrimitive.Item, {
   position: 'relative',
   userSelect: 'none',
   padding: '4px 16px 4px 24px',
-  br: 1,
+  br: 'sm',
   cursor: 'pointer',
   transition: 'all 100ms',
 
@@ -321,7 +319,11 @@ export const Select: React.FC<SelectProps> = ({
         >
           <SelectValue />
           <Icon>
-            <BxsChevronDown size={getIconSize()} colorName="BLACK" />
+            <IconByName
+              name="bx:chevron-down"
+              size={getIconSize()}
+              color="BLACK"
+            />
           </Icon>
         </Trigger>
 
@@ -342,7 +344,7 @@ export const Select: React.FC<SelectProps> = ({
           ) : null}
 
           <ScrollUpButton>
-            <BxsChevronUp size={20} colorName="BLACK" />
+            <IconByName name="bx:chevron-up" size={20} color="BLACK" />
           </ScrollUpButton>
           <Viewport>
             {formatedData.map((group, groupIndex) => {
@@ -376,7 +378,7 @@ export const Select: React.FC<SelectProps> = ({
                     >
                       <ItemText>{item.label}</ItemText>
                       <ItemIndicator>
-                        <BxCheck size={20} />
+                        <IconByName name="bx:check" size={20} />
                       </ItemIndicator>
                     </Item>
                   ))}
@@ -387,7 +389,7 @@ export const Select: React.FC<SelectProps> = ({
             })}
           </Viewport>
           <ScrollDownButton>
-            <BxsChevronDown size={20} colorName="BLACK" />
+            <IconByName name="bx:chevron-down" size={20} color="BLACK" />
           </ScrollDownButton>
         </Content>
       </SelectContainer>

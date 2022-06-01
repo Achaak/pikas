@@ -3,6 +3,7 @@ import React from 'react'
 
 import { styled, theme } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
+import { IconByName } from '@pikas-ui/icons'
 
 const Footer = styled('div', {
   display: 'flex',
@@ -150,20 +151,52 @@ export const Pagination: React.FC<PaginationProps> = ({
           onClick={(): void => setPageIndex(0)}
           disabled={!canPreviousPage}
         >
-          {'<<'}
+          <IconByName
+            name="bx:chevrons-left"
+            styles={{
+              svg: {
+                height: `1em`,
+                width: `1em`,
+              },
+            }}
+          />
         </ButtonArrowLeft>
         <ButtonArrowLeft onClick={previousPage} disabled={!canPreviousPage}>
-          {'<'}
+          <IconByName
+            name="bx:chevron-left"
+            styles={{
+              svg: {
+                height: `1em`,
+                width: `1em`,
+              },
+            }}
+          />
         </ButtonArrowLeft>
         {getNumber()}
         <ButtonArrowRight onClick={nextPage} disabled={!canNextPage}>
-          {'>'}
+          <IconByName
+            name="bx:chevron-right"
+            styles={{
+              svg: {
+                height: `1em`,
+                width: `1em`,
+              },
+            }}
+          />
         </ButtonArrowRight>
         <ButtonArrowRight
           onClick={(): void => setPageIndex(pageCount - 1)}
           disabled={!canNextPage}
         >
-          {'>>'}
+          <IconByName
+            name="bx:chevrons-right"
+            styles={{
+              svg: {
+                height: `1em`,
+                width: `1em`,
+              },
+            }}
+          />
         </ButtonArrowRight>
       </Right>
     </Footer>

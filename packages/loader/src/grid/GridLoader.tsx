@@ -23,7 +23,13 @@ export const GridLoader: React.FC<GridLoaderProps> = ({
       size={size}
       speedMultiplier={speedMultiplier}
       margin={margin}
-      color={theme.colors[color].value}
+      color={
+        color
+          ? color?.includes('#')
+            ? color
+            : theme.colors[color as ColorsType].value
+          : undefined
+      }
       loading={loading}
     />
   )

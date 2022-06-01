@@ -6,7 +6,7 @@ import React from 'react'
 export interface BeatLoaderProps {
   size: number | string
   margin?: number
-  color: ColorsType
+  color: ColorsType | (string & Record<string, unknown>)
   loading?: boolean
   speedMultiplier?: number
 }
@@ -22,7 +22,13 @@ export const BeatLoader: React.FC<BeatLoaderProps> = ({
     <BeatLoaderDefault
       size={size}
       margin={margin}
-      color={theme.colors[color].value}
+      color={
+        color
+          ? color?.includes('#')
+            ? color
+            : theme.colors[color as ColorsType].value
+          : undefined
+      }
       loading={loading}
       speedMultiplier={speedMultiplier}
     />
