@@ -44,7 +44,7 @@ importers:
       webpack: ^5.72.1
       webpack-cli: ^4.9.2
     dependencies:
-      '@pikas-ui/button': link:../../packages/textfield
+      '@pikas-ui/button': link:../../packages/button
       '@pikas-ui/icons': link:../../packages/icons
       '@pikas-ui/loader': link:../../packages/loader
       '@pikas-ui/separator': link:../../packages/separator
@@ -236,6 +236,7 @@ importers:
       '@pikas-ui/icons': 1.0.13
       '@pikas-ui/styles': 1.0.13
       '@pikas-ui/text': 1.0.13
+      '@pikas-ui/textfield': 1.0.13
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-select': ^0.1.1
       '@types/node': ^17.0.35
@@ -250,6 +251,7 @@ importers:
       '@pikas-ui/icons': link:../icons
       '@pikas-ui/styles': link:../styles
       '@pikas-ui/text': link:../text
+      '@pikas-ui/textfield': link:../textfield
       '@radix-ui/react-select': 0.1.1_ohobp6rpsmerwlq5ipwfh5yigy
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -389,7 +391,9 @@ importers:
       '@pikas-ui/icons': 1.0.13
       '@pikas-ui/loader': 1.0.13
       '@pikas-ui/styles': 1.0.13
+      '@pikas-ui/text': 1.0.13
       '@pikas-ui/tsconfig': workspace:*
+      '@radix-ui/react-label': ^0.1.5
       '@types/node': ^17.0.35
       '@types/react': ^18.0.9
       '@types/react-dom': ^18.0.5
@@ -403,6 +407,8 @@ importers:
       '@pikas-ui/icons': link:../icons
       '@pikas-ui/loader': link:../loader
       '@pikas-ui/styles': link:../styles
+      '@pikas-ui/text': link:../text
+      '@radix-ui/react-label': 0.1.5_react@18.1.0
       font-color-contrast: 11.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0

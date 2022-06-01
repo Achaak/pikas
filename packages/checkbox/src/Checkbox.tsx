@@ -1,6 +1,7 @@
+import type { BorderRadiusType, FontsSizesType } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
-import * as LabelPrimitive from '@radix-ui/react-label'
+import { Label, TextError } from '@pikas-ui/text'
 import type { AriaRole, ChangeEvent, ReactNode } from 'react'
 import { forwardRef, useEffect, useState } from 'react'
 
@@ -8,20 +9,6 @@ const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   userSelect: 'none',
-
-  variants: {
-    fontSize: {
-      sm: {
-        fontSize: '$EM-SMALL',
-      },
-      md: {
-        fontSize: '$EM-MEDIUM',
-      },
-      lg: {
-        fontSize: '$EM-LARGE',
-      },
-    },
-  },
 })
 
 const Element = styled('div', {
@@ -110,14 +97,6 @@ const HiddenCheckbox = styled('input', {
   width: 1,
 })
 
-const Label = styled(LabelPrimitive.Root, {
-  fontSize: '$EM-SMALL',
-  fontWeight: '$MEDIUM',
-  marginLeft: 12,
-  color: '$BLACK',
-  cursor: 'pointer',
-})
-
 export interface CheckboxProps {
   defaultChecked?: boolean
   onChange?: (checked: ChangeEvent<HTMLInputElement>) => void
@@ -131,8 +110,8 @@ export interface CheckboxProps {
   textError?: string
   borderColor?: 'primary'
   borderSize?: 'sm' | 'md' | 'lg'
-  borderRadius?: 1 | 2 | 3 | 'round'
-  fontSize?: 'sm' | 'md' | 'lg'
+  borderRadius?: BorderRadiusType
+  fontSize?: FontsSizesType
   size?: 'sm' | 'md' | 'lg'
   checked?: boolean
   className?: string
@@ -189,7 +168,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     }
 
     return (
-      <Container fontSize={fontSize}>
+      <Container
+        css={{
+          fontSize: `${fontSize}`,
+        }}
+      >
         <Element>
           <HiddenCheckbox
             type="checkbox"
@@ -206,12 +189,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           <StyledCheckbox
             htmlFor={id}
             defaultChecked={defaultChecked}
-            borderRadius={borderRadius}
             borderColor={borderColor}
             borderSize={borderSize}
             error={error}
             size={size}
             focus={focused}
+            css={{
+              br: borderRadius,
+            }}
           >
             {checkedState && <IconByName name="bx:check" size={20} />}
           </StyledCheckbox>
@@ -220,9 +205,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         </Element>
 
         {textError ? (
-          <Text style={{ marginTop: 5 }} component="span" variant="error">
-            {textError}
-          </Text>
+          <TextError style={{ marginTop: 5 }}>{textError}</TextError>
         ) : null}
       </Container>
     )

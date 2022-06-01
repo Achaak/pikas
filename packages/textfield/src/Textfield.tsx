@@ -1,34 +1,18 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { BorderRadiusType, CSS, FontsSizesType } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
+import { Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import React, { useRef } from 'react'
-
-import { Text } from '../../text'
 
 const Container = styled('div', {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-
-  variants: {
-    fontSize: {
-      sm: {
-        fontSize: '$EM-SMALL',
-      },
-      md: {
-        fontSize: '$EM-MEDIUM',
-      },
-      lg: {
-        fontSize: '$EM-LARGE',
-      },
-    },
-  },
 })
 
 const InputContainer = styled('div', {
   width: '100%',
   overflow: 'hidden',
-  br: 'lg',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -54,20 +38,6 @@ const InputContainer = styled('div', {
       },
       lg: {
         border: '3px solid',
-      },
-    },
-    borderRadius: {
-      1: {
-        br: 'sm',
-      },
-      2: {
-        br: 'md',
-      },
-      3: {
-        br: 'lg',
-      },
-      round: {
-        br: 'round',
       },
     },
     padding: {
@@ -97,12 +67,10 @@ const Input = styled('input', {
   backgroundColor: '$TRANSPARENT',
 })
 
-const Label = styled(LabelPrimitive.Root, {
-  fontSize: '$EM-SMALL',
-  fontWeight: '$MEDIUM',
-  marginBottom: 4,
-  cursor: 'pointer',
-  display: 'block',
+const LeftContainer = styled(LabelPrimitive.Root, {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
 
 const RightContainer = styled(LabelPrimitive.Root, {
@@ -111,36 +79,58 @@ const RightContainer = styled(LabelPrimitive.Root, {
   justifyContent: 'center',
 })
 
-interface CustomProps {
+export const TextfieldTypeType = {
+  color: true,
+  date: true,
+  'datetime-local': true,
+  email: true,
+  hidden: true,
+  month: true,
+  number: true,
+  password: true,
+  search: true,
+  tel: true,
+  text: true,
+  time: true,
+  url: true,
+  week: true,
+}
+
+interface TextfieldDefaultProps {
   placeholder?: string
-  type?: string
+  type?: keyof typeof TextfieldTypeType
   id?: string
   label?: string
   name?: string
-  variant?: 'box-inside'
-  borderRadius?: 1 | 2 | 3 | 'round'
-  padding?: 'sm' | 'md' | 'lg'
-  fontSize?: 'sm' | 'md' | 'lg'
-  borderColor?: 'primary'
-  borderSize?: 'sm' | 'md' | 'lg'
+  variant?: 'box-inside' // Todo
+  borderRadius?: BorderRadiusType
+  padding?: 'sm' | 'md' | 'lg' // Todo
+  fontSize?: FontsSizesType
+  borderColor?: 'primary' // Todo
+  borderSize?: 'sm' | 'md' | 'lg' // Todo
   textError?: string
 
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  setFieldValue?: (id: string, res: string) => void
+  defaultValue?: string | number
+  autoComplete?: string
+  left?: React.ReactNode
+  right?: React.ReactNode
   styles?: {
     container?: CSS
     inputContainer?: CSS
     input?: CSS
   }
-  defaultValue?: string | number
-  autoComplete?: string
-  min?: number
-  max?: number
-  right?: React.ReactNode
 }
 
-export const Textfield: React.FC<CustomProps> = ({
-  setFieldValue,
+interface TextfieldTypeNumberProps extends TextfieldDefaultProps {
+  type?: 'number'
+  min?: number
+  max?: number
+}
+
+export type TextfieldProps = TextfieldDefaultProps & TextfieldTypeNumberProps
+
+export const Textfield: React.FC<TextfieldProps> = ({
   id = '',
   name,
   type,
@@ -159,6 +149,7 @@ export const Textfield: React.FC<CustomProps> = ({
   autoComplete,
   min,
   max,
+  left,
   right,
 }) => {
   const ref = useRef<HTMLInputElement>(null)
@@ -174,10 +165,6 @@ export const Textfield: React.FC<CustomProps> = ({
       }
     }
 
-    if (setFieldValue && id) {
-      setFieldValue(id, e.target.value)
-    }
-
     if (onChange) {
       onChange(e)
     }
@@ -185,23 +172,24 @@ export const Textfield: React.FC<CustomProps> = ({
 
   return (
     <Container
-      fontSize={fontSize}
       css={{
+        fontSize: `${fontSize}`,
         ...styles?.container,
       }}
     >
       {label ? <Label htmlFor={id}>{label}</Label> : null}
 
       <InputContainer
-        borderRadius={borderRadius}
         borderColor={borderColor}
         borderSize={borderSize}
         variant={variant}
         padding={padding}
         css={{
+          br: borderRadius,
           ...styles?.inputContainer,
         }}
       >
+        {left && <LeftContainer htmlFor={id}>{left}</LeftContainer>}
         <Input
           ref={ref}
           id={id}
@@ -220,15 +208,12 @@ export const Textfield: React.FC<CustomProps> = ({
         {right && <RightContainer htmlFor={id}>{right}</RightContainer>}
       </InputContainer>
 
-      {textError && (
-        <Text style={{ marginTop: 5 }} component="p" variant="error">
-          {textError}
-        </Text>
-      )}
+      {textError && <TextError style={{ marginTop: 5 }}>{textError}</TextError>}
     </Container>
   )
 }
 
 Textfield.defaultProps = {
   padding: 'md',
+  borderRadius: 'md',
 }

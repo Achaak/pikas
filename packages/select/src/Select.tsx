@@ -1,12 +1,10 @@
 import type { ColorsType, CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
-import * as LabelPrimitive from '@radix-ui/react-label'
+import { Label, TextError } from '@pikas-ui/text'
+import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import { useEffect, useState } from 'react'
-
-import { Text } from '../../text'
-import { Textfield } from '../textfield'
 
 const Container = styled('div', {
   variants: {
@@ -164,12 +162,6 @@ const Item = styled(SelectPrimitive.Item, {
 
 const ItemText = styled(SelectPrimitive.ItemText, {
   fontSize: '$EM-SMALL',
-})
-
-const Label = styled(LabelPrimitive.Root, {
-  marginBottom: 5,
-  display: 'block',
-  fontSize: '$EM-MEDIUM',
 })
 
 const SearchContainer = styled('div', {
@@ -336,7 +328,7 @@ export const Select: React.FC<SelectProps> = ({
                   placeholder={searchPlaceholder}
                   borderRadius="round"
                   padding="sm"
-                  fontSize="sm"
+                  fontSize="EM-SMALL"
                 />
               </SearchContainer>
               <Separator />
@@ -395,9 +387,7 @@ export const Select: React.FC<SelectProps> = ({
       </SelectContainer>
 
       {textError ? (
-        <Text style={{ marginTop: 5 }} component="span" variant="error">
-          {textError}
-        </Text>
+        <TextError style={{ marginTop: 5 }}>{textError}</TextError>
       ) : null}
     </Container>
   )
