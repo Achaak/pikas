@@ -1,5 +1,15 @@
 # @pikas-ui/button
 
+## 1.0.15
+
+### Patch Changes
+
+- Export IconStyleType
+- Updated dependencies
+  - @pikas-ui/icons@1.0.15
+  - @pikas-ui/loader@1.0.15
+  - @pikas-ui/styles@1.0.15
+
 ## 1.0.14
 
 ### Patch Changes

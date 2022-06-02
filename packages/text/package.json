@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/text",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "1.0.14",
+    "@pikas-ui/styles": "1.0.15",
     "@radix-ui/react-label": "^0.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

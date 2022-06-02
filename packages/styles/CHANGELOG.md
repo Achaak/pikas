@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.15
+
+### Patch Changes
+
+- Export IconStyleType
+
 ## 1.0.14
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @pikas-ui/table
 
+## 1.0.15
+
+### Patch Changes
+
+- Export IconStyleType
+- Updated dependencies
+  - @pikas-ui/checkbox@1.0.15
+  - @pikas-ui/icons@1.0.15
+  - @pikas-ui/loader@1.0.15
+  - @pikas-ui/select@1.0.15
+  - @pikas-ui/styles@1.0.15
+
 ## 1.0.14
 
 ### Patch Changes
