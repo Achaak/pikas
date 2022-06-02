@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "prettier": "latest",
-    "turbo": "^1.2.12"
+    "turbo": "^1.2.15"
   },
   "engines": {
     "npm": ">=7.0.0",

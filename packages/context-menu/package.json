@@ -1,5 +1,5 @@
 {
-  "name": "@pikas-ui/icons",
+  "name": "@pikas-ui/context-menu",
   "version": "1.0.15",
   "private": false,
   "description": "",
@@ -30,9 +30,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@iconify/react": "^3.2.2",
+    "@pikas-ui/icons": "1.0.15",
     "@pikas-ui/styles": "1.0.15",
-    "iconify-icon": "^0.0.6",
+    "@pikas-ui/menu": "1.0.15",
+    "@pikas-ui/loader": "1.0.15",
+    "@radix-ui/react-context-menu": "^0.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
