@@ -5,7 +5,8 @@ import React from 'react'
 
 export interface PuffLoaderProps {
   size: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
@@ -13,6 +14,7 @@ export interface PuffLoaderProps {
 export const PuffLoader: React.FC<PuffLoaderProps> = ({
   size,
   color,
+  colorHex,
   loading,
   speedMultiplier,
 }) => {
@@ -20,7 +22,7 @@ export const PuffLoader: React.FC<PuffLoaderProps> = ({
     <PuffLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={theme.colors[color].value}
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

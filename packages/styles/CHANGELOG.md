@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.14
+
+### Patch Changes
+
+- Add checkbox, select, table, text, textfield and update some components
+
 ## 1.0.13
 
 ### Patch Changes

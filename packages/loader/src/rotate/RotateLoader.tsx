@@ -6,7 +6,8 @@ import React from 'react'
 export interface RotateLoaderProps {
   size: number
   margin?: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
@@ -14,6 +15,7 @@ export interface RotateLoaderProps {
 export const RotateLoader: React.FC<RotateLoaderProps> = ({
   size,
   color,
+  colorHex,
   loading,
   margin,
   speedMultiplier,
@@ -23,7 +25,7 @@ export const RotateLoader: React.FC<RotateLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={theme.colors[color].value}
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

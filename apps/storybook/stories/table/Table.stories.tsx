@@ -1,343 +1,107 @@
 import { globalStyles } from '@pikas-ui/styles'
-import { Table } from '@pikas-ui/table'
+import { Table, TableVariantType } from '@pikas-ui/table'
 import type { TableProps } from '@pikas-ui/table'
 import type { Story, Meta } from '@storybook/react'
+
+type UserType = {
+  firstName: string
+  lastName: string
+  age: number
+  email: string
+  number: number
+}
 
 export default {
   title: '@pikas-ui/table',
   component: Table,
-  argTypes: {},
-} as Meta<TableProps>
+  argTypes: {
+    variant: {
+      description: 'The variant of the table',
+      type: {
+        name: 'enum',
+        value: Object.keys(TableVariantType),
+        required: false,
+      },
+    },
+    styles: {
+      description: 'The styles of the table',
+      type: {
+        name: 'object',
+        value: {},
+        required: false,
+      },
+    },
+    sorting: {
+      description: 'The sorting of the table',
+      type: {
+        name: 'object',
+        required: false,
+        value: {},
+      },
+    },
+    pagination: {
+      description: 'The pagination of the table',
+      type: {
+        name: 'object',
+        required: false,
+        value: {},
+      },
+    },
+    hasTfoot: {
+      description: 'Whether the table has a tfoot',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
+    padding: {
+      description: 'The padding of the table',
+      type: {
+        name: 'object',
+        value: {},
+        required: false,
+      },
+    },
+    selection: {
+      description: 'The selection of the table',
+      type: {
+        name: 'object',
+        required: false,
+        value: {},
+      },
+    },
+  },
+} as Meta<TableProps<UserType>>
 
-interface UserType {
-  firstName: string
-  lastName: string
-  age: number
-  visits: number
-  status: string
-  progress: number
-}
-
-const Template: Story<TableProps> = (args) => {
+const Template: Story<TableProps<UserType>> = (args) => {
   globalStyles()
 
   return <Table<UserType> {...args} />
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   data: [
     {
       firstName: 'tanner',
       lastName: 'linsley',
       age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
+      email: 'tanner@email.com',
+      number: 1234567890,
     },
     {
       firstName: 'tandy',
       lastName: 'miller',
       age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
+      email: 'tandy@email.com',
+      number: 1234567890,
     },
     {
       firstName: 'joe',
       lastName: 'dirte',
       age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
-    },
-    {
-      firstName: 'tanner',
-      lastName: 'linsley',
-      age: 24,
-      visits: 100,
-      status: 'In Relationship',
-      progress: 50,
-    },
-    {
-      firstName: 'tandy',
-      lastName: 'miller',
-      age: 40,
-      visits: 40,
-      status: 'Single',
-      progress: 80,
-    },
-    {
-      firstName: 'joe',
-      lastName: 'dirte',
-      age: 45,
-      visits: 20,
-      status: 'Complicated',
-      progress: 10,
+      email: 'joe@email.com',
+      number: 1234567890,
     },
   ],
   columns: [
@@ -350,19 +114,39 @@ Example.args = {
       type: 'group',
       header: 'Name',
       id: 'name',
+      style: {
+        justifyContent: 'center',
+      },
       group: [
         {
           type: 'data',
           header: 'First Name',
           id: 'firstName',
-          style: {
-            textAlign: 'center',
-          },
         },
         {
           type: 'data',
           header: 'Last Name',
           id: 'lastName',
+        },
+      ],
+    },
+    {
+      type: 'group',
+      header: 'Data',
+      id: 'data',
+      style: {
+        justifyContent: 'center',
+      },
+      group: [
+        {
+          type: 'data',
+          header: 'Email',
+          id: 'email',
+        },
+        {
+          type: 'data',
+          header: 'Number',
+          id: 'number',
         },
       ],
     },
@@ -389,4 +173,5 @@ Example.args = {
   pagination: {
     active: true,
   },
+  variant: 'default',
 }

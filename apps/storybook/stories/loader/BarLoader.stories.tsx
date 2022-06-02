@@ -5,6 +5,8 @@ import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
 
 export default {
@@ -12,29 +14,36 @@ export default {
   component: BarLoader,
   argTypes: {
     color: {
-      description: 'Color',
+      description: 'Color of the loader',
       type: {
         name: 'enum',
         value: Object.keys(Colors),
         required: true,
       },
     },
+    colorHex: {
+      description: 'Color hexadecimal value',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
     height: {
-      description: 'Height',
+      description: 'Height of the loader',
       type: {
         name: 'number',
         required: true,
       },
     },
     width: {
-      description: 'Width',
+      description: 'Width of the loader',
       type: {
         name: 'number',
         required: true,
       },
     },
     loading: {
-      description: 'Loader',
+      description: 'Loader is loading',
       type: {
         name: 'boolean',
         required: false,
@@ -60,8 +69,8 @@ const Template: Story<BarLoaderProps> = (args) => {
   )
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   color: 'PRIMARY',
   width: 60,
   height: 10,

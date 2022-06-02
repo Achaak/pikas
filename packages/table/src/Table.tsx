@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react'
 import type {
   OnChangeFn,
@@ -18,6 +19,8 @@ import { styled, theme } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { Pagination } from './pagination'
 import { findInColumns } from './utils'
+import { IconByName } from '@pikas-ui/icons'
+import { Checkbox } from '@pikas-ui/checkbox'
 
 const TableStyled = styled('table', {
   width: '100%',
@@ -39,6 +42,10 @@ const Thead = styled('thead', {
       default: {
         backgroundColor: '$PRIMARY',
         color: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
+
+        svg: {
+          fill: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
+        },
 
         tr: {
           borderTop: '1px solid',
@@ -66,7 +73,10 @@ const Thead = styled('thead', {
           },
         },
       },
-      light: {},
+      light: {
+        borderBottom: '1px solid',
+        borderColor: '$GRAY_LIGHT',
+      },
     },
   },
 })
@@ -117,7 +127,10 @@ const Tfoot = styled('tfoot', {
           },
         },
       },
-      light: {},
+      light: {
+        borderTop: '1px solid',
+        borderColor: '$GRAY',
+      },
     },
   },
 })
@@ -135,7 +148,16 @@ const Tr = styled('tr', {
           },
         },
       },
-      light: {},
+      light: {
+        transition: 'all 0.2s ease-in-out',
+
+        '&:hover': {
+          td: {
+            color: '$PRIMARY',
+            fontWeight: '$MEDIUM',
+          },
+        },
+      },
     },
   },
 })
@@ -147,7 +169,10 @@ const Th = styled('th', {
         textAlign: 'left',
         fontWeight: '$MEDIUM',
       },
-      light: {},
+      light: {
+        textAlign: 'left',
+        fontWeight: '$MEDIUM',
+      },
     },
     padding: {
       sm: {
@@ -164,6 +189,8 @@ const Th = styled('th', {
 })
 
 const ThSpan = styled('span', {
+  display: 'flex',
+
   variants: {
     variant: {
       default: {},
@@ -190,6 +217,10 @@ const Td = styled('td', {
       },
     },
   },
+})
+
+const TdContent = styled('div', {
+  display: 'flex',
 })
 
 interface Columns {
@@ -299,54 +330,46 @@ export const Table = <T extends Record<string, unknown>>({
   }: ColumnData<T>): Column =>
     table.createDataColumn(id, {
       header: () => header,
+      id: id,
       footer: (props: any) => props.column.id,
       enableSorting: enableSorting,
     } as any) // TODO: fix
 
-  const createGroupColumn = ({ header, group }: ColumnGroup<T>): Column =>
+  const createGroupColumn = ({ header, group, id }: ColumnGroup<T>): Column =>
     table.createGroup({
       header: header,
+      id: id,
       footer: (props) => props.column.id,
       columns: group.map((c) => createColumn(c)),
     })
 
   const columnsMemo = React.useMemo(
     () => [
-      table.createDisplayColumn({
-        id: 'select',
-        header: ({ instance }) => (
-          <input
-            type="checkbox"
-            {...{
-              checked: instance.getIsAllRowsSelected(),
-              indeterminate: `${instance.getIsSomeRowsSelected()}`,
-              onChange: instance.getToggleAllRowsSelectedHandler(),
-            }}
-          />
-        ),
-        footer: ({ instance }) => (
-          <input
-            type="checkbox"
-            {...{
-              checked: instance.getIsAllRowsSelected(),
-              indeterminate: `${instance.getIsSomeRowsSelected()}`,
-              onChange: instance.getToggleAllRowsSelectedHandler(),
-            }}
-          />
-        ),
-        cell: ({ row }) => (
-          <div className="px-1">
-            <input
-              type="checkbox"
-              {...{
-                checked: row.getIsSelected(),
-                indeterminate: `${row.getIsSomeSelected()}`,
-                onChange: row.getToggleSelectedHandler(),
-              }}
-            />
-          </div>
-        ),
-      }),
+      ...(selection?.active
+        ? [
+            table.createDisplayColumn({
+              id: 'select',
+              header: ({ instance }) => (
+                <Checkbox
+                  size={20}
+                  borderRadius="sm"
+                  checked={instance.getIsAllRowsSelected()}
+                  onChange={instance.toggleAllRowsSelected}
+                  indeterminate={instance.getIsSomeRowsSelected()}
+                />
+              ),
+              cell: ({ row }) => (
+                <Checkbox
+                  size={20}
+                  borderRadius="sm"
+                  checked={row.getIsSelected()}
+                  onChange={row.toggleSelected}
+                  indeterminate={row.getIsSomeSelected()}
+                />
+              ),
+            }),
+          ]
+        : []),
       ...columns.map((column) => createColumn(column)),
     ],
     []
@@ -423,7 +446,6 @@ export const Table = <T extends Record<string, unknown>>({
                   variant={variant}
                   css={{
                     ...styles?.th,
-                    ...findInColumns(header.id, columns)?.style,
                   }}
                   padding={padding?.th}
                 >
@@ -431,6 +453,7 @@ export const Table = <T extends Record<string, unknown>>({
                     <ThSpan
                       css={{
                         ...styles?.thSpan,
+                        ...findInColumns(header.column.id, columns)?.style,
                         ...(header.column.getCanSort()
                           ? {
                               cursor: 'pointer',
@@ -442,8 +465,28 @@ export const Table = <T extends Record<string, unknown>>({
                     >
                       {header.renderHeader()}
                       {{
-                        asc: ' 🔼',
-                        desc: ' 🔽',
+                        asc: (
+                          <IconByName
+                            name="bx:chevron-up"
+                            size="1em"
+                            styles={{
+                              container: {
+                                marginLeft: 4,
+                              },
+                            }}
+                          />
+                        ),
+                        desc: (
+                          <IconByName
+                            name="bx:chevron-down"
+                            size="1em"
+                            styles={{
+                              container: {
+                                marginLeft: 4,
+                              },
+                            }}
+                          />
+                        ),
                       }[header.column.getIsSorted() as string] ?? null}
                     </ThSpan>
                   )}
@@ -463,11 +506,16 @@ export const Table = <T extends Record<string, unknown>>({
                       variant={variant}
                       css={{
                         ...styles?.td,
-                        ...findInColumns(cell.column.id, columns)?.style,
                       }}
                       padding={padding?.td}
                     >
-                      {cell.renderCell()}
+                      <TdContent
+                        css={{
+                          ...findInColumns(cell.column.id, columns)?.style,
+                        }}
+                      >
+                        {cell.renderCell()}
+                      </TdContent>
                     </Td>
                   )
                 })}
@@ -486,7 +534,6 @@ export const Table = <T extends Record<string, unknown>>({
                     variant={variant}
                     css={{
                       ...styles?.th,
-                      ...findInColumns(header.id, columns)?.style,
                     }}
                     padding={padding?.th}
                   >
@@ -494,6 +541,7 @@ export const Table = <T extends Record<string, unknown>>({
                       <ThSpan
                         css={{
                           ...styles?.thSpan,
+                          ...findInColumns(header.column.id, columns)?.style,
                           ...(header.column.getCanSort()
                             ? {
                                 cursor: 'pointer',
@@ -505,8 +553,28 @@ export const Table = <T extends Record<string, unknown>>({
                       >
                         {header.renderHeader()}
                         {{
-                          asc: ' 🔼',
-                          desc: ' 🔽',
+                          asc: (
+                            <IconByName
+                              name="bx:chevron-up"
+                              size="1em"
+                              styles={{
+                                container: {
+                                  marginLeft: 4,
+                                },
+                              }}
+                            />
+                          ),
+                          desc: (
+                            <IconByName
+                              name="bx:chevron-down"
+                              size="1em"
+                              styles={{
+                                container: {
+                                  marginLeft: 4,
+                                },
+                              }}
+                            />
+                          ),
                         }[header.column.getIsSorted() as string] ?? null}
                       </ThSpan>
                     )}
@@ -525,7 +593,6 @@ export const Table = <T extends Record<string, unknown>>({
           nextPage={instance.nextPage}
           pageCount={instance.getPageCount()}
           pageIndex={instance.getState().pagination.pageIndex}
-          pageSize={instance.getState().pagination.pageSize}
           previousPage={instance.previousPage}
           selectValue={pagination.selectValue || [5, 10, 25, 50, 100]}
           setPageSize={instance.setPageSize}

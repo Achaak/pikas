@@ -70,8 +70,8 @@ const Template: Story<SeparatorProps> = (args) => {
   )
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   borderRadius: 'round',
   className: 'my-class',
   color: 'GRAY_LIGHTER',

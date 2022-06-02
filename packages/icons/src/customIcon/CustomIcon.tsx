@@ -1,6 +1,6 @@
-import type { ColorsType, CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
+import type { IconProps } from '../types'
 
 const Container = styled('div', {
   display: 'flex',
@@ -8,22 +8,15 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface IconProps {
+export interface CustomIconProps extends IconProps {
   children?: React.ReactNode
-  className?: string
-  size?: number | string
-  styles?: {
-    container?: CSS
-    svg?: CSS
-  }
-  color?: ColorsType | string
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 }
 
-export const Icon: React.FC<IconProps> = ({
+export const CustomIcon: React.FC<CustomIconProps> = ({
   children,
   className,
   color,
+  colorHex,
   onClick,
   size,
   styles,
@@ -35,14 +28,12 @@ export const Icon: React.FC<IconProps> = ({
       css={{
         ...styles?.container,
         svg: {
-          fill: color
-            ? color?.includes('#')
-              ? color
-              : `$${color}`
-            : undefined,
           width: size,
           height: size,
           ...styles?.svg,
+        },
+        '*': {
+          fill: (color ? `$${color}` : undefined) || colorHex,
         },
       }}
     >
