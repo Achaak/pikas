@@ -25,7 +25,7 @@ const slideLeftAndFade = keyframes({
 
 export const MenuContentStyle: CSS = {
   backgroundColor: '$WHITE',
-  br: 2,
+  br: 'md',
   padding: 8,
   boxShadow: '$ELEVATION_2',
 
@@ -55,7 +55,7 @@ export const MenuItemStyles: CSS = {
   all: 'unset',
   fontSize: '$EM-SMALL',
   color: '$BLACK',
-  br: 1,
+  br: 'sm',
   display: 'flex',
   alignItems: 'center',
   padding: 4,
@@ -197,7 +197,6 @@ interface RadioItem extends ItemDefault {
 interface MenuItem extends ItemDefault {
   type: 'menu'
   datas: MenuDatas
-  style?: CSS
 }
 
 export interface MenuData {
@@ -213,7 +212,6 @@ type ItemType = Item | CheckboxItem | RadioItem | MenuItem
 export interface MenuProps {
   datas: MenuDatas
   triggerItemLabel?: string
-  children?: React.ReactNode
   styles?: {
     content?: CSS
     separator?: CSS

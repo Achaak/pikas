@@ -3,7 +3,6 @@
 ## To-do list
 ### Features
 #### @pikas-ui/inputs
-- Add Textarea
 - Add Switch
 - Add Slider
 - Add Switch
@@ -20,3 +19,6 @@
 - @pikas-ui/text
 - @pikas-ui/textfield
 - @pikas-ui/tooltip
+- @pikas-ui/context-menu
+- @pikas-ui/dropdown-menu
+- @pikas-ui/textarea

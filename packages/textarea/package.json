@@ -1,7 +1,7 @@
 {
-  "name": "@pikas-ui/menu",
+  "name": "@pikas-ui/textarea",
   "version": "1.0.16",
-  "private": true,
+  "private": false,
   "description": "",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -31,7 +31,10 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@pikas-ui/icons": "1.0.16",
+    "@pikas-ui/loader": "1.0.16",
     "@pikas-ui/styles": "1.0.16",
+    "@pikas-ui/text": "1.0.16",
+    "font-color-contrast": "^11.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

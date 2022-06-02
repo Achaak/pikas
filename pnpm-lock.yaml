@@ -28,6 +28,7 @@ importers:
       '@pikas-ui/styles': 1.0.15
       '@pikas-ui/table': 1.0.15
       '@pikas-ui/text': 1.0.15
+      '@pikas-ui/textarea': 1.0.15
       '@pikas-ui/textfield': 1.0.15
       '@pikas-ui/tooltip': 1.0.15
       '@pikas-ui/tsconfig': workspace:*
@@ -62,6 +63,7 @@ importers:
       '@pikas-ui/styles': link:../../packages/styles
       '@pikas-ui/table': link:../../packages/table
       '@pikas-ui/text': link:../../packages/text
+      '@pikas-ui/textarea': link:../../packages/textarea
       '@pikas-ui/textfield': link:../../packages/textfield
       '@pikas-ui/tooltip': link:../../packages/tooltip
       http-server: 14.1.1
@@ -490,6 +492,43 @@ importers:
     dependencies:
       '@pikas-ui/styles': link:../styles
       '@radix-ui/react-label': 0.1.5_react@18.1.0
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@pikas-ui/config': link:../config
+      '@pikas-ui/tsconfig': link:../tsconfig
+      '@types/node': 17.0.38
+      '@types/react': 18.0.10
+      '@types/react-dom': 18.0.5
+      eslint: 8.16.0
+      tsup: 6.0.1_typescript@4.7.2
+      typescript: 4.7.2
+
+  packages/textarea:
+    specifiers:
+      '@pikas-ui/config': workspace:*
+      '@pikas-ui/icons': 1.0.15
+      '@pikas-ui/loader': 1.0.15
+      '@pikas-ui/styles': 1.0.15
+      '@pikas-ui/text': 1.0.15
+      '@pikas-ui/tsconfig': workspace:*
+      '@radix-ui/react-label': ^0.1.5
+      '@types/node': ^17.0.38
+      '@types/react': ^18.0.10
+      '@types/react-dom': ^18.0.5
+      eslint: ^8.16.0
+      font-color-contrast: ^11.1.0
+      react: ^18.1.0
+      react-dom: ^18.1.0
+      tsup: ^6.0.1
+      typescript: 4.7.2
+    dependencies:
+      '@pikas-ui/icons': link:../icons
+      '@pikas-ui/loader': link:../loader
+      '@pikas-ui/styles': link:../styles
+      '@pikas-ui/text': link:../text
+      '@radix-ui/react-label': 0.1.5_react@18.1.0
+      font-color-contrast: 11.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     devDependencies:

@@ -59,17 +59,53 @@ const Span = styled('span', {
   ...SpanStyle,
 })
 
+export const ContextMenuDirectionType = {
+  ltr: true,
+  rtl: true,
+}
 export type ContextMenuDatas = MenuDatas & Record<string, unknown>
-export type ContextMenuProps = MenuProps & Record<string, unknown>
+export interface ContextMenuProps extends MenuProps {
+  children?: React.ReactNode
+
+  onOpenChange?: (open: boolean) => void
+  modal?: boolean
+
+  allowPinchZoom?: boolean
+  loop?: boolean
+  direction?: keyof typeof ContextMenuDirectionType
+  onCloseAutoFocus?: (event: Event) => void
+  onEscapeKeyDown?: (event: KeyboardEvent) => void
+  onPointerDownOutside?: () => void
+  onFocusOutside?: () => void
+  onInteractOutside?: () => void
+  sideOffset?: number
+  alignOffset?: number
+  avoidCollisions?: boolean
+  collisionTolerance?: number
+}
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
   datas,
   triggerItemLabel,
   children,
   styles,
+  onOpenChange,
+  modal,
+  allowPinchZoom,
+  loop,
+  direction,
+  onCloseAutoFocus,
+  onEscapeKeyDown,
+  onPointerDownOutside,
+  onFocusOutside,
+  onInteractOutside,
+  sideOffset,
+  alignOffset,
+  avoidCollisions,
+  collisionTolerance,
 }) => {
   return (
-    <ContextMenuPrimitive.Root>
+    <ContextMenuPrimitive.Root onOpenChange={onOpenChange} modal={modal}>
       {triggerItemLabel ? (
         <TriggerItem>
           {triggerItemLabel}
@@ -83,7 +119,21 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
         </ContextMenuPrimitive.Trigger>
       )}
 
-      <Content sideOffset={5} css={styles?.content}>
+      <Content
+        css={styles?.content}
+        allowPinchZoom={allowPinchZoom}
+        loop={loop}
+        dir={direction}
+        onCloseAutoFocus={onCloseAutoFocus}
+        onEscapeKeyDown={onEscapeKeyDown}
+        onPointerDownOutside={onPointerDownOutside}
+        onFocusOutside={onFocusOutside}
+        onInteractOutside={onInteractOutside}
+        sideOffset={sideOffset}
+        alignOffset={alignOffset}
+        avoidCollisions={avoidCollisions}
+        collisionTolerance={collisionTolerance}
+      >
         {datas
           .map((data) => ({
             ...data,
@@ -222,7 +272,6 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                         key={`menu-${dataIndex}-${itemIndex}`}
                         datas={item.datas}
                         triggerItemLabel={item.label}
-                        css={item?.style}
                       />
                     )
                   }
@@ -239,8 +288,4 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
       </Content>
     </ContextMenuPrimitive.Root>
   )
-}
-
-ContextMenu.defaultProps = {
-  iconSize: 20,
 }

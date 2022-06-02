@@ -1,7 +1,7 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import type { ColorsType } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import React, { useState } from 'react'
+import React from 'react'
 
 import { ClipLoader } from '@pikas-ui/loader'
 import type { MenuDatas, MenuProps } from '@pikas-ui/menu'
@@ -64,37 +64,87 @@ const RightSlot = styled('div', {
   ...RightSlotStyle,
 })
 
+export const DropdownMenuSideType = {
+  left: true,
+  right: true,
+  top: true,
+  bottom: true,
+}
+
+export const DropdownMenuAlignType = {
+  center: true,
+  start: true,
+  end: true,
+}
+
+export const DropdownMenuDirectionType = {
+  ltr: true,
+  rtl: true,
+}
+
 export type DropdownMenuDatas = MenuDatas & Record<string, unknown>
 export interface DropdownMenuProps extends MenuProps {
-  stayOpen?: boolean
   triggerContent?: React.ReactNode
   iconColor?: ColorsType
-  openChange?: (open: boolean) => void
   iconSize?: number
+
+  direction?: keyof typeof DropdownMenuDirectionType
+  modal?: boolean
+  defaultOpen?: boolean
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+
+  allowPinchZoom?: boolean
+  loop?: boolean
+  onCloseAutoFocus?: (event: Event) => void
+  onEscapeKeyDown?: (event: KeyboardEvent) => void
+  onPointerDownOutside?: () => void
+  onFocusOutside?: () => void
+  onInteractOutside?: () => void
+  portalled?: boolean
+  side?: keyof typeof DropdownMenuSideType
+  sideOffset?: number
+  align?: keyof typeof DropdownMenuAlignType
+  alignOffset?: number
+  avoidCollisions?: boolean
+  collisionTolerance?: number
 }
 
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   datas,
   triggerItemLabel,
   triggerContent,
-  stayOpen,
   iconColor,
-  openChange,
+  onOpenChange,
   styles,
+  modal,
   iconSize,
+  open,
+  direction,
+  defaultOpen,
+  allowPinchZoom,
+  loop,
+  onCloseAutoFocus,
+  onEscapeKeyDown,
+  onPointerDownOutside,
+  onFocusOutside,
+  onInteractOutside,
+  portalled,
+  side,
+  sideOffset,
+  align,
+  alignOffset,
+  avoidCollisions,
+  collisionTolerance,
 }) => {
-  const [open, setOpen] = useState(false)
-
-  const handleOpenChange = (value: boolean): void => {
-    setOpen(value)
-    openChange?.(value)
-  }
-
   return (
     <>
       <DropdownMenuPrimitive.Root
-        open={stayOpen || open}
-        onOpenChange={handleOpenChange}
+        modal={modal}
+        open={open}
+        onOpenChange={onOpenChange}
+        dir={direction}
+        defaultOpen={defaultOpen}
       >
         {triggerItemLabel ? (
           <TriggerItem>
@@ -123,7 +173,23 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </DropdownMenuPrimitive.Trigger>
         )}
 
-        <Content sideOffset={5} css={styles?.content}>
+        <Content
+          css={styles?.content}
+          allowPinchZoom={allowPinchZoom}
+          loop={loop}
+          onCloseAutoFocus={onCloseAutoFocus}
+          onEscapeKeyDown={onEscapeKeyDown}
+          onPointerDownOutside={onPointerDownOutside}
+          onFocusOutside={onFocusOutside}
+          onInteractOutside={onInteractOutside}
+          portalled={portalled}
+          side={side}
+          sideOffset={sideOffset}
+          align={align}
+          alignOffset={alignOffset}
+          avoidCollisions={avoidCollisions}
+          collisionTolerance={collisionTolerance}
+        >
           {datas
             .map((data) => ({
               ...data,
@@ -259,7 +325,6 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       key={`menu-${dataIndex}-${i}`}
                       datas={item.datas}
                       triggerItemLabel={item.label}
-                      css={radio?.styles?.container}
                     />
                   )
                 }

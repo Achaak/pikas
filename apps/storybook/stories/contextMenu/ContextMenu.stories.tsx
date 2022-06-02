@@ -1,5 +1,5 @@
 import { globalStyles, styled } from '@pikas-ui/styles'
-import { ContextMenu } from '@pikas-ui/context-menu'
+import { ContextMenu, ContextMenuDirectionType } from '@pikas-ui/context-menu'
 import type { ContextMenuProps } from '@pikas-ui/context-menu'
 import type { Story, Meta } from '@storybook/react'
 
@@ -15,7 +15,127 @@ const Content = styled('div', {
 export default {
   title: '@pikas-ui/contextMenu',
   component: ContextMenu,
-  argTypes: {},
+  argTypes: {
+    sideOffset: {
+      description:
+        'The horizontal distance in pixels from the anchor. This only applies within submenus.',
+      type: {
+        name: 'number',
+        required: false,
+      },
+    },
+    direction: {
+      description: 'The direction of the menu',
+      control: {
+        type: 'enum',
+        value: Object.keys(ContextMenuDirectionType),
+        required: false,
+      },
+    },
+    alignOffset: {
+      description: 'The vertical distance in pixels from the anchor.',
+      type: {
+        name: 'number',
+        required: false,
+      },
+    },
+    allowPinchZoom: {
+      description:
+        'The allowPinchZoom prop from react-remove-scroll. See their docs for information on functionality and limitations.',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
+    avoidCollisions: {
+      description:
+        'When true, overrides the side andalign preferences to prevent collisions with window edges.',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
+    collisionTolerance: {
+      description:
+        'The distance in pixels from window edges where collision detection should occur.',
+      type: {
+        name: 'number',
+        required: false,
+      },
+    },
+    modal: {
+      description:
+        'The modality of the context menu. When set to true, interaction with outside elements will be disabled and only menu content will be visible to screen readers. This prop is ignored within submenus.',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
+    loop: {
+      description:
+        'When true, keyboard navigation will loop from last item to first, and vice versa.',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
+    onCloseAutoFocus: {
+      description:
+        'Event handler called when focus moves back after closing. It can be prevented by calling event.preventDefault. This prop is ignored within submenus.',
+      type: {
+        name: 'function',
+        required: false,
+      },
+    },
+    onEscapeKeyDown: {
+      description:
+        'Event handler called when the escape key is down. It can be prevented by calling event.preventDefault.',
+      type: {
+        name: 'function',
+        required: false,
+      },
+    },
+    onFocusOutside: {
+      description:
+        'Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.',
+      type: {
+        name: 'function',
+        required: false,
+      },
+    },
+    onInteractOutside: {
+      description:
+        'Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.',
+      type: {
+        name: 'function',
+        required: false,
+      },
+    },
+    onOpenChange: {
+      description:
+        'Event handler called when the open state of the context menu changes.',
+      type: {
+        name: 'function',
+        required: false,
+      },
+    },
+    onPointerDownOutside: {
+      description:
+        'Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling event.preventDefault.',
+      type: {
+        name: 'function',
+        required: false,
+      },
+    },
+    styles: {
+      description: 'Styles to override default styles',
+      type: {
+        name: 'object',
+        required: false,
+        value: {},
+      },
+    },
+  },
 } as Meta<ContextMenuProps>
 
 const Template: Story<ContextMenuProps> = (args) => {

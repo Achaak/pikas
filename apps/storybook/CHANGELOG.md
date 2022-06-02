@@ -1,5 +1,25 @@
 # @pikas-ui/storybook
 
+## 1.0.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/context-menu@1.0.16
+  - @pikas-ui/dropdown-menu@1.0.16
+  - @pikas-ui/button@1.0.16
+  - @pikas-ui/checkbox@1.0.16
+  - @pikas-ui/icons@1.0.16
+  - @pikas-ui/loader@1.0.16
+  - @pikas-ui/select@1.0.16
+  - @pikas-ui/separator@1.0.16
+  - @pikas-ui/styles@1.0.16
+  - @pikas-ui/table@1.0.16
+  - @pikas-ui/text@1.0.16
+  - @pikas-ui/textarea@1.0.16
+  - @pikas-ui/textfield@1.0.16
+  - @pikas-ui/tooltip@1.0.16
+
 ## 1.0.15
 
 ### Patch Changes

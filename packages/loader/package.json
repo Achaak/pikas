@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/loader",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "1.0.15",
+    "@pikas-ui/styles": "1.0.16",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-spinners": "^0.12.0"

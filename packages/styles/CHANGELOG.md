@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.16
+
+### Patch Changes
+
+- Create Textarea, Context Menu and Dropdown Menu
+
 ## 1.0.15
 
 ### Patch Changes

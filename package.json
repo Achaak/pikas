@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --parallel",
-    "dev:storybook": "turbo run dev --filter=@pikas-ui/storybook...",
+    "dev:storybook": "turbo run dev --parallel --filter=@pikas-ui/storybook...",
     "start": "turbo run start --parallel",
     "lint": "turbo run lint",
     "format": "turbo run format",
