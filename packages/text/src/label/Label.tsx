@@ -6,7 +6,6 @@ import React from 'react'
 const LabelStyled = styled(LabelPrimitive.Label, {
   fontSize: '$EM-SMALL',
   fontWeight: '$MEDIUM',
-  marginBottom: 4,
   display: 'block',
 })
 

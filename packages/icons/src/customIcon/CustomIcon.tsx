@@ -16,6 +16,7 @@ export const CustomIcon: React.FC<CustomIconProps> = ({
   children,
   className,
   color,
+  colorHex,
   onClick,
   size,
   styles,
@@ -32,11 +33,7 @@ export const CustomIcon: React.FC<CustomIconProps> = ({
           ...styles?.svg,
         },
         '*': {
-          fill: color
-            ? color?.includes('#')
-              ? color
-              : `$${color}`
-            : undefined,
+          fill: (color ? `$${color}` : undefined) || colorHex,
         },
       }}
     >

@@ -14,7 +14,7 @@ import {
 } from '@pikas-ui/tooltip'
 import type { TooltipProps } from '@pikas-ui/tooltip'
 import type { Story, Meta } from '@storybook/react'
-import { Icon } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 
 export default {
   title: '@pikas-ui/tooltip',
@@ -190,13 +190,13 @@ const Template: Story<TooltipProps> = (args) => {
 
   return (
     <Tooltip {...args}>
-      <Icon size={40} name="bx:baguette" />
+      <IconByName size={40} name="bx:baguette" />
     </Tooltip>
   )
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   content: 'Tooltip',
   backgroundColor: 'WHITE',
   align: 'center',

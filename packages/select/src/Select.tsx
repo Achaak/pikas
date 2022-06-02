@@ -1,29 +1,18 @@
-import type { ColorsType, CSS } from '@pikas-ui/styles'
+import type {
+  BorderRadiusType,
+  ColorsType,
+  CSS,
+  FontsSizesType,
+  ShadowsType,
+} from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
 import { Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Container = styled('div', {
-  variants: {
-    fontSize: {
-      xs: {
-        fontSize: '$EM-X-SMALL',
-      },
-      sm: {
-        fontSize: '$EM-SMALL',
-      },
-      md: {
-        fontSize: '$EM-MEDIUM',
-      },
-      lg: {
-        fontSize: '$EM-LARGE',
-      },
-    },
-  },
-})
+const Container = styled('div', {})
 
 const SelectContainer = styled(SelectPrimitive.Root, {})
 
@@ -33,33 +22,12 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   alignItems: 'center',
   justifyContent: 'space-between',
   boxSizing: 'border-box',
-  br: 'sm',
-  padding: '0 16px',
   cursor: 'pointer',
-  borderWidth: 2,
   borderStyle: 'solid',
-  borderColor: `$GRAY_LIGHTER`,
   width: '100%',
 
   variants: {
-    borderRadius: {
-      sm: {
-        br: 'sm',
-      },
-      md: {
-        br: 'md',
-      },
-      lg: {
-        br: 'lg',
-      },
-      round: {
-        br: 'round',
-      },
-    },
     padding: {
-      none: {
-        padding: 0,
-      },
       xs: {
         padding: '2px 4px',
       },
@@ -73,11 +41,13 @@ const Trigger = styled(SelectPrimitive.Trigger, {
         padding: '16px 32px',
       },
     },
-  },
-
-  defaultVariants: {
-    padding: 'md',
-    borderRadius: 'md',
+    focus: {
+      true: {
+        outline: 'solid',
+        outlineColor: '$PRIMARY',
+        outlineWidth: 2,
+      },
+    },
   },
 })
 
@@ -89,7 +59,6 @@ const Icon = styled(SelectPrimitive.Icon, {
 
 const Content = styled(SelectPrimitive.Content, {
   backgroundColor: '$WHITE',
-  br: 'sm',
   boxShadow: '$ELEVATION_1',
 })
 
@@ -176,6 +145,18 @@ export type SelectItemType = {
   hidden?: boolean
 }
 
+export const SelectDirectionsType = {
+  ltr: true,
+  rtl: true,
+}
+
+export const SelectPaddingType = {
+  xs: true,
+  sm: true,
+  md: true,
+  lg: true,
+}
+
 export interface SelectProps {
   styles?: {
     selectContainer?: CSS
@@ -185,10 +166,11 @@ export interface SelectProps {
   searchPlaceholder?: string
 
   label?: string
-  borderRadius?: 'round' | 'sm' | 'md' | 'lg'
-  padding?: 'none' | 'xs' | 'sm' | 'md' | 'lg'
-  fontSize?: 'xs' | 'sm' | 'md' | 'lg'
-  border?: 'none' | ColorsType
+  borderRadius?: BorderRadiusType
+  padding?: keyof typeof SelectPaddingType
+  fontSize?: FontsSizesType
+  borderColor?: ColorsType
+  borderWidth?: number
   data: {
     name?: string
     hidden?: boolean
@@ -196,13 +178,15 @@ export interface SelectProps {
   }[]
   id?: string
   onChange?: (value: string) => void
-  setFieldValue?: (id: string, value: string) => void
   defaultValue: string
   ariaLabel?: string
   textError?: string
-  dir?: 'ltr' | 'rtl'
+  direction?: keyof typeof SelectDirectionsType
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
+  boxShadow?: ShadowsType | 'none'
+  backgroundColor?: ColorsType
+  outline?: boolean
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -215,18 +199,22 @@ export const Select: React.FC<SelectProps> = ({
   searchPlaceholder,
   id,
   ariaLabel,
-  setFieldValue,
   borderRadius,
   padding,
   textError,
-  dir,
+  direction,
   onOpenChange,
   defaultOpen,
-  border,
+  borderColor,
+  borderWidth,
   fontSize,
+  boxShadow,
+  backgroundColor,
+  outline,
 }) => {
   const [searchValue, setSearchValue] = useState('')
   const [formatedData, setFormatedData] = useState(data)
+  const [focus, setFocus] = useState(false)
 
   useEffect(() => {
     setFormatedData(
@@ -251,10 +239,6 @@ export const Select: React.FC<SelectProps> = ({
 
   const handleChange = (value: string): void => {
     onChange?.(value)
-
-    if (id) {
-      setFieldValue?.(id, value)
-    }
   }
 
   const handleOpenChange = (open: boolean): void => {
@@ -265,29 +249,27 @@ export const Select: React.FC<SelectProps> = ({
     }
   }
 
-  const getIconSize = (): number => {
-    switch (fontSize) {
-      case 'xs':
-        return 12
-      case 'sm':
-        return 16
-      case 'md':
-        return 20
-      case 'lg':
-        return 24
-      default:
-        return 16
-    }
-  }
-
   return (
-    <Container fontSize={fontSize}>
-      {label ? <Label htmlFor={id}>{label}</Label> : null}
+    <Container
+      css={{
+        fontSize: `$${fontSize}`,
+      }}
+    >
+      {label ? (
+        <Label
+          htmlFor={id}
+          style={{
+            marginBottom: 4,
+          }}
+        >
+          {label}
+        </Label>
+      ) : null}
 
       <SelectContainer
         defaultValue={defaultValue}
         onValueChange={handleChange}
-        dir={dir}
+        dir={direction}
         onOpenChange={handleOpenChange}
         defaultOpen={defaultOpen}
         css={{
@@ -296,30 +278,30 @@ export const Select: React.FC<SelectProps> = ({
       >
         <Trigger
           aria-label={ariaLabel}
-          borderRadius={borderRadius}
           padding={padding}
+          focus={outline ? focus : undefined}
+          onFocus={(): void => setFocus(true)}
+          onBlur={(): void => setFocus(false)}
           css={{
+            br: borderRadius,
+            borderColor: `$${borderColor}`,
+            borderWidth: borderWidth,
+            boxShadow: `$${boxShadow}`,
+            backgroundColor: `$${backgroundColor}`,
             ...styles?.trigger,
-            ...(border === 'none'
-              ? {
-                  borderWidth: 0,
-                }
-              : {
-                  borderColor: border,
-                }),
           }}
         >
           <SelectValue />
           <Icon>
-            <IconByName
-              name="bx:chevron-down"
-              size={getIconSize()}
-              color="BLACK"
-            />
+            <IconByName name="bx:chevron-down" size="1em" color="BLACK" />
           </Icon>
         </Trigger>
 
-        <Content>
+        <Content
+          css={{
+            br: borderRadius,
+          }}
+        >
           {hasSearch ? (
             <>
               <SearchContainer>
@@ -394,5 +376,12 @@ export const Select: React.FC<SelectProps> = ({
 }
 
 Select.defaultProps = {
-  fontSize: 'md',
+  fontSize: 'EM-MEDIUM',
+  padding: 'md',
+  borderColor: 'TRANSPARENT',
+  borderWidth: 0,
+  borderRadius: 'md',
+  boxShadow: 'DIMINUTION_1',
+  backgroundColor: 'GRAY_LIGHTEST_1',
+  outline: true,
 }

@@ -5,6 +5,8 @@ import type { Story, Meta } from '@storybook/react'
 
 const Container = styled('div', {
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
 
 export default {
@@ -12,15 +14,22 @@ export default {
   component: PacmanLoader,
   argTypes: {
     color: {
-      description: 'Color',
+      description: 'Color of the loader',
       type: {
         name: 'enum',
         value: Object.keys(Colors),
         required: true,
       },
     },
+    colorHex: {
+      description: 'Color hexadecimal value',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
     loading: {
-      description: 'Loader',
+      description: 'Loader is loading',
       type: {
         name: 'boolean',
         required: false,
@@ -34,14 +43,14 @@ export default {
       },
     },
     size: {
-      description: 'Size',
+      description: 'Size of the loader',
       type: {
         name: 'number',
         required: false,
       },
     },
     margin: {
-      description: 'Margin',
+      description: 'Margin of the loader',
       type: {
         name: 'number',
         required: false,
@@ -60,9 +69,9 @@ const Template: Story<PacmanLoaderProps> = (args) => {
   )
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   color: 'PRIMARY',
-  size: 60,
+  size: 20,
   loading: true,
 }

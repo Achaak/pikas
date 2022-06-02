@@ -6,7 +6,8 @@ import React from 'react'
 export interface RiseLoaderProps {
   size: number
   margin?: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
@@ -14,6 +15,7 @@ export interface RiseLoaderProps {
 export const RiseLoader: React.FC<RiseLoaderProps> = ({
   size,
   color,
+  colorHex,
   loading,
   margin,
   speedMultiplier,
@@ -23,13 +25,7 @@ export const RiseLoader: React.FC<RiseLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={
-        color
-          ? color?.includes('#')
-            ? color
-            : theme.colors[color as ColorsType].value
-          : undefined
-      }
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

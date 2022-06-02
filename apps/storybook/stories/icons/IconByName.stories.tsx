@@ -12,7 +12,7 @@ export default {
   component: IconByName,
   argTypes: {
     color: {
-      description: 'Color',
+      description: 'Color of the icon',
       type: {
         name: 'enum',
         value: Object.keys(Colors),
@@ -20,14 +20,14 @@ export default {
       },
     },
     size: {
-      description: 'Size',
+      description: 'Size of the icon',
       type: {
         name: 'number',
         required: false,
       },
     },
     className: {
-      description: 'Class name',
+      description: 'Class name of the icon',
       type: {
         name: 'string',
         required: false,
@@ -41,7 +41,7 @@ export default {
       },
     },
     styles: {
-      description: 'Styles',
+      description: 'Styles object',
       type: {
         name: 'object',
         required: false,
@@ -52,6 +52,13 @@ export default {
       type: {
         name: 'string',
         required: true,
+      },
+    },
+    colorHex: {
+      description: 'Color hexadecimal value',
+      type: {
+        name: 'string',
+        required: false,
       },
     },
   },
@@ -67,8 +74,8 @@ const Template: Story<IconByNameProps> = (args) => {
   )
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   name: 'bx:baguette',
   color: 'PRIMARY',
   className: 'test',

@@ -20,6 +20,7 @@ import fontColorContrast from 'font-color-contrast'
 import { Pagination } from './pagination'
 import { findInColumns } from './utils'
 import { IconByName } from '@pikas-ui/icons'
+import { Checkbox } from '@pikas-ui/checkbox'
 
 const TableStyled = styled('table', {
   width: '100%',
@@ -344,41 +345,31 @@ export const Table = <T extends Record<string, unknown>>({
 
   const columnsMemo = React.useMemo(
     () => [
-      table.createDisplayColumn({
-        id: 'select',
-        header: ({ instance }) => (
-          <input
-            type="checkbox"
-            {...{
-              checked: instance.getIsAllRowsSelected(),
-              indeterminate: `${instance.getIsSomeRowsSelected()}`,
-              onChange: instance.getToggleAllRowsSelectedHandler(),
-            }}
-          />
-        ),
-        footer: ({ instance }) => (
-          <input
-            type="checkbox"
-            {...{
-              checked: instance.getIsAllRowsSelected(),
-              indeterminate: `${instance.getIsSomeRowsSelected()}`,
-              onChange: instance.getToggleAllRowsSelectedHandler(),
-            }}
-          />
-        ),
-        cell: ({ row }) => (
-          <div className="px-1">
-            <input
-              type="checkbox"
-              {...{
-                checked: row.getIsSelected(),
-                indeterminate: `${row.getIsSomeSelected()}`,
-                onChange: row.getToggleSelectedHandler(),
-              }}
-            />
-          </div>
-        ),
-      }),
+      ...(selection?.active
+        ? [
+            table.createDisplayColumn({
+              id: 'select',
+              header: ({ instance }) => (
+                <Checkbox
+                  size={20}
+                  borderRadius="sm"
+                  checked={instance.getIsAllRowsSelected()}
+                  onChange={instance.toggleAllRowsSelected}
+                  indeterminate={instance.getIsSomeRowsSelected()}
+                />
+              ),
+              cell: ({ row }) => (
+                <Checkbox
+                  size={20}
+                  borderRadius="sm"
+                  checked={row.getIsSelected()}
+                  onChange={row.toggleSelected}
+                  indeterminate={row.getIsSomeSelected()}
+                />
+              ),
+            }),
+          ]
+        : []),
       ...columns.map((column) => createColumn(column)),
     ],
     []
@@ -477,13 +468,10 @@ export const Table = <T extends Record<string, unknown>>({
                         asc: (
                           <IconByName
                             name="bx:chevron-up"
+                            size="1em"
                             styles={{
                               container: {
                                 marginLeft: 4,
-                              },
-                              svg: {
-                                height: `1em`,
-                                width: `1em`,
                               },
                             }}
                           />
@@ -491,13 +479,10 @@ export const Table = <T extends Record<string, unknown>>({
                         desc: (
                           <IconByName
                             name="bx:chevron-down"
+                            size="1em"
                             styles={{
                               container: {
                                 marginLeft: 4,
-                              },
-                              svg: {
-                                height: `1em`,
-                                width: `1em`,
                               },
                             }}
                           />
@@ -571,13 +556,10 @@ export const Table = <T extends Record<string, unknown>>({
                           asc: (
                             <IconByName
                               name="bx:chevron-up"
+                              size="1em"
                               styles={{
                                 container: {
                                   marginLeft: 4,
-                                },
-                                svg: {
-                                  height: `1em`,
-                                  width: `1em`,
                                 },
                               }}
                             />
@@ -585,13 +567,10 @@ export const Table = <T extends Record<string, unknown>>({
                           desc: (
                             <IconByName
                               name="bx:chevron-down"
+                              size="1em"
                               styles={{
                                 container: {
                                   marginLeft: 4,
-                                },
-                                svg: {
-                                  height: `1em`,
-                                  width: `1em`,
                                 },
                               }}
                             />
@@ -614,7 +593,6 @@ export const Table = <T extends Record<string, unknown>>({
           nextPage={instance.nextPage}
           pageCount={instance.getPageCount()}
           pageIndex={instance.getState().pagination.pageIndex}
-          pageSize={instance.getState().pagination.pageSize}
           previousPage={instance.previousPage}
           selectValue={pagination.selectValue || [5, 10, 25, 50, 100]}
           setPageSize={instance.setPageSize}

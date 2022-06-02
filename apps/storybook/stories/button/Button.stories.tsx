@@ -22,7 +22,7 @@ export default {
   component: Button,
   argTypes: {
     LeftIcon: {
-      description: 'Left Icon',
+      description: 'Left Icon of the button',
       type: {
         name: 'other',
         value: 'Icon',
@@ -30,7 +30,7 @@ export default {
       },
     },
     RightIcon: {
-      description: 'Right Icon',
+      description: 'Right Icon of the button',
       type: {
         name: 'other',
         value: 'Icon',
@@ -38,7 +38,7 @@ export default {
       },
     },
     borderRadius: {
-      description: 'Border radius',
+      description: 'Border radius of the button',
       type: {
         name: 'enum',
         value: Object.keys(BorderRadius),
@@ -46,7 +46,7 @@ export default {
       },
     },
     color: {
-      description: 'Color',
+      description: 'Color of the button',
       type: {
         name: 'enum',
         value: Object.keys(Colors),
@@ -54,28 +54,28 @@ export default {
       },
     },
     disabled: {
-      description: 'Disabled',
+      description: 'Disabled state of the button',
       type: {
         name: 'boolean',
         required: false,
       },
     },
     fullWidth: {
-      description: 'Full width',
+      description: 'Full width of the button',
       type: {
         name: 'boolean',
         required: false,
       },
     },
     loading: {
-      description: 'Loader',
+      description: 'Loader state of the button',
       type: {
         name: 'boolean',
         required: false,
       },
     },
     fontSize: {
-      description: 'Font size',
+      description: 'Font size of the button',
       type: {
         name: 'enum',
         value: Object.keys(FontSizes),
@@ -90,7 +90,7 @@ export default {
       },
     },
     fontWeight: {
-      description: 'Font weight',
+      description: 'Font weight of the button',
       type: {
         name: 'enum',
         value: Object.keys(FontWeights),
@@ -98,35 +98,35 @@ export default {
       },
     },
     href: {
-      description: 'HREF',
+      description: 'HREF of the button',
       type: {
         name: 'string',
         required: false,
       },
     },
     id: {
-      description: 'ID',
+      description: 'ID of the button',
       type: {
         name: 'string',
         required: false,
       },
     },
     name: {
-      description: 'Name',
+      description: 'Name of the button',
       type: {
         name: 'string',
         required: false,
       },
     },
     outlined: {
-      description: 'Outlined',
+      description: 'Outlined state of the button',
       type: {
         name: 'boolean',
         required: false,
       },
     },
     padding: {
-      description: 'Padding',
+      description: 'Padding of the button',
       type: {
         name: 'enum',
         value: Object.keys(ButtonPaddingType),
@@ -134,7 +134,7 @@ export default {
       },
     },
     effect: {
-      description: 'Effect',
+      description: 'Effect of the button',
       type: {
         name: 'enum',
         value: Object.keys(ButtonEffectType),
@@ -142,7 +142,7 @@ export default {
       },
     },
     gap: {
-      description: 'Gap',
+      description: 'Gap of the button',
       type: {
         name: 'enum',
         value: Object.keys(ButtonPaddingType),
@@ -150,7 +150,7 @@ export default {
       },
     },
     type: {
-      description: 'Type',
+      description: 'Type of the button',
       type: {
         name: 'enum',
         value: Object.keys(ButtonTypeType),
@@ -158,7 +158,7 @@ export default {
       },
     },
     textTransform: {
-      description: 'Text transform',
+      description: 'Text transform of the button',
       type: {
         name: 'enum',
         value: Object.keys(ButtonTextTransformType),
@@ -166,17 +166,24 @@ export default {
       },
     },
     form: {
-      description: 'Form',
+      description: 'Form of the button',
       type: {
         name: 'string',
         required: false,
       },
     },
     style: {
-      description: 'Style',
+      description: 'Style of the button',
       type: {
         name: 'object',
         value: {},
+        required: false,
+      },
+    },
+    borderWidth: {
+      description: 'Border width of the button',
+      type: {
+        name: 'number',
         required: false,
       },
     },

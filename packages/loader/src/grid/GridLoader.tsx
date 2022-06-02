@@ -6,7 +6,8 @@ import React from 'react'
 export interface GridLoaderProps {
   size: number
   margin?: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
@@ -15,6 +16,7 @@ export const GridLoader: React.FC<GridLoaderProps> = ({
   size,
   margin,
   color,
+  colorHex,
   loading,
   speedMultiplier,
 }) => {
@@ -23,13 +25,7 @@ export const GridLoader: React.FC<GridLoaderProps> = ({
       size={size}
       speedMultiplier={speedMultiplier}
       margin={margin}
-      color={
-        color
-          ? color?.includes('#')
-            ? color
-            : theme.colors[color as ColorsType].value
-          : undefined
-      }
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

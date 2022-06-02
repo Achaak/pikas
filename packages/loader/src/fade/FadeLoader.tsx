@@ -8,7 +8,8 @@ export interface FadeLoaderProps {
   width: number
   radius?: number
   margin?: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
 }
 
@@ -18,6 +19,7 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
   radius,
   margin,
   color,
+  colorHex,
   loading,
 }) => {
   return (
@@ -26,13 +28,7 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
       width={width}
       radius={radius}
       margin={margin}
-      color={
-        color
-          ? color?.includes('#')
-            ? color
-            : theme.colors[color as ColorsType].value
-          : undefined
-      }
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

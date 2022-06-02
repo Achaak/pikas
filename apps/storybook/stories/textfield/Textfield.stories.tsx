@@ -8,7 +8,6 @@ import {
 } from '@pikas-ui/styles'
 import {
   Textfield,
-  TextfieldBorderWidthType,
   TextfieldPaddingType,
   TextfieldTypeType,
 } from '@pikas-ui/textfield'
@@ -67,8 +66,7 @@ export default {
     borderWidth: {
       description: 'The border width of the textfield',
       type: {
-        name: 'enum',
-        value: Object.keys(TextfieldBorderWidthType),
+        name: 'number',
         required: false,
       },
     },
@@ -158,6 +156,36 @@ export default {
       type: {
         name: 'object',
         value: {},
+        required: false,
+      },
+    },
+    LeftIcon: {
+      description: 'The left icon of the textfield',
+      type: {
+        name: 'object',
+        value: {},
+        required: false,
+      },
+    },
+    RightIcon: {
+      description: 'The right icon of the textfield',
+      type: {
+        name: 'object',
+        value: {},
+        required: false,
+      },
+    },
+    outline: {
+      description: 'The outline of the textfield',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
+    placeholder: {
+      description: 'The placeholder of the textfield',
+      type: {
+        name: 'string',
         required: false,
       },
     },

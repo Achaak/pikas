@@ -28,7 +28,6 @@ const ButtonDOM = styled('button', {
   justifyContent: 'center',
   userSelect: 'none',
   space: 2,
-  borderWidth: 2,
   borderStyle: 'solid',
   position: 'relative',
   boxShadow: '$ELEVATION_BOTTOM_1',
@@ -178,6 +177,7 @@ export interface ButtonProps {
   href?: string
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
+  borderWidth?: number
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -205,6 +205,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       LeftIcon,
       RightIcon,
       outlined,
+      borderWidth,
     },
     ref
   ) {
@@ -234,27 +235,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               opacity: loading ? 0 : 1,
             }}
           >
-            {LeftIcon ? (
-              <LeftIcon
-                styles={{
-                  svg: {
-                    height: `1em`,
-                    width: `1em`,
-                  },
-                }}
-              />
-            ) : null}
+            {LeftIcon ? <LeftIcon size="1em" /> : null}
             <span>{children}</span>
-            {RightIcon ? (
-              <RightIcon
-                styles={{
-                  svg: {
-                    height: `1em`,
-                    width: `1em`,
-                  },
-                }}
-              />
-            ) : null}
+            {RightIcon ? <RightIcon size="1em" /> : null}
           </Content>
         </>
       )
@@ -306,7 +289,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             width: fullWidth ? '100%' : 'auto',
             br: borderRadius,
             fontWeight: `$${fontWeight}`,
-
+            borderWidth: borderWidth,
             fontSize: `$${fontSize}`,
 
             ...getColors(),
@@ -333,7 +316,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           width: fullWidth ? '100%' : 'auto',
           br: borderRadius,
           fontWeight: `$${fontWeight}`,
-
+          borderWidth: borderWidth,
           fontSize: `$${fontSize}`,
 
           ...getColors(),
@@ -359,4 +342,5 @@ Button.defaultProps = {
   fontWeight: 'NORMAL',
   gap: 'md',
   effect: 'opacity',
+  borderWidth: 2,
 }

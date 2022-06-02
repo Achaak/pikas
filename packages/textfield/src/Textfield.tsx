@@ -11,7 +11,7 @@ import { styled } from '@pikas-ui/styles'
 import { Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import fontColorContrast from 'font-color-contrast'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 const Container = styled('div', {
   width: '100%',
@@ -25,19 +25,9 @@ const InputContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  borderStyle: 'solid',
 
   variants: {
-    borderWidth: {
-      sm: {
-        borderWidth: 1,
-      },
-      md: {
-        borderWidth: 2,
-      },
-      lg: {
-        borderWidth: 3,
-      },
-    },
     padding: {
       sm: {
         padding: '4px 8px',
@@ -47,6 +37,13 @@ const InputContainer = styled('div', {
       },
       lg: {
         padding: '16px 32px',
+      },
+    },
+    focus: {
+      true: {
+        outline: 'solid',
+        outlineColor: '$PRIMARY',
+        outlineWidth: 2,
       },
     },
   },
@@ -124,12 +121,6 @@ export const TextfieldPaddingType = {
   lg: true,
 }
 
-export const TextfieldBorderWidthType = {
-  sm: true,
-  md: true,
-  lg: true,
-}
-
 export type TextfieldProps = {
   placeholder?: string
   type?: keyof typeof TextfieldTypeType
@@ -141,8 +132,8 @@ export type TextfieldProps = {
   padding?: keyof typeof TextfieldPaddingType
   fontSize?: FontsSizesType
   borderColor?: ColorsType
+  borderWidth?: number
   backgroundColor?: ColorsType
-  borderWidth?: keyof typeof TextfieldBorderWidthType
   textError?: string
 
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -157,6 +148,7 @@ export type TextfieldProps = {
   }
   min?: number
   max?: number
+  outline?: boolean
 }
 
 export const Textfield: React.FC<TextfieldProps> = ({
@@ -181,8 +173,10 @@ export const Textfield: React.FC<TextfieldProps> = ({
   LeftIcon,
   RightIcon,
   backgroundColor,
+  outline,
 }) => {
   const ref = useRef<HTMLInputElement>(null)
+  const [focus, setFocus] = useState(false)
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (type === 'number' && ref.current) {
@@ -207,16 +201,26 @@ export const Textfield: React.FC<TextfieldProps> = ({
         ...styles?.container,
       }}
     >
-      {label ? <Label htmlFor={id}>{label}</Label> : null}
+      {label ? (
+        <Label
+          htmlFor={id}
+          style={{
+            marginBottom: 4,
+          }}
+        >
+          {label}
+        </Label>
+      ) : null}
 
       <InputContainer
-        borderWidth={borderWidth}
         padding={padding}
+        focus={outline ? focus : undefined}
         css={{
           br: borderRadius,
           borderColor: `$${borderColor}`,
           backgroundColor: `$${backgroundColor}`,
           boxShadow: `$${boxShadow}`,
+          borderWidth: borderWidth,
           ...styles?.inputContainer,
         }}
       >
@@ -231,16 +235,11 @@ export const Textfield: React.FC<TextfieldProps> = ({
             }}
           >
             <LeftIcon
-              styles={{
-                svg: {
-                  height: `1em`,
-                  width: `1em`,
-                  color: fontColorContrast(
-                    theme.colors[backgroundColor || 'WHITE'].value,
-                    0.7
-                  ),
-                },
-              }}
+              size="1em"
+              colorHex={fontColorContrast(
+                theme.colors[backgroundColor || 'WHITE'].value,
+                0.7
+              )}
             />
           </LeftContainer>
         )}
@@ -255,6 +254,8 @@ export const Textfield: React.FC<TextfieldProps> = ({
           autoComplete={autoComplete}
           min={min}
           max={max}
+          onFocus={(): void => setFocus(true)}
+          onBlur={(): void => setFocus(false)}
           css={{
             ...styles?.input,
             color: fontColorContrast(
@@ -274,16 +275,11 @@ export const Textfield: React.FC<TextfieldProps> = ({
             }}
           >
             <RightIcon
-              styles={{
-                svg: {
-                  height: `1em`,
-                  width: `1em`,
-                  color: fontColorContrast(
-                    theme.colors[backgroundColor || 'WHITE'].value,
-                    0.7
-                  ),
-                },
-              }}
+              size="1em"
+              colorHex={fontColorContrast(
+                theme.colors[backgroundColor || 'WHITE'].value,
+                0.7
+              )}
             />
           </RightContainer>
         )}
@@ -297,6 +293,9 @@ export const Textfield: React.FC<TextfieldProps> = ({
 Textfield.defaultProps = {
   padding: 'md',
   borderRadius: 'md',
+  borderColor: 'TRANSPARENT',
+  borderWidth: 0,
   backgroundColor: 'GRAY_LIGHTEST_1',
   boxShadow: 'DIMINUTION_1',
+  outline: true,
 }

@@ -1,5 +1,5 @@
 import { globalStyles } from '@pikas-ui/styles'
-import { Table } from '@pikas-ui/table'
+import { Table, TableVariantType } from '@pikas-ui/table'
 import type { TableProps } from '@pikas-ui/table'
 import type { Story, Meta } from '@storybook/react'
 
@@ -14,7 +14,63 @@ type UserType = {
 export default {
   title: '@pikas-ui/table',
   component: Table,
-  argTypes: {},
+  argTypes: {
+    variant: {
+      description: 'The variant of the table',
+      type: {
+        name: 'enum',
+        value: Object.keys(TableVariantType),
+        required: false,
+      },
+    },
+    styles: {
+      description: 'The styles of the table',
+      type: {
+        name: 'object',
+        value: {},
+        required: false,
+      },
+    },
+    sorting: {
+      description: 'The sorting of the table',
+      type: {
+        name: 'object',
+        required: false,
+        value: {},
+      },
+    },
+    pagination: {
+      description: 'The pagination of the table',
+      type: {
+        name: 'object',
+        required: false,
+        value: {},
+      },
+    },
+    hasTfoot: {
+      description: 'Whether the table has a tfoot',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
+    padding: {
+      description: 'The padding of the table',
+      type: {
+        name: 'object',
+        value: {},
+        required: false,
+      },
+    },
+    selection: {
+      description: 'The selection of the table',
+      type: {
+        name: 'object',
+        required: false,
+        value: {},
+      },
+    },
+  },
 } as Meta<TableProps<UserType>>
 
 const Template: Story<TableProps<UserType>> = (args) => {
@@ -23,8 +79,8 @@ const Template: Story<TableProps<UserType>> = (args) => {
   return <Table<UserType> {...args} />
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   data: [
     {
       firstName: 'tanner',

@@ -8,7 +8,8 @@ export interface ScaleLoaderProps {
   width: number
   radius?: number
   margin?: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
@@ -18,6 +19,7 @@ export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
   width,
   radius,
   color,
+  colorHex,
   loading,
   margin,
   speedMultiplier,
@@ -29,13 +31,7 @@ export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
       radius={radius}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={
-        color
-          ? color?.includes('#')
-            ? color
-            : theme.colors[color as ColorsType].value
-          : undefined
-      }
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

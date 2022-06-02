@@ -25,7 +25,6 @@ const ButtonIconDOM = styled('button', {
   justifyContent: 'center',
   userSelect: 'none',
   space: 2,
-  borderWidth: 2,
   borderStyle: 'solid',
   position: 'relative',
   boxShadow: '$ELEVATION_BOTTOM_1',
@@ -134,6 +133,7 @@ export interface ButtonIconProps {
   loading?: boolean
   disabled?: boolean
   borderRadius?: BorderRadiusType
+  borderWidth?: number
   padding?: keyof typeof ButtonPaddingType
   size?: SizesType
   color?: ColorsType
@@ -161,6 +161,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       outlined,
       Icon,
       size,
+      borderWidth,
     },
     ref
   ) {
@@ -238,7 +239,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
           effect={disabled ? undefined : effect}
           css={{
             br: borderRadius,
-
+            borderWidth: borderWidth,
             ...getColors(),
             ...style,
           }}
@@ -261,7 +262,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         effect={disabled ? undefined : effect}
         css={{
           br: borderRadius,
-
+          borderWidth: borderWidth,
           ...getColors(),
           ...style,
         }}
@@ -280,4 +281,5 @@ ButtonIcon.defaultProps = {
   color: 'PRIMARY',
   size: 'md',
   effect: 'opacity',
+  borderWidth: 2,
 }

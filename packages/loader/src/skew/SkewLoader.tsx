@@ -5,7 +5,8 @@ import React from 'react'
 
 export interface SkewLoaderProps {
   size: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
@@ -13,6 +14,7 @@ export interface SkewLoaderProps {
 export const SkewLoader: React.FC<SkewLoaderProps> = ({
   size,
   color,
+  colorHex,
   loading,
   speedMultiplier,
 }) => {
@@ -20,13 +22,7 @@ export const SkewLoader: React.FC<SkewLoaderProps> = ({
     <SkewLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={
-        color
-          ? color?.includes('#')
-            ? color
-            : theme.colors[color as ColorsType].value
-          : undefined
-      }
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

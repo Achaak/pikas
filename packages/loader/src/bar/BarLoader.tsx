@@ -6,7 +6,8 @@ import React from 'react'
 export interface BarLoaderProps {
   width: number
   height: number
-  color: ColorsType
+  color?: ColorsType
+  colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
@@ -15,6 +16,7 @@ export const BarLoader: React.FC<BarLoaderProps> = ({
   width,
   height,
   color,
+  colorHex,
   loading,
   speedMultiplier,
 }) => {
@@ -23,13 +25,7 @@ export const BarLoader: React.FC<BarLoaderProps> = ({
       width={width}
       height={height}
       speedMultiplier={speedMultiplier}
-      color={
-        color
-          ? color?.includes('#')
-            ? color
-            : theme.colors[color as ColorsType].value
-          : undefined
-      }
+      color={(color ? theme.colors[color].value : undefined) || colorHex}
       loading={loading}
     />
   )

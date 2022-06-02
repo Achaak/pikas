@@ -1,4 +1,4 @@
-# @pikas-ui/tooltip
+# @pikas-ui/text
 
 ## 1.0.14
 
@@ -7,11 +7,3 @@
 - Add checkbox, select, table, text, textfield and update some components
 - Updated dependencies
   - @pikas-ui/styles@1.0.14
-
-## 1.0.13
-
-### Patch Changes
-
-- Add Tooltip component
-- Updated dependencies
-  - @pikas-ui/styles@1.0.13

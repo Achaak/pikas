@@ -12,7 +12,7 @@ export default {
   component: CustomIcon,
   argTypes: {
     color: {
-      description: 'Color',
+      description: 'Color of the icon',
       type: {
         name: 'enum',
         value: Object.keys(Colors),
@@ -20,21 +20,21 @@ export default {
       },
     },
     size: {
-      description: 'Size',
+      description: 'Size of the icon',
       type: {
         name: 'number',
         required: false,
       },
     },
     children: {
-      description: 'Icon SVG',
+      description: 'Icon SVG content',
       type: {
         name: 'other',
         required: true,
       },
     },
     className: {
-      description: 'Class name',
+      description: 'Class name of the icon',
       type: {
         name: 'string',
         required: false,
@@ -48,9 +48,16 @@ export default {
       },
     },
     styles: {
-      description: 'Styles',
+      description: 'Styles object',
       type: {
         name: 'object',
+        required: false,
+      },
+    },
+    colorHex: {
+      description: 'Color hexadecimal value',
+      type: {
+        name: 'string',
         required: false,
       },
     },
@@ -67,8 +74,8 @@ const Template: Story<CustomIconProps> = (args) => {
   )
 }
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   children: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
