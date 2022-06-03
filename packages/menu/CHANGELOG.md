@@ -1,5 +1,14 @@
 # @pikas-ui/menu
 
+## 1.0.22
+
+### Patch Changes
+
+- Fix button styles props
+- Updated dependencies
+  - @pikas-ui/icons@1.0.22
+  - @pikas-ui/styles@1.0.22
+
 ## 1.0.21
 
 ### Patch Changes

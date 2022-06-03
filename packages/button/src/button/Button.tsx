@@ -163,8 +163,8 @@ export interface ButtonProps {
   name?: string
   onClick?: () => void
   styles?: {
-    button: CSS
-    icon: IconStyleType
+    button?: CSS
+    icon?: IconStyleType
   }
   form?: string
   loading?: boolean

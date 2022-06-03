@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.22
+
+### Patch Changes
+
+- Fix button styles props
+
 ## 1.0.21
 
 ### Patch Changes
