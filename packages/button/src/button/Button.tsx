@@ -343,4 +343,5 @@ Button.defaultProps = {
   gap: 'md',
   effect: 'opacity',
   borderWidth: 2,
+  outlined: false,
 }

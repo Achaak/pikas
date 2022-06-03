@@ -27,3 +27,9 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - [@pikas-ui/dropdown-menu](/packages/dropdown-menu/README.md)
 - [@pikas-ui/textarea](/packages/textarea/README.md)
 
+
+## License
+Distributed under the MIT License. See LICENSE for more information.
+
+## Contact
+Axel Lavoie - [@Axel_Lve](https://twitter.com/Axel_Lve) - [axel.lavoie@gmail.com](axel.lavoie@gmail.com).
