@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.18
+
+### Patch Changes
+
+- Add none value in select padding props
+
 ## 1.0.17
 
 ### Patch Changes

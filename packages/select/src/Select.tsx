@@ -28,6 +28,9 @@ const Trigger = styled(SelectPrimitive.Trigger, {
 
   variants: {
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: '2px 4px',
       },
@@ -151,6 +154,7 @@ export const SelectDirectionsType = {
 }
 
 export const SelectPaddingType = {
+  none: true,
   xs: true,
   sm: true,
   md: true,

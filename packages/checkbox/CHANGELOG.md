@@ -1,5 +1,15 @@
 # @pikas-ui/checkbox
 
+## 1.0.18
+
+### Patch Changes
+
+- Add none value in select padding props
+- Updated dependencies
+  - @pikas-ui/icons@1.0.18
+  - @pikas-ui/styles@1.0.18
+  - @pikas-ui/text@1.0.18
+
 ## 1.0.17
 
 ### Patch Changes
