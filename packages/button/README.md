@@ -1,6 +1,6 @@
 # @pikas-ui/button
 
-This package contains a button component.
+This package contains a button components.
 
 ## Getting Started
 
