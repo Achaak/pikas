@@ -6,10 +6,14 @@ The library is based on the [React](https://reactjs.org/) framework and is writt
 The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https://www.radix-ui.com/) for the accessibility.
 
 ## To-do list
-### Features
-#### @pikas-ui/inputs
-- Add Switch
-- Add Slider
+- Add Switch component
+- Add Slider component
+- Add Avatar component
+- Add Modal component
+- Add Radio component
+- Add Slider component
+- Add Tabs component
+- Add Toast component
 
 ## Documentation
 - [@pikas-ui/styles](/packages/styles/README.md)
