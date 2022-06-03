@@ -152,6 +152,7 @@ export type TextfieldProps = {
   max?: number
   outline?: boolean
   description?: string
+  disabled?: boolean
 }
 
 export const Textfield: React.FC<TextfieldProps> = ({
@@ -180,6 +181,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
   backgroundColor,
   outline,
   description,
+  disabled,
 }) => {
   const ref = useRef<HTMLInputElement>(null)
   const [focus, setFocus] = useState(false)
@@ -285,6 +287,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
           autoComplete={autoComplete}
           min={min}
           max={max}
+          disabled={disabled}
           onFocus={(): void => setFocus(true)}
           onBlur={(): void => setFocus(false)}
           css={{

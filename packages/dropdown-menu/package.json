@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dropdown-menu",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "1.0.23",
-    "@pikas-ui/styles": "1.0.23",
-    "@pikas-ui/menu": "1.0.23",
-    "@pikas-ui/loader": "1.0.23",
+    "@pikas-ui/icons": "1.0.24",
+    "@pikas-ui/styles": "1.0.24",
+    "@pikas-ui/menu": "1.0.24",
+    "@pikas-ui/loader": "1.0.24",
     "@radix-ui/react-dropdown-menu": "^0.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

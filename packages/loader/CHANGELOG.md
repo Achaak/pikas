@@ -1,5 +1,13 @@
 # @pikas-ui/loader
 
+## 1.0.24
+
+### Patch Changes
+
+- Add disabled props in textarea and textfield
+- Updated dependencies
+  - @pikas-ui/styles@1.0.24
+
 ## 1.0.23
 
 ### Patch Changes

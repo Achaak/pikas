@@ -93,6 +93,7 @@ export type TextareaProps = {
   outline?: boolean
   resize?: keyof typeof TextareaResizeType
   description?: string
+  disabled?: boolean
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
@@ -114,6 +115,7 @@ export const Textarea: React.FC<TextareaProps> = ({
   outline,
   resize,
   description,
+  disabled,
 }) => {
   const [focus, setFocus] = useState(false)
 
@@ -171,6 +173,7 @@ export const Textarea: React.FC<TextareaProps> = ({
           onChange={onChangeTextarea}
           name={name}
           defaultValue={defaultValue}
+          disabled={disabled}
           onFocus={(): void => setFocus(true)}
           onBlur={(): void => setFocus(false)}
           css={{

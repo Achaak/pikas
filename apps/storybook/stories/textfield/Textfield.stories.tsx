@@ -212,6 +212,13 @@ export default {
         required: false,
       },
     },
+    disabled: {
+      description: 'The disabled of the textfield',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
   },
 } as Meta<TextfieldProps>
 
