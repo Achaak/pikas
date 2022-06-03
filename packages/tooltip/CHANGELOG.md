@@ -1,5 +1,13 @@
 # @pikas-ui/tooltip
 
+## 1.0.21
+
+### Patch Changes
+
+- Update button styles props
+- Updated dependencies
+  - @pikas-ui/styles@1.0.21
+
 ## 1.0.20
 
 ### Patch Changes

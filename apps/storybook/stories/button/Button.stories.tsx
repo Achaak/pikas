@@ -173,7 +173,7 @@ export default {
         required: false,
       },
     },
-    style: {
+    styles: {
       description: 'Style of the button',
       type: {
         name: 'object',
@@ -255,7 +255,7 @@ Default.args = {
   gap: 'md',
   name: undefined,
   onClick: console.log,
-  style: {},
+  styles: {},
   textTransform: 'none',
   type: 'button',
 }
@@ -281,7 +281,7 @@ WithIcon.args = {
   gap: 'lg',
   name: undefined,
   onClick: console.log,
-  style: {},
+  styles: {},
   textTransform: 'none',
   type: 'button',
 }

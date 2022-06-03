@@ -13,7 +13,7 @@ import type {
   ButtonTargetType,
 } from '../types'
 
-import type { IconProps } from '@pikas-ui/icons'
+import type { IconProps, IconStyleType } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
 import fontColorContrast from 'font-color-contrast'
 
@@ -129,7 +129,10 @@ export interface ButtonIconProps {
   id?: string
   name?: string
   onClick?: () => void
-  style?: CSS
+  styles?: {
+    button: CSS
+    icon: IconStyleType
+  }
   form?: string
   loading?: boolean
   disabled?: boolean
@@ -157,7 +160,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       colorHex,
       iconColor,
       iconColorHex,
-      style,
+      styles,
       padding,
       form,
       loading,
@@ -230,7 +233,11 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
               opacity: loading ? 0 : 1,
             }}
           >
-            <Icon size={Sizes[size || 'md']} colorHex={getTextColor()} />
+            <Icon
+              size={Sizes[size || 'md']}
+              colorHex={getTextColor()}
+              styles={styles?.icon}
+            />
           </Content>
         </>
       )
@@ -272,7 +279,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
             br: borderRadius,
             borderWidth: borderWidth,
             ...getColors(),
-            ...style,
+            ...styles?.button,
           }}
         >
           {getContent()}
@@ -295,7 +302,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
           br: borderRadius,
           borderWidth: borderWidth,
           ...getColors(),
-          ...style,
+          ...styles?.button,
         }}
       >
         {getContent()}

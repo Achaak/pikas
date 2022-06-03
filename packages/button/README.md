@@ -50,7 +50,10 @@ const Example: React.FC = () => (
 | `id`            | The id of the button.                             | `string`                                       | -             |
 | `name`          | The name of the button.                           | `string`                                       | -             |
 | `color`         | The color of the button.                          | `ColorsType`                                   | `"PRIMARY"`   |
-| `style`         | The style of the button.                          | `CSS`                                          | -             |
+| `colorHex`      | The color of the button (hex).                    | `string`                                       | -             |
+| `textColor`     | The color of the button.                          | `ColorsType`                                   | -             |
+| `textColorHex`  | The color of the button (hex).                    | `string`                                       | -             |
+| `styles`        | The style of the button.                          | `object`                                       | -             |
 | `padding`       | The padding of the button.                        | `"sm", "md", "lg"`                             | `"md"`        |
 | `form`          | The form of the button.                           | `string`                                       | -             |
 | `loading`       | If the button is loading.                         | `boolean`                                      | `false`       |
@@ -91,7 +94,10 @@ const Example: React.FC = () => (
 | `id`           | The id of the button.                             | `string`                               | -           |
 | `name`         | The name of the button.                           | `string`                               | -           |
 | `color`        | The color of the button.                          | `ColorsType`                           | `"PRIMARY"` |
-| `style`        | The style of the button.                          | `CSS`                                  | -           |
+| `colorHex`     | The color of the button (hex).                    | `string`                               | -           |
+| `iconColor`    | The color of the button.                          | `ColorsType`                           | -           |
+| `iconColorHex` | The color of the button (hex).                    | `string`                               | -           |
+| `styles`       | The style of the button.                          | `object`                               | -           |
 | `padding`      | The padding of the button.                        | `"sm", "md", "lg"`                     | `"md"`      |
 | `form`         | The form of the button.                           | `string`                               | -           |
 | `loading`      | If the button is loading.                         | `boolean`                              | `false`     |

@@ -1,5 +1,16 @@
 # @pikas-ui/textfield
 
+## 1.0.21
+
+### Patch Changes
+
+- Update button styles props
+- Updated dependencies
+  - @pikas-ui/icons@1.0.21
+  - @pikas-ui/loader@1.0.21
+  - @pikas-ui/styles@1.0.21
+  - @pikas-ui/text@1.0.21
+
 ## 1.0.20
 
 ### Patch Changes

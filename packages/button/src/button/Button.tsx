@@ -8,7 +8,7 @@ import type {
 import { styled, theme } from '@pikas-ui/styles'
 import React, { forwardRef, useCallback } from 'react'
 
-import type { IconProps } from '@pikas-ui/icons'
+import type { IconProps, IconStyleType } from '@pikas-ui/icons'
 import { BeatLoader } from '@pikas-ui/loader'
 import fontColorContrast from 'font-color-contrast'
 import type {
@@ -162,7 +162,10 @@ export interface ButtonProps {
   id?: string
   name?: string
   onClick?: () => void
-  style?: CSS
+  styles?: {
+    button: CSS
+    icon: IconStyleType
+  }
   form?: string
   loading?: boolean
   disabled?: boolean
@@ -196,7 +199,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       colorHex,
       textColor,
       textColorHex,
-      style,
+      styles,
       padding,
       form,
       loading,
@@ -277,11 +280,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             }}
           >
             {LeftIcon ? (
-              <LeftIcon size="1em" colorHex={getTextColor()} />
+              <LeftIcon
+                size="1em"
+                colorHex={getTextColor()}
+                styles={styles?.icon}
+              />
             ) : null}
             <span>{children}</span>
             {RightIcon ? (
-              <RightIcon size="1em" colorHex={getTextColor()} />
+              <RightIcon
+                size="1em"
+                colorHex={getTextColor()}
+                styles={styles?.icon}
+              />
             ) : null}
           </Content>
         </>
@@ -328,7 +339,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             fontSize: `$${fontSize}`,
 
             ...getColors(),
-            ...style,
+            ...styles?.button,
           }}
         >
           {getContent()}
@@ -355,7 +366,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           fontSize: `$${fontSize}`,
 
           ...getColors(),
-          ...style,
+          ...styles?.button,
         }}
       >
         {getContent()}

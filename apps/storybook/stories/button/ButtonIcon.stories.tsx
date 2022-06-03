@@ -117,7 +117,7 @@ export default {
         required: false,
       },
     },
-    style: {
+    styles: {
       description: 'Style of the button',
       type: {
         name: 'object',
@@ -209,7 +209,7 @@ Default.args = {
   form: undefined,
   name: undefined,
   onClick: console.log,
-  style: {},
+  styles: {},
   type: 'button',
   Icon: IconTest,
   size: 'md',
