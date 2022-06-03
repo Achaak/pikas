@@ -1,5 +1,15 @@
 # @pikas-ui/button
 
+## 1.0.20
+
+### Patch Changes
+
+- Update button color props
+- Updated dependencies
+  - @pikas-ui/icons@1.0.20
+  - @pikas-ui/loader@1.0.20
+  - @pikas-ui/styles@1.0.20
+
 ## 1.0.19
 
 ### Patch Changes

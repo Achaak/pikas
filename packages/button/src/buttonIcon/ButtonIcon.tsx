@@ -138,6 +138,9 @@ export interface ButtonIconProps {
   padding?: keyof typeof ButtonPaddingType
   size?: SizesType
   color?: ColorsType
+  colorHex?: string
+  iconColor?: ColorsType
+  iconColorHex?: string
   outlined?: boolean
   effect?: keyof typeof ButtonEffectType
   href?: string
@@ -151,6 +154,9 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       id,
       name,
       color,
+      colorHex,
+      iconColor,
+      iconColorHex,
       style,
       padding,
       form,
@@ -176,13 +182,45 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       onClick?.()
     }, [disabled, onClick, loading])
 
+    const getColor = useCallback((): string | undefined => {
+      if (color) {
+        return theme.colors[color].value
+      }
+
+      if (colorHex) {
+        return colorHex
+      }
+
+      return
+    }, [color, colorHex])
+
+    const getTextColor = useCallback((): string | undefined => {
+      if (iconColor) {
+        return theme.colors[iconColor].value
+      }
+
+      if (iconColorHex) {
+        return iconColorHex
+      }
+
+      if (color) {
+        if (!outlined) {
+          return fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7)
+        } else {
+          return theme.colors[color].value
+        }
+      }
+
+      return
+    }, [iconColor, iconColorHex])
+
     const getContent = (): React.ReactNode => {
       return (
         <>
           <LoadingContainer>
             <ClipLoader
               size={Sizes[size || 'md']}
-              color="WHITE"
+              colorHex={getTextColor()}
               loading={loading}
             />
           </LoadingContainer>
@@ -192,7 +230,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
               opacity: loading ? 0 : 1,
             }}
           >
-            <Icon size={Sizes[size || 'md']} />
+            <Icon size={Sizes[size || 'md']} colorHex={getTextColor()} />
           </Content>
         </>
       )
@@ -201,28 +239,17 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
     const getColors = (): CSS => {
       if (!outlined) {
         const colors: CSS = {
-          backgroundColor: `$${color}`,
-          borderColor: `$${color}`,
-          color: fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7),
-
-          svg: {
-            fill: fontColorContrast(
-              theme.colors[color || 'PRIMARY'].value,
-              0.7
-            ),
-          },
+          backgroundColor: getColor(),
+          borderColor: getColor(),
+          color: getTextColor(),
         }
 
         return colors
       } else {
         const colors: CSS = {
           backgroundColor: '$TRANSPARENT',
-          borderColor: `$${color}`,
-          color: `$${color}`,
-
-          svg: {
-            fill: `$${color}`,
-          },
+          borderColor: getColor(),
+          color: getTextColor(),
         }
 
         return colors

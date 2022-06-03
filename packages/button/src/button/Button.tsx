@@ -173,6 +173,9 @@ export interface ButtonProps {
   fontWeight?: FontsWeightsType
   textTransform?: keyof typeof ButtonTextTransformType
   color?: ColorsType
+  colorHex?: string
+  textColor?: ColorsType
+  textColorHex?: string
   outlined?: boolean
   effect?: keyof typeof ButtonEffectType
   href?: string
@@ -190,6 +193,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       id,
       name,
       color,
+      colorHex,
+      textColor,
+      textColorHex,
       style,
       padding,
       form,
@@ -220,13 +226,45 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onClick?.()
     }, [disabled, onClick, loading])
 
+    const getColor = useCallback((): string | undefined => {
+      if (color) {
+        return theme.colors[color].value
+      }
+
+      if (colorHex) {
+        return colorHex
+      }
+
+      return
+    }, [color, colorHex])
+
+    const getTextColor = useCallback((): string | undefined => {
+      if (textColor) {
+        return theme.colors[textColor].value
+      }
+
+      if (textColorHex) {
+        return textColorHex
+      }
+
+      if (color) {
+        if (!outlined) {
+          return fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7)
+        } else {
+          return theme.colors[color].value
+        }
+      }
+
+      return
+    }, [textColor, textColorHex])
+
     const getContent = (): React.ReactNode => {
       return (
         <>
           <LoadingContainer>
             <BeatLoader
               size={theme.fontSizes['EM-XX-SMALL'].value}
-              color="WHITE"
+              colorHex={getTextColor()}
               loading={loading}
             />
           </LoadingContainer>
@@ -238,9 +276,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               opacity: loading ? 0 : 1,
             }}
           >
-            {LeftIcon ? <LeftIcon size="1em" /> : null}
+            {LeftIcon ? (
+              <LeftIcon size="1em" colorHex={getTextColor()} />
+            ) : null}
             <span>{children}</span>
-            {RightIcon ? <RightIcon size="1em" /> : null}
+            {RightIcon ? (
+              <RightIcon size="1em" colorHex={getTextColor()} />
+            ) : null}
           </Content>
         </>
       )
@@ -249,28 +291,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const getColors = (): CSS => {
       if (!outlined) {
         const colors: CSS = {
-          backgroundColor: `$${color}`,
-          borderColor: `$${color}`,
-          color: fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7),
-
-          svg: {
-            fill: fontColorContrast(
-              theme.colors[color || 'PRIMARY'].value,
-              0.7
-            ),
-          },
+          backgroundColor: getColor(),
+          borderColor: getColor(),
+          color: getTextColor(),
         }
 
         return colors
       } else {
         const colors: CSS = {
           backgroundColor: '$TRANSPARENT',
-          borderColor: `$${color}`,
-          color: `$${color}`,
-
-          svg: {
-            fill: `$${color}`,
-          },
+          borderColor: getColor(),
+          color: getTextColor(),
         }
 
         return colors

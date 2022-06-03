@@ -1,5 +1,17 @@
 # @pikas-ui/table
 
+## 1.0.20
+
+### Patch Changes
+
+- Update button color props
+- Updated dependencies
+  - @pikas-ui/checkbox@1.0.20
+  - @pikas-ui/icons@1.0.20
+  - @pikas-ui/loader@1.0.20
+  - @pikas-ui/select@1.0.20
+  - @pikas-ui/styles@1.0.20
+
 ## 1.0.19
 
 ### Patch Changes

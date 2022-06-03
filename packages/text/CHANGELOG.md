@@ -1,5 +1,13 @@
 # @pikas-ui/text
 
+## 1.0.20
+
+### Patch Changes
+
+- Update button color props
+- Updated dependencies
+  - @pikas-ui/styles@1.0.20
+
 ## 1.0.19
 
 ### Patch Changes

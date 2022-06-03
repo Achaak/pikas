@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/context-menu",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "1.0.19",
-    "@pikas-ui/styles": "1.0.19",
-    "@pikas-ui/menu": "1.0.19",
-    "@pikas-ui/loader": "1.0.19",
+    "@pikas-ui/icons": "1.0.20",
+    "@pikas-ui/styles": "1.0.20",
+    "@pikas-ui/menu": "1.0.20",
+    "@pikas-ui/loader": "1.0.20",
     "@radix-ui/react-context-menu": "^0.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

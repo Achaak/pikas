@@ -156,6 +156,28 @@ export default {
         required: false,
       },
     },
+    colorHex: {
+      description: 'Color of the button (hex)',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
+    iconColorHex: {
+      description: 'Text color of the button (hex)',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
+    iconColor: {
+      description: 'Text color of the button',
+      type: {
+        name: 'enum',
+        value: Object.keys(Colors),
+        required: false,
+      },
+    },
   },
 } as Meta<ButtonIconProps>
 

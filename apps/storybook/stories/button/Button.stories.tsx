@@ -196,6 +196,28 @@ export default {
         required: false,
       },
     },
+    colorHex: {
+      description: 'Color of the button (hex)',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
+    textColorHex: {
+      description: 'Text color of the button (hex)',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
+    textColor: {
+      description: 'Text color of the button',
+      type: {
+        name: 'enum',
+        value: Object.keys(Colors),
+        required: false,
+      },
+    },
   },
 } as Meta<ButtonProps>
 
@@ -242,11 +264,11 @@ export const WithIcon = Template.bind({})
 WithIcon.args = {
   children: 'Button',
   color: 'PRIMARY',
-  outlined: false,
+  outlined: true,
   padding: 'md',
   disabled: false,
   fullWidth: false,
-  loading: false,
+  loading: true,
   LeftIcon: IconTest,
   RightIcon: undefined,
   borderRadius: 'md',
