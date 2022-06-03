@@ -68,6 +68,8 @@ const Example: React.FC = () => (
 | `outlined`      | If the button is outlined.                        | `boolean`                                         | `false`       |
 | `borderWidth`   | The border width of the button.                   | `number`                                          | `2`           |
 
+---
+
 ### ButtonIcon
 
 ```tsx
