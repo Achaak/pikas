@@ -15,6 +15,7 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - Add Tabs component
 - Add Toast component
 - Add Alert component
+- Add FileInput component
 
 ## Documentation
 - [@pikas-ui/styles](/packages/styles/README.md)
