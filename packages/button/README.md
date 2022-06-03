@@ -32,7 +32,7 @@ pnpm add @pikas-ui/button
 
 ### Button
 
-```jsx
+```tsx
 import { Button } from `@pikas-ui/button`;
 
 const Example: React.FC = () => (
@@ -72,7 +72,7 @@ const Example: React.FC = () => (
 
 ### ButtonIcon
 
-```jsx
+```tsx
 import { ButtonIcon } from `@pikas-ui/button`;
 
 const IconExample: React.FC<IconProps> = (props) => {
