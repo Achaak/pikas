@@ -10,6 +10,7 @@ import type {
   ButtonTypeType,
   ButtonEffectType,
   ButtonPaddingType,
+  ButtonTargetType,
 } from '../types'
 
 import type { IconProps } from '@pikas-ui/icons'
@@ -140,6 +141,7 @@ export interface ButtonIconProps {
   outlined?: boolean
   effect?: keyof typeof ButtonEffectType
   href?: string
+  target?: keyof typeof ButtonTargetType
 }
 
 export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
@@ -162,6 +164,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       Icon,
       size,
       borderWidth,
+      target,
     },
     ref
   ) {
@@ -226,11 +229,12 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       }
     }
 
-    if (href) {
+    if (type === 'link') {
       return (
         <ButtonIconDOM
           as="a"
           href={href}
+          target={target}
           type={type}
           id={id}
           onClick={handleClick}

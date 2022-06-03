@@ -4,6 +4,7 @@ import {
   ButtonEffectType,
   ButtonPaddingType,
   ButtonTypeType,
+  ButtonTargetType,
 } from '@pikas-ui/button'
 import type { ButtonIconProps } from '@pikas-ui/button'
 import type { Story, Meta } from '@storybook/react'
@@ -144,6 +145,14 @@ export default {
       description: 'Border width of the button',
       type: {
         name: 'number',
+        required: false,
+      },
+    },
+    target: {
+      description: 'Target of the button',
+      type: {
+        name: 'enum',
+        value: Object.keys(ButtonTargetType),
         required: false,
       },
     },

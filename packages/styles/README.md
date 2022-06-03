@@ -26,3 +26,6 @@ pnpm add @pikas-ui/styles
 ```
 
 ---
+
+### Change Log
+You can find the change log [here](CHANGELOG.md).

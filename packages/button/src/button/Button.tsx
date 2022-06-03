@@ -17,6 +17,7 @@ import type {
   ButtonGapType,
   ButtonPaddingType,
   ButtonTextTransformType,
+  ButtonTargetType,
 } from '../types'
 
 const ButtonDOM = styled('button', {
@@ -178,6 +179,7 @@ export interface ButtonProps {
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
   borderWidth?: number
+  target?: keyof typeof ButtonTargetType
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -206,6 +208,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       RightIcon,
       outlined,
       borderWidth,
+      target,
     },
     ref
   ) {
@@ -274,11 +277,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       }
     }
 
-    if (href) {
+    if (type === 'link') {
       return (
         <ButtonDOM
           as="a"
           href={href}
+          target={target}
           type={type}
           id={id}
           onClick={handleClick}

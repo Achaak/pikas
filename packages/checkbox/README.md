@@ -29,3 +29,6 @@ pnpm add @pikas-ui/checkbox
 ```
 
 ---
+
+### Change Log
+You can find the change log [here](CHANGELOG.md).

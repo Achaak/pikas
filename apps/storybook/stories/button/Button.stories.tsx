@@ -4,6 +4,7 @@ import {
   ButtonEffectType,
   ButtonPaddingType,
   ButtonTypeType,
+  ButtonTargetType,
 } from '@pikas-ui/button'
 import { BorderRadius } from '@pikas-ui/styles'
 import type { ButtonProps } from '@pikas-ui/button'
@@ -184,6 +185,14 @@ export default {
       description: 'Border width of the button',
       type: {
         name: 'number',
+        required: false,
+      },
+    },
+    target: {
+      description: 'Target of the button',
+      type: {
+        name: 'enum',
+        value: Object.keys(ButtonTargetType),
         required: false,
       },
     },

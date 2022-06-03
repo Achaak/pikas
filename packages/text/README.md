@@ -27,3 +27,6 @@ pnpm add @pikas-ui/text
 ```
 
 ---
+
+### Change Log
+You can find the change log [here](CHANGELOG.md).

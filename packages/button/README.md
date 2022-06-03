@@ -45,7 +45,7 @@ const Example: React.FC = () => (
 | Prop            | Description                                       | Type                                           | Default       |
 |:----------------|:--------------------------------------------------|:-----------------------------------------------|:--------------|
 | `children`      | The content of the button.                        | `React.ReactNode`                              | -             |
-| `type`          | The type of the button.                           | `"button", "submit", "reset"`                  | `"button"`    |
+| `type`          | The type of the button.                           | `"button", "submit", "reset", "link"`          | `"button"`    |
 | `fullWidth`     | If the button should be full width.               | `boolean`                                      | `false`       |
 | `id`            | The id of the button.                             | `string`                                       | -             |
 | `name`          | The name of the button.                           | `string`                                       | -             |
@@ -103,3 +103,8 @@ const Example: React.FC = () => (
 | `outlined`     | If the button is outlined.                        | `boolean`                              | `false`     |
 | `borderWidth`  | The border width of the button.                   | `number`                               | `2`         |
 | `size`         | The size of the button.                           | `SizesType`                            | `"md"`      |
+
+---
+
+### Change Log
+You can find the change log [here](CHANGELOG.md).

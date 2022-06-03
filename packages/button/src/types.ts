@@ -2,6 +2,7 @@ export const ButtonTypeType = {
   button: true,
   submit: true,
   reset: true,
+  link: true,
 }
 
 export const ButtonPaddingType = {
@@ -27,4 +28,11 @@ export const ButtonGapType = {
   sm: true,
   md: true,
   lg: true,
+}
+
+export const ButtonTargetType = {
+  _self: true,
+  _blank: true,
+  _parent: true,
+  _top: true,
 }

@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.0.17
+
+### Patch Changes
+
+- Add target props in button components
+
 ## 1.0.16
 
 ### Patch Changes
