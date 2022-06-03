@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textfield",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "1.0.22",
-    "@pikas-ui/loader": "1.0.22",
-    "@pikas-ui/styles": "1.0.22",
-    "@pikas-ui/text": "1.0.22",
+    "@pikas-ui/icons": "1.0.23",
+    "@pikas-ui/loader": "1.0.23",
+    "@pikas-ui/styles": "1.0.23",
+    "@pikas-ui/text": "1.0.23",
     "@radix-ui/react-label": "^0.1.5",
     "font-color-contrast": "^11.1.0",
     "react": "^18.1.0",

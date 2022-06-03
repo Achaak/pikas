@@ -1,5 +1,16 @@
 # @pikas-ui/select
 
+## 1.0.23
+
+### Patch Changes
+
+- Add leftChildren and rightChildren props in textfield
+- Updated dependencies
+  - @pikas-ui/textfield@1.0.23
+  - @pikas-ui/icons@1.0.23
+  - @pikas-ui/styles@1.0.23
+  - @pikas-ui/text@1.0.23
+
 ## 1.0.22
 
 ### Patch Changes

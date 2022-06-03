@@ -96,7 +96,7 @@ export type TextareaProps = {
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
-  id = '',
+  id,
   name,
   onChange,
   placeholder,

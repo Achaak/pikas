@@ -196,6 +196,22 @@ export default {
         required: false,
       },
     },
+    leftChildren: {
+      description: 'The left children of the textfield',
+      type: {
+        name: 'other',
+        value: 'React.ReactNode',
+        required: false,
+      },
+    },
+    rightChildren: {
+      description: 'The right children of the textfield',
+      type: {
+        name: 'other',
+        value: 'React.ReactNode',
+        required: false,
+      },
+    },
   },
 } as Meta<TextfieldProps>
 

@@ -141,6 +141,8 @@ export type TextfieldProps = {
   autoComplete?: string
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
+  leftChildren?: React.ReactNode
+  rightChildren?: React.ReactNode
   styles?: {
     container?: CSS
     inputContainer?: CSS
@@ -153,7 +155,7 @@ export type TextfieldProps = {
 }
 
 export const Textfield: React.FC<TextfieldProps> = ({
-  id = '',
+  id,
   name,
   type,
   onChange,
@@ -173,8 +175,11 @@ export const Textfield: React.FC<TextfieldProps> = ({
   max,
   LeftIcon,
   RightIcon,
+  leftChildren,
+  rightChildren,
   backgroundColor,
-  outline,description
+  outline,
+  description,
 }) => {
   const ref = useRef<HTMLInputElement>(null)
   const [focus, setFocus] = useState(false)
@@ -235,6 +240,20 @@ export const Textfield: React.FC<TextfieldProps> = ({
           ...styles?.inputContainer,
         }}
       >
+        {leftChildren && (
+          <LeftContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+            }}
+          >
+            {leftChildren}
+          </LeftContainer>
+        )}
+
         {LeftIcon && (
           <LeftContainer
             htmlFor={id}
@@ -254,6 +273,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
             />
           </LeftContainer>
         )}
+
         <Input
           ref={ref}
           id={id}
@@ -275,6 +295,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
             ),
           }}
         />
+
         {RightIcon && (
           <RightContainer
             htmlFor={id}
@@ -292,6 +313,20 @@ export const Textfield: React.FC<TextfieldProps> = ({
                 0.7
               )}
             />
+          </RightContainer>
+        )}
+
+        {rightChildren && (
+          <RightContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+            }}
+          >
+            {rightChildren}
           </RightContainer>
         )}
       </InputContainer>

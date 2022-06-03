@@ -1,5 +1,13 @@
 # @pikas-ui/tooltip
 
+## 1.0.23
+
+### Patch Changes
+
+- Add leftChildren and rightChildren props in textfield
+- Updated dependencies
+  - @pikas-ui/styles@1.0.23
+
 ## 1.0.22
 
 ### Patch Changes
