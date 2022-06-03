@@ -49,9 +49,9 @@ const Example: React.FC = () => (
 | `fullWidth`     | If the button should be full width.               | `boolean`                                         | `false`       |
 | `id`            | The id of the button.                             | `string`                                          | -             |
 | `name`          | The name of the button.                           | `string`                                          | -             |
-| `color`         | The color of the button.                          | `ColorsType`                                      | `PRIMARY`     |
+| `color`         | The color of the button.                          | `ColorsType`                                      | `"PRIMARY"`   |
 | `style`         | The style of the button.                          | `CSS`                                             | -             |
-| `padding`       | The padding of the button.                        | `"sm" | "md" | "lg"`                              | `md`          |
+| `padding`       | The padding of the button.                        | `"sm" | "md" | "lg"`                              | `"md"`        |
 | `form`          | The form of the button.                           | `string`                                          | -             |
 | `loading`       | If the button is loading.                         | `boolean`                                         | `false`       |
 | `disabled`      | If the button is disabled.                        | `boolean`                                         | `false`       |
@@ -90,9 +90,9 @@ const Example: React.FC = () => (
 | `type`         | The type of the button.                           | `"button" | "submit" | "reset"`          | `"button"`  |
 | `id`           | The id of the button.                             | `string`                                 | -           |
 | `name`         | The name of the button.                           | `string`                                 | -           |
-| `color`        | The color of the button.                          | `ColorsType`                             | `PRIMARY`   |
+| `color`        | The color of the button.                          | `ColorsType`                             | `"PRIMARY"` |
 | `style`        | The style of the button.                          | `CSS`                                    | -           |
-| `padding`      | The padding of the button.                        | `"sm" | "md" | "lg"`                     | `md`        |
+| `padding`      | The padding of the button.                        | `"sm" | "md" | "lg"`                     | `"md"`      |
 | `form`         | The form of the button.                           | `string`                                 | -           |
 | `loading`      | If the button is loading.                         | `boolean`                                | `false`     |
 | `disabled`     | If the button is disabled.                        | `boolean`                                | `false`     |
