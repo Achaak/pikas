@@ -45,7 +45,7 @@ const Example: React.FC = () => (
 | Prop            | Description                                       | Type                                              | Default       |
 |-----------------|---------------------------------------------------|---------------------------------------------------|---------------|
 | `children`      | The content of the button.                        | `React.ReactNode`                                 | -             |
-| `type`          | The type of the button.                           | `"button" | "submit" | "reset"`                   | `"button"`    |
+| `type`          | The type of the button.                           | `"button" | "submit" | "reset"`                   | ` "button" `  |
 | `fullWidth`     | If the button should be full width.               | `boolean`                                         | `false`       |
 | `id`            | The id of the button.                             | `string`                                          | -             |
 | `name`          | The name of the button.                           | `string`                                          | -             |
