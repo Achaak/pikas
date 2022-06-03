@@ -150,6 +150,13 @@ export default {
         required: false,
       },
     },
+    description: {
+      description: 'The description of the textarea',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
   },
 } as Meta<TextareaProps>
 
@@ -168,4 +175,5 @@ Default.args = {
   label: 'Label',
   textError: 'Error message',
   id: 'textarea-id',
+  description: 'Aliquip cupidatat exercitation et id enim.',
 }

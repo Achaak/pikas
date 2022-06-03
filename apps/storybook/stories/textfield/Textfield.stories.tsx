@@ -189,6 +189,13 @@ export default {
         required: false,
       },
     },
+    description: {
+      description: 'The description of the textarea',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
   },
 } as Meta<TextfieldProps>
 
@@ -221,4 +228,5 @@ WithIcon.args = {
   textError: 'Error message',
   id: 'textfield-id',
   LeftIcon: IconTest,
+  description: 'Aliquip cupidatat exercitation et id enim.',
 }

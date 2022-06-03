@@ -1,5 +1,17 @@
 # @pikas-ui/table
 
+## 1.0.19
+
+### Patch Changes
+
+- Add description props in select, textarea and textfield components
+- Updated dependencies
+  - @pikas-ui/select@1.0.19
+  - @pikas-ui/checkbox@1.0.19
+  - @pikas-ui/icons@1.0.19
+  - @pikas-ui/loader@1.0.19
+  - @pikas-ui/styles@1.0.19
+
 ## 1.0.18
 
 ### Patch Changes

@@ -7,7 +7,7 @@ import type {
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
-import { Label, TextError } from '@pikas-ui/text'
+import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import React, { useEffect, useState } from 'react'
@@ -163,7 +163,7 @@ export const SelectPaddingType = {
 
 export interface SelectProps {
   styles?: {
-    selectContainer?: CSS
+    container?: CSS
     trigger?: CSS
   }
   hasSearch?: boolean
@@ -191,6 +191,7 @@ export interface SelectProps {
   boxShadow?: ShadowsType | 'none'
   backgroundColor?: ColorsType
   outline?: boolean
+  description?: string
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -215,6 +216,7 @@ export const Select: React.FC<SelectProps> = ({
   boxShadow,
   backgroundColor,
   outline,
+  description,
 }) => {
   const [searchValue, setSearchValue] = useState('')
   const [formatedData, setFormatedData] = useState(data)
@@ -270,6 +272,16 @@ export const Select: React.FC<SelectProps> = ({
         </Label>
       ) : null}
 
+      {description ? (
+        <Description
+          style={{
+            marginBottom: 4,
+          }}
+        >
+          {description}
+        </Description>
+      ) : null}
+
       <SelectContainer
         defaultValue={defaultValue}
         onValueChange={handleChange}
@@ -277,7 +289,7 @@ export const Select: React.FC<SelectProps> = ({
         onOpenChange={handleOpenChange}
         defaultOpen={defaultOpen}
         css={{
-          ...styles?.selectContainer,
+          ...styles?.container,
         }}
       >
         <Trigger

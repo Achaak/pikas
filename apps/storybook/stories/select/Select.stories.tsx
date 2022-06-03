@@ -174,6 +174,13 @@ export default {
         required: false,
       },
     },
+    description: {
+      description: 'The description of the textarea',
+      type: {
+        name: 'string',
+        required: false,
+      },
+    },
   },
 } as Meta<SelectProps>
 
@@ -225,6 +232,7 @@ WithSearch.args = {
   defaultValue: 'option-1-1',
   searchPlaceholder: 'Search',
   hasSearch: true,
+  description: 'Aliquip cupidatat exercitation et id enim.',
   data: [
     {
       name: 'Option 1',

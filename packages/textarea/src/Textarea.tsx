@@ -7,7 +7,7 @@ import type {
 } from '@pikas-ui/styles'
 import { theme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import { Label, TextError } from '@pikas-ui/text'
+import { Label, TextError, Description } from '@pikas-ui/text'
 import fontColorContrast from 'font-color-contrast'
 import React, { useState } from 'react'
 
@@ -92,6 +92,7 @@ export type TextareaProps = {
   }
   outline?: boolean
   resize?: keyof typeof TextareaResizeType
+  description?: string
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
@@ -112,6 +113,7 @@ export const Textarea: React.FC<TextareaProps> = ({
   backgroundColor,
   outline,
   resize,
+  description,
 }) => {
   const [focus, setFocus] = useState(false)
 
@@ -139,6 +141,16 @@ export const Textarea: React.FC<TextareaProps> = ({
         >
           {label}
         </Label>
+      ) : null}
+
+      {description ? (
+        <Description
+          style={{
+            marginBottom: 4,
+          }}
+        >
+          {description}
+        </Description>
       ) : null}
 
       <TextareaContainer

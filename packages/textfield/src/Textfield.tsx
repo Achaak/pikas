@@ -8,7 +8,7 @@ import type {
 } from '@pikas-ui/styles'
 import { theme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import { Label, TextError } from '@pikas-ui/text'
+import { Description, Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import fontColorContrast from 'font-color-contrast'
 import React, { useRef, useState } from 'react'
@@ -149,6 +149,7 @@ export type TextfieldProps = {
   min?: number
   max?: number
   outline?: boolean
+  description?: string
 }
 
 export const Textfield: React.FC<TextfieldProps> = ({
@@ -173,7 +174,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
   LeftIcon,
   RightIcon,
   backgroundColor,
-  outline,
+  outline,description
 }) => {
   const ref = useRef<HTMLInputElement>(null)
   const [focus, setFocus] = useState(false)
@@ -210,6 +211,16 @@ export const Textfield: React.FC<TextfieldProps> = ({
         >
           {label}
         </Label>
+      ) : null}
+
+      {description ? (
+        <Description
+          style={{
+            marginBottom: 4,
+          }}
+        >
+          {description}
+        </Description>
       ) : null}
 
       <InputContainer
