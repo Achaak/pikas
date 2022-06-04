@@ -229,4 +229,9 @@ Checkbox.defaultProps = {
   side: 'right',
   borderWidth: 0,
   outline: true,
+  fontSize: "EM_MEDIUM",
+  disabled: false,
+  required: false,
+  indeterminate: false,
+  defaultChecked: false,
 }
