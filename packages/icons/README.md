@@ -30,5 +30,17 @@ pnpm add @pikas-ui/icons
 
 ---
 
+## Usage
+
+### CustomIcon
+
+TODO
+
+### IconByName
+
+TODO
+
+---
+
 ### Change Log
 You can find the change log [here](CHANGELOG.md).

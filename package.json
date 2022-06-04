@@ -8,8 +8,11 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:packages": "turbo run build --filter=./packages/*",
+    "build:storybook": "turbo run build --filter=@pikas-ui/storybook...",
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --parallel",
+    "dev:packages": "turbo run dev --parallel --filter=./packages/*",
     "dev:storybook": "turbo run dev --parallel --filter=@pikas-ui/storybook...",
     "start": "turbo run start --parallel",
     "lint": "turbo run lint",
@@ -17,7 +20,7 @@
     "pre-lint": "turbo run pre-lint",
     "changeset": "changeset",
     "changeset:version": "changeset version -r",
-    "changeset:release": "turbo run build --filter=./packages/* && changeset publish"
+    "changeset:release": "turbo run build:packages && changeset publish"
   },
   "devDependencies": {
     "prettier": "latest",

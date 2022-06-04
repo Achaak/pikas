@@ -30,5 +30,13 @@ pnpm add @pikas-ui/tooltip
 
 ---
 
+## Usage
+
+### Tooltip
+
+TODO
+
+---
+
 ### Change Log
 You can find the change log [here](CHANGELOG.md).

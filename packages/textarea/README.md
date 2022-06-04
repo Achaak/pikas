@@ -30,5 +30,13 @@ pnpm add @pikas-ui/textarea
 
 ---
 
+## Usage
+
+### Textarea
+
+TODO
+
+---
+
 ### Change Log
 You can find the change log [here](CHANGELOG.md).

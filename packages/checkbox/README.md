@@ -32,7 +32,7 @@ pnpm add @pikas-ui/checkbox
 
 ## Usage
 
-### Button
+### Checkbox
 
 ```tsx
 import { Checkbox } from `@pikas-ui/checkbox`
@@ -57,7 +57,7 @@ const Example: React.FC = () => (
 | `borderColor`    | The border color of the checkbox.                  | `ColorsType`                 | -                |
 | `borderWidth`    | The border width of the checkbox.                  | `number`                     | `0`              |
 | `borderRadius`   | The border radius of the checkbox.                 | `BorderRadiusType`           | `"md"`           |
-| `fontSize`       | The font size of the checkbox.                     | `FontsSizesType`             | `"EM_MEDIUM"`    |
+| `fontSize`       | The font size of the checkbox.                     | `FontsSizesType`             | `"EM-MEDIUM"`    |
 | `size`           | The size of the checkbox.                          | `number`                     | `24`             |
 | `checked`        | The checked of the checkbox.                       | `boolean`                    | -                |
 | `className`      | The class name of the checkbox.                    | `string`                     | -                |

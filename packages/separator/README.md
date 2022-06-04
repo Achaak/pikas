@@ -30,5 +30,13 @@ pnpm add @pikas-ui/separator
 
 ---
 
+## Usage
+
+### Separator
+
+TODO
+
+---
+
 ### Change Log
 You can find the change log [here](CHANGELOG.md).

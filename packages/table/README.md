@@ -30,5 +30,13 @@ pnpm add @pikas-ui/table
 
 ---
 
+## Usage
+
+### Table
+
+TODO
+
+---
+
 ### Change Log
 You can find the change log [here](CHANGELOG.md).
