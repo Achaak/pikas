@@ -340,4 +340,11 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
 DropdownMenu.defaultProps = {
   iconSize: 24,
+  modal: false,
+  defaultOpen: false,
+  open: false,
+  allowPinchZoom: false,
+  loop: false,
+  portalled: false,
+  avoidCollisions: false,
 }

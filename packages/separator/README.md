@@ -33,8 +33,23 @@ pnpm add @pikas-ui/separator
 ## Usage
 
 ### Separator
+```tsx
+import { Separator } from `@pikas-ui/separator`;
 
-TODO
+const Example: React.FC = () => {
+  return <Separator />
+}
+```
+
+| Prop           | Description                         | Type                         | Default          |
+| :------------- | :---------------------------------- | :--------------------------- | :--------------- |
+| `orientation`  | The orientation of the separator.   | `"horizontal" or "vertical"` | `"horizontal"`   |
+| `className`    | The class name of the separator.    | `string`                     | -                |
+| `size`         | The size of the separator.          | `number`                     | `2`              |
+| `style`        | The style of the separator.         | `CSS`                        | -                |
+| `color`        | The color of the separator.         | `ColorsType`                 | `"GRAY_LIGHTER"` |
+| `borderRadius` | The border radius of the separator. | `BorderRadiusType`           | -                |
+
 
 ---
 

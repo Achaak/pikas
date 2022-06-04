@@ -33,8 +33,46 @@ pnpm add @pikas-ui/tooltip
 ## Usage
 
 ### Tooltip
+```tsx
+import { Tooltip } from `@pikas-ui/tooltip`;
+import { IconByName } from `@pikas-ui/icons`;
 
-TODO
+const Example: React.FC = () => {
+  return (
+    <Tooltip content="Hello world">
+      <IconByName size={40} name="bx:baguette" />
+    </Tooltip>
+  )
+}
+```
+
+#### Props
+
+| Prop                 | Description                        | Type                                 | Default         |
+| :------------------- | :--------------------------------- | :----------------------------------- | :-------------- |
+| `content`            | Tooltip content                    | `string or React.ReactNode`          | -               |
+| `children`           | Trigger element                    | `React.ReactNode`                    | -               |
+| `backgroundColor`    | Background color                   | `ColorsType`                         | `"WHITE"`       |
+| `open`               | Open state                         | `boolean`                            | -               |
+| `defaultOpen`        | Default open                       | `boolean`                            | -               |
+| `onOpenChange`       | Event handler                      | `(open: boolean) => void`            | -               |
+| `delayDuration`      | Delay duration                     | `number`                             | -               |
+| `skipDelayDuration`  | Skip delay duration                | `number`                             | -               |
+| `hasArrow`           | Has arrow indicator                | `boolean`                            | `true`          |
+| `arrowSize`          | Arrow size                         | `number`                             | `10`            |
+| `arrowOffset`        | Arrow offset                       | `number`                             | `8`             |
+| `side`               | Side of the tooltip                | `"top", "right", "bottom" or "left"` | -               |
+| `sideOffset`         | Side offset of the tooltip         | `number`                             | -               |
+| `align`              | Align of content                   | `"start", "center" or "end"`         | -               |
+| `alignOffset`        | Align offset                       | `number`                             | -               |
+| `portalled`          | Portalled                          | `boolean`                            | -               |
+| `avoidCollisions`    | Avoid collisions                   | `boolean`                            | -               |
+| `collisionTolerance` | Collision tolerance of the tooltip | `number`                             | -               |
+| `borderRadius`       | Border radius of the tooltip       | `BorderRadiusType`                   | `"md"`          |
+| `fontSize`           | Font size of content               | `FontsSizesType`                     | `"EM-SMALL"`    |
+| `fontWeight`         | Font weight of content             | `FontsWeightsType`                   | -               |
+| `boxShadow`          | Box shadow of the tooltip          | `ShadowsType`                        | `"ELEVATION_2"` |
+| `padding`            | Padding of the tooltip             | `"sm", "md" or "lg"`                 | `"md"`          |
 
 ---
 

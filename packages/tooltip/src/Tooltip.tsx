@@ -203,4 +203,5 @@ Tooltip.defaultProps = {
   boxShadow: 'ELEVATION_2',
   hasArrow: true,
   padding: 'md',
+  arrowSize: 10,
 }

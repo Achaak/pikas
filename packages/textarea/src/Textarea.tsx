@@ -82,13 +82,12 @@ export type TextareaProps = {
   borderWidth?: number
   backgroundColor?: ColorsType
   textError?: string
-
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   defaultValue?: string | number
   styles?: {
     container?: CSS
-    inputContainer?: CSS
-    input?: CSS
+    textareaContainer?: CSS
+    textarea?: CSS
   }
   outline?: boolean
   resize?: keyof typeof TextareaResizeType
@@ -164,7 +163,7 @@ export const Textarea: React.FC<TextareaProps> = ({
           backgroundColor: `$${backgroundColor}`,
           boxShadow: `$${boxShadow}`,
           borderWidth: borderWidth,
-          ...styles?.inputContainer,
+          ...styles?.textareaContainer,
         }}
       >
         <TextareaStyled
@@ -177,7 +176,7 @@ export const Textarea: React.FC<TextareaProps> = ({
           onFocus={(): void => setFocus(true)}
           onBlur={(): void => setFocus(false)}
           css={{
-            ...styles?.input,
+            ...styles?.textarea,
             resize: resize,
             color: fontColorContrast(
               theme.colors[backgroundColor || 'WHITE'].value,
@@ -200,4 +199,5 @@ Textarea.defaultProps = {
   backgroundColor: 'GRAY_LIGHTEST_1',
   boxShadow: 'DIMINUTION_1',
   outline: true,
+  disabled: false,
 }

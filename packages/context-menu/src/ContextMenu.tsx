@@ -289,3 +289,10 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     </ContextMenuPrimitive.Root>
   )
 }
+
+ContextMenu.defaultProps = {
+  modal: false,
+  allowPinchZoom: false,
+  loop: false,
+  avoidCollisions: false,
+}

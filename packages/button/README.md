@@ -35,15 +35,15 @@ pnpm add @pikas-ui/button
 ```tsx
 import { Button } from `@pikas-ui/button`;
 
-const Example: React.FC = () => (
-  <Button>Click me</Button>
-)
+const Example: React.FC = () => {
+  return <Button>Click me</Button>
+}
 ```
 
 #### Props
 
 | Prop            | Description                                       | Type                                             | Default       |
-|:----------------|:--------------------------------------------------|:-------------------------------------------------|:--------------|
+| :-------------- | :------------------------------------------------ | :----------------------------------------------- | :------------ |
 | `children`      | The content of the button.                        | `React.ReactNode`                                | -             |
 | `type`          | The type of the button.                           | `"button", "submit", "reset" or "link"`          | `"button"`    |
 | `fullWidth`     | If the button should be full width.               | `boolean`                                        | `false`       |
@@ -82,14 +82,14 @@ const IconExample: React.FC<IconProps> = (props) => {
   return <IconByName {...props} name="bx:baguette" />
 }
 
-const Example: React.FC = () => (
-  <ButtonIcon icon={IconExample} />
-)
+const Example: React.FC = () => {
+  return <ButtonIcon icon={IconExample} />
+}
 ```
 
 #### Props
 | Prop           | Description                                       | Type                                     | Default     |
-|:---------------|:--------------------------------------------------|:-----------------------------------------|:------------|
+| :------------- | :------------------------------------------------ | :--------------------------------------- | :---------- |
 | `type`         | The type of the button.                           | `"button", "submit",or "reset"`          | `"button"`  |
 | `id`           | The id of the button.                             | `string`                                 | -           |
 | `name`         | The name of the button.                           | `string`                                 | -           |

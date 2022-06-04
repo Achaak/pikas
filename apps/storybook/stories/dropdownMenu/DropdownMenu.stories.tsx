@@ -175,14 +175,14 @@ export default {
       },
     },
     iconSize: {
-      description: 'The size of the icon',
+      description: 'Icon size of trigger content',
       type: {
         name: 'number',
         required: false,
       },
     },
     iconColor: {
-      description: 'The color of the icon',
+      description: 'Icon color of trigger content',
       type: {
         name: 'enum',
         value: Object.keys(Colors),

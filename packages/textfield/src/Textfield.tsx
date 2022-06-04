@@ -347,4 +347,6 @@ Textfield.defaultProps = {
   backgroundColor: 'GRAY_LIGHTEST_1',
   boxShadow: 'DIMINUTION_1',
   outline: true,
+  disabled: false,
+  type: 'text',
 }

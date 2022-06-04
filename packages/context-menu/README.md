@@ -34,7 +34,59 @@ pnpm add @pikas-ui/context-menu
 
 ### ContextMenu
 
-TODO
+```tsx
+import { ContextMenu } from `@pikas-ui/checkbox`
+
+const Example: React.FC = () => {
+  return (
+    <ContextMenu
+      data={
+        [
+          {
+            label: 'Item 1',
+            items: [
+              {
+                label: 'Item 1-1',
+                type: 'item',
+                onClick: console.log,
+              },
+              {
+                type: 'checkbox',
+                checked: true,
+                label: 'Item 1-2',
+                onCheckedChange: console.log,
+                color: 'PRIMARY',
+              },
+            ],
+          },
+        ]
+      }
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop                   | Description                                                                                                                                                                                           | Type                             | Default |
+| :--------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- | :------ |
+| `datas`                | Menu datas                                                                                                                                                                                            | `MenuDatas`                      | -       |
+| `children`             | Trigger element                                                                                                                                                                                       | `React.ReactNode`                | -       |
+| `styles`               | Styles of context menu                                                                                                                                                                                | `object`                         | -       |
+| `onOpenChange`         | Event handler called when the open state of the context menu changes.                                                                                                                                 | `(open: boolean) => void`        | -       |
+| `modal`                | The modality of the context menu. When set to true, interaction with outside elements will be disabled and only menu content will be visible to screen readers. This prop is ignored within submenus. | `boolean`                        | `false` |
+| `allowPinchZoom`       | The allowPinchZoom prop from react-remove-scroll. See their docs for information on functionality and limitations.                                                                                    | `boolean`                        | `false` |
+| `loop`                 | When true, keyboard navigation will loop from last item to first, and vice versa.                                                                                                                     | `boolean`                        | `false` |
+| `direction`            | The direction of the menu                                                                                                                                                                             | `"ltr" or "rtl"`                 | -       |
+| `onCloseAutoFocus`     | Event handler called when focus moves back after closing. It can be prevented by calling event.preventDefault. This prop is ignored within submenus.                                                  | `(event: Event) => void`         | -       |
+| `onEscapeKeyDown`      | Event handler called when the escape key is down. It can be prevented by calling event.                                                                                                               | `(event: KeyboardEvent) => void` | -       |
+| `onPointerDownOutside` | Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling event.preventDefault.                                                            | `() => void`                     | -       |
+| `onFocusOutside`       | Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.                                                                       | `() => void`                     | -       |
+| `onInteractOutside`    | Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.                                                                       | `() => void`                     | -       |
+| `sideOffset`           | The horizontal distance in pixels from the anchor. This only applies within submenus.                                                                                                                 | `number`                         | -       |
+| `alignOffset`          | The vertical distance in pixels from the anchor.                                                                                                                                                      | `number`                         | -       |
+| `avoidCollisions`      | When true, overrides the side andalign preferences to prevent collisions with window edges.                                                                                                           | `boolean`                        | `false` |
+| `collisionTolerance`   | The distance in pixels from window edges where collision detection should occur.                                                                                                                      | `number`                         | -       |
 
 ---
 
