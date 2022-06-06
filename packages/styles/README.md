@@ -27,5 +27,278 @@ pnpm add @pikas-ui/styles
 
 ---
 
+## Usage
+### Styling
+  
+```ts
+import { styled } from '@pikas-ui/styles';
+
+const Button = styled('button', {
+  background: '$PRIMARY',
+  color: 'white',
+  border: 'none',
+  padding: '0.5rem',
+  br: 'sm',
+  fontSize: '$EM-SMALL',
+  fontWeight: '$BOLD',
+  cursor: 'pointer',
+  outline: 'none',
+  transition: 'all 0.2s ease-in-out',
+  
+  '&:hover': {
+    background: '$PRIMARY_LIGHT',
+  },
+})
+```
+
+## Themes
+```tsx
+import { createTheme } from '@pikas-ui/styles';
+
+export const themeDark = createTheme({
+  colors: {
+    PRIMARY_DARKER: '#083358',
+    PRIMARY_DARK: '#0D4C84',
+    PRIMARY: '#1166B0',
+    PRIMARY_LIGHT: '#88B3D7',
+    PRIMARY_LIGHTER: '#C3D9EB',
+    PRIMARY_LIGHTEST_2: '#E7F0F7',
+    PRIMARY_LIGHTEST_1: '#F3F4F6',
+  }
+});
+```
+
+---
+
+## Theme Variables
+
+### BorderRadius
+Properties for border radius.
+```ts 
+"none" | "xs" | "sm" | "md" | "lg" | "xl" | "round"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  br: 'sm',
+})
+```
+
+### FontSize
+Properties for font size.
+```ts 
+"EM-XXX-SMALL" | "EM-XX-SMALL" | "EM-X-SMALL" | "EM-SMALL" | "EM-MEDIUM" | "EM-LARGE" | "EM-X-LARGE" | "EM-XX-LARGE" | "EM-XXX-LARGE"
+```
+```ts 
+"REM-XXX-SMALL" | "REM-XX-SMALL" | "REM-X-SMALL" | "REM-SMALL" | "REM-MEDIUM" | "REM-LARGE" | "REM-X-LARGE" | "REM-XX-LARGE" | "REM-XXX-LARGE"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  fontSize: '$EM-SMALL',
+})
+```
+
+### FontWeight
+Properties for font weight.
+```ts
+"THIN" | "EXTRA-LIGHT" | "LIGHT" | "NORMAL" | "MEDIUM" | "SEMI-BOLD" | "BOLD" | "EXTRA-BOLD" | "BLACK"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  fontWeight: '$BOLD',
+})
+```
+
+### LetterSpacing
+Properties for letter spacing.
+```ts
+"XX-SMALL" | "X-SMALL" | "SMALL" | "MEDIUM" | "LARGE" | "X-LARGE" | "XX-LARGE"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  letterSpacing: '$XX-SMALL',
+})
+```
+
+### LineHeight
+Properties for line height.
+```ts 
+"EM-XXX-SMALL" | "EM-XX-SMALL" | "EM-X-SMALL" | "EM-SMALL" | "EM-MEDIUM" | "EM-LARGE" | "EM-X-LARGE" | "EM-XX-LARGE" | "EM-XXX-LARGE"
+```
+```ts 
+"REM-XXX-SMALL" | "REM-XX-SMALL" | "REM-X-SMALL" | "REM-SMALL" | "REM-MEDIUM" | "REM-LARGE" | "REM-X-LARGE" | "REM-XX-LARGE" | "REM-XXX-LARGE"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  lineHeight: '$EM-SMALL',
+})
+```
+
+### BoxShadow
+Properties for box shadow.
+```ts
+"ELEVATION_1" | "ELEVATION_2" | "ELEVATION_3" | "ELEVATION_4"
+```
+
+```ts
+"ELEVATION_TOP_1" | "ELEVATION_TOP_2" | "ELEVATION_TOP_3" | "ELEVATION_TOP_4" | "ELEVATION_TOP_5" | "ELEVATION_TOP_6"
+```
+
+```ts
+"ELEVATION_BOTTOM_1" | "ELEVATION_BOTTOM_2" | "ELEVATION_BOTTOM_3" | "ELEVATION_BOTTOM_4" | "ELEVATION_BOTTOM_5" | "ELEVATION_BOTTOM_6"
+```
+
+```ts
+"DIMINUTION_1" | "DIMINUTION_2" | "DIMINUTION_3" | "DIMINUTION_4" | "DIMINUTION_5"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  boxShadow: '$ELEVATION_1',
+})
+```
+
+### Size
+Properties for size.
+```ts
+"XXX-SMALL" | "XX-SMALL" | "X-SMALL" | "SMALL" | "MEDIUM" | "LARGE" | "X-LARGE" | "XX-LARGE" | "XXX-LARGE"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  size: '$XXX-SMALL',
+})
+```
+
+### ZIndeces
+Properties for z-index.
+```ts
+"XXX-LOW" | "XX-LOW" | "X-LOW" | "LOW" | "MEDIUM" | "HIGH" | "X-HIGH" | "XX-HIGH" | "XXX-HIGH"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  zIndex: '$XXX-LOW',
+})
+```
+
+### Custom Gap
+Properties for custom gap for resolve Safari gap issue.
+
+```ts
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  customGap: 8,
+  // or
+  customColumnGap: 8,
+  // or
+  customRowGap: 8,
+})
+```
+
+### Color
+Properties for color.
+#### Primary
+```ts
+"PRIMARY_DARKER" | "PRIMARY_DARK" | "PRIMARY" | "PRIMARY_LIGHT" | "PRIMARY_LIGHTER" | "PRIMARY_LIGHTEST_2" | "PRIMARY_LIGHTEST_1"
+```
+
+#### Secondary
+```ts
+"SECONDARY_DARKER" | "SECONDARY_DARK" | "SECONDARY" | "SECONDARY_LIGHT" | "SECONDARY_LIGHTER" | "SECONDARY_LIGHTEST_2" | "SECONDARY_LIGHTEST_1"
+```
+
+#### Tertiary
+```ts
+"TERTIARY_DARKER" | "TERTIARY_DARK" | "TERTIARY" | "TERTIARY_LIGHT" | "TERTIARY_LIGHTER" | "TERTIARY_LIGHTEST_2" | "TERTIARY_LIGHTEST_1"
+```
+
+#### Black
+```ts
+"BLACK" | "BLACK_LIGHT" | "BLACK_LIGHTER" | "BLACK_LIGHTEST_2" | "BLACK_LIGHTEST_1"
+```
+
+#### Black fix
+```ts
+"BLACK_FIX" | "BLACK_FIX_LIGHT" | "BLACK_FIX_LIGHTER" | "BLACK_FIX_LIGHTEST_2" | "BLACK_FIX_LIGHTEST_1"
+```
+
+#### White
+```ts
+"WHITE" | "WHITE_LIGHT" | "WHITE_LIGHTER" | "WHITE_LIGHTEST_2" | "WHITE_LIGHTEST_1"
+```
+
+#### White fix
+```ts
+"WHITE_FIX" | "WHITE_FIX_LIGHT" | "WHITE_FIX_LIGHTER" | "WHITE_FIX_LIGHTEST_2" | "WHITE_FIX_LIGHTEST_1"
+```
+
+#### Gray
+```ts
+"GRAY_DARKER" | "GRAY_DARK" | "GRAY" | "GRAY_LIGHT" | "GRAY_LIGHTER" | "GRAY_LIGHTEST_2" | "GRAY_LIGHTEST_1"
+```
+
+#### Success
+```ts
+"SUCCESS_DARKER" | "SUCCESS_DARK" | "SUCCESS" | "SUCCESS_LIGHT" | "SUCCESS_LIGHTER" | "SUCCESS_LIGHTEST_2" | "SUCCESS_LIGHTEST_1"
+```
+
+#### Warning
+```ts
+"WARNING_DARKER" | "WARNING_DARK" | "WARNING" | "WARNING_LIGHT" | "WARNING_LIGHTER" | "WARNING_LIGHTEST_2" | "WARNING_LIGHTEST_1"
+```
+
+#### Danger
+```ts
+"DANGER_DARKER" | "DANGER_DARK" | "DANGER" | "DANGER_LIGHT" | "DANGER_LIGHTER" | "DANGER_LIGHTEST_2" | "DANGER_LIGHTEST_1"
+```
+
+#### Other
+```ts
+"TRANSPARENT" | "BACKGROUND"
+```
+
+#### Example
+```tsx
+import { styled } from '@pikas-ui/styles';
+
+const Div = styled('div', {
+  color: '$PRIMARY',
+  backgroundColor: '$BACKGROUND',
+  borderColor: '$PRIMARY',
+  borderWidth: 1,
+  borderStyle: 'solid',
+})
+```
+
 ### Change Log
 You can find the change log [here](CHANGELOG.md).

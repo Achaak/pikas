@@ -18,6 +18,14 @@ export const darkTheme = createTheme('dark-theme', {
     SECONDARY_LIGHTEST_2: '#331217',
     SECONDARY_LIGHTEST_1: '#260D11',
 
+    TERTIARY_DARKER: '#FFDBA9',
+    TERTIARY_DARK: '#FFCA7E',
+    TERTIARY: '#FFB853',
+    TERTIARY_LIGHT: '#BF8A3E',
+    TERTIARY_LIGHTER: '#805C2A',
+    TERTIARY_LIGHTEST_2: '#332511',
+    TERTIARY_LIGHTEST_1: '#261B0C',
+
     BLACK: '#ffffff',
     BLACK2: '#292E36',
     BLACK_LIGHT: 'rgba(249, 247, 247, 0.7)',

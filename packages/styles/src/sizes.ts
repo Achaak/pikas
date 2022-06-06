@@ -1,13 +1,13 @@
 export const Sizes = {
-  xxxs: 1,
-  xxs: 2,
-  xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 32,
-  xl: 64,
-  xxl: 128,
-  xxxl: 256,
+  'XXX-SMALL': 1,
+  'XX-SMALL': 2,
+  'X-SMALL': 4,
+  SMALL: 8,
+  MEDIUM: 16,
+  LARGE: 32,
+  'X-LARGE': 64,
+  'XX-LARGE': 128,
+  'XXX-LARGE': 256,
 }
 
 export type SizesType = keyof typeof Sizes
