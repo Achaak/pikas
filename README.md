@@ -8,7 +8,6 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 ## To-do list
 - Documentation of loader component
 - Documentation of table component
-- Documentation of text component
 - Add Switch component
 - Add Slider component
 - Add Avatar component
