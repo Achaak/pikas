@@ -36,7 +36,6 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - [@pikas-ui/textarea](/packages/textarea/README.md)
 - [@pikas-ui/searchbar](/packages/searchbar/README.md)
 
-
 ## License
 Distributed under the MIT License. See LICENSE for more information.
 
