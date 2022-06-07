@@ -1,5 +1,17 @@
 # @pikas-ui/select
 
+## 1.0.25
+
+### Patch Changes
+
+- Update typing exported
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/textfield@1.0.25
+  - @pikas-ui/icons@1.0.25
+  - @pikas-ui/styles@1.0.25
+  - @pikas-ui/text@1.0.25
+
 ## 1.0.24
 
 ### Patch Changes

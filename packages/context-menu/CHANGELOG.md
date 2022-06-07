@@ -1,5 +1,16 @@
 # @pikas-ui/context-menu
 
+## 1.0.25
+
+### Patch Changes
+
+- Update typing exported
+- Updated dependencies
+  - @pikas-ui/icons@1.0.25
+  - @pikas-ui/loader@1.0.25
+  - @pikas-ui/menu@1.0.25
+  - @pikas-ui/styles@1.0.25
+
 ## 1.0.24
 
 ### Patch Changes

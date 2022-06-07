@@ -20,7 +20,7 @@
     "pre-lint": "turbo run pre-lint",
     "changeset": "changeset",
     "changeset:version": "changeset version -r",
-    "changeset:release": "turbo run build:packages && changeset publish"
+    "changeset:release": "pnpm build:packages && changeset publish"
   },
   "devDependencies": {
     "prettier": "latest",
