@@ -14,9 +14,9 @@ import { forwardRef } from 'react'
 import React, { useState } from 'react'
 
 const Container = styled('div', {
-  width: '100%',
   display: 'flex',
   flexDirection: 'column',
+  userSelect: 'none',
 })
 
 const TextareaContainer = styled('div', {
@@ -93,6 +93,12 @@ export type TextareaProps = {
   outline?: boolean
   resize?: TextareaResizeType
   description?: string
+  width?: string | number
+  maxWidth?: string | number
+  height?: string | number
+  maxHeight?: string | number
+  minHeight?: string | number
+  minWidth?: string | number
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -113,6 +119,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       outline,
       resize,
       description,
+      width,
+      maxWidth,
+      height,
+      maxHeight,
+      minHeight,
+      minWidth,
       ...props
     },
     ref
@@ -131,6 +143,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       <Container
         css={{
           fontSize: `${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
           ...styles?.container,
         }}
       >
@@ -180,6 +195,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 theme.colors[backgroundColor || 'WHITE'].value,
                 0.7
               ),
+              height: height,
+              maxHeight: maxHeight,
+              minHeight: minHeight,
             }}
             {...props}
           />
@@ -203,4 +221,7 @@ Textarea.defaultProps = {
   fontSize: 'EM-MEDIUM',
   outline: true,
   disabled: false,
+  width: '100%',
+  maxWidth: '100%',
+  height: 300,
 }

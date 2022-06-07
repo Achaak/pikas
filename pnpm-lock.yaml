@@ -16,21 +16,22 @@ importers:
   apps/storybook:
     specifiers:
       '@babel/core': ^7.18.0
-      '@pikas-ui/button': 1.0.25
+      '@pikas-ui/button': 1.0.26
       '@pikas-ui/checkbox': 1.0.26
       '@pikas-ui/config': workspace:*
       '@pikas-ui/context-menu': 1.0.25
       '@pikas-ui/dropdown-menu': 1.0.28
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25
-      '@pikas-ui/searchbar': 1.1.0
-      '@pikas-ui/select': 1.0.26
+      '@pikas-ui/searchbar': 1.1.1
+      '@pikas-ui/select': 1.0.27
       '@pikas-ui/separator': 1.0.25
+      '@pikas-ui/slider': 1.0.0
       '@pikas-ui/styles': 1.0.25
-      '@pikas-ui/table': 1.0.26
+      '@pikas-ui/table': 1.0.27
       '@pikas-ui/text': 1.0.26
-      '@pikas-ui/textarea': 1.0.26
-      '@pikas-ui/textfield': 1.0.26
+      '@pikas-ui/textarea': 1.0.27
+      '@pikas-ui/textfield': 1.0.27
       '@pikas-ui/tooltip': 1.0.25
       '@pikas-ui/tsconfig': workspace:*
       '@storybook/addon-essentials': ^6.5.6
@@ -62,6 +63,7 @@ importers:
       '@pikas-ui/searchbar': link:../../packages/searchbar
       '@pikas-ui/select': link:../../packages/select
       '@pikas-ui/separator': link:../../packages/separator
+      '@pikas-ui/slider': link:../../packages/slider
       '@pikas-ui/styles': link:../../packages/styles
       '@pikas-ui/table': link:../../packages/table
       '@pikas-ui/text': link:../../packages/text
@@ -349,13 +351,13 @@ importers:
 
   packages/searchbar:
     specifiers:
-      '@pikas-ui/button': 1.0.25
+      '@pikas-ui/button': 1.0.26
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25
       '@pikas-ui/separator': 1.0.25
       '@pikas-ui/styles': 1.0.25
-      '@pikas-ui/textfield': 1.0.26
+      '@pikas-ui/textfield': 1.0.27
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^17.0.38
       '@types/react': ^18.0.10
@@ -392,7 +394,7 @@ importers:
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/styles': 1.0.25
       '@pikas-ui/text': 1.0.26
-      '@pikas-ui/textfield': 1.0.26
+      '@pikas-ui/textfield': 1.0.27
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-select': ^0.1.1
       '@types/node': ^17.0.38
@@ -450,6 +452,39 @@ importers:
       tsup: 6.1.0_typescript@4.7.2
       typescript: 4.7.2
 
+  packages/slider:
+    specifiers:
+      '@pikas-ui/config': workspace:*
+      '@pikas-ui/icons': 1.0.25
+      '@pikas-ui/styles': 1.0.25
+      '@pikas-ui/text': 1.0.26
+      '@pikas-ui/tsconfig': workspace:*
+      '@radix-ui/react-slider': ^0.1.4
+      '@types/node': ^17.0.38
+      '@types/react': ^18.0.10
+      '@types/react-dom': ^18.0.5
+      eslint: ^8.16.0
+      react: ^18.1.0
+      react-dom: ^18.1.0
+      tsup: ^6.0.1
+      typescript: 4.7.2
+    dependencies:
+      '@pikas-ui/icons': link:../icons
+      '@pikas-ui/styles': link:../styles
+      '@pikas-ui/text': link:../text
+      '@radix-ui/react-slider': 0.1.4_react@18.1.0
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    devDependencies:
+      '@pikas-ui/config': link:../config
+      '@pikas-ui/tsconfig': link:../tsconfig
+      '@types/node': 17.0.40
+      '@types/react': 18.0.12
+      '@types/react-dom': 18.0.5
+      eslint: 8.17.0
+      tsup: 6.1.0_typescript@4.7.2
+      typescript: 4.7.2
+
   packages/styles:
     specifiers:
       '@pikas-ui/config': workspace:*
@@ -483,7 +518,7 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25
-      '@pikas-ui/select': 1.0.26
+      '@pikas-ui/select': 1.0.27
       '@pikas-ui/styles': 1.0.25
       '@pikas-ui/tsconfig': workspace:*
       '@tanstack/react-table': 8.0.0-beta.3
@@ -2963,6 +2998,26 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.3
       '@radix-ui/react-primitive': 0.1.4_react@18.1.0
+      react: 18.1.0
+    dev: false
+
+  /@radix-ui/react-slider/0.1.4_react@18.1.0:
+    resolution: {integrity: sha512-0z3bCcdrAi+FIcoLXS6r0ESVWuuyMnUJoCsFm7tC7Rtv95x34YtaI8YfSyQmzuMVS4rTsNtCCTZ/s727uRaVkQ==}
+    peerDependencies:
+      react: ^16.8 || ^17.0
+    dependencies:
+      '@babel/runtime': 7.18.3
+      '@radix-ui/number': 0.1.0
+      '@radix-ui/primitive': 0.1.0
+      '@radix-ui/react-collection': 0.1.4_react@18.1.0
+      '@radix-ui/react-compose-refs': 0.1.0_react@18.1.0
+      '@radix-ui/react-context': 0.1.1_react@18.1.0
+      '@radix-ui/react-primitive': 0.1.4_react@18.1.0
+      '@radix-ui/react-use-controllable-state': 0.1.0_react@18.1.0
+      '@radix-ui/react-use-direction': 0.1.0_react@18.1.0
+      '@radix-ui/react-use-layout-effect': 0.1.0_react@18.1.0
+      '@radix-ui/react-use-previous': 0.1.1_react@18.1.0
+      '@radix-ui/react-use-size': 0.1.1_react@18.1.0
       react: 18.1.0
     dev: false
 

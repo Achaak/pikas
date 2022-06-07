@@ -17,9 +17,9 @@ import React, { useRef, useState } from 'react'
 import useMergedRef from '@react-hook/merged-ref'
 
 const Container = styled('div', {
-  width: '100%',
   display: 'flex',
   flexDirection: 'column',
+  userSelect: 'none',
 })
 
 const InputContainer = styled('div', {
@@ -199,7 +199,6 @@ export type TextfieldProps = {
   borderWidth?: number
   backgroundColor?: ColorsType
   textError?: string
-
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
   LeftIcon?: React.FC<IconProps>
@@ -211,6 +210,9 @@ export type TextfieldProps = {
   max?: number
   outline?: boolean
   description?: string
+  width?: string | number
+  maxWidth?: string | number
+  minWidth?: string | number
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
@@ -239,6 +241,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       outline,
       description,
       gap,
+      width,
+      maxWidth,
+      minWidth,
       ...props
     },
     ref
@@ -267,6 +272,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       <Container
         css={{
           fontSize: `${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
           ...styles?.container,
         }}
       >
@@ -418,4 +426,6 @@ Textfield.defaultProps = {
   disabled: false,
   type: 'text',
   fontSize: 'EM-MEDIUM',
+  width: '100%',
+  maxWidth: '100%',
 }

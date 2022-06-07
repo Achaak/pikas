@@ -11,7 +11,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useDebounce, useOnClickOutside } from 'usehooks-ts'
 
 const Form = styled('form', {
-  width: '100%',
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
@@ -140,6 +139,9 @@ export interface SearchbarProps<T> {
   noResult?: React.ReactNode
   loading?: React.ReactNode
   direction?: SearchbarDirection
+  width?: string | number
+  maxWidth?: string | number
+  minWidth?: string | number
 }
 
 export const Searchbar = <T,>({
@@ -155,6 +157,9 @@ export const Searchbar = <T,>({
   loading: loadingProp,
   noResult,
   direction: directionProp,
+  width,
+  maxWidth,
+  minWidth,
 }: SearchbarProps<T>): JSX.Element => {
   const [result, setResult] = useState<ResultGroupWithIdType[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
@@ -280,7 +285,12 @@ export const Searchbar = <T,>({
         e.preventDefault()
         handleSearch()
       }}
-      css={styles?.container}
+      css={{
+        width: width,
+        maxWidth: maxWidth,
+        minWidth: minWidth,
+        ...styles?.container,
+      }}
       ref={refContainer}
     >
       <Textfield
@@ -420,4 +430,6 @@ Searchbar.defaultProps = {
   debounceDelay: 500,
   loading: false,
   noResult: 'No result',
+  width: '100%',
+  maxWidth: '100%',
 }

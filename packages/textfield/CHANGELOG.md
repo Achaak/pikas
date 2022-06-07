@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 1.0.27
+
+### Patch Changes
+
+- Add width, minWidth and maxWidth props
+
 ## 1.0.26
 
 ### Patch Changes

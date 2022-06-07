@@ -57,6 +57,9 @@ const Example: React.FC = () => {
 | `noResult`        | The message when no result is found.               | `React.ReactNode`                        | `"No result"` |
 | `loading`         | The message when the search is loading.            | `React.ReactNode`                        | -             |
 | `direction`       | The direction of the searchbar.                    | `SearchbarDirection`                     | -             |
+| `width`           | The width of the searchbar.                        | `string or number`                       | `"100%"`      |
+| `maxWidth`        | The max width of the searchbar.                    | `string or number`                       | `"100%"`      |
+| `minWidth`        | The min width of the searchbar.                    | `string or number`                       | -             |
 
 ---
 

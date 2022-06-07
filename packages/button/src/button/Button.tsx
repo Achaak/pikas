@@ -169,7 +169,6 @@ export type ButtonStylesType = {
 
 export interface ButtonDefaultProps {
   children?: React.ReactNode
-  fullWidth?: boolean
   styles?: ButtonStylesType
   loading?: boolean
   borderRadius?: BorderRadiusType
@@ -187,6 +186,9 @@ export interface ButtonDefaultProps {
   RightIcon?: React.FC<IconProps>
   borderWidth?: number
   disabled?: boolean
+  width?: string | number
+  maxWidth?: string | number
+  minWidth?: string | number
 }
 
 export interface ButtonProps
@@ -286,7 +288,6 @@ const getContent = ({
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      fullWidth,
       color,
       colorHex,
       textColor,
@@ -306,6 +307,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       RightIcon,
       outlined,
       borderWidth,
+      width,
+      maxWidth,
+      minWidth,
       ...props
     },
     ref
@@ -325,11 +329,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         state={disabled}
         effect={disabled ? undefined : effect}
         css={{
-          width: fullWidth ? '100%' : 'auto',
           br: borderRadius,
           fontWeight: `$${fontWeight}`,
           borderWidth: borderWidth,
           fontSize: `$${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
 
           ...getColors({
             outlined,
@@ -362,7 +368,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.defaultProps = {
   type: 'button',
-  fullWidth: false,
   disabled: false,
   loading: false,
   borderRadius: 'md',
@@ -375,12 +380,13 @@ Button.defaultProps = {
   effect: 'opacity',
   borderWidth: 2,
   outlined: false,
+  width: '100%',
+  maxWidth: '100%',
 }
 
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   (
     {
-      fullWidth,
       color,
       colorHex,
       textColor,
@@ -400,6 +406,9 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       RightIcon,
       outlined,
       borderWidth,
+      width,
+      maxWidth,
+      minWidth,
       ...props
     },
     ref
@@ -420,11 +429,13 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         state={disabled}
         effect={disabled ? undefined : effect}
         css={{
-          width: fullWidth ? '100%' : 'auto',
           br: borderRadius,
           fontWeight: `$${fontWeight}`,
           borderWidth: borderWidth,
           fontSize: `$${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
 
           ...getColors({
             outlined,
@@ -456,7 +467,6 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 )
 
 ButtonLink.defaultProps = {
-  fullWidth: false,
   disabled: false,
   loading: false,
   borderRadius: 'md',
@@ -469,4 +479,6 @@ ButtonLink.defaultProps = {
   effect: 'opacity',
   borderWidth: 2,
   outlined: false,
+  width: '100%',
+  maxWidth: '100%',
 }

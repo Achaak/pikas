@@ -1,5 +1,12 @@
 # @pikas-ui/button
 
+## 1.0.26
+
+### Patch Changes
+
+- Remove fullWidth props
+- Add width, minWidth and maxWidth props
+
 ## 1.0.25
 
 ### Patch Changes

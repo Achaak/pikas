@@ -1,5 +1,13 @@
 # @pikas-ui/select
 
+## 1.0.27
+
+### Patch Changes
+
+- Add width, minWidth and maxWidth props
+- Updated dependencies
+  - @pikas-ui/textfield@1.0.27
+
 ## 1.0.26
 
 ### Patch Changes
@@ -14,7 +22,6 @@
 ### Patch Changes
 
 - Update typing exported
-- Updated dependencies
 - Updated dependencies
   - @pikas-ui/textfield@1.0.25
   - @pikas-ui/icons@1.0.25

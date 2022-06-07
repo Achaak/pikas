@@ -21,6 +21,7 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - [@pikas-ui/dropdown-menu](/packages/dropdown-menu/README.md)
 - [@pikas-ui/textarea](/packages/textarea/README.md)
 - [@pikas-ui/searchbar](/packages/searchbar/README.md)
+- [@pikas-ui/slider](/packages/slider/README.md)
 
 ## Examples
 You can find the examples in the [Storybook](https://pikas-ui.vercel.app/).
@@ -29,7 +30,6 @@ You can find the examples in the [Storybook](https://pikas-ui.vercel.app/).
 - Documentation of loader component
 - Documentation of table component
 - Add Switch component
-- Add Slider component
 - Add Avatar component
 - Add Modal component
 - Add Radio component

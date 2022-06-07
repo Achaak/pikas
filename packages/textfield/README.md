@@ -67,6 +67,9 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | `styles`          | The styles of the textfield.           | `{ container?: CSS, inputContainer?: CSS, input?: CSS }` | -                   |
 | `outline`         | The outline of the textfield.          | `boolean`                                                | `true`              |
 | `description`     | The description of the textfield.      | `string`                                                 | -                   |
+| `width`           | The width of the textfield.            | `string or number`                                       | `"100%"`            |
+| `maxWidth`        | The max width of the textfield.        | `string or number`                                       | `"100%"`            |
+| `minWidth`        | The min width of the textfield.        | `string or number`                                       | -                   |
 
 ---
 

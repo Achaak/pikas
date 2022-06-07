@@ -61,13 +61,6 @@ export default {
         required: false,
       },
     },
-    fullWidth: {
-      description: 'Full width of the button',
-      type: {
-        name: 'boolean',
-        required: false,
-      },
-    },
     loading: {
       description: 'Loader state of the button',
       type: {
@@ -241,7 +234,6 @@ Default.args = {
   outlined: false,
   padding: 'md',
   disabled: false,
-  fullWidth: false,
   loading: false,
   LeftIcon: undefined,
   RightIcon: undefined,
@@ -266,7 +258,6 @@ WithIcon.args = {
   outlined: true,
   padding: 'md',
   disabled: false,
-  fullWidth: false,
   loading: false,
   LeftIcon: IconTest,
   RightIcon: undefined,

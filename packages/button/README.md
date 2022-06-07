@@ -47,7 +47,6 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | :-------------- | :------------------------------------------------ | :------------------------ | :------------ |
 | `children`      | The content of the button.                        | `React.ReactNode`         | -             |
 | `type`          | The type of the button.                           | `ButtonTargetType`        | `"button"`    |
-| `fullWidth`     | If the button should be full width.               | `boolean`                 | `false`       |
 | `color`         | The color of the button.                          | `ColorsType`              | `"PRIMARY"`   |
 | `colorHex`      | The color of the button (hex).                    | `string`                  | -             |
 | `textColor`     | The color of the button.                          | `ColorsType`              | -             |
@@ -67,6 +66,9 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | `RightIcon`     | The right icon of the button.                     | `React.FC<IconProps>`     | -             |
 | `outlined`      | If the button is outlined.                        | `boolean`                 | `false`       |
 | `borderWidth`   | The border width of the button.                   | `number`                  | `2`           |
+| `width`         | The width of the button.                          | `string or number`        | `"100%"`      |
+| `maxWidth`      | The max width of the button.                      | `string or number`        | `"100%"`      |
+| `minWidth`      | The min width of the button.                      | `string or number`        | -             |
 
 ---
 
@@ -86,7 +88,6 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | Prop            | Description                                       | Type                      | Default       |
 | :-------------- | :------------------------------------------------ | :------------------------ | :------------ |
 | `children`      | The content of the button.                        | `React.ReactNode`         | -             |
-| `fullWidth`     | If the button should be full width.               | `boolean`                 | `false`       |
 | `color`         | The color of the button.                          | `ColorsType`              | `"PRIMARY"`   |
 | `colorHex`      | The color of the button (hex).                    | `string`                  | -             |
 | `textColor`     | The color of the button.                          | `ColorsType`              | -             |
@@ -108,6 +109,9 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | `outlined`      | If the button is outlined.                        | `boolean`                 | `false`       |
 | `borderWidth`   | The border width of the button.                   | `number`                  | `2`           |
 | `target`        | The target of the button.                         | `ButtonTargetType`        | `"_self"`     |
+| `width`         | The width of the button.                          | `string or number`        | `"100%"`      |
+| `maxWidth`      | The max width of the button.                      | `string or number`        | `"100%"`      |
+| `minWidth`      | The min width of the button.                      | `string or number`        | -             |
 
 ---
 

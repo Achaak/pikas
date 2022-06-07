@@ -59,6 +59,12 @@ Props extends `TextareaHTMLAttributes<HTMLTextAreaElement>`
 | `outline`         | The outline of the textarea.          | `boolean`                                                      | `true`           |
 | `resize`          | The resize of the textarea.           | `TextareaResizeType`                                           | `"none"`         |
 | `description`     | The description of the textarea.      | `string`                                                       | -                |
+| `width`           | The width of the textarea.            | `string or number`                                             | `"100%"`         |
+| `minWidth`        | The min width of the textarea.        | `string or number`                                             | -                |
+| `maxWidth`        | The max width of the textarea.        | `string or number`                                             | `"100%"`         |
+| `height`          | The height of the textarea.           | `string or number`                                             | `300px`          |
+| `minHeight`       | The min height of the textarea.       | `string or number`                                             | -                |
+| `maxHeight`       | The max height of the textarea.       | `string or number`                                             | -                |
 
 ---
 

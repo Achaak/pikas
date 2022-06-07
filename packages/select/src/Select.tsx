@@ -12,7 +12,10 @@ import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import React, { useEffect, useState } from 'react'
 
-const Container = styled('div', {})
+const Container = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+})
 
 const SelectContainer = styled(SelectPrimitive.Root, {})
 
@@ -194,6 +197,9 @@ export interface SelectProps {
   backgroundColor?: ColorsType
   outline?: boolean
   description?: string
+  width?: string | number
+  maxWidth?: string | number
+  minWidth?: string | number
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -219,6 +225,9 @@ export const Select: React.FC<SelectProps> = ({
   backgroundColor,
   outline,
   description,
+  maxWidth,
+  width,
+  minWidth,
 }) => {
   const [searchValue, setSearchValue] = useState('')
   const [formatedData, setFormatedData] = useState(data)
@@ -261,6 +270,9 @@ export const Select: React.FC<SelectProps> = ({
     <Container
       css={{
         fontSize: `$${fontSize}`,
+        width: width,
+        maxWidth: maxWidth,
+        minWidth: minWidth,
       }}
     >
       {label ? (
@@ -402,4 +414,6 @@ Select.defaultProps = {
   boxShadow: 'DIMINUTION_1',
   backgroundColor: 'GRAY_LIGHTEST_1',
   outline: true,
+  width: '100%',
+  maxWidth: '100%',
 }

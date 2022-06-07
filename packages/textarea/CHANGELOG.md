@@ -1,5 +1,12 @@
 # @pikas-ui/textarea
 
+## 1.0.27
+
+### Patch Changes
+
+- Add height, minHeight and maxHeight props
+- Add width, minWidth and maxWidth props
+
 ## 1.0.26
 
 ### Patch Changes
