@@ -1,5 +1,11 @@
 # @pikas-ui/dropdown-menu
 
+## 1.0.27
+
+### Patch Changes
+
+- Fix open props
+
 ## 1.0.25
 
 ### Patch Changes

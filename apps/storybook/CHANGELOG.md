@@ -1,5 +1,12 @@
 # @pikas-ui/storybook
 
+## 1.0.27
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/dropdown-menu@1.0.27
+
 ## 1.0.26
 
 ### Patch Changes
