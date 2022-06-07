@@ -3,7 +3,6 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [["@pikas-ui/*"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",

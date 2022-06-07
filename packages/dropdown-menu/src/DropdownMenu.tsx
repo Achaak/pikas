@@ -347,6 +347,6 @@ DropdownMenu.defaultProps = {
   defaultOpen: false,
   allowPinchZoom: false,
   loop: false,
-  portalled: false,
+  portalled: true,
   avoidCollisions: false,
 }

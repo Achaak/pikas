@@ -53,6 +53,13 @@ const Result = styled('div', {
   },
 })
 
+const ResultGroup = styled('div', {})
+
+const ResultGroupTitle = styled('span', {
+  fontWeight: '$BOLD',
+  padding: '16px 16px 8px 16px',
+})
+
 const ResultItem = styled('div', {
   padding: '8px 16px',
   cursor: 'pointer',
@@ -100,22 +107,36 @@ export type ResultItemType = {
   onClick?: () => void
 }
 
+export type ResultGroupType = {
+  title?: string
+  items: ResultItemType[]
+}
+
+type ResultGroupWithIdType = {
+  title?: string
+  items: (ResultItemType & { id: number })[]
+}
+
+export type SearchbarStylesType = {
+  container?: CSS
+  resultContainer?: CSS
+  noResult?: CSS
+  resultItem?: CSS
+  textfield?: TextfieldStylesType
+  resultGroup?: CSS
+  resultGroupTitle?: CSS
+}
+
 export interface SearchbarProps<T> {
   searchFunction: (value: string) => Promise<T>
-  onSearch: (value: T) => ResultItemType[] | null
+  onSearch: (value: T) => ResultGroupType[] | null
   searchType?: 'button' | 'textfield'
   isOpen?: boolean
   id?: string
   searchWhenKeyUp?: boolean
   debounceDelay?: number
   textfield?: TextfieldProps
-  styles?: {
-    container?: CSS
-    resultContainer?: CSS
-    noResult?: CSS
-    resultItem?: CSS
-    textfield?: TextfieldStylesType
-  }
+  styles?: SearchbarStylesType
   noResult?: React.ReactNode
   loading?: React.ReactNode
   direction?: SearchbarDirection
@@ -135,7 +156,7 @@ export const Searchbar = <T,>({
   noResult,
   direction: directionProp,
 }: SearchbarProps<T>): JSX.Element => {
-  const [result, setResult] = useState<ResultItemType[] | null>()
+  const [result, setResult] = useState<ResultGroupWithIdType[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
   const [isOpen, setIsOpen] = useState(isOpenProp)
   const [loading, setLoading] = useState(loadingProp)
@@ -148,14 +169,42 @@ export const Searchbar = <T,>({
   const refItem = useRef<(HTMLDivElement | null)[]>([])
   useOnClickOutside(refContainer, () => setIsOpen(false))
 
+  const getResultFormat = (
+    result: ResultGroupType[] | null
+  ): ResultGroupWithIdType[] => {
+    if (!result) return []
+
+    let i = 0
+    const resultFormat: ResultGroupWithIdType[] = []
+
+    result.forEach((group) => {
+      const items: (ResultItemType & { id: number })[] = []
+      group.items.forEach((item) => {
+        items.push({
+          ...item,
+          id: i,
+        })
+        i++
+      })
+      resultFormat.push({
+        title: group.title,
+        items,
+      })
+    })
+
+    return resultFormat
+  }
+
   const handleSearch = async (): Promise<void> => {
     if (!textfieldValue) return
 
     setLoading(true)
     setIsOpen(true)
     setSelectionId(0)
+    refItem.current = []
     const res = await searchFunction(textfieldValue)
-    setResult(onSearch(res))
+    const resOnSearch = onSearch(res)
+    setResult(getResultFormat(resOnSearch))
     setLoading(false)
   }
 
@@ -179,8 +228,12 @@ export const Searchbar = <T,>({
 
   const handleAddSelectionId = (): void => {
     setSelectionId((ls) => {
-      const newId = Math.min(ls + 1, result?.length ? result?.length - 1 : 0)
-      const currentItem = refItem.current[newId]
+      const currentItemArray = Object.values(refItem.current)
+      const newId = Math.min(
+        ls + 1,
+        currentItemArray?.length ? currentItemArray?.length - 1 : 0
+      )
+      const currentItem = currentItemArray[newId]
       const currentResult = refResult.current
       if (
         currentItem &&
@@ -202,8 +255,9 @@ export const Searchbar = <T,>({
 
   const handleRemoveSelectionId = (): void => {
     setSelectionId((ls) => {
+      const currentItemArray = Object.values(refItem.current)
       const newId = Math.max(ls - 1, 0)
-      const currentItem = refItem.current[newId]
+      const currentItem = currentItemArray[newId]
       const currentResult = refResult.current
 
       if (
@@ -303,28 +357,51 @@ export const Searchbar = <T,>({
             <ClipLoader size={40} color="PRIMARY" />
           </ResultLoading>
         ) : result?.length ? (
-          result.map((item, index) => {
+          result.map((group, groupIndex) => {
             const res = []
 
-            if (index) {
-              res.push(<Separator size={1} key={`${index}-separator`} />)
+            if (group.title) {
+              res.push(
+                <ResultGroupTitle
+                  key={`${groupIndex}-title`}
+                  css={styles?.resultGroupTitle}
+                >
+                  {group.title}
+                </ResultGroupTitle>
+              )
             }
 
             res.push(
-              <ResultItem
-                ref={(ref): void => {
-                  refItem.current[index] = ref
-                }}
-                key={index}
-                onClick={(): void => {
-                  item.onClick?.()
-                  setIsOpen(false)
-                }}
-                selected={selectionId === index}
-                css={styles?.resultItem}
-              >
-                {item.content}
-              </ResultItem>
+              <ResultGroup key={groupIndex} css={styles?.resultGroup}>
+                {group.items.map((item, itemIndex) => {
+                  const res = []
+
+                  if (itemIndex) {
+                    res.push(
+                      <Separator size={1} key={`${itemIndex}-separator`} />
+                    )
+                  }
+
+                  res.push(
+                    <ResultItem
+                      ref={(ref): void => {
+                        refItem.current[item.id] = ref
+                      }}
+                      key={itemIndex}
+                      onClick={(): void => {
+                        item.onClick?.()
+                        setIsOpen(false)
+                      }}
+                      selected={selectionId === item.id}
+                      css={styles?.resultItem}
+                    >
+                      {item.content}
+                    </ResultItem>
+                  )
+
+                  return res
+                })}
+              </ResultGroup>
             )
 
             return res

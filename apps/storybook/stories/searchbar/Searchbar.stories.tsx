@@ -1,5 +1,5 @@
 import { globalStyles } from '@pikas-ui/styles'
-import type { ResultItemType, SearchbarProps } from '@pikas-ui/searchbar'
+import type { ResultGroupType, SearchbarProps } from '@pikas-ui/searchbar'
 import type { Story, Meta } from '@storybook/react'
 import { Searchbar } from '@pikas-ui/searchbar'
 
@@ -32,52 +32,33 @@ Default.args = {
           { firstname: 'Jane', lastname: 'Doe' },
           { firstname: 'John', lastname: 'Smith' },
           { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
-          { firstname: 'Jane', lastname: 'Smith' },
         ])
       }, 1000)
     })
   },
-  onSearch: (value): ResultItemType[] | null => {
+  onSearch: (value): ResultGroupType[] | null => {
     if (!Array.isArray(value)) return null
 
-    return value.map((item) => ({
-      content: `${item.firstname} ${item.lastname}`,
-      onClick: (): void => {
-        console.log(item)
+    return [
+      {
+        title: 'Results',
+        items: value.map((item) => ({
+          content: `${item.firstname} ${item.lastname}`,
+          onClick: (): void => {
+            console.log(item)
+          },
+        })),
       },
-    }))
+      {
+        title: 'Results 2',
+        items: value.map((item) => ({
+          content: `${item.firstname} ${item.lastname}`,
+          onClick: (): void => {
+            console.log(item)
+          },
+        })),
+      },
+    ]
   },
   searchType: 'button',
   isOpen: false,

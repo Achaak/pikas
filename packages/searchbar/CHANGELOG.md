@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 1.1.0
+
+### Minor Changes
+
+- onSearch props now need ResultGroupType in result
+
 ## 1.0.26
 
 ### Patch Changes
