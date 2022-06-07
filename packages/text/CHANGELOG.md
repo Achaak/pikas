@@ -1,5 +1,11 @@
 # @pikas-ui/text
 
+## 1.0.26
+
+### Patch Changes
+
+- Add documentation
+
 ## 1.0.25
 
 ### Patch Changes
