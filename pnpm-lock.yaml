@@ -20,7 +20,7 @@ importers:
       '@pikas-ui/checkbox': 1.0.26
       '@pikas-ui/config': workspace:*
       '@pikas-ui/context-menu': 1.0.25
-      '@pikas-ui/dropdown-menu': 1.0.25
+      '@pikas-ui/dropdown-menu': 1.0.27
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25
       '@pikas-ui/searchbar': 1.0.26

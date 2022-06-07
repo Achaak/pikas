@@ -19,7 +19,7 @@
     "format": "turbo run format",
     "pre-lint": "turbo run pre-lint",
     "changeset": "changeset",
-    "changeset:version": "changeset version -r",
+    "changeset:version": "changeset version -r && pnpm i",
     "changeset:release": "pnpm build:packages && changeset publish"
   },
   "devDependencies": {
