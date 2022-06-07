@@ -97,30 +97,43 @@ Slider.defaultProps = {
 
 #### Props
 
-| Prop                    | Description                                                     | Type                        | Default      |
-| :---------------------- | :-------------------------------------------------------------- | :-------------------------- | :----------- |
-| `defaultValue`          | The initial value of the slider.                                | `number[]`                  | -            |
-| `onChange`              | Callback function that is called when the slider value changes. | `(value: number[]) => void` | -            |
-| `id`                    | The id of the slider.                                           | `string`                    | -            |
-| `label`                 | The label of the slider.                                        | `string or ReactNode`       | -            |
-| `textError`             | The error text of the slider.                                   | `string`                    | -            |
-| `fontSize`              | The font size of the slider.                                    | `FontsSizesType`            | `EM-MEDIUM`  |
-| `className`             | The class name of the slider.                                   | `string`                    | -            |
-| `description`           | The description of the slider.                                  | `string`                    | -            |
-| `value`                 | The value of the slider.                                        | `number[]`                  | -            |
-| `disabled`              | If the slider is disabled.                                      | `boolean`                   | `false`      |
-| `min`                   | The minimum value of the slider.                                | `number`                    | `0`          |
-| `max`                   | The maximum value of the slider.                                | `number`                    | `100`        |
-| `name`                  | The name of the slider.                                         | `string`                    | -            |
-| `direction`             | The direction of the slider.                                    | `SliderDirectionType`       | `ltr`        |
-| `orientation`           | The orientation of the slider.                                  | `SliderOrientationType`     | `horizontal` |
-| `step`                  | The step of the slider.                                         | `number`                    | `1`          |
-| `minStepsBetweenThumbs` | The minimum number of steps between thumbs.                     | `number`                    | `1`          |
-| `size`                  | The size of the slider.                                         | `string or number`          | `100%`       |
-| `maxSize`               | The max size of the slider.                                     | `string or number`          | `100%`       |
-| `minSize`               | The min size of the slider.                                     | `string or number`          | -            |
-| `weight`                | The weight of the slider.                                       | `number`                    | `4`          |
-| `thumbSize`             | The size of the thumb.                                          | `number`                    | `16`         |
+| Prop                       | Description                                                     | Type                        | Default          |
+| :------------------------- | :-------------------------------------------------------------- | :-------------------------- | :--------------- |
+| `defaultValue`             | The initial value of the slider.                                | `number[]`                  | -                |
+| `onChange`                 | Callback function that is called when the slider value changes. | `(value: number[]) => void` | -                |
+| `id`                       | The id of the slider.                                           | `string`                    | -                |
+| `label`                    | The label of the slider.                                        | `string or ReactNode`       | -                |
+| `textError`                | The error text of the slider.                                   | `string`                    | -                |
+| `fontSize`                 | The font size of the slider.                                    | `FontsSizesType`            | `EM-MEDIUM`      |
+| `className`                | The class name of the slider.                                   | `string`                    | -                |
+| `description`              | The description of the slider.                                  | `string`                    | -                |
+| `value`                    | The value of the slider.                                        | `number[]`                  | -                |
+| `disabled`                 | If the slider is disabled.                                      | `boolean`                   | `false`          |
+| `min`                      | The minimum value of the slider.                                | `number`                    | `0`              |
+| `max`                      | The maximum value of the slider.                                | `number`                    | `100`            |
+| `name`                     | The name of the slider.                                         | `string`                    | -                |
+| `direction`                | The direction of the slider.                                    | `SliderDirectionType`       | `ltr`            |
+| `orientation`              | The orientation of the slider.                                  | `SliderOrientationType`     | `horizontal`     |
+| `step`                     | The step of the slider.                                         | `number`                    | `1`              |
+| `minStepsBetweenThumbs`    | The minimum number of steps between thumbs.                     | `number`                    | `1`              |
+| `size`                     | The size of the slider.                                         | `string or number`          | `100%`           |
+| `maxSize`                  | The max size of the slider.                                     | `string or number`          | `100%`           |
+| `minSize`                  | The min size of the slider.                                     | `string or number`          | -                |
+| `weight`                   | The weight of the slider.                                       | `number`                    | `4`              |
+| `thumbSize`                | The size of the thumb.                                          | `number`                    | `16`             |
+| `thumbColor`               | The color of the thumb.                                         | `ColorsType`                | `"WHITE"`        |
+| `thumbColorHex`            | The hex color of the thumb.                                     | `string`                    | -                |
+| `thumbBorderColor`         | The color of the thumb border.                                  | `ColorsType`                | -                |
+| `thumbBorderColorHex`      | The color of the thumb border in hexadecimal                    | `string`                    | -                |
+| `thumbBorderColorHover`    | The color of the thumb border on hover.                         | `ColorsType`                | `"GRAY_LIGHTER"` |
+| `thumbBorderColorHoverHex` | The color of the thumb border on hover in hexadecimal.          | `string`                    | -                |
+| `thumbBorderWidth`         | The width of the thumb border.                                  | `number`                    | -                |
+| `thumbBorderRadius`        | The radius of the thumb border.                                 | `BorderRadiusType`          | `"round"`        |
+| `trackColor`               | The color of the track.                                         | `stColorsTypering`          | `"GRAY_LIGHTER"` |
+| `trackColorHex`            | The color of the track in hexadecimal.                          | `string`                    | -                |
+| `rangeColor`               | The color of the range.                                         | `ColorsType`                | -                |
+| `rangeColorHex`            | The color of the range in hexadecimal.                          | `string`                    | -                |
+| `sliderBorderRadius`       | The radius of the slider border.                                | `BorderRadiusType`          | `"round"`        |
 
 ---
 

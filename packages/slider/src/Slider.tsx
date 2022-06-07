@@ -1,4 +1,8 @@
-import type { FontsSizesType } from '@pikas-ui/styles'
+import type {
+  BorderRadiusType,
+  ColorsType,
+  FontsSizesType,
+} from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
@@ -20,29 +24,22 @@ const SliderStyled = styled(SliderPrimitive.Root, {
 })
 
 const Track = styled(SliderPrimitive.Track, {
-  backgroundColor: '$GRAY_LIGHTER',
   position: 'relative',
   flexGrow: 1,
-  br: 'round',
 })
 
 const Range = styled(SliderPrimitive.Range, {
   position: 'absolute',
-  backgroundColor: '$PRIMARY',
-  br: 'round',
   height: '100%',
 })
 
 const Thumb = styled(SliderPrimitive.Thumb, {
   all: 'unset',
   display: 'block',
-  backgroundColor: '$WHITE',
   boxShadow: '$ELEVATION_1',
-  br: 'round',
   transition: 'all 0.2s ease-in-out',
   cursor: 'pointer',
 
-  '&:hover': { backgroundColor: '$GRAY_LIGHTER' },
   '&:focus': { boxShadow: 'ELEVATION_2' },
 })
 
@@ -88,6 +85,18 @@ export interface SliderProps {
   minSize?: string | number
   weight?: number
   thumbSize?: number
+  thumbColor?: string
+  thumbBorderColor?: ColorsType
+  thumbBorderColorHex?: string
+  thumbBorderColorHover?: ColorsType
+  thumbBorderColorHoverHex?: string
+  thumbBorderWidth?: number
+  thumbBorderRadius?: BorderRadiusType
+  trackColor?: ColorsType
+  trackColorHex?: string
+  rangeColor?: ColorsType
+  rangeColorHex?: string
+  sliderBorderRadius?: BorderRadiusType
 }
 
 export const Slider: React.FC<SliderProps> = ({
@@ -113,6 +122,18 @@ export const Slider: React.FC<SliderProps> = ({
   minSize,
   size,
   thumbSize,
+  thumbColor,
+  thumbBorderColor,
+  thumbBorderColorHex,
+  thumbBorderColorHover,
+  thumbBorderColorHoverHex,
+  thumbBorderWidth,
+  thumbBorderRadius,
+  trackColor,
+  trackColorHex,
+  rangeColor,
+  rangeColorHex,
+  sliderBorderRadius,
 }) => {
   return (
     <Container
@@ -182,16 +203,42 @@ export const Slider: React.FC<SliderProps> = ({
         >
           <Track
             css={{
+              br: sliderBorderRadius,
+              backgroundColor:
+                trackColorHex || trackColor ? `$${trackColor}` : undefined,
+
               '&[data-orientation="horizontal"]': { height: weight },
               '&[data-orientation="vertical"]': { width: weight },
             }}
           >
-            <Range />
+            <Range
+              css={{
+                br: sliderBorderRadius,
+                backgroundColor:
+                  rangeColorHex || rangeColor ? `$${rangeColor}` : undefined,
+              }}
+            />
           </Track>
           <Thumb
             css={{
+              br: thumbBorderRadius,
               width: thumbSize,
               height: thumbSize,
+              backgroundColor:
+                thumbColor || thumbColor ? `$${thumbColor}` : undefined,
+              borderColor:
+                thumbBorderColorHex || thumbBorderColor
+                  ? `$${thumbBorderColor}`
+                  : undefined,
+              borderWidth: thumbBorderWidth,
+              borderRadius: thumbBorderRadius,
+
+              '&:hover': {
+                backgroundColor:
+                  thumbBorderColorHoverHex || thumbBorderColorHover
+                    ? `$${thumbBorderColorHover}`
+                    : undefined,
+              },
             }}
           />
         </SliderStyled>
@@ -217,4 +264,10 @@ Slider.defaultProps = {
   maxSize: '100%',
   weight: 4,
   thumbSize: 16,
+  thumbBorderRadius: 'round',
+  sliderBorderRadius: 'round',
+  trackColor: 'GRAY_LIGHTER',
+  rangeColor: 'PRIMARY',
+  thumbColor: 'WHITE',
+  thumbBorderColorHover: 'GRAY_LIGHTER',
 }

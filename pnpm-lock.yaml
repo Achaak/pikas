@@ -26,7 +26,7 @@ importers:
       '@pikas-ui/searchbar': 1.1.1
       '@pikas-ui/select': 1.0.27
       '@pikas-ui/separator': 1.0.25
-      '@pikas-ui/slider': 1.0.0
+      '@pikas-ui/slider': 1.0.1
       '@pikas-ui/styles': 1.0.25
       '@pikas-ui/table': 1.0.27
       '@pikas-ui/text': 1.0.26

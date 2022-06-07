@@ -1,5 +1,12 @@
 # @pikas-ui/storybook
 
+## 1.0.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/slider@1.0.1
+
 ## 1.0.29
 
 ### Patch Changes
