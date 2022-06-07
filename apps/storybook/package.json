@@ -39,6 +39,7 @@
     "@pikas-ui/tooltip": "1.0.25",
     "@pikas-ui/searchbar": "1.1.1",
     "@pikas-ui/slider": "1.0.1",
+    "@pikas-ui/alert": "1.0.0",
     "http-server": "^14.1.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",

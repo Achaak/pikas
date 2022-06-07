@@ -35,11 +35,10 @@ You can find the examples in the [Storybook](https://pikas-ui.vercel.app/).
 - Add Radio component
 - Add Tabs component
 - Add Toast component
-- Add Alert component
 - Add FileInput component
 
 ## License
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 Axel Lavoie - [@Axel_Lve](https://twitter.com/Axel_Lve) - [axel.lavoie@gmail.com](axel.lavoie@gmail.com).
