@@ -1,4 +1,4 @@
-import type { IconProps } from '@pikas-ui/icons'
+import type { IconProps, IconStyleType } from '@pikas-ui/icons'
 import type {
   ShadowsType,
   ColorsType,
@@ -11,7 +11,10 @@ import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import fontColorContrast from 'font-color-contrast'
+import type { InputHTMLAttributes } from 'react'
+import { forwardRef } from 'react'
 import React, { useRef, useState } from 'react'
+import useMergedRef from '@react-hook/merged-ref'
 
 const Container = styled('div', {
   width: '100%',
@@ -28,22 +31,29 @@ const InputContainer = styled('div', {
   borderStyle: 'solid',
 
   variants: {
-    padding: {
-      sm: {
-        padding: '4px 8px',
-      },
-      md: {
-        padding: '8px 16px',
-      },
-      lg: {
-        padding: '16px 32px',
-      },
-    },
     focus: {
       true: {
         outline: 'solid',
         outlineColor: '$PRIMARY',
         outlineWidth: 2,
+      },
+    },
+
+    gap: {
+      xs: {
+        customColumnGap: 2,
+      },
+      sm: {
+        customColumnGap: 4,
+      },
+      md: {
+        customColumnGap: 8,
+      },
+      lg: {
+        customColumnGap: 16,
+      },
+      xl: {
+        customColumnGap: 32,
       },
     },
   },
@@ -56,6 +66,26 @@ const Input = styled('input', {
   border: 'none',
   fontFamily: '$roboto',
   backgroundColor: '$TRANSPARENT',
+
+  variants: {
+    padding: {
+      xs: {
+        padding: '2px 4px',
+      },
+      sm: {
+        padding: '4px 8px',
+      },
+      md: {
+        padding: '8px 16px',
+      },
+      lg: {
+        padding: '16px 32px',
+      },
+      xl: {
+        padding: '32px 64px',
+      },
+    },
+  },
 })
 
 const LeftContainer = styled(LabelPrimitive.Root, {
@@ -65,14 +95,20 @@ const LeftContainer = styled(LabelPrimitive.Root, {
 
   variants: {
     padding: {
+      xs: {
+        padding: 2,
+      },
       sm: {
-        marginRight: 4,
+        padding: 4,
       },
       md: {
-        marginRight: 8,
+        padding: 8,
       },
       lg: {
-        marginRight: 16,
+        padding: 16,
+      },
+      xl: {
+        padding: 32,
       },
     },
   },
@@ -85,20 +121,26 @@ const RightContainer = styled(LabelPrimitive.Root, {
 
   variants: {
     padding: {
+      xs: {
+        padding: 2,
+      },
       sm: {
-        marginLeft: 4,
+        padding: 4,
       },
       md: {
-        marginLeft: 8,
+        padding: 8,
       },
       lg: {
-        marginLeft: 16,
+        padding: 16,
+      },
+      xl: {
+        padding: 32,
       },
     },
   },
 })
 
-export const TextfieldTypeType = {
+export const TextfieldType = {
   color: true,
   date: true,
   'datetime-local': true,
@@ -114,22 +156,44 @@ export const TextfieldTypeType = {
   url: true,
   week: true,
 }
+export type TextfieldTypeType = keyof typeof TextfieldType
 
-export const TextfieldPaddingType = {
+export const TextfieldPadding = {
+  xs: true,
   sm: true,
   md: true,
   lg: true,
+  xl: true,
+}
+export type TextfieldPaddingType = keyof typeof TextfieldPadding
+
+export const TextfieldGap = {
+  xs: true,
+  sm: true,
+  md: true,
+  lg: true,
+  xl: true,
+}
+export type TextfieldGapType = keyof typeof TextfieldGap
+
+export type TextfieldStylesType = {
+  container?: CSS
+  inputContainer?: CSS
+  input?: CSS
+  left?: CSS
+  right?: CSS
+  leftIcon?: IconStyleType
+  rightIcon?: IconStyleType
 }
 
 export type TextfieldProps = {
-  placeholder?: string
-  type?: keyof typeof TextfieldTypeType
+  type?: TextfieldTypeType
   id?: string
   label?: string
-  name?: string
   boxShadow?: ShadowsType | 'none'
   borderRadius?: BorderRadiusType
-  padding?: keyof typeof TextfieldPaddingType
+  padding?: TextfieldPaddingType
+  gap?: TextfieldGapType
   fontSize?: FontsSizesType
   borderColor?: ColorsType
   borderWidth?: number
@@ -137,207 +201,211 @@ export type TextfieldProps = {
   textError?: string
 
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  defaultValue?: string | number
   autoComplete?: string
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
-  styles?: {
-    container?: CSS
-    inputContainer?: CSS
-    input?: CSS
-  }
+  styles?: TextfieldStylesType
   min?: number
   max?: number
   outline?: boolean
   description?: string
-  disabled?: boolean
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
-export const Textfield: React.FC<TextfieldProps> = ({
-  id,
-  name,
-  type,
-  onChange,
-  placeholder,
-  boxShadow,
-  borderRadius,
-  padding,
-  fontSize,
-  textError,
-  label,
-  styles,
-  borderColor,
-  borderWidth,
-  defaultValue,
-  autoComplete,
-  min,
-  max,
-  LeftIcon,
-  RightIcon,
-  leftChildren,
-  rightChildren,
-  backgroundColor,
-  outline,
-  description,
-  disabled,
-}) => {
-  const ref = useRef<HTMLInputElement>(null)
-  const [focus, setFocus] = useState(false)
+export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
+  (
+    {
+      id,
+      type,
+      onChange,
+      boxShadow,
+      borderRadius,
+      padding,
+      fontSize,
+      textError,
+      label,
+      styles,
+      borderColor,
+      borderWidth,
+      autoComplete,
+      min,
+      max,
+      LeftIcon,
+      RightIcon,
+      leftChildren,
+      rightChildren,
+      backgroundColor,
+      outline,
+      description,
+      gap,
+      ...props
+    },
+    ref
+  ) => {
+    const refInput = useRef<HTMLInputElement>(null)
+    const multiRef = useMergedRef(ref, refInput)
+    const [focus, setFocus] = useState(false)
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    if (type === 'number' && ref.current) {
-      const value = parseInt(e.target.value)
+    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+      if (type === 'number' && refInput.current) {
+        const value = parseInt(e.target.value)
 
-      if (max !== undefined && value > max) {
-        ref.current.value = `${max}`
-      } else if (min !== undefined && value < min) {
-        ref.current.value = `${min}`
+        if (max !== undefined && value > max) {
+          refInput.current.value = `${max}`
+        } else if (min !== undefined && value < min) {
+          refInput.current.value = `${min}`
+        }
+      }
+
+      if (onChange) {
+        onChange(e)
       }
     }
 
-    if (onChange) {
-      onChange(e)
-    }
-  }
-
-  return (
-    <Container
-      css={{
-        fontSize: `${fontSize}`,
-        ...styles?.container,
-      }}
-    >
-      {label ? (
-        <Label
-          htmlFor={id}
-          style={{
-            marginBottom: 4,
-          }}
-        >
-          {label}
-        </Label>
-      ) : null}
-
-      {description ? (
-        <Description
-          style={{
-            marginBottom: 4,
-          }}
-        >
-          {description}
-        </Description>
-      ) : null}
-
-      <InputContainer
-        padding={padding}
-        focus={outline ? focus : undefined}
+    return (
+      <Container
         css={{
-          br: borderRadius,
-          borderColor: `$${borderColor}`,
-          backgroundColor: `$${backgroundColor}`,
-          boxShadow: `$${boxShadow}`,
-          borderWidth: borderWidth,
-          ...styles?.inputContainer,
+          fontSize: `${fontSize}`,
+          ...styles?.container,
         }}
       >
-        {leftChildren && (
-          <LeftContainer
+        {label ? (
+          <Label
             htmlFor={id}
-            padding={padding}
-            css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
+            style={{
+              marginBottom: 4,
             }}
           >
-            {leftChildren}
-          </LeftContainer>
-        )}
+            {label}
+          </Label>
+        ) : null}
 
-        {LeftIcon && (
-          <LeftContainer
-            htmlFor={id}
-            padding={padding}
-            css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
+        {description ? (
+          <Description
+            style={{
+              marginBottom: 4,
             }}
           >
-            <LeftIcon
-              size="1em"
-              colorHex={fontColorContrast(
-                theme.colors[backgroundColor || 'WHITE'].value,
-                0.7
-              )}
-            />
-          </LeftContainer>
-        )}
+            {description}
+          </Description>
+        ) : null}
 
-        <Input
-          ref={ref}
-          id={id}
-          type={type}
-          placeholder={placeholder}
-          onChange={onChangeInput}
-          name={name}
-          defaultValue={defaultValue}
-          autoComplete={autoComplete}
-          min={min}
-          max={max}
-          disabled={disabled}
-          onFocus={(): void => setFocus(true)}
-          onBlur={(): void => setFocus(false)}
+        <InputContainer
+          focus={outline ? focus : undefined}
+          gap={gap}
           css={{
-            ...styles?.input,
-            color: fontColorContrast(
-              theme.colors[backgroundColor || 'WHITE'].value,
-              0.7
-            ),
+            br: borderRadius,
+            borderColor: `$${borderColor}`,
+            backgroundColor: `$${backgroundColor}`,
+            boxShadow: `$${boxShadow}`,
+            borderWidth: borderWidth,
+            ...styles?.inputContainer,
           }}
-        />
+        >
+          {leftChildren && (
+            <LeftContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...styles?.left,
+              }}
+            >
+              {leftChildren}
+            </LeftContainer>
+          )}
 
-        {RightIcon && (
-          <RightContainer
-            htmlFor={id}
+          {LeftIcon && (
+            <LeftContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...styles?.left,
+              }}
+            >
+              <LeftIcon
+                size="1em"
+                colorHex={fontColorContrast(
+                  theme.colors[backgroundColor || 'WHITE'].value,
+                  0.7
+                )}
+                styles={styles?.leftIcon}
+              />
+            </LeftContainer>
+          )}
+
+          <Input
+            ref={multiRef}
+            id={id}
+            type={type}
             padding={padding}
+            onChange={onChangeInput}
+            autoComplete={autoComplete}
+            min={min}
+            max={max}
+            onFocus={(): void => setFocus(true)}
+            onBlur={(): void => setFocus(false)}
             css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
-            }}
-          >
-            <RightIcon
-              size="1em"
-              colorHex={fontColorContrast(
+              ...styles?.input,
+              color: fontColorContrast(
                 theme.colors[backgroundColor || 'WHITE'].value,
                 0.7
-              )}
-            />
-          </RightContainer>
-        )}
-
-        {rightChildren && (
-          <RightContainer
-            htmlFor={id}
-            padding={padding}
-            css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
+              ),
             }}
-          >
-            {rightChildren}
-          </RightContainer>
-        )}
-      </InputContainer>
+            {...props}
+          />
 
-      {textError && <TextError style={{ marginTop: 5 }}>{textError}</TextError>}
-    </Container>
-  )
-}
+          {RightIcon && (
+            <RightContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...styles?.right,
+              }}
+            >
+              <RightIcon
+                size="1em"
+                colorHex={fontColorContrast(
+                  theme.colors[backgroundColor || 'WHITE'].value,
+                  0.7
+                )}
+                styles={styles?.rightIcon}
+              />
+            </RightContainer>
+          )}
+
+          {rightChildren && (
+            <RightContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...styles?.right,
+              }}
+            >
+              {rightChildren}
+            </RightContainer>
+          )}
+        </InputContainer>
+
+        {textError && (
+          <TextError style={{ marginTop: 5 }}>{textError}</TextError>
+        )}
+      </Container>
+    )
+  }
+)
 
 Textfield.defaultProps = {
   padding: 'md',
@@ -349,4 +417,5 @@ Textfield.defaultProps = {
   outline: true,
   disabled: false,
   type: 'text',
+  fontSize: 'EM-MEDIUM',
 }

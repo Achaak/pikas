@@ -7,8 +7,10 @@ const StyledSeparator = styled(SeparatorPrimitive.Root, {
   overflow: 'hidden',
 })
 
+export type SeparatorOrientationType = SeparatorPrimitive.Orientation
+
 export interface SeparatorProps {
-  orientation?: SeparatorPrimitive.Orientation
+  orientation?: SeparatorOrientationType
   className?: string
   size?: number
   style?: CSS

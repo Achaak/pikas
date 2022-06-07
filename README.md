@@ -14,7 +14,6 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - Add Avatar component
 - Add Modal component
 - Add Radio component
-- Add Slider component
 - Add Tabs component
 - Add Toast component
 - Add Alert component
@@ -35,6 +34,7 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - [@pikas-ui/context-menu](/packages/context-menu/README.md)
 - [@pikas-ui/dropdown-menu](/packages/dropdown-menu/README.md)
 - [@pikas-ui/textarea](/packages/textarea/README.md)
+- [@pikas-ui/searchbar](/packages/searchbar/README.md)
 
 
 ## License

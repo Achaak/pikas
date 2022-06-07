@@ -4,18 +4,19 @@ import type {
   BorderRadiusType,
   SizesType,
 } from '@pikas-ui/styles'
-import { styled, theme, Sizes } from '@pikas-ui/styles'
+import { styled, Sizes } from '@pikas-ui/styles'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
 import type {
   ButtonTypeType,
   ButtonEffectType,
   ButtonPaddingType,
   ButtonTargetType,
-} from '../types'
+} from '../types.js'
 
 import type { IconProps, IconStyleType } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
-import fontColorContrast from 'font-color-contrast'
+import { getColors, getContentColor } from '../utils.js'
 
 const ButtonIconDOM = styled('button', {
   all: 'unset',
@@ -86,6 +87,9 @@ const ButtonIconDOM = styled('button', {
       },
     },
     padding: {
+      xs: {
+        padding: 2,
+      },
       sm: {
         padding: 4,
       },
@@ -94,6 +98,9 @@ const ButtonIconDOM = styled('button', {
       },
       lg: {
         padding: 16,
+      },
+      xl: {
+        padding: 24,
       },
     },
 
@@ -123,60 +130,119 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
-export interface ButtonIconProps {
+export type ButtonIconStylesType = {
+  button?: CSS
+  icon?: IconStyleType
+}
+
+export interface ButtonIconDefaultProps {
   Icon: React.FC<IconProps>
-  type?: keyof typeof ButtonTypeType
-  id?: string
-  name?: string
-  onClick?: () => void
-  styles?: {
-    button?: CSS
-    icon?: IconStyleType
-  }
-  form?: string
+  styles?: ButtonIconStylesType
   loading?: boolean
-  disabled?: boolean
   borderRadius?: BorderRadiusType
   borderWidth?: number
-  padding?: keyof typeof ButtonPaddingType
+  padding?: ButtonPaddingType
   size?: SizesType
-  color?: ColorsType
   colorHex?: string
   iconColor?: ColorsType
   iconColorHex?: string
   outlined?: boolean
-  effect?: keyof typeof ButtonEffectType
+  effect?: ButtonEffectType
+  disabled?: boolean
+}
+
+export interface ButtonIconProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    ButtonIconDefaultProps {
+  onClick?: () => void
+  color?: ColorsType
+  type?: ButtonTypeType
+}
+
+export interface ButtonIconLinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+    ButtonIconDefaultProps {
+  onClick?: () => void
+  color?: ColorsType
   href?: string
-  target?: keyof typeof ButtonTargetType
+  target?: ButtonTargetType
+}
+
+const getContent = ({
+  loading,
+  styles,
+  outlined,
+  color,
+  iconColor,
+  iconColorHex,
+  size,
+  Icon,
+}: {
+  loading?: boolean
+  styles?: ButtonIconStylesType
+  outlined?: boolean
+  color?: ColorsType
+  iconColor?: ColorsType
+  iconColorHex?: string
+  size?: SizesType
+  Icon: React.FC<IconProps>
+}): React.ReactNode => {
+  return (
+    <>
+      <LoadingContainer>
+        <ClipLoader
+          size={Sizes[size || 'MEDIUM']}
+          colorHex={getContentColor({
+            outlined,
+            color,
+            contentColor: iconColor,
+            contentColorHex: iconColorHex,
+          })}
+          loading={loading}
+        />
+      </LoadingContainer>
+
+      <Content
+        css={{
+          opacity: loading ? 0 : 1,
+        }}
+      >
+        <Icon
+          size={Sizes[size || 'MEDIUM']}
+          colorHex={getContentColor({
+            outlined,
+            color,
+            contentColor: iconColor,
+            contentColorHex: iconColorHex,
+          })}
+          styles={styles?.icon}
+        />
+      </Content>
+    </>
+  )
 }
 
 export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
-  function Forward(
+  (
     {
-      type,
-      id,
-      name,
       color,
       colorHex,
       iconColor,
       iconColorHex,
       styles,
-      padding,
-      form,
       loading,
       disabled,
       borderRadius,
       effect,
       onClick,
-      href,
       outlined,
       Icon,
       size,
       borderWidth,
-      target,
+      ...props
     },
     ref
-  ) {
+  ) => {
     const handleClick = useCallback((): void => {
       if (disabled || loading) {
         return
@@ -185,127 +251,30 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       onClick?.()
     }, [disabled, onClick, loading])
 
-    const getColor = useCallback((): string | undefined => {
-      if (color) {
-        return theme.colors[color].value
-      }
-
-      if (colorHex) {
-        return colorHex
-      }
-
-      return
-    }, [color, colorHex])
-
-    const getTextColor = useCallback((): string | undefined => {
-      if (iconColor) {
-        return theme.colors[iconColor].value
-      }
-
-      if (iconColorHex) {
-        return iconColorHex
-      }
-
-      if (color) {
-        if (!outlined) {
-          return fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7)
-        } else {
-          return theme.colors[color].value
-        }
-      }
-
-      return
-    }, [iconColor, iconColorHex])
-
-    const getContent = (): React.ReactNode => {
-      return (
-        <>
-          <LoadingContainer>
-            <ClipLoader
-              size={Sizes[size || 'md']}
-              colorHex={getTextColor()}
-              loading={loading}
-            />
-          </LoadingContainer>
-
-          <Content
-            css={{
-              opacity: loading ? 0 : 1,
-            }}
-          >
-            <Icon
-              size={Sizes[size || 'md']}
-              colorHex={getTextColor()}
-              styles={styles?.icon}
-            />
-          </Content>
-        </>
-      )
-    }
-
-    const getColors = (): CSS => {
-      if (!outlined) {
-        const colors: CSS = {
-          backgroundColor: getColor(),
-          borderColor: getColor(),
-          color: getTextColor(),
-        }
-
-        return colors
-      } else {
-        const colors: CSS = {
-          backgroundColor: '$TRANSPARENT',
-          borderColor: getColor(),
-          color: getTextColor(),
-        }
-
-        return colors
-      }
-    }
-
-    if (type === 'link') {
-      return (
-        <ButtonIconDOM
-          as="a"
-          href={href}
-          target={target}
-          type={type}
-          id={id}
-          onClick={handleClick}
-          state={disabled}
-          padding={padding}
-          effect={disabled ? undefined : effect}
-          css={{
-            br: borderRadius,
-            borderWidth: borderWidth,
-            ...getColors(),
-            ...styles?.button,
-          }}
-        >
-          {getContent()}
-        </ButtonIconDOM>
-      )
-    }
-
     return (
       <ButtonIconDOM
         ref={ref}
-        form={form}
-        type={type}
-        id={id}
-        name={name}
         onClick={handleClick}
         state={disabled}
-        padding={padding}
         effect={disabled ? undefined : effect}
         css={{
           br: borderRadius,
           borderWidth: borderWidth,
-          ...getColors(),
+          ...getColors({ outlined, color, colorHex }),
           ...styles?.button,
         }}
+        {...props}
       >
-        {getContent()}
+        {getContent({
+          color,
+          loading,
+          outlined,
+          size,
+          styles,
+          Icon,
+          iconColor,
+          iconColorHex,
+        })}
       </ButtonIconDOM>
     )
   }
@@ -317,7 +286,79 @@ ButtonIcon.defaultProps = {
   loading: false,
   borderRadius: 'md',
   color: 'PRIMARY',
-  size: 'md',
+  size: 'MEDIUM',
+  effect: 'opacity',
+  borderWidth: 2,
+}
+
+export const ButtonIconLink = forwardRef<
+  HTMLAnchorElement,
+  ButtonIconLinkProps
+>(
+  (
+    {
+      color,
+      colorHex,
+      iconColor,
+      iconColorHex,
+      styles,
+      loading,
+      disabled,
+      borderRadius,
+      effect,
+      onClick,
+      outlined,
+      Icon,
+      size,
+      borderWidth,
+      ...props
+    },
+    ref
+  ) => {
+    const handleClick = useCallback((): void => {
+      if (disabled || loading) {
+        return
+      }
+
+      onClick?.()
+    }, [disabled, onClick, loading])
+
+    return (
+      <ButtonIconDOM
+        as="a"
+        ref={ref}
+        onClick={handleClick}
+        state={disabled}
+        effect={disabled ? undefined : effect}
+        css={{
+          br: borderRadius,
+          borderWidth: borderWidth,
+          ...getColors({ outlined, color, colorHex }),
+          ...styles?.button,
+        }}
+        {...props}
+      >
+        {getContent({
+          color,
+          loading,
+          outlined,
+          size,
+          styles,
+          Icon,
+          iconColor,
+          iconColorHex,
+        })}
+      </ButtonIconDOM>
+    )
+  }
+)
+
+ButtonIconLink.defaultProps = {
+  disabled: false,
+  loading: false,
+  borderRadius: 'md',
+  color: 'PRIMARY',
+  size: 'MEDIUM',
   effect: 'opacity',
   borderWidth: 2,
 }

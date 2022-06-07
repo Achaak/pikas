@@ -148,18 +148,20 @@ export type SelectItemType = {
   hidden?: boolean
 }
 
-export const SelectDirectionsType = {
+export const SelectDirections = {
   ltr: true,
   rtl: true,
 }
+export type SelectDirectionsType = keyof typeof SelectDirections
 
-export const SelectPaddingType = {
+export const SelectPadding = {
   none: true,
   xs: true,
   sm: true,
   md: true,
   lg: true,
 }
+export type SelectPaddingType = keyof typeof SelectPadding
 
 export interface SelectProps {
   styles?: {
@@ -171,7 +173,7 @@ export interface SelectProps {
 
   label?: string
   borderRadius?: BorderRadiusType
-  padding?: keyof typeof SelectPaddingType
+  padding?: SelectPaddingType
   fontSize?: FontsSizesType
   borderColor?: ColorsType
   borderWidth?: number
@@ -185,7 +187,7 @@ export interface SelectProps {
   defaultValue: string
   ariaLabel?: string
   textError?: string
-  direction?: keyof typeof SelectDirectionsType
+  direction?: SelectDirectionsType
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
   boxShadow?: ShadowsType | 'none'

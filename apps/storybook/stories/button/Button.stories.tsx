@@ -1,16 +1,16 @@
 import { FontSizes, FontWeights, globalStyles, styled } from '@pikas-ui/styles'
 import {
   Button,
-  ButtonEffectType,
-  ButtonPaddingType,
-  ButtonTypeType,
-  ButtonTargetType,
+  ButtonEffect,
+  ButtonPadding,
+  ButtonType,
+  ButtonTarget,
+  ButtonTextTransform,
 } from '@pikas-ui/button'
 import { BorderRadius } from '@pikas-ui/styles'
 import type { ButtonProps } from '@pikas-ui/button'
 import type { Story, Meta } from '@storybook/react'
 import { Colors } from '@pikas-ui/styles'
-import { ButtonTextTransformType } from '@pikas-ui/button'
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 
@@ -19,7 +19,7 @@ const Container = styled('div', {
 })
 
 export default {
-  title: '@pikas-ui/button/default',
+  title: '@pikas-ui/button/button',
   component: Button,
   argTypes: {
     LeftIcon: {
@@ -130,7 +130,7 @@ export default {
       description: 'Padding of the button',
       type: {
         name: 'enum',
-        value: Object.keys(ButtonPaddingType),
+        value: Object.keys(ButtonPadding),
         required: false,
       },
     },
@@ -138,7 +138,7 @@ export default {
       description: 'Effect of the button',
       type: {
         name: 'enum',
-        value: Object.keys(ButtonEffectType),
+        value: Object.keys(ButtonEffect),
         required: false,
       },
     },
@@ -146,7 +146,7 @@ export default {
       description: 'Gap of the button',
       type: {
         name: 'enum',
-        value: Object.keys(ButtonPaddingType),
+        value: Object.keys(ButtonPadding),
         required: false,
       },
     },
@@ -154,7 +154,7 @@ export default {
       description: 'Type of the button',
       type: {
         name: 'enum',
-        value: Object.keys(ButtonTypeType),
+        value: Object.keys(ButtonType),
         required: false,
       },
     },
@@ -162,7 +162,7 @@ export default {
       description: 'Text transform of the button',
       type: {
         name: 'enum',
-        value: Object.keys(ButtonTextTransformType),
+        value: Object.keys(ButtonTextTransform),
         required: false,
       },
     },
@@ -192,7 +192,7 @@ export default {
       description: 'Target of the button',
       type: {
         name: 'enum',
-        value: Object.keys(ButtonTargetType),
+        value: Object.keys(ButtonTarget),
         required: false,
       },
     },
@@ -249,7 +249,6 @@ Default.args = {
   fontSize: 'EM-XXX-LARGE',
   effect: 'opacity',
   fontWeight: 'MEDIUM',
-  href: undefined,
   id: undefined,
   form: undefined,
   gap: 'md',
@@ -268,14 +267,13 @@ WithIcon.args = {
   padding: 'md',
   disabled: false,
   fullWidth: false,
-  loading: true,
+  loading: false,
   LeftIcon: IconTest,
   RightIcon: undefined,
   borderRadius: 'md',
   fontSize: 'EM-XXX-LARGE',
   effect: 'opacity',
   fontWeight: 'MEDIUM',
-  href: undefined,
   id: undefined,
   form: undefined,
   gap: 'lg',

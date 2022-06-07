@@ -1,12 +1,12 @@
 import { globalStyles, Sizes, styled } from '@pikas-ui/styles'
 import {
-  ButtonIcon,
+  ButtonIconLink,
   ButtonEffect,
   ButtonPadding,
   ButtonType,
   ButtonTarget,
 } from '@pikas-ui/button'
-import type { ButtonIconProps } from '@pikas-ui/button'
+import type { ButtonIconLinkProps } from '@pikas-ui/button'
 import type { Story, Meta } from '@storybook/react'
 import { BorderRadius } from '@pikas-ui/styles'
 import { Colors } from '@pikas-ui/styles'
@@ -18,8 +18,8 @@ const Container = styled('div', {
 })
 
 export default {
-  title: '@pikas-ui/button/buttonIcon',
-  component: ButtonIcon,
+  title: '@pikas-ui/button/buttonIconLink',
+  component: ButtonIconLink,
   argTypes: {
     borderRadius: {
       description: 'Border radius of the button',
@@ -179,14 +179,14 @@ export default {
       },
     },
   },
-} as Meta<ButtonIconProps>
+} as Meta<ButtonIconLinkProps>
 
-const Template: Story<ButtonIconProps> = (args) => {
+const Template: Story<ButtonIconLinkProps> = (args) => {
   globalStyles()
 
   return (
     <Container>
-      <ButtonIcon {...args} />
+      <ButtonIconLink {...args} />
     </Container>
   )
 }
@@ -204,9 +204,8 @@ Default.args = {
   loading: false,
   borderRadius: 'md',
   effect: 'opacity',
+  href: '#',
   id: undefined,
-  form: undefined,
-  name: undefined,
   onClick: console.log,
   styles: {},
   type: 'button',

@@ -6,11 +6,11 @@ import type {
   FontsSizesType,
 } from '@pikas-ui/styles'
 import { styled, theme } from '@pikas-ui/styles'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
 
 import type { IconProps, IconStyleType } from '@pikas-ui/icons'
 import { BeatLoader } from '@pikas-ui/loader'
-import fontColorContrast from 'font-color-contrast'
 import type {
   ButtonTypeType,
   ButtonEffectType,
@@ -18,7 +18,8 @@ import type {
   ButtonPaddingType,
   ButtonTextTransformType,
   ButtonTargetType,
-} from '../types'
+} from '../types.js'
+import { getColors, getContentColor } from '../utils.js'
 
 const ButtonDOM = styled('button', {
   all: 'unset',
@@ -89,6 +90,9 @@ const ButtonDOM = styled('button', {
       },
     },
     padding: {
+      xs: {
+        padding: '4px 16px',
+      },
       sm: {
         padding: '4px 24px',
       },
@@ -97,6 +101,9 @@ const ButtonDOM = styled('button', {
       },
       lg: {
         padding: '16px 40px',
+      },
+      xl: {
+        padding: '16px 48px',
       },
     },
 
@@ -155,53 +162,136 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
-export interface ButtonProps {
+export type ButtonStylesType = {
+  button?: CSS
+  icon?: IconStyleType
+}
+
+export interface ButtonDefaultProps {
   children?: React.ReactNode
   fullWidth?: boolean
-  type?: keyof typeof ButtonTypeType
-  id?: string
-  name?: string
-  onClick?: () => void
-  styles?: {
-    button?: CSS
-    icon?: IconStyleType
-  }
-  form?: string
+  styles?: ButtonStylesType
   loading?: boolean
-  disabled?: boolean
   borderRadius?: BorderRadiusType
-  padding?: keyof typeof ButtonPaddingType
-  gap?: keyof typeof ButtonGapType
+  padding?: ButtonPaddingType
+  gap?: ButtonGapType
   fontSize?: FontsSizesType
   fontWeight?: FontsWeightsType
-  textTransform?: keyof typeof ButtonTextTransformType
-  color?: ColorsType
+  textTransform?: ButtonTextTransformType
   colorHex?: string
   textColor?: ColorsType
   textColorHex?: string
   outlined?: boolean
-  effect?: keyof typeof ButtonEffectType
-  href?: string
+  effect?: ButtonEffectType
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
   borderWidth?: number
-  target?: keyof typeof ButtonTargetType
+  disabled?: boolean
+}
+
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    ButtonDefaultProps {
+  onClick?: () => void
+  color?: ColorsType
+  type?: ButtonTypeType
+}
+
+export interface ButtonLinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+    ButtonDefaultProps {
+  onClick?: () => void
+  color?: ColorsType
+  href?: string
+  target?: ButtonTargetType
+}
+
+const getContent = ({
+  LeftIcon,
+  RightIcon,
+  loading,
+  children,
+  styles,
+  outlined,
+  color,
+  textColor,
+  textColorHex,
+  textTransform,
+  gap,
+}: {
+  LeftIcon?: React.FC<IconProps>
+  RightIcon?: React.FC<IconProps>
+  loading?: boolean
+  children?: React.ReactNode
+  styles?: ButtonStylesType
+  outlined?: boolean
+  color?: ColorsType
+  textColor?: ColorsType
+  textColorHex?: string
+  textTransform?: ButtonTextTransformType
+  gap?: ButtonGapType
+}): React.ReactNode => {
+  return (
+    <>
+      <LoadingContainer>
+        <BeatLoader
+          size={theme.fontSizes['EM-XX-SMALL'].value}
+          colorHex={getContentColor({
+            outlined,
+            color,
+            contentColor: textColor,
+            contentColorHex: textColorHex,
+          })}
+          loading={loading}
+        />
+      </LoadingContainer>
+
+      <Content
+        textTransform={textTransform}
+        gap={gap}
+        css={{
+          opacity: loading ? 0 : 1,
+        }}
+      >
+        {LeftIcon ? (
+          <LeftIcon
+            size="1em"
+            colorHex={getContentColor({
+              color,
+              outlined,
+              contentColor: textColor,
+              contentColorHex: textColorHex,
+            })}
+            styles={styles?.icon}
+          />
+        ) : null}
+        <span>{children}</span>
+        {RightIcon ? (
+          <RightIcon
+            size="1em"
+            colorHex={getContentColor({
+              color,
+              outlined,
+              contentColor: textColor,
+              contentColorHex: textColorHex,
+            })}
+            styles={styles?.icon}
+          />
+        ) : null}
+      </Content>
+    </>
+  )
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  function Forward(
+  (
     {
-      type,
       fullWidth,
-      id,
-      name,
       color,
       colorHex,
       textColor,
       textColorHex,
       styles,
-      padding,
-      form,
       loading,
       disabled,
       borderRadius,
@@ -212,15 +302,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onClick,
       children,
       gap,
-      href,
       LeftIcon,
       RightIcon,
       outlined,
       borderWidth,
-      target,
+      ...props
     },
     ref
-  ) {
+  ) => {
     const handleClick = useCallback((): void => {
       if (disabled || loading) {
         return
@@ -229,134 +318,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onClick?.()
     }, [disabled, onClick, loading])
 
-    const getColor = useCallback((): string | undefined => {
-      if (color) {
-        return theme.colors[color].value
-      }
-
-      if (colorHex) {
-        return colorHex
-      }
-
-      return
-    }, [color, colorHex])
-
-    const getTextColor = useCallback((): string | undefined => {
-      if (textColor) {
-        return theme.colors[textColor].value
-      }
-
-      if (textColorHex) {
-        return textColorHex
-      }
-
-      if (color) {
-        if (!outlined) {
-          return fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7)
-        } else {
-          return theme.colors[color].value
-        }
-      }
-
-      return
-    }, [textColor, textColorHex])
-
-    const getContent = (): React.ReactNode => {
-      return (
-        <>
-          <LoadingContainer>
-            <BeatLoader
-              size={theme.fontSizes['EM-XX-SMALL'].value}
-              colorHex={getTextColor()}
-              loading={loading}
-            />
-          </LoadingContainer>
-
-          <Content
-            textTransform={textTransform}
-            gap={gap}
-            css={{
-              opacity: loading ? 0 : 1,
-            }}
-          >
-            {LeftIcon ? (
-              <LeftIcon
-                size="1em"
-                colorHex={getTextColor()}
-                styles={styles?.icon}
-              />
-            ) : null}
-            <span>{children}</span>
-            {RightIcon ? (
-              <RightIcon
-                size="1em"
-                colorHex={getTextColor()}
-                styles={styles?.icon}
-              />
-            ) : null}
-          </Content>
-        </>
-      )
-    }
-
-    const getColors = (): CSS => {
-      if (!outlined) {
-        const colors: CSS = {
-          backgroundColor: getColor(),
-          borderColor: getColor(),
-          color: getTextColor(),
-        }
-
-        return colors
-      } else {
-        const colors: CSS = {
-          backgroundColor: '$TRANSPARENT',
-          borderColor: getColor(),
-          color: getTextColor(),
-        }
-
-        return colors
-      }
-    }
-
-    if (type === 'link') {
-      return (
-        <ButtonDOM
-          as="a"
-          href={href}
-          target={target}
-          type={type}
-          id={id}
-          onClick={handleClick}
-          state={disabled}
-          padding={padding}
-          effect={disabled ? undefined : effect}
-          css={{
-            width: fullWidth ? '100%' : 'auto',
-            br: borderRadius,
-            fontWeight: `$${fontWeight}`,
-            borderWidth: borderWidth,
-            fontSize: `$${fontSize}`,
-
-            ...getColors(),
-            ...styles?.button,
-          }}
-        >
-          {getContent()}
-        </ButtonDOM>
-      )
-    }
-
     return (
       <ButtonDOM
         ref={ref}
-        form={form}
-        type={type}
-        id={id}
-        name={name}
         onClick={handleClick}
         state={disabled}
-        padding={padding}
         effect={disabled ? undefined : effect}
         css={{
           width: fullWidth ? '100%' : 'auto',
@@ -365,11 +331,30 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           borderWidth: borderWidth,
           fontSize: `$${fontSize}`,
 
-          ...getColors(),
+          ...getColors({
+            outlined,
+            color,
+            colorHex,
+            contentColor: textColor,
+            contentColorHex: textColorHex,
+          }),
           ...styles?.button,
         }}
+        {...props}
       >
-        {getContent()}
+        {getContent({
+          LeftIcon,
+          RightIcon,
+          children,
+          color,
+          gap,
+          loading,
+          outlined,
+          styles,
+          textColor,
+          textColorHex,
+          textTransform,
+        })}
       </ButtonDOM>
     )
   }
@@ -377,6 +362,100 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.defaultProps = {
   type: 'button',
+  fullWidth: false,
+  disabled: false,
+  loading: false,
+  borderRadius: 'md',
+  fontSize: 'EM-MEDIUM',
+  padding: 'md',
+  textTransform: 'default',
+  color: 'PRIMARY',
+  fontWeight: 'NORMAL',
+  gap: 'md',
+  effect: 'opacity',
+  borderWidth: 2,
+  outlined: false,
+}
+
+export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+  (
+    {
+      fullWidth,
+      color,
+      colorHex,
+      textColor,
+      textColorHex,
+      styles,
+      loading,
+      disabled,
+      borderRadius,
+      fontSize,
+      textTransform,
+      fontWeight,
+      effect,
+      onClick,
+      children,
+      gap,
+      LeftIcon,
+      RightIcon,
+      outlined,
+      borderWidth,
+      ...props
+    },
+    ref
+  ) => {
+    const handleClick = useCallback((): void => {
+      if (disabled || loading) {
+        return
+      }
+
+      onClick?.()
+    }, [disabled, onClick, loading])
+
+    return (
+      <ButtonDOM
+        as="a"
+        ref={ref}
+        onClick={handleClick}
+        state={disabled}
+        effect={disabled ? undefined : effect}
+        css={{
+          width: fullWidth ? '100%' : 'auto',
+          br: borderRadius,
+          fontWeight: `$${fontWeight}`,
+          borderWidth: borderWidth,
+          fontSize: `$${fontSize}`,
+
+          ...getColors({
+            outlined,
+            color,
+            colorHex,
+            contentColor: textColor,
+            contentColorHex: textColorHex,
+          }),
+          ...styles?.button,
+        }}
+        {...props}
+      >
+        {getContent({
+          LeftIcon,
+          RightIcon,
+          children,
+          color,
+          gap,
+          loading,
+          outlined,
+          styles,
+          textColor,
+          textColorHex,
+          textTransform,
+        })}
+      </ButtonDOM>
+    )
+  }
+)
+
+ButtonLink.defaultProps = {
   fullWidth: false,
   disabled: false,
   loading: false,

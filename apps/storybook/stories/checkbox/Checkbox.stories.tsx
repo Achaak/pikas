@@ -6,7 +6,7 @@ import {
   Shadows,
   styled,
 } from '@pikas-ui/styles'
-import { Checkbox, CheckboxSideType } from '@pikas-ui/checkbox'
+import { Checkbox, CheckboxSide } from '@pikas-ui/checkbox'
 import type { CheckboxProps } from '@pikas-ui/checkbox'
 import type { Story, Meta } from '@storybook/react'
 
@@ -148,7 +148,7 @@ export default {
       description: 'Side of the button',
       type: {
         name: 'enum',
-        value: Object.keys(CheckboxSideType),
+        value: Object.keys(CheckboxSide),
         required: false,
       },
     },

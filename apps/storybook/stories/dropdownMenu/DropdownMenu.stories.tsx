@@ -1,8 +1,8 @@
 import { globalStyles, styled, Colors } from '@pikas-ui/styles'
 import {
   DropdownMenu,
-  DropdownMenuDirectionType,
-  DropdownMenuAlignType,
+  DropdownMenuDirection,
+  DropdownMenuAlign,
 } from '@pikas-ui/dropdown-menu'
 import type { DropdownMenuProps } from '@pikas-ui/dropdown-menu'
 import type { Story, Meta } from '@storybook/react'
@@ -27,7 +27,7 @@ export default {
       description: 'The direction of the menu',
       control: {
         type: 'enum',
-        value: Object.keys(DropdownMenuDirectionType),
+        value: Object.keys(DropdownMenuDirection),
         required: false,
       },
     },
@@ -139,7 +139,7 @@ export default {
         'The preferred alignment against the trigger. May change when collisions occur. This prop is ignored within submenus.',
       control: {
         type: 'enum',
-        value: Object.keys(DropdownMenuAlignType),
+        value: Object.keys(DropdownMenuAlign),
         required: false,
       },
     },
@@ -170,7 +170,7 @@ export default {
         'The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled. This prop is ignored within submenus.',
       control: {
         type: 'enum',
-        value: Object.keys(DropdownMenuDirectionType),
+        value: Object.keys(DropdownMenuDirection),
         required: false,
       },
     },

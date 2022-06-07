@@ -74,7 +74,7 @@ const Example: React.FC = () => {
 | `onChange`          | The callback when the textarea changes.         | `(value: string) => void`                                                                                                                             | -       |
 | `onOpenChange`      | The callback when the textarea opens or closes. | `(open: boolean) => void`                                                                                                                             | -       |
 | `defaultOpen`       | If the textarea is open by default.             | `boolean`                                                                                                                                             | `false` |
-| `direction`         | The direction of the textarea.                  | `"ltr" or "rtl"`                                                                                                                                      | -       |
+| `direction`         | The direction of the textarea.                  | `SelectDirectionsType`                                                                                                                                | -       |
 | `textError`         | The error of the textarea.                      | `string`                                                                                                                                              | -       |
 | `ariaLabel`         | The aria-label of the textarea.                 | `string`                                                                                                                                              | -       |
 | `outline`           | If the textarea has an outline.                 | `boolean`                                                                                                                                             | `true`  |
@@ -84,7 +84,7 @@ const Example: React.FC = () => {
 | `borderColor`       | The border color of the textarea.               | `string`                                                                                                                                              | -       |
 | `borderWidth`       | The border width of the textarea.               | `number`                                                                                                                                              | -       |
 | `fontSize`          | The font size of the textarea.                  | `string`                                                                                                                                              | -       |
-| `padding`           | The padding of the textarea.                    | `string`                                                                                                                                              | -       |
+| `padding`           | The padding of the textarea.                    | `SelectPaddingType`                                                                                                                                   | -       |
 | `data`              | The data of the textarea.                       | `{ name?: string, hidden?: boolean, items: Array<{ label: string, value: string, disabled?: boolean, searchValue?: string, hidden?: boolean }> }[] }` | -       |
 
 ---

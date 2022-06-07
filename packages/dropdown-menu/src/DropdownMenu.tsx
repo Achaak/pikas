@@ -64,23 +64,26 @@ const RightSlot = styled('div', {
   ...RightSlotStyle,
 })
 
-export const DropdownMenuSideType = {
+export const DropdownMenuSide = {
   left: true,
   right: true,
   top: true,
   bottom: true,
 }
+export type DropdownMenuSideType = keyof typeof DropdownMenuSide
 
-export const DropdownMenuAlignType = {
+export const DropdownMenuAlign = {
   center: true,
   start: true,
   end: true,
 }
+export type DropdownMenuAlignType = keyof typeof DropdownMenuAlign
 
-export const DropdownMenuDirectionType = {
+export const DropdownMenuDirection = {
   ltr: true,
   rtl: true,
 }
+export type DropdownMenuDirectionType = keyof typeof DropdownMenuDirection
 
 export type DropdownMenuDatas = MenuDatas & Record<string, unknown>
 export interface DropdownMenuProps extends MenuProps {
@@ -88,7 +91,7 @@ export interface DropdownMenuProps extends MenuProps {
   iconColor?: ColorsType
   iconSize?: number
 
-  direction?: keyof typeof DropdownMenuDirectionType
+  direction?: DropdownMenuDirectionType
   modal?: boolean
   defaultOpen?: boolean
   open?: boolean
@@ -102,9 +105,9 @@ export interface DropdownMenuProps extends MenuProps {
   onFocusOutside?: () => void
   onInteractOutside?: () => void
   portalled?: boolean
-  side?: keyof typeof DropdownMenuSideType
+  side?: DropdownMenuSideType
   sideOffset?: number
-  align?: keyof typeof DropdownMenuAlignType
+  align?: DropdownMenuAlignType
   alignOffset?: number
   avoidCollisions?: boolean
   collisionTolerance?: number

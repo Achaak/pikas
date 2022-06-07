@@ -1,5 +1,5 @@
 import { globalStyles } from '@pikas-ui/styles'
-import { Table, TableVariantType } from '@pikas-ui/table'
+import { Table, TableVariant } from '@pikas-ui/table'
 import type { TableProps } from '@pikas-ui/table'
 import type { Story, Meta } from '@storybook/react'
 
@@ -19,7 +19,7 @@ export default {
       description: 'The variant of the table',
       type: {
         name: 'enum',
-        value: Object.keys(TableVariantType),
+        value: Object.keys(TableVariant),
         required: false,
       },
     },

@@ -6,11 +6,7 @@ import {
   Shadows,
   styled,
 } from '@pikas-ui/styles'
-import {
-  Textarea,
-  TextareaPaddingType,
-  TextareaResizeType,
-} from '@pikas-ui/textarea'
+import { Textarea, TextareaPadding, TextareaResize } from '@pikas-ui/textarea'
 import type { TextareaProps } from '@pikas-ui/textarea'
 import type { Story, Meta } from '@storybook/react'
 
@@ -109,7 +105,7 @@ export default {
       description: 'The padding of the textarea',
       type: {
         name: 'enum',
-        value: Object.keys(TextareaPaddingType),
+        value: Object.keys(TextareaPadding),
         required: false,
       },
     },
@@ -146,7 +142,7 @@ export default {
       description: 'The resize of the textarea',
       type: {
         name: 'enum',
-        value: Object.keys(TextareaResizeType),
+        value: Object.keys(TextareaResize),
         required: false,
       },
     },

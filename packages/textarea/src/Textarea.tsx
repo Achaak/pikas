@@ -9,6 +9,8 @@ import { theme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Label, TextError, Description } from '@pikas-ui/text'
 import fontColorContrast from 'font-color-contrast'
+import type { TextareaHTMLAttributes } from 'react'
+import { forwardRef } from 'react'
 import React, { useState } from 'react'
 
 const Container = styled('div', {
@@ -56,140 +58,140 @@ const TextareaStyled = styled('textarea', {
   backgroundColor: '$TRANSPARENT',
 })
 
-export const TextareaPaddingType = {
+export const TextareaPadding = {
   sm: true,
   md: true,
   lg: true,
 }
+export type TextareaPaddingType = keyof typeof TextareaPadding
 
-export const TextareaResizeType = {
+export const TextareaResize = {
   none: true,
   vertical: true,
   horizontal: true,
   both: true,
 }
+export type TextareaResizeType = keyof typeof TextareaResize
 
 export type TextareaProps = {
-  placeholder?: string
   id?: string
   label?: string
-  name?: string
   boxShadow?: ShadowsType | 'none'
   borderRadius?: BorderRadiusType
-  padding?: keyof typeof TextareaPaddingType
+  padding?: TextareaPaddingType
   fontSize?: FontsSizesType
   borderColor?: ColorsType
   borderWidth?: number
   backgroundColor?: ColorsType
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  defaultValue?: string | number
   styles?: {
     container?: CSS
     textareaContainer?: CSS
     textarea?: CSS
   }
   outline?: boolean
-  resize?: keyof typeof TextareaResizeType
+  resize?: TextareaResizeType
   description?: string
-  disabled?: boolean
-}
+} & TextareaHTMLAttributes<HTMLTextAreaElement>
 
-export const Textarea: React.FC<TextareaProps> = ({
-  id,
-  name,
-  onChange,
-  placeholder,
-  boxShadow,
-  borderRadius,
-  padding,
-  fontSize,
-  textError,
-  label,
-  styles,
-  borderColor,
-  borderWidth,
-  defaultValue,
-  backgroundColor,
-  outline,
-  resize,
-  description,
-  disabled,
-}) => {
-  const [focus, setFocus] = useState(false)
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  (
+    {
+      id,
+      onChange,
+      boxShadow,
+      borderRadius,
+      padding,
+      fontSize,
+      textError,
+      label,
+      styles,
+      borderColor,
+      borderWidth,
+      backgroundColor,
+      outline,
+      resize,
+      description,
+      ...props
+    },
+    ref
+  ) => {
+    const [focus, setFocus] = useState(false)
 
-  const onChangeTextarea = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    if (onChange) {
-      onChange(e)
+    const onChangeTextarea = (
+      e: React.ChangeEvent<HTMLTextAreaElement>
+    ): void => {
+      if (onChange) {
+        onChange(e)
+      }
     }
-  }
 
-  return (
-    <Container
-      css={{
-        fontSize: `${fontSize}`,
-        ...styles?.container,
-      }}
-    >
-      {label ? (
-        <Label
-          htmlFor={id}
-          style={{
-            marginBottom: 4,
-          }}
-        >
-          {label}
-        </Label>
-      ) : null}
-
-      {description ? (
-        <Description
-          style={{
-            marginBottom: 4,
-          }}
-        >
-          {description}
-        </Description>
-      ) : null}
-
-      <TextareaContainer
-        padding={padding}
-        focus={outline ? focus : undefined}
+    return (
+      <Container
         css={{
-          br: borderRadius,
-          borderColor: `$${borderColor}`,
-          backgroundColor: `$${backgroundColor}`,
-          boxShadow: `$${boxShadow}`,
-          borderWidth: borderWidth,
-          ...styles?.textareaContainer,
+          fontSize: `${fontSize}`,
+          ...styles?.container,
         }}
       >
-        <TextareaStyled
-          id={id}
-          placeholder={placeholder}
-          onChange={onChangeTextarea}
-          name={name}
-          defaultValue={defaultValue}
-          disabled={disabled}
-          onFocus={(): void => setFocus(true)}
-          onBlur={(): void => setFocus(false)}
-          css={{
-            ...styles?.textarea,
-            resize: resize,
-            color: fontColorContrast(
-              theme.colors[backgroundColor || 'WHITE'].value,
-              0.7
-            ),
-          }}
-        />
-      </TextareaContainer>
+        {label ? (
+          <Label
+            htmlFor={id}
+            style={{
+              marginBottom: 4,
+            }}
+          >
+            {label}
+          </Label>
+        ) : null}
 
-      {textError && <TextError style={{ marginTop: 5 }}>{textError}</TextError>}
-    </Container>
-  )
-}
+        {description ? (
+          <Description
+            style={{
+              marginBottom: 4,
+            }}
+          >
+            {description}
+          </Description>
+        ) : null}
+
+        <TextareaContainer
+          padding={padding}
+          focus={outline ? focus : undefined}
+          css={{
+            br: borderRadius,
+            borderColor: `$${borderColor}`,
+            backgroundColor: `$${backgroundColor}`,
+            boxShadow: `$${boxShadow}`,
+            borderWidth: borderWidth,
+            ...styles?.textareaContainer,
+          }}
+        >
+          <TextareaStyled
+            ref={ref}
+            id={id}
+            onChange={onChangeTextarea}
+            onFocus={(): void => setFocus(true)}
+            onBlur={(): void => setFocus(false)}
+            css={{
+              ...styles?.textarea,
+              resize: resize,
+              color: fontColorContrast(
+                theme.colors[backgroundColor || 'WHITE'].value,
+                0.7
+              ),
+            }}
+            {...props}
+          />
+        </TextareaContainer>
+
+        {textError && (
+          <TextError style={{ marginTop: 5 }}>{textError}</TextError>
+        )}
+      </Container>
+    )
+  }
+)
 
 Textarea.defaultProps = {
   padding: 'md',
@@ -198,6 +200,7 @@ Textarea.defaultProps = {
   borderWidth: 0,
   backgroundColor: 'GRAY_LIGHTEST_1',
   boxShadow: 'DIMINUTION_1',
+  fontSize: 'EM-MEDIUM',
   outline: true,
   disabled: false,
 }

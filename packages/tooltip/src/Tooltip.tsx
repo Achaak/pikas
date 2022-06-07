@@ -73,24 +73,27 @@ const IconButton = styled('button', {
 
 const StyledArrow = styled(TooltipPrimitive.Arrow, {})
 
-export const TooltipSideType = {
+export const TooltipSide = {
   top: true,
   right: true,
   bottom: true,
   left: true,
 }
+export type TooltipSideType = keyof typeof TooltipSide
 
-export const TooltipAlignType = {
+export const TooltipAlign = {
   start: true,
   center: true,
   end: true,
 }
+export type TooltipAlignType = keyof typeof TooltipAlign
 
-export const TooltipPaddingType = {
+export const TooltipPadding = {
   sm: true,
   md: true,
   lg: true,
 }
+export type TooltipPaddingType = keyof typeof TooltipPadding
 
 export interface TooltipProps {
   content: string | React.ReactNode
@@ -104,9 +107,9 @@ export interface TooltipProps {
   hasArrow?: boolean
   arrowSize?: number
   arrowOffset?: number
-  side?: keyof typeof TooltipSideType
+  side?: TooltipSideType
   sideOffset?: number
-  align?: keyof typeof TooltipAlignType
+  align?: TooltipAlignType
   alignOffset?: number
   portalled?: boolean
   avoidCollisions?: boolean
@@ -115,7 +118,7 @@ export interface TooltipProps {
   fontSize?: FontsSizesType
   fontWeight?: FontsWeightsType
   boxShadow?: ShadowsType
-  padding?: keyof typeof TooltipPaddingType
+  padding?: TooltipPaddingType
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({

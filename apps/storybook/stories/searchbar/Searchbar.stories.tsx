@@ -1,0 +1,89 @@
+import { globalStyles } from '@pikas-ui/styles'
+import type { ResultItemType, SearchbarProps } from '@pikas-ui/searchbar'
+import type { Story, Meta } from '@storybook/react'
+import { Searchbar } from '@pikas-ui/searchbar'
+
+type SearchResult = {
+  firstname: string
+  lastname: string
+}
+
+export default {
+  title: '@pikas-ui/searchbar',
+  component: Searchbar,
+  argTypes: {},
+} as Meta<SearchbarProps<unknown>>
+
+const Template: Story<SearchbarProps<unknown>> = (args) => {
+  globalStyles()
+
+  return <Searchbar {...args} />
+}
+
+export const Default = Template.bind({})
+Default.args = {
+  searchFunction: (value): Promise<Array<SearchResult> | null> => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (value === 'test') resolve(null)
+
+        resolve([
+          { firstname: 'John', lastname: 'Doe' },
+          { firstname: 'Jane', lastname: 'Doe' },
+          { firstname: 'John', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+          { firstname: 'Jane', lastname: 'Smith' },
+        ])
+      }, 1000)
+    })
+  },
+  onSearch: (value): ResultItemType[] | null => {
+    if (!Array.isArray(value)) return null
+
+    return value.map((item) => ({
+      content: `${item.firstname} ${item.lastname}`,
+      onClick: (): void => {
+        console.log(item)
+      },
+    }))
+  },
+  searchType: 'button',
+  isOpen: false,
+  searchWhenKeyUp: true,
+  textfield: {
+    placeholder: 'Search',
+    borderRadius: 'round',
+  },
+}

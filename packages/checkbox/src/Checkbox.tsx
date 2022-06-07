@@ -46,10 +46,11 @@ const Element = styled('div', {
   alignItems: 'center',
 })
 
-export const CheckboxSideType = {
+export const CheckboxSide = {
   left: true,
   right: true,
 }
+export type CheckboxSideType = keyof typeof CheckboxSide
 
 export interface CheckboxProps {
   defaultChecked?: boolean
@@ -70,7 +71,7 @@ export interface CheckboxProps {
   disabled?: boolean
   required?: boolean
   name?: string
-  side?: keyof typeof CheckboxSideType
+  side?: CheckboxSideType
   outline?: boolean
   indeterminate?: boolean
 }

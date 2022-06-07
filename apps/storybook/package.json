@@ -37,6 +37,7 @@
     "@pikas-ui/textfield": "1.0.24",
     "@pikas-ui/textarea": "1.0.24",
     "@pikas-ui/tooltip": "1.0.24",
+    "@pikas-ui/searchbar": "1.0.24",
     "http-server": "^14.1.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",

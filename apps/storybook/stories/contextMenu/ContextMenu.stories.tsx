@@ -1,5 +1,5 @@
 import { globalStyles, styled } from '@pikas-ui/styles'
-import { ContextMenu, ContextMenuDirectionType } from '@pikas-ui/context-menu'
+import { ContextMenu, ContextMenuDirection } from '@pikas-ui/context-menu'
 import type { ContextMenuProps } from '@pikas-ui/context-menu'
 import type { Story, Meta } from '@storybook/react'
 
@@ -28,7 +28,7 @@ export default {
       description: 'The direction of the menu',
       control: {
         type: 'enum',
-        value: Object.keys(ContextMenuDirectionType),
+        value: Object.keys(ContextMenuDirection),
         required: false,
       },
     },

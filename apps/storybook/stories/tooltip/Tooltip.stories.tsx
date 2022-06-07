@@ -8,9 +8,9 @@ import {
 } from '@pikas-ui/styles'
 import {
   Tooltip,
-  TooltipAlignType,
-  TooltipPaddingType,
-  TooltipSideType,
+  TooltipAlign,
+  TooltipPadding,
+  TooltipSide,
 } from '@pikas-ui/tooltip'
 import type { TooltipProps } from '@pikas-ui/tooltip'
 import type { Story, Meta } from '@storybook/react'
@@ -39,7 +39,7 @@ export default {
       description: 'Align',
       type: {
         name: 'enum',
-        value: Object.keys(TooltipAlignType),
+        value: Object.keys(TooltipAlign),
         required: false,
       },
     },
@@ -149,7 +149,7 @@ export default {
       description: 'Padding',
       type: {
         name: 'enum',
-        value: Object.keys(TooltipPaddingType),
+        value: Object.keys(TooltipPadding),
         required: false,
       },
     },
@@ -164,7 +164,7 @@ export default {
       description: 'Side',
       type: {
         name: 'enum',
-        value: Object.keys(TooltipSideType),
+        value: Object.keys(TooltipSide),
         required: false,
       },
     },

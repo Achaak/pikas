@@ -6,11 +6,7 @@ import {
   Shadows,
   styled,
 } from '@pikas-ui/styles'
-import {
-  Textfield,
-  TextfieldPaddingType,
-  TextfieldTypeType,
-} from '@pikas-ui/textfield'
+import { Textfield, TextfieldPadding, TextfieldType } from '@pikas-ui/textfield'
 import type { TextfieldProps } from '@pikas-ui/textfield'
 import type { Story, Meta } from '@storybook/react'
 import type { IconProps } from '@pikas-ui/icons'
@@ -132,7 +128,7 @@ export default {
       description: 'The padding of the textfield',
       type: {
         name: 'enum',
-        value: Object.keys(TextfieldPaddingType),
+        value: Object.keys(TextfieldPadding),
         required: false,
       },
     },
@@ -147,7 +143,7 @@ export default {
       description: 'The type of the textfield',
       type: {
         name: 'enum',
-        value: Object.keys(TextfieldTypeType),
+        value: Object.keys(TextfieldType),
         required: false,
       },
     },

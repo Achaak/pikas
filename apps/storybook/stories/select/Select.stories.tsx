@@ -6,10 +6,9 @@ import {
   Shadows,
   styled,
 } from '@pikas-ui/styles'
-import { Select, SelectDirectionsType } from '@pikas-ui/select'
+import { Select, SelectDirections, SelectPadding } from '@pikas-ui/select'
 import type { SelectProps } from '@pikas-ui/select'
 import type { Story, Meta } from '@storybook/react'
-import { TextfieldPaddingType } from '@pikas-ui/textfield'
 
 const Container = styled('div', {
   display: 'flex',
@@ -98,7 +97,7 @@ export default {
       description: 'The direction of the textfield',
       type: {
         name: 'enum',
-        value: Object.keys(SelectDirectionsType),
+        value: Object.keys(SelectDirections),
         required: false,
       },
     },
@@ -148,7 +147,7 @@ export default {
       description: 'The padding of the textfield',
       type: {
         name: 'enum',
-        value: Object.keys(TextfieldPaddingType),
+        value: Object.keys(SelectPadding),
         required: false,
       },
     },

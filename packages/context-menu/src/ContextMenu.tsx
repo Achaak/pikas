@@ -59,10 +59,12 @@ const Span = styled('span', {
   ...SpanStyle,
 })
 
-export const ContextMenuDirectionType = {
+export const ContextMenuDirection = {
   ltr: true,
   rtl: true,
 }
+export type ContextMenuDirectionType = keyof typeof ContextMenuDirection
+
 export type ContextMenuDatas = MenuDatas & Record<string, unknown>
 export interface ContextMenuProps extends MenuProps {
   children?: React.ReactNode
@@ -72,7 +74,7 @@ export interface ContextMenuProps extends MenuProps {
 
   allowPinchZoom?: boolean
   loop?: boolean
-  direction?: keyof typeof ContextMenuDirectionType
+  direction?: ContextMenuDirectionType
   onCloseAutoFocus?: (event: Event) => void
   onEscapeKeyDown?: (event: KeyboardEvent) => void
   onPointerDownOutside?: () => void

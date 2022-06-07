@@ -243,13 +243,14 @@ interface ColumnData<T> extends Columns {
 
 export type AllColumns<T> = ColumnGroup<T> | ColumnData<T>
 
-export const TableVariantType = {
+export const TableVariant = {
   default: true,
   light: true,
 }
+export type TableVariantType = keyof typeof TableVariant
 
 export interface TableProps<T extends Record<string, unknown>> {
-  variant?: keyof typeof TableVariantType
+  variant?: TableVariantType
   data: T[]
   hasTfoot?: boolean
   pagination?: {
