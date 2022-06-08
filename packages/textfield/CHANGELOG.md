@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 1.0.28
+
+### Patch Changes
+
+- Add some props for the color
+
 ## 1.0.27
 
 ### Patch Changes

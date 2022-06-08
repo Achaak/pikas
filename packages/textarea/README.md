@@ -44,27 +44,31 @@ const Example: React.FC = () => {
 #### Props
 Props extends `TextareaHTMLAttributes<HTMLTextAreaElement>`
 
-| Prop              | Description                           | Type                                                           | Default          |
-| :---------------- | :------------------------------------ | :------------------------------------------------------------- | :--------------- |
-| `label`           | The label of the textarea.            | `string`                                                       | -                |
-| `boxShadow`       | The box shadow of the textarea.       | `ShadowsType`                                                  | `"DIMINUTION_1"` |
-| `borderRadius`    | The border radius of the textarea.    | `BorderRadiusType`                                             | `"md"`           |
-| `padding`         | The padding of the textarea.          | `TextareaPaddingType`                                          | `"md"`           |
-| `fontSize`        | The font size of the textarea.        | `FontsSizesType`                                               | `"EM-MEDIUM"`    |
-| `borderColor`     | The border color of the textarea.     | `ColorsType`                                                   | `"GRAY_LIGHTER"` |
-| `borderWidth`     | The border width of the textarea.     | `number`                                                       | -                |
-| `backgroundColor` | The background color of the textarea. | `ColorsType`                                                   | -                |
-| `textError`       | The error text of the textarea.       | `string`                                                       | -                |
-| `styles`          | The styles of the textarea.           | `{ container?: CSS, textareaContainer?: CSS, textarea?: CSS }` | -                |
-| `outline`         | The outline of the textarea.          | `boolean`                                                      | `true`           |
-| `resize`          | The resize of the textarea.           | `TextareaResizeType`                                           | `"none"`         |
-| `description`     | The description of the textarea.      | `string`                                                       | -                |
-| `width`           | The width of the textarea.            | `string or number`                                             | `"100%"`         |
-| `minWidth`        | The min width of the textarea.        | `string or number`                                             | -                |
-| `maxWidth`        | The max width of the textarea.        | `string or number`                                             | `"100%"`         |
-| `height`          | The height of the textarea.           | `string or number`                                             | `300px`          |
-| `minHeight`       | The min height of the textarea.       | `string or number`                                             | -                |
-| `maxHeight`       | The max height of the textarea.       | `string or number`                                             | -                |
+| Prop                  | Description                                | Type                                                           | Default          |
+| :-------------------- | :----------------------------------------- | :------------------------------------------------------------- | :--------------- |
+| `label`               | The label of the textarea.                 | `string`                                                       | -                |
+| `boxShadow`           | The box shadow of the textarea.            | `ShadowsType`                                                  | `"DIMINUTION_1"` |
+| `borderRadius`        | The border radius of the textarea.         | `BorderRadiusType`                                             | `"md"`           |
+| `padding`             | The padding of the textarea.               | `TextareaPaddingType`                                          | `"md"`           |
+| `fontSize`            | The font size of the textarea.             | `FontsSizesType`                                               | `"EM-MEDIUM"`    |
+| `color`               | The color of the textarea.                 | `ColorsType`                                                   | -                |
+| `colorHex`            | The color hex of the textarea.             | `string`                                                       | -                |
+| `placeholderColor`    | The placeholder color of the textarea.     | `ColorsType`                                                   | -                |
+| `placeholderColorHex` | The placeholder color hex of the textarea. | `string`                                                       | -                |
+| `borderColor`         | The border color of the textarea.          | `ColorsType`                                                   | `"TRANSPARENT"`  |
+| `borderColorHex`      | The border color hex of the textarea.      | `string`                                                       | -                |
+| `borderWidth`         | The border width of the textarea.          | `number`                                                       | `0`              |
+| `textError`           | The error text of the textarea.            | `string`                                                       | -                |
+| `styles`              | The styles of the textarea.                | `{ container?: CSS, textareaContainer?: CSS, textarea?: CSS }` | -                |
+| `outline`             | The outline of the textarea.               | `boolean`                                                      | `true`           |
+| `resize`              | The resize of the textarea.                | `TextareaResizeType`                                           | `"none"`         |
+| `description`         | The description of the textarea.           | `string`                                                       | -                |
+| `width`               | The width of the textarea.                 | `string or number`                                             | `"100%"`         |
+| `minWidth`            | The min width of the textarea.             | `string or number`                                             | -                |
+| `maxWidth`            | The max width of the textarea.             | `string or number`                                             | `"100%"`         |
+| `height`              | The height of the textarea.                | `string or number`                                             | `300px`          |
+| `minHeight`           | The min height of the textarea.            | `string or number`                                             | -                |
+| `maxHeight`           | The max height of the textarea.            | `string or number`                                             | -                |
 
 ---
 

@@ -24,15 +24,15 @@ importers:
       '@pikas-ui/dropdown-menu': 1.0.28
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25
-      '@pikas-ui/searchbar': 1.1.6
-      '@pikas-ui/select': 1.0.27
+      '@pikas-ui/searchbar': 1.1.7
+      '@pikas-ui/select': 1.0.28
       '@pikas-ui/separator': 1.0.25
       '@pikas-ui/slider': 1.0.1
       '@pikas-ui/styles': 1.0.25
-      '@pikas-ui/table': 1.0.27
+      '@pikas-ui/table': 1.0.28
       '@pikas-ui/text': 1.0.26
-      '@pikas-ui/textarea': 1.0.27
-      '@pikas-ui/textfield': 1.0.27
+      '@pikas-ui/textarea': 1.0.28
+      '@pikas-ui/textfield': 1.0.28
       '@pikas-ui/tooltip': 1.0.25
       '@pikas-ui/tsconfig': workspace:*
       '@storybook/addon-essentials': ^6.5.6
@@ -388,7 +388,7 @@ importers:
       '@pikas-ui/loader': 1.0.25
       '@pikas-ui/separator': 1.0.25
       '@pikas-ui/styles': 1.0.25
-      '@pikas-ui/textfield': 1.0.27
+      '@pikas-ui/textfield': 1.0.28
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^17.0.38
       '@types/react': ^18.0.10
@@ -425,7 +425,7 @@ importers:
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/styles': 1.0.25
       '@pikas-ui/text': 1.0.26
-      '@pikas-ui/textfield': 1.0.27
+      '@pikas-ui/textfield': 1.0.28
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-select': ^0.1.1
       '@types/node': ^17.0.38
@@ -549,7 +549,7 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25
-      '@pikas-ui/select': 1.0.27
+      '@pikas-ui/select': 1.0.28
       '@pikas-ui/styles': 1.0.25
       '@pikas-ui/tsconfig': workspace:*
       '@tanstack/react-table': 8.0.0-beta.3

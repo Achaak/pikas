@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/searchbar",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -34,7 +34,7 @@
     "@pikas-ui/icons": "1.0.25",
     "@pikas-ui/loader": "1.0.25",
     "@pikas-ui/styles": "1.0.25",
-    "@pikas-ui/textfield": "1.0.27",
+    "@pikas-ui/textfield": "1.0.28",
     "@pikas-ui/separator": "1.0.25",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

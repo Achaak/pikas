@@ -196,8 +196,14 @@ export type TextfieldProps = {
   gap?: TextfieldGapType
   fontSize?: FontsSizesType
   borderColor?: ColorsType
+  borderColorHex?: string
   borderWidth?: number
+  color?: ColorsType
+  colorHex?: string
+  placeholderColor?: ColorsType
+  placeholderColorHex?: string
   backgroundColor?: ColorsType
+  backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
@@ -244,6 +250,12 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       width,
       maxWidth,
       minWidth,
+      backgroundColorHex,
+      borderColorHex,
+      color,
+      colorHex,
+      placeholderColor,
+      placeholderColorHex,
       ...props
     },
     ref
@@ -266,6 +278,22 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       if (onChange) {
         onChange(e)
       }
+    }
+
+    const getColor = ({
+      color,
+      colorHex,
+    }: {
+      color?: string
+      colorHex?: string
+    }): string => {
+      return colorHex || color
+        ? `$${color}`
+        : undefined ||
+            fontColorContrast(
+              theme.colors[backgroundColor || 'WHITE'].value,
+              0.7
+            )
     }
 
     return (
@@ -304,10 +332,15 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
           gap={gap}
           css={{
             br: borderRadius,
-            borderColor: `$${borderColor}`,
-            backgroundColor: `$${backgroundColor}`,
+            borderColor:
+              borderColorHex || borderColor ? `$${borderColor}` : undefined,
+            backgroundColor:
+              backgroundColorHex || backgroundColor
+                ? `$${backgroundColor}`
+                : undefined,
             boxShadow: `$${boxShadow}`,
             borderWidth: borderWidth,
+
             ...styles?.inputContainer,
           }}
         >
@@ -339,10 +372,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             >
               <LeftIcon
                 size="1em"
-                colorHex={fontColorContrast(
-                  theme.colors[backgroundColor || 'WHITE'].value,
-                  0.7
-                )}
+                colorHex={getColor({ color, colorHex })}
                 styles={styles?.leftIcon}
               />
             </LeftContainer>
@@ -360,11 +390,16 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
             css={{
+              color: getColor({ color, colorHex }),
+
+              '&::placeholder': {
+                color: getColor({
+                  color: placeholderColor,
+                  colorHex: placeholderColorHex,
+                }),
+              },
+
               ...styles?.input,
-              color: fontColorContrast(
-                theme.colors[backgroundColor || 'WHITE'].value,
-                0.7
-              ),
             }}
             {...props}
           />
@@ -382,10 +417,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             >
               <RightIcon
                 size="1em"
-                colorHex={fontColorContrast(
-                  theme.colors[backgroundColor || 'WHITE'].value,
-                  0.7
-                )}
+                colorHex={getColor({ color, colorHex })}
                 styles={styles?.rightIcon}
               />
             </RightContainer>

@@ -80,9 +80,6 @@ export type TextareaProps = {
   borderRadius?: BorderRadiusType
   padding?: TextareaPaddingType
   fontSize?: FontsSizesType
-  borderColor?: ColorsType
-  borderWidth?: number
-  backgroundColor?: ColorsType
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   styles?: {
@@ -99,6 +96,15 @@ export type TextareaProps = {
   maxHeight?: string | number
   minHeight?: string | number
   minWidth?: string | number
+  borderColor?: ColorsType
+  borderColorHex?: string
+  borderWidth?: number
+  color?: ColorsType
+  colorHex?: string
+  placeholderColor?: ColorsType
+  placeholderColorHex?: string
+  backgroundColor?: ColorsType
+  backgroundColorHex?: string
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -125,6 +131,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       maxHeight,
       minHeight,
       minWidth,
+      backgroundColorHex,
+      borderColorHex,
+      color,
+      colorHex,
+      placeholderColor,
+      placeholderColorHex,
       ...props
     },
     ref
@@ -137,6 +149,22 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       if (onChange) {
         onChange(e)
       }
+    }
+
+    const getColor = ({
+      color,
+      colorHex,
+    }: {
+      color?: string
+      colorHex?: string
+    }): string => {
+      return colorHex || color
+        ? `$${color}`
+        : undefined ||
+            fontColorContrast(
+              theme.colors[backgroundColor || 'WHITE'].value,
+              0.7
+            )
     }
 
     return (
@@ -175,10 +203,15 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           focus={outline ? focus : undefined}
           css={{
             br: borderRadius,
-            borderColor: `$${borderColor}`,
-            backgroundColor: `$${backgroundColor}`,
+            borderColor:
+              borderColorHex || borderColor ? `$${borderColor}` : undefined,
+            backgroundColor:
+              backgroundColorHex || backgroundColor
+                ? `$${backgroundColor}`
+                : undefined,
             boxShadow: `$${boxShadow}`,
             borderWidth: borderWidth,
+
             ...styles?.textareaContainer,
           }}
         >
@@ -189,15 +222,20 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
             css={{
-              ...styles?.textarea,
               resize: resize,
-              color: fontColorContrast(
-                theme.colors[backgroundColor || 'WHITE'].value,
-                0.7
-              ),
               height: height,
               maxHeight: maxHeight,
               minHeight: minHeight,
+              color: getColor({ color: color, colorHex: colorHex }),
+
+              '&::placeholder': {
+                color: getColor({
+                  color: placeholderColor,
+                  colorHex: placeholderColorHex,
+                }),
+              },
+
+              ...styles?.textarea,
             }}
             {...props}
           />
