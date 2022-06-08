@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 1.1.2
+
+### Patch Changes
+
+- Fix when pressing to search
+
 ## 1.1.1
 
 ### Patch Changes

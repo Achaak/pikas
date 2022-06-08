@@ -322,9 +322,11 @@ export const Searchbar = <T,>({
 
           switch (e.key) {
             case 'Enter':
-              refItem.current[selectionId]?.click()
-              refTextfield.current?.blur()
-              setIsOpen(false)
+              if (isOpen) {
+                refItem.current[selectionId]?.click()
+                refTextfield.current?.blur()
+                setIsOpen(false)
+              }
               break
 
             case 'ArrowDown':
@@ -370,7 +372,7 @@ export const Searchbar = <T,>({
           result.map((group, groupIndex) => {
             const res = []
 
-            if (group.title) {
+            if (group.title && group.items.length) {
               res.push(
                 <ResultGroupTitle
                   key={`${groupIndex}-title`}

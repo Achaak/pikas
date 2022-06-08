@@ -1,5 +1,12 @@
 # @pikas-ui/storybook
 
+## 1.0.31
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/searchbar@1.1.2
+
 ## 1.0.30
 
 ### Patch Changes
