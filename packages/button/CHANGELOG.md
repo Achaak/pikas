@@ -1,5 +1,12 @@
 # @pikas-ui/button
 
+## 1.0.27
+
+### Patch Changes
+
+- Add boxShadow props
+- Add default padding props in ButtonIcon
+
 ## 1.0.26
 
 ### Patch Changes

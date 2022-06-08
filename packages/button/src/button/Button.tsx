@@ -4,6 +4,7 @@ import type {
   FontsWeightsType,
   BorderRadiusType,
   FontsSizesType,
+  ShadowsType,
 } from '@pikas-ui/styles'
 import { styled, theme } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
@@ -32,7 +33,6 @@ const ButtonDOM = styled('button', {
   space: 2,
   borderStyle: 'solid',
   position: 'relative',
-  boxShadow: '$ELEVATION_BOTTOM_1',
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
 
@@ -189,6 +189,7 @@ export interface ButtonDefaultProps {
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
+  boxShadow?: ShadowsType
 }
 
 export interface ButtonProps
@@ -310,6 +311,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       width,
       maxWidth,
       minWidth,
+      boxShadow,
       ...props
     },
     ref
@@ -336,6 +338,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,
+          boxShadow: boxShadow,
 
           ...getColors({
             outlined,
@@ -409,6 +412,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       width,
       maxWidth,
       minWidth,
+      boxShadow,
       ...props
     },
     ref
@@ -436,6 +440,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,
+          boxShadow: boxShadow,
 
           ...getColors({
             outlined,
@@ -481,4 +486,5 @@ ButtonLink.defaultProps = {
   outlined: false,
   width: '100%',
   maxWidth: '100%',
+  boxShadow: 'ELEVATION_BOTTOM_1',
 }

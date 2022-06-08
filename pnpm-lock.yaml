@@ -17,14 +17,14 @@ importers:
     specifiers:
       '@babel/core': ^7.18.0
       '@pikas-ui/alert': 1.0.0
-      '@pikas-ui/button': 1.0.26
+      '@pikas-ui/button': 1.0.27
       '@pikas-ui/checkbox': 1.0.26
       '@pikas-ui/config': workspace:*
       '@pikas-ui/context-menu': 1.0.25
       '@pikas-ui/dropdown-menu': 1.0.28
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25
-      '@pikas-ui/searchbar': 1.1.2
+      '@pikas-ui/searchbar': 1.1.3
       '@pikas-ui/select': 1.0.27
       '@pikas-ui/separator': 1.0.25
       '@pikas-ui/slider': 1.0.1
@@ -382,7 +382,7 @@ importers:
 
   packages/searchbar:
     specifiers:
-      '@pikas-ui/button': 1.0.26
+      '@pikas-ui/button': 1.0.27
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 1.0.25
       '@pikas-ui/loader': 1.0.25

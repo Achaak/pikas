@@ -3,6 +3,7 @@ import type {
   CSS,
   BorderRadiusType,
   SizesType,
+  ShadowsType,
 } from '@pikas-ui/styles'
 import { styled, Sizes } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
@@ -29,7 +30,6 @@ const ButtonIconDOM = styled('button', {
   space: 2,
   borderStyle: 'solid',
   position: 'relative',
-  boxShadow: '$ELEVATION_BOTTOM_1',
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
 
@@ -148,6 +148,7 @@ export interface ButtonIconDefaultProps {
   iconColorHex?: string
   outlined?: boolean
   effect?: ButtonEffectType
+  boxShadow?: ShadowsType
   disabled?: boolean
 }
 
@@ -239,6 +240,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       Icon,
       size,
       borderWidth,
+      boxShadow,
       ...props
     },
     ref
@@ -260,6 +262,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         css={{
           br: borderRadius,
           borderWidth: borderWidth,
+          boxShadow: boxShadow,
           ...getColors({ outlined, color, colorHex }),
           ...styles?.button,
         }}
@@ -289,6 +292,7 @@ ButtonIcon.defaultProps = {
   size: 'MEDIUM',
   effect: 'opacity',
   borderWidth: 2,
+  padding: 'md',
 }
 
 export const ButtonIconLink = forwardRef<
@@ -311,6 +315,7 @@ export const ButtonIconLink = forwardRef<
       Icon,
       size,
       borderWidth,
+      boxShadow,
       ...props
     },
     ref
@@ -333,6 +338,7 @@ export const ButtonIconLink = forwardRef<
         css={{
           br: borderRadius,
           borderWidth: borderWidth,
+          boxShadow: boxShadow,
           ...getColors({ outlined, color, colorHex }),
           ...styles?.button,
         }}
@@ -359,6 +365,8 @@ ButtonIconLink.defaultProps = {
   borderRadius: 'md',
   color: 'PRIMARY',
   size: 'MEDIUM',
+  padding: 'md',
   effect: 'opacity',
   borderWidth: 2,
+  boxShadow: 'ELEVATION_BOTTOM_1',
 }
