@@ -252,6 +252,7 @@ export type TableVariantType = keyof typeof TableVariant
 export interface TableProps<T extends Record<string, unknown>> {
   variant?: TableVariantType
   data: T[]
+  emptyMessage?: React.ReactNode
   hasTfoot?: boolean
   pagination?: {
     active: boolean
@@ -296,6 +297,7 @@ export const Table = <T extends Record<string, unknown>>({
   variant,
   styles,
   padding,
+  emptyMessage,
 }: TableProps<T>): JSX.Element => {
   type Column = any // TODO: fix
   // type Column = ColumnDef<
@@ -523,6 +525,19 @@ export const Table = <T extends Record<string, unknown>>({
               </Tr>
             )
           })}
+
+          {!instance.getRowModel().rows.length && emptyMessage ? (
+            <Tr>
+              <Td
+                colSpan={columns.length + (selection?.active ? 1 : 0)}
+                css={{
+                  ...styles?.td,
+                }}
+              >
+                <TdContent>{emptyMessage}</TdContent>
+              </Td>
+            </Tr>
+          ) : null}
         </Tbody>
         {hasTfoot ? (
           <Tfoot variant={variant} css={styles?.tfoot}>

@@ -16,7 +16,7 @@ importers:
   apps/storybook:
     specifiers:
       '@babel/core': ^7.18.0
-      '@pikas-ui/alert': 1.0.0
+      '@pikas-ui/alert': 1.0.1
       '@pikas-ui/button': 1.0.28
       '@pikas-ui/checkbox': 1.0.26
       '@pikas-ui/config': workspace:*
@@ -27,9 +27,9 @@ importers:
       '@pikas-ui/searchbar': 1.1.7
       '@pikas-ui/select': 1.0.28
       '@pikas-ui/separator': 1.0.25
-      '@pikas-ui/slider': 1.0.1
+      '@pikas-ui/slider': 1.0.2
       '@pikas-ui/styles': 1.0.25
-      '@pikas-ui/table': 1.0.28
+      '@pikas-ui/table': 1.0.29
       '@pikas-ui/text': 1.0.26
       '@pikas-ui/textarea': 1.0.28
       '@pikas-ui/textfield': 1.0.28

@@ -81,6 +81,7 @@ const Example: React.FC = () => {
 | `backgroundColor` | Background color of the alert component | `ColorsType`          | -            |
 | `color`           | Color of the alert component            | `ColorsType`          | -            |
 | `visible`         | Visibility of the alert component       | `boolean`             | `true`       |
+| `styles`          | Custom styles of the alert component    | `object`              | -            |
 
 ---
 

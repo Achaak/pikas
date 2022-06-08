@@ -1,5 +1,7 @@
+import { IconStyleType } from '@pikas-ui/icons'
 import {
   BorderRadiusType,
+  CSS,
   FontsSizesType,
   FontsWeightsType,
 } from '@pikas-ui/styles'
@@ -31,4 +33,10 @@ export interface DefaultAlertProps {
   padding?: AlertPaddingType
   gap?: AlertGapType
   visible?: boolean
+  styles?: {
+    container?: CSS
+    content?: CSS
+    icon?: IconStyleType
+    child?: CSS
+  }
 }

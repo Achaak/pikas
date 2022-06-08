@@ -134,6 +134,7 @@ Slider.defaultProps = {
 | `rangeColor`               | The color of the range.                                         | `ColorsType`                | -                |
 | `rangeColorHex`            | The color of the range in hexadecimal.                          | `string`                    | -                |
 | `sliderBorderRadius`       | The radius of the slider border.                                | `BorderRadiusType`          | `"round"`        |
+| `styles`                   | The styles of the slider.                                       | `object`                    | -                |
 
 ---
 

@@ -1,6 +1,7 @@
 import type {
   BorderRadiusType,
   ColorsType,
+  CSS,
   FontsSizesType,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
@@ -97,6 +98,17 @@ export interface SliderProps {
   rangeColor?: ColorsType
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadiusType
+  styles?: {
+    container?: CSS
+    label?: CSS
+    description?: CSS
+    textError?: CSS
+    element?: CSS
+    slider?: CSS
+    track?: CSS
+    range?: CSS
+    thumb?: CSS
+  }
 }
 
 export const Slider: React.FC<SliderProps> = ({
@@ -134,6 +146,7 @@ export const Slider: React.FC<SliderProps> = ({
   rangeColor,
   rangeColorHex,
   sliderBorderRadius,
+  styles,
 }) => {
   return (
     <Container
@@ -146,6 +159,7 @@ export const Slider: React.FC<SliderProps> = ({
         height: orientation === 'vertical' ? size : undefined,
         maxHeight: orientation === 'vertical' ? maxSize : undefined,
         minHeight: orientation === 'vertical' ? minSize : undefined,
+        ...styles?.container,
       }}
     >
       {label ? (
@@ -153,6 +167,7 @@ export const Slider: React.FC<SliderProps> = ({
           htmlFor={id}
           style={{
             marginBottom: 4,
+            ...styles?.label,
           }}
         >
           {label}
@@ -163,6 +178,7 @@ export const Slider: React.FC<SliderProps> = ({
         <Description
           style={{
             marginBottom: 4,
+            ...styles?.description,
           }}
         >
           {description}
@@ -173,6 +189,7 @@ export const Slider: React.FC<SliderProps> = ({
         css={{
           height: orientation === 'vertical' ? '100%' : undefined,
           width: orientation === 'horizontal' ? '100%' : undefined,
+          ...styles?.element,
         }}
       >
         <SliderStyled
@@ -199,6 +216,8 @@ export const Slider: React.FC<SliderProps> = ({
               width: thumbSize,
               height: '100%',
             },
+
+            ...styles?.slider,
           }}
         >
           <Track
@@ -209,6 +228,8 @@ export const Slider: React.FC<SliderProps> = ({
 
               '&[data-orientation="horizontal"]': { height: weight },
               '&[data-orientation="vertical"]': { width: weight },
+
+              ...styles?.track,
             }}
           >
             <Range
@@ -216,6 +237,8 @@ export const Slider: React.FC<SliderProps> = ({
                 br: sliderBorderRadius,
                 backgroundColor:
                   rangeColorHex || rangeColor ? `$${rangeColor}` : undefined,
+
+                ...styles?.range,
               }}
             />
           </Track>
@@ -239,13 +262,17 @@ export const Slider: React.FC<SliderProps> = ({
                     ? `$${thumbBorderColorHover}`
                     : undefined,
               },
+
+              ...styles?.thumb,
             }}
           />
         </SliderStyled>
       </Element>
 
       {textError ? (
-        <TextError style={{ marginTop: 5 }}>{textError}</TextError>
+        <TextError style={{ marginTop: 5, ...styles?.textError }}>
+          {textError}
+        </TextError>
       ) : null}
     </Container>
   )

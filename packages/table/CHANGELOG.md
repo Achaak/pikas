@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 1.0.29
+
+### Patch Changes
+
+- Add emptyMessage props
+
 ## 1.0.28
 
 ### Patch Changes

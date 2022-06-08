@@ -89,9 +89,10 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
   gap,
   padding,
   visible,
+  styles,
 }) => {
   return (
-    <Container visible={visible}>
+    <Container visible={visible} css={styles?.container}>
       <Content
         gap={gap}
         padding={padding}
@@ -101,10 +102,11 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
           fontSize: `$${fontSize}`,
           fontWeight: `$${fontWeight}`,
           br: borderRadius,
+          ...styles?.content,
         }}
       >
-        {Icon ? <Icon size={iconSize} /> : null}
-        <Child>{children}</Child>
+        {Icon ? <Icon size={iconSize} styles={styles?.icon} /> : null}
+        <Child css={styles?.child}>{children}</Child>
       </Content>
     </Container>
   )
