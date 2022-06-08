@@ -76,6 +76,12 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | `width`               | The width of the textfield.                 | `string or number`                                       | `"100%"`            |
 | `maxWidth`            | The max width of the textfield.             | `string or number`                                       | `"100%"`            |
 | `minWidth`            | The min width of the textfield.             | `string or number`                                       | -                   |
+| `leftIconColor`       | The left icon color of the textfield.       | `ColorsType`                                             | -                   |
+| `leftIconColorHex`    | The left icon color hex of the textfield.   | `string`                                                 | -                   |
+| `rightIconColor`      | The right icon color of the textfield.      | `ColorsType`                                             | -                   |
+| `rightIconColorHex`   | The right icon color hex of the textfield.  | `string`                                                 | -                   |
+| `leftIconSize`        | The left icon size of the textfield.        | `number`                                                 | -                   |
+| `rightIconSize`       | The right icon size of the textfield.       | `number`                                                 | -                   |
 
 ---
 

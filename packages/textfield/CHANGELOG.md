@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 1.0.29
+
+### Patch Changes
+
+- Add some props
+
 ## 1.0.28
 
 ### Patch Changes

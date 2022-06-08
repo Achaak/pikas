@@ -209,6 +209,12 @@ export type TextfieldProps = {
   autoComplete?: string
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
+  leftIconColor?: ColorsType
+  leftIconColorHex?: string
+  rightIconColor?: ColorsType
+  rightIconColorHex?: string
+  leftIconSize?: number
+  rightIconSize?: number
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
   styles?: TextfieldStylesType
@@ -256,6 +262,12 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       colorHex,
       placeholderColor,
       placeholderColorHex,
+      leftIconColor,
+      leftIconColorHex,
+      rightIconColor,
+      rightIconColorHex,
+      leftIconSize,
+      rightIconSize,
       ...props
     },
     ref
@@ -371,8 +383,11 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
               }}
             >
               <LeftIcon
-                size="1em"
-                colorHex={getColor({ color, colorHex })}
+                size={leftIconSize || '1em'}
+                colorHex={getColor({
+                  color: leftIconColor || color,
+                  colorHex: leftIconColorHex || colorHex,
+                })}
                 styles={styles?.leftIcon}
               />
             </LeftContainer>
@@ -416,8 +431,11 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
               }}
             >
               <RightIcon
-                size="1em"
-                colorHex={getColor({ color, colorHex })}
+                size={rightIconSize || '1em'}
+                colorHex={getColor({
+                  color: rightIconColor || color,
+                  colorHex: rightIconColorHex || colorHex,
+                })}
                 styles={styles?.rightIcon}
               />
             </RightContainer>
