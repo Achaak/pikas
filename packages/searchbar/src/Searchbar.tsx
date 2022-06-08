@@ -163,6 +163,7 @@ export const Searchbar = <T,>({
 }: SearchbarProps<T>): JSX.Element => {
   const [result, setResult] = useState<ResultGroupWithIdType[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
+  const [nbItems, setNbItems] = useState(0)
   const [isOpen, setIsOpen] = useState(isOpenProp)
   const [loading, setLoading] = useState(loadingProp)
   const [direction, setDirection] = useState(directionProp)
@@ -196,6 +197,8 @@ export const Searchbar = <T,>({
         items,
       })
     })
+
+    setNbItems(i)
 
     return resultFormat
   }
@@ -372,7 +375,7 @@ export const Searchbar = <T,>({
           <ResultLoading>
             <ClipLoader size={40} color="PRIMARY" />
           </ResultLoading>
-        ) : result?.length ? (
+        ) : nbItems && result ? (
           result.map((group, groupIndex) => {
             const res = []
 
