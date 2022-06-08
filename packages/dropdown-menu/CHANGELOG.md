@@ -1,5 +1,11 @@
 # @pikas-ui/dropdown-menu
 
+## 1.0.31
+
+### Patch Changes
+
+- Fix DropdownMenuDatas
+
 ## 1.0.30
 
 ### Patch Changes

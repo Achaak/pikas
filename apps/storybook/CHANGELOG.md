@@ -1,5 +1,12 @@
 # @pikas-ui/storybook
 
+## 1.0.41
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/dropdown-menu@1.0.31
+
 ## 1.0.40
 
 ### Patch Changes
@@ -14,8 +21,6 @@
 
 ### Patch Changes
 
-- Updated dependencies
-- Updated dependencies
 - Updated dependencies
   - @pikas-ui/alert@1.0.1
   - @pikas-ui/slider@1.0.2

@@ -85,7 +85,7 @@ export const DropdownMenuDirection = {
 }
 export type DropdownMenuDirectionType = keyof typeof DropdownMenuDirection
 
-export type DropdownMenuDatas = MenuDatas & Record<string, unknown>
+export type DropdownMenuDatas = MenuDatas & Array<unknown>
 export interface DropdownMenuProps extends MenuProps {
   triggerContent?: React.ReactNode
   iconColor?: ColorsType
