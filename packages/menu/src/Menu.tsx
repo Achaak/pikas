@@ -214,7 +214,7 @@ type ItemType = Item | CheckboxItem | RadioItem | MenuItem
 
 export interface MenuProps {
   datas: MenuDatas
-  triggerItemLabel?: string
+  triggerItemLabel?: React.ReactNode
   styles?: {
     content?: CSS
     separator?: CSS
