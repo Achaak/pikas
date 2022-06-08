@@ -299,6 +299,10 @@ export const Searchbar = <T,>({
         autoComplete="off"
         onChange={(e): void => {
           setTextfieldValue(e.target.value)
+
+          if (!searchWhenKeyUp) {
+            setIsOpen(false)
+          }
         }}
         id={id || 'searchbar'}
         rightChildren={
