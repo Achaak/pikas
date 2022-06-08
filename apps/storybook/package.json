@@ -23,23 +23,23 @@
     ]
   },
   "dependencies": {
+    "@pikas-ui/alert": "1.0.0",
     "@pikas-ui/button": "1.0.28",
     "@pikas-ui/checkbox": "1.0.26",
     "@pikas-ui/context-menu": "1.0.26",
     "@pikas-ui/dropdown-menu": "1.0.29",
     "@pikas-ui/icons": "1.0.25",
     "@pikas-ui/loader": "1.0.25",
+    "@pikas-ui/searchbar": "1.1.7",
     "@pikas-ui/select": "1.0.28",
     "@pikas-ui/separator": "1.0.25",
+    "@pikas-ui/slider": "1.0.1",
     "@pikas-ui/styles": "1.0.25",
     "@pikas-ui/table": "1.0.28",
     "@pikas-ui/text": "1.0.26",
-    "@pikas-ui/textfield": "1.0.28",
     "@pikas-ui/textarea": "1.0.28",
+    "@pikas-ui/textfield": "1.0.28",
     "@pikas-ui/tooltip": "1.0.25",
-    "@pikas-ui/searchbar": "1.1.7",
-    "@pikas-ui/slider": "1.0.1",
-    "@pikas-ui/alert": "1.0.0",
     "http-server": "^14.1.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -53,7 +53,7 @@
     "@storybook/addon-essentials": "^6.5.6",
     "@storybook/addon-storyshots": "^6.5.6",
     "@storybook/addon-storysource": "^6.5.6",
-    "@storybook/addons": "6.5.6",
+    "@storybook/addons": "6.5.7",
     "@storybook/builder-webpack5": "^6.5.6",
     "@storybook/cli": "^6.5.6",
     "@storybook/components": "^6.5.6",
@@ -61,8 +61,8 @@
     "@storybook/react": "^6.5.6",
     "@storybook/theming": "^6.5.6",
     "babel-loader": "^8.2.5",
-    "eslint": "8.16.0",
+    "eslint": "8.17.0",
     "prettier": "2.6.2",
-    "typescript": "4.7.2"
+    "typescript": "4.7.3"
   }
 }
