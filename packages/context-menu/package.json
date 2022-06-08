@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/context-menu",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@pikas-ui/icons": "1.0.25",
     "@pikas-ui/loader": "1.0.25",
-    "@pikas-ui/menu": "1.0.26",
+    "@pikas-ui/menu": "1.0.27",
     "@pikas-ui/styles": "1.0.25",
     "@radix-ui/react-context-menu": "^0.1.6",
     "react": "^18.1.0",

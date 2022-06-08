@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/storybook",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "private": true,
   "scripts": {
     "build": "build-storybook",
@@ -26,8 +26,8 @@
     "@pikas-ui/alert": "1.0.0",
     "@pikas-ui/button": "1.0.28",
     "@pikas-ui/checkbox": "1.0.26",
-    "@pikas-ui/context-menu": "1.0.26",
-    "@pikas-ui/dropdown-menu": "1.0.29",
+    "@pikas-ui/context-menu": "1.0.27",
+    "@pikas-ui/dropdown-menu": "1.0.30",
     "@pikas-ui/icons": "1.0.25",
     "@pikas-ui/loader": "1.0.25",
     "@pikas-ui/searchbar": "1.1.7",

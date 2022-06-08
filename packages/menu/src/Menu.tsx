@@ -141,7 +141,7 @@ export const SpanStyle: CSS = {}
 
 interface ItemDefault {
   disabled?: boolean
-  label: string
+  label: React.ReactNode
   rightSlot?: string
   color?: ColorsType
   colorHex?: string

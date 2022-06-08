@@ -1,5 +1,12 @@
 # @pikas-ui/context-menu
 
+## 1.0.27
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/menu@1.0.27
+
 ## 1.0.26
 
 ### Patch Changes
