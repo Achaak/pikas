@@ -1,5 +1,12 @@
 # @pikas-ui/searchbar
 
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/button@1.0.28
+
 ## 1.1.5
 
 ### Patch Changes

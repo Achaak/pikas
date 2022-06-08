@@ -148,7 +148,7 @@ export interface ButtonIconDefaultProps {
   iconColorHex?: string
   outlined?: boolean
   effect?: ButtonEffectType
-  boxShadow?: ShadowsType
+  boxShadow?: ShadowsType | 'none'
   disabled?: boolean
 }
 

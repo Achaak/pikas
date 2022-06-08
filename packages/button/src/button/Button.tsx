@@ -189,7 +189,7 @@ export interface ButtonDefaultProps {
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
-  boxShadow?: ShadowsType
+  boxShadow?: ShadowsType | 'none'
 }
 
 export interface ButtonProps
