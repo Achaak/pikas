@@ -1,5 +1,13 @@
 # @pikas-ui/dropdown-menu
 
+## 1.0.29
+
+### Patch Changes
+
+- Add multiple color selection in item
+- Updated dependencies
+  - @pikas-ui/menu@1.0.26
+
 ## 1.0.28
 
 ### Patch Changes

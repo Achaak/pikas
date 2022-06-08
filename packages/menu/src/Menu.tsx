@@ -144,6 +144,7 @@ interface ItemDefault {
   label: string
   rightSlot?: string
   color?: ColorsType
+  colorHex?: string
   type: 'item' | 'checkbox' | 'radio' | 'menu'
   hide?: boolean
 }
@@ -151,8 +152,10 @@ interface ItemDefault {
 interface Item extends ItemDefault {
   type: 'item'
   Icon?: React.FC<IconProps>
+  iconColor?: ColorsType
+  iconColorHex?: string
   loading?: boolean
-  onClick: () => void
+  onClick?: () => void
   styles?: {
     container?: CSS
     indicator?: CSS
@@ -200,7 +203,7 @@ interface MenuItem extends ItemDefault {
 }
 
 export interface MenuData {
-  label?: string
+  label?: React.ReactNode
   style?: CSS
   items: ItemType[]
 }

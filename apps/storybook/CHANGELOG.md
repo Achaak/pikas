@@ -1,5 +1,13 @@
 # @pikas-ui/storybook
 
+## 1.0.37
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/context-menu@1.0.26
+  - @pikas-ui/dropdown-menu@1.0.29
+
 ## 1.0.36
 
 ### Patch Changes

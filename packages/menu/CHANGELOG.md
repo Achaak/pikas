@@ -1,5 +1,11 @@
 # @pikas-ui/menu
 
+## 1.0.26
+
+### Patch Changes
+
+- Add multiple color selection in item
+
 ## 1.0.25
 
 ### Patch Changes

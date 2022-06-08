@@ -1,5 +1,5 @@
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
-import { styled } from '@pikas-ui/styles'
+import { styled, theme } from '@pikas-ui/styles'
 
 import { ClipLoader } from '@pikas-ui/loader'
 import type { MenuDatas, MenuProps } from '@pikas-ui/menu'
@@ -172,7 +172,8 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                         disabled={item?.disabled}
                         onClick={item.onClick}
                         css={{
-                          color: `$${item.color}`,
+                          color:
+                            item.colorHex || `$${item.color}` || 'GRAY_DARKER',
                           ...item?.styles?.container,
                         }}
                       >
@@ -183,7 +184,17 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                           >
                             <ClipLoader
                               size={16}
-                              color={item.color || 'GRAY_DARKER'}
+                              colorHex={
+                                item.iconColorHex ||
+                                (item.iconColor
+                                  ? theme.colors[item.iconColor].value
+                                  : undefined) ||
+                                item.colorHex ||
+                                (item.color
+                                  ? theme.colors[item.color].value
+                                  : undefined) ||
+                                'GRAY_DARKER'
+                              }
                             />
                           </ItemIndicator>
                         ) : (
@@ -194,7 +205,17 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                             >
                               <item.Icon
                                 size={16}
-                                color={item.color || 'GRAY_DARKER'}
+                                colorHex={
+                                  item.iconColorHex ||
+                                  (item.iconColor
+                                    ? theme.colors[item.iconColor].value
+                                    : undefined) ||
+                                  item.colorHex ||
+                                  (item.color
+                                    ? theme.colors[item.color].value
+                                    : undefined) ||
+                                  'GRAY_DARKER'
+                                }
                               />
                             </ItemIndicator>
                           )
@@ -202,7 +223,6 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                         <Span css={item?.styles?.label}>{item.label}</Span>
                         <RightSlot
                           css={{
-                            color: `$${item.color}`,
                             ...item?.styles?.rightSlot,
                           }}
                         >

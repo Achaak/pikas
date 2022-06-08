@@ -1,5 +1,13 @@
 # @pikas-ui/context-menu
 
+## 1.0.26
+
+### Patch Changes
+
+- Add multiple color selection in item
+- Updated dependencies
+  - @pikas-ui/menu@1.0.26
+
 ## 1.0.25
 
 ### Patch Changes

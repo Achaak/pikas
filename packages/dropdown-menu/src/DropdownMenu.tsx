@@ -1,5 +1,5 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import type { ColorsType } from '@pikas-ui/styles'
+import { ColorsType, theme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -229,7 +229,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       disabled={item?.disabled}
                       onClick={item.onClick}
                       css={{
-                        color: `$${item.color}`,
+                        color:
+                          item.colorHex || `$${item.color}` || 'GRAY_DARKER',
                         ...item?.styles?.container,
                       }}
                     >
@@ -237,7 +238,17 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         <ItemIndicator forceMount css={item?.styles?.indicator}>
                           <ClipLoader
                             size={16}
-                            color={item.color || 'GRAY_DARKER'}
+                            colorHex={
+                              item.iconColorHex ||
+                              (item.iconColor
+                                ? theme.colors[item.iconColor].value
+                                : undefined) ||
+                              item.colorHex ||
+                              (item.color
+                                ? theme.colors[item.color].value
+                                : undefined) ||
+                              'GRAY_DARKER'
+                            }
                           />
                         </ItemIndicator>
                       ) : (
@@ -248,7 +259,17 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                           >
                             <item.Icon
                               size={16}
-                              color={item.color || 'GRAY_DARKER'}
+                              colorHex={
+                                item.iconColorHex ||
+                                (item.iconColor
+                                  ? theme.colors[item.iconColor].value
+                                  : undefined) ||
+                                item.colorHex ||
+                                (item.color
+                                  ? theme.colors[item.color].value
+                                  : undefined) ||
+                                'GRAY_DARKER'
+                              }
                             />
                           </ItemIndicator>
                         )
@@ -256,7 +277,6 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       <Span css={item?.styles?.label}>{item.label}</Span>
                       <RightSlot
                         css={{
-                          color: `$${item.color}`,
                           ...item?.styles?.rightSlot,
                         }}
                       >

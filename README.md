@@ -36,6 +36,7 @@ You can find the examples in the [Storybook](https://pikas-ui.vercel.app/).
 - Add Tabs component
 - Add Toast component
 - Add FileInput component
+- Add Badge component
 
 ## License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.

@@ -6,9 +6,11 @@ import {
 } from '@pikas-ui/dropdown-menu'
 import type { DropdownMenuProps } from '@pikas-ui/dropdown-menu'
 import type { Story, Meta } from '@storybook/react'
+import { IconByName, IconProps } from '@pikas-ui/icons'
 
 const Container = styled('div', {
   display: 'flex',
+  justifyContent: 'center',
 })
 
 export default {
@@ -217,6 +219,10 @@ const Template: Story<DropdownMenuProps> = (args) => {
   )
 }
 
+const IconTest: React.FC<IconProps> = (props) => {
+  return <IconByName {...props} name="bx:baguette" />
+}
+
 export const Default = Template.bind({})
 Default.args = {
   datas: [
@@ -226,6 +232,7 @@ Default.args = {
         {
           label: 'Item 1-1',
           type: 'item',
+          Icon: IconTest,
           onClick: console.log,
         },
         {
