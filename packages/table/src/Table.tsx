@@ -336,6 +336,7 @@ export const Table = <T extends Record<string, unknown>>({
       id: id,
       footer: (props: any) => props.column.id,
       enableSorting: enableSorting,
+      cell: ({ getValue }: any) => getValue(),
     } as any) // TODO: fix
 
   const createGroupColumn = ({ header, group, id }: ColumnGroup<T>): Column =>

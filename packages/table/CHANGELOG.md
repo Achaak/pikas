@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 1.0.32
+
+### Patch Changes
+
+- Fix render of cell
+
 ## 1.0.31
 
 ### Patch Changes

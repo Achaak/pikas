@@ -29,7 +29,7 @@ importers:
       '@pikas-ui/separator': 1.0.26
       '@pikas-ui/slider': 1.0.3
       '@pikas-ui/styles': 1.1.0
-      '@pikas-ui/table': 1.0.31
+      '@pikas-ui/table': 1.0.32
       '@pikas-ui/text': 1.0.27
       '@pikas-ui/textarea': 1.0.29
       '@pikas-ui/textfield': 1.0.30
