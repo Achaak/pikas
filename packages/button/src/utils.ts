@@ -1,77 +1,45 @@
-import type { ColorsType, CSS } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
+import type { CSS } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 
-export const getColor = ({
-  color,
+export const getContentColor = ({
+  contentColorHex,
   colorHex,
+  outlined,
 }: {
-  color?: ColorsType
+  contentColorHex?: string
   colorHex?: string
+  outlined?: boolean
 }): string | undefined => {
-  if (color) {
-    return theme.colors[color].value
+  if (contentColorHex) {
+    return contentColorHex
   }
 
-  if (colorHex) {
+  if (!outlined) {
+    return fontColorContrast(colorHex || '', 0.7)
+  } else {
     return colorHex
   }
 
   return
 }
 
-export const getContentColor = ({
-  contentColor,
-  contentColorHex,
-  color,
-  outlined,
-}: {
-  contentColor?: ColorsType
-  contentColorHex?: string
-  color?: ColorsType
-  outlined?: boolean
-}): string | undefined => {
-  if (contentColor) {
-    return theme.colors[contentColor].value
-  }
-
-  if (contentColorHex) {
-    return contentColorHex
-  }
-
-  if (color) {
-    if (!outlined) {
-      return fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7)
-    } else {
-      return theme.colors[color].value
-    }
-  }
-
-  return
-}
-
 export const getColors = ({
-  color,
   colorHex,
   outlined,
-  contentColor,
   contentColorHex,
 }: {
   outlined?: boolean
-  color?: ColorsType
   colorHex?: string
-  contentColor?: ColorsType
   contentColorHex?: string
 }): CSS => {
   if (!outlined) {
     const colors: CSS = {
-      backgroundColor: getColor({ color, colorHex }),
-      borderColor: getColor({ color, colorHex }),
+      backgroundColor: colorHex,
+      borderColor: colorHex,
       color: getContentColor({
-        color,
-        outlined,
-        contentColor,
         contentColorHex,
+        colorHex,
+        outlined,
       }),
     }
 
@@ -79,12 +47,11 @@ export const getColors = ({
   } else {
     const colors: CSS = {
       backgroundColor: '$TRANSPARENT',
-      borderColor: getColor({ color, colorHex }),
+      borderColor: colorHex,
       color: getContentColor({
-        color,
-        outlined,
-        contentColor,
         contentColorHex,
+        colorHex,
+        outlined,
       }),
     }
 

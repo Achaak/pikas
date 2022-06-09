@@ -196,21 +196,6 @@ export default {
         required: false,
       },
     },
-    textColorHex: {
-      description: 'Text color of the button (hex)',
-      type: {
-        name: 'string',
-        required: false,
-      },
-    },
-    textColor: {
-      description: 'Text color of the button',
-      type: {
-        name: 'enum',
-        value: Object.keys(Colors),
-        required: false,
-      },
-    },
   },
 } as Meta<ButtonProps>
 

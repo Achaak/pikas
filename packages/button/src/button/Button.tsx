@@ -171,25 +171,26 @@ export interface ButtonDefaultProps {
   children?: React.ReactNode
   styles?: ButtonStylesType
   loading?: boolean
-  borderRadius?: BorderRadiusType
   padding?: ButtonPaddingType
-  gap?: ButtonGapType
   fontSize?: FontsSizesType
-  fontWeight?: FontsWeightsType
-  textTransform?: ButtonTextTransformType
+  gap?: ButtonGapType
+  color?: ColorsType
   colorHex?: string
-  textColor?: ColorsType
-  textColorHex?: string
+  contentColor?: ColorsType
+  contentColorHex?: string
+  textTransform?: ButtonTextTransformType
+  fontWeight?: FontsWeightsType
   outlined?: boolean
   effect?: ButtonEffectType
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
-  borderWidth?: number
   disabled?: boolean
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
-  boxShadow?: ShadowsType | 'none'
+  borderRadius?: BorderRadiusType
+  borderWidth?: number
+  boxShadow?: ShadowsType
 }
 
 export interface ButtonProps
@@ -216,9 +217,8 @@ const getContent = ({
   children,
   styles,
   outlined,
-  color,
-  textColor,
-  textColorHex,
+  colorHex,
+  contentColorHex,
   textTransform,
   gap,
 }: {
@@ -228,9 +228,8 @@ const getContent = ({
   children?: React.ReactNode
   styles?: ButtonStylesType
   outlined?: boolean
-  color?: ColorsType
-  textColor?: ColorsType
-  textColorHex?: string
+  colorHex?: string
+  contentColorHex?: string
   textTransform?: ButtonTextTransformType
   gap?: ButtonGapType
 }): React.ReactNode => {
@@ -241,9 +240,8 @@ const getContent = ({
           size={theme.fontSizes['EM-XX-SMALL'].value}
           colorHex={getContentColor({
             outlined,
-            color,
-            contentColor: textColor,
-            contentColorHex: textColorHex,
+            contentColorHex: contentColorHex,
+            colorHex: colorHex,
           })}
           loading={loading}
         />
@@ -260,10 +258,9 @@ const getContent = ({
           <LeftIcon
             size="1em"
             colorHex={getContentColor({
-              color,
               outlined,
-              contentColor: textColor,
-              contentColorHex: textColorHex,
+              contentColorHex: contentColorHex,
+              colorHex: colorHex,
             })}
             styles={styles?.icon}
           />
@@ -273,10 +270,9 @@ const getContent = ({
           <RightIcon
             size="1em"
             colorHex={getContentColor({
-              color,
               outlined,
-              contentColor: textColor,
-              contentColorHex: textColorHex,
+              contentColorHex: contentColorHex,
+              colorHex: colorHex,
             })}
             styles={styles?.icon}
           />
@@ -291,15 +287,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       color,
       colorHex,
-      textColor,
-      textColorHex,
       styles,
       loading,
       disabled,
-      borderRadius,
-      fontSize,
-      textTransform,
-      fontWeight,
       effect,
       onClick,
       children,
@@ -307,11 +297,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       LeftIcon,
       RightIcon,
       outlined,
-      borderWidth,
       width,
       maxWidth,
       minWidth,
+      fontSize,
+      textTransform,
+      fontWeight,
+      borderRadius,
+      borderWidth,
       boxShadow,
+      contentColor,
+      contentColorHex,
       ...props
     },
     ref
@@ -342,11 +338,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
           ...getColors({
             outlined,
-            color,
-            colorHex,
-            contentColor: textColor,
-            contentColorHex: textColorHex,
+            colorHex: colorHex || (color && theme.colors[color].value),
+            contentColorHex:
+              contentColorHex ||
+              (contentColor && theme.colors[contentColor].value),
           }),
+          
           ...styles?.button,
         }}
         {...props}
@@ -355,14 +352,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           LeftIcon,
           RightIcon,
           children,
-          color,
           gap,
           loading,
           outlined,
           styles,
-          textColor,
-          textColorHex,
           textTransform,
+          colorHex: colorHex || (color && theme.colors[color].value),
+          contentColorHex:
+            contentColorHex ||
+            (contentColor && theme.colors[contentColor].value),
         })}
       </ButtonDOM>
     )
@@ -373,18 +371,19 @@ Button.defaultProps = {
   type: 'button',
   disabled: false,
   loading: false,
-  borderRadius: 'md',
-  fontSize: 'EM-MEDIUM',
   padding: 'md',
-  textTransform: 'default',
   color: 'PRIMARY',
-  fontWeight: 'NORMAL',
   gap: 'md',
   effect: 'opacity',
-  borderWidth: 2,
   outlined: false,
   width: '100%',
   maxWidth: '100%',
+  fontSize: 'EM-MEDIUM',
+  textTransform: 'default',
+  fontWeight: 'NORMAL',
+  borderRadius: 'md',
+  borderWidth: 2,
+  boxShadow: 'ELEVATION_BOTTOM_1',
 }
 
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
@@ -392,15 +391,10 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     {
       color,
       colorHex,
-      textColor,
-      textColorHex,
       styles,
       loading,
       disabled,
-      borderRadius,
       fontSize,
-      textTransform,
-      fontWeight,
       effect,
       onClick,
       children,
@@ -408,11 +402,16 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       LeftIcon,
       RightIcon,
       outlined,
-      borderWidth,
       width,
       maxWidth,
       minWidth,
+      textTransform,
+      fontWeight,
+      borderRadius,
+      borderWidth,
       boxShadow,
+      contentColor,
+      contentColorHex,
       ...props
     },
     ref
@@ -444,10 +443,10 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 
           ...getColors({
             outlined,
-            color,
-            colorHex,
-            contentColor: textColor,
-            contentColorHex: textColorHex,
+            colorHex: colorHex || (color && theme.colors[color].value),
+            contentColorHex:
+              contentColorHex ||
+              (contentColor && theme.colors[contentColor].value),
           }),
           ...styles?.button,
         }}
@@ -457,14 +456,15 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           LeftIcon,
           RightIcon,
           children,
-          color,
           gap,
           loading,
           outlined,
           styles,
-          textColor,
-          textColorHex,
           textTransform,
+          colorHex: colorHex || (color && theme.colors[color].value),
+          contentColorHex:
+            contentColorHex ||
+            (contentColor && theme.colors[contentColor].value),
         })}
       </ButtonDOM>
     )
@@ -474,17 +474,17 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 ButtonLink.defaultProps = {
   disabled: false,
   loading: false,
-  borderRadius: 'md',
-  fontSize: 'EM-MEDIUM',
   padding: 'md',
-  textTransform: 'default',
   color: 'PRIMARY',
-  fontWeight: 'NORMAL',
   gap: 'md',
   effect: 'opacity',
-  borderWidth: 2,
   outlined: false,
   width: '100%',
   maxWidth: '100%',
+  fontSize: 'EM-MEDIUM',
+  textTransform: 'default',
+  fontWeight: 'NORMAL',
+  borderRadius: 'md',
+  borderWidth: 2,
   boxShadow: 'ELEVATION_BOTTOM_1',
 }

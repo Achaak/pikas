@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 1.1.0
+
+### Minor Changes
+
+- abe30ab: Remove globalStyles
+
 ## 1.0.25
 
 ### Patch Changes

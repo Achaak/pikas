@@ -1,10 +1,11 @@
 import type {
+  BorderRadiusType,
   ColorsType,
   CSS,
-  BorderRadiusType,
-  SizesType,
   ShadowsType,
+  SizesType,
 } from '@pikas-ui/styles'
+import { theme } from '@pikas-ui/styles'
 import { styled, Sizes } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
@@ -32,6 +33,9 @@ const ButtonIconDOM = styled('button', {
   position: 'relative',
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
+  br: 'md',
+  borderWidth: 2,
+  boxShadow: '$ELEVATION_BOTTOM_1',
 
   variants: {
     effect: {
@@ -139,17 +143,18 @@ export interface ButtonIconDefaultProps {
   Icon: React.FC<IconProps>
   styles?: ButtonIconStylesType
   loading?: boolean
-  borderRadius?: BorderRadiusType
-  borderWidth?: number
-  padding?: ButtonPaddingType
-  size?: SizesType
-  colorHex?: string
-  iconColor?: ColorsType
-  iconColorHex?: string
   outlined?: boolean
   effect?: ButtonEffectType
-  boxShadow?: ShadowsType | 'none'
+  padding?: ButtonPaddingType
+  size?: SizesType
+  color?: ColorsType
+  colorHex?: string
+  contentColor?: ColorsType
+  contentColorHex?: string
   disabled?: boolean
+  borderRadius?: BorderRadiusType
+  borderWidth?: number
+  boxShadow?: ShadowsType
 }
 
 export interface ButtonIconProps
@@ -173,18 +178,16 @@ const getContent = ({
   loading,
   styles,
   outlined,
-  color,
-  iconColor,
-  iconColorHex,
+  colorHex,
+  contentColorHex,
   size,
   Icon,
 }: {
   loading?: boolean
   styles?: ButtonIconStylesType
   outlined?: boolean
-  color?: ColorsType
-  iconColor?: ColorsType
-  iconColorHex?: string
+  colorHex?: string
+  contentColorHex?: string
   size?: SizesType
   Icon: React.FC<IconProps>
 }): React.ReactNode => {
@@ -195,9 +198,8 @@ const getContent = ({
           size={Sizes[size || 'MEDIUM']}
           colorHex={getContentColor({
             outlined,
-            color,
-            contentColor: iconColor,
-            contentColorHex: iconColorHex,
+            contentColorHex: contentColorHex,
+            colorHex: colorHex,
           })}
           loading={loading}
         />
@@ -212,9 +214,8 @@ const getContent = ({
           size={Sizes[size || 'MEDIUM']}
           colorHex={getContentColor({
             outlined,
-            color,
-            contentColor: iconColor,
-            contentColorHex: iconColorHex,
+            contentColorHex: contentColorHex,
+            colorHex: colorHex,
           })}
           styles={styles?.icon}
         />
@@ -228,19 +229,19 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
     {
       color,
       colorHex,
-      iconColor,
-      iconColorHex,
       styles,
       loading,
       disabled,
-      borderRadius,
       effect,
       onClick,
       outlined,
       Icon,
       size,
+      borderRadius,
       borderWidth,
       boxShadow,
+      contentColor,
+      contentColorHex,
       ...props
     },
     ref
@@ -263,20 +264,29 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
           br: borderRadius,
           borderWidth: borderWidth,
           boxShadow: boxShadow,
-          ...getColors({ outlined, color, colorHex }),
+
+          ...getColors({
+            outlined,
+            colorHex: colorHex || (color && theme.colors[color].value),
+            contentColorHex:
+              contentColorHex ||
+              (contentColor && theme.colors[contentColor].value),
+          }),
+
           ...styles?.button,
         }}
         {...props}
       >
         {getContent({
-          color,
+          colorHex: colorHex || (color && theme.colors[color].value),
+          contentColorHex:
+            contentColorHex ||
+            (contentColor && theme.colors[contentColor].value),
           loading,
           outlined,
           size,
           styles,
           Icon,
-          iconColor,
-          iconColorHex,
         })}
       </ButtonIconDOM>
     )
@@ -287,12 +297,13 @@ ButtonIcon.defaultProps = {
   type: 'button',
   disabled: false,
   loading: false,
-  borderRadius: 'md',
   color: 'PRIMARY',
   size: 'MEDIUM',
   effect: 'opacity',
-  borderWidth: 2,
   padding: 'md',
+  borderRadius: 'md',
+  borderWidth: 2,
+  boxShadow: 'ELEVATION_BOTTOM_1',
 }
 
 export const ButtonIconLink = forwardRef<
@@ -303,19 +314,19 @@ export const ButtonIconLink = forwardRef<
     {
       color,
       colorHex,
-      iconColor,
-      iconColorHex,
       styles,
       loading,
-      disabled,
-      borderRadius,
       effect,
       onClick,
       outlined,
       Icon,
       size,
+      disabled,
+      borderRadius,
       borderWidth,
       boxShadow,
+      contentColor,
+      contentColorHex,
       ...props
     },
     ref
@@ -339,20 +350,29 @@ export const ButtonIconLink = forwardRef<
           br: borderRadius,
           borderWidth: borderWidth,
           boxShadow: boxShadow,
-          ...getColors({ outlined, color, colorHex }),
+
+          ...getColors({
+            outlined,
+            colorHex: colorHex || (color && theme.colors[color].value),
+            contentColorHex:
+              contentColorHex ||
+              (contentColor && theme.colors[contentColor].value),
+          }),
+
           ...styles?.button,
         }}
         {...props}
       >
         {getContent({
-          color,
+          colorHex: colorHex || (color && theme.colors[color].value),
+          contentColorHex:
+            contentColorHex ||
+            (contentColor && theme.colors[contentColor].value),
           loading,
           outlined,
           size,
           styles,
           Icon,
-          iconColor,
-          iconColorHex,
         })}
       </ButtonIconDOM>
     )
@@ -360,13 +380,12 @@ export const ButtonIconLink = forwardRef<
 )
 
 ButtonIconLink.defaultProps = {
-  disabled: false,
   loading: false,
-  borderRadius: 'md',
   color: 'PRIMARY',
   size: 'MEDIUM',
   padding: 'md',
   effect: 'opacity',
+  borderRadius: 'md',
   borderWidth: 2,
   boxShadow: 'ELEVATION_BOTTOM_1',
 }
