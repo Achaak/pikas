@@ -1,4 +1,4 @@
-import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled } from '@pikas-ui/styles'
 import { HashLoader } from '@pikas-ui/loader'
 import type { HashLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -53,7 +53,7 @@ export default {
 } as Meta<HashLoaderProps>
 
 const Template: Story<HashLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

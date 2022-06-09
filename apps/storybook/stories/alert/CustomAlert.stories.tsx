@@ -3,13 +3,14 @@ import {
   Colors,
   FontSizes,
   FontWeights,
-  globalStyles,
+  globalCss,
   styled,
 } from '@pikas-ui/styles'
 import { CustomAlert, AlertGap, AlertPadding } from '@pikas-ui/alert'
 import type { CustomAlertProps } from '@pikas-ui/alert'
 import type { Story, Meta } from '@storybook/react'
-import { IconByName, IconProps } from '@pikas-ui/icons'
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 
 const Container = styled('div', {
   display: 'flex',
@@ -101,7 +102,7 @@ export default {
 } as Meta<CustomAlertProps>
 
 const Template: Story<CustomAlertProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

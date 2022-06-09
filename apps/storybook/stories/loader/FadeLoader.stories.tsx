@@ -1,4 +1,4 @@
-import { globalStyles, styled, Colors } from '@pikas-ui/styles'
+import { globalCss, styled, Colors } from '@pikas-ui/styles'
 import { FadeLoader } from '@pikas-ui/loader'
 import type { FadeLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -74,7 +74,7 @@ export default {
 } as Meta<FadeLoaderProps>
 
 const Template: Story<FadeLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

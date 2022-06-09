@@ -2,7 +2,7 @@ import {
   BorderRadius,
   Colors,
   FontSizes,
-  globalStyles,
+  globalCss,
   Shadows,
   styled,
 } from '@pikas-ui/styles'
@@ -170,7 +170,7 @@ export default {
 } as Meta<CheckboxProps>
 
 const Template: Story<CheckboxProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

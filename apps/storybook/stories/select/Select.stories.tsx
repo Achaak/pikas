@@ -2,7 +2,7 @@ import {
   BorderRadius,
   Colors,
   FontSizes,
-  globalStyles,
+  globalCss,
   Shadows,
   styled,
 } from '@pikas-ui/styles'
@@ -184,7 +184,7 @@ export default {
 } as Meta<SelectProps>
 
 const Template: Story<SelectProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

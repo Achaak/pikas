@@ -1,4 +1,4 @@
-import { globalStyles, styled, Colors } from '@pikas-ui/styles'
+import { globalCss, styled, Colors } from '@pikas-ui/styles'
 import { BarLoader } from '@pikas-ui/loader'
 import type { BarLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -60,7 +60,7 @@ export default {
 } as Meta<BarLoaderProps>
 
 const Template: Story<BarLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

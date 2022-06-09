@@ -1,4 +1,4 @@
-import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled } from '@pikas-ui/styles'
 import { SquareLoader } from '@pikas-ui/loader'
 import type { SquareLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -53,7 +53,7 @@ export default {
 } as Meta<SquareLoaderProps>
 
 const Template: Story<SquareLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

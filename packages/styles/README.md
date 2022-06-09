@@ -28,6 +28,48 @@ pnpm add @pikas-ui/styles
 ---
 
 ## Usage
+### globalCss
+For handling global styles in your application you can use the `globalCss` function.
+You must call it in your application.
+  
+```ts
+import { globalCss } from '@pikas-ui/styles';
+
+export const globalCssCustom = globalCss({
+  'html, body, #__next': {
+    color: '$BLACK',
+    fontFamily: '$roboto',
+    minWidth: 300,
+    scrollBehavior: 'smooth',
+  },
+  '*': {
+    margin: 0,
+    padding: 0,
+    boxSizing: 'border-box',
+  },
+  li: {
+    listStyle: 'none',
+  },
+  a: {
+    textDecoration: 'none',
+  },
+
+  '::-webkit-scrollbar': {
+    width: '7px',
+    height: '7px',
+    borderRadius: '10px',
+  },
+  '::-webkit-scrollbar-track': {
+    borderRadius: '10px',
+    backgroundColor: '$WHITE',
+  },
+  '::-webkit-scrollbar-thumb': {
+    background: '$GRAY',
+    borderRadius: '10px',
+  },
+})
+```
+
 ### Styling
   
 ```ts

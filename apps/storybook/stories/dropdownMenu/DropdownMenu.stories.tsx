@@ -1,4 +1,4 @@
-import { globalStyles, styled, Colors } from '@pikas-ui/styles'
+import { globalCss, styled, Colors } from '@pikas-ui/styles'
 import {
   DropdownMenu,
   DropdownMenuDirection,
@@ -6,7 +6,8 @@ import {
 } from '@pikas-ui/dropdown-menu'
 import type { DropdownMenuProps } from '@pikas-ui/dropdown-menu'
 import type { Story, Meta } from '@storybook/react'
-import { IconByName, IconProps } from '@pikas-ui/icons'
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 
 const Container = styled('div', {
   display: 'flex',
@@ -210,7 +211,7 @@ export default {
 } as Meta<DropdownMenuProps>
 
 const Template: Story<DropdownMenuProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

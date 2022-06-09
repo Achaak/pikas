@@ -1,4 +1,3 @@
-import type { CSS as CSSStitches } from '@stitches/react'
 import { createStitches } from '@stitches/react'
 
 import { BR } from './borderRadius.js'
@@ -16,6 +15,7 @@ import { Sizes } from './sizes.js'
 import { Space } from './space.js'
 import { Transitions } from './transitions.js'
 import { ZIndices } from './zIndices.js'
+import type * as Stitches from '@stitches/react'
 
 export const stitchesConfig = createStitches({
   prefix: '',
@@ -84,39 +84,4 @@ export const {
   theme,
 } = stitchesConfig
 
-export type CSS = CSSStitches<typeof stitchesConfig>
-
-export const globalStyles = globalCss({
-  h1: { margin: 0 },
-  'html, body, #__next': {
-    color: '$BLACK',
-    fontFamily: '$roboto',
-    minWidth: 300,
-    scrollBehavior: 'smooth',
-  },
-  '*': {
-    margin: 0,
-    padding: 0,
-    boxSizing: 'border-box',
-  },
-  li: {
-    listStyle: 'none',
-  },
-  a: {
-    textDecoration: 'none',
-  },
-
-  '::-webkit-scrollbar': {
-    width: '7px',
-    height: '7px',
-    borderRadius: '10px',
-  },
-  '::-webkit-scrollbar-track': {
-    borderRadius: '10px',
-    backgroundColor: '$WHITE',
-  },
-  '::-webkit-scrollbar-thumb': {
-    background: '$GRAY',
-    borderRadius: '10px',
-  },
-})
+export type CSS = Stitches.CSS<typeof config>

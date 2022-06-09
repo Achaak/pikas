@@ -1,5 +1,6 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import { ColorsType, theme } from '@pikas-ui/styles'
+import type { ColorsType } from '@pikas-ui/styles'
+import { theme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 

@@ -1,4 +1,4 @@
-import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled } from '@pikas-ui/styles'
 import { ClockLoader } from '@pikas-ui/loader'
 import type { ClockLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -53,7 +53,7 @@ export default {
 } as Meta<ClockLoaderProps>
 
 const Template: Story<ClockLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

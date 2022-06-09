@@ -1,4 +1,4 @@
-import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled } from '@pikas-ui/styles'
 import { MoonLoader } from '@pikas-ui/loader'
 import type { MoonLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -53,7 +53,7 @@ export default {
 } as Meta<MoonLoaderProps>
 
 const Template: Story<MoonLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

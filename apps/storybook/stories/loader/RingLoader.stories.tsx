@@ -1,4 +1,4 @@
-import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled } from '@pikas-ui/styles'
 import { RingLoader } from '@pikas-ui/loader'
 import type { RingLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -53,7 +53,7 @@ export default {
 } as Meta<RingLoaderProps>
 
 const Template: Story<RingLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

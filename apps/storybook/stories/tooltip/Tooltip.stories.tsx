@@ -3,7 +3,7 @@ import {
   Colors,
   FontSizes,
   FontWeights,
-  globalStyles,
+  globalCss,
   Shadows,
 } from '@pikas-ui/styles'
 import {
@@ -186,7 +186,7 @@ export default {
 } as Meta<TooltipProps>
 
 const Template: Story<TooltipProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Tooltip {...args}>

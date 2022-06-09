@@ -1,4 +1,4 @@
-import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled } from '@pikas-ui/styles'
 import { ClimbingBoxLoader } from '@pikas-ui/loader'
 import type { ClimbingBoxLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -53,7 +53,7 @@ export default {
 } as Meta<ClimbingBoxLoaderProps>
 
 const Template: Story<ClimbingBoxLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import { globalStyles } from '@pikas-ui/styles'
+import { globalCss } from '@pikas-ui/styles'
 import type { ResultGroupType, SearchbarProps } from '@pikas-ui/searchbar'
 import type { Story, Meta } from '@storybook/react'
 import { Searchbar } from '@pikas-ui/searchbar'
@@ -15,7 +15,7 @@ export default {
 } as Meta<SearchbarProps<unknown>>
 
 const Template: Story<SearchbarProps<unknown>> = (args) => {
-  globalStyles()
+  globalCss()
 
   return <Searchbar {...args} />
 }

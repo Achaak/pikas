@@ -1,4 +1,4 @@
-import { BorderRadius, Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { BorderRadius, Colors, globalCss, styled } from '@pikas-ui/styles'
 import { Separator } from '@pikas-ui/separator'
 import type { SeparatorProps } from '@pikas-ui/separator'
 import type { Story, Meta } from '@storybook/react'
@@ -61,7 +61,7 @@ export default {
 } as Meta<SeparatorProps>
 
 const Template: Story<SeparatorProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import { globalStyles, styled, Colors } from '@pikas-ui/styles'
+import { globalCss, styled, Colors } from '@pikas-ui/styles'
 import { ScaleLoader } from '@pikas-ui/loader'
 import type { ScaleLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -74,7 +74,7 @@ export default {
 } as Meta<ScaleLoaderProps>
 
 const Template: Story<ScaleLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

@@ -2,7 +2,7 @@ import {
   BorderRadius,
   FontSizes,
   FontWeights,
-  globalStyles,
+  globalCss,
   styled,
 } from '@pikas-ui/styles'
 import { Alert, AlertGap, AlertPadding, AlertVariant } from '@pikas-ui/alert'
@@ -83,7 +83,7 @@ export default {
 } as Meta<AlertProps>
 
 const Template: Story<AlertProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

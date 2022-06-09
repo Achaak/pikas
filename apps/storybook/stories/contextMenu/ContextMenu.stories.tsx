@@ -1,4 +1,4 @@
-import { globalStyles, styled } from '@pikas-ui/styles'
+import { globalCss, styled } from '@pikas-ui/styles'
 import { ContextMenu, ContextMenuDirection } from '@pikas-ui/context-menu'
 import type { ContextMenuProps } from '@pikas-ui/context-menu'
 import type { Story, Meta } from '@storybook/react'
@@ -139,7 +139,7 @@ export default {
 } as Meta<ContextMenuProps>
 
 const Template: Story<ContextMenuProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <ContextMenu {...args}>

@@ -1,4 +1,4 @@
-import { globalStyles, Sizes, styled } from '@pikas-ui/styles'
+import { globalCss, Sizes, styled } from '@pikas-ui/styles'
 import {
   ButtonIcon,
   ButtonEffect,
@@ -182,7 +182,7 @@ export default {
 } as Meta<ButtonIconProps>
 
 const Template: Story<ButtonIconProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import { Colors, globalStyles, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled } from '@pikas-ui/styles'
 import { BounceLoader } from '@pikas-ui/loader'
 import type { BounceLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -53,7 +53,7 @@ export default {
 } as Meta<BounceLoaderProps>
 
 const Template: Story<BounceLoaderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

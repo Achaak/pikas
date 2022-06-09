@@ -1,4 +1,4 @@
-import { globalStyles, styled } from '@pikas-ui/styles'
+import { globalCss, styled } from '@pikas-ui/styles'
 import { Slider } from '@pikas-ui/slider'
 import type { SliderProps } from '@pikas-ui/slider'
 import type { Story, Meta } from '@storybook/react'
@@ -15,7 +15,7 @@ export default {
 } as Meta<SliderProps>
 
 const Template: Story<SliderProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>

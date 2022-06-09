@@ -2,7 +2,7 @@ import {
   BorderRadius,
   Colors,
   FontSizes,
-  globalStyles,
+  globalCss,
   Shadows,
   styled,
 } from '@pikas-ui/styles'
@@ -164,7 +164,7 @@ export default {
 } as Meta<TextareaProps>
 
 const Template: Story<TextareaProps> = (args) => {
-  globalStyles()
+  globalCss()
 
   return (
     <Container>
