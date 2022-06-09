@@ -190,7 +190,7 @@ export interface ButtonDefaultProps {
   minWidth?: string | number
   borderRadius?: BorderRadiusType
   borderWidth?: number
-  boxShadow?: ShadowsType
+  boxShadow?: ShadowsType | 'none'
 }
 
 export interface ButtonProps
@@ -343,7 +343,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               contentColorHex ||
               (contentColor && theme.colors[contentColor].value),
           }),
-          
+
           ...styles?.button,
         }}
         {...props}

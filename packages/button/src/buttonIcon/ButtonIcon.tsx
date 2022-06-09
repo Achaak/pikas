@@ -154,7 +154,7 @@ export interface ButtonIconDefaultProps {
   disabled?: boolean
   borderRadius?: BorderRadiusType
   borderWidth?: number
-  boxShadow?: ShadowsType
+  boxShadow?: ShadowsType | 'none'
 }
 
 export interface ButtonIconProps

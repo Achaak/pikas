@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/searchbar",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/button": "1.1.0",
+    "@pikas-ui/button": "1.1.1",
     "@pikas-ui/icons": "1.0.26",
     "@pikas-ui/loader": "1.0.26",
     "@pikas-ui/separator": "1.0.26",

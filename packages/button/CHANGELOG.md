@@ -1,5 +1,11 @@
 # @pikas-ui/button
 
+## 1.1.1
+
+### Patch Changes
+
+- Add none option in boxShadow props
+
 ## 1.1.0
 
 ### Minor Changes
