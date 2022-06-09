@@ -1,5 +1,12 @@
 # @pikas-ui/loader
 
+## 1.0.26
+
+### Patch Changes
+
+- Updated dependencies [abe30ab]
+  - @pikas-ui/styles@1.1.0
+
 ## 1.0.25
 
 ### Patch Changes

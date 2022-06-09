@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/icons",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@iconify/react": "^3.2.2",
-    "@pikas-ui/styles": "1.0.25",
+    "@pikas-ui/styles": "1.1.0",
     "iconify-icon": "^0.0.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
