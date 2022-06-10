@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/storybook",
-  "version": "1.0.44",
+  "version": "1.0.45",
   "private": true,
   "scripts": {
     "build": "build-storybook",
@@ -35,11 +35,11 @@
     "@pikas-ui/separator": "1.0.26",
     "@pikas-ui/slider": "1.0.3",
     "@pikas-ui/styles": "1.1.0",
-    "@pikas-ui/table": "1.0.32",
+    "@pikas-ui/table": "1.0.33",
     "@pikas-ui/text": "1.0.27",
     "@pikas-ui/textarea": "1.0.29",
     "@pikas-ui/textfield": "1.0.30",
-    "@pikas-ui/tooltip": "1.0.26",
+    "@pikas-ui/tooltip": "1.0.27",
     "http-server": "^14.1.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",

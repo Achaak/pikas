@@ -1,5 +1,11 @@
 # @pikas-ui/tooltip
 
+## 1.0.27
+
+### Patch Changes
+
+- Fix problem with button
+
 ## 1.0.26
 
 ### Patch Changes

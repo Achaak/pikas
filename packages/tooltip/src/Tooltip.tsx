@@ -67,10 +67,6 @@ const StyledContent = styled(TooltipPrimitive.Content, {
   },
 })
 
-const IconButton = styled('button', {
-  all: 'unset',
-})
-
 const StyledArrow = styled(TooltipPrimitive.Arrow, {})
 
 export const TooltipSide = {
@@ -119,6 +115,7 @@ export interface TooltipProps {
   fontWeight?: FontsWeightsType
   boxShadow?: ShadowsType
   padding?: TooltipPaddingType
+  as?: React.ElementType
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -157,9 +154,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
         defaultOpen={defaultOpen}
         delayDuration={delayDuration}
       >
-        <TooltipPrimitive.Trigger asChild>
-          <IconButton>{children}</IconButton>
-        </TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
         <StyledContent
           side={side}
           sideOffset={sideOffset}

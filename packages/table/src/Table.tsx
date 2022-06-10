@@ -528,7 +528,7 @@ export const Table = <T extends Record<string, unknown>>({
           })}
 
           {!instance.getRowModel().rows.length && emptyMessage ? (
-            <Tr>
+            <Tr key="empty">
               <Td
                 colSpan={columns.length + (selection?.active ? 1 : 0)}
                 css={{
