@@ -25,11 +25,11 @@ importers:
       '@pikas-ui/icons': 1.0.26
       '@pikas-ui/loader': 1.0.26
       '@pikas-ui/searchbar': 1.1.10
-      '@pikas-ui/select': 1.0.30
+      '@pikas-ui/select': 1.0.31
       '@pikas-ui/separator': 1.0.26
       '@pikas-ui/slider': 1.0.3
       '@pikas-ui/styles': 1.1.0
-      '@pikas-ui/table': 1.0.33
+      '@pikas-ui/table': 1.0.34
       '@pikas-ui/text': 1.0.27
       '@pikas-ui/textarea': 1.0.29
       '@pikas-ui/textfield': 1.0.30
@@ -549,7 +549,7 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 1.0.26
       '@pikas-ui/loader': 1.0.26
-      '@pikas-ui/select': 1.0.30
+      '@pikas-ui/select': 1.0.31
       '@pikas-ui/styles': 1.1.0
       '@pikas-ui/tsconfig': workspace:*
       '@tanstack/react-table': 8.0.0-beta.3

@@ -66,6 +66,7 @@ const Icon = styled(SelectPrimitive.Icon, {
 const Content = styled(SelectPrimitive.Content, {
   backgroundColor: '$WHITE',
   boxShadow: '$ELEVATION_1',
+  br: 'sm',
 })
 
 const Viewport = styled(SelectPrimitive.Viewport, {
@@ -327,11 +328,7 @@ export const Select: React.FC<SelectProps> = ({
           </Icon>
         </Trigger>
 
-        <Content
-          css={{
-            br: borderRadius,
-          }}
-        >
+        <Content>
           {hasSearch ? (
             <>
               <SearchContainer>

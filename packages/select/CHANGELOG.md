@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 1.0.31
+
+### Patch Changes
+
+- Fix border radius
+
 ## 1.0.30
 
 ### Patch Changes
