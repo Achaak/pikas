@@ -33,7 +33,7 @@ For handling global styles in your application you can use the `globalCss` funct
 You must call it in your application.
   
 ```tsx
-import { globalCss } from '@pikas-ui/styles';
+import { globalCss, createTheme, customGlobalCss } from '@pikas-ui/styles';
 
 const globalCssCustom = globalCss({
   'html, body, #__next': {
@@ -82,6 +82,8 @@ const myTheme = createTheme({
 });
 
 const App: React.FC = () => {
+  customGlobalCss()
+
   return (
     <PikasUIProvider theme={myTheme}>
       <h1>Hello World</h1>
