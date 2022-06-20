@@ -1,5 +1,18 @@
 # @pikas-ui/button
 
+## 2.0.0
+
+### Major Changes
+
+- Add theme provider
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/loader@2.0.0
+  - @pikas-ui/styles@2.0.0
+  - @pikas-ui/icons@2.0.0
+
 ## 1.1.1
 
 ### Patch Changes

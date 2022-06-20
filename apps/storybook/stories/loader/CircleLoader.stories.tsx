@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { CircleLoader } from '@pikas-ui/loader'
 import type { CircleLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<CircleLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <CircleLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <CircleLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

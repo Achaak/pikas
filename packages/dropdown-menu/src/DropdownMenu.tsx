@@ -1,6 +1,5 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -239,15 +238,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         <ItemIndicator forceMount css={item?.styles?.indicator}>
                           <ClipLoader
                             size={16}
+                            color={item.iconColor || item.color}
                             colorHex={
                               item.iconColorHex ||
-                              (item.iconColor
-                                ? theme.colors[item.iconColor].value
-                                : undefined) ||
                               item.colorHex ||
-                              (item.color
-                                ? theme.colors[item.color].value
-                                : undefined) ||
                               'GRAY_DARKER'
                             }
                           />
@@ -260,15 +254,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                           >
                             <item.Icon
                               size={16}
+                              color={item.iconColor || item.color}
                               colorHex={
                                 item.iconColorHex ||
-                                (item.iconColor
-                                  ? theme.colors[item.iconColor].value
-                                  : undefined) ||
                                 item.colorHex ||
-                                (item.color
-                                  ? theme.colors[item.color].value
-                                  : undefined) ||
                                 'GRAY_DARKER'
                               }
                             />

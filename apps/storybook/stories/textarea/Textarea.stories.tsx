@@ -5,6 +5,7 @@ import {
   globalCss,
   Shadows,
   styled,
+  PikasUIProvider,
 } from '@pikas-ui/styles'
 import { Textarea, TextareaPadding, TextareaResize } from '@pikas-ui/textarea'
 import type { TextareaProps } from '@pikas-ui/textarea'
@@ -167,9 +168,11 @@ const Template: Story<TextareaProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <Textarea {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <Textarea {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

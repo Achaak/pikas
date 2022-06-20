@@ -4,11 +4,12 @@ import type {
   FontsSizesType,
   ShadowsType,
 } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
+import { PikasUIContext } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
 import { Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import React, { useState } from 'react'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
@@ -99,6 +100,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   outline,
   indeterminate,
 }) => {
+  const pikasUiContext = useContext(PikasUIContext)
+
   const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
     'indeterminate'
   )
@@ -171,19 +174,26 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         >
           <CheckboxIndicator
             css={{
-              color: fontColorContrast(
-                theme.colors[bgColorChecked || 'WHITE'].value,
-                0.7
-              ),
+              color:
+                (pikasUiContext &&
+                  fontColorContrast(
+                    pikasUiContext.colors[bgColorChecked || 'WHITE'].value,
+                    0.7
+                  )) ||
+                undefined,
             }}
           >
             {isChecked === 'indeterminate' && (
               <IconByName
                 name="bx:minus"
-                colorHex={fontColorContrast(
-                  theme.colors[bgColor || 'BLACK'].value,
-                  0.7
-                )}
+                colorHex={
+                  (pikasUiContext &&
+                    fontColorContrast(
+                      pikasUiContext.colors[bgColor || 'BLACK'].value,
+                      0.7
+                    )) ||
+                  ''
+                }
                 styles={{
                   container: {
                     opacity: 0.5,

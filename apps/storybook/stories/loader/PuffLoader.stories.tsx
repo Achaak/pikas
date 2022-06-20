@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { PuffLoader } from '@pikas-ui/loader'
 import type { PuffLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<PuffLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <PuffLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <PuffLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

@@ -32,10 +32,10 @@ pnpm add @pikas-ui/styles
 For handling global styles in your application you can use the `globalCss` function.
 You must call it in your application.
   
-```ts
+```tsx
 import { globalCss } from '@pikas-ui/styles';
 
-export const globalCssCustom = globalCss({
+const globalCssCustom = globalCss({
   'html, body, #__next': {
     color: '$BLACK',
     fontFamily: '$roboto',
@@ -68,6 +68,26 @@ export const globalCssCustom = globalCss({
     borderRadius: '10px',
   },
 })
+
+const myTheme = createTheme({
+  colors: {
+    PRIMARY_DARKER: '#083358',
+    PRIMARY_DARK: '#0D4C84',
+    PRIMARY: '#1166B0',
+    PRIMARY_LIGHT: '#88B3D7',
+    PRIMARY_LIGHTER: '#C3D9EB',
+    PRIMARY_LIGHTEST_2: '#E7F0F7',
+    PRIMARY_LIGHTEST_1: '#F3F4F6',
+  }
+});
+
+const App: React.FC = () => {
+  return (
+    <PikasUIProvider theme={myTheme}>
+      <h1>Hello World</h1>
+    </PikasUIProvider>
+  );
+}
 ```
 
 ### Styling
@@ -97,7 +117,7 @@ const Button = styled('button', {
 ```tsx
 import { createTheme } from '@pikas-ui/styles';
 
-export const themeDark = createTheme({
+const themeDark = createTheme({
   colors: {
     PRIMARY_DARKER: '#083358',
     PRIMARY_DARK: '#0D4C84',

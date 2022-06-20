@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { RotateLoader } from '@pikas-ui/loader'
 import type { RotateLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -63,9 +63,11 @@ const Template: Story<RotateLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <RotateLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <RotateLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

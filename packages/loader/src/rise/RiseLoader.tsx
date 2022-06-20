@@ -1,6 +1,5 @@
 import { RiseLoader as RiseLoaderDefault } from 'react-spinners'
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface RiseLoaderProps {
@@ -25,7 +24,7 @@ export const RiseLoader: React.FC<RiseLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={(color ? theme.colors[color].value : undefined) || colorHex}
+      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
       loading={loading}
     />
   )

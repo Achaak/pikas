@@ -13,6 +13,7 @@ import type { Story, Meta } from '@storybook/react'
 import { Colors } from '@pikas-ui/styles'
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
+import { PikasUIProvider } from '@pikas-ui/styles'
 
 const Container = styled('div', {
   display: 'flex',
@@ -203,9 +204,11 @@ const Template: Story<ButtonProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <Button {...args}>Button</Button>
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <Button {...args}>Button</Button>
+      </Container>
+    </PikasUIProvider>
   )
 }
 

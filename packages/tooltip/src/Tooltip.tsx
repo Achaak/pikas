@@ -6,9 +6,9 @@ import type {
   ShadowsType,
 } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
-import { keyframes, styled, theme } from '@pikas-ui/styles'
+import { keyframes, styled, PikasUIContext } from '@pikas-ui/styles'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-import React from 'react'
+import React, { useContext } from 'react'
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(8px)' },
@@ -143,6 +143,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   hasArrow,
   padding,
 }) => {
+  const pikasUiContext = useContext(PikasUIContext)
+
   return (
     <TooltipPrimitive.Provider
       delayDuration={delayDuration}
@@ -170,10 +172,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
             fontSize: `$${fontSize}`,
             fontWeight: `$${fontWeight}`,
             boxShadow: `$${boxShadow}`,
-            color: fontColorContrast(
-              theme.colors[backgroundColor || 'BLACK'].value,
-              0.7
-            ),
+            color:
+              (pikasUiContext &&
+                fontColorContrast(
+                  pikasUiContext.colors[backgroundColor || 'BLACK'].value,
+                  0.7
+                )) ||
+              undefined,
           }}
         >
           {content}

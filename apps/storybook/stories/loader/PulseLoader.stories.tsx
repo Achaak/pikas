@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { PulseLoader } from '@pikas-ui/loader'
 import type { PulseLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<PulseLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <PulseLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <PulseLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

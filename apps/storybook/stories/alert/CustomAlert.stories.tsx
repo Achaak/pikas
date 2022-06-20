@@ -4,6 +4,7 @@ import {
   FontSizes,
   FontWeights,
   globalCss,
+  PikasUIProvider,
   styled,
 } from '@pikas-ui/styles'
 import { CustomAlert, AlertGap, AlertPadding } from '@pikas-ui/alert'
@@ -105,16 +106,18 @@ const Template: Story<CustomAlertProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <CustomAlert {...args}>
-        Velit sit esse tempor non. Mollit sunt consectetur id voluptate. Laborum
-        est ut culpa eu sunt ea cupidatat reprehenderit est ipsum occaecat
-        dolore deserunt in. Voluptate ut elit enim et minim incididunt ullamco
-        excepteur elit nostrud aute voluptate sunt. Elit labore sunt anim fugiat
-        nisi occaecat enim esse aute cupidatat mollit id elit. Ullamco
-        reprehenderit ut adipisicing laborum mollit occaecat.
-      </CustomAlert>
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <CustomAlert {...args}>
+          Velit sit esse tempor non. Mollit sunt consectetur id voluptate.
+          Laborum est ut culpa eu sunt ea cupidatat reprehenderit est ipsum
+          occaecat dolore deserunt in. Voluptate ut elit enim et minim
+          incididunt ullamco excepteur elit nostrud aute voluptate sunt. Elit
+          labore sunt anim fugiat nisi occaecat enim esse aute cupidatat mollit
+          id elit. Ullamco reprehenderit ut adipisicing laborum mollit occaecat.
+        </CustomAlert>
+      </Container>
+    </PikasUIProvider>
   )
 }
 

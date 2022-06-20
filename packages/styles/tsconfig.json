@@ -1,12 +1,9 @@
 {
-  "extends": "@pikas-ui/tsconfig/package-default.json",
+  "extends": "@pikas-ui/tsconfig/package-react.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "tsup.config.ts", "dist"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "outDir": "dist",
+    "rootDir": "src",
   }
 }

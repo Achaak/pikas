@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { RiseLoader } from '@pikas-ui/loader'
 import type { RiseLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -63,9 +63,11 @@ const Template: Story<RiseLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <RiseLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <RiseLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

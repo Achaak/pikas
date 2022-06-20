@@ -1,5 +1,19 @@
 # @pikas-ui/select
 
+## 2.0.0
+
+### Major Changes
+
+- Add theme provider
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.0.0
+  - @pikas-ui/textfield@2.0.0
+  - @pikas-ui/icons@2.0.0
+  - @pikas-ui/text@2.0.0
+
 ## 1.0.31
 
 ### Patch Changes

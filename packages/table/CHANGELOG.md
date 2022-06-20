@@ -1,5 +1,20 @@
 # @pikas-ui/table
 
+## 2.0.0
+
+### Major Changes
+
+- Add theme provider
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/checkbox@2.0.0
+  - @pikas-ui/loader@2.0.0
+  - @pikas-ui/styles@2.0.0
+  - @pikas-ui/icons@2.0.0
+  - @pikas-ui/select@2.0.0
+
 ## 1.0.34
 
 ### Patch Changes

@@ -6,12 +6,13 @@ import type {
   FontsSizesType,
   BorderRadiusType,
 } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
+import { PikasUIContext } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import fontColorContrast from 'font-color-contrast'
 import type { InputHTMLAttributes } from 'react'
+import { useContext } from 'react'
 import { forwardRef } from 'react'
 import React, { useRef, useState } from 'react'
 import useMergedRef from '@react-hook/merged-ref'
@@ -275,6 +276,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     const refInput = useRef<HTMLInputElement>(null)
     const multiRef = useMergedRef(ref, refInput)
     const [focus, setFocus] = useState(false)
+    const pikasUiContext = useContext(PikasUIContext)
 
     const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
       if (type === 'number' && refInput.current) {
@@ -302,10 +304,12 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       return colorHex || color
         ? `$${color}`
         : undefined ||
-            fontColorContrast(
-              theme.colors[backgroundColor || 'WHITE'].value,
-              0.7
-            )
+            (pikasUiContext &&
+              fontColorContrast(
+                pikasUiContext.colors[backgroundColor || 'WHITE'].value,
+                0.7
+              )) ||
+            ''
     }
 
     return (

@@ -10,23 +10,23 @@ export const parameters = {
     values: [
       {
         name: 'light',
-        value: theme.colors.WHITE.value,
+        value: theme.colors.WHITE,
       },
       {
         name: 'dark',
-        value: theme.colors.BLACK.value,
+        value: theme.colors.BLACK,
       },
       {
         name: 'primary',
-        value: theme.colors.PRIMARY.value,
+        value: theme.colors.PRIMARY,
       },
       {
         name: 'primary-lightest-1',
-        value: theme.colors.PRIMARY_LIGHTEST_1.value,
+        value: theme.colors.PRIMARY_LIGHTEST_1,
       },
       {
         name: 'gray-lightest-2',
-        value: theme.colors.GRAY_LIGHTEST_2.value,
+        value: theme.colors.GRAY_LIGHTEST_2,
       },
     ],
   },

@@ -1,7 +1,8 @@
 import type { ReactElement } from 'react'
+import { useContext } from 'react'
 import React from 'react'
 
-import { styled, theme } from '@pikas-ui/styles'
+import { PikasUIContext, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { IconByName } from '@pikas-ui/icons'
 import { Select } from '@pikas-ui/select'
@@ -40,15 +41,6 @@ const PageNumber = styled('button', {
   height: 24,
   width: 24,
   cursor: 'pointer',
-
-  variants: {
-    selected: {
-      true: {
-        backgroundColor: '$PRIMARY',
-        color: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
-      },
-    },
-  },
 })
 
 const ButtonArrow = styled('button', {
@@ -92,6 +84,8 @@ export const Pagination: React.FC<PaginationProps> = ({
   defaultPageSize,
   selectValue,
 }) => {
+  const pikasUIContext = useContext(PikasUIContext)
+
   const getNumber = (): React.ReactNode => {
     const pagesBtn: Array<ReactElement> = []
 
@@ -117,7 +111,18 @@ export const Pagination: React.FC<PaginationProps> = ({
           <PageNumber
             key={i}
             onClick={(): void => setPageIndex(i)}
-            selected={i === pageIndex}
+            css={{
+              ...(i === pageIndex && {
+                backgroundColor: '$PRIMARY',
+                color:
+                  (pikasUIContext &&
+                    fontColorContrast(
+                      pikasUIContext.colors['PRIMARY'].value,
+                      0.7
+                    )) ||
+                  undefined,
+              }),
+            }}
           >
             {i + 1}
           </PageNumber>

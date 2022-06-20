@@ -19,8 +19,6 @@ export const getContentColor = ({
   } else {
     return colorHex
   }
-
-  return
 }
 
 export const getColors = ({

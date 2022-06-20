@@ -1,4 +1,4 @@
-import { globalCss, styled, Colors } from '@pikas-ui/styles'
+import { globalCss, styled, Colors, PikasUIProvider } from '@pikas-ui/styles'
 import {
   DropdownMenu,
   DropdownMenuDirection,
@@ -214,9 +214,11 @@ const Template: Story<DropdownMenuProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <DropdownMenu {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <DropdownMenu {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

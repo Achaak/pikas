@@ -1,5 +1,4 @@
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import { BeatLoader as BeatLoaderDefault } from 'react-spinners'
 import React from 'react'
 
@@ -24,7 +23,7 @@ export const BeatLoader: React.FC<BeatLoaderProps> = ({
     <BeatLoaderDefault
       size={size}
       margin={margin}
-      color={(color ? theme.colors[color].value : undefined) || colorHex}
+      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
       loading={loading}
       speedMultiplier={speedMultiplier}
     />

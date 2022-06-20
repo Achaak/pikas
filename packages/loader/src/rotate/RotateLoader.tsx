@@ -1,6 +1,5 @@
 import { RotateLoader as RotateLoaderDefault } from 'react-spinners'
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface RotateLoaderProps {
@@ -25,7 +24,7 @@ export const RotateLoader: React.FC<RotateLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={(color ? theme.colors[color].value : undefined) || colorHex}
+      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
       loading={loading}
     />
   )

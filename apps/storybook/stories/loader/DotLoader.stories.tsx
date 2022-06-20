@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { DotLoader } from '@pikas-ui/loader'
 import type { DotLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<DotLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <DotLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <DotLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

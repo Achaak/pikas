@@ -1,4 +1,4 @@
-import { globalCss, styled } from '@pikas-ui/styles'
+import { globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { Slider } from '@pikas-ui/slider'
 import type { SliderProps } from '@pikas-ui/slider'
 import type { Story, Meta } from '@storybook/react'
@@ -18,9 +18,11 @@ const Template: Story<SliderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <Slider {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <Slider {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

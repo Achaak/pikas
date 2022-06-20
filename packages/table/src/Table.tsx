@@ -15,12 +15,13 @@ import {
   useTableInstance,
 } from '@tanstack/react-table'
 import type { CSS } from '@pikas-ui/styles'
-import { styled, theme } from '@pikas-ui/styles'
-import fontColorContrast from 'font-color-contrast'
+import { styled } from '@pikas-ui/styles'
 import { Pagination } from './pagination'
 import { findInColumns } from './utils'
 import { IconByName } from '@pikas-ui/icons'
 import { Checkbox } from '@pikas-ui/checkbox'
+import { Thead } from './thead/index.js'
+import { Tfoot } from './tfoot/index.js'
 
 const TableStyled = styled('table', {
   width: '100%',
@@ -36,51 +37,6 @@ const TableStyled = styled('table', {
   },
 })
 
-const Thead = styled('thead', {
-  variants: {
-    variant: {
-      default: {
-        backgroundColor: '$PRIMARY',
-        color: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
-
-        svg: {
-          fill: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
-        },
-
-        tr: {
-          borderTop: '1px solid',
-          borderBottom: '1px solid',
-          borderColor: '$PRIMARY_LIGHT',
-
-          '&:first-child': {
-            borderTop: 'none',
-          },
-          '&:last-child': {
-            borderBottom: 'none',
-          },
-
-          th: {
-            borderLeft: '1px solid',
-            borderRight: '1px solid',
-            borderColor: '$PRIMARY_LIGHT',
-
-            '&:first-child': {
-              borderLeft: 'none',
-            },
-            '&:last-child': {
-              borderRight: 'none',
-            },
-          },
-        },
-      },
-      light: {
-        borderBottom: '1px solid',
-        borderColor: '$GRAY_LIGHT',
-      },
-    },
-  },
-})
-
 const Tbody = styled('tbody', {
   variants: {
     variant: {
@@ -90,47 +46,6 @@ const Tbody = styled('tbody', {
         },
       },
       light: {},
-    },
-  },
-})
-
-const Tfoot = styled('tfoot', {
-  variants: {
-    variant: {
-      default: {
-        backgroundColor: '$PRIMARY',
-        color: fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
-
-        tr: {
-          borderTop: '1px solid',
-          borderBottom: '1px solid',
-          borderColor: '$PRIMARY_LIGHT',
-
-          '&:first-child': {
-            borderTop: 'none',
-          },
-          '&:last-child': {
-            borderBottom: 'none',
-          },
-
-          th: {
-            borderLeft: '1px solid',
-            borderRight: '1px solid',
-            borderColor: '$PRIMARY_LIGHT',
-
-            '&:first-child': {
-              borderLeft: 'none',
-            },
-            '&:last-child': {
-              borderRight: 'none',
-            },
-          },
-        },
-      },
-      light: {
-        borderTop: '1px solid',
-        borderColor: '$GRAY',
-      },
     },
   },
 })

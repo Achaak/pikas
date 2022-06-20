@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { BeatLoader } from '@pikas-ui/loader'
 import type { BeatLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -63,9 +63,11 @@ const Template: Story<BeatLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <BeatLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <BeatLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { SyncLoader } from '@pikas-ui/loader'
 import type { SyncLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -63,9 +63,11 @@ const Template: Story<SyncLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <SyncLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <SyncLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

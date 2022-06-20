@@ -5,11 +5,13 @@ import type {
   BorderRadiusType,
   FontsSizesType,
   ShadowsType,
+  PikasUIContextType,
 } from '@pikas-ui/styles'
-import { styled, theme } from '@pikas-ui/styles'
+import { PikasUIContext } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import { useContext } from 'react'
 import React, { forwardRef, useCallback } from 'react'
-
 import type { IconProps, IconStyleType } from '@pikas-ui/icons'
 import { BeatLoader } from '@pikas-ui/loader'
 import type {
@@ -221,6 +223,7 @@ const getContent = ({
   contentColorHex,
   textTransform,
   gap,
+  pikasUiContext,
 }: {
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
@@ -232,12 +235,14 @@ const getContent = ({
   contentColorHex?: string
   textTransform?: ButtonTextTransformType
   gap?: ButtonGapType
+  pikasUiContext: PikasUIContextType
 }): React.ReactNode => {
+  if (!pikasUiContext) return null
   return (
     <>
       <LoadingContainer>
         <BeatLoader
-          size={theme.fontSizes['EM-XX-SMALL'].value}
+          size={pikasUiContext.fontSizes['EM-XX-SMALL'].value}
           colorHex={getContentColor({
             outlined,
             contentColorHex: contentColorHex,
@@ -312,6 +317,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    const pikasUiContext = useContext(PikasUIContext)
+
     const handleClick = useCallback((): void => {
       if (disabled || loading) {
         return
@@ -320,6 +327,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onClick?.()
     }, [disabled, onClick, loading])
 
+    if (!pikasUiContext) return null
     return (
       <ButtonDOM
         ref={ref}
@@ -338,10 +346,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
           ...getColors({
             outlined,
-            colorHex: colorHex || (color && theme.colors[color].value),
+            colorHex: colorHex || (color && pikasUiContext.colors[color].value),
             contentColorHex:
               contentColorHex ||
-              (contentColor && theme.colors[contentColor].value),
+              (contentColor && pikasUiContext.colors[contentColor].value),
           }),
 
           ...styles?.button,
@@ -349,6 +357,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {getContent({
+          pikasUiContext,
           LeftIcon,
           RightIcon,
           children,
@@ -357,10 +366,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           outlined,
           styles,
           textTransform,
-          colorHex: colorHex || (color && theme.colors[color].value),
+          colorHex: colorHex || (color && pikasUiContext.colors[color].value),
           contentColorHex:
             contentColorHex ||
-            (contentColor && theme.colors[contentColor].value),
+            (contentColor && pikasUiContext.colors[contentColor].value),
         })}
       </ButtonDOM>
     )
@@ -416,6 +425,8 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     },
     ref
   ) => {
+    const pikasUiContext = useContext(PikasUIContext)
+
     const handleClick = useCallback((): void => {
       if (disabled || loading) {
         return
@@ -424,6 +435,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       onClick?.()
     }, [disabled, onClick, loading])
 
+    if (!pikasUiContext) return null
     return (
       <ButtonDOM
         as="a"
@@ -443,16 +455,17 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 
           ...getColors({
             outlined,
-            colorHex: colorHex || (color && theme.colors[color].value),
+            colorHex: colorHex || (color && pikasUiContext.colors[color].value),
             contentColorHex:
               contentColorHex ||
-              (contentColor && theme.colors[contentColor].value),
+              (contentColor && pikasUiContext.colors[contentColor].value),
           }),
           ...styles?.button,
         }}
         {...props}
       >
         {getContent({
+          pikasUiContext,
           LeftIcon,
           RightIcon,
           children,
@@ -461,10 +474,10 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           outlined,
           styles,
           textTransform,
-          colorHex: colorHex || (color && theme.colors[color].value),
+          colorHex: colorHex || (color && pikasUiContext.colors[color].value),
           contentColorHex:
             contentColorHex ||
-            (contentColor && theme.colors[contentColor].value),
+            (contentColor && pikasUiContext.colors[contentColor].value),
         })}
       </ButtonDOM>
     )

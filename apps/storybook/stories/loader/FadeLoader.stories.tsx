@@ -1,4 +1,4 @@
-import { globalCss, styled, Colors } from '@pikas-ui/styles'
+import { globalCss, styled, PikasUIProvider, Colors } from '@pikas-ui/styles'
 import { FadeLoader } from '@pikas-ui/loader'
 import type { FadeLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -77,9 +77,11 @@ const Template: Story<FadeLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <FadeLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <FadeLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

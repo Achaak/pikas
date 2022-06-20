@@ -5,6 +5,7 @@ import {
   globalCss,
   Shadows,
   styled,
+  PikasUIProvider,
 } from '@pikas-ui/styles'
 import { Textfield, TextfieldPadding, TextfieldType } from '@pikas-ui/textfield'
 import type { TextfieldProps } from '@pikas-ui/textfield'
@@ -222,9 +223,11 @@ const Template: Story<TextfieldProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <Textfield {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <Textfield {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,11 +30,13 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@stitches/react": "^1.2.8"
+    "@stitches/react": "^1.2.8",
+    "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
+    "@types/lodash.merge": "^4.6.7",
     "@types/node": "^17.0.41",
     "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.5",

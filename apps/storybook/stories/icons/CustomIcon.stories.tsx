@@ -1,4 +1,4 @@
-import { globalCss, styled, Colors } from '@pikas-ui/styles'
+import { globalCss, styled, Colors, PikasUIProvider } from '@pikas-ui/styles'
 import { CustomIcon } from '@pikas-ui/icons'
 import type { CustomIconProps } from '@pikas-ui/icons'
 import type { Story, Meta } from '@storybook/react'
@@ -68,9 +68,11 @@ const Template: Story<CustomIconProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <CustomIcon {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <CustomIcon {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

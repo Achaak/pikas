@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { GridLoader } from '@pikas-ui/loader'
 import type { GridLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -63,9 +63,11 @@ const Template: Story<GridLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <GridLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <GridLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

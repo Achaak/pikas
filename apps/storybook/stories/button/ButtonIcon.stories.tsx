@@ -1,4 +1,4 @@
-import { globalCss, Sizes, styled } from '@pikas-ui/styles'
+import { globalCss, PikasUIProvider, Sizes, styled } from '@pikas-ui/styles'
 import {
   ButtonIcon,
   ButtonEffect,
@@ -170,9 +170,11 @@ const Template: Story<ButtonIconProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <ButtonIcon {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <ButtonIcon {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

@@ -1,6 +1,5 @@
 import { CircleLoader as CircleLoaderDefault } from 'react-spinners'
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface CircleLoaderProps {
@@ -22,7 +21,7 @@ export const CircleLoader: React.FC<CircleLoaderProps> = ({
     <CircleLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={(color ? theme.colors[color].value : undefined) || colorHex}
+      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
       loading={loading}
     />
   )

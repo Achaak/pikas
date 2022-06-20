@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { PacmanLoader } from '@pikas-ui/loader'
 import type { PacmanLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -63,9 +63,11 @@ const Template: Story<PacmanLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <PacmanLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <PacmanLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

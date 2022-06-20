@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { ClockLoader } from '@pikas-ui/loader'
 import type { ClockLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<ClockLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <ClockLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <ClockLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

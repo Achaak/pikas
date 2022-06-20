@@ -1,6 +1,5 @@
 import { GridLoader as GridLoaderDefault } from 'react-spinners'
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface GridLoaderProps {
@@ -25,7 +24,7 @@ export const GridLoader: React.FC<GridLoaderProps> = ({
       size={size}
       speedMultiplier={speedMultiplier}
       margin={margin}
-      color={(color ? theme.colors[color].value : undefined) || colorHex}
+      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
       loading={loading}
     />
   )

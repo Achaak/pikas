@@ -1,5 +1,16 @@
 # @pikas-ui/tooltip
 
+## 2.0.0
+
+### Major Changes
+
+- Add theme provider
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.0.0
+
 ## 1.0.27
 
 ### Patch Changes

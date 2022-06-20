@@ -1,4 +1,4 @@
-import { globalCss } from '@pikas-ui/styles'
+import { globalCss, PikasUIProvider } from '@pikas-ui/styles'
 import { Table, TableVariant } from '@pikas-ui/table'
 import type { TableProps } from '@pikas-ui/table'
 import type { Story, Meta } from '@storybook/react'
@@ -76,7 +76,11 @@ export default {
 const Template: Story<TableProps<UserType>> = (args) => {
   globalCss()
 
-  return <Table<UserType> {...args} />
+  return (
+    <PikasUIProvider>
+      <Table<UserType> {...args} />
+    </PikasUIProvider>
+  )
 }
 
 export const Default = Template.bind({})

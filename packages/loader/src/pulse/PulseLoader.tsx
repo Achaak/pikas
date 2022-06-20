@@ -1,5 +1,4 @@
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import { PulseLoader as PulseLoaderDefault } from 'react-spinners'
 import React from 'react'
 
@@ -22,7 +21,7 @@ export const PulseLoader: React.FC<PulseLoaderProps> = ({
     <PulseLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={(color ? theme.colors[color].value : undefined) || colorHex}
+      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
       loading={loading}
     />
   )

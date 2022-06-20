@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 2.0.0
+
+### Major Changes
+
+- Add theme provider
+
 ## 1.1.0
 
 ### Minor Changes

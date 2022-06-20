@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { SkewLoader } from '@pikas-ui/loader'
 import type { SkewLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<SkewLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <SkewLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <SkewLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

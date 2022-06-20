@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { MoonLoader } from '@pikas-ui/loader'
 import type { MoonLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<MoonLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <MoonLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <MoonLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

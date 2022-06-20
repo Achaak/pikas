@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { PropagateLoader } from '@pikas-ui/loader'
 import type { PropagateLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<PropagateLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <PropagateLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <PropagateLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

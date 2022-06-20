@@ -5,6 +5,7 @@ import {
   FontWeights,
   globalCss,
   Shadows,
+  PikasUIProvider,
 } from '@pikas-ui/styles'
 import {
   Tooltip,
@@ -189,9 +190,11 @@ const Template: Story<TooltipProps> = (args) => {
   globalCss()
 
   return (
-    <Tooltip {...args}>
-      <IconByName size={40} name="bx:baguette" />
-    </Tooltip>
+    <PikasUIProvider>
+      <Tooltip {...args}>
+        <IconByName size={40} name="bx:baguette" />
+      </Tooltip>
+    </PikasUIProvider>
   )
 }
 

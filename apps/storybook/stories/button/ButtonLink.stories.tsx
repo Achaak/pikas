@@ -1,4 +1,10 @@
-import { FontSizes, FontWeights, globalCss, styled } from '@pikas-ui/styles'
+import {
+  FontSizes,
+  FontWeights,
+  globalCss,
+  PikasUIProvider,
+  styled,
+} from '@pikas-ui/styles'
 import {
   ButtonLink,
   ButtonEffect,
@@ -203,9 +209,11 @@ const Template: Story<ButtonLinkProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <ButtonLink {...args}>ButtonLink</ButtonLink>
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <ButtonLink {...args}>ButtonLink</ButtonLink>
+      </Container>
+    </PikasUIProvider>
   )
 }
 

@@ -1,4 +1,4 @@
-import { globalCss } from '@pikas-ui/styles'
+import { globalCss, PikasUIProvider } from '@pikas-ui/styles'
 import type { ResultGroupType, SearchbarProps } from '@pikas-ui/searchbar'
 import type { Story, Meta } from '@storybook/react'
 import { Searchbar } from '@pikas-ui/searchbar'
@@ -17,7 +17,11 @@ export default {
 const Template: Story<SearchbarProps<unknown>> = (args) => {
   globalCss()
 
-  return <Searchbar {...args} />
+  return (
+    <PikasUIProvider>
+      <Searchbar {...args} />
+    </PikasUIProvider>
+  )
 }
 
 export const Default = Template.bind({})

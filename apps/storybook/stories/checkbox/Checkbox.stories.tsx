@@ -3,6 +3,7 @@ import {
   Colors,
   FontSizes,
   globalCss,
+  PikasUIProvider,
   Shadows,
   styled,
 } from '@pikas-ui/styles'
@@ -173,9 +174,11 @@ const Template: Story<CheckboxProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <Checkbox {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <Checkbox {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

@@ -1,4 +1,4 @@
-import { Colors, globalCss, styled } from '@pikas-ui/styles'
+import { Colors, globalCss, styled, PikasUIProvider } from '@pikas-ui/styles'
 import { ClipLoader } from '@pikas-ui/loader'
 import type { ClipLoaderProps } from '@pikas-ui/loader'
 import type { Story, Meta } from '@storybook/react'
@@ -56,9 +56,11 @@ const Template: Story<ClipLoaderProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <ClipLoader {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <ClipLoader {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 

@@ -1,5 +1,4 @@
 import type { ColorsType } from '@pikas-ui/styles'
-import { theme } from '@pikas-ui/styles'
 import { RingLoader as RingLoaderDefault } from 'react-spinners'
 import React from 'react'
 
@@ -22,7 +21,7 @@ export const RingLoader: React.FC<RingLoaderProps> = ({
     <RingLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={(color ? theme.colors[color].value : undefined) || colorHex}
+      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
       loading={loading}
     />
   )

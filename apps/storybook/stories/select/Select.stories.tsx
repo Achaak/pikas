@@ -5,6 +5,7 @@ import {
   globalCss,
   Shadows,
   styled,
+  PikasUIProvider,
 } from '@pikas-ui/styles'
 import { Select, SelectDirections, SelectPadding } from '@pikas-ui/select'
 import type { SelectProps } from '@pikas-ui/select'
@@ -187,9 +188,11 @@ const Template: Story<SelectProps> = (args) => {
   globalCss()
 
   return (
-    <Container>
-      <Select {...args} />
-    </Container>
+    <PikasUIProvider>
+      <Container>
+        <Select {...args} />
+      </Container>
+    </PikasUIProvider>
   )
 }
 
