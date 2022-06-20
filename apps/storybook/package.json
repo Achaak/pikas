@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/storybook",
-  "version": "1.0.55",
+  "version": "1.0.56",
   "private": true,
   "scripts": {
     "build": "build-storybook",
@@ -35,7 +35,7 @@
     "@pikas-ui/separator": "2.0.7",
     "@pikas-ui/slider": "2.0.8",
     "@pikas-ui/styles": "2.1.6",
-    "@pikas-ui/table": "2.0.8",
+    "@pikas-ui/table": "2.0.9",
     "@pikas-ui/text": "2.0.7",
     "@pikas-ui/textarea": "2.0.8",
     "@pikas-ui/textfield": "2.0.8",

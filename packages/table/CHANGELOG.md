@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 2.0.9
+
+### Patch Changes
+
+- Add hoverEffect props
+
 ## 2.0.8
 
 ### Patch Changes

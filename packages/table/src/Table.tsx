@@ -53,26 +53,8 @@ const Tbody = styled('tbody', {
 const Tr = styled('tr', {
   variants: {
     variant: {
-      default: {
-        transition: 'all 0.2s ease-in-out',
-
-        '&:hover': {
-          td: {
-            color: '$PRIMARY',
-            fontWeight: '$MEDIUM',
-          },
-        },
-      },
-      light: {
-        transition: 'all 0.2s ease-in-out',
-
-        '&:hover': {
-          td: {
-            color: '$PRIMARY',
-            fontWeight: '$MEDIUM',
-          },
-        },
-      },
+      default: {},
+      light: {},
     },
   },
 })
@@ -200,6 +182,7 @@ export interface TableProps<T extends Record<string, unknown>> {
     th?: 'sm' | 'md' | 'lg'
     td?: 'sm' | 'md' | 'lg'
   }
+  hoverEffect?: boolean
 }
 
 export const Table = <T extends Record<string, unknown>>({
@@ -213,6 +196,7 @@ export const Table = <T extends Record<string, unknown>>({
   styles,
   padding,
   emptyMessage,
+  hoverEffect,
 }: TableProps<T>): JSX.Element => {
   type Column = any // TODO: fix
   // type Column = ColumnDef<
@@ -357,7 +341,23 @@ export const Table = <T extends Record<string, unknown>>({
       <TableStyled variant={variant} css={styles?.table}>
         <Thead variant={variant} css={styles?.thead}>
           {instance.getHeaderGroups().map((headerGroup) => (
-            <Tr key={headerGroup.id} variant={variant} css={styles?.tr}>
+            <Tr
+              key={headerGroup.id}
+              variant={variant}
+              css={{
+                ...(hoverEffect && {
+                  transition: 'all 0.2s ease-in-out',
+
+                  '&:hover': {
+                    td: {
+                      color: '$PRIMARY',
+                      fontWeight: '$MEDIUM',
+                    },
+                  },
+                }),
+                ...styles?.tr,
+              }}
+            >
               {headerGroup.headers.map((header) => (
                 <Th
                   key={header.id}
@@ -542,4 +542,5 @@ Table.defaultProps = {
     th: 'md',
     td: 'md',
   },
+  hoverEffect: true,
 }
