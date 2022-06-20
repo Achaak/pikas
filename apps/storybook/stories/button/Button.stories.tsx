@@ -1,4 +1,10 @@
-import { FontSizes, FontWeights, globalCss, styled } from '@pikas-ui/styles'
+import {
+  darkTheme,
+  FontSizes,
+  FontWeights,
+  globalCss,
+  styled,
+} from '@pikas-ui/styles'
 import {
   Button,
   ButtonEffect,
@@ -204,7 +210,7 @@ const Template: Story<ButtonProps> = (args) => {
   globalCss()
 
   return (
-    <PikasUIProvider>
+    <PikasUIProvider darkTheme={darkTheme}>
       <Container>
         <Button {...args}>Button</Button>
       </Container>

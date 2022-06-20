@@ -1,5 +1,65 @@
 # @pikas-ui/dropdown-menu
 
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.6
+  - @pikas-ui/icons@2.0.7
+  - @pikas-ui/loader@2.0.7
+  - @pikas-ui/menu@2.0.7
+
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.5
+  - @pikas-ui/icons@2.0.6
+  - @pikas-ui/loader@2.0.6
+  - @pikas-ui/menu@2.0.6
+
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.4
+  - @pikas-ui/icons@2.0.5
+  - @pikas-ui/loader@2.0.5
+  - @pikas-ui/menu@2.0.5
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.3
+  - @pikas-ui/icons@2.0.4
+  - @pikas-ui/loader@2.0.4
+  - @pikas-ui/menu@2.0.4
+
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.2
+  - @pikas-ui/icons@2.0.3
+  - @pikas-ui/loader@2.0.3
+  - @pikas-ui/menu@2.0.3
+
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.1
+  - @pikas-ui/icons@2.0.2
+  - @pikas-ui/loader@2.0.2
+  - @pikas-ui/menu@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes

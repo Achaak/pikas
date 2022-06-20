@@ -1,5 +1,143 @@
 # @pikas-ui/storybook
 
+## 1.0.54
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.6
+  - @pikas-ui/alert@2.0.7
+  - @pikas-ui/button@2.0.7
+  - @pikas-ui/checkbox@2.0.7
+  - @pikas-ui/context-menu@2.0.7
+  - @pikas-ui/dropdown-menu@2.0.7
+  - @pikas-ui/icons@2.0.7
+  - @pikas-ui/loader@2.0.7
+  - @pikas-ui/searchbar@2.0.7
+  - @pikas-ui/select@2.0.7
+  - @pikas-ui/separator@2.0.7
+  - @pikas-ui/slider@2.0.7
+  - @pikas-ui/table@2.0.7
+  - @pikas-ui/text@2.0.7
+  - @pikas-ui/textarea@2.0.7
+  - @pikas-ui/textfield@2.0.7
+  - @pikas-ui/tooltip@2.0.7
+
+## 1.0.53
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.5
+  - @pikas-ui/alert@2.0.6
+  - @pikas-ui/button@2.0.6
+  - @pikas-ui/checkbox@2.0.6
+  - @pikas-ui/context-menu@2.0.6
+  - @pikas-ui/dropdown-menu@2.0.6
+  - @pikas-ui/icons@2.0.6
+  - @pikas-ui/loader@2.0.6
+  - @pikas-ui/searchbar@2.0.6
+  - @pikas-ui/select@2.0.6
+  - @pikas-ui/separator@2.0.6
+  - @pikas-ui/slider@2.0.6
+  - @pikas-ui/table@2.0.6
+  - @pikas-ui/text@2.0.6
+  - @pikas-ui/textarea@2.0.6
+  - @pikas-ui/textfield@2.0.6
+  - @pikas-ui/tooltip@2.0.6
+
+## 1.0.52
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.4
+  - @pikas-ui/alert@2.0.5
+  - @pikas-ui/button@2.0.5
+  - @pikas-ui/checkbox@2.0.5
+  - @pikas-ui/context-menu@2.0.5
+  - @pikas-ui/dropdown-menu@2.0.5
+  - @pikas-ui/icons@2.0.5
+  - @pikas-ui/loader@2.0.5
+  - @pikas-ui/searchbar@2.0.5
+  - @pikas-ui/select@2.0.5
+  - @pikas-ui/separator@2.0.5
+  - @pikas-ui/slider@2.0.5
+  - @pikas-ui/table@2.0.5
+  - @pikas-ui/text@2.0.5
+  - @pikas-ui/textarea@2.0.5
+  - @pikas-ui/textfield@2.0.5
+  - @pikas-ui/tooltip@2.0.5
+
+## 1.0.51
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.3
+  - @pikas-ui/alert@2.0.4
+  - @pikas-ui/button@2.0.4
+  - @pikas-ui/checkbox@2.0.4
+  - @pikas-ui/context-menu@2.0.4
+  - @pikas-ui/dropdown-menu@2.0.4
+  - @pikas-ui/icons@2.0.4
+  - @pikas-ui/loader@2.0.4
+  - @pikas-ui/searchbar@2.0.4
+  - @pikas-ui/select@2.0.4
+  - @pikas-ui/separator@2.0.4
+  - @pikas-ui/slider@2.0.4
+  - @pikas-ui/table@2.0.4
+  - @pikas-ui/text@2.0.4
+  - @pikas-ui/textarea@2.0.4
+  - @pikas-ui/textfield@2.0.4
+  - @pikas-ui/tooltip@2.0.4
+
+## 1.0.50
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.2
+  - @pikas-ui/alert@2.0.3
+  - @pikas-ui/button@2.0.3
+  - @pikas-ui/checkbox@2.0.3
+  - @pikas-ui/context-menu@2.0.3
+  - @pikas-ui/dropdown-menu@2.0.3
+  - @pikas-ui/icons@2.0.3
+  - @pikas-ui/loader@2.0.3
+  - @pikas-ui/searchbar@2.0.3
+  - @pikas-ui/select@2.0.3
+  - @pikas-ui/separator@2.0.3
+  - @pikas-ui/slider@2.0.3
+  - @pikas-ui/table@2.0.3
+  - @pikas-ui/text@2.0.3
+  - @pikas-ui/textarea@2.0.3
+  - @pikas-ui/textfield@2.0.3
+  - @pikas-ui/tooltip@2.0.3
+
+## 1.0.49
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.1.1
+  - @pikas-ui/alert@2.0.2
+  - @pikas-ui/button@2.0.2
+  - @pikas-ui/checkbox@2.0.2
+  - @pikas-ui/context-menu@2.0.2
+  - @pikas-ui/dropdown-menu@2.0.2
+  - @pikas-ui/icons@2.0.2
+  - @pikas-ui/loader@2.0.2
+  - @pikas-ui/searchbar@2.0.2
+  - @pikas-ui/select@2.0.2
+  - @pikas-ui/separator@2.0.2
+  - @pikas-ui/slider@2.0.2
+  - @pikas-ui/table@2.0.2
+  - @pikas-ui/text@2.0.2
+  - @pikas-ui/textarea@2.0.2
+  - @pikas-ui/textfield@2.0.2
+  - @pikas-ui/tooltip@2.0.2
+
 ## 1.0.48
 
 ### Patch Changes

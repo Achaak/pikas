@@ -1,14 +1,10 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { createTheme, styled, theme as themeDefault } from '../css.js'
 import merge from 'lodash.merge'
-import { useDarkMode } from 'usehooks-ts'
+import cloneDeep from 'lodash.clonedeep'
+import { useSsr, useTernaryDarkMode } from 'usehooks-ts'
 
-const Container = styled('div', {
-  width: '100%',
-  height: '100%',
-})
-
-export { useDarkMode }
+export { useTernaryDarkMode }
 
 export interface PikasUIProviderProps {
   children?: React.ReactNode
@@ -16,26 +12,47 @@ export interface PikasUIProviderProps {
   darkTheme?: ReturnType<typeof createTheme>
 }
 
-export type PikasUIContextType = typeof themeDefault | null
+export type PikasUIContextType = typeof themeDefault | undefined
 
-export const PikasUIContext = createContext<PikasUIContextType>(null)
+export const PikasUIContext = createContext<PikasUIContextType>(undefined)
 
 export const PikasUIProvider: React.FC<PikasUIProviderProps> = ({
   lightTheme,
   darkTheme,
   children,
 }) => {
-  const { isDarkMode } = useDarkMode()
-  const [lightThemeMerged] = useState(merge(themeDefault, lightTheme))
-  const [darkThemeMerged] = useState(merge(themeDefault, darkTheme))
+  const [theme, setTheme] = useState<PikasUIContextType>(undefined)
+  const { isDarkMode } = useTernaryDarkMode()
+
+  useEffect(() => {
+    setTheme(
+      merge(cloneDeep(themeDefault), isDarkMode ? darkTheme : lightTheme)
+    )
+  }, [isDarkMode, lightTheme, darkTheme])
 
   return (
-    <PikasUIContext.Provider
-      value={isDarkMode ? darkThemeMerged : lightThemeMerged}
-    >
-      <Container className={isDarkMode ? darkThemeMerged : lightThemeMerged}>
-        {children}
-      </Container>
+    <PikasUIContext.Provider value={theme}>
+      <Container>{children}</Container>
     </PikasUIContext.Provider>
+  )
+}
+
+const ContainerStyled = styled('div', {
+  width: '100%',
+  height: '100%',
+})
+
+interface ContainerProps {
+  children?: React.ReactNode
+}
+
+const Container: React.FC<ContainerProps> = ({ children }) => {
+  const pikasUIContext = useContext(PikasUIContext)
+  const { isBrowser } = useSsr()
+
+  return (
+    <ContainerStyled className={isBrowser ? pikasUIContext : undefined}>
+      {children}
+    </ContainerStyled>
   )
 }

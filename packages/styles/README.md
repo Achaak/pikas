@@ -85,7 +85,7 @@ const App: React.FC = () => {
   customGlobalCss()
 
   return (
-    <PikasUIProvider theme={myTheme}>
+    <PikasUIProvider lightTheme={myTheme}>
       <h1>Hello World</h1>
     </PikasUIProvider>
   );

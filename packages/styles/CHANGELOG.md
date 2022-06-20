@@ -1,5 +1,41 @@
 # @pikas-ui/styles
 
+## 2.1.6
+
+### Patch Changes
+
+- Fix dark mode
+
+## 2.1.5
+
+### Patch Changes
+
+- Fix dark mode
+
+## 2.1.4
+
+### Patch Changes
+
+- Fix darkmode
+
+## 2.1.3
+
+### Patch Changes
+
+- Fix darkmode
+
+## 2.1.2
+
+### Patch Changes
+
+- Fix darkmode
+
+## 2.1.1
+
+### Patch Changes
+
+- Fix darkmode
+
 ## 2.1.0
 
 ### Minor Changes
