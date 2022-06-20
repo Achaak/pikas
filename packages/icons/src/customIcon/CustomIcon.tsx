@@ -30,10 +30,8 @@ export const CustomIcon: React.FC<CustomIconProps> = ({
         svg: {
           width: size,
           height: size,
+          color: (color ? `$${color}` : undefined) || colorHex,
           ...styles?.svg,
-        },
-        '*': {
-          fill: (color ? `$${color}` : undefined) || colorHex,
         },
       }}
     >

@@ -1,5 +1,23 @@
 # @pikas-ui/storybook
 
+## 1.0.55
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/icons@2.0.8
+  - @pikas-ui/alert@2.0.8
+  - @pikas-ui/button@2.0.8
+  - @pikas-ui/checkbox@2.0.8
+  - @pikas-ui/context-menu@2.0.8
+  - @pikas-ui/dropdown-menu@2.0.8
+  - @pikas-ui/searchbar@2.0.8
+  - @pikas-ui/select@2.0.8
+  - @pikas-ui/slider@2.0.8
+  - @pikas-ui/table@2.0.8
+  - @pikas-ui/textarea@2.0.8
+  - @pikas-ui/textfield@2.0.8
+
 ## 1.0.54
 
 ### Patch Changes

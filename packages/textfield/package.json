@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textfield",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "2.0.7",
+    "@pikas-ui/icons": "2.0.8",
     "@pikas-ui/loader": "2.0.7",
     "@pikas-ui/styles": "2.1.6",
     "@pikas-ui/text": "2.0.7",

@@ -1,5 +1,11 @@
 # @pikas-ui/icons
 
+## 2.0.8
+
+### Patch Changes
+
+- Fix icons
+
 ## 2.0.7
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "2.0.7",
-    "@pikas-ui/icons": "2.0.7",
+    "@pikas-ui/checkbox": "2.0.8",
+    "@pikas-ui/icons": "2.0.8",
     "@pikas-ui/loader": "2.0.7",
-    "@pikas-ui/select": "2.0.7",
+    "@pikas-ui/select": "2.0.8",
     "@pikas-ui/styles": "2.1.6",
     "@tanstack/react-table": "8.0.0-beta.3",
     "font-color-contrast": "^11.1.0",
