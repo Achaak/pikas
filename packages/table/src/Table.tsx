@@ -28,6 +28,7 @@ const TableStyled = styled('table', {
   borderCollapse: 'collapse',
   br: 'sm',
   overflow: 'hidden',
+  color: '$BLACK',
 
   variants: {
     variant: {
