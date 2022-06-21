@@ -1,5 +1,18 @@
 # @pikas-ui/searchbar
 
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/button@2.0.9
+
+## 2.0.9
+
+### Patch Changes
+
+- @pikas-ui/textfield@2.0.9
+
 ## 2.0.8
 
 ### Patch Changes

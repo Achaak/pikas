@@ -1,5 +1,11 @@
 # @pikas-ui/text
 
+## 3.0.0
+
+### Major Changes
+
+- Fix Styles
+
 ## 2.0.7
 
 ### Patch Changes

@@ -274,6 +274,7 @@ export const Select: React.FC<SelectProps> = ({
         width: width,
         maxWidth: maxWidth,
         minWidth: minWidth,
+        ...styles?.container,
       }}
     >
       {label ? (

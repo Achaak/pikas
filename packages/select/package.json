@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "2.0.8",
+  "version": "3.0.0",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -32,8 +32,8 @@
   "dependencies": {
     "@pikas-ui/icons": "2.0.8",
     "@pikas-ui/styles": "2.1.6",
-    "@pikas-ui/text": "2.0.7",
-    "@pikas-ui/textfield": "2.0.8",
+    "@pikas-ui/text": "3.0.0",
+    "@pikas-ui/textfield": "2.0.9",
     "@radix-ui/react-select": "^0.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

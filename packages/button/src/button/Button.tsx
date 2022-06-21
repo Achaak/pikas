@@ -270,7 +270,7 @@ const getContent = ({
             styles={styles?.icon}
           />
         ) : null}
-        <span>{children}</span>
+        <div>{children}</div>
         {RightIcon ? (
           <RightIcon
             size="1em"

@@ -1,5 +1,11 @@
 # @pikas-ui/button
 
+## 2.0.9
+
+### Patch Changes
+
+- Fix span to div
+
 ## 2.0.8
 
 ### Patch Changes
