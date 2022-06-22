@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 2.0.11
+
+### Patch Changes
+
+- Fix dependencies
+
 ## 2.0.10
 
 ### Patch Changes

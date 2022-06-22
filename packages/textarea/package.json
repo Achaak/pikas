@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textarea",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -34,7 +34,7 @@
     "@pikas-ui/loader": "2.0.8",
     "@pikas-ui/styles": "2.1.7",
     "@pikas-ui/text": "3.0.1",
-    "@pikas-ui/tooltip": "workspace:^2.0.8",
+    "@pikas-ui/tooltip": "2.0.8",
     "font-color-contrast": "^11.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

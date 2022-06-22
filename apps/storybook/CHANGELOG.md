@@ -1,5 +1,16 @@
 # @pikas-ui/storybook
 
+## 1.0.61
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/select@3.0.2
+  - @pikas-ui/textarea@2.0.11
+  - @pikas-ui/textfield@2.0.11
+  - @pikas-ui/table@2.0.13
+  - @pikas-ui/searchbar@2.0.12
+
 ## 1.0.60
 
 ### Patch Changes
