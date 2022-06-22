@@ -30,7 +30,7 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@7.0.0",
+  "packageManager": "pnpm@7.3.0",
   "dependencies": {
     "@changesets/cli": "^2.22.0"
   }
