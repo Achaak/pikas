@@ -13,6 +13,8 @@ import type { TextareaHTMLAttributes } from 'react'
 import { useContext } from 'react'
 import { forwardRef } from 'react'
 import React, { useState } from 'react'
+import { IconByName } from '@pikas-ui/icons'
+import { Tooltip, TooltipStylesType } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
   display: 'flex',
@@ -57,6 +59,16 @@ const TextareaStyled = styled('textarea', {
   border: 'none',
   fontFamily: '$roboto',
   backgroundColor: '$TRANSPARENT',
+})
+
+const LabelContainer = styled('div', {
+  display: 'flex',
+  marginBottom: 4,
+})
+
+const Obligatory = styled('div', {
+  color: '$WARNING',
+  marginLeft: 4,
 })
 
 export const TextareaPadding = {
@@ -106,6 +118,8 @@ export type TextareaProps = {
   placeholderColorHex?: string
   backgroundColor?: ColorsType
   backgroundColorHex?: string
+  info?: React.ReactNode
+  infoStyles?: TooltipStylesType
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -138,6 +152,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       colorHex,
       placeholderColor,
       placeholderColorHex,
+      info,
+      infoStyles,
+      required,
       ...props
     },
     ref
@@ -182,14 +199,24 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         }}
       >
         {label ? (
-          <Label
-            htmlFor={id}
-            style={{
-              marginBottom: 4,
-            }}
-          >
-            {label}
-          </Label>
+          <LabelContainer>
+            <Label htmlFor={id}>{label}</Label>
+
+            {required ? <Obligatory>*</Obligatory> : null}
+            {info ? (
+              <Tooltip content={info} styles={infoStyles}>
+                <IconByName
+                  name="bx:info-circle"
+                  color="BLACK_LIGHT"
+                  styles={{
+                    container: {
+                      marginLeft: 4,
+                    },
+                  }}
+                />
+              </Tooltip>
+            ) : null}
+          </LabelContainer>
         ) : null}
 
         {description ? (
@@ -225,6 +252,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onChange={onChangeTextarea}
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
+            required={required}
             css={{
               resize: resize,
               height: height,

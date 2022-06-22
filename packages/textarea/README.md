@@ -69,6 +69,9 @@ Props extends `TextareaHTMLAttributes<HTMLTextAreaElement>`
 | `height`              | The height of the textarea.                | `string or number`                                             | `300px`          |
 | `minHeight`           | The min height of the textarea.            | `string or number`                                             | -                |
 | `maxHeight`           | The max height of the textarea.            | `string or number`                                             | -                |
+| `required`            | The required of the textarea.              | `boolean`                                                      | `false`          |
+| `info`                | Add a info icon with a tooltip.            | `string`                                                       | -                |
+| `infoStyles `         | The styles of the info icon.               | `TooltipStylesType`                                            | -                |
 
 ---
 

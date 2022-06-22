@@ -237,10 +237,14 @@ const IconTest: React.FC<IconProps> = (props) => {
 
 export const Default = Template.bind({})
 Default.args = {
+  info: 'Aliquip cupidatat exercitation et id enim.',
   label: 'Label',
+  required: true,
+  description: 'Aliquip cupidatat exercitation et id enim.',
   type: 'text',
   textError: 'Error message',
   id: 'textfield-id',
+  obligatory: true,
 }
 
 export const WithIcon = Template.bind({})

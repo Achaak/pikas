@@ -90,6 +90,9 @@ const Example: React.FC = () => {
 | `width`             | The width of the select.                      | `string or number`                                                                                                                                    | `"100%"` |
 | `maxWidth`          | The max width of the select.                  | `string or number`                                                                                                                                    | `"100%"` |
 | `minWidth`          | The min width of the select.                  | `string or number`                                                                                                                                    | -        |
+| `required`          | The required of the select.                   | `boolean`                                                                                                                                             | `false`  |
+| `info`              | Add a info icon with a tooltip.               | `string`                                                                                                                                              | -        |
+| `infoStyles `       | The styles of the info icon.                  | `TooltipStylesType`                                                                                                                                   | -        |
 
 ---
 

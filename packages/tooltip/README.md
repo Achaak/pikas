@@ -73,7 +73,7 @@ const Example: React.FC = () => {
 | `fontWeight`         | Font weight of content             | `FontsWeightsType`          | -               |
 | `boxShadow`          | Box shadow of the tooltip          | `ShadowsType`               | `"ELEVATION_2"` |
 | `padding`            | Padding of the tooltip             | `TooltipPaddingType`        | `"md"`          |
-
+| `styles`             | Custom styles                      | `TooltipStylesType`         | -               |
 ---
 
 ### Change Log

@@ -6,6 +6,7 @@ import {
   globalCss,
   Shadows,
   PikasUIProvider,
+  styled,
 } from '@pikas-ui/styles'
 import {
   Tooltip,
@@ -16,6 +17,12 @@ import {
 import type { TooltipProps } from '@pikas-ui/tooltip'
 import type { Story, Meta } from '@storybook/react'
 import { IconByName } from '@pikas-ui/icons'
+
+const Container = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+})
 
 export default {
   title: '@pikas-ui/tooltip',
@@ -191,9 +198,11 @@ const Template: Story<TooltipProps> = (args) => {
 
   return (
     <PikasUIProvider>
-      <Tooltip {...args}>
-        <IconByName size={40} name="bx:baguette" />
-      </Tooltip>
+      <Container>
+        <Tooltip {...args}>
+          <IconByName size={40} name="bx:baguette" />
+        </Tooltip>
+      </Container>
     </PikasUIProvider>
   )
 }

@@ -1,6 +1,7 @@
 import type {
   BorderRadiusType,
   ColorsType,
+  CSS,
   FontsSizesType,
   FontsWeightsType,
   ShadowsType,
@@ -67,6 +68,10 @@ const StyledContent = styled(TooltipPrimitive.Content, {
   },
 })
 
+const Trigger = styled(TooltipPrimitive.Trigger, {
+  all: 'unset',
+})
+
 const StyledArrow = styled(TooltipPrimitive.Arrow, {})
 
 export const TooltipSide = {
@@ -90,6 +95,11 @@ export const TooltipPadding = {
   lg: true,
 }
 export type TooltipPaddingType = keyof typeof TooltipPadding
+
+export type TooltipStylesType = {
+  trigger?: CSS
+  content?: CSS
+}
 
 export interface TooltipProps {
   content: string | React.ReactNode
@@ -115,7 +125,7 @@ export interface TooltipProps {
   fontWeight?: FontsWeightsType
   boxShadow?: ShadowsType
   padding?: TooltipPaddingType
-  as?: React.ElementType
+  styles?: TooltipStylesType
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -142,6 +152,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   boxShadow,
   hasArrow,
   padding,
+  styles,
 }) => {
   const pikasUiContext = useContext(PikasUIContext)
 
@@ -156,7 +167,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
         defaultOpen={defaultOpen}
         delayDuration={delayDuration}
       >
-        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
+        <Trigger asChild css={styles?.trigger}>
+          <div>{children}</div>
+        </Trigger>
         <StyledContent
           side={side}
           sideOffset={sideOffset}
@@ -179,6 +192,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
                   0.7
                 )) ||
               undefined,
+
+            ...styles?.content,
           }}
         >
           {content}

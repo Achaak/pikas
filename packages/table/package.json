@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,25 +30,25 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "2.0.9",
-    "@pikas-ui/icons": "2.0.8",
-    "@pikas-ui/loader": "2.0.7",
-    "@pikas-ui/select": "3.0.0",
-    "@pikas-ui/styles": "2.1.6",
+    "@pikas-ui/checkbox": "2.0.10",
+    "@pikas-ui/icons": "2.0.9",
+    "@pikas-ui/loader": "2.0.8",
+    "@pikas-ui/select": "3.0.1",
+    "@pikas-ui/styles": "2.1.7",
     "@tanstack/react-table": "8.0.0-beta.3",
     "font-color-contrast": "^11.1.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
-    "@types/node": "^17.0.41",
+    "@types/node": "^18.0.0",
     "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.5",
-    "eslint": "^8.17.0",
+    "eslint": "^8.18.0",
     "tsup": "^6.0.1",
-    "typescript": "4.7.3"
+    "typescript": "4.7.4"
   },
   "node": "12.20.0 || 14.13.1 || >=16.0.0"
 }

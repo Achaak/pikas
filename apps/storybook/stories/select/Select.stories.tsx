@@ -227,6 +227,9 @@ Default.args = {
       ],
     },
   ],
+  info: 'Aliquip cupidatat exercitation et id enim.',
+  label: 'Select',
+  required: true,
 }
 
 export const WithSearch = Template.bind({})

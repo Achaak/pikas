@@ -1,5 +1,19 @@
 # @pikas-ui/select
 
+## 3.0.1
+
+### Patch Changes
+
+- Update dependencies
+- Add required, info and infoStyles props
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/icons@2.0.9
+  - @pikas-ui/styles@2.1.7
+  - @pikas-ui/text@3.0.1
+  - @pikas-ui/textfield@2.0.10
+  - @pikas-ui/tooltip@2.0.8
+
 ## 3.0.0
 
 ### Major Changes

@@ -82,6 +82,9 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | `rightIconColorHex`   | The right icon color hex of the textfield.  | `string`                                                 | -                   |
 | `leftIconSize`        | The left icon size of the textfield.        | `number`                                                 | -                   |
 | `rightIconSize`       | The right icon size of the textfield.       | `number`                                                 | -                   |
+| `required`            | The required of the textfield.              | `boolean`                                                | `false`             |
+| `info`                | Add a info icon with a tooltip.             | `string`                                                 | -                   |
+| `infoStyles `         | The styles of the info icon.                | `TooltipStylesType`                                      | -                   |
 
 ---
 

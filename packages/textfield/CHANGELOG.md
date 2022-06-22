@@ -1,5 +1,18 @@
 # @pikas-ui/textfield
 
+## 2.0.10
+
+### Patch Changes
+
+- Update dependencies
+- Add required, info and infoStyles props
+- Updated dependencies
+  - @pikas-ui/icons@2.0.9
+  - @pikas-ui/loader@2.0.8
+  - @pikas-ui/styles@2.1.7
+  - @pikas-ui/text@3.0.1
+  - @pikas-ui/tooltip@2.0.8
+
 ## 2.0.9
 
 ### Patch Changes

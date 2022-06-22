@@ -1,4 +1,4 @@
-import type { IconProps, IconStyleType } from '@pikas-ui/icons'
+import { IconByName, IconProps, IconStyleType } from '@pikas-ui/icons'
 import type {
   ShadowsType,
   ColorsType,
@@ -16,6 +16,8 @@ import { useContext } from 'react'
 import { forwardRef } from 'react'
 import React, { useRef, useState } from 'react'
 import useMergedRef from '@react-hook/merged-ref'
+import type { TooltipStylesType } from '@pikas-ui/tooltip'
+import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
   display: 'flex',
@@ -141,6 +143,16 @@ const RightContainer = styled(LabelPrimitive.Root, {
   },
 })
 
+const LabelContainer = styled('div', {
+  display: 'flex',
+  marginBottom: 4,
+})
+
+const Obligatory = styled('div', {
+  color: '$WARNING',
+  marginLeft: 4,
+})
+
 export const TextfieldType = {
   color: true,
   date: true,
@@ -226,6 +238,8 @@ export type TextfieldProps = {
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
+  info?: React.ReactNode
+  infoStyles?: TooltipStylesType
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
@@ -269,6 +283,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       rightIconColorHex,
       leftIconSize,
       rightIconSize,
+      required,
+      info,
+      infoStyles,
       ...props
     },
     ref
@@ -301,15 +318,17 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       color?: string
       colorHex?: string
     }): string => {
-      return colorHex || color
-        ? `$${color}`
-        : undefined ||
-            (pikasUiContext &&
-              fontColorContrast(
-                pikasUiContext.colors[backgroundColor || 'WHITE'].value,
-                0.7
-              )) ||
-            ''
+      return (
+        colorHex ||
+        (color ? `$${color}` : undefined) ||
+        (pikasUiContext
+          ? fontColorContrast(
+              pikasUiContext.colors[backgroundColor || 'WHITE'].value,
+              0.7
+            )
+          : undefined) ||
+        ''
+      )
     }
 
     return (
@@ -323,14 +342,24 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         }}
       >
         {label ? (
-          <Label
-            htmlFor={id}
-            style={{
-              marginBottom: 4,
-            }}
-          >
-            {label}
-          </Label>
+          <LabelContainer>
+            <Label htmlFor={id}>{label}</Label>
+
+            {required ? <Obligatory>*</Obligatory> : null}
+            {info ? (
+              <Tooltip content={info} styles={infoStyles}>
+                <IconByName
+                  name="bx:info-circle"
+                  color="BLACK_LIGHT"
+                  styles={{
+                    container: {
+                      marginLeft: 4,
+                    },
+                  }}
+                />
+              </Tooltip>
+            ) : null}
+          </LabelContainer>
         ) : null}
 
         {description ? (
@@ -408,6 +437,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             max={max}
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
+            required={required}
             css={{
               color: getColor({ color, colorHex }),
 

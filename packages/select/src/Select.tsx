@@ -11,6 +11,7 @@ import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import React, { useEffect, useState } from 'react'
+import { Tooltip, TooltipStylesType } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
   display: 'flex',
@@ -144,6 +145,16 @@ const SearchContainer = styled('div', {
   padding: 8,
 })
 
+const LabelContainer = styled('div', {
+  display: 'flex',
+  marginBottom: 4,
+})
+
+const Obligatory = styled('div', {
+  color: '$WARNING',
+  marginLeft: 4,
+})
+
 export type SelectItemType = {
   label: React.ReactNode
   value: string
@@ -201,6 +212,9 @@ export interface SelectProps {
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
+  info?: React.ReactNode
+  infoStyles?: TooltipStylesType
+  required?: boolean
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -229,6 +243,9 @@ export const Select: React.FC<SelectProps> = ({
   maxWidth,
   width,
   minWidth,
+  info,
+  infoStyles,
+  required,
 }) => {
   const [searchValue, setSearchValue] = useState('')
   const [formatedData, setFormatedData] = useState(data)
@@ -278,14 +295,24 @@ export const Select: React.FC<SelectProps> = ({
       }}
     >
       {label ? (
-        <Label
-          htmlFor={id}
-          style={{
-            marginBottom: 4,
-          }}
-        >
-          {label}
-        </Label>
+        <LabelContainer>
+          <Label htmlFor={id}>{label}</Label>
+
+          {required ? <Obligatory>*</Obligatory> : null}
+          {info ? (
+            <Tooltip content={info} styles={infoStyles}>
+              <IconByName
+                name="bx:info-circle"
+                color="BLACK_LIGHT"
+                styles={{
+                  container: {
+                    marginLeft: 4,
+                  },
+                }}
+              />
+            </Tooltip>
+          ) : null}
+        </LabelContainer>
       ) : null}
 
       {description ? (

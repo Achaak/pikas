@@ -6,6 +6,7 @@ const DescriptionStyled = styled('p', {
   fontSize: '$EM-SMALL',
   fontWeight: '$NORMAL',
   display: 'block',
+  margin: 0,
 })
 
 export interface DescriptionProps {

@@ -178,7 +178,9 @@ const Template: Story<TextareaProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
+  info: 'Aliquip cupidatat exercitation et id enim.',
   label: 'Label',
+  required: true,
   textError: 'Error message',
   id: 'textarea-id',
   description: 'Aliquip cupidatat exercitation et id enim.',
