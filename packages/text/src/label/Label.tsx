@@ -7,6 +7,7 @@ const LabelStyled = styled(LabelPrimitive.Label, {
   fontSize: '$EM-SMALL',
   fontWeight: '$BOLD',
   display: 'block',
+  color: '$BLACK',
 })
 
 export interface LabelProps {

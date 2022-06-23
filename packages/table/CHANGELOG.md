@@ -1,5 +1,12 @@
 # @pikas-ui/table
 
+## 2.0.14
+
+### Patch Changes
+
+- @pikas-ui/checkbox@2.0.11
+- @pikas-ui/select@3.0.3
+
 ## 2.0.13
 
 ### Patch Changes

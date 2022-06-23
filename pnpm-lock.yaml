@@ -18,21 +18,21 @@ importers:
       '@babel/core': ^7.18.0
       '@pikas-ui/alert': 2.0.9
       '@pikas-ui/button': 2.0.10
-      '@pikas-ui/checkbox': 2.0.10
+      '@pikas-ui/checkbox': 2.0.11
       '@pikas-ui/config': workspace:*
       '@pikas-ui/context-menu': 2.0.9
       '@pikas-ui/dropdown-menu': 2.0.9
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/loader': 2.0.8
-      '@pikas-ui/searchbar': 2.0.12
-      '@pikas-ui/select': 3.0.2
+      '@pikas-ui/searchbar': 2.0.13
+      '@pikas-ui/select': 3.0.3
       '@pikas-ui/separator': 2.0.8
-      '@pikas-ui/slider': 2.0.10
+      '@pikas-ui/slider': 2.0.11
       '@pikas-ui/styles': 2.1.7
-      '@pikas-ui/table': 2.0.13
-      '@pikas-ui/text': 3.0.1
-      '@pikas-ui/textarea': 2.0.11
-      '@pikas-ui/textfield': 2.0.11
+      '@pikas-ui/table': 2.0.14
+      '@pikas-ui/text': 3.0.2
+      '@pikas-ui/textarea': 2.0.12
+      '@pikas-ui/textfield': 2.0.12
       '@pikas-ui/tooltip': 2.0.8
       '@pikas-ui/tsconfig': workspace:*
       '@storybook/addon-essentials': ^6.5.6
@@ -163,7 +163,7 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/styles': 2.1.7
-      '@pikas-ui/text': 3.0.1
+      '@pikas-ui/text': 3.0.2
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-checkbox': ^0.1.5
       '@types/node': ^18.0.0
@@ -388,7 +388,7 @@ importers:
       '@pikas-ui/loader': 2.0.8
       '@pikas-ui/separator': 2.0.8
       '@pikas-ui/styles': 2.1.7
-      '@pikas-ui/textfield': 2.0.11
+      '@pikas-ui/textfield': 2.0.12
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^18.0.0
       '@types/react': ^18.0.10
@@ -424,8 +424,8 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/styles': 2.1.7
-      '@pikas-ui/text': 3.0.1
-      '@pikas-ui/textfield': 2.0.11
+      '@pikas-ui/text': 3.0.2
+      '@pikas-ui/textfield': 2.0.12
       '@pikas-ui/tooltip': 2.0.8
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-select': ^0.1.1
@@ -490,7 +490,7 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/styles': 2.1.7
-      '@pikas-ui/text': 3.0.1
+      '@pikas-ui/text': 3.0.2
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-slider': ^0.1.4
       '@types/node': ^18.0.0
@@ -557,11 +557,11 @@ importers:
 
   packages/table:
     specifiers:
-      '@pikas-ui/checkbox': 2.0.10
+      '@pikas-ui/checkbox': 2.0.11
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/loader': 2.0.8
-      '@pikas-ui/select': 3.0.2
+      '@pikas-ui/select': 3.0.3
       '@pikas-ui/styles': 2.1.7
       '@pikas-ui/tsconfig': workspace:*
       '@tanstack/react-table': 8.0.0-beta.3
@@ -629,7 +629,7 @@ importers:
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/loader': 2.0.8
       '@pikas-ui/styles': 2.1.7
-      '@pikas-ui/text': 3.0.1
+      '@pikas-ui/text': 3.0.2
       '@pikas-ui/tooltip': 2.0.8
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^18.0.0
@@ -666,7 +666,7 @@ importers:
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/loader': 2.0.8
       '@pikas-ui/styles': 2.1.7
-      '@pikas-ui/text': 3.0.1
+      '@pikas-ui/text': 3.0.2
       '@pikas-ui/tooltip': 2.0.8
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-label': ^0.1.5

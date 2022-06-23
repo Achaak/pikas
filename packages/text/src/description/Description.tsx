@@ -7,6 +7,7 @@ const DescriptionStyled = styled('p', {
   fontWeight: '$NORMAL',
   display: 'block',
   margin: 0,
+  color: '$BLACK',
 })
 
 export interface DescriptionProps {

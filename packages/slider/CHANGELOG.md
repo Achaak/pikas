@@ -1,5 +1,12 @@
 # @pikas-ui/slider
 
+## 2.0.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/text@3.0.2
+
 ## 2.0.10
 
 ### Patch Changes

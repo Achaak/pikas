@@ -1,5 +1,12 @@
 # @pikas-ui/textarea
 
+## 2.0.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/text@3.0.2
+
 ## 2.0.11
 
 ### Patch Changes
