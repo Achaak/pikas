@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 3.0.4
+
+### Patch Changes
+
+- Update style
+
 ## 3.0.3
 
 ### Patch Changes

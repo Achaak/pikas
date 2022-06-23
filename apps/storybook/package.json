@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/storybook",
-  "version": "1.0.62",
+  "version": "1.0.63",
   "private": true,
   "scripts": {
     "build": "build-storybook",
@@ -31,11 +31,11 @@
     "@pikas-ui/icons": "2.0.9",
     "@pikas-ui/loader": "2.0.8",
     "@pikas-ui/searchbar": "2.0.13",
-    "@pikas-ui/select": "3.0.3",
+    "@pikas-ui/select": "3.0.4",
     "@pikas-ui/separator": "2.0.8",
     "@pikas-ui/slider": "2.0.11",
     "@pikas-ui/styles": "2.1.7",
-    "@pikas-ui/table": "2.0.14",
+    "@pikas-ui/table": "2.0.15",
     "@pikas-ui/text": "3.0.2",
     "@pikas-ui/textarea": "2.0.12",
     "@pikas-ui/textfield": "2.0.12",

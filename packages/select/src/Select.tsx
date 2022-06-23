@@ -11,7 +11,8 @@ import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import React, { useEffect, useState } from 'react'
-import { Tooltip, TooltipStylesType } from '@pikas-ui/tooltip'
+import type { TooltipStylesType } from '@pikas-ui/tooltip'
+import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
   display: 'flex',
@@ -29,6 +30,7 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   cursor: 'pointer',
   borderStyle: 'solid',
   width: '100%',
+  color: '$BLACK',
 
   variants: {
     padding: {
