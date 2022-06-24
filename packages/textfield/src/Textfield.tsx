@@ -1,4 +1,5 @@
-import { IconByName, IconProps, IconStyleType } from '@pikas-ui/icons'
+import type { IconProps, IconStyleType } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 import type {
   ShadowsType,
   ColorsType,
