@@ -144,6 +144,7 @@ export interface SearchbarProps<T> {
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
+  openOnFocus?: boolean
 }
 
 export const Searchbar = <T,>({
@@ -162,6 +163,7 @@ export const Searchbar = <T,>({
   width,
   maxWidth,
   minWidth,
+  openOnFocus,
 }: SearchbarProps<T>): JSX.Element => {
   const [result, setResult] = useState<ResultGroupWithIdType[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
@@ -324,7 +326,7 @@ export const Searchbar = <T,>({
         }
         RightIcon={searchType !== 'button' ? SearchIcon : undefined}
         onFocus={(): void => {
-          if (!textfieldValue) return
+          if (!textfieldValue && !openOnFocus) return
           setIsOpen(true)
         }}
         onKeyDown={(e): void => {

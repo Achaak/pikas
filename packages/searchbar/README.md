@@ -60,7 +60,7 @@ const Example: React.FC = () => {
 | `width`           | The width of the searchbar.                        | `string or number`                       | `"100%"`      |
 | `maxWidth`        | The max width of the searchbar.                    | `string or number`                       | `"100%"`      |
 | `minWidth`        | The min width of the searchbar.                    | `string or number`                       | -             |
-
+| `openOnFocus`     | Set to `true` to open the searchbar on focus.      | `boolean`                                | `false`       |
 ---
 
 ### Change Log

@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 2.0.15
+
+### Patch Changes
+
+- Add openOnFocus props
+
 ## 2.0.14
 
 ### Patch Changes
