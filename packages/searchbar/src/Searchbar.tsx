@@ -343,7 +343,7 @@ export const Searchbar = <T,>({
         }}
         onKeyDown={(e): void => {
           textfield?.onKeyDown?.(e)
-          if (loading) return
+          if (loading && !directResult?.enabled) return
 
           switch (e.key) {
             case 'Enter':

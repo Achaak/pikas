@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 2.0.19
+
+### Patch Changes
+
+- Fix enter in searchbar when directResult props is enabled
+
 ## 2.0.18
 
 ### Patch Changes
