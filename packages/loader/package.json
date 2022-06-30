@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/loader",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -33,7 +33,7 @@
     "@pikas-ui/styles": "2.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-spinners": "^0.12.0"
+    "react-spinners": "^0.13.2"
   },
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",

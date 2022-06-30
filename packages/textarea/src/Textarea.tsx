@@ -66,7 +66,7 @@ const LabelContainer = styled('div', {
   marginBottom: 4,
 })
 
-const Obligatory = styled('div', {
+const Required = styled('div', {
   color: '$WARNING',
   marginLeft: 4,
 })
@@ -202,7 +202,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <LabelContainer>
             <Label htmlFor={id}>{label}</Label>
 
-            {required ? <Obligatory>*</Obligatory> : null}
+            {required ? <Required>*</Required> : null}
             {info ? (
               <Tooltip content={info} styles={infoStyles}>
                 <IconByName

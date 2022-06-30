@@ -244,7 +244,6 @@ Default.args = {
   type: 'text',
   textError: 'Error message',
   id: 'textfield-id',
-  obligatory: true,
 }
 
 export const WithIcon = Template.bind({})

@@ -1,5 +1,15 @@
 # @pikas-ui/searchbar
 
+## 2.0.17
+
+### Patch Changes
+
+- Remove openOnFocus and add directResult props
+- Updated dependencies
+  - @pikas-ui/loader@2.0.9
+  - @pikas-ui/textfield@2.0.13
+  - @pikas-ui/button@2.0.11
+
 ## 2.0.16
 
 ### Patch Changes

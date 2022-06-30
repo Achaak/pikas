@@ -29,8 +29,6 @@ const Result = styled('div', {
   opacity: 0,
   pointerEvents: 'none',
   transition: 'opacity 0.2s ease-in-out',
-  display: 'flex',
-  flexDirection: 'column',
   maxHeight: 300,
   overflowY: 'auto',
 
@@ -50,6 +48,12 @@ const Result = styled('div', {
       },
     },
   },
+})
+
+const SearchResultContainer = styled('div', {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
 })
 
 const ResultGroup = styled('div', {})
@@ -91,6 +95,10 @@ const ResultLoading = styled('div', {
   justifyContent: 'center',
   alignItems: 'center',
   padding: 16,
+})
+
+const DirectResultValue = styled('span', {
+  color: '$BLACK',
 })
 
 const SearchIcon: React.FC<IconProps> = ({ ...props }) => (
@@ -144,7 +152,10 @@ export interface SearchbarProps<T> {
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
-  openOnFocus?: boolean
+  directResult?: {
+    enable: boolean
+    onClick?: (value?: string) => void
+  }
 }
 
 export const Searchbar = <T,>({
@@ -163,7 +174,7 @@ export const Searchbar = <T,>({
   width,
   maxWidth,
   minWidth,
-  openOnFocus,
+  directResult,
 }: SearchbarProps<T>): JSX.Element => {
   const [result, setResult] = useState<ResultGroupWithIdType[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
@@ -184,7 +195,7 @@ export const Searchbar = <T,>({
   ): ResultGroupWithIdType[] => {
     if (!result) return []
 
-    let i = 0
+    let i = directResult?.enable ? 1 : 0
     const resultFormat: ResultGroupWithIdType[] = []
 
     result.forEach((group) => {
@@ -210,9 +221,6 @@ export const Searchbar = <T,>({
   const handleSearch = async (): Promise<void> => {
     if (!textfieldValue) return
 
-    setLoading(true)
-    setIsOpen(true)
-    setSelectionId(0)
     refItem.current = []
     const res = await searchFunction(textfieldValue)
     const resOnSearch = onSearch(res)
@@ -305,10 +313,13 @@ export const Searchbar = <T,>({
         ref={refTextfield}
         autoComplete="off"
         onChange={(e): void => {
+          setIsOpen(true)
+          setSelectionId(0)
+          setLoading(true)
           textfield?.onChange?.(e)
           setTextfieldValue(e.target.value)
 
-          if (!searchWhenKeyUp && !openOnFocus) {
+          if (!searchWhenKeyUp) {
             setIsOpen(false)
           }
         }}
@@ -325,11 +336,13 @@ export const Searchbar = <T,>({
           ) : undefined
         }
         RightIcon={searchType !== 'button' ? SearchIcon : undefined}
-        onFocus={(): void => {
-          if (!textfieldValue && !openOnFocus) return
+        onFocus={(e): void => {
+          textfield?.onFocus?.(e)
+          if (!textfieldValue) return
           setIsOpen(true)
         }}
         onKeyDown={(e): void => {
+          textfield?.onKeyDown?.(e)
           if (loading) return
 
           switch (e.key) {
@@ -376,63 +389,81 @@ export const Searchbar = <T,>({
             : 'down'
         }
       >
-        {loading ? (
-          <ResultLoading>
-            <ClipLoader size={40} color="PRIMARY" />
-          </ResultLoading>
-        ) : nbItems && result ? (
-          result.map((group, groupIndex) => {
-            const res = []
+        {directResult?.enable && textfieldValue ? (
+          <ResultItem
+            ref={(ref): void => {
+              refItem.current[0] = ref
+            }}
+            onClick={(): void => {
+              directResult?.onClick?.(textfieldValue)
+              setIsOpen(false)
+            }}
+            selected={selectionId === 0}
+            css={styles?.resultItem}
+          >
+            <DirectResultValue>{textfieldValue}</DirectResultValue>
+          </ResultItem>
+        ) : null}
 
-            if (group.title && group.items.length) {
+        <SearchResultContainer>
+          {loading ? (
+            <ResultLoading>
+              <ClipLoader size={40} color="PRIMARY" />
+            </ResultLoading>
+          ) : nbItems && result ? (
+            result.map((group, groupIndex) => {
+              const res = []
+
+              if (group.title && group.items.length) {
+                res.push(
+                  <ResultGroupTitle
+                    key={`${groupIndex}-title`}
+                    css={styles?.resultGroupTitle}
+                  >
+                    {group.title}
+                  </ResultGroupTitle>
+                )
+              }
+
               res.push(
-                <ResultGroupTitle
-                  key={`${groupIndex}-title`}
-                  css={styles?.resultGroupTitle}
-                >
-                  {group.title}
-                </ResultGroupTitle>
-              )
-            }
+                <ResultGroup key={groupIndex} css={styles?.resultGroup}>
+                  {group.items.map((item, itemIndex) => {
+                    const res = []
 
-            res.push(
-              <ResultGroup key={groupIndex} css={styles?.resultGroup}>
-                {group.items.map((item, itemIndex) => {
-                  const res = []
+                    if (itemIndex) {
+                      res.push(
+                        <Separator size={1} key={`${itemIndex}-separator`} />
+                      )
+                    }
 
-                  if (itemIndex) {
                     res.push(
-                      <Separator size={1} key={`${itemIndex}-separator`} />
+                      <ResultItem
+                        ref={(ref): void => {
+                          refItem.current[item.id] = ref
+                        }}
+                        key={itemIndex}
+                        onClick={(): void => {
+                          item.onClick?.()
+                          setIsOpen(false)
+                        }}
+                        selected={selectionId === item.id}
+                        css={styles?.resultItem}
+                      >
+                        {item.content}
+                      </ResultItem>
                     )
-                  }
 
-                  res.push(
-                    <ResultItem
-                      ref={(ref): void => {
-                        refItem.current[item.id] = ref
-                      }}
-                      key={itemIndex}
-                      onClick={(): void => {
-                        item.onClick?.()
-                        setIsOpen(false)
-                      }}
-                      selected={selectionId === item.id}
-                      css={styles?.resultItem}
-                    >
-                      {item.content}
-                    </ResultItem>
-                  )
+                    return res
+                  })}
+                </ResultGroup>
+              )
 
-                  return res
-                })}
-              </ResultGroup>
-            )
-
-            return res
-          })
-        ) : (
-          <NoResult css={styles?.noResult}>{noResult}</NoResult>
-        )}
+              return res
+            })
+          ) : (
+            <NoResult css={styles?.noResult}>{noResult}</NoResult>
+          )}
+        </SearchResultContainer>
       </Result>
     </Form>
   )

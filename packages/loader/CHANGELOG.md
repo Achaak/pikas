@@ -1,5 +1,11 @@
 # @pikas-ui/loader
 
+## 2.0.9
+
+### Patch Changes
+
+- Upgrade dependences
+
 ## 2.0.8
 
 ### Patch Changes

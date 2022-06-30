@@ -71,4 +71,8 @@ Default.args = {
     placeholder: 'Search',
     borderRadius: 'round',
   },
+  directResult: {
+    enable: true,
+    onClick: console.log,
+  },
 }

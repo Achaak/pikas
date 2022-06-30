@@ -1,5 +1,14 @@
 # @pikas-ui/table
 
+## 2.0.16
+
+### Patch Changes
+
+- Upgrade dependences
+- Updated dependencies
+  - @pikas-ui/loader@2.0.9
+  - @pikas-ui/select@3.0.5
+
 ## 2.0.15
 
 ### Patch Changes
