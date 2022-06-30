@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/storybook",
-  "version": "1.0.65",
+  "version": "1.0.66",
   "private": true,
   "scripts": {
     "build": "build-storybook",
@@ -30,7 +30,7 @@
     "@pikas-ui/dropdown-menu": "2.0.9",
     "@pikas-ui/icons": "2.0.9",
     "@pikas-ui/loader": "2.0.8",
-    "@pikas-ui/searchbar": "2.0.15",
+    "@pikas-ui/searchbar": "2.0.16",
     "@pikas-ui/select": "3.0.4",
     "@pikas-ui/separator": "2.0.8",
     "@pikas-ui/slider": "2.0.11",

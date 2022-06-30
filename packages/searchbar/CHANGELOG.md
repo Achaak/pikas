@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 2.0.16
+
+### Patch Changes
+
+- Fix openOnFocus
+
 ## 2.0.15
 
 ### Patch Changes

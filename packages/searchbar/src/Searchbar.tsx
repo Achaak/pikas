@@ -308,7 +308,7 @@ export const Searchbar = <T,>({
           textfield?.onChange?.(e)
           setTextfieldValue(e.target.value)
 
-          if (!searchWhenKeyUp) {
+          if (!searchWhenKeyUp && !openOnFocus) {
             setIsOpen(false)
           }
         }}
