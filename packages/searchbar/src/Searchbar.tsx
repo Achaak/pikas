@@ -153,7 +153,7 @@ export interface SearchbarProps<T> {
   maxWidth?: string | number
   minWidth?: string | number
   directResult?: {
-    enable: boolean
+    enabled: boolean
     onClick?: (value?: string) => void
   }
 }
@@ -195,7 +195,7 @@ export const Searchbar = <T,>({
   ): ResultGroupWithIdType[] => {
     if (!result) return []
 
-    let i = directResult?.enable ? 1 : 0
+    let i = directResult?.enabled ? 1 : 0
     const resultFormat: ResultGroupWithIdType[] = []
 
     result.forEach((group) => {
@@ -389,7 +389,7 @@ export const Searchbar = <T,>({
             : 'down'
         }
       >
-        {directResult?.enable && textfieldValue ? (
+        {directResult?.enabled && textfieldValue ? (
           <ResultItem
             ref={(ref): void => {
               refItem.current[0] = ref

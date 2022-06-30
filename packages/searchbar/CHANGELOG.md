@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 2.0.18
+
+### Patch Changes
+
+- Fix enabled
+
 ## 2.0.17
 
 ### Patch Changes

@@ -72,7 +72,7 @@ Default.args = {
     borderRadius: 'round',
   },
   directResult: {
-    enable: true,
+    enabled: true,
     onClick: console.log,
   },
 }

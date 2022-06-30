@@ -24,7 +24,7 @@ importers:
       '@pikas-ui/dropdown-menu': 2.0.10
       '@pikas-ui/icons': 2.0.9
       '@pikas-ui/loader': 2.0.9
-      '@pikas-ui/searchbar': 2.0.17
+      '@pikas-ui/searchbar': 2.0.18
       '@pikas-ui/select': 3.0.5
       '@pikas-ui/separator': 2.0.8
       '@pikas-ui/slider': 2.0.11
