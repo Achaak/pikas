@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 2.0.14
+
+### Patch Changes
+
+- Fix ui and textfield props
+
 ## 2.0.13
 
 ### Patch Changes

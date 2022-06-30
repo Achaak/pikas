@@ -57,6 +57,7 @@ const ResultGroup = styled('div', {})
 const ResultGroupTitle = styled('span', {
   fontWeight: '$BOLD',
   padding: '16px 16px 8px 16px',
+  color: '$BLACK',
 })
 
 const ResultItem = styled('div', {
@@ -82,6 +83,7 @@ const NoResult = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  color: '$BLACK',
 })
 
 const ResultLoading = styled('div', {
@@ -301,6 +303,7 @@ export const Searchbar = <T,>({
         ref={refTextfield}
         autoComplete="off"
         onChange={(e): void => {
+          textfield?.onChange?.(e)
           setTextfieldValue(e.target.value)
 
           if (!searchWhenKeyUp) {
