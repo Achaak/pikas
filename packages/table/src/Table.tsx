@@ -29,6 +29,8 @@ const TableStyled = styled('table', {
   br: 'sm',
   overflow: 'hidden',
   color: '$BLACK',
+  display: 'flex',
+  flexDirection: 'column',
 
   variants: {
     variant: {
