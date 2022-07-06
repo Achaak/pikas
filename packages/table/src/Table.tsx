@@ -1,23 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import type {
+  ColumnDef,
   OnChangeFn,
   PaginationState,
   RowSelectionState,
   SortingState,
 } from '@tanstack/react-table'
+import { flexRender } from '@tanstack/react-table'
+import { useReactTable } from '@tanstack/react-table'
 import {
-  createTable,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  useTableInstance,
 } from '@tanstack/react-table'
 import type { CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Pagination } from './pagination'
-import { findInColumns } from './utils'
 import { IconByName } from '@pikas-ui/icons'
 import { Checkbox } from '@pikas-ui/checkbox'
 import { Thead } from './thead/index.js'
@@ -123,26 +123,6 @@ const TdContent = styled('div', {
   display: 'flex',
 })
 
-interface Columns {
-  type: 'group' | 'data'
-  header: string
-  style?: CSS
-}
-
-interface ColumnGroup<T> extends Columns {
-  type: 'group'
-  id: string
-  group: AllColumns<T>[]
-}
-
-interface ColumnData<T> extends Columns {
-  type: 'data'
-  id: keyof T
-  enableSorting?: boolean
-}
-
-export type AllColumns<T> = ColumnGroup<T> | ColumnData<T>
-
 export const TableVariant = {
   default: true,
   light: true,
@@ -170,7 +150,7 @@ export interface TableProps<T extends Record<string, unknown>> {
     state?: SortingState
     onSortingChange?: OnChangeFn<SortingState>
   }
-  columns: AllColumns<T>[]
+  columns: ColumnDef<T>[]
   styles?: {
     table?: CSS
     thead?: CSS
@@ -201,67 +181,24 @@ export const Table = <T extends Record<string, unknown>>({
   emptyMessage,
   hoverEffect,
 }: TableProps<T>): JSX.Element => {
-  type Column = any // TODO: fix
-  // type Column = ColumnDef<
-  //   Overwrite<
-  //     {
-  //       Renderer: Render
-  //       Rendered: JSX.Element | React.ReactNode
-  //     },
-  //     {
-  //       Row: T
-  //     }
-  //   >
-  // >
-  const [table] = useState(createTable().setRowType<T>())
   const [selectionState, setSelectionState] = React.useState(
     selection?.defaultState || {}
   )
   const [sortingState, setSortingState] = React.useState<SortingState>([])
 
-  const createColumn = (column: AllColumns<T>): Column => {
-    switch (column.type) {
-      case 'group':
-        return createGroupColumn(column)
-      default:
-        return createDataColumn(column)
-    }
-  }
-
-  const createDataColumn = ({
-    header,
-    id,
-    enableSorting,
-  }: ColumnData<T>): Column =>
-    table.createDataColumn(id, {
-      header: () => header,
-      id: id,
-      footer: (props: any) => props.column.id,
-      enableSorting: enableSorting,
-      cell: ({ getValue }: any) => getValue(),
-    } as any) // TODO: fix
-
-  const createGroupColumn = ({ header, group, id }: ColumnGroup<T>): Column =>
-    table.createGroup({
-      header: header,
-      id: id,
-      footer: (props) => props.column.id,
-      columns: group.map((c) => createColumn(c)),
-    })
-
-  const columnsMemo = React.useMemo(
+  const columnsMemo = React.useMemo<ColumnDef<T>[]>(
     () => [
       ...(selection?.active
-        ? [
-            table.createDisplayColumn({
+        ? ([
+            {
               id: 'select',
-              header: ({ instance }) => (
+              header: ({ table }) => (
                 <Checkbox
                   size={20}
                   borderRadius="sm"
-                  checked={instance.getIsAllRowsSelected()}
-                  onChange={instance.toggleAllRowsSelected}
-                  indeterminate={instance.getIsSomeRowsSelected()}
+                  checked={table.getIsAllRowsSelected()}
+                  onChange={table.toggleAllRowsSelected}
+                  indeterminate={table.getIsSomeRowsSelected()}
                 />
               ),
               cell: ({ row }) => (
@@ -273,30 +210,17 @@ export const Table = <T extends Record<string, unknown>>({
                   indeterminate={row.getIsSomeSelected()}
                 />
               ),
-            }),
-          ]
+            },
+          ] as ColumnDef<T>[])
         : []),
-      ...columns.map((column) => createColumn(column)),
+      ...columns,
     ],
     []
   )
 
-  useEffect(() => {
-    if (selection?.active && selection?.onRowSelectionChange) {
-      selection?.onRowSelectionChange(selectionState)
-    }
-  }, [selectionState])
-
-  useEffect(() => {
-    if (sorting?.active && sorting?.onSortingChange) {
-      sorting?.onSortingChange(sortingState)
-    }
-  }, [sortingState])
-
-  const instance = useTableInstance(table, {
+  const table = useReactTable({
     data,
     columns: columnsMemo,
-    debugTable: true,
     state: {
       ...(pagination?.active && pagination?.state
         ? { pagination: pagination?.state }
@@ -328,6 +252,18 @@ export const Table = <T extends Record<string, unknown>>({
   })
 
   useEffect(() => {
+    if (selection?.active && selection?.onRowSelectionChange) {
+      selection?.onRowSelectionChange(selectionState)
+    }
+  }, [selectionState])
+
+  useEffect(() => {
+    if (sorting?.active && sorting?.onSortingChange) {
+      sorting?.onSortingChange(sortingState)
+    }
+  }, [sortingState])
+
+  useEffect(() => {
     if (!sorting) return
     if (!sorting.active) return
     setSortingState(sorting.state || [])
@@ -343,7 +279,7 @@ export const Table = <T extends Record<string, unknown>>({
     <>
       <TableStyled variant={variant} css={styles?.table}>
         <Thead variant={variant} css={styles?.thead}>
-          {instance.getHeaderGroups().map((headerGroup) => (
+          {table.getHeaderGroups().map((headerGroup) => (
             <Tr
               key={headerGroup.id}
               variant={variant}
@@ -375,7 +311,6 @@ export const Table = <T extends Record<string, unknown>>({
                     <ThSpan
                       css={{
                         ...styles?.thSpan,
-                        ...findInColumns(header.column.id, columns)?.style,
                         ...(header.column.getCanSort()
                           ? {
                               cursor: 'pointer',
@@ -385,7 +320,10 @@ export const Table = <T extends Record<string, unknown>>({
                       }}
                       onClick={header.column.getToggleSortingHandler()}
                     >
-                      {header.renderHeader()}
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
                       {{
                         asc: (
                           <IconByName
@@ -418,7 +356,7 @@ export const Table = <T extends Record<string, unknown>>({
           ))}
         </Thead>
         <Tbody variant={variant} css={styles?.tbody}>
-          {instance.getRowModel().rows.map((row) => {
+          {table.getRowModel().rows.map((row) => {
             return (
               <Tr key={row.id} variant={variant} css={styles?.tr}>
                 {row.getVisibleCells().map((cell) => {
@@ -431,12 +369,11 @@ export const Table = <T extends Record<string, unknown>>({
                       }}
                       padding={padding?.td}
                     >
-                      <TdContent
-                        css={{
-                          ...findInColumns(cell.column.id, columns)?.style,
-                        }}
-                      >
-                        {cell.renderCell()}
+                      <TdContent>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
                       </TdContent>
                     </Td>
                   )
@@ -445,7 +382,7 @@ export const Table = <T extends Record<string, unknown>>({
             )
           })}
 
-          {!instance.getRowModel().rows.length && emptyMessage ? (
+          {!table.getRowModel().rows.length && emptyMessage ? (
             <Tr key="empty">
               <Td
                 colSpan={columns.length + (selection?.active ? 1 : 0)}
@@ -460,7 +397,7 @@ export const Table = <T extends Record<string, unknown>>({
         </Tbody>
         {hasTfoot ? (
           <Tfoot variant={variant} css={styles?.tfoot}>
-            {instance.getFooterGroups().map((footerGroup) => (
+            {table.getFooterGroups().map((footerGroup) => (
               <Tr key={footerGroup.id} variant={variant} css={styles?.tr}>
                 {footerGroup.headers.map((header) => (
                   <Th
@@ -476,7 +413,6 @@ export const Table = <T extends Record<string, unknown>>({
                       <ThSpan
                         css={{
                           ...styles?.thSpan,
-                          ...findInColumns(header.column.id, columns)?.style,
                           ...(header.column.getCanSort()
                             ? {
                                 cursor: 'pointer',
@@ -486,7 +422,10 @@ export const Table = <T extends Record<string, unknown>>({
                         }}
                         onClick={header.column.getToggleSortingHandler()}
                       >
-                        {header.renderHeader()}
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                         {{
                           asc: (
                             <IconByName
@@ -523,15 +462,15 @@ export const Table = <T extends Record<string, unknown>>({
 
       {pagination?.active ? (
         <Pagination
-          canNextPage={instance.getCanNextPage()}
-          canPreviousPage={instance.getCanPreviousPage()}
-          nextPage={instance.nextPage}
-          pageCount={instance.getPageCount()}
-          pageIndex={instance.getState().pagination.pageIndex}
-          previousPage={instance.previousPage}
+          canNextPage={table.getCanNextPage()}
+          canPreviousPage={table.getCanPreviousPage()}
+          nextPage={table.nextPage}
+          pageCount={table.getPageCount()}
+          pageIndex={table.getState().pagination.pageIndex}
+          previousPage={table.previousPage}
           selectValue={pagination.selectValue || [5, 10, 25, 50, 100]}
-          setPageSize={instance.setPageSize}
-          setPageIndex={instance.setPageIndex}
+          setPageSize={table.setPageSize}
+          setPageIndex={table.setPageIndex}
           defaultPageSize={5}
         />
       ) : null}

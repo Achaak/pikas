@@ -1,3 +1,6 @@
+import { AlertExample } from './../../src/examples/alert/alert'
+import { CustomAlertExample } from './../../src/examples/alert/customAlert'
+
 # @pikas-ui/alert
 
 This package contains a alert component.
@@ -34,11 +37,15 @@ pnpm add @pikas-ui/alert
 
 ### Alert
 
+<AlertExample />
+
 ```tsx
 import { Alert } from `@pikas-ui/alert`;
 
 const Example: React.FC = () => {
-  return <Alert>Ea Lorem fugiat aliquip irure aliquip quis mollit ullamco aliquip occaecat culpa.</Alert>
+  return (
+    <Alert variant="alert">Ea Lorem fugiat aliquip irure aliquip quis mollit ullamco aliquip occaecat culpa.</Alert>
+  )
 }
 ```
 
@@ -60,11 +67,27 @@ const Example: React.FC = () => {
 
 ### CustomAlert
 
+<CustomAlertExample />
+
 ```tsx
 import { CustomAlert } from `@pikas-ui/alert`;
+import type { IconProps } from '@pikas-ui/Icons'
+import { IconByName } from '@pikas-ui/Icons'
+
+const IconExample: React.FC<IconProps> = (props) => {
+  return <IconByName {...props} name="bx:baguette" />
+}
 
 const Example: React.FC = () => {
-  return <CustomAlert>Ea Lorem fugiat aliquip irure aliquip quis mollit ullamco aliquip occaecat culpa.</Alert>
+  return (
+    <CustomAlert
+      Icon={IconExample}
+      color="WHITE"
+      backgroundColor="SECONDARY"
+    >
+      This is an error alert.
+    </CustomAlert>
+  )
 }
 ```
 

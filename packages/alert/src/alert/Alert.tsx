@@ -1,8 +1,9 @@
-import { IconByName, IconProps } from '@pikas-ui/icons'
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 import React, { useCallback } from 'react'
 import { CustomAlert } from '../customAlert/index.js'
-import { ColorsType } from '@pikas-ui/styles'
-import { DefaultAlertProps } from '../types.js'
+import type { ColorsType } from '@pikas-ui/styles'
+import type { DefaultAlertProps } from '../types.js'
 
 export const AlertVariant = {
   info: true,

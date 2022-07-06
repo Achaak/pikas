@@ -1,16 +1,12 @@
-const withPlugins = require("next-compose-plugins");
-
-const withNextra = require("nextra")({
-  theme: "nextra-theme-docs",
-  themeConfig: "./theme.config.js",
-});
-
-const plugins = [withNextra];
-const nextConfig = {
-  swcMinify: false,
-  env: {
-    PASSWORD_PROTECT: process.env.ENVIRONMENT !== "development",
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [require('remark-prism')],
+    rehypePlugins: [],
   },
-};
+})
 
-module.exports = withPlugins(plugins, nextConfig);
+module.exports = withMDX({
+  // Append the default value with md extensions
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+})
