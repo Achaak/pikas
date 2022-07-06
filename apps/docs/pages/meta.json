@@ -1,0 +1,10 @@
+{
+  "index": {
+    "title": "Introduction",
+    "type": "nav"
+  },
+  "docs": {
+    "title": "Documentation",
+    "type": "nav"
+  }
+}

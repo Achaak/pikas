@@ -1,0 +1,19 @@
+{
+  "alert": "Alert",
+  "button": "Button",
+  "checkbox": "Checkbox",
+  "context-menu": "Context menu",
+  "dropdown-menu": "Dropdown menu",
+  "icons": "Icons",
+  "loader": "Loader",
+  "searchbar": "Searchbar",
+  "select": "Select",
+  "separator": "Separator",
+  "slider": "Slider",
+  "styles": "Styles",
+  "table": "Table",
+  "text": "Text",
+  "textarea": "Textarea",
+  "textfield": "Textfield",
+  "tooltip": "Tooltip"
+}

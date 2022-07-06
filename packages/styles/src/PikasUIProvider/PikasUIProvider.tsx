@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { createTheme, styled, theme as themeDefault } from '../css.js'
+import type { createTheme } from '../css.js'
+import { styled, theme as themeDefault } from '../css.js'
 import merge from 'lodash.merge'
 import cloneDeep from 'lodash.clonedeep'
 import { useSsr, useTernaryDarkMode } from 'usehooks-ts'
@@ -38,8 +39,8 @@ export const PikasUIProvider: React.FC<PikasUIProviderProps> = ({
 }
 
 const ContainerStyled = styled('div', {
-  width: '100%',
-  height: '100%',
+  width: 'auto',
+  height: 'fit-content',
 })
 
 interface ContainerProps {

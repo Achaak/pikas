@@ -1,1 +1,3 @@
-storybook-static
+# build
+/lib
+/storybook-static
