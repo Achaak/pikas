@@ -1,3 +1,7 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
 # @pikas-ui/checkbox
 
 This package contains a checkbox component.
@@ -6,7 +10,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -67,9 +71,3 @@ const Example: React.FC = () => (
 | `side`           | The side of the checkbox.                          | `"left"` or `"right"`        | `"right"`        |
 | `outline`        | The outline of the checkbox.                       | `boolean`                    | `true`           |
 | `indeterminate`  | The indeterminate of the checkbox.                 | `boolean`                    | `false`          |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

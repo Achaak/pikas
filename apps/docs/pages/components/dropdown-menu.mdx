@@ -1,3 +1,7 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
 # @pikas-ui/dropdown-menu
 
 This package contains a dropdown menu component.
@@ -6,7 +10,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -94,9 +98,3 @@ const Example: React.FC = () => {
 | `alignOffset`          | The vertical distance in pixels from the anchor.                                                                                                                                                      | `number`                         | -       |
 | `avoidCollisions`      | When true, overrides the side andalign preferences to prevent collisions with window edges.                                                                                                           | `boolean`                        | `false` |
 | `collisionTolerance`   | The distance in pixels from window edges where collision detection should occur.                                                                                                                      | `number`                         | -       |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

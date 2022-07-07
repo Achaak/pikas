@@ -1,5 +1,9 @@
 import { AlertExample } from './../../src/examples/alert/alert'
 import { CustomAlertExample } from './../../src/examples/alert/customAlert'
+import { getLink } from './../../src/utils/routes'
+import { Table } from '@pikas-ui/table'
+
+export const stylesLink = getLink('styles')
 
 # @pikas-ui/alert
 
@@ -9,7 +13,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -48,6 +52,35 @@ const Example: React.FC = () => {
   )
 }
 ```
+
+<Table
+  data={[
+    {
+      prop: 'tanner',
+      description: 'linsley',
+      type: 24,
+      default: 'tanner@email.com',
+    },
+  ]}
+  columns={[
+    {
+      header: 'Prop',
+      accessorKey: 'prop',
+    },
+    {
+      header: 'Description',
+      accessorKey: 'description',
+    },
+    {
+      header: 'Type',
+      accessorKey: 'type',
+    },
+    {
+      header: 'Default',
+      accessorKey: 'default',
+    },
+  ]}
+/>
 
 #### Props
 
@@ -107,9 +140,3 @@ const Example: React.FC = () => {
 | `color`           | Color of the alert component            | `ColorsType`          | -            |
 | `visible`         | Visibility of the alert component       | `boolean`             | `true`       |
 | `styles`          | Custom styles of the alert component    | `object`              | -            |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

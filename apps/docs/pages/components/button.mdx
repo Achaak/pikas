@@ -2,6 +2,9 @@ import { ButtonExample } from './../../src/examples/button/button'
 import { ButtonLinkExample } from './../../src/examples/button/buttonLink'
 import { ButtonIconExample } from './../../src/examples/button/buttonIcon'
 import { ButtonIconLinkExample } from './../../src/examples/button/buttonIconLink'
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
 
 # @pikas-ui/button
 
@@ -9,7 +12,7 @@ This package contains a button components.
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -210,9 +213,3 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | `size`            | The size of the button.                           | `SizesType`             | `"md"`                 |
 | `target`          | The target of the button.                         | `ButtonTargetType`      | `"_self"`              |
 | `boxShadow`       | The box shadow of the button.                     | `ShadowsType or 'none'` | `"ELEVATION_BOTTOM_1"` |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

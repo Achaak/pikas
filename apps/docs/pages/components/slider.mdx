@@ -1,3 +1,7 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
 # @pikas-ui/slider
 
 This package contains a slider component.
@@ -6,7 +10,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -134,9 +138,3 @@ thumbSize: 16,
 | `rangeColorHex`            | The color of the range in hexadecimal.                          | `string`                    | -                |
 | `sliderBorderRadius`       | The radius of the slider border.                                | `BorderRadiusType`          | `"round"`        |
 | `styles`                   | The styles of the slider.                                       | `object`                    | -                |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

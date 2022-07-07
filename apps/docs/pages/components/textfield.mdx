@@ -1,3 +1,7 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
 # @pikas-ui/textfield
 
 This package contains a textfield component.
@@ -6,7 +10,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -87,9 +91,3 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | `required`            | The required of the textfield.              | `boolean`                                                | `false`             |
 | `info`                | Add a info icon with a tooltip.             | `string`                                                 | -                   |
 | `infoStyles `         | The styles of the info icon.                | `TooltipStylesType`                                      | -                   |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

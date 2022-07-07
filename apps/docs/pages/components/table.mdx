@@ -1,4 +1,7 @@
 import { DefaultTableExample } from './../../src/examples/table/default'
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
 
 # @pikas-ui/table
 
@@ -8,7 +11,7 @@ This library is based on [TanStack Table](https://tanstack.com/table/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -39,9 +42,3 @@ pnpm add @pikas-ui/table
 <DefaultTableExample />
 
 TODO
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

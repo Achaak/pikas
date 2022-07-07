@@ -1,3 +1,7 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
 # @pikas-ui/searchbar
 
 This package contains a searchbar component.
@@ -6,7 +10,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -62,9 +66,3 @@ const Example: React.FC = () => {
 | `maxWidth`        | The max width of the searchbar.                    | `string or number`                       | `"100%"`      |
 | `minWidth`        | The min width of the searchbar.                    | `string or number`                       | -             |
 | `openOnFocus`     | Set to `true` to open the searchbar on focus.      | `boolean`                                | `false`       |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

@@ -1,3 +1,5 @@
+import { getLink } from '@/utils/routes'
+import { IconByName } from '@pikas-ui/Icons'
 import { styled } from '@pikas-ui/styles'
 import Link from 'next/link'
 
@@ -26,6 +28,7 @@ const Right = styled('div', {
 
 const H1 = styled('h1', {
   fontSize: '$EM-XX-LARGE',
+  color: '$BLACK',
 })
 
 const Nav = styled('nav', {
@@ -53,11 +56,20 @@ export const Header: React.FC = () => {
       </Left>
       <Right>
         <Nav>
-          <Link href="/docs" passHref>
+          <Link href={getLink('introduction')} passHref>
             <NavItem>Documentation</NavItem>
           </Link>
-          <Link href="#" passHref>
-            <NavItem>Github</NavItem>
+          <Link href="https://github.com/Achaak/pikas-ui/releases" passHref>
+            <NavItem>Releases</NavItem>
+          </Link>
+          <Link href="https://github.com/Achaak/pikas-ui" passHref>
+            <NavItem>
+              <IconByName
+                name="ant-design:github-filled"
+                size={32}
+                color="BLACK"
+              />
+            </NavItem>
           </Link>
         </Nav>
       </Right>

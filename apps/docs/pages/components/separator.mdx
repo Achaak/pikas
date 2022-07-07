@@ -6,7 +6,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -51,8 +51,6 @@ const Example: React.FC = () => {
 | `color`        | The color of the separator.         | `ColorsType`               | `"GRAY_LIGHTER"` |
 | `borderRadius` | The border radius of the separator. | `BorderRadiusType`         | -                |
 
----
+import { getLink } from './../../src/utils/routes'
 
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).
+export const stylesLink = getLink('styles')

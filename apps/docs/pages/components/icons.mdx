@@ -1,3 +1,7 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
 # @pikas-ui/icons
 
 This package contains a icon components.
@@ -6,7 +10,7 @@ This library is based on [Iconify](https://iconify.design/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -88,9 +92,3 @@ const Example: React.FC = () => {
 | `color`     | The color of the icon.                 | `ColorsType`                                    | -       |
 | `colorHex`  | The color of the icon.                 | `string`                                        | -       |
 | `onClick`   | The callback when the icon is clicked. | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |
-
----
-
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).

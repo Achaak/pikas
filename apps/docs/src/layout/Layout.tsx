@@ -8,24 +8,21 @@ const Container = styled('div', {
   position: 'fixed',
   width: '100vw',
   height: '100vh',
+  backgroundColor: '$WHITE2',
 })
 
 const Center = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
   position: 'relative',
   paddingTop: '$10',
   overflow: 'auto',
+  flex: 1,
 
   '@sm': {
-    flex: 1,
-    flexDirection: 'row',
     paddingLeft: 250,
   },
 })
 
 const Content = styled('div', {
-  flex: 1,
   padding: 16,
   paddingTop: 40,
   display: 'flex',
@@ -46,26 +43,38 @@ const ContentChild = styled('div', {
   },
   '& > p': {
     marginTop: 24,
+    color: '$BLACK',
   },
   '& > hr': {
     marginTop: 40,
     marginBottom: 40,
+    color: '$BLACK',
   },
   '& > h1': {
     marginTop: 32,
     marginBottom: 32,
+    color: '$BLACK',
   },
   '& > h2': {
     marginTop: 32,
     marginBottom: 24,
+    color: '$BLACK',
   },
   '& > h3': {
     marginTop: 24,
     marginBottom: 24,
+    color: '$BLACK',
   },
   '& > h4': {
     marginTop: 24,
     marginBottom: 16,
+    color: '$BLACK',
+  },
+  '& > ul li': {
+    color: '$BLACK',
+  },
+  '& > ul li a, & > p a': {
+    color: '$PRIMARY',
   },
 })
 

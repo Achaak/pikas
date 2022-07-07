@@ -1,8 +1,11 @@
 import { styled } from '@pikas-ui/styles'
 import { useState } from 'react'
 import { Button } from '@pikas-ui/button'
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName, IconByNameProps } from '@pikas-ui/icons'
 import { menu } from '@/configs/menu'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Container = styled('div', {
   display: 'flex',
@@ -88,11 +91,17 @@ const Item = styled('li', {
 const H3 = styled('h3', {
   fontSize: '$EM-LARGE',
   padding: '8px 16px',
+  color: '$BLACK',
   fontWeight: '$BOLD',
 })
 
+const MenuIcon: React.FC<IconProps> = (props) => {
+  return <IconByName name="bx:menu" {...props} />
+}
+
 export const Menu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { pathname } = useRouter()
 
   return (
     <Container isOpen={isOpen}>
@@ -105,12 +114,15 @@ export const Menu: React.FC = () => {
         styles={{
           button: {
             margin: '8px 16px',
+            paddingLeft: '12px',
+            paddingRight: '12px',
 
             '@md': {
               display: 'none',
             },
           },
         }}
+        LeftIcon={MenuIcon}
       >
         Menu
       </Button>
@@ -120,10 +132,7 @@ export const Menu: React.FC = () => {
           <Group key={group.label}>
             <H3>{group.label}</H3>
             {group.items.map((item) => (
-              <Item
-                key={item.label}
-                selected={window.location.pathname.includes(item.href)}
-              >
+              <Item key={item.label} selected={pathname.includes(item.href)}>
                 <Link href={item.href} passHref>
                   <a>{item.label}</a>
                 </Link>

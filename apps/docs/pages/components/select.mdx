@@ -6,7 +6,7 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
 
 ## Getting Started
 
-You need to install the [@pikas-ui/styles](../styles/README.md) package to use this package.
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
 
 ### Installation
 
@@ -95,8 +95,6 @@ const Example: React.FC = () => {
 | `info`              | Add a info icon with a tooltip.               | `string`                                                                                                                                              | -        |
 | `infoStyles `       | The styles of the info icon.                  | `TooltipStylesType`                                                                                                                                   | -        |
 
----
+import { getLink } from './../../src/utils/routes'
 
-### Change Log
-
-You can find the change log [here](CHANGELOG.md).
+export const stylesLink = getLink('styles')
