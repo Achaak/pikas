@@ -8,11 +8,11 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   customGlobalCss()
 
   return (
-    <PikasUIProvider darkTheme={darkTheme} lightTheme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </PikasUIProvider>
+    // <PikasUIProvider darkTheme={darkTheme} lightTheme={theme}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    // </PikasUIProvider>
   )
 }
 

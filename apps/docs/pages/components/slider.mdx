@@ -46,58 +46,6 @@ const Example: React.FC = () => (
 )
 ```
 
-export const SliderDirection = {
-  ltr: true,
-  rtl: true,
-}
-export type SliderDirectionType = keyof typeof SliderDirection
-
-export const SliderOrientation = {
-  horizontal: true,
-  vertical: true,
-}
-export type SliderOrientationType = keyof typeof SliderOrientation
-
-export interface SliderProps {
-  defaultValue?: number[]
-  onChange?: (value: number[]) => void
-  id?: string
-  label?: string | ReactNode
-  textError?: string
-  fontSize?: FontsSizesType
-  className?: string
-  description?: string
-  value?: number[]
-  disabled?: boolean
-  min?: number
-  max?: number
-  name?: string
-  direction?: SliderDirectionType
-  orientation?: SliderOrientationType
-  step?: number
-  minStepsBetweenThumbs?: number
-  size?: string | number
-  maxSize?: string | number
-  minSize?: string | number
-  weight?: number
-  thumbSize?: number
-}
-
-Slider.defaultProps = {
-fontSize: 'EM-MEDIUM',
-direction: 'ltr',
-orientation: 'horizontal',
-step: 1,
-minStepsBetweenThumbs: 1,
-min: 0,
-max: 100,
-disabled: false,
-size: '100%',
-maxSize: '100%',
-weight: 4,
-thumbSize: 16,
-}
-
 #### Props
 
 | Prop                       | Description                                                     | Type                        | Default          |
