@@ -1,5 +1,15 @@
 # @pikas-ui/styles
 
+## 2.2.0
+
+### Minor Changes
+
+- 34afd62: Add config
+
+### Patch Changes
+
+- 34afd62: Upgrade dependences
+
 ## 2.1.7
 
 ### Patch Changes

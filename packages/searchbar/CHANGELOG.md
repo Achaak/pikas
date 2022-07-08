@@ -1,5 +1,19 @@
 # @pikas-ui/searchbar
 
+## 2.0.20
+
+### Patch Changes
+
+- 34afd62: Upgrade dependences
+- Updated dependencies [34afd62]
+- Updated dependencies [34afd62]
+  - @pikas-ui/button@2.0.12
+  - @pikas-ui/icons@2.0.10
+  - @pikas-ui/loader@2.0.10
+  - @pikas-ui/separator@2.0.9
+  - @pikas-ui/styles@2.2.0
+  - @pikas-ui/textfield@2.0.14
+
 ## 2.0.19
 
 ### Patch Changes

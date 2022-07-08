@@ -1,5 +1,18 @@
 # @pikas-ui/select
 
+## 3.0.6
+
+### Patch Changes
+
+- 34afd62: Upgrade dependences
+- Updated dependencies [34afd62]
+- Updated dependencies [34afd62]
+  - @pikas-ui/icons@2.0.10
+  - @pikas-ui/styles@2.2.0
+  - @pikas-ui/text@3.0.3
+  - @pikas-ui/textfield@2.0.14
+  - @pikas-ui/tooltip@2.0.9
+
 ## 3.0.5
 
 ### Patch Changes
