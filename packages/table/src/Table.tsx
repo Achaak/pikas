@@ -281,7 +281,7 @@ export const Table = <T extends Record<string, unknown>>({
   }, [selection?.defaultState])
 
   return (
-    <Container style={styles?.container}>
+    <Container css={styles?.container}>
       <TableStyled variant={variant} css={styles?.table}>
         <Thead variant={variant} css={styles?.thead}>
           {table.getHeaderGroups().map((headerGroup) => (
