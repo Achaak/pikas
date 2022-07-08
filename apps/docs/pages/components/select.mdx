@@ -1,0 +1,100 @@
+# @pikas-ui/select
+
+This package contains a select component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/select
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/select
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/select
+```
+
+---
+
+## Usage
+
+### Select
+
+```tsx
+import { Select } from `@pikas-ui/select`;
+
+const Example: React.FC = () => {
+  return (
+    <Select
+      data={
+        [
+          {
+            name: 'Option 1',
+            items: [
+              {
+                label: 'Option 1.1',
+                value: 'option-1-1',
+              },
+              {
+                label: 'Option 1.2',
+                value: 'option-1-2',
+              },
+            ],
+          }
+        ]
+      }
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop                | Description                                   | Type                                                                                                                                                  | Default  |
+| :------------------ | :-------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| `description`       | The description of the select.                | `string`                                                                                                                                              | -        |
+| `styles`            | Custom styles for the component.              | `{ container?: CSS, trigger?: CSS }`                                                                                                                  | -        |
+| `label`             | The label of the select.                      | `string`                                                                                                                                              | -        |
+| `id`                | The id of the select.                         | `string`                                                                                                                                              | -        |
+| `value`             | The value of the select.                      | `string`                                                                                                                                              | -        |
+| `hasSearch`         | If the select has a search.                   | `boolean`                                                                                                                                             | `false`  |
+| `searchPlaceholder` | The placeholder of the search.                | `string`                                                                                                                                              | -        |
+| `onChange`          | The callback when the select changes.         | `(value: string) => void`                                                                                                                             | -        |
+| `onOpenChange`      | The callback when the select opens or closes. | `(open: boolean) => void`                                                                                                                             | -        |
+| `defaultOpen`       | If the select is open by default.             | `boolean`                                                                                                                                             | `false`  |
+| `direction`         | The direction of the select.                  | `SelectDirectionsType`                                                                                                                                | -        |
+| `textError`         | The error of the select.                      | `string`                                                                                                                                              | -        |
+| `ariaLabel`         | The aria-label of the select.                 | `string`                                                                                                                                              | -        |
+| `outline`           | If the select has an outline.                 | `boolean`                                                                                                                                             | `true`   |
+| `backgroundColor`   | The background color of the select.           | `string`                                                                                                                                              | -        |
+| `boxShadow`         | The box shadow of the select.                 | `string`                                                                                                                                              | -        |
+| `borderRadius`      | The border radius of the select.              | `string`                                                                                                                                              | -        |
+| `borderColor`       | The border color of the select.               | `string`                                                                                                                                              | -        |
+| `borderWidth`       | The border width of the select.               | `number`                                                                                                                                              | -        |
+| `fontSize`          | The font size of the select.                  | `string`                                                                                                                                              | -        |
+| `padding`           | The padding of the select.                    | `SelectPaddingType`                                                                                                                                   | -        |
+| `data`              | The data of the select.                       | `{ name?: string, hidden?: boolean, items: Array<{ label: string, value: string, disabled?: boolean, searchValue?: string, hidden?: boolean }> }[] }` | -        |
+| `width`             | The width of the select.                      | `string or number`                                                                                                                                    | `"100%"` |
+| `maxWidth`          | The max width of the select.                  | `string or number`                                                                                                                                    | `"100%"` |
+| `minWidth`          | The min width of the select.                  | `string or number`                                                                                                                                    | -        |
+| `required`          | The required of the select.                   | `boolean`                                                                                                                                             | `false`  |
+| `info`              | Add a info icon with a tooltip.               | `string`                                                                                                                                              | -        |
+| `infoStyles `       | The styles of the info icon.                  | `TooltipStylesType`                                                                                                                                   | -        |
+
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')

@@ -1,0 +1,93 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
+# @pikas-ui/textfield
+
+This package contains a textfield component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/textfield
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/textfield
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/textfield
+```
+
+---
+
+## Usage
+
+### Textfield
+
+```tsx
+import { Textfield } from `@pikas-ui/textfield`;
+
+const Example: React.FC = () => {
+  return <Textfield />
+}
+```
+
+#### Props
+
+Props extends `InputHTMLAttributes<HTMLInputElement>`
+
+| Prop                  | Description                                 | Type                                                     | Default             |
+| :-------------------- | :------------------------------------------ | :------------------------------------------------------- | :------------------ |
+| `type`                | The type of the textfield.                  | `TextfieldTypeType`                                      | `"text"`            |
+| `label`               | The label of the textfield.                 | `string`                                                 | -                   |
+| `boxShadow`           | The box shadow of the textfield.            | `ShadowsType`                                            | `"DIMINUTION_1"`    |
+| `borderRadius`        | The border radius of the textfield.         | `BorderRadiusType`                                       | `"md"`              |
+| `padding`             | The padding of the textfield.               | `TextfieldPaddingType`                                   | `"md"`              |
+| `gap`                 | The gap of the textfield.                   | `TextfieldGapType`                                       | -                   |
+| `fontSize`            | The font size of the textfield.             | `FontsSizesType`                                         | `"EM-MEDIUM"`       |
+| `color`               | The color of the textfield.                 | `ColorsType`                                             | -                   |
+| `colorHex`            | The color hex of the textfield.             | `string`                                                 | -                   |
+| `placeholderColor`    | The placeholder color of the textfield.     | `ColorsType`                                             | -                   |
+| `placeholderColorHex` | The placeholder color hex of the textfield. | `string`                                                 | -                   |
+| `borderColor`         | The border color of the textfield.          | `ColorsType`                                             | `"TRANSPARENT"`     |
+| `borderColorHex`      | The border color hex of the textfield.      | `string`                                                 | -                   |
+| `borderWidth`         | The border width of the textfield.          | `number`                                                 | `0`                 |
+| `backgroundColor`     | The background color of the textfield.      | `ColorsType`                                             | `"GRAY_LIGHTEST_1"` |
+| `backgroundColorHex`  | The background color hex of the textfield.  | `string`                                                 | -                   |
+| `textError`           | The error text of the textfield.            | `string`                                                 | -                   |
+| `onChange`            | The onChange event of the textfield.        | `(e: React.ChangeEvent<HTMLInputElement>) => void`       | -                   |
+| `defaultValue`        | The default value of the textfield.         | `string`                                                 | -                   |
+| `autoComplete`        | The autoComplete of the textfield.          | `string`                                                 | -                   |
+| `LeftIcon`            | The left icon of the textfield.             | `React.FC<IconProps>`                                    | -                   |
+| `RightIcon`           | The right icon of the textfield.            | `React.FC<IconProps>`                                    | -                   |
+| `leftChildren`        | The left children of the textfield.         | `React.ReactNode`                                        | -                   |
+| `rightChildren`       | The right children of the textfield.        | `React.ReactNode`                                        | -                   |
+| `styles`              | The styles of the textfield.                | `{ container?: CSS, inputContainer?: CSS, input?: CSS }` | -                   |
+| `outline`             | The outline of the textfield.               | `boolean`                                                | `true`              |
+| `description`         | The description of the textfield.           | `string`                                                 | -                   |
+| `width`               | The width of the textfield.                 | `string or number`                                       | `"100%"`            |
+| `maxWidth`            | The max width of the textfield.             | `string or number`                                       | `"100%"`            |
+| `minWidth`            | The min width of the textfield.             | `string or number`                                       | -                   |
+| `leftIconColor`       | The left icon color of the textfield.       | `ColorsType`                                             | -                   |
+| `leftIconColorHex`    | The left icon color hex of the textfield.   | `string`                                                 | -                   |
+| `rightIconColor`      | The right icon color of the textfield.      | `ColorsType`                                             | -                   |
+| `rightIconColorHex`   | The right icon color hex of the textfield.  | `string`                                                 | -                   |
+| `leftIconSize`        | The left icon size of the textfield.        | `number`                                                 | -                   |
+| `rightIconSize`       | The right icon size of the textfield.       | `number`                                                 | -                   |
+| `required`            | The required of the textfield.              | `boolean`                                                | `false`             |
+| `info`                | Add a info icon with a tooltip.             | `string`                                                 | -                   |
+| `infoStyles `         | The styles of the info icon.                | `TooltipStylesType`                                      | -                   |

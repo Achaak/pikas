@@ -1,8 +1,8 @@
-import { IconProps } from '@pikas-ui/icons'
-import { ColorsType } from '@pikas-ui/styles'
+import type { IconProps } from '@pikas-ui/icons'
+import type { ColorsType } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
-import { DefaultAlertProps } from '../types.js'
+import type { DefaultAlertProps } from '../types.js'
 
 const Container = styled('div', {
   display: 'flex',
@@ -69,7 +69,9 @@ const Content = styled('div', {
   },
 })
 
-const Child = styled('p', {})
+const Child = styled('p', {
+  margin: 0,
+})
 
 export interface CustomAlertProps extends DefaultAlertProps {
   Icon?: React.FC<IconProps>
@@ -106,7 +108,13 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
         }}
       >
         {Icon ? <Icon size={iconSize} styles={styles?.icon} /> : null}
-        <Child css={styles?.child}>{children}</Child>
+        <Child
+          css={{
+            ...styles?.child,
+          }}
+        >
+          {children}
+        </Child>
       </Content>
     </Container>
   )

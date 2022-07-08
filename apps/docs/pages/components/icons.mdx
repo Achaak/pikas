@@ -1,0 +1,94 @@
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
+# @pikas-ui/icons
+
+This package contains a icon components.
+
+This library is based on [Iconify](https://iconify.design/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/icons
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/icons
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/icons
+```
+
+---
+
+## Usage
+
+### CustomIcon
+
+```tsx
+import { CustomIcon } from `@pikas-ui/icons`;
+
+const Example: React.FC = () => {
+  return (
+    <CustomIcon size={40} color="PRIMARY">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        viewBox="0 0 24 24"
+      >
+        <path fill="currentColor" d="M15.16 2a1 1 0 0 0-.66.13l-12 7a.64.64 0 0 0-.13.1l-.1.08a1.17 1.17 0 0 0-.17.26.84.84 0 0 0-.1.43v10a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V10a8.08 8.08 0 0 0-6.84-8zm0 2.05A6.07 6.07 0 0 1 19.93 9H6.7zM20 19H4v-8h16z" />
+        <circle fill="currentColor" cx={6.5} cy={16.5} r={1.5} />
+        <circle fill="currentColor" cx={11.5} cy={13.5} r={1.5} />
+        <circle fill="currentColor" cx={17} cy={16} r={2} />
+      </svg>
+    </CustomIcon>
+  )
+}
+```
+
+#### Props
+
+| Prop        | Description                            | Type                                            | Default |
+| :---------- | :------------------------------------- | :---------------------------------------------- | :------ |
+| `className` | The class name of the icon.            | `string`                                        | -       |
+| `size`      | The size of the icon.                  | `number`                                        | -       |
+| `color`     | The color of the icon.                 | `ColorsType`                                    | -       |
+| `colorHex`  | The color of the icon.                 | `string`                                        | -       |
+| `onClick`   | The callback when the icon is clicked. | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |
+
+---
+
+### IconByName
+
+```tsx
+import { IconByName } from `@pikas-ui/icons`;
+
+const Example: React.FC = () => {
+  return <IconByName size={40} name="bx:baguette" color="PRIMARY" />
+}
+```
+
+#### Props
+
+| Prop        | Description                            | Type                                            | Default |
+| :---------- | :------------------------------------- | :---------------------------------------------- | :------ |
+| `name`      | The name of the icon.                  | `string`                                        | -       |
+| `className` | The class name of the icon.            | `string`                                        | -       |
+| `size`      | The size of the icon.                  | `number`                                        | -       |
+| `color`     | The color of the icon.                 | `ColorsType`                                    | -       |
+| `colorHex`  | The color of the icon.                 | `string`                                        | -       |
+| `onClick`   | The callback when the icon is clicked. | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |

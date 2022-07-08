@@ -196,7 +196,7 @@ const getContent = ({
     <>
       <LoadingContainer>
         <ClipLoader
-          size={Sizes[size || 'MEDIUM']}
+          size={Sizes[size || 6]}
           colorHex={getContentColor({
             outlined,
             contentColorHex: contentColorHex,
@@ -212,7 +212,7 @@ const getContent = ({
         }}
       >
         <Icon
-          size={Sizes[size || 'MEDIUM']}
+          size={Sizes[size || 6]}
           colorHex={getContentColor({
             outlined,
             contentColorHex: contentColorHex,
@@ -302,7 +302,7 @@ ButtonIcon.defaultProps = {
   disabled: false,
   loading: false,
   color: 'PRIMARY',
-  size: 'MEDIUM',
+  size: 6,
   effect: 'opacity',
   padding: 'md',
   borderRadius: 'md',
@@ -389,7 +389,7 @@ export const ButtonIconLink = forwardRef<
 ButtonIconLink.defaultProps = {
   loading: false,
   color: 'PRIMARY',
-  size: 'MEDIUM',
+  size: 6,
   padding: 'md',
   effect: 'opacity',
   borderRadius: 'md',
