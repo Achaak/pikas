@@ -6,7 +6,6 @@
   "files": [
     "base.json",
     "package-default.json",
-    "package-react.json",
-    "storybook.json"
+    "package-react.json"
   ]
 }

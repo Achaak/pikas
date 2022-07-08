@@ -1,5 +1,2 @@
-stories
-.storybook
-**/*.scss
 node_modules
 lib
