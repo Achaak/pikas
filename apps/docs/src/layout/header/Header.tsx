@@ -1,5 +1,5 @@
 import { getLink } from '@/utils/routes'
-import { IconByName } from '@pikas-ui/Icons'
+import { IconByName } from '@pikas-ui/icons'
 import { styled } from '@pikas-ui/styles'
 import Link from 'next/link'
 

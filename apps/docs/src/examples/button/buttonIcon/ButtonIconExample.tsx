@@ -1,6 +1,6 @@
 import { ButtonIcon } from '@pikas-ui/button'
-import type { IconProps } from '@pikas-ui/Icons'
-import { IconByName } from '@pikas-ui/Icons'
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 import { ExampleContainer } from '@/components/ExampleContainer'
 
 const IconExample: React.FC<IconProps> = (props) => {

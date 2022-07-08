@@ -1,7 +1,7 @@
 import { CustomAlert } from '@pikas-ui/alert'
 import { ExampleContainer } from '@/components/ExampleContainer'
-import type { IconProps } from '@pikas-ui/Icons'
-import { IconByName } from '@pikas-ui/Icons'
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 import { useState } from 'react'
 import { Button } from '@pikas-ui/button'
 
