@@ -3,7 +3,7 @@ import { routes } from '@pikas-utils/router'
 export const { getLink } = routes({
   origin: 'https://docs.pikas.io',
   links: {
-    introduction: '/',
+    introduction: '/introduction',
     alert: '/components/alert',
     button: '/components/button',
     checkbox: '/components/checkbox',

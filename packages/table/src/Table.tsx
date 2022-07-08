@@ -23,14 +23,18 @@ import { Checkbox } from '@pikas-ui/checkbox'
 import { Thead } from './thead/index.js'
 import { Tfoot } from './tfoot/index.js'
 
-const TableStyled = styled('table', {
-  width: '100%',
-  borderCollapse: 'collapse',
-  br: 'sm',
-  overflow: 'hidden',
-  color: '$BLACK',
+const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
+  overflow: 'auto',
+})
+
+const TableStyled = styled('table', {
+  borderCollapse: 'collapse',
+  br: 'sm',
+  color: '$BLACK',
+  overflow: 'hidden',
 
   variants: {
     variant: {
@@ -152,6 +156,7 @@ export interface TableProps<T extends Record<string, unknown>> {
   }
   columns: ColumnDef<T>[]
   styles?: {
+    container?: CSS
     table?: CSS
     thead?: CSS
     tbody?: CSS
@@ -276,7 +281,7 @@ export const Table = <T extends Record<string, unknown>>({
   }, [selection?.defaultState])
 
   return (
-    <>
+    <Container style={styles?.container}>
       <TableStyled variant={variant} css={styles?.table}>
         <Thead variant={variant} css={styles?.thead}>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -474,7 +479,7 @@ export const Table = <T extends Record<string, unknown>>({
           defaultPageSize={5}
         />
       ) : null}
-    </>
+    </Container>
   )
 }
 

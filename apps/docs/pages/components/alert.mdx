@@ -55,82 +55,17 @@ const Example: React.FC = () => {
 
 #### Props
 
-<Table
-  data={[
-    {
-      prop: 'variant',
-      description: 'Alert variant of the alert component',
-      type: 'AlertVariantType',
-      default: '"info"',
-    },
-    {
-      prop: 'children',
-      description: 'Alert content',
-      type: 'ReactNode',
-      default: '-',
-    },
-    {
-      prop: 'fontSize',
-      description: 'Font size of the alert component',
-      type: 'FontsSizesType',
-      default: '"EM-SMALL"',
-    },
-    {
-      prop: 'fontWeight',
-      description: 'Font weight of the alert component',
-      type: 'FontsWeightsType',
-      default: '"NORMAL"',
-    },
-    {
-      prop: 'borderRadius',
-      description: 'Border radius of the alert component',
-      type: 'BorderRadiusType',
-      default: '"md"',
-    },
-    {
-      prop: 'iconSize',
-      description: 'Icon size of the alert component',
-      type: 'number',
-      default: '24',
-    },
-    {
-      prop: 'padding',
-      description: 'Padding of the alert component',
-      type: 'AlertPaddingType',
-      default: '"md"',
-    },
-    {
-      prop: 'gap',
-      description: 'Gap of the alert component',
-      type: 'AlertGapType',
-      default: '"sm"',
-    },
-    {
-      prop: 'visible',
-      description: 'Visibility of the alert component',
-      type: 'boolean',
-      default: 'true',
-    },
-  ]}
-  columns={[
-    {
-      header: 'Prop',
-      accessorKey: 'prop',
-    },
-    {
-      header: 'Description',
-      accessorKey: 'description',
-    },
-    {
-      header: 'Type',
-      accessorKey: 'type',
-    },
-    {
-      header: 'Default',
-      accessorKey: 'default',
-    },
-  ]}
-/>
+| Prop           | Description                          | Type               | Default      |
+| :------------- | :----------------------------------- | :----------------- | :----------- |
+| `variant`      | Alert variant of the alert component | `AlertVariantType` | `'info'`     |
+| `children`     | Alert content                        | `ReactNode`        | -            |
+| `fontSize`     | Font size of the alert component     | `FontsSizesType`   | `'EM-SMALL'` |
+| `fontWeight`   | Font weight of the alert component   | `FontsWeightsType` | `'NORMAL'`   |
+| `borderRadius` | Border radius of the alert component | `BorderRadiusType` | `'md'`       |
+| `iconSize`     | Icon size of the alert component     | `number`           | `24`         |
+| `padding`      | Padding of the alert component       | `AlertPaddingType` | `'md'`       |
+| `gap`          | Gap of the alert component           | `AlertGapType`     | `'sm'`       |
+| `visible`      | Visibility of the alert component    | `boolean`          | `true`       |
 
 ---
 
@@ -162,97 +97,17 @@ const Example: React.FC = () => {
 
 #### Props
 
-<Table
-  data={[
-    {
-      prop: 'children',
-      description: 'Alert content',
-      type: 'ReactNode',
-      default: '-',
-    },
-    {
-      prop: 'fontSize',
-      description: 'Font size of the alert component',
-      type: 'FontsSizesType',
-      default: '"EM-SMALL"',
-    },
-    {
-      prop: 'fontWeight',
-      description: 'Font weight of the alert component',
-      type: 'FontsWeightsType',
-      default: '"NORMAL"',
-    },
-    {
-      prop: 'borderRadius',
-      description: 'Border radius of the alert component',
-      type: 'BorderRadiusType',
-      default: '"md"',
-    },
-    {
-      prop: 'iconSize',
-      description: 'Icon size of the alert component',
-      type: 'number',
-      default: '24',
-    },
-    {
-      prop: 'padding',
-      description: 'Padding of the alert component',
-      type: 'AlertPaddingType',
-      default: '"md"',
-    },
-    {
-      prop: 'gap',
-      description: 'Gap of the alert component',
-      type: 'AlertGapType',
-      default: '"sm"',
-    },
-    {
-      prop: 'Icon',
-      description: 'Icon of the alert component',
-      type: 'React.FC<IconProps>',
-      default: '-',
-    },
-    {
-      prop: 'backgroundColor',
-      description: 'Background color of the alert component',
-      type: 'ColorsType',
-      default: '-',
-    },
-    {
-      prop: 'color',
-      description: 'Color of the alert component',
-      type: 'ColorsType',
-      default: '-',
-    },
-    {
-      prop: 'visible',
-      description: 'Visibility of the alert component',
-      type: 'boolean',
-      default: 'true',
-    },
-    {
-      prop: 'styles',
-      description: 'Custom styles of the alert component',
-      type: 'object',
-      default: '-',
-    },
-  ]}
-  columns={[
-    {
-      header: 'Prop',
-      accessorKey: 'prop',
-    },
-    {
-      header: 'Description',
-      accessorKey: 'description',
-    },
-    {
-      header: 'Type',
-      accessorKey: 'type',
-    },
-    {
-      header: 'Default',
-      accessorKey: 'default',
-    },
-  ]}
-/>
+| Prop              | Description                             | Type                  | Default      |
+| :---------------- | :-------------------------------------- | :-------------------- | :----------- |
+| `children`        | Alert content                           | `ReactNode`           | -            |
+| `fontSize`        | Font size of the alert component        | `FontsSizesType`      | `'EM-SMALL'` |
+| `fontWeight`      | Font weight of the alert component      | `FontsWeightsType`    | `'NORMAL'`   |
+| `borderRadius`    | Border radius of the alert component    | `BorderRadiusType`    | `'md'`       |
+| `iconSize`        | Icon size of the alert component        | `number`              | `24`         |
+| `padding`         | Padding of the alert component          | `AlertPaddingType`    | `'md'`       |
+| `gap`             | Gap of the alert component              | `AlertGapType`        | `'sm'`       |
+| `Icon`            | Icon of the alert component             | `React.FC<IconProps>` | -            |
+| `backgroundColor` | Background color of the alert component | `ColorsType`          | -            |
+| `color`           | Color of the alert component            | `ColorsType`          | -            |
+| `visible`         | Visibility of the alert component       | `boolean`             | `true`       |
+| `styles`          | Custom styles of the alert component    | `object`              | -            |

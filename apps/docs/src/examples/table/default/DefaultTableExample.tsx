@@ -65,27 +65,3 @@ export const DefaultTableExample: React.FC = () => {
     </ExampleContainer>
   )
 }
-
-// hasTfoot: true,
-// selection: {
-//   active: true,
-//   defaultState: {
-//     0: true,
-//   },
-//   onRowSelectionChange: console.log,
-// },
-// sorting: {
-//   active: true,
-//   state: [
-//     {
-//       accessorKey: 'age',
-//       desc: true,
-//     },
-//   ],
-
-//   onSortingChange: console.log,
-// },
-// pagination: {
-//   active: true,
-// },
-// variant: 'default',

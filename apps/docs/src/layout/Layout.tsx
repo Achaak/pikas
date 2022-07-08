@@ -24,12 +24,12 @@ const Center = styled('div', {
 
 const Content = styled('div', {
   padding: 16,
-  paddingTop: 40,
+  marginTop: 40,
   display: 'flex',
   justifyContent: 'center',
 
   '@md': {
-    paddingTop: 16,
+    marginTop: 16,
   },
 })
 
@@ -38,11 +38,11 @@ const ContentChild = styled('div', {
   maxWidth: '100%',
 
   '& > *': {
-    marginTop: 12,
-    marginBottom: 12,
+    marginBottom: 40,
   },
   '& > p': {
-    marginTop: 24,
+    marginTop: 12,
+    marginBottom: 12,
     color: '$BLACK',
   },
   '& > hr': {
@@ -75,6 +75,37 @@ const ContentChild = styled('div', {
   },
   '& > ul li a, & > p a': {
     color: '$PRIMARY',
+  },
+  '& > div pre': {
+    br: 'sm',
+    overflow: 'auto',
+  },
+  '& > table': {
+    color: '$BLACK',
+    borderCollapse: 'collapse',
+    backgroundColor: '$WHITE',
+    width: '100%',
+    br: 'sm',
+    overflow: 'hidden',
+
+    '& th': {
+      color: '$PRIMARY',
+      padding: '8px 16px',
+      borderBottom: '1px solid',
+      borderColor: '$GRAY_LIGHT',
+    },
+    '& td': {
+      padding: '8px 16px',
+    },
+    '& code': {
+      all: 'unset',
+      color: '$WARNING',
+      backgroundColor: '$WHITE2',
+      padding: '4px 8px',
+      margin: '1px 0',
+      display: 'inline-block',
+      br: 'sm',
+    },
   },
 })
 
