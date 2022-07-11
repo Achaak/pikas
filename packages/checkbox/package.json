@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/checkbox",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,9 +30,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "2.0.9",
-    "@pikas-ui/styles": "2.1.7",
-    "@pikas-ui/text": "3.0.2",
+    "@pikas-ui/icons": "2.0.10",
+    "@pikas-ui/styles": "2.2.0",
+    "@pikas-ui/text": "3.0.3",
     "@radix-ui/react-checkbox": "^0.1.5",
     "font-color-contrast": "^11.1.0",
     "react": "^18.2.0",

@@ -1,5 +1,19 @@
 # @pikas-ui/table
 
+## 2.0.18
+
+### Patch Changes
+
+- Fix empty message
+- 34afd62: Upgrade dependences
+- Updated dependencies [34afd62]
+- Updated dependencies [34afd62]
+  - @pikas-ui/checkbox@2.0.12
+  - @pikas-ui/icons@2.0.10
+  - @pikas-ui/loader@2.0.10
+  - @pikas-ui/select@3.0.6
+  - @pikas-ui/styles@2.2.0
+
 ## 2.0.17
 
 ### Patch Changes

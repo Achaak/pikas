@@ -28,6 +28,7 @@ export const DefaultTableExample: React.FC = () => {
             number: 1234567890,
           },
         ]}
+        emptyMessage="No data found"
         columns={[
           {
             header: 'Age',

@@ -1,5 +1,14 @@
 # @pikas-ui/separator
 
+## 2.0.9
+
+### Patch Changes
+
+- 34afd62: Upgrade dependences
+- Updated dependencies [34afd62]
+- Updated dependencies [34afd62]
+  - @pikas-ui/styles@2.2.0
+
 ## 2.0.8
 
 ### Patch Changes

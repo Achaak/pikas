@@ -125,6 +125,8 @@ const Td = styled('td', {
 
 const TdContent = styled('div', {
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
 
 export const TableVariant = {
@@ -390,10 +392,11 @@ export const Table = <T extends Record<string, unknown>>({
           {!table.getRowModel().rows.length && emptyMessage ? (
             <Tr key="empty">
               <Td
-                colSpan={columns.length + (selection?.active ? 1 : 0)}
+                colSpan={1000}
                 css={{
                   ...styles?.td,
                 }}
+                padding={padding?.td}
               >
                 <TdContent>{emptyMessage}</TdContent>
               </Td>
