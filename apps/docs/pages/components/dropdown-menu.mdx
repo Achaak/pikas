@@ -1,3 +1,4 @@
+import { DropdownMenuExample } from './../../src/examples/dropdownMenu'
 import { getLink } from './../../src/utils/routes'
 
 export const stylesLink = getLink('styles')
@@ -38,33 +39,65 @@ pnpm add @pikas-ui/dropdown-menu
 
 ### DropdownMenu
 
+<DropdownMenuExample />
+
 ```tsx
-import { ContextMenu } from `@pikas-ui/checkbox`
+import { DropdownMenu } from `@pikas-ui/dropdown-menu`
+
 
 const Example: React.FC = () => {
   return (
-    <ContextMenu
-      data={
-        [
-          {
-            label: 'Item 1',
-            items: [
-              {
-                label: 'Item 1-1',
-                type: 'item',
-                onClick: console.log,
-              },
-              {
-                type: 'checkbox',
-                checked: true,
-                label: 'Item 1-2',
-                onCheckedChange: console.log,
-                color: 'PRIMARY',
-              },
-            ],
-          },
-        ]
-      }
+    <DropdownMenu
+      data={[
+        {
+          label: 'Item 1',
+          items: [
+            {
+              label: 'Item 1-1',
+              type: 'item',
+              onClick: console.log,
+            },
+            {
+              type: 'checkbox',
+              checked: true,
+              label: 'Item 1-2',
+              onCheckedChange: console.log,
+              color: 'PRIMARY',
+            },
+            {
+              type: 'radio',
+              onValueChange: console.log,
+              value: '1',
+              radios: [
+                {
+                  label: 'Item 1-3-1',
+                  value: '1',
+                },
+                {
+                  label: 'Item 1-3-2',
+                  value: '2',
+                },
+              ],
+            },
+            {
+              type: 'menu',
+              label: 'Item 1-4',
+              data: [
+                {
+                  label: 'Item 1-4-1',
+                  items: [
+                    {
+                      label: 'Item 1-4-1-1',
+                      type: 'item',
+                      onClick: console.log,
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ]}
     />
   )
 }
@@ -74,7 +107,7 @@ const Example: React.FC = () => {
 
 | Prop                   | Description                                                                                                                                                                                           | Type                             | Default |
 | :--------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- | :------ |
-| `datas`                | Menu datas                                                                                                                                                                                            | `MenuDatas`                      | -       |
+| `data`                 | Menu data                                                                                                                                                                                             | `MenuDatas`                      | -       |
 | `styles`               | Styles of dropdown menu                                                                                                                                                                               | `object`                         | -       |
 | `triggerContent`       | The content of the trigger                                                                                                                                                                            | `ReactNode`                      | -       |
 | `iconColor`            | Icon color of trigger content                                                                                                                                                                         | `ColorsType`                     | -       |

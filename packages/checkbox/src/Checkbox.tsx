@@ -29,6 +29,11 @@ const CheckboxStyled = styled(CheckboxPrimitive.Root, {
   cursor: 'pointer',
   borderStyle: 'solid',
 
+  '&[data-disabled]': {
+    cursor: 'not-allowed',
+    opacity: 0.5,
+  },
+
   variants: {
     focus: {
       true: {
@@ -103,7 +108,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   const pikasUiContext = useContext(PikasUIContext)
 
   const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
-    'indeterminate'
+    indeterminate ? 'indeterminate' : defaultChecked || 'indeterminate'
   )
   const [focus, setFocus] = useState(false)
 

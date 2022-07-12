@@ -114,7 +114,7 @@ export interface DropdownMenuProps extends MenuProps {
 }
 
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
-  datas,
+  data,
   triggerItemLabel,
   triggerContent,
   iconColor,
@@ -170,7 +170,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
               <IconByName
                 name="bx:dots-vertical-rounded"
                 size={iconSize}
-                color={iconColor || 'BLACK_LIGHTER'}
+                color={iconColor || 'BLACK_LIGHT'}
               />
             </IconButton>
           </DropdownMenuPrimitive.Trigger>
@@ -193,7 +193,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           avoidCollisions={avoidCollisions}
           collisionTolerance={collisionTolerance}
         >
-          {datas
+          {data
             .map((data) => ({
               ...data,
               items: data.items.filter((item) => !item.hide),
@@ -322,7 +322,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                               color="GRAY_DARKER"
                             />
                           </ItemIndicator>
-                          <Span css={radio?.styles?.label}>{item.label}</Span>
+                          <Span css={radio?.styles?.label}>{radio.label}</Span>
                           <RightSlot css={radio?.styles?.rightSlot}>
                             {radio.rightSlot}
                           </RightSlot>
@@ -336,7 +336,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   res.push(
                     <DropdownMenu
                       key={`menu-${dataIndex}-${i}`}
-                      datas={item.datas}
+                      data={item.data}
                       triggerItemLabel={item.label}
                     />
                   )

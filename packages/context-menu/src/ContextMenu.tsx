@@ -87,7 +87,7 @@ export interface ContextMenuProps extends MenuProps {
 }
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
-  datas,
+  data,
   triggerItemLabel,
   children,
   styles,
@@ -116,9 +116,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
           </RightSlot>
         </TriggerItem>
       ) : (
-        <ContextMenuPrimitive.Trigger asChild>
-          {children}
-        </ContextMenuPrimitive.Trigger>
+        <ContextMenuPrimitive.Trigger>{children}</ContextMenuPrimitive.Trigger>
       )}
 
       <Content
@@ -136,7 +134,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
         avoidCollisions={avoidCollisions}
         collisionTolerance={collisionTolerance}
       >
-        {datas
+        {data
           .map((data) => ({
             ...data,
             items: data.items.filter((item) => !item.hide),
@@ -250,8 +248,8 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                     return (
                       <RadioGroup
                         key={`radio-${dataIndex}-${itemIndex}`}
-                        value={item.value}
                         onValueChange={item.onValueChange}
+                        value={item.value}
                         css={item?.styles?.container}
                       >
                         {item.radios.map((radio, radioIndex) => (
@@ -268,7 +266,9 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                                 color="GRAY_DARKER"
                               />
                             </ItemIndicator>
-                            <Span css={radio?.styles?.label}>{item.label}</Span>
+                            <Span css={radio?.styles?.label}>
+                              {radio.label}
+                            </Span>
                             <RightSlot css={radio?.styles?.rightSlot}>
                               {radio.rightSlot}
                             </RightSlot>
@@ -282,7 +282,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                     return (
                       <ContextMenu
                         key={`menu-${dataIndex}-${itemIndex}`}
-                        datas={item.datas}
+                        data={item.data}
                         triggerItemLabel={item.label}
                       />
                     )
@@ -303,8 +303,8 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 }
 
 ContextMenu.defaultProps = {
-  modal: false,
+  modal: true,
   allowPinchZoom: false,
   loop: false,
-  avoidCollisions: false,
+  avoidCollisions: true,
 }

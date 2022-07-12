@@ -48,7 +48,9 @@ const ContentChild = styled('div', {
   '& > hr': {
     marginTop: 40,
     marginBottom: 40,
-    color: '$BLACK',
+    display: 'block',
+    border: 'none',
+    borderTop: '1px solid $GRAY_LIGHT',
   },
   '& > h1': {
     marginTop: 32,
@@ -83,7 +85,7 @@ const ContentChild = styled('div', {
   '& > table': {
     color: '$BLACK',
     borderCollapse: 'collapse',
-    backgroundColor: '$WHITE',
+    backgroundColor: '$GRAY_LIGHTEST_2',
     width: '100%',
     br: 'sm',
     overflow: 'hidden',

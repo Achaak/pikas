@@ -141,7 +141,6 @@ export const SpanStyle: CSS = {}
 
 interface ItemDefault {
   disabled?: boolean
-  label: React.ReactNode
   rightSlot?: string
   color?: ColorsType
   colorHex?: string
@@ -155,6 +154,7 @@ interface Item extends ItemDefault {
   iconColor?: ColorsType
   iconColorHex?: string
   loading?: boolean
+  label: React.ReactNode
   onClick?: () => void
   styles?: {
     container?: CSS
@@ -167,6 +167,7 @@ interface Item extends ItemDefault {
 interface CheckboxItem extends ItemDefault {
   type: 'checkbox'
   checked: boolean
+  label: React.ReactNode
   onCheckedChange: (checked: boolean) => void
   styles?: {
     container?: CSS
@@ -178,8 +179,8 @@ interface CheckboxItem extends ItemDefault {
 
 interface RadioItem extends ItemDefault {
   type: 'radio'
-  value: string
   onValueChange: (value: string) => void
+  value: string
   radios: {
     label: string
     value: string
@@ -199,7 +200,8 @@ interface RadioItem extends ItemDefault {
 
 interface MenuItem extends ItemDefault {
   type: 'menu'
-  datas: MenuDatas
+  data: MenuDatas
+  label: React.ReactNode
 }
 
 export interface MenuData {
@@ -213,7 +215,7 @@ export type MenuDatas = MenuData[]
 type ItemType = Item | CheckboxItem | RadioItem | MenuItem
 
 export interface MenuProps {
-  datas: MenuDatas
+  data: MenuDatas
   triggerItemLabel?: React.ReactNode
   styles?: {
     content?: CSS

@@ -54,5 +54,5 @@ export const Separator: React.FC<SeparatorProps> = ({
 Separator.defaultProps = {
   orientation: 'horizontal',
   size: 2,
-  color: 'GRAY_LIGHTER',
+  color: 'GRAY_LIGHT',
 }
