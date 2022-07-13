@@ -1,6 +1,10 @@
+import { SearchbarExample } from './../../src/examples/searchbar'
 import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')
+
+<NextSeo title="Searchbar" />
 
 # @pikas-ui/searchbar
 
@@ -36,13 +40,15 @@ pnpm add @pikas-ui/searchbar
 
 ## Usage
 
-### Textfield
+### Searchbar
+
+<SearchbarExample />
 
 ```tsx
-import { Textfield } from `@pikas-ui/searchbar`;
+import { Searchbar } from `@pikas-ui/searchbar`;
 
 const Example: React.FC = () => {
-  return <Textfield />
+  return <Searchbar />
 }
 ```
 

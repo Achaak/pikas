@@ -1,6 +1,10 @@
+import { TextfieldExample } from './../../src/examples/textfield'
 import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')
+
+<NextSeo title="Textfield" />
 
 # @pikas-ui/textfield
 
@@ -38,11 +42,19 @@ pnpm add @pikas-ui/textfield
 
 ### Textfield
 
+<TextfieldExample />
+
 ```tsx
 import { Textfield } from `@pikas-ui/textfield`;
 
 const Example: React.FC = () => {
-  return <Textfield />
+  return (
+    <Textfield
+      label="Textfield label"
+      description="Eu est labore ea laborum laborum mollit non minim eu commodo."
+      required
+    />
+  )
 }
 ```
 

@@ -7,6 +7,9 @@ const Container = styled('div', {
   margin: '16px 0',
   customColumnGap: 8,
   customRowGap: 8,
+  padding: 16,
+  border: '2px solid $GRAY_LIGHT',
+  br: 'sm',
 })
 
 interface ExampleContainerProps {

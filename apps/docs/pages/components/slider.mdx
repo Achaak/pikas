@@ -1,6 +1,10 @@
+import { SliderExample } from './../../src/examples/slider'
 import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')
+
+<NextSeo title="Slider" />
 
 # @pikas-ui/slider
 
@@ -38,12 +42,20 @@ pnpm add @pikas-ui/slider
 
 ### Slider
 
+<SliderExample />
+
 ```tsx
 import { Slider } from `@pikas-ui/slider`
 
-const Example: React.FC = () => (
-  <Slider />
-)
+const Example: React.FC = () => {
+  return (
+    <Slider
+      defaultValue={[25, 0]}
+      label="Slider label"
+      description="Eu est labore ea laborum laborum mollit non minim eu commodo."
+    />
+  )
+}
 ```
 
 #### Props

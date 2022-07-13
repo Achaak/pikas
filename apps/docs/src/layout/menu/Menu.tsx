@@ -132,7 +132,11 @@ export const Menu: React.FC = () => {
           <Group key={group.label}>
             <H3>{group.label}</H3>
             {group.items.map((item) => (
-              <Item key={item.label} selected={pathname.includes(item.href)}>
+              <Item
+                key={item.label}
+                selected={pathname === item.href}
+                onClick={(): void => setIsOpen(false)}
+              >
                 <Link href={item.href} passHref>
                   <a>{item.label}</a>
                 </Link>

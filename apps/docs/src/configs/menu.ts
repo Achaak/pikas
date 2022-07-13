@@ -85,4 +85,13 @@ export const menu: Menu = [
       },
     ],
   },
+  {
+    label: 'Utilities',
+    items: [
+      {
+        label: 'Styles',
+        href: getLink('styles'),
+      },
+    ],
+  },
 ]

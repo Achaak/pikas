@@ -62,7 +62,6 @@ export const ContextMenuExample: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          br: 'md',
         }}
       >
         Right click here

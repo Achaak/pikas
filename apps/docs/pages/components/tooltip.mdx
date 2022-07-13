@@ -1,6 +1,10 @@
+import { TooltipExample } from './../../src/examples/tooltip'
 import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')
+
+<NextSeo title="Tooltip" />
 
 # @pikas-ui/tooltip
 
@@ -37,6 +41,8 @@ pnpm add @pikas-ui/tooltip
 ## Usage
 
 ### Tooltip
+
+<TooltipExample />
 
 ```tsx
 import { Tooltip } from `@pikas-ui/tooltip`;

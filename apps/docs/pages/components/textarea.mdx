@@ -1,6 +1,10 @@
+import { TextareaExample } from './../../src/examples/textarea'
 import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')
+
+<NextSeo title="Textarea" />
 
 # @pikas-ui/textarea
 
@@ -38,11 +42,20 @@ pnpm add @pikas-ui/textarea
 
 ### Textarea
 
+<TextareaExample />
+
 ```tsx
 import { Textarea } from `@pikas-ui/textarea`;
 
 const Example: React.FC = () => {
-  return <Textarea />
+  return (
+    <Textarea
+      label="Textarea label"
+      description="Eu est labore ea laborum laborum mollit non minim eu commodo."
+      required
+      height={200}
+    />
+  )
 }
 ```
 
