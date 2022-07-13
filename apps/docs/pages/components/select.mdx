@@ -1,3 +1,8 @@
+import { SelectExample } from './../../src/examples/select'
+import { getLink } from './../../src/utils/routes'
+
+export const stylesLink = getLink('styles')
+
 # @pikas-ui/select
 
 This package contains a select component.
@@ -34,12 +39,15 @@ pnpm add @pikas-ui/select
 
 ### Select
 
+<SelectExample />
+
 ```tsx
 import { Select } from `@pikas-ui/select`;
 
 const Example: React.FC = () => {
   return (
     <Select
+      defaultValue="option-1-1"
       data={
         [
           {
@@ -54,7 +62,20 @@ const Example: React.FC = () => {
                 value: 'option-1-2',
               },
             ],
-          }
+          },
+          {
+            name: 'Option 2',
+            items: [
+              {
+                label: 'Option 2.1',
+                value: 'option-2-1',
+              },
+              {
+                label: 'Option 2.2',
+                value: 'option-2-2',
+              },
+            ],
+          },
         ]
       }
     />
@@ -94,7 +115,3 @@ const Example: React.FC = () => {
 | `required`          | The required of the select.                   | `boolean`                                                                                                                                             | `false`  |
 | `info`              | Add a info icon with a tooltip.               | `string`                                                                                                                                              | -        |
 | `infoStyles `       | The styles of the info icon.                  | `TooltipStylesType`                                                                                                                                   | -        |
-
-import { getLink } from './../../src/utils/routes'
-
-export const stylesLink = getLink('styles')

@@ -107,11 +107,11 @@ const ItemIndicator = styled(SelectPrimitive.ItemIndicator, {
 const Separator = styled(SelectPrimitive.Separator, {
   height: 1,
   backgroundColor: '$GRAY_LIGHTER',
-  margin: 5,
+  margin: 8,
 })
 
 const GroupLabel = styled(SelectPrimitive.Label, {
-  padding: '4px 16px 0px 24px',
+  padding: '4px 16px 4px 24px',
   fontWeight: '$MEDIUM',
   fontSize: '$EM-SMALL',
 })
@@ -180,11 +180,13 @@ export const SelectPadding = {
 }
 export type SelectPaddingType = keyof typeof SelectPadding
 
+export type SelectStylesType = {
+  container?: CSS
+  trigger?: CSS
+}
+
 export interface SelectProps {
-  styles?: {
-    container?: CSS
-    trigger?: CSS
-  }
+  styles?: SelectStylesType
   hasSearch?: boolean
   searchPlaceholder?: string
 
@@ -257,11 +259,25 @@ export const Select: React.FC<SelectProps> = ({
     setFormatedData(
       data.map((group) => {
         const items = group.items.map((item) => {
+          let hidden = true
+
+          if (typeof item.label === 'string') {
+            if (item.label.toLowerCase().includes(searchValue.toLowerCase())) {
+              hidden = false
+            }
+          }
+
+          if (item.searchValue) {
+            if (
+              item.searchValue.toLowerCase().includes(searchValue.toLowerCase())
+            ) {
+              hidden = false
+            }
+          }
+
           return {
             ...item,
-            hidden: item.searchValue
-              ? !item.searchValue?.includes(searchValue)
-              : false,
+            hidden: hidden,
           }
         })
 
@@ -363,7 +379,9 @@ export const Select: React.FC<SelectProps> = ({
             <>
               <SearchContainer>
                 <Textfield
-                  onChange={(e): void => setSearchValue(e.target.value)}
+                  onChange={(e): void => {
+                    setSearchValue(e.target.value)
+                  }}
                   placeholder={searchPlaceholder}
                   borderRadius="round"
                   padding="sm"

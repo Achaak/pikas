@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 3.0.7
+
+### Patch Changes
+
+- Fix bug
+
 ## 3.0.6
 
 ### Patch Changes
