@@ -3,7 +3,7 @@ import type { ColorsType } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface HashLoaderProps {
-  size: number
+  size?: number
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const HashLoader: React.FC<HashLoaderProps> = ({
 
 HashLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

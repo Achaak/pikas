@@ -1,5 +1,11 @@
 # @pikas-ui/icons
 
+## 2.0.11
+
+### Patch Changes
+
+- Add default value props
+
 ## 2.0.10
 
 ### Patch Changes

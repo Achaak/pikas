@@ -3,8 +3,8 @@ import type { ColorsType } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface BarLoaderProps {
-  width: number
-  height: number
+  width?: number
+  height?: number
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -32,4 +32,5 @@ export const BarLoader: React.FC<BarLoaderProps> = ({
 
 BarLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

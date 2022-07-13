@@ -3,7 +3,7 @@ import { PulseLoader as PulseLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface PulseLoaderProps {
-  size: number | string
+  size?: number | string
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const PulseLoader: React.FC<PulseLoaderProps> = ({
 
 PulseLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

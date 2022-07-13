@@ -3,7 +3,7 @@ import { BeatLoader as BeatLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface BeatLoaderProps {
-  size: number | string
+  size?: number | string
   margin?: number
   color?: ColorsType
   colorHex?: string
@@ -32,4 +32,5 @@ export const BeatLoader: React.FC<BeatLoaderProps> = ({
 
 BeatLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

@@ -3,7 +3,7 @@ import { RingLoader as RingLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface RingLoaderProps {
-  size: number | string
+  size?: number | string
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const RingLoader: React.FC<RingLoaderProps> = ({
 
 RingLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

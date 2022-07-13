@@ -3,7 +3,7 @@ import { ClipLoader as ClipLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface ClipLoaderProps {
-  size: number | string
+  size?: number | string
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const ClipLoader: React.FC<ClipLoaderProps> = ({
 
 ClipLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

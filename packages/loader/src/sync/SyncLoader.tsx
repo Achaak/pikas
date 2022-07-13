@@ -3,7 +3,7 @@ import type { ColorsType } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface SyncLoaderProps {
-  size: number
+  size?: number
   margin?: number
   color?: ColorsType
   colorHex?: string
@@ -32,4 +32,5 @@ export const SyncLoader: React.FC<SyncLoaderProps> = ({
 
 SyncLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

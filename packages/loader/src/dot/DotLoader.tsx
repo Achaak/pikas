@@ -3,7 +3,7 @@ import type { ColorsType } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface DotLoaderProps {
-  size: number
+  size?: number
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const DotLoader: React.FC<DotLoaderProps> = ({
 
 DotLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

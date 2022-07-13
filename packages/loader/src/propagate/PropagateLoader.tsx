@@ -3,7 +3,7 @@ import type { ColorsType } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface PropagateLoaderProps {
-  size: number
+  size?: number
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const PropagateLoader: React.FC<PropagateLoaderProps> = ({
 
 PropagateLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

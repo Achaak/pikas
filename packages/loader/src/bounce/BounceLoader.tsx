@@ -3,7 +3,7 @@ import { BounceLoader as BounceLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface BounceLoaderProps {
-  size: number | string
+  size?: number | string
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const BounceLoader: React.FC<BounceLoaderProps> = ({
 
 BounceLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

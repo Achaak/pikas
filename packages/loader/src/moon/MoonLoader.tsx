@@ -3,7 +3,7 @@ import { MoonLoader as MoonLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface MoonLoaderProps {
-  size: number | string
+  size?: number | string
   color?: ColorsType
   colorHex?: string
   loading?: boolean
@@ -29,4 +29,5 @@ export const MoonLoader: React.FC<MoonLoaderProps> = ({
 
 MoonLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

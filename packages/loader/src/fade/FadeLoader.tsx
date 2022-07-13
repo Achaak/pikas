@@ -3,8 +3,8 @@ import type { ColorsType } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface FadeLoaderProps {
-  height: number
-  width: number
+  height?: number
+  width?: number
   radius?: number
   margin?: number
   color?: ColorsType
@@ -35,4 +35,5 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
 
 FadeLoader.defaultProps = {
   loading: true,
+  color: 'PRIMARY',
 }

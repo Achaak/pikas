@@ -1,5 +1,28 @@
 import { getLink } from './../../src/utils/routes'
 import { NextSeo } from 'next-seo'
+import { BarLoaderExample } from './../../src/examples/loader/barLoader'
+import { BeatLoaderExample } from './../../src/examples/loader/beatLoader'
+import { BounceLoaderExample } from './../../src/examples/loader/bounceLoader'
+import { CircleLoaderExample } from './../../src/examples/loader/circleLoader'
+import { ClimbingBoxLoaderExample } from './../../src/examples/loader/climbingBoxLoader'
+import { ClipLoaderExample } from './../../src/examples/loader/clipLoader'
+import { ClockLoaderExample } from './../../src/examples/loader/clockLoader'
+import { DotLoaderExample } from './../../src/examples/loader/dotLoader'
+import { FadeLoaderExample } from './../../src/examples/loader/fadeLoader'
+import { GridLoaderExample } from './../../src/examples/loader/gridLoader'
+import { HashLoaderExample } from './../../src/examples/loader/hashLoader'
+import { MoonLoaderExample } from './../../src/examples/loader/moonLoader'
+import { PacmanLoaderExample } from './../../src/examples/loader/pacmanLoader'
+import { PropagateLoaderExample } from './../../src/examples/loader/propagateLoader'
+import { PuffLoaderExample } from './../../src/examples/loader/puffLoader'
+import { PulseLoaderExample } from './../../src/examples/loader/pulseLoader'
+import { RingLoaderExample } from './../../src/examples/loader/ringLoader'
+import { RiseLoaderExample } from './../../src/examples/loader/riseLoader'
+import { RotateLoaderExample } from './../../src/examples/loader/rotateLoader'
+import { ScaleLoaderExample } from './../../src/examples/loader/scaleLoader'
+import { SkewLoaderExample } from './../../src/examples/loader/skewLoader'
+import { SquareLoaderExample } from './../../src/examples/loader/squareLoader'
+import { SyncLoaderExample } from './../../src/examples/loader/syncLoader'
 
 export const stylesLink = getLink('styles')
 
@@ -41,6 +64,8 @@ pnpm add @pikas-ui/loader
 
 ### BarLoader
 
+<BarLoaderExample />
+
 ```tsx
 import { BarLoader } from `@pikas-ui/loader`
 
@@ -49,7 +74,20 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `height`          | Height of the loader           | `number`  | `4`         |
+| `width`           | Width of the loader            | `number`  | `100`       |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### BeatLoader
+
+<BeatLoaderExample />
 
 ```tsx
 import { BeatLoader } from `@pikas-ui/loader`
@@ -59,7 +97,20 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### BounceLoader
+
+<BounceLoaderExample />
 
 ```tsx
 import { BounceLoader } from `@pikas-ui/loader`
@@ -69,7 +120,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `60`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### CircleLoader
+
+<CircleLoaderExample />
 
 ```tsx
 import { CircleLoader } from `@pikas-ui/loader`
@@ -79,7 +142,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `50`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### ClimbingBoxLoader
+
+<ClimbingBoxLoaderExample />
 
 ```tsx
 import { ClimbingBoxLoader } from `@pikas-ui/loader`
@@ -89,7 +164,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### ClipLoader
+
+<ClipLoaderExample />
 
 ```tsx
 import { ClipLoader } from `@pikas-ui/loader`
@@ -99,7 +186,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `35`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### ClockLoader
+
+<ClockLoaderExample />
 
 ```tsx
 import { ClockLoader } from `@pikas-ui/loader`
@@ -109,7 +208,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `50`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### DotLoader
+
+<DotLoaderExample />
 
 ```tsx
 import { DotLoader } from `@pikas-ui/loader`
@@ -119,7 +230,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `60`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### FadeLoader
+
+<FadeLoaderExample />
 
 ```tsx
 import { FadeLoader } from `@pikas-ui/loader`
@@ -129,7 +252,22 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `height`          | Height of the loader           | `number`  | `15`        |
+| `width`           | Width of the loader            | `number`  | `5`         |
+| `radius`          | Radius of the loader           | `number`  | `2`         |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### GridLoader
+
+<GridLoaderExample />
 
 ```tsx
 import { GridLoader } from `@pikas-ui/loader`
@@ -139,7 +277,20 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### HashLoader
+
+<HashLoaderExample />
 
 ```tsx
 import { HashLoader } from `@pikas-ui/loader`
@@ -149,7 +300,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `50`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### MoonLoader
+
+<MoonLoaderExample />
 
 ```tsx
 import { MoonLoader } from `@pikas-ui/loader`
@@ -159,7 +322,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `60`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### PacmanLoader
+
+<PacmanLoaderExample />
 
 ```tsx
 import { PacmanLoader } from `@pikas-ui/loader`
@@ -169,7 +344,20 @@ const Example: React.FC = () => (
 )
 ```
 
-### PropagrateLoader
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `60`        |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
+### PropagateLoader
+
+<PropagateLoaderExample />
 
 ```tsx
 import { PropagateLoader } from `@pikas-ui/loader`
@@ -179,7 +367,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### PuffLoader
+
+<PuffLoaderExample />
 
 ```tsx
 import { PuffLoader } from `@pikas-ui/loader`
@@ -189,7 +389,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `60`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### PulseLoader
+
+<PulseLoaderExample />
 
 ```tsx
 import { PulseLoader } from `@pikas-ui/loader`
@@ -199,7 +411,20 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### RingLoader
+
+<RingLoaderExample />
 
 ```tsx
 import { RingLoader } from `@pikas-ui/loader`
@@ -209,7 +434,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `60`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### RiseLoader
+
+<RiseLoaderExample />
 
 ```tsx
 import { RiseLoader } from `@pikas-ui/loader`
@@ -219,7 +456,20 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### RotateLoader
+
+<RotateLoaderExample />
 
 ```tsx
 import { RotateLoader } from `@pikas-ui/loader`
@@ -229,7 +479,20 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### ScaleLoader
+
+<ScaleLoaderExample />
 
 ```tsx
 import { ScaleLoader } from `@pikas-ui/loader`
@@ -239,7 +502,22 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `height`          | Height of the loader           | `number`  | `35`        |
+| `width`           | Width of the loader            | `number`  | `4`         |
+| `radius`          | Radius of the loader           | `number`  | `2`         |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### SkewLoader
+
+<SkewLoaderExample />
 
 ```tsx
 import { SkewLoader } from `@pikas-ui/loader`
@@ -249,7 +527,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `20`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### SquareLoader
+
+<SquareLoaderExample />
 
 ```tsx
 import { SquareLoader } from `@pikas-ui/loader`
@@ -259,7 +549,19 @@ const Example: React.FC = () => (
 )
 ```
 
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `50`        |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
+
 ### SyncLoader
+
+<SyncLoaderExample />
 
 ```tsx
 import { SyncLoader } from `@pikas-ui/loader`
@@ -268,3 +570,14 @@ const Example: React.FC = () => (
   <SyncLoader />
 )
 ```
+
+#### Props
+
+| Prop              | Description                    | Type      | Default     |
+| :---------------- | :----------------------------- | :-------- | :---------- |
+| `size`            | Size of the loader             | `number`  | `15`        |
+| `margin`          | Margin of the loader           | `number`  | `2`         |
+| `color`           | Color of the alert component   | `string`  | `'PRIMARY'` |
+| `colorHex`        | Color of the alert component   | `string`  | `undefined` |
+| `loading`         | Show the loader                | `boolean` | `true`      |
+| `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |

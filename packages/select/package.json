@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "2.0.10",
+    "@pikas-ui/icons": "2.0.11",
     "@pikas-ui/styles": "2.2.0",
     "@pikas-ui/text": "3.0.3",
-    "@pikas-ui/textfield": "2.0.14",
+    "@pikas-ui/textfield": "2.0.15",
     "@pikas-ui/tooltip": "2.0.9",
     "@radix-ui/react-select": "^0.1.1",
     "react": "^18.2.0",
