@@ -1,23 +1,24 @@
 import { ExampleContainer } from '@/components/ExampleContainer'
+import type { ResultGroupType } from '@pikas-ui/searchbar'
 import { Searchbar } from '@pikas-ui/searchbar'
+
+type SearchbarData = {
+  firstName: string
+  lastName: string
+}[]
 
 export const SearchbarExample: React.FC = () => {
   return (
     <ExampleContainer>
-      <Searchbar<
-        {
-          firstName: string
-          lastName: string
-        }[]
-      >
+      <Searchbar<SearchbarData>
         searchWhenKeyUp={true}
-        onSearch={(value) => {
+        onSearch={(value): ResultGroupType[] | null => {
           return [
             {
               items: value.map((item) => {
                 return {
                   content: `${item.firstName} ${item.lastName}`,
-                  onClick: () => {
+                  onClick: (): void => {
                     console.log(item)
                   },
                 }
@@ -25,7 +26,7 @@ export const SearchbarExample: React.FC = () => {
             },
           ]
         }}
-        searchFunction={async () => {
+        searchFunction={async (): Promise<SearchbarData> => {
           return new Promise((resolve) => {
             setTimeout(() => {
               resolve([

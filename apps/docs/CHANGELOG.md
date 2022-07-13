@@ -1,5 +1,12 @@
 # @pikas-ui/docs
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/searchbar@2.0.21
+
 ## 1.0.2
 
 ### Patch Changes

@@ -8,7 +8,7 @@ import { styled } from '@pikas-ui/styles'
 import type { TextfieldProps, TextfieldStylesType } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
 import React, { useEffect, useState, useRef } from 'react'
-import { useDebounce, useOnClickOutside } from 'usehooks-ts'
+import { useDebounce, useOnClickOutside, useWindowSize } from 'usehooks-ts'
 
 const Form = styled('form', {
   display: 'flex',
@@ -189,6 +189,15 @@ export const Searchbar = <T,>({
   const refResult = useRef<HTMLDivElement | null>(null)
   const refItem = useRef<(HTMLDivElement | null)[]>([])
   useOnClickOutside(refContainer, () => setIsOpen(false))
+  const [outerHeight, setOuterHeight] = useState<number>()
+  const windowSize = useWindowSize()
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+    setOuterHeight(window.outerHeight)
+  }, [windowSize])
 
   const getResultFormat = (
     result: ResultGroupType[] | null
@@ -384,7 +393,8 @@ export const Searchbar = <T,>({
         css={styles?.resultContainer}
         direction={
           direction ||
-          window.outerHeight / 2 < (refContainer.current?.offsetTop || 0)
+          (outerHeight &&
+            outerHeight / 2 < (refContainer.current?.offsetTop || 0))
             ? 'up'
             : 'down'
         }
