@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/docs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
@@ -23,11 +23,11 @@
     "@pikas-ui/icons": "2.0.10",
     "@pikas-ui/loader": "2.0.10",
     "@pikas-ui/searchbar": "2.0.22",
-    "@pikas-ui/select": "3.0.7",
+    "@pikas-ui/select": "3.0.8",
     "@pikas-ui/separator": "2.0.9",
     "@pikas-ui/slider": "2.0.12",
     "@pikas-ui/styles": "2.2.0",
-    "@pikas-ui/table": "2.0.19",
+    "@pikas-ui/table": "2.0.20",
     "@pikas-ui/text": "3.0.3",
     "@pikas-ui/textarea": "2.0.14",
     "@pikas-ui/textfield": "2.0.14",

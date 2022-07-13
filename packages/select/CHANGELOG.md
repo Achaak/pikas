@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 3.0.8
+
+### Patch Changes
+
+- Fix items with reacnode value
+
 ## 3.0.7
 
 ### Patch Changes
