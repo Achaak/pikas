@@ -64,6 +64,11 @@ export const menu: Menu = [
         href: getLink('slider'),
       },
       {
+        label: 'Switch',
+
+        href: getLink('switch'),
+      },
+      {
         label: 'Table',
         href: getLink('table'),
       },

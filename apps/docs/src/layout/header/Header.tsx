@@ -1,6 +1,8 @@
 import { getLink } from '@/utils/routes'
+import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import { styled } from '@pikas-ui/styles'
+import { styled, useTernaryDarkMode } from '@pikas-ui/styles'
+import { Switch } from '@pikas-ui/switch'
 import Link from 'next/link'
 
 const Container = styled('header', {
@@ -22,6 +24,8 @@ const Left = styled('div', {
 
 const Right = styled('div', {
   display: 'flex',
+  alignItems: 'center',
+  customColumnGap: 16,
   flex: 1,
   justifyContent: 'flex-end',
 })
@@ -46,7 +50,17 @@ const NavItem = styled('a', {
   color: '$BLACK',
 })
 
+const BxsSun: React.FC<IconProps> = (props) => (
+  <IconByName name="bxs:sun" {...props} />
+)
+
+const BxsMoon: React.FC<IconProps> = (props) => (
+  <IconByName name="bxs:moon" {...props} />
+)
+
 export const Header: React.FC = () => {
+  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode()
+
   return (
     <Container>
       <Left>
@@ -72,6 +86,14 @@ export const Header: React.FC = () => {
             </NavItem>
           </Link>
         </Nav>
+        <Switch
+          onChange={(bool): void => setTernaryDarkMode(bool ? 'dark' : 'light')}
+          defaultChecked={isDarkMode}
+          Icons={{
+            checked: BxsMoon,
+            unchecked: BxsSun,
+          }}
+        />
       </Right>
     </Container>
   )

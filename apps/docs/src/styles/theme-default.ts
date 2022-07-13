@@ -1,4 +1,4 @@
-import { createTheme } from '@pikas-ui/styles';
+import { createTheme } from '@pikas-ui/styles'
 
 export const themeDefault = createTheme({
   colors: {
@@ -87,4 +87,4 @@ export const themeDefault = createTheme({
 
     BACKGROUND: '#EDF6FF',
   },
-});
+})

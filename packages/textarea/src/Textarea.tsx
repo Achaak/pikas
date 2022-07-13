@@ -14,7 +14,8 @@ import { useContext } from 'react'
 import { forwardRef } from 'react'
 import React, { useState } from 'react'
 import { IconByName } from '@pikas-ui/icons'
-import { Tooltip, TooltipStylesType } from '@pikas-ui/tooltip'
+import type { TooltipStylesType } from '@pikas-ui/tooltip'
+import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
   display: 'flex',
@@ -86,6 +87,13 @@ export const TextareaResize = {
 }
 export type TextareaResizeType = keyof typeof TextareaResize
 
+export interface TextareaStylesType {
+  container?: CSS
+  textareaContainer?: CSS
+  textarea?: CSS
+  info?: TooltipStylesType
+}
+
 export type TextareaProps = {
   id?: string
   label?: string
@@ -95,11 +103,7 @@ export type TextareaProps = {
   fontSize?: FontsSizesType
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  styles?: {
-    container?: CSS
-    textareaContainer?: CSS
-    textarea?: CSS
-  }
+  styles?: TextareaStylesType
   outline?: boolean
   resize?: TextareaResizeType
   description?: string
@@ -119,7 +123,6 @@ export type TextareaProps = {
   backgroundColor?: ColorsType
   backgroundColorHex?: string
   info?: React.ReactNode
-  infoStyles?: TooltipStylesType
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -153,8 +156,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       placeholderColor,
       placeholderColorHex,
       info,
-      infoStyles,
       required,
+      disabled,
       ...props
     },
     ref
@@ -195,6 +198,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,
+          opacity: disabled ? 0.5 : 1,
+          cursor: disabled ? 'not-allowed' : undefined,
+
+          '& > *': {
+            pointerEvents: disabled ? 'none' : undefined,
+          },
+
           ...styles?.container,
         }}
       >
@@ -204,7 +214,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
             {required ? <Required>*</Required> : null}
             {info ? (
-              <Tooltip content={info} styles={infoStyles}>
+              <Tooltip content={info} styles={styles?.info}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
@@ -253,6 +263,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
             required={required}
+            disabled={disabled}
             css={{
               resize: resize,
               height: height,

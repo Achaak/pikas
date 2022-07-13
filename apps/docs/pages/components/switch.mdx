@@ -1,0 +1,74 @@
+import { SwitchExample } from './../../src/examples/switch'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Switch" />
+
+# @pikas-ui/switch
+
+This package contains a switch component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/switch
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/switch
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/switch
+```
+
+---
+
+## Usage
+
+### Switch
+
+<SwitchExample />
+
+```tsx
+import { Switch } from `@pikas-ui/switch`
+
+const Example: React.FC = () => {
+  return (
+    <Switch
+      label="Switch label"
+      id="switch"
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop             | Description                                       | Type                                                               | Default  |
+| :--------------- | :------------------------------------------------ | :----------------------------------------------------------------- | :------- |
+| `id`             | The id of the switch.                             | `string`                                                           | `-`      |
+| `label`          | The label of the switch.                          | `string`                                                           | `-`      |
+| `name`           | The name of the switch.                           | `string`                                                           | `-`      |
+| `fontSize`       | The font size of the switch.                      | `string`                                                           | `-`      |
+| `textError`      | The text error of the switch.                     | `string`                                                           | `-`      |
+| `onChange`       | The callback function when the switch is changed. | `(val: boolean) => void`                                           | `-`      |
+| `defaultChecked` | The default checked value of the switch.          | `boolean`                                                          | `false`  |
+| `styles`         | The styles of the switch.                         | `SwitchStylesType`                                                 | `-`      |
+| `disabled`       | The disabled value of the switch.                 | `boolean`                                                          | `false`  |
+| `side`           | The side of the switch.                           | `'left' or 'right'`                                                | `'left'` |
+| `Icons`          | The icons of the switch.                          | `{ checked: React.FC<IconProps>, unchecked: React.FC<IconProps> }` | `-`      |

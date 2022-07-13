@@ -109,9 +109,9 @@ const ButtonDOM = styled('button', {
       },
     },
 
-    state: {
+    disabled: {
       true: {
-        cursor: 'initial',
+        cursor: 'not-allowed',
         opacity: 0.5,
       },
     },
@@ -332,7 +332,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <ButtonDOM
         ref={ref}
         onClick={handleClick}
-        state={disabled}
+        disabled={disabled}
         effect={disabled ? undefined : effect}
         css={{
           br: borderRadius,
@@ -441,7 +441,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         as="a"
         ref={ref}
         onClick={handleClick}
-        state={disabled}
+        disabled={disabled}
         effect={disabled ? undefined : effect}
         css={{
           br: borderRadius,

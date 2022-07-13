@@ -15,6 +15,7 @@ export const { getLink } = routes({
     select: '/components/select',
     separator: '/components/separator',
     slider: '/components/slider',
+    switch: '/components/switch',
     table: '/components/table',
     text: '/components/text',
     textarea: '/components/textarea',

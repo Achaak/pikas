@@ -12,6 +12,7 @@ export const CheckboxExample: React.FC = () => {
         indeterminate={false}
         label={checked ? 'Checked' : 'Unchecked'}
         onChange={setChecked}
+        id="checkbox"
       />
       <Checkbox
         defaultChecked={checked}
@@ -20,6 +21,7 @@ export const CheckboxExample: React.FC = () => {
         onChange={setChecked}
         bgColorChecked="SECONDARY"
         disabled
+        id="checkbox-disabled"
       />
     </ExampleContainer>
   )

@@ -183,6 +183,7 @@ export type SelectPaddingType = keyof typeof SelectPadding
 export type SelectStylesType = {
   container?: CSS
   trigger?: CSS
+  info?: TooltipStylesType
 }
 
 export interface SelectProps {
@@ -217,7 +218,6 @@ export interface SelectProps {
   maxWidth?: string | number
   minWidth?: string | number
   info?: React.ReactNode
-  infoStyles?: TooltipStylesType
   required?: boolean
 }
 
@@ -248,7 +248,6 @@ export const Select: React.FC<SelectProps> = ({
   width,
   minWidth,
   info,
-  infoStyles,
   required,
 }) => {
   const [searchValue, setSearchValue] = useState('')
@@ -324,7 +323,7 @@ export const Select: React.FC<SelectProps> = ({
 
           {required ? <Required>*</Required> : null}
           {info ? (
-            <Tooltip content={info} styles={infoStyles}>
+            <Tooltip content={info} styles={styles?.info}>
               <IconByName
                 name="bx:info-circle"
                 color="BLACK_LIGHT"

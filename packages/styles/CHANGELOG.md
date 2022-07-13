@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 2.2.1
+
+### Patch Changes
+
+- Multiple fix
+
 ## 2.2.0
 
 ### Minor Changes

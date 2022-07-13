@@ -198,6 +198,7 @@ export type TextfieldStylesType = {
   right?: CSS
   leftIcon?: IconStyleType
   rightIcon?: IconStyleType
+  info?: TooltipStylesType
 }
 
 export type TextfieldProps = {
@@ -240,7 +241,6 @@ export type TextfieldProps = {
   maxWidth?: string | number
   minWidth?: string | number
   info?: React.ReactNode
-  infoStyles?: TooltipStylesType
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
@@ -286,7 +286,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       rightIconSize,
       required,
       info,
-      infoStyles,
+      disabled,
       ...props
     },
     ref
@@ -339,6 +339,12 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,
+          opacity: disabled ? 0.5 : 1,
+          cursor: disabled ? 'not-allowed' : undefined,
+
+          '& > *': {
+            pointerEvents: disabled ? 'none' : undefined,
+          },
           ...styles?.container,
         }}
       >
@@ -348,7 +354,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
             {required ? <Required>*</Required> : null}
             {info ? (
-              <Tooltip content={info} styles={infoStyles}>
+              <Tooltip content={info} styles={styles?.info}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
@@ -438,6 +444,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             max={max}
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
+            disabled={disabled}
             required={required}
             css={{
               color: getColor({ color, colorHex }),

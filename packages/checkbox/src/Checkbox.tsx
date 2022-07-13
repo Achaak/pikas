@@ -29,11 +29,6 @@ const CheckboxStyled = styled(CheckboxPrimitive.Root, {
   cursor: 'pointer',
   borderStyle: 'solid',
 
-  '&[data-disabled]': {
-    cursor: 'not-allowed',
-    opacity: 0.5,
-  },
-
   variants: {
     focus: {
       true: {
@@ -137,6 +132,12 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       className={className}
       css={{
         fontSize: `$${fontSize}`,
+        cursor: disabled ? 'not-allowed' : undefined,
+        opacity: disabled ? 0.5 : 1,
+
+        '& > *': {
+          pointerEvents: disabled ? 'none' : undefined,
+        },
       }}
     >
       <Element>

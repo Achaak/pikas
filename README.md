@@ -6,9 +6,7 @@ The library is based on the [React](https://reactjs.org/) framework and is writt
 The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https://www.radix-ui.com/) for the accessibility.
 
 ## To-do list
-- Documentation of loader component
 - Documentation of table component
-- Add Switch component
 - Add Avatar component
 - Add Modal component
 - Add Radio component

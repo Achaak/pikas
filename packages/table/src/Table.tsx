@@ -135,6 +135,18 @@ export const TableVariant = {
 }
 export type TableVariantType = keyof typeof TableVariant
 
+export interface TableStylesTypes {
+  container?: CSS
+  table?: CSS
+  thead?: CSS
+  tbody?: CSS
+  tfoot?: CSS
+  tr?: CSS
+  th?: CSS
+  thSpan?: CSS
+  td?: CSS
+}
+
 export interface TableProps<T extends Record<string, unknown>> {
   variant?: TableVariantType
   data: T[]
@@ -157,17 +169,7 @@ export interface TableProps<T extends Record<string, unknown>> {
     onSortingChange?: OnChangeFn<SortingState>
   }
   columns: ColumnDef<T>[]
-  styles?: {
-    container?: CSS
-    table?: CSS
-    thead?: CSS
-    tbody?: CSS
-    tfoot?: CSS
-    tr?: CSS
-    th?: CSS
-    thSpan?: CSS
-    td?: CSS
-  }
+  styles?: TableStylesTypes
   padding?: {
     th?: 'sm' | 'md' | 'lg'
     td?: 'sm' | 'md' | 'lg'

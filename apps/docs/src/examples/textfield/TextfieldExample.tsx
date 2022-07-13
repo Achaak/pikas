@@ -8,6 +8,8 @@ export const TextfieldExample: React.FC = () => {
         label="Textfield label"
         description="Eu est labore ea laborum laborum mollit non minim eu commodo."
         required
+        id="textfield"
+        disabled
       />
     </ExampleContainer>
   )

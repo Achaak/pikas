@@ -9,6 +9,8 @@ export const TextareaExample: React.FC = () => {
         description="Eu est labore ea laborum laborum mollit non minim eu commodo."
         required
         height={200}
+        id="textarea"
+        disabled
       />
     </ExampleContainer>
   )

@@ -63,6 +63,18 @@ export const SliderOrientation = {
 }
 export type SliderOrientationType = keyof typeof SliderOrientation
 
+export interface SliderStylesType {
+  container?: CSS
+  label?: CSS
+  description?: CSS
+  textError?: CSS
+  element?: CSS
+  slider?: CSS
+  track?: CSS
+  range?: CSS
+  thumb?: CSS
+}
+
 export interface SliderProps {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
@@ -98,17 +110,7 @@ export interface SliderProps {
   rangeColor?: ColorsType
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadiusType
-  styles?: {
-    container?: CSS
-    label?: CSS
-    description?: CSS
-    textError?: CSS
-    element?: CSS
-    slider?: CSS
-    track?: CSS
-    range?: CSS
-    thumb?: CSS
-  }
+  styles?: SliderStylesType
 }
 
 export const Slider: React.FC<SliderProps> = ({
