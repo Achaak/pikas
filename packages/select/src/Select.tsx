@@ -259,19 +259,25 @@ export const Select: React.FC<SelectProps> = ({
     setFormatedData(
       data.map((group) => {
         const items = group.items.map((item) => {
-          let hidden = true
+          let hidden = item.hidden || false
 
-          if (typeof item.label === 'string') {
-            if (item.label.toLowerCase().includes(searchValue.toLowerCase())) {
-              hidden = false
+          if (searchValue.length > 0) {
+            if (typeof item.label === 'string') {
+              if (
+                !item.label.toLowerCase().includes(searchValue.toLowerCase())
+              ) {
+                hidden = false
+              }
             }
-          }
 
-          if (item.searchValue) {
-            if (
-              item.searchValue.toLowerCase().includes(searchValue.toLowerCase())
-            ) {
-              hidden = false
+            if (item.searchValue) {
+              if (
+                !item.searchValue
+                  .toLowerCase()
+                  .includes(searchValue.toLowerCase())
+              ) {
+                hidden = false
+              }
             }
           }
 
