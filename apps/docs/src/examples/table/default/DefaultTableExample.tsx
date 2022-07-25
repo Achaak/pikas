@@ -40,7 +40,7 @@ export const DefaultTableExample: React.FC = () => {
               {
                 header: 'First Name',
                 accessorKey: 'firstName',
-                cell: (row) => <pre>{row.cell.getValue()}</pre>,
+                cell: (props) => <pre>{props.getValue<string>()}</pre>,
               },
               {
                 header: 'Last Name',

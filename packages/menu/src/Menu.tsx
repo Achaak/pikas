@@ -28,6 +28,7 @@ export const MenuContentStyle: CSS = {
   br: 'md',
   padding: 8,
   boxShadow: '$ELEVATION_2',
+  zIndex: '$X-HIGH',
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: '400ms',
@@ -200,25 +201,26 @@ interface RadioItem extends ItemDefault {
 
 interface MenuItem extends ItemDefault {
   type: 'menu'
-  data: MenuDatas
+  data: MenuData
   label: React.ReactNode
 }
 
-export interface MenuData {
+export interface MenuDataItem {
   label?: React.ReactNode
   style?: CSS
   items: ItemType[]
 }
 
-export type MenuDatas = MenuData[]
+export type MenuData = MenuDataItem[]
 
 type ItemType = Item | CheckboxItem | RadioItem | MenuItem
 
+export interface MenuStylesType {
+  content?: CSS
+  separator?: CSS
+}
+
 export interface MenuProps {
-  data: MenuDatas
-  triggerItemLabel?: React.ReactNode
-  styles?: {
-    content?: CSS
-    separator?: CSS
-  }
+  data: MenuData
+  styles?: MenuStylesType
 }

@@ -1,5 +1,16 @@
 # @pikas-ui/icons
 
+## 2.1.0
+
+### Minor Changes
+
+- Update dependencies
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.3.0
+
 ## 2.0.12
 
 ### Patch Changes

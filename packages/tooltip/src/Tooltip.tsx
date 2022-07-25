@@ -117,9 +117,8 @@ export interface TooltipProps {
   sideOffset?: number
   align?: TooltipAlignType
   alignOffset?: number
-  portalled?: boolean
   avoidCollisions?: boolean
-  collisionTolerance?: number
+  collisionPadding?: number
   borderRadius?: BorderRadiusType
   fontSize?: FontsSizesType
   fontWeight?: FontsWeightsType
@@ -143,9 +142,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   align,
   alignOffset,
   sideOffset,
-  portalled,
   avoidCollisions,
-  collisionTolerance,
+  collisionPadding,
   borderRadius,
   fontSize,
   fontWeight,
@@ -170,44 +168,46 @@ export const Tooltip: React.FC<TooltipProps> = ({
         <Trigger asChild css={styles?.trigger}>
           <div>{children}</div>
         </Trigger>
-        <StyledContent
-          side={side}
-          sideOffset={sideOffset}
-          align={align}
-          alignOffset={alignOffset}
-          portalled={portalled}
-          avoidCollisions={avoidCollisions}
-          collisionTolerance={collisionTolerance}
-          padding={padding}
-          css={{
-            br: borderRadius,
-            backgroundColor: `$${backgroundColor}`,
-            fontSize: `$${fontSize}`,
-            fontWeight: `$${fontWeight}`,
-            boxShadow: `$${boxShadow}`,
-            color:
-              (pikasUiContext &&
-                fontColorContrast(
-                  pikasUiContext.colors[backgroundColor || 'BLACK'].value,
-                  0.7
-                )) ||
-              undefined,
 
-            ...styles?.content,
-          }}
-        >
-          {content}
-          {hasArrow && (
-            <StyledArrow
-              offset={arrowOffset}
-              width={arrowSize}
-              height={arrowSize ? arrowSize / 2 : undefined}
-              css={{
-                fill: `$${backgroundColor}`,
-              }}
-            />
-          )}
-        </StyledContent>
+        <TooltipPrimitive.Portal>
+          <StyledContent
+            side={side}
+            sideOffset={sideOffset}
+            align={align}
+            alignOffset={alignOffset}
+            avoidCollisions={avoidCollisions}
+            collisionPadding={collisionPadding}
+            padding={padding}
+            css={{
+              br: borderRadius,
+              backgroundColor: `$${backgroundColor}`,
+              fontSize: `$${fontSize}`,
+              fontWeight: `$${fontWeight}`,
+              boxShadow: `$${boxShadow}`,
+              color:
+                (pikasUiContext &&
+                  fontColorContrast(
+                    pikasUiContext.colors[backgroundColor || 'BLACK'].value,
+                    0.7
+                  )) ||
+                undefined,
+
+              ...styles?.content,
+            }}
+          >
+            {content}
+            {hasArrow && (
+              <StyledArrow
+                offset={arrowOffset}
+                width={arrowSize}
+                height={arrowSize ? arrowSize / 2 : undefined}
+                css={{
+                  fill: `$${backgroundColor}`,
+                }}
+              />
+            )}
+          </StyledContent>
+        </TooltipPrimitive.Portal>
       </TooltipPrimitive.Root>
     </TooltipPrimitive.Provider>
   )
