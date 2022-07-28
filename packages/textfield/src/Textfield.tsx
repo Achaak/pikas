@@ -241,6 +241,7 @@ export type TextfieldProps = {
   maxWidth?: string | number
   minWidth?: string | number
   info?: React.ReactNode
+  data?: DOMStringMap
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
@@ -287,6 +288,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       required,
       info,
       disabled,
+      data,
       ...props
     },
     ref
@@ -459,6 +461,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
               ...styles?.input,
             }}
             {...props}
+            {...data}
           />
 
           {RightIcon && (

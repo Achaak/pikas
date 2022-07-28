@@ -1,5 +1,16 @@
 # @pikas-ui/docs
 
+## 1.0.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/textarea@2.1.1
+  - @pikas-ui/textfield@2.1.1
+  - @pikas-ui/searchbar@2.1.1
+  - @pikas-ui/select@3.1.1
+  - @pikas-ui/table@2.1.1
+
 ## 1.0.9
 
 ### Patch Changes

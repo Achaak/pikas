@@ -123,6 +123,7 @@ export type TextareaProps = {
   backgroundColor?: ColorsType
   backgroundColorHex?: string
   info?: React.ReactNode
+  data?: DOMStringMap
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -158,6 +159,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       info,
       required,
       disabled,
+      data,
       ...props
     },
     ref
@@ -281,6 +283,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               ...styles?.textarea,
             }}
             {...props}
+            {...data}
           />
         </TextareaContainer>
 
