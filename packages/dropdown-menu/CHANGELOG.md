@@ -1,5 +1,11 @@
 # @pikas-ui/dropdown-menu
 
+## 2.1.1
+
+### Patch Changes
+
+- Fix typing
+
 ## 2.1.0
 
 ### Minor Changes

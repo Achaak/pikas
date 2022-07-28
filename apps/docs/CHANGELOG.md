@@ -1,5 +1,13 @@
 # @pikas-ui/docs
 
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/context-menu@2.1.1
+  - @pikas-ui/dropdown-menu@2.1.1
+
 ## 1.0.8
 
 ### Patch Changes

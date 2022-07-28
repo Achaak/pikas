@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/docs",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": true,
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
@@ -18,8 +18,8 @@
     "@pikas-ui/alert": "2.1.0",
     "@pikas-ui/button": "2.1.0",
     "@pikas-ui/checkbox": "2.1.0",
-    "@pikas-ui/context-menu": "2.1.0",
-    "@pikas-ui/dropdown-menu": "2.1.0",
+    "@pikas-ui/context-menu": "2.1.1",
+    "@pikas-ui/dropdown-menu": "2.1.1",
     "@pikas-ui/icons": "2.1.0",
     "@pikas-ui/loader": "2.1.0",
     "@pikas-ui/searchbar": "2.1.0",
