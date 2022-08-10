@@ -1,5 +1,17 @@
 # @pikas-ui/select
 
+## 3.1.2
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/icons@2.1.1
+  - @pikas-ui/styles@2.3.1
+  - @pikas-ui/text@3.1.1
+  - @pikas-ui/textfield@2.1.2
+  - @pikas-ui/tooltip@2.1.1
+
 ## 3.1.1
 
 ### Patch Changes

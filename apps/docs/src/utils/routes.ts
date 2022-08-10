@@ -5,6 +5,7 @@ export const { getLink } = routes({
   links: {
     introduction: '/',
     alert: '/components/alert',
+    avatar: '/components/avatar',
     button: '/components/button',
     checkbox: '/components/checkbox',
     contextMenu: '/components/context-menu',

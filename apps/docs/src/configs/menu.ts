@@ -23,6 +23,10 @@ export const menu: Menu = [
         href: getLink('alert'),
       },
       {
+        label: 'Avatar',
+        href: getLink('avatar'),
+      },
+      {
         label: 'Button',
         href: getLink('button'),
       },

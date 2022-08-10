@@ -1,0 +1,76 @@
+import { AvatarExample } from './../../src/examples/avatar'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Avatar" />
+
+# @pikas-ui/avatar
+
+This package contains a avatar component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/avatar
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/avatar
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/avatar
+```
+
+---
+
+## Usage
+
+### Avatar
+
+<AvatarExample />
+
+```tsx
+import { Avatar } from `@pikas-ui/avatar`;
+
+const Example: React.FC = () => {
+  return (
+    <Avatar
+      alt="Jane Doe"
+      fallback="JD"
+      src={
+        'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80'
+      }
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop                      | Description                                           | Type                                   | Default                |
+| :------------------------ | :---------------------------------------------------- | :------------------------------------- | :--------------------- |
+| `alt`                     | The alt text for the image.                           | `string`                               | -                      |
+| `src`                     | The image source.                                     | `string`                               | -                      |
+| `onLoadingStatusChange`   | Callback when the image loading status changes.       | `(status: ImageLoadingStatus) => void` | -                      |
+| `delayMs`                 | The delay in milliseconds before the image is loaded. | `number`                               | -                      |
+| `fallback`                | The fallback text.                                    | `string`                               | -                      |
+| `fallbackColor`           | The fallback text color.                              | `string`                               | `"PRIMARY"`            |
+| `fallbackBackgroundColor` | The fallback background color.                        | `string`                               | `"PRIMARY_LIGHTEST_2"` |
+| `styles`                  | The styles.                                           | `AvatarStylesType`                     | -                      |
+| `size`                    | The size of the avatar.                               | `number`                               | `80`                   |
+| `borderRadius`            | The border radius of the avatar.                      | `BorderRadiusType`                     | `"round"`              |
