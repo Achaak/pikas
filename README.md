@@ -7,7 +7,6 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 
 ## To-do list
 - Documentation of table component
-- Add Avatar component
 - Add Modal component
 - Add Radio component
 - Add Tabs component
