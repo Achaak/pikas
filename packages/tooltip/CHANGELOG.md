@@ -1,5 +1,13 @@
 # @pikas-ui/tooltip
 
+## 2.1.2
+
+### Patch Changes
+
+- Add useTheme hook
+- Updated dependencies
+  - @pikas-ui/styles@2.3.2
+
 ## 2.1.1
 
 ### Patch Changes

@@ -1,8 +1,7 @@
-import { useContext } from 'react'
 import React from 'react'
 
 import type { CSS } from '@pikas-ui/styles'
-import { PikasUIContext, styled } from '@pikas-ui/styles'
+import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 
 interface CustomProps extends React.HTMLAttributes<HTMLTableSectionElement> {
@@ -11,7 +10,7 @@ interface CustomProps extends React.HTMLAttributes<HTMLTableSectionElement> {
 }
 
 export const Thead: React.FC<CustomProps> = (props) => {
-  const pikasUIContext = useContext(PikasUIContext)
+  const theme = useTheme()
 
   const Thead = styled('thead', {
     variants: {
@@ -19,14 +18,12 @@ export const Thead: React.FC<CustomProps> = (props) => {
         default: {
           backgroundColor: '$PRIMARY',
           color:
-            (pikasUIContext &&
-              fontColorContrast(pikasUIContext.colors['PRIMARY'].value, 0.7)) ||
+            (theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
             undefined,
 
           svg: {
             fill:
-              pikasUIContext &&
-              fontColorContrast(pikasUIContext.colors['PRIMARY'].value, 0.7),
+              theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
           },
 
           tr: {

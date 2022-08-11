@@ -101,6 +101,10 @@ export const menu: Menu = [
         label: 'Styles',
         href: getLink('styles'),
       },
+      {
+        label: 'useTheme',
+        href: getLink('useTheme'),
+      },
     ],
   },
 ]

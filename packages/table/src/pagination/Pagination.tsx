@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react'
-import { useContext } from 'react'
 import React from 'react'
-
-import { PikasUIContext, styled } from '@pikas-ui/styles'
+import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { IconByName } from '@pikas-ui/icons'
 import { Select } from '@pikas-ui/select'
@@ -84,7 +82,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   defaultPageSize,
   selectValue,
 }) => {
-  const pikasUIContext = useContext(PikasUIContext)
+  const theme = useTheme()
 
   const getNumber = (): React.ReactNode => {
     const pagesBtn: Array<ReactElement> = []
@@ -115,11 +113,8 @@ export const Pagination: React.FC<PaginationProps> = ({
               ...(i === pageIndex && {
                 backgroundColor: '$PRIMARY',
                 color:
-                  (pikasUIContext &&
-                    fontColorContrast(
-                      pikasUIContext.colors['PRIMARY'].value,
-                      0.7
-                    )) ||
+                  (theme &&
+                    fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
                   undefined,
               }),
             }}

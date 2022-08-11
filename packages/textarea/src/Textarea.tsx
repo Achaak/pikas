@@ -5,12 +5,10 @@ import type {
   FontsSizesType,
   BorderRadiusType,
 } from '@pikas-ui/styles'
-import { PikasUIContext } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
+import { styled, useTheme } from '@pikas-ui/styles'
 import { Label, TextError, Description } from '@pikas-ui/text'
 import fontColorContrast from 'font-color-contrast'
 import type { TextareaHTMLAttributes } from 'react'
-import { useContext } from 'react'
 import { forwardRef } from 'react'
 import React, { useState } from 'react'
 import { IconByName } from '@pikas-ui/icons'
@@ -165,7 +163,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref
   ) => {
     const [focus, setFocus] = useState(false)
-    const pikasUiContext = useContext(PikasUIContext)
+    const theme = useTheme()
 
     const onChangeTextarea = (
       e: React.ChangeEvent<HTMLTextAreaElement>
@@ -185,9 +183,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       return colorHex || color
         ? `$${color}`
         : undefined ||
-            (pikasUiContext &&
+            (theme &&
               fontColorContrast(
-                pikasUiContext.colors[backgroundColor || 'WHITE'].value,
+                theme.colors[backgroundColor || 'WHITE'].value,
                 0.7
               )) ||
             ''

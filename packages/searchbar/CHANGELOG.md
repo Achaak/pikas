@@ -1,5 +1,17 @@
 # @pikas-ui/searchbar
 
+## 2.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/button@2.1.2
+  - @pikas-ui/styles@2.3.2
+  - @pikas-ui/textfield@2.1.3
+  - @pikas-ui/icons@2.1.2
+  - @pikas-ui/loader@2.1.2
+  - @pikas-ui/separator@2.1.2
+
 ## 2.1.2
 
 ### Patch Changes

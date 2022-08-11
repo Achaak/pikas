@@ -1,0 +1,53 @@
+# useTheme
+
+import { NextSeo } from 'next-seo'
+
+<NextSeo title="useTheme" />
+
+This hook allows you to access the theme context and use the theme values.
+
+The value change when the theme is changed.
+
+## Getting Started
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/styles
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/styles
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/styles
+```
+
+---
+
+## Usage
+
+```tsx
+import { useTheme } from `@pikas-ui/styles`;
+
+const Example: React.FC = () => {
+  const useTheme = useTheme();
+
+  return (
+    <h1
+      style={{
+        color: useTheme.colors.primary,
+      }}
+    >
+      Example
+    </h1>
+  )
+}
+```

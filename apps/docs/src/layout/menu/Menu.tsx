@@ -1,4 +1,4 @@
-import { styled } from '@pikas-ui/styles'
+import { styled, useTheme } from '@pikas-ui/styles'
 import { useState } from 'react'
 import { Button } from '@pikas-ui/button'
 import type { IconProps } from '@pikas-ui/icons'

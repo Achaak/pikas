@@ -23,5 +23,6 @@ export const { getLink } = routes({
     textfield: '/components/textfield',
     tooltip: '/components/tooltip',
     styles: '/utilities/styles',
+    useTheme: '/utilities/useTheme',
   },
 })

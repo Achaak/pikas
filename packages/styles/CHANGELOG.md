@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 2.3.2
+
+### Patch Changes
+
+- Add useTheme hook
+
 ## 2.3.1
 
 ### Patch Changes
