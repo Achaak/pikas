@@ -1,5 +1,13 @@
 # @pikas-ui/select
 
+## 3.1.4
+
+### Patch Changes
+
+- Add styles props
+- Updated dependencies
+  - @pikas-ui/textfield@2.1.4
+
 ## 3.1.3
 
 ### Patch Changes

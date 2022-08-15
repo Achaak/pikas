@@ -1,4 +1,4 @@
-import type { IconProps } from '@pikas-ui/icons'
+import type { IconProps, IconStyleType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type { CSS, FontsSizesType } from '@pikas-ui/styles'
 import type { TooltipStylesType } from '@pikas-ui/tooltip'
@@ -69,7 +69,11 @@ const Required = styled('div', {
 
 export interface SwitchStyleType {
   container?: CSS
-  info?: TooltipStylesType
+  infoTootip?: TooltipStylesType
+  infoIcon?: IconStyleType
+  label?: CSS
+  required?: CSS
+  textError?: CSS
 }
 
 export interface SwitchProps {
@@ -148,17 +152,36 @@ export const Switch: React.FC<SwitchProps> = ({
               marginRight: 8,
             }}
           >
-            <Label htmlFor={id}>{label}</Label>
+            <Label
+              htmlFor={id}
+              style={{
+                ...styles?.label,
+              }}
+            >
+              {label}
+            </Label>
 
-            {required ? <Required>*</Required> : null}
+            {required ? (
+              <Required
+                css={{
+                  ...styles?.required,
+                }}
+              >
+                *
+              </Required>
+            ) : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.info}>
+              <Tooltip content={info} styles={styles?.infoTootip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
                   styles={{
                     container: {
                       marginLeft: 4,
+                      ...styles?.infoIcon?.container,
+                    },
+                    svg: {
+                      ...styles?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -182,17 +205,36 @@ export const Switch: React.FC<SwitchProps> = ({
               marginLeft: 8,
             }}
           >
-            <Label htmlFor={id}>{label}</Label>
+            <Label
+              htmlFor={id}
+              style={{
+                ...styles?.label,
+              }}
+            >
+              {label}
+            </Label>
 
-            {required ? <Required>*</Required> : null}
+            {required ? (
+              <Required
+                css={{
+                  ...styles?.required,
+                }}
+              >
+                *
+              </Required>
+            ) : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.info}>
+              <Tooltip content={info} styles={styles?.infoTootip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
                   styles={{
                     container: {
                       marginLeft: 4,
+                      ...styles?.infoIcon?.container,
+                    },
+                    svg: {
+                      ...styles?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -202,7 +244,11 @@ export const Switch: React.FC<SwitchProps> = ({
         ) : null}
       </SwitchContainer>
 
-      {textError && <TextError style={{ marginTop: 5 }}>{textError}</TextError>}
+      {textError && (
+        <TextError style={{ marginTop: 5, ...styles?.textError }}>
+          {textError}
+        </TextError>
+      )}
     </Container>
   )
 }

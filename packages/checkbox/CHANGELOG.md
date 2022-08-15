@@ -1,5 +1,11 @@
 # @pikas-ui/checkbox
 
+## 2.1.3
+
+### Patch Changes
+
+- Add styles props
+
 ## 2.1.2
 
 ### Patch Changes

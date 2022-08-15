@@ -6,6 +6,7 @@ import type {
   ShadowsType,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
+import type { IconStyleType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
@@ -183,7 +184,12 @@ export type SelectPaddingType = keyof typeof SelectPadding
 export type SelectStylesType = {
   container?: CSS
   trigger?: CSS
-  info?: TooltipStylesType
+  infoTooltip?: TooltipStylesType
+  infoIcon?: IconStyleType
+  required?: CSS
+  label?: CSS
+  description?: CSS
+  textError?: CSS
 }
 
 export interface SelectProps {
@@ -319,17 +325,36 @@ export const Select: React.FC<SelectProps> = ({
     >
       {label ? (
         <LabelContainer>
-          <Label htmlFor={id}>{label}</Label>
+          <Label
+            htmlFor={id}
+            style={{
+              ...styles?.label,
+            }}
+          >
+            {label}
+          </Label>
 
-          {required ? <Required>*</Required> : null}
+          {required ? (
+            <Required
+              css={{
+                ...styles?.required,
+              }}
+            >
+              *
+            </Required>
+          ) : null}
           {info ? (
-            <Tooltip content={info} styles={styles?.info}>
+            <Tooltip content={info} styles={styles?.infoTooltip}>
               <IconByName
                 name="bx:info-circle"
                 color="BLACK_LIGHT"
                 styles={{
                   container: {
                     marginLeft: 4,
+                    ...styles?.infoIcon?.container,
+                  },
+                  svg: {
+                    ...styles?.infoIcon?.svg,
                   },
                 }}
               />
@@ -342,6 +367,7 @@ export const Select: React.FC<SelectProps> = ({
         <Description
           style={{
             marginBottom: 4,
+            ...styles?.description,
           }}
         >
           {description}
@@ -449,7 +475,9 @@ export const Select: React.FC<SelectProps> = ({
       </SelectContainer>
 
       {textError ? (
-        <TextError style={{ marginTop: 5 }}>{textError}</TextError>
+        <TextError style={{ marginTop: 5, ...styles?.textError }}>
+          {textError}
+        </TextError>
       ) : null}
     </Container>
   )

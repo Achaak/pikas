@@ -1,5 +1,11 @@
 # @pikas-ui/textarea
 
+## 2.1.4
+
+### Patch Changes
+
+- Add styles props
+
 ## 2.1.3
 
 ### Patch Changes

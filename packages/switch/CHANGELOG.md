@@ -1,5 +1,11 @@
 # @pikas-ui/switch
 
+## 1.1.3
+
+### Patch Changes
+
+- Add styles props
+
 ## 1.1.2
 
 ### Patch Changes

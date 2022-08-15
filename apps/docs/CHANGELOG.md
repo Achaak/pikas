@@ -1,5 +1,18 @@
 # @pikas-ui/docs
 
+## 1.0.13
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/checkbox@2.1.3
+  - @pikas-ui/select@3.1.4
+  - @pikas-ui/switch@1.1.3
+  - @pikas-ui/textarea@2.1.4
+  - @pikas-ui/textfield@2.1.4
+  - @pikas-ui/table@2.1.4
+  - @pikas-ui/searchbar@2.1.4
+
 ## 1.0.12
 
 ### Patch Changes

@@ -11,6 +11,7 @@ import fontColorContrast from 'font-color-contrast'
 import type { TextareaHTMLAttributes } from 'react'
 import { forwardRef } from 'react'
 import React, { useState } from 'react'
+import type { IconStyleType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type { TooltipStylesType } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
@@ -89,7 +90,12 @@ export interface TextareaStylesType {
   container?: CSS
   textareaContainer?: CSS
   textarea?: CSS
-  info?: TooltipStylesType
+  infoTooltip?: TooltipStylesType
+  infoIcon?: IconStyleType
+  label?: CSS
+  description?: CSS
+  textError?: CSS
+  required?: CSS
 }
 
 export type TextareaProps = {
@@ -210,17 +216,23 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       >
         {label ? (
           <LabelContainer>
-            <Label htmlFor={id}>{label}</Label>
+            <Label htmlFor={id} style={styles?.label}>
+              {label}
+            </Label>
 
-            {required ? <Required>*</Required> : null}
+            {required ? <Required css={styles?.required}>*</Required> : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.info}>
+              <Tooltip content={info} styles={styles?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
                   styles={{
                     container: {
                       marginLeft: 4,
+                      ...styles?.infoIcon?.container,
+                    },
+                    svg: {
+                      ...styles?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -233,6 +245,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <Description
             style={{
               marginBottom: 4,
+              ...styles?.description,
             }}
           >
             {description}
@@ -286,7 +299,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         </TextareaContainer>
 
         {textError && (
-          <TextError style={{ marginTop: 5 }}>{textError}</TextError>
+          <TextError style={{ marginTop: 5, ...styles?.textError }}>
+            {textError}
+          </TextError>
         )}
       </Container>
     )

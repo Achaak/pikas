@@ -196,7 +196,12 @@ export type TextfieldStylesType = {
   right?: CSS
   leftIcon?: IconStyleType
   rightIcon?: IconStyleType
-  info?: TooltipStylesType
+  infoTooltip?: TooltipStylesType
+  infoIcon?: IconStyleType
+  label?: CSS
+  description?: CSS
+  textError?: CSS
+  required?: CSS
 }
 
 export type TextfieldProps = {
@@ -350,17 +355,23 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       >
         {label ? (
           <LabelContainer>
-            <Label htmlFor={id}>{label}</Label>
+            <Label htmlFor={id} style={styles?.label}>
+              {label}
+            </Label>
 
-            {required ? <Required>*</Required> : null}
+            {required ? <Required css={styles?.required}>*</Required> : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.info}>
+              <Tooltip content={info} styles={styles?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
                   styles={{
                     container: {
                       marginLeft: 4,
+                      ...styles?.infoIcon?.container,
+                    },
+                    svg: {
+                      ...styles?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -373,6 +384,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
           <Description
             style={{
               marginBottom: 4,
+              ...styles?.description,
             }}
           >
             {description}
@@ -501,7 +513,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         </InputContainer>
 
         {textError && (
-          <TextError style={{ marginTop: 5 }}>{textError}</TextError>
+          <TextError style={{ marginTop: 5, ...styles?.textError }}>
+            {textError}
+          </TextError>
         )}
       </Container>
     )
