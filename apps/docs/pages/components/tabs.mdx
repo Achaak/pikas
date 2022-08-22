@@ -1,0 +1,93 @@
+import { TabsExample } from './../../src/examples/tabs'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Tabs" />
+
+# @pikas-ui/tabs
+
+This package contains a tabs component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/tabs
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/tabs
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/tabs
+```
+
+---
+
+## Usage
+
+### Tabs
+
+<TabsExample />
+
+```tsx
+import { Tabs } from `@pikas-ui/tabs`;
+
+const Example: React.FC = () => {
+  return (
+    <Tabs
+      items={[
+        {
+          content: 'Tab 1 content',
+          trigger: 'Tab 1',
+          id: 'tab1',
+        },
+        {
+          content: 'Tab 2 content',
+          trigger: 'Tab 2',
+          id: 'tab2',
+        },
+        {
+          content: 'Tab 3 content',
+          trigger: 'Tab 3',
+          id: 'tab3',
+          disabled: true,
+        },
+      ]}
+      defaultValue="tab1"
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop               | Description                                                         | Type                       | Default                            |
+| :----------------- | :------------------------------------------------------------------ | :------------------------- | :--------------------------------- |
+| `items`            | Array of tabs items                                                 | `TabsItem[]`               | -                                  |
+| `defaultValue`     | Default value of the tabs                                           | `string`                   | -                                  |
+| `value`            | Value of the tabs                                                   | `string`                   | -                                  |
+| `onValueChange`    | Callback function that is called when the value of the tabs changes | `(value: string) => void`  | -                                  |
+| `orientation`      | Orientation of the tabs                                             | `TabsOrientationType`      | `vertical`                         |
+| `direction`        | Direction of the tabs                                               | `TabsDirectionType`        | `ltr`                              |
+| `activationMode`   | Activation mode of the tabs                                         | `TabsActivationModeType`   | -                                  |
+| `loop`             | Whether the tabs should loop                                        | `boolean`                  | -                                  |
+| `styles`           | Custom styles                                                       | `TabsStylesType`           | -                                  |
+| `padding`          | Padding of the tabs                                                 | `TabsPaddingType`          | `{ trigger: 'md', content: 'md' }` |
+| `alignmentTrigger` | Alignment of the trigger                                            | `TabsAlignmentTriggerType` | `stretch`                          |
+| `startTrigger`     | Start custom element of the trigger                                 | `React.ReactNode`          | -                                  |
+| `endTrigger`       | End custom element of the trigger                                   | `React.ReactNode`          | -                                  |

@@ -1,5 +1,13 @@
 # @pikas-ui/loader
 
+## 2.1.3
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/styles@2.3.3
+
 ## 2.1.2
 
 ### Patch Changes

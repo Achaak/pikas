@@ -18,6 +18,7 @@ export const { getLink } = routes({
     slider: '/components/slider',
     switch: '/components/switch',
     table: '/components/table',
+    tabs: '/components/tabs',
     text: '/components/text',
     textarea: '/components/textarea',
     textfield: '/components/textfield',

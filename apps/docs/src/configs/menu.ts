@@ -77,6 +77,10 @@ export const menu: Menu = [
         href: getLink('table'),
       },
       {
+        label: 'Tabs',
+        href: getLink('tabs'),
+      },
+      {
         label: 'Text',
         href: getLink('text'),
       },
