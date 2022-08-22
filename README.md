@@ -9,7 +9,6 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - Documentation of table component
 - Add Modal component
 - Add Radio component
-- Add Tabs component
 - Add Toast component
 - Add FileInput component
 - Add Badge component
