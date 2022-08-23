@@ -130,7 +130,7 @@ const Content = styled('div', {
         textTransform: 'uppercase',
       },
       default: {
-        'span::first-letter': {
+        'div::first-letter': {
           textTransform: 'uppercase',
         },
       },
