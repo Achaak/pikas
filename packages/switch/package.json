@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/switch",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -41,10 +41,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "2.1.6",
-    "@pikas-ui/styles": "2.3.6",
-    "@pikas-ui/text": "3.1.6",
-    "@pikas-ui/tooltip": "2.1.6",
+    "@pikas-ui/icons": "2.1.7",
+    "@pikas-ui/styles": "2.3.7",
+    "@pikas-ui/text": "3.1.7",
+    "@pikas-ui/tooltip": "2.1.7",
     "@radix-ui/react-switch": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

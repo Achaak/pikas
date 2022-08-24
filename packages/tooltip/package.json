@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/tooltip",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "2.3.6",
+    "@pikas-ui/styles": "2.3.7",
     "@radix-ui/react-tooltip": "^1.0.0",
     "font-color-contrast": "^11.1.0",
     "react": "^18.2.0",

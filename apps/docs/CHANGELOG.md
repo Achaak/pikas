@@ -1,5 +1,31 @@
 # @pikas-ui/docs
 
+## 1.0.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.3.7
+  - @pikas-ui/alert@2.1.7
+  - @pikas-ui/avatar@1.0.7
+  - @pikas-ui/button@2.1.7
+  - @pikas-ui/checkbox@2.1.8
+  - @pikas-ui/context-menu@2.1.8
+  - @pikas-ui/dropdown-menu@2.1.8
+  - @pikas-ui/icons@2.1.7
+  - @pikas-ui/loader@2.1.7
+  - @pikas-ui/searchbar@2.1.10
+  - @pikas-ui/select@3.1.10
+  - @pikas-ui/separator@2.1.7
+  - @pikas-ui/slider@2.1.7
+  - @pikas-ui/switch@1.1.8
+  - @pikas-ui/table@2.1.10
+  - @pikas-ui/tabs@1.0.5
+  - @pikas-ui/text@3.1.7
+  - @pikas-ui/textarea@2.1.10
+  - @pikas-ui/textfield@2.1.10
+  - @pikas-ui/tooltip@2.1.7
+
 ## 1.0.18
 
 ### Patch Changes
