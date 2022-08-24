@@ -328,7 +328,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         colorHex ||
         (color ? `$${color}` : undefined) ||
         (theme
-          ? fontColorContrast(
+          // @ts-ignore
+          ? fontColorContrast.default(
               theme.colors[backgroundColor || 'WHITE'].value,
               0.7
             )

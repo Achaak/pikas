@@ -186,7 +186,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
               boxShadow: `$${boxShadow}`,
               color:
                 (theme &&
-                  fontColorContrast(
+                  // @ts-ignore
+                  fontColorContrast.default(
                     theme.colors[backgroundColor || 'BLACK'].value,
                     0.7
                   )) ||

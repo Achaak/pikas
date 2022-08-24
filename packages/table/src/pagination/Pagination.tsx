@@ -114,7 +114,11 @@ export const Pagination: React.FC<PaginationProps> = ({
                 backgroundColor: '$PRIMARY',
                 color:
                   (theme &&
-                    fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
+                    // @ts-ignore
+                    fontColorContrast.default(
+                      theme.colors['PRIMARY'].value,
+                      0.7
+                    )) ||
                   undefined,
               }),
             }}
