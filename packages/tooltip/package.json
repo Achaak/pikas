@@ -1,13 +1,11 @@
 {
   "name": "@pikas-ui/tooltip",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "private": false,
   "description": "",
   "license": "MIT",
   "type": "module",
   "types": "./dist/index.d.ts",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -43,7 +41,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "2.3.5",
+    "@pikas-ui/styles": "2.3.6",
     "@radix-ui/react-tooltip": "^1.0.0",
     "font-color-contrast": "^11.1.0",
     "react": "^18.2.0",

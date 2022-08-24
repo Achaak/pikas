@@ -1,5 +1,13 @@
 # @pikas-ui/tabs
 
+## 1.0.4
+
+### Patch Changes
+
+- Remove main and module in packages.json
+- Updated dependencies
+  - @pikas-ui/styles@2.3.6
+
 ## 1.0.3
 
 ### Patch Changes

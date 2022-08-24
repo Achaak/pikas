@@ -1,5 +1,18 @@
 # @pikas-ui/searchbar
 
+## 2.1.9
+
+### Patch Changes
+
+- Remove main and module in packages.json
+- Updated dependencies
+  - @pikas-ui/button@2.1.6
+  - @pikas-ui/icons@2.1.6
+  - @pikas-ui/loader@2.1.6
+  - @pikas-ui/separator@2.1.6
+  - @pikas-ui/styles@2.3.6
+  - @pikas-ui/textfield@2.1.9
+
 ## 2.1.8
 
 ### Patch Changes

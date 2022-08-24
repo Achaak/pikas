@@ -1,13 +1,11 @@
 {
   "name": "@pikas-ui/table",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "private": false,
   "description": "",
   "license": "MIT",
   "type": "module",
   "types": "./dist/index.d.ts",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -43,11 +41,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "2.1.6",
-    "@pikas-ui/icons": "2.1.5",
-    "@pikas-ui/loader": "2.1.5",
-    "@pikas-ui/select": "3.1.8",
-    "@pikas-ui/styles": "2.3.5",
+    "@pikas-ui/checkbox": "2.1.7",
+    "@pikas-ui/icons": "2.1.6",
+    "@pikas-ui/loader": "2.1.6",
+    "@pikas-ui/select": "3.1.9",
+    "@pikas-ui/styles": "2.3.6",
     "@tanstack/react-table": "8.5.11",
     "font-color-contrast": "^11.1.0",
     "react": "^18.2.0",

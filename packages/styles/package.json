@@ -1,13 +1,11 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "private": false,
   "description": "",
   "license": "MIT",
   "type": "module",
   "types": "./dist/index.d.ts",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js",

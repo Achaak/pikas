@@ -1,5 +1,13 @@
 # @pikas-ui/avatar
 
+## 1.0.6
+
+### Patch Changes
+
+- Remove main and module in packages.json
+- Updated dependencies
+  - @pikas-ui/styles@2.3.6
+
 ## 1.0.5
 
 ### Patch Changes

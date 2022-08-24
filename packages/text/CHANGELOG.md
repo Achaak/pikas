@@ -1,5 +1,13 @@
 # @pikas-ui/text
 
+## 3.1.6
+
+### Patch Changes
+
+- Remove main and module in packages.json
+- Updated dependencies
+  - @pikas-ui/styles@2.3.6
+
 ## 3.1.5
 
 ### Patch Changes

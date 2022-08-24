@@ -1,5 +1,15 @@
 # @pikas-ui/checkbox
 
+## 2.1.7
+
+### Patch Changes
+
+- Remove main and module in packages.json
+- Updated dependencies
+  - @pikas-ui/icons@2.1.6
+  - @pikas-ui/styles@2.3.6
+  - @pikas-ui/text@3.1.6
+
 ## 2.1.6
 
 ### Patch Changes
