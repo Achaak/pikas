@@ -1,5 +1,15 @@
 # @pikas-ui/checkbox
 
+## 2.1.6
+
+### Patch Changes
+
+- Set ESM
+- Updated dependencies
+  - @pikas-ui/icons@2.1.5
+  - @pikas-ui/styles@2.3.5
+  - @pikas-ui/text@3.1.5
+
 ## 2.1.5
 
 ### Patch Changes

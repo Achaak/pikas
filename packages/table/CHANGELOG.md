@@ -1,5 +1,17 @@
 # @pikas-ui/table
 
+## 2.1.8
+
+### Patch Changes
+
+- Set ESM
+- Updated dependencies
+  - @pikas-ui/checkbox@2.1.6
+  - @pikas-ui/icons@2.1.5
+  - @pikas-ui/loader@2.1.5
+  - @pikas-ui/select@3.1.8
+  - @pikas-ui/styles@2.3.5
+
 ## 2.1.7
 
 ### Patch Changes

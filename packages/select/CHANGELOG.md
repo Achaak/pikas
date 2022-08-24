@@ -1,5 +1,17 @@
 # @pikas-ui/select
 
+## 3.1.8
+
+### Patch Changes
+
+- Set ESM
+- Updated dependencies
+  - @pikas-ui/icons@2.1.5
+  - @pikas-ui/styles@2.3.5
+  - @pikas-ui/text@3.1.5
+  - @pikas-ui/textfield@2.1.8
+  - @pikas-ui/tooltip@2.1.5
+
 ## 3.1.7
 
 ### Patch Changes
