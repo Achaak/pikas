@@ -1,5 +1,14 @@
 # @pikas-ui/slider
 
+## 2.1.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.3.8
+  - @pikas-ui/icons@2.1.8
+  - @pikas-ui/text@3.1.8
+
 ## 2.1.7
 
 ### Patch Changes

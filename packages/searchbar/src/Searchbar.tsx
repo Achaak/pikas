@@ -8,7 +8,11 @@ import { styled } from '@pikas-ui/styles'
 import type { TextfieldProps, TextfieldStylesType } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
 import React, { useEffect, useState, useRef } from 'react'
-import { useDebounce, useOnClickOutside, useWindowSize } from 'usehooks-ts'
+import {
+  useDebounce,
+  useOnClickOutside,
+  useWindowSize,
+} from 'usehooks-ts/dist/esm/index.js'
 
 const Form = styled('form', {
   display: 'flex',
