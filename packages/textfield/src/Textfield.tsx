@@ -340,7 +340,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     return (
       <Container
         css={{
-          fontSize: `${fontSize}`,
+          fontSize: `$${fontSize}`,
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,

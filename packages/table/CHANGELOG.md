@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 2.1.7
+
+### Patch Changes
+
+- @pikas-ui/select@3.1.7
+
 ## 2.1.6
 
 ### Patch Changes

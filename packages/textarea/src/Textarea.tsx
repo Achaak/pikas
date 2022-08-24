@@ -200,7 +200,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <Container
         css={{
-          fontSize: `${fontSize}`,
+          fontSize: `$${fontSize}`,
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,

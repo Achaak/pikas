@@ -1,5 +1,11 @@
 # @pikas-ui/textarea
 
+## 2.1.7
+
+### Patch Changes
+
+- Fix fontSize props
+
 ## 2.1.6
 
 ### Patch Changes
