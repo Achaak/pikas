@@ -1,20 +1,19 @@
 {
   "name": "@pikas-ui/icons",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "private": false,
   "description": "",
   "license": "MIT",
-  "type": "module",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./dist/*": {
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
       "types": "./dist/*.d.ts"
     }
   },
@@ -42,7 +41,7 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@iconify/react": "^3.2.2",
-    "@pikas-ui/styles": "2.3.9",
+    "@pikas-ui/styles": "2.3.10",
     "iconify-icon": "1.0.0-beta.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

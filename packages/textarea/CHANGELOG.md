@@ -1,5 +1,17 @@
 # @pikas-ui/textarea
 
+## 2.1.13
+
+### Patch Changes
+
+- Fix ESM
+- Updated dependencies
+  - @pikas-ui/icons@2.1.10
+  - @pikas-ui/loader@2.1.10
+  - @pikas-ui/styles@2.3.10
+  - @pikas-ui/text@3.1.10
+  - @pikas-ui/tooltip@2.1.10
+
 ## 2.1.12
 
 ### Patch Changes

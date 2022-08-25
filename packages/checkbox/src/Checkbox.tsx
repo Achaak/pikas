@@ -199,8 +199,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             css={{
               color:
                 (theme &&
-                  // @ts-ignore
-                  fontColorContrast.default(
+                  fontColorContrast(
                     theme.colors[bgColorChecked || 'WHITE'].value,
                     0.7
                   )) ||
@@ -214,8 +213,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                 name="bx:minus"
                 colorHex={
                   (theme &&
-                    // @ts-ignore
-                    fontColorContrast.default(
+                    fontColorContrast(
                       theme.colors[bgColor || 'BLACK'].value,
                       0.7
                     )) ||

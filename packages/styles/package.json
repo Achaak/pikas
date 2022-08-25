@@ -1,20 +1,19 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "2.3.9",
+  "version": "2.3.10",
   "private": false,
   "description": "",
   "license": "MIT",
-  "type": "module",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./dist/*": {
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
       "types": "./dist/*.d.ts"
     }
   },

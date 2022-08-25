@@ -18,16 +18,12 @@ export const Thead: React.FC<CustomProps> = (props) => {
         default: {
           backgroundColor: '$PRIMARY',
           color:
-            (theme &&
-              // @ts-ignore
-              fontColorContrast.default(theme.colors['PRIMARY'].value, 0.7)) ||
+            (theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
             undefined,
 
           svg: {
             fill:
-              theme &&
-              // @ts-ignore
-              fontColorContrast.default(theme.colors['PRIMARY'].value, 0.7),
+              theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
           },
 
           tr: {

@@ -1,5 +1,13 @@
 # @pikas-ui/avatar
 
+## 1.0.10
+
+### Patch Changes
+
+- Fix ESM
+- Updated dependencies
+  - @pikas-ui/styles@2.3.10
+
 ## 1.0.9
 
 ### Patch Changes

@@ -190,8 +190,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         ? `$${color}`
         : undefined ||
             (theme &&
-              // @ts-ignore
-              fontColorContrast.default(
+              fontColorContrast(
                 theme.colors[backgroundColor || 'WHITE'].value,
                 0.7
               )) ||

@@ -1,10 +1,7 @@
 import { Avatar } from '@pikas-ui/avatar'
 import { ExampleContainer } from '@/components/ExampleContainer'
-import { useTheme } from '@pikas-ui/styles'
 
 export const AvatarExample: React.FC = () => {
-  const t = useTheme()
-
   return (
     <ExampleContainer>
       <Avatar alt="John Doe" fallback="JD" />
