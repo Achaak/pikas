@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 2.3.9
+
+### Patch Changes
+
+- Fix ESM
+
 ## 2.3.8
 
 ### Patch Changes

@@ -3,7 +3,9 @@ import type { createTheme } from '../css.js'
 import { styled, theme as themeDefault } from '../css.js'
 import merge from 'lodash.merge'
 import cloneDeep from 'lodash.clonedeep'
-import { useSsr, useTernaryDarkMode } from 'usehooks-ts/dist/esm/index.js'
+import usehooks from 'usehooks-ts'
+
+const { useTernaryDarkMode, useSsr } = usehooks
 
 export { useTernaryDarkMode }
 

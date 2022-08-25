@@ -1,5 +1,12 @@
 # @pikas-ui/avatar
 
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.3.9
+
 ## 1.0.8
 
 ### Patch Changes

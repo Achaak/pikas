@@ -1,5 +1,16 @@
 # @pikas-ui/table
 
+## 2.1.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.3.9
+  - @pikas-ui/checkbox@2.1.10
+  - @pikas-ui/icons@2.1.9
+  - @pikas-ui/loader@2.1.9
+  - @pikas-ui/select@3.1.12
+
 ## 2.1.11
 
 ### Patch Changes

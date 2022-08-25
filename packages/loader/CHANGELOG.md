@@ -1,5 +1,12 @@
 # @pikas-ui/loader
 
+## 2.1.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@2.3.9
+
 ## 2.1.8
 
 ### Patch Changes
