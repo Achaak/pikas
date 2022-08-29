@@ -1,5 +1,13 @@
 # @pikas-ui/tooltip
 
+## 2.1.11
+
+### Patch Changes
+
+- fix custom style in portal
+- Updated dependencies
+  - @pikas-ui/styles@2.3.11
+
 ## 2.1.10
 
 ### Patch Changes

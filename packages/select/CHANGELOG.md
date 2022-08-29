@@ -1,5 +1,18 @@
 # @pikas-ui/select
 
+## 3.2.1
+
+### Patch Changes
+
+- fix custom style in portal
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/styles@2.3.11
+  - @pikas-ui/tooltip@2.1.11
+  - @pikas-ui/icons@2.1.11
+  - @pikas-ui/text@3.1.11
+  - @pikas-ui/textfield@2.1.14
+
 ## 3.2.0
 
 ### Minor Changes

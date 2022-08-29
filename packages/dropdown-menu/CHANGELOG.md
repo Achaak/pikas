@@ -1,5 +1,16 @@
 # @pikas-ui/dropdown-menu
 
+## 2.1.12
+
+### Patch Changes
+
+- fix custom style in portal
+- Updated dependencies
+  - @pikas-ui/styles@2.3.11
+  - @pikas-ui/icons@2.1.11
+  - @pikas-ui/loader@2.1.11
+  - @pikas-ui/menu@2.1.11
+
 ## 2.1.11
 
 ### Patch Changes

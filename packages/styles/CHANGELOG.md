@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 2.3.11
+
+### Patch Changes
+
+- Add min zindex
+
 ## 2.3.10
 
 ### Patch Changes

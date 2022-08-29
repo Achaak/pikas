@@ -5,6 +5,7 @@ import type {
   FontsSizesType,
   ShadowsType,
 } from '@pikas-ui/styles'
+import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconStyleType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
@@ -71,6 +72,7 @@ const Content = styled(SelectPrimitive.Content, {
   backgroundColor: '$WHITE',
   boxShadow: '$ELEVATION_1',
   br: 'sm',
+  zIndex: '$XXX-HIGH',
 })
 
 const Viewport = styled(SelectPrimitive.Viewport, {
@@ -190,6 +192,7 @@ export type SelectStylesType = {
   label?: CSS
   description?: CSS
   textError?: CSS
+  content?: CSS
 }
 
 export interface SelectProps {
@@ -257,11 +260,12 @@ export const Select: React.FC<SelectProps> = ({
   required,
 }) => {
   const [searchValue, setSearchValue] = useState('')
-  const [formatedData, setFormatedData] = useState(data)
+  const [formattedData, setformattedData] = useState(data)
   const [focus, setFocus] = useState(false)
+  const theme = useTheme()
 
   useEffect(() => {
-    setFormatedData(
+    setformattedData(
       data.map((group) => {
         const items = group.items.map((item) => {
           let hidden = item.hidden || false
@@ -405,8 +409,8 @@ export const Select: React.FC<SelectProps> = ({
           </Icon>
         </Trigger>
 
-        <SelectPrimitive.Portal>
-          <Content>
+        <SelectPrimitive.Portal className={theme}>
+          <Content css={styles?.content}>
             {hasSearch ? (
               <>
                 <SearchContainer>
@@ -428,14 +432,14 @@ export const Select: React.FC<SelectProps> = ({
               <IconByName name="bx:chevron-up" size={20} color="BLACK" />
             </ScrollUpButton>
             <Viewport>
-              {formatedData.map((group, groupIndex) => {
+              {formattedData.map((group, groupIndex) => {
                 const res = []
                 const hidden = !group.items.some((item) => !item.hidden)
 
                 if (
                   groupIndex > 0 &&
                   !hidden &&
-                  !formatedData[groupIndex - 1]?.hidden
+                  !formattedData[groupIndex - 1]?.hidden
                 ) {
                   res.push(<Separator key={`separator-${groupIndex}`} />)
                 }

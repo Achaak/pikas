@@ -169,7 +169,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           <div>{children}</div>
         </Trigger>
 
-        <TooltipPrimitive.Portal>
+        <TooltipPrimitive.Portal className={theme}>
           <StyledContent
             side={side}
             sideOffset={sideOffset}

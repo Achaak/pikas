@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/searchbar",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -40,12 +40,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/button": "2.1.10",
-    "@pikas-ui/icons": "2.1.10",
-    "@pikas-ui/loader": "2.1.10",
-    "@pikas-ui/separator": "2.1.10",
-    "@pikas-ui/styles": "2.3.10",
-    "@pikas-ui/textfield": "2.1.13",
+    "@pikas-ui/button": "2.1.11",
+    "@pikas-ui/icons": "2.1.11",
+    "@pikas-ui/loader": "2.1.11",
+    "@pikas-ui/separator": "2.1.11",
+    "@pikas-ui/styles": "2.3.11",
+    "@pikas-ui/textfield": "2.1.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "usehooks-ts": "^2.5.4"

@@ -28,7 +28,7 @@ export const MenuContentStyle: CSS = {
   br: 'md',
   padding: 8,
   boxShadow: '$ELEVATION_2',
-  zIndex: '$X-HIGH',
+  zIndex: '$XXX-HIGH',
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: '400ms',

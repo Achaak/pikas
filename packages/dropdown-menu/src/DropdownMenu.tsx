@@ -1,5 +1,6 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import type { ColorsType } from '@pikas-ui/styles'
+import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -143,6 +144,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   avoidCollisions,
   collisionPadding,
 }) => {
+  const theme = useTheme()
+
   return (
     <>
       <DropdownMenuPrimitive.Root
@@ -168,7 +171,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </DropdownMenuPrimitive.Trigger>
         )}
 
-        <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.Portal className={theme}>
           <Content
             css={styles?.content}
             loop={loop}

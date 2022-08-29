@@ -1,4 +1,5 @@
 export const ZIndices = {
+  MIN: -2147483647,
   'XXX-LOW': -1000,
   'XX-LOW': -100,
   'X-LOW': -10,
