@@ -93,10 +93,10 @@ const Container = styled('div', {
   },
 })
 
-export type Animation = 'pulse' | 'wave' | false
+export type SkeletonAnimationType = 'pulse' | 'wave' | false
 
 export interface SkeletonProps {
-  animation?: Animation
+  animation?: SkeletonAnimationType
   width?: string | number
   height?: string | number
   borderRadius?: BorderRadiusType
