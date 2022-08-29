@@ -97,8 +97,8 @@ export type Animation = 'pulse' | 'wave' | false
 
 export interface SkeletonProps {
   animation?: Animation
-  width: string | number
-  height: string | number
+  width?: string | number
+  height?: string | number
   borderRadius?: BorderRadiusType
   style?: CSS
 }

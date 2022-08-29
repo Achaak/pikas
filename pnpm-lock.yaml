@@ -20,7 +20,7 @@ importers:
       '@next/eslint-plugin-next': 12.2.5
       '@next/mdx': ^12.2.5
       '@pikas-ui/alert': 2.1.11
-      '@pikas-ui/avatar': 1.0.12
+      '@pikas-ui/avatar': 1.0.13
       '@pikas-ui/button': 2.1.11
       '@pikas-ui/checkbox': 2.1.12
       '@pikas-ui/config': workspace:*
@@ -31,7 +31,7 @@ importers:
       '@pikas-ui/searchbar': 2.1.14
       '@pikas-ui/select': 3.2.1
       '@pikas-ui/separator': 2.1.11
-      '@pikas-ui/skeleton': 1.0.0
+      '@pikas-ui/skeleton': 1.0.1
       '@pikas-ui/slider': 2.1.11
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/switch': 1.1.12
@@ -146,7 +146,7 @@ importers:
   packages/avatar:
     specifiers:
       '@pikas-ui/config': workspace:*
-      '@pikas-ui/skeleton': 1.0.0
+      '@pikas-ui/skeleton': 1.0.1
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-avatar': ^1.0.0
