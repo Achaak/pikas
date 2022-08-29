@@ -1,5 +1,11 @@
 # @pikas-ui/avatar
 
+## 1.0.15
+
+### Patch Changes
+
+- Fix width and height
+
 ## 1.0.14
 
 ### Patch Changes

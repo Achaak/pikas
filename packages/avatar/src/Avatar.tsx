@@ -71,7 +71,9 @@ export const Avatar: React.FC<AvatarProps> = ({
     <Root
       css={{
         height: size,
+        minHeight: size,
         width: size,
+        minWidth: size,
         br: borderRadius,
         ...styles?.container,
       }}

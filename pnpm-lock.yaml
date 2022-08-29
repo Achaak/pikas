@@ -20,7 +20,7 @@ importers:
       '@next/eslint-plugin-next': 12.2.5
       '@next/mdx': ^12.2.5
       '@pikas-ui/alert': 2.1.11
-      '@pikas-ui/avatar': 1.0.14
+      '@pikas-ui/avatar': 1.0.15
       '@pikas-ui/button': 2.1.11
       '@pikas-ui/checkbox': 2.1.12
       '@pikas-ui/config': workspace:*
