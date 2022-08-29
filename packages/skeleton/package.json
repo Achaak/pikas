@@ -1,6 +1,6 @@
 {
-  "name": "@pikas-ui/avatar",
-  "version": "1.0.12",
+  "name": "@pikas-ui/skeleton",
+  "version": "1.0.0",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -41,8 +41,6 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@pikas-ui/styles": "2.3.11",
-    "@pikas-ui/skeleton": "1.0.0",
-    "@radix-ui/react-avatar": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

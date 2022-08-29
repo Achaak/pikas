@@ -20,7 +20,7 @@ importers:
       '@next/eslint-plugin-next': 12.2.5
       '@next/mdx': ^12.2.5
       '@pikas-ui/alert': 2.1.11
-      '@pikas-ui/avatar': 1.0.11
+      '@pikas-ui/avatar': 1.0.12
       '@pikas-ui/button': 2.1.11
       '@pikas-ui/checkbox': 2.1.12
       '@pikas-ui/config': workspace:*
@@ -31,6 +31,7 @@ importers:
       '@pikas-ui/searchbar': 2.1.14
       '@pikas-ui/select': 3.2.1
       '@pikas-ui/separator': 2.1.11
+      '@pikas-ui/skeleton': 1.0.0
       '@pikas-ui/slider': 2.1.11
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/switch': 1.1.12
@@ -76,6 +77,7 @@ importers:
       '@pikas-ui/searchbar': link:../../packages/searchbar
       '@pikas-ui/select': link:../../packages/select
       '@pikas-ui/separator': link:../../packages/separator
+      '@pikas-ui/skeleton': link:../../packages/skeleton
       '@pikas-ui/slider': link:../../packages/slider
       '@pikas-ui/styles': link:../../packages/styles
       '@pikas-ui/switch': link:../../packages/switch
@@ -144,6 +146,7 @@ importers:
   packages/avatar:
     specifiers:
       '@pikas-ui/config': workspace:*
+      '@pikas-ui/skeleton': 1.0.0
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-avatar': ^1.0.0
@@ -157,6 +160,7 @@ importers:
       tsup: ^6.2.2
       typescript: 4.7.4
     dependencies:
+      '@pikas-ui/skeleton': link:../skeleton
       '@pikas-ui/styles': link:../styles
       '@radix-ui/react-avatar': 1.0.0_react-dom@18.2.0+react@18.2.0
       react: 18.2.0
@@ -539,6 +543,35 @@ importers:
     dependencies:
       '@pikas-ui/styles': link:../styles
       '@radix-ui/react-separator': 1.0.0_react-dom@18.2.0+react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@pikas-ui/config': link:../config
+      '@pikas-ui/tsconfig': link:../tsconfig
+      '@types/node': 18.7.11
+      '@types/react': 18.0.17
+      '@types/react-dom': 18.0.6
+      cross-env: 7.0.3
+      eslint: 8.22.0
+      tsup: 6.2.2_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/skeleton:
+    specifiers:
+      '@pikas-ui/config': workspace:*
+      '@pikas-ui/styles': 2.3.11
+      '@pikas-ui/tsconfig': workspace:*
+      '@types/node': ^18.7.11
+      '@types/react': ^18.0.17
+      '@types/react-dom': ^18.0.6
+      cross-env: ^7.0.3
+      eslint: ^8.22.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      tsup: ^6.2.2
+      typescript: 4.7.4
+    dependencies:
+      '@pikas-ui/styles': link:../styles
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:

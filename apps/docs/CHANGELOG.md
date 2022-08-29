@@ -1,5 +1,12 @@
 # @pikas-ui/docs
 
+## 1.0.25
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/avatar@1.0.12
+
 ## 1.0.24
 
 ### Patch Changes

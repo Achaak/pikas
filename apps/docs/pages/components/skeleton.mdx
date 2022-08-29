@@ -1,0 +1,73 @@
+import { SkeletonExample } from './../../src/examples/skeleton'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Skeleton" />
+
+# @pikas-ui/skeleton
+
+This package contains a skeleton component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/skeleton
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/skeleton
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/skeleton
+```
+
+---
+
+## Usage
+
+### Skeleton
+
+<SkeletonExample />
+
+```tsx
+import { Skeleton } from `@pikas-ui/skeleton`;
+
+const Example: React.FC = () => {
+  return (
+    <Skeleton animation="pulse" width="100%" height={24} />
+    <Skeleton animation="wave" width="100%" height={24} />
+    <Skeleton animation={false} width="100%" height={24} />
+  )
+}
+```
+
+animation?: Animation
+width: string | number
+height: string | number
+borderRadius?: BorderRadiusType
+style?: CSS
+
+#### Props
+
+| Prop           | Description                        | Type               | Default   |
+| :------------- | :--------------------------------- | :----------------- | :-------- |
+| `style`        | The style of the skeleton.         | `CSS`              | -         |
+| `width`        | The width of the skeleton.         | `string or number` | -         |
+| `height`       | The height of the skeleton.        | `string or number` | -         |
+| `borderRadius` | The border radius of the skeleton. | `BorderRadiusType` | `"sm"`    |
+| `animation`    | The animation of the skeleton.     | `Animation`        | `"pulse"` |

@@ -1,7 +1,9 @@
 import React from 'react'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import { BorderRadiusType, ColorsType, CSS, styled } from '@pikas-ui/styles'
+import type { BorderRadiusType, ColorsType, CSS } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles'
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
+import { Skeleton } from '@pikas-ui/skeleton'
 
 export type { ImageLoadingStatus } from '@radix-ui/react-avatar'
 
@@ -12,6 +14,7 @@ const Root = styled(AvatarPrimitive.Root, {
   verticalAlign: 'middle',
   overflow: 'hidden',
   userSelect: 'none',
+  position: 'relative',
 })
 
 const Image = styled(AvatarPrimitive.Image, {
@@ -48,6 +51,7 @@ export interface AvatarProps {
   styles?: AvatarStylesType
   size?: number
   borderRadius?: BorderRadiusType
+  loading?: boolean
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -61,6 +65,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   styles,
   size,
   borderRadius,
+  loading,
 }) => {
   return (
     <Root
@@ -71,6 +76,18 @@ export const Avatar: React.FC<AvatarProps> = ({
         ...styles?.container,
       }}
     >
+      {loading ? (
+        <Skeleton
+          animation="pulse"
+          width="100%"
+          height="100%"
+          borderRadius={borderRadius}
+          style={{
+            position: 'absolute',
+          }}
+        />
+      ) : null}
+
       <Image
         src={src}
         alt={alt}
@@ -99,4 +116,5 @@ Avatar.defaultProps = {
   fallbackColor: 'PRIMARY',
   fallbackBackgroundColor: 'PRIMARY_LIGHTEST_2',
   borderRadius: 'round',
+  loading: false,
 }

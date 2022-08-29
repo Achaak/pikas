@@ -63,6 +63,11 @@ export const menu: Menu = [
         href: getLink('separator'),
       },
       {
+        label: 'Skeleton',
+
+        href: getLink('skeleton'),
+      },
+      {
         label: 'Slider',
 
         href: getLink('slider'),
