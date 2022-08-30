@@ -42,6 +42,7 @@ export const Thead: React.FC<CustomProps> = (props) => {
               borderLeft: '1px solid',
               borderRight: '1px solid',
               borderColor: '$PRIMARY_LIGHT',
+              textTransform: 'capitalize',
 
               '&:first-child': {
                 borderLeft: 'none',

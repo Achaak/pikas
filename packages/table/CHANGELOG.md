@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 2.1.16
+
+### Patch Changes
+
+- Update style
+
 ## 2.1.15
 
 ### Patch Changes

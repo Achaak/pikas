@@ -35,7 +35,7 @@ importers:
       '@pikas-ui/slider': 2.1.11
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/switch': 1.1.12
-      '@pikas-ui/table': 2.1.15
+      '@pikas-ui/table': 2.1.16
       '@pikas-ui/tabs': 1.0.9
       '@pikas-ui/text': 3.1.11
       '@pikas-ui/textarea': 2.1.14
