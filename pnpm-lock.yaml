@@ -21,25 +21,25 @@ importers:
       '@next/mdx': ^12.2.5
       '@pikas-ui/alert': 2.1.11
       '@pikas-ui/avatar': 1.0.15
-      '@pikas-ui/button': 2.1.11
+      '@pikas-ui/button': 2.1.12
       '@pikas-ui/checkbox': 2.1.12
       '@pikas-ui/config': workspace:*
-      '@pikas-ui/context-menu': 2.1.12
-      '@pikas-ui/dropdown-menu': 2.1.12
+      '@pikas-ui/context-menu': 2.1.13
+      '@pikas-ui/dropdown-menu': 2.1.13
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
-      '@pikas-ui/searchbar': 2.1.14
-      '@pikas-ui/select': 3.2.1
+      '@pikas-ui/loader': 2.1.12
+      '@pikas-ui/searchbar': 2.1.15
+      '@pikas-ui/select': 3.2.2
       '@pikas-ui/separator': 2.1.11
       '@pikas-ui/skeleton': 1.0.2
       '@pikas-ui/slider': 2.1.11
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/switch': 1.1.12
-      '@pikas-ui/table': 2.1.16
+      '@pikas-ui/table': 2.1.17
       '@pikas-ui/tabs': 1.0.9
       '@pikas-ui/text': 3.1.11
-      '@pikas-ui/textarea': 2.1.14
-      '@pikas-ui/textfield': 2.1.14
+      '@pikas-ui/textarea': 2.1.15
+      '@pikas-ui/textfield': 2.1.15
       '@pikas-ui/tooltip': 2.1.11
       '@pikas-ui/tsconfig': workspace:*
       '@pikas-utils/router': ^1.0.1
@@ -180,7 +180,7 @@ importers:
     specifiers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
+      '@pikas-ui/loader': 2.1.12
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^18.7.11
@@ -280,7 +280,7 @@ importers:
     specifiers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
+      '@pikas-ui/loader': 2.1.12
       '@pikas-ui/menu': 2.1.11
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/tsconfig': workspace:*
@@ -317,7 +317,7 @@ importers:
     specifiers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
+      '@pikas-ui/loader': 2.1.12
       '@pikas-ui/menu': 2.1.11
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/tsconfig': workspace:*
@@ -447,13 +447,13 @@ importers:
 
   packages/searchbar:
     specifiers:
-      '@pikas-ui/button': 2.1.11
+      '@pikas-ui/button': 2.1.12
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
+      '@pikas-ui/loader': 2.1.12
       '@pikas-ui/separator': 2.1.11
       '@pikas-ui/styles': 2.3.11
-      '@pikas-ui/textfield': 2.1.14
+      '@pikas-ui/textfield': 2.1.15
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^18.7.11
       '@types/react': ^18.0.17
@@ -492,7 +492,7 @@ importers:
       '@pikas-ui/icons': 2.1.11
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/text': 3.1.11
-      '@pikas-ui/textfield': 2.1.14
+      '@pikas-ui/textfield': 2.1.15
       '@pikas-ui/tooltip': 2.1.11
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-select': ^1.0.0
@@ -699,8 +699,8 @@ importers:
       '@pikas-ui/checkbox': 2.1.12
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
-      '@pikas-ui/select': 3.2.1
+      '@pikas-ui/loader': 2.1.12
+      '@pikas-ui/select': 3.2.2
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/tsconfig': workspace:*
       '@tanstack/react-table': 8.5.11
@@ -801,7 +801,7 @@ importers:
     specifiers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
+      '@pikas-ui/loader': 2.1.12
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/text': 3.1.11
       '@pikas-ui/tooltip': 2.1.11
@@ -840,7 +840,7 @@ importers:
     specifiers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
-      '@pikas-ui/loader': 2.1.11
+      '@pikas-ui/loader': 2.1.12
       '@pikas-ui/styles': 2.3.11
       '@pikas-ui/text': 3.1.11
       '@pikas-ui/tooltip': 2.1.11

@@ -30,7 +30,7 @@ export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
       radius={radius}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
+      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
       loading={loading}
     />
   )

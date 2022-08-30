@@ -24,7 +24,7 @@ export const SyncLoader: React.FC<SyncLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
+      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
       loading={loading}
     />
   )

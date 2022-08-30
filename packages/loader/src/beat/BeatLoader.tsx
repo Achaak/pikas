@@ -23,7 +23,7 @@ export const BeatLoader: React.FC<BeatLoaderProps> = ({
     <BeatLoaderDefault
       size={size}
       margin={margin}
-      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
+      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
       loading={loading}
       speedMultiplier={speedMultiplier}
     />

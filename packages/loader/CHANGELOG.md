@@ -1,5 +1,11 @@
 # @pikas-ui/loader
 
+## 2.1.12
+
+### Patch Changes
+
+- Fix loader
+
 ## 2.1.11
 
 ### Patch Changes

@@ -24,7 +24,7 @@ export const GridLoader: React.FC<GridLoaderProps> = ({
       size={size}
       speedMultiplier={speedMultiplier}
       margin={margin}
-      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
+      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
       loading={loading}
     />
   )

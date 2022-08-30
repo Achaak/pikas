@@ -27,7 +27,7 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
       width={width}
       radius={radius}
       margin={margin}
-      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
+      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
       loading={loading}
     />
   )

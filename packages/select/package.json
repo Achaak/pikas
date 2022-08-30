@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "@pikas-ui/icons": "2.1.11",
     "@pikas-ui/styles": "2.3.11",
     "@pikas-ui/text": "3.1.11",
-    "@pikas-ui/textfield": "2.1.14",
+    "@pikas-ui/textfield": "2.1.15",
     "@pikas-ui/tooltip": "2.1.11",
     "@radix-ui/react-select": "^1.0.0",
     "react": "^18.2.0",

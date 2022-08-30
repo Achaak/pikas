@@ -176,17 +176,13 @@ export interface ButtonIconLinkProps
 const getContent = ({
   loading,
   styles,
-  outlined,
-  colorHex,
-  contentColorHex,
+  contentColor,
   size,
   Icon,
 }: {
   loading?: boolean
   styles?: ButtonIconStylesType
-  outlined?: boolean
-  colorHex?: string
-  contentColorHex?: string
+  contentColor?: string
   size?: SizesType
   Icon: React.FC<IconProps>
 }): React.ReactNode => {
@@ -195,11 +191,7 @@ const getContent = ({
       <LoadingContainer>
         <ClipLoader
           size={Sizes[size || 6]}
-          colorHex={getContentColor({
-            outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
-          })}
+          colorHex={contentColor}
           loading={loading}
         />
       </LoadingContainer>
@@ -211,11 +203,7 @@ const getContent = ({
       >
         <Icon
           size={Sizes[size || 6]}
-          colorHex={getContentColor({
-            outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
-          })}
+          colorHex={contentColor}
           styles={styles?.icon}
         />
       </Content>
@@ -256,11 +244,16 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
     }, [disabled, onClick, loading])
 
     if (!theme) return null
+
+    const colorHexFinal = colorHex || (color && theme.colors[color].value)
+    const contentColorHexFinal =
+      contentColorHex || (contentColor && theme.colors[contentColor].value)
+
     return (
       <ButtonIconDOM
         ref={ref}
         onClick={handleClick}
-        disabled={disabled}
+        disabled={loading || disabled}
         effect={disabled ? undefined : effect}
         css={{
           br: borderRadius,
@@ -269,10 +262,8 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
 
           ...getColors({
             outlined,
-            colorHex: colorHex || (color && theme.colors[color].value),
-            contentColorHex:
-              contentColorHex ||
-              (contentColor && theme.colors[contentColor].value),
+            colorHex: colorHexFinal,
+            contentColorHex: contentColorHexFinal,
           }),
 
           ...styles?.button,
@@ -280,12 +271,12 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         {...props}
       >
         {getContent({
-          colorHex: colorHex || (color && theme.colors[color].value),
-          contentColorHex:
-            contentColorHex ||
-            (contentColor && theme.colors[contentColor].value),
+          contentColor: getContentColor({
+            outlined,
+            contentColorHex: contentColorHex,
+            colorHex: colorHex,
+          }),
           loading,
-          outlined,
           size,
           styles,
           Icon,
@@ -344,12 +335,17 @@ export const ButtonIconLink = forwardRef<
     }, [disabled, onClick, loading])
 
     if (!theme) return null
+
+    const colorHexFinal = colorHex || (color && theme.colors[color].value)
+    const contentColorHexFinal =
+      contentColorHex || (contentColor && theme.colors[contentColor].value)
+
     return (
       <ButtonIconDOM
         as="a"
         ref={ref}
         onClick={handleClick}
-        disabled={disabled}
+        disabled={loading || disabled}
         effect={disabled ? undefined : effect}
         css={{
           br: borderRadius,
@@ -358,10 +354,8 @@ export const ButtonIconLink = forwardRef<
 
           ...getColors({
             outlined,
-            colorHex: colorHex || (color && theme.colors[color].value),
-            contentColorHex:
-              contentColorHex ||
-              (contentColor && theme.colors[contentColor].value),
+            colorHex: colorHexFinal,
+            contentColorHex: contentColorHexFinal,
           }),
 
           ...styles?.button,
@@ -369,12 +363,12 @@ export const ButtonIconLink = forwardRef<
         {...props}
       >
         {getContent({
-          colorHex: colorHex || (color && theme.colors[color].value),
-          contentColorHex:
-            contentColorHex ||
-            (contentColor && theme.colors[contentColor].value),
+          contentColor: getContentColor({
+            outlined,
+            contentColorHex: contentColorHex,
+            colorHex: colorHex,
+          }),
           loading,
-          outlined,
           size,
           styles,
           Icon,

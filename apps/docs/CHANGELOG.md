@@ -1,5 +1,20 @@
 # @pikas-ui/docs
 
+## 1.0.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/button@2.1.12
+  - @pikas-ui/loader@2.1.12
+  - @pikas-ui/searchbar@2.1.15
+  - @pikas-ui/context-menu@2.1.13
+  - @pikas-ui/dropdown-menu@2.1.13
+  - @pikas-ui/table@2.1.17
+  - @pikas-ui/textarea@2.1.15
+  - @pikas-ui/textfield@2.1.15
+  - @pikas-ui/select@3.2.2
+
 ## 1.0.29
 
 ### Patch Changes

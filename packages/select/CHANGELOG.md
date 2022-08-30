@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 3.2.2
+
+### Patch Changes
+
+- @pikas-ui/textfield@2.1.15
+
 ## 3.2.1
 
 ### Patch Changes

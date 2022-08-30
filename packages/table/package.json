@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "2.1.16",
+  "version": "2.1.17",
   "private": false,
   "description": "",
   "license": "MIT",
@@ -42,8 +42,8 @@
   "dependencies": {
     "@pikas-ui/checkbox": "2.1.12",
     "@pikas-ui/icons": "2.1.11",
-    "@pikas-ui/loader": "2.1.11",
-    "@pikas-ui/select": "3.2.1",
+    "@pikas-ui/loader": "2.1.12",
+    "@pikas-ui/select": "3.2.2",
     "@pikas-ui/styles": "2.3.11",
     "@tanstack/react-table": "8.5.11",
     "font-color-contrast": "^11.1.0",

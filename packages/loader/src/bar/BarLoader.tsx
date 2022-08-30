@@ -24,7 +24,7 @@ export const BarLoader: React.FC<BarLoaderProps> = ({
       width={width}
       height={height}
       speedMultiplier={speedMultiplier}
-      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
+      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
       loading={loading}
     />
   )

@@ -21,7 +21,7 @@ export const PropagateLoader: React.FC<PropagateLoaderProps> = ({
     <PropagateLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={(color ? `var(--colors-${color})` : undefined) || colorHex}
+      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
       loading={loading}
     />
   )
