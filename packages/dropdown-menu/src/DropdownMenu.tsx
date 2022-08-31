@@ -94,6 +94,8 @@ export const DropdownMenuDirection = {
 }
 export type DropdownMenuDirectionType = keyof typeof DropdownMenuDirection
 
+export type DropdownMenuCSSType = MenuCSSType
+
 export type DropdownMenuData = MenuDataItem[]
 export interface DropdownMenuProps extends MenuProps {
   triggerContent?: React.ReactNode
@@ -197,7 +199,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
 interface DropdownMenuDataProps {
   data: MenuData
-  css?: MenuCSSType
+  css?: DropdownMenuCSSType
 }
 
 const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {

@@ -73,6 +73,8 @@ export const ContextMenuDirection = {
 }
 export type ContextMenuDirectionType = keyof typeof ContextMenuDirection
 
+export type ContextMenuCSSType = MenuCSSType
+
 export type ContextMenuData = MenuDataItem[]
 export interface ContextMenuProps extends MenuProps {
   children?: React.ReactNode
@@ -138,7 +140,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
 interface ContextMenuDataProps {
   data: MenuData
-  css?: MenuCSSType
+  css?: ContextMenuCSSType
 }
 
 const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
