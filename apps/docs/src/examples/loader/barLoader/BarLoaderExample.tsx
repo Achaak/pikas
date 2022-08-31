@@ -4,7 +4,7 @@ import { BarLoader } from '@pikas-ui/loader'
 export const BarLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

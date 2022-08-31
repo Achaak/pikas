@@ -5,7 +5,7 @@ import { ClipLoader } from '@pikas-ui/loader'
 import { Separator } from '@pikas-ui/separator'
 import type { CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { TextfieldProps, TextfieldStylesType } from '@pikas-ui/textfield'
+import type { TextfieldProps, TextfieldCSSType } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
 import React, { useEffect, useState, useRef } from 'react'
 import * as usehook from 'usehooks-ts'
@@ -128,12 +128,12 @@ type ResultGroupWithIdType = {
   items: (ResultItemType & { id: number })[]
 }
 
-export type SearchbarStylesType = {
+export type SearchbarCSSType = {
   container?: CSS
   resultContainer?: CSS
   noResult?: CSS
   resultItem?: CSS
-  textfield?: TextfieldStylesType
+  textfield?: TextfieldCSSType
   resultGroup?: CSS
   resultGroupTitle?: CSS
 }
@@ -147,7 +147,7 @@ export interface SearchbarProps<T> {
   searchWhenKeyUp?: boolean
   debounceDelay?: number
   textfield?: TextfieldProps
-  styles?: SearchbarStylesType
+  css?: SearchbarCSSType
   noResult?: React.ReactNode
   loading?: React.ReactNode
   direction?: SearchbarDirection
@@ -167,7 +167,7 @@ export const Searchbar = <T,>({
   isOpen: isOpenProp,
   id,
   searchWhenKeyUp,
-  styles,
+  css,
   textfield,
   debounceDelay,
   loading: loadingProp,
@@ -315,7 +315,7 @@ export const Searchbar = <T,>({
         width: width,
         maxWidth: maxWidth,
         minWidth: minWidth,
-        ...styles?.container,
+        ...css?.container,
       }}
       ref={refContainer}
     >
@@ -377,22 +377,22 @@ export const Searchbar = <T,>({
               break
           }
         }}
-        styles={{
+        css={{
           right: {
             paddingTop: 0,
             paddingBottom: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            ...styles?.textfield?.right,
+            ...css?.textfield?.right,
           },
-          ...styles?.textfield,
+          ...css?.textfield,
         }}
       />
       <Result
         ref={refResult}
         isOpen={isOpen}
-        css={styles?.resultContainer}
+        css={css?.resultContainer}
         direction={
           direction ||
           (outerHeight &&
@@ -411,7 +411,7 @@ export const Searchbar = <T,>({
               setIsOpen(false)
             }}
             selected={selectionId === 0}
-            css={styles?.resultItem}
+            css={css?.resultItem}
           >
             <DirectResultValue>{textfieldValue}</DirectResultValue>
           </ResultItem>
@@ -430,7 +430,7 @@ export const Searchbar = <T,>({
                 res.push(
                   <ResultGroupTitle
                     key={`${groupIndex}-title`}
-                    css={styles?.resultGroupTitle}
+                    css={css?.resultGroupTitle}
                   >
                     {group.title}
                   </ResultGroupTitle>
@@ -438,7 +438,7 @@ export const Searchbar = <T,>({
               }
 
               res.push(
-                <ResultGroup key={groupIndex} css={styles?.resultGroup}>
+                <ResultGroup key={groupIndex} css={css?.resultGroup}>
                   {group.items.map((item, itemIndex) => {
                     const res = []
 
@@ -459,7 +459,7 @@ export const Searchbar = <T,>({
                           setIsOpen(false)
                         }}
                         selected={selectionId === item.id}
-                        css={styles?.resultItem}
+                        css={css?.resultItem}
                       >
                         {item.content}
                       </ResultItem>
@@ -473,7 +473,7 @@ export const Searchbar = <T,>({
               return res
             })
           ) : (
-            <NoResult css={styles?.noResult}>{noResult}</NoResult>
+            <NoResult css={css?.noResult}>{noResult}</NoResult>
           )}
         </SearchResultContainer>
       </Result>

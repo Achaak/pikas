@@ -14,12 +14,12 @@ const Container = styled('div', {
 
 interface ExampleContainerProps {
   children?: React.ReactNode
-  style?: CSS
+  css?: CSS
 }
 
 export const ExampleContainer: React.FC<ExampleContainerProps> = ({
   children,
-  style,
+  css,
 }) => {
-  return <Container css={style}>{children}</Container>
+  return <Container css={css}>{children}</Container>
 }

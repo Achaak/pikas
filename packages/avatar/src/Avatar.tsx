@@ -34,7 +34,7 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarStylesType {
+export interface AvatarCSSType {
   container?: CSS
   image?: CSS
   fallback?: CSS
@@ -48,7 +48,7 @@ export interface AvatarProps {
   fallback?: string
   fallbackColor?: ColorsType
   fallbackBackgroundColor?: ColorsType
-  styles?: AvatarStylesType
+  css?: AvatarCSSType
   size?: number
   borderRadius?: BorderRadiusType
   loading?: boolean
@@ -62,7 +62,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   fallback,
   fallbackBackgroundColor,
   fallbackColor,
-  styles,
+  css,
   size,
   borderRadius,
   loading,
@@ -75,7 +75,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         width: size,
         minWidth: size,
         br: borderRadius,
-        ...styles?.container,
+        ...css?.container,
       }}
     >
       {loading ? (
@@ -84,7 +84,7 @@ export const Avatar: React.FC<AvatarProps> = ({
           width="100%"
           height="100%"
           borderRadius={borderRadius}
-          style={{
+          css={{
             position: 'absolute',
           }}
         />
@@ -95,7 +95,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         alt={alt}
         onLoadingStatusChange={onLoadingStatusChange}
         css={{
-          ...styles?.image,
+          ...css?.image,
         }}
       />
       <Fallback
@@ -104,7 +104,7 @@ export const Avatar: React.FC<AvatarProps> = ({
           fontSize: size ? size / 2.5 : undefined,
           color: `$${fallbackColor}`,
           backgroundColor: `$${fallbackBackgroundColor}`,
-          ...styles?.fallback,
+          ...css?.fallback,
         }}
       >
         {fallback}

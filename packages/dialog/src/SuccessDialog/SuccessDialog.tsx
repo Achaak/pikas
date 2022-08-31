@@ -5,17 +5,32 @@ import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
 export interface SuccessDialogType {
   visible: boolean
+  onClose?: () => void
+  validateButtonLabel?: string
 }
 
-export const SuccessDialog: React.FC<SuccessDialogType> = ({ visible }) => {
+export const SuccessDialog: React.FC<SuccessDialogType> = ({
+  visible,
+  validateButtonLabel,
+  onClose,
+}) => {
   return (
     <CustomDialog
       visible={visible}
+      onClose={onClose}
+      hasCloseButton={false}
       header={<SuccessDialogHeader />}
       content={<SuccessDialogContent />}
-      footer={<SuccessDialogFooter />}
+      footer={
+        <SuccessDialogFooter
+          validateButtonLabel={validateButtonLabel}
+          onClose={onClose}
+        />
+      }
     />
   )
 }
 
-SuccessDialog.defaultProps = {}
+SuccessDialog.defaultProps = {
+  validateButtonLabel: 'Ok',
+}

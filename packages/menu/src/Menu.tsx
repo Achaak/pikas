@@ -23,7 +23,7 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 })
 
-export const MenuContentStyle: CSS = {
+export const MenuContentCSS: CSS = {
   backgroundColor: '$WHITE',
   br: 'md',
   padding: 8,
@@ -52,7 +52,7 @@ export const MenuContentStyle: CSS = {
   },
 }
 
-export const MenuItemStyles: CSS = {
+export const MenuItemCSS: CSS = {
   all: 'unset',
   fontSize: '$EM-SMALL',
   color: '$BLACK',
@@ -84,41 +84,41 @@ export const MenuItemStyles: CSS = {
   },
 }
 
-export const MenuCheckboxItemStyle: CSS = {
+export const MenuCheckboxItemCSS: CSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
-  ...MenuItemStyles,
+  ...MenuItemCSS,
 }
 
-export const MenuRadioItemStyle: CSS = {
+export const MenuRadioItemCSS: CSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
-  ...MenuItemStyles,
+  ...MenuItemCSS,
 }
 
-export const MenuTriggerItemStyle: CSS = {
+export const MenuTriggerItemCSS: CSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
-  ...MenuItemStyles,
+  ...MenuItemCSS,
 }
 
-export const MenuLabelStyle: CSS = {
+export const MenuLabelCSS: CSS = {
   padding: '4px 0',
   paddingLeft: 24,
   fontSize: '$EM-X-SMALL',
   color: '$BLACK',
 }
 
-export const MenuSeparatorStyle: CSS = {
+export const MenuSeparatorCSS: CSS = {
   height: 1,
   backgroundColor: '$GRAY_LIGHT',
   margin: 4,
 }
 
-export const MenuItemIndicatorStyle: CSS = {
+export const MenuItemIndicatorCSS: CSS = {
   position: 'absolute',
   left: 0,
   width: 24,
@@ -127,7 +127,7 @@ export const MenuItemIndicatorStyle: CSS = {
   justifyContent: 'center',
 }
 
-export const RightSlotStyle: CSS = {
+export const RightSlotCSS: CSS = {
   marginLeft: 'auto',
   paddingLeft: 20,
   color: '$BLACK',
@@ -138,7 +138,7 @@ export const RightSlotStyle: CSS = {
   },
 }
 
-export const SpanStyle: CSS = {}
+export const SpanCSS: CSS = {}
 
 interface ItemDefault {
   disabled?: boolean
@@ -157,7 +157,7 @@ interface Item extends ItemDefault {
   loading?: boolean
   label: React.ReactNode
   onClick?: () => void
-  styles?: {
+  css?: {
     container?: CSS
     indicator?: CSS
     label?: CSS
@@ -170,7 +170,7 @@ interface CheckboxItem extends ItemDefault {
   checked: boolean
   label: React.ReactNode
   onCheckedChange: (checked: boolean) => void
-  styles?: {
+  css?: {
     container?: CSS
     indicator?: CSS
     label?: CSS
@@ -187,14 +187,14 @@ interface RadioItem extends ItemDefault {
     value: string
     disabled?: boolean
     rightSlot?: string
-    styles?: {
+    css?: {
       container?: CSS
       indicator?: CSS
       label?: CSS
       rightSlot?: CSS
     }
   }[]
-  styles?: {
+  css?: {
     container?: CSS
   }
 }
@@ -207,7 +207,7 @@ interface MenuItem extends ItemDefault {
 
 export interface MenuDataItem {
   label?: React.ReactNode
-  style?: CSS
+  css?: CSS
   items: ItemType[]
 }
 
@@ -215,12 +215,12 @@ export type MenuData = MenuDataItem[]
 
 type ItemType = Item | CheckboxItem | RadioItem | MenuItem
 
-export interface MenuStylesType {
+export interface MenuCSSType {
   content?: CSS
   separator?: CSS
 }
 
 export interface MenuProps {
   data: MenuData
-  styles?: MenuStylesType
+  css?: MenuCSSType
 }

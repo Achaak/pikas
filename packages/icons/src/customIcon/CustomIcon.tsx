@@ -19,19 +19,19 @@ export const CustomIcon: React.FC<CustomIconProps> = ({
   colorHex,
   onClick,
   size,
-  styles,
+  css,
 }) => {
   return (
     <Container
       onClick={onClick}
       className={className}
       css={{
-        ...styles?.container,
+        ...css?.container,
         svg: {
           width: size,
           height: size,
           color: (color ? `$${color}` : undefined) || colorHex,
-          ...styles?.svg,
+          ...css?.svg,
         },
       }}
     >

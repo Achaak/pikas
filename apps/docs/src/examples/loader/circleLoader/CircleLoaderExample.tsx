@@ -4,7 +4,7 @@ import { CircleLoader } from '@pikas-ui/loader'
 export const CircleLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

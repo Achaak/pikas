@@ -14,7 +14,7 @@ export const CustomAlertExample: React.FC = () => {
 
   return (
     <ExampleContainer
-      style={{
+      css={{
         customRowGap: !visible ? 0 : 8,
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}
@@ -32,7 +32,7 @@ export const CustomAlertExample: React.FC = () => {
         onClick={(): void => setVisible((lastState) => !lastState)}
         width="auto"
         padding="sm"
-        style={{
+        css={{
           marginTop: !visible ? 0 : 16,
           transition: `margin-top ${visible ? '500ms' : '1000ms'} ease-in-out`,
         }}

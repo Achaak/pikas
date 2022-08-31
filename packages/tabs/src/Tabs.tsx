@@ -152,7 +152,7 @@ export interface TabsItem<T extends string> {
   id: T
   content: React.ReactNode
   disabled?: boolean
-  styles?: {
+  css?: {
     trigger?: CSS
     content?: CSS
   }
@@ -164,7 +164,7 @@ export type TabsDirectionType = 'ltr' | 'rtl'
 
 export type TabsActivationModeType = 'manual' | 'automatic'
 
-export interface TabsStylesType {
+export interface TabsCSSType {
   container?: CSS
   triggerList?: CSS
   endTrigger?: CSS
@@ -188,7 +188,7 @@ export interface TabsProps<T extends string> {
   direction?: TabsDirectionType
   activationMode?: TabsActivationModeType
   loop?: boolean
-  styles?: TabsStylesType
+  css?: TabsCSSType
   padding?: TabsPaddingType
   alignmentTrigger?: TabsAlignmentTriggerType
   startTrigger?: React.ReactNode
@@ -204,7 +204,7 @@ export const Tabs = <T extends string>({
   direction,
   activationMode,
   loop,
-  styles,
+  css,
   padding,
   alignmentTrigger,
   endTrigger,
@@ -218,11 +218,11 @@ export const Tabs = <T extends string>({
       orientation={orientation}
       dir={direction}
       activationMode={activationMode}
-      css={styles?.container}
+      css={css?.container}
     >
-      <List loop={loop} alignment={alignmentTrigger} css={styles?.triggerList}>
+      <List loop={loop} alignment={alignmentTrigger} css={css?.triggerList}>
         {startTrigger && (
-          <StartTrigger padding={padding?.trigger} css={styles?.startTrigger}>
+          <StartTrigger padding={padding?.trigger} css={css?.startTrigger}>
             {startTrigger}
           </StartTrigger>
         )}
@@ -231,7 +231,7 @@ export const Tabs = <T extends string>({
             <Trigger
               value={item.id}
               disabled={item.disabled}
-              css={item?.styles?.trigger}
+              css={item?.css?.trigger}
               padding={padding?.trigger}
             >
               {item.trigger}
@@ -239,7 +239,7 @@ export const Tabs = <T extends string>({
           )
         })}
         {endTrigger && (
-          <EndTrigger padding={padding?.trigger} css={styles?.endTrigger}>
+          <EndTrigger padding={padding?.trigger} css={css?.endTrigger}>
             {endTrigger}
           </EndTrigger>
         )}
@@ -248,7 +248,7 @@ export const Tabs = <T extends string>({
         return (
           <Content
             value={item.id}
-            css={item?.styles?.content}
+            css={item?.css?.content}
             padding={padding?.content}
           >
             {item.trigger}

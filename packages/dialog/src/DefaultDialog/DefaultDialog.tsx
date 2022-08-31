@@ -5,12 +5,17 @@ import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 
 export interface DefaultDialogType {
   visible: boolean
+  onClose?: () => void
 }
 
-export const DefaultDialog: React.FC<DefaultDialogType> = ({ visible }) => {
+export const DefaultDialog: React.FC<DefaultDialogType> = ({
+  visible,
+  onClose,
+}) => {
   return (
     <CustomDialog
       visible={visible}
+      onClose={onClose}
       header={<DefaultDialogHeader />}
       content={<DefaultDialogContent />}
       footer={<DefaultDialogFooter />}

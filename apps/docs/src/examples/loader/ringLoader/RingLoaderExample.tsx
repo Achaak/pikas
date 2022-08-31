@@ -4,7 +4,7 @@ import { RingLoader } from '@pikas-ui/loader'
 export const RingLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

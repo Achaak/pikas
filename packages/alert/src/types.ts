@@ -1,4 +1,4 @@
-import type { IconStyleType } from '@pikas-ui/icons'
+import type { IconCSSType } from '@pikas-ui/icons'
 import type {
   BorderRadiusType,
   CSS,
@@ -24,10 +24,10 @@ export const AlertGap = {
 }
 export type AlertGapType = keyof typeof AlertGap
 
-export interface AlertStylesType {
+export interface AlertCSSType {
   container?: CSS
   content?: CSS
-  icon?: IconStyleType
+  icon?: IconCSSType
   child?: CSS
 }
 
@@ -40,5 +40,5 @@ export interface DefaultAlertProps {
   padding?: AlertPaddingType
   gap?: AlertGapType
   visible?: boolean
-  styles?: AlertStylesType
+  css?: AlertCSSType
 }

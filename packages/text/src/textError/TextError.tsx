@@ -9,9 +9,9 @@ const TextErrorStyled = styled('p', {
 
 export interface TextErrorProps {
   children?: React.ReactNode
-  style?: CSS
+  css?: CSS
 }
 
-export const TextError: React.FC<TextErrorProps> = ({ children, style }) => {
-  return <TextErrorStyled css={style}>{children}</TextErrorStyled>
+export const TextError: React.FC<TextErrorProps> = ({ children, css }) => {
+  return <TextErrorStyled css={css}>{children}</TextErrorStyled>
 }

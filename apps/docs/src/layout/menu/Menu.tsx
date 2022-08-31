@@ -111,7 +111,7 @@ export const Menu: React.FC = () => {
         fontSize="EM-SMALL"
         width="auto"
         onClick={(): void => setIsOpen((state) => !state)}
-        styles={{
+        css={{
           button: {
             margin: '8px 16px',
             paddingLeft: '12px',

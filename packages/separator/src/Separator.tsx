@@ -13,14 +13,14 @@ export interface SeparatorProps {
   orientation?: SeparatorOrientationType
   className?: string
   size?: number
-  style?: CSS
+  css?: CSS
   color?: ColorsType
   borderRadius?: BorderRadiusType
 }
 
 export const Separator: React.FC<SeparatorProps> = ({
   orientation,
-  style,
+  css,
   className,
   color,
   size,
@@ -45,7 +45,7 @@ export const Separator: React.FC<SeparatorProps> = ({
           width: size,
         },
 
-        ...style,
+        ...css,
       }}
     />
   )

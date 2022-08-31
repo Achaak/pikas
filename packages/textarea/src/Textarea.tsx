@@ -11,9 +11,9 @@ import fontColorContrast from 'font-color-contrast'
 import type { TextareaHTMLAttributes } from 'react'
 import { forwardRef } from 'react'
 import React, { useState } from 'react'
-import type { IconStyleType } from '@pikas-ui/icons'
+import type { IconCSSType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { TooltipStylesType } from '@pikas-ui/tooltip'
+import type { TooltipCSSType } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
@@ -86,12 +86,12 @@ export const TextareaResize = {
 }
 export type TextareaResizeType = keyof typeof TextareaResize
 
-export interface TextareaStylesType {
+export interface TextareaCSSType {
   container?: CSS
   textareaContainer?: CSS
   textarea?: CSS
-  infoTooltip?: TooltipStylesType
-  infoIcon?: IconStyleType
+  infoTooltip?: TooltipCSSType
+  infoIcon?: IconCSSType
   label?: CSS
   description?: CSS
   textError?: CSS
@@ -107,7 +107,7 @@ export type TextareaProps = {
   fontSize?: FontsSizesType
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  styles?: TextareaStylesType
+  css?: TextareaCSSType
   outline?: boolean
   resize?: TextareaResizeType
   description?: string
@@ -141,7 +141,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       fontSize,
       textError,
       label,
-      styles,
+      css,
       borderColor,
       borderWidth,
       backgroundColor,
@@ -211,28 +211,28 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             pointerEvents: disabled ? 'none' : undefined,
           },
 
-          ...styles?.container,
+          ...css?.container,
         }}
       >
         {label ? (
           <LabelContainer>
-            <Label htmlFor={id} style={styles?.label}>
+            <Label htmlFor={id} css={css?.label}>
               {label}
             </Label>
 
-            {required ? <Required css={styles?.required}>*</Required> : null}
+            {required ? <Required css={css?.required}>*</Required> : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.infoTooltip}>
+              <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
-                  styles={{
+                  css={{
                     container: {
                       marginLeft: 4,
-                      ...styles?.infoIcon?.container,
+                      ...css?.infoIcon?.container,
                     },
                     svg: {
-                      ...styles?.infoIcon?.svg,
+                      ...css?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -243,9 +243,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         {description ? (
           <Description
-            style={{
+            css={{
               marginBottom: 4,
-              ...styles?.description,
+              ...css?.description,
             }}
           >
             {description}
@@ -266,7 +266,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             boxShadow: `$${boxShadow}`,
             borderWidth: borderWidth,
 
-            ...styles?.textareaContainer,
+            ...css?.textareaContainer,
           }}
         >
           <TextareaStyled
@@ -291,7 +291,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 }),
               },
 
-              ...styles?.textarea,
+              ...css?.textarea,
             }}
             {...props}
             {...data}
@@ -299,7 +299,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         </TextareaContainer>
 
         {textError && (
-          <TextError style={{ marginTop: 5, ...styles?.textError }}>
+          <TextError css={{ marginTop: 5, ...css?.textError }}>
             {textError}
           </TextError>
         )}

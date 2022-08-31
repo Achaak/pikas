@@ -96,7 +96,7 @@ export const TooltipPadding = {
 }
 export type TooltipPaddingType = keyof typeof TooltipPadding
 
-export type TooltipStylesType = {
+export type TooltipCSSType = {
   trigger?: CSS
   content?: CSS
 }
@@ -124,7 +124,7 @@ export interface TooltipProps {
   fontWeight?: FontsWeightsType
   boxShadow?: ShadowsType
   padding?: TooltipPaddingType
-  styles?: TooltipStylesType
+  css?: TooltipCSSType
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -150,7 +150,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   boxShadow,
   hasArrow,
   padding,
-  styles,
+  css,
 }) => {
   const theme = useTheme()
 
@@ -165,7 +165,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
         defaultOpen={defaultOpen}
         delayDuration={delayDuration}
       >
-        <Trigger asChild css={styles?.trigger}>
+        <Trigger asChild css={css?.trigger}>
           <div>{children}</div>
         </Trigger>
 
@@ -192,7 +192,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
                   )) ||
                 undefined,
 
-              ...styles?.content,
+              ...css?.content,
             }}
           >
             {content}

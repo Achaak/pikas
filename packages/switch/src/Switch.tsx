@@ -1,7 +1,7 @@
-import type { IconProps, IconStyleType } from '@pikas-ui/icons'
+import type { IconProps, IconCSSType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type { CSS, FontsSizesType } from '@pikas-ui/styles'
-import type { TooltipStylesType } from '@pikas-ui/tooltip'
+import type { TooltipCSSType } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
 import { Label, TextError } from '@pikas-ui/text'
@@ -67,10 +67,10 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchStyleType {
+export interface SwitchCSSType {
   container?: CSS
-  infoTootip?: TooltipStylesType
-  infoIcon?: IconStyleType
+  infoTootip?: TooltipCSSType
+  infoIcon?: IconCSSType
   label?: CSS
   required?: CSS
   textError?: CSS
@@ -85,7 +85,7 @@ export interface SwitchProps {
 
   onChange?: (val: boolean) => void
   defaultChecked?: boolean
-  styles?: SwitchStyleType
+  css?: SwitchCSSType
   disabled?: boolean
   side?: 'left' | 'right'
   Icons?: {
@@ -103,7 +103,7 @@ export const Switch: React.FC<SwitchProps> = ({
   fontSize,
   textError,
   label,
-  styles,
+  css,
   defaultChecked,
   Icons,
   disabled,
@@ -142,7 +142,7 @@ export const Switch: React.FC<SwitchProps> = ({
           pointerEvents: disabled ? 'none' : undefined,
         },
 
-        ...styles?.container,
+        ...css?.container,
       }}
     >
       <SwitchContainer>
@@ -154,8 +154,8 @@ export const Switch: React.FC<SwitchProps> = ({
           >
             <Label
               htmlFor={id}
-              style={{
-                ...styles?.label,
+              css={{
+                ...css?.label,
               }}
             >
               {label}
@@ -164,24 +164,24 @@ export const Switch: React.FC<SwitchProps> = ({
             {required ? (
               <Required
                 css={{
-                  ...styles?.required,
+                  ...css?.required,
                 }}
               >
                 *
               </Required>
             ) : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.infoTootip}>
+              <Tooltip content={info} css={css?.infoTootip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
-                  styles={{
+                  css={{
                     container: {
                       marginLeft: 4,
-                      ...styles?.infoIcon?.container,
+                      ...css?.infoIcon?.container,
                     },
                     svg: {
-                      ...styles?.infoIcon?.svg,
+                      ...css?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -207,8 +207,8 @@ export const Switch: React.FC<SwitchProps> = ({
           >
             <Label
               htmlFor={id}
-              style={{
-                ...styles?.label,
+              css={{
+                ...css?.label,
               }}
             >
               {label}
@@ -217,24 +217,24 @@ export const Switch: React.FC<SwitchProps> = ({
             {required ? (
               <Required
                 css={{
-                  ...styles?.required,
+                  ...css?.required,
                 }}
               >
                 *
               </Required>
             ) : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.infoTootip}>
+              <Tooltip content={info} css={css?.infoTootip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
-                  styles={{
+                  css={{
                     container: {
                       marginLeft: 4,
-                      ...styles?.infoIcon?.container,
+                      ...css?.infoIcon?.container,
                     },
                     svg: {
-                      ...styles?.infoIcon?.svg,
+                      ...css?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -245,7 +245,7 @@ export const Switch: React.FC<SwitchProps> = ({
       </SwitchContainer>
 
       {textError && (
-        <TextError style={{ marginTop: 5, ...styles?.textError }}>
+        <TextError css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       )}

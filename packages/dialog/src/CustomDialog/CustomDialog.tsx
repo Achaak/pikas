@@ -164,7 +164,7 @@ export interface CustomDialogType {
   closeIfClickOutside?: boolean
 
   hasCloseButton?: boolean
-  styles?: {
+  css?: {
     container?: CSS
     header?: CSS
     content?: CSS
@@ -193,7 +193,7 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
   visible,
   hasCloseButton,
   onClose,
-  styles,
+  css,
   closeIfClickOutside,
   onOpen,
   width,
@@ -265,7 +265,7 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
               height: height,
             },
 
-            ...styles?.container,
+            ...css?.container,
           }}
         >
           {hasCloseButton && (
@@ -277,7 +277,7 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
           {header && (
             <Header
               css={{
-                ...styles?.header,
+                ...css?.header,
               }}
               gap={gap?.header}
               padding={padding?.header}
@@ -288,7 +288,7 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
           {content && (
             <Content
               css={{
-                ...styles?.content,
+                ...css?.content,
               }}
               gap={gap?.content}
               padding={padding?.content}
@@ -299,7 +299,7 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
           {footer && (
             <Footer
               css={{
-                ...styles?.footer,
+                ...css?.footer,
               }}
               gap={gap?.footer}
               padding={padding?.footer}

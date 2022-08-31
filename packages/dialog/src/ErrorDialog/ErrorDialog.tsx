@@ -5,17 +5,32 @@ import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
 export interface ErrorDialogType {
   visible: boolean
+  onClose?: () => void
+  validateButtonLabel?: string
 }
 
-export const ErrorDialog: React.FC<ErrorDialogType> = ({ visible }) => {
+export const ErrorDialog: React.FC<ErrorDialogType> = ({
+  visible,
+  onClose,
+  validateButtonLabel,
+}) => {
   return (
     <CustomDialog
       visible={visible}
+      onClose={onClose}
+      hasCloseButton={false}
       header={<ErrorDialogHeader />}
       content={<ErrorDialogContent />}
-      footer={<ErrorDialogFooter />}
+      footer={
+        <ErrorDialogFooter
+          validateButtonLabel={validateButtonLabel}
+          onClose={onClose}
+        />
+      }
     />
   )
 }
 
-ErrorDialog.defaultProps = {}
+ErrorDialog.defaultProps = {
+  validateButtonLabel: 'Ok',
+}

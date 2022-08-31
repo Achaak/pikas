@@ -8,7 +8,7 @@ export const CustomDialogExample: React.FC = () => {
 
   return (
     <ExampleContainer
-      style={{
+      css={{
         customRowGap: !visible ? 0 : 8,
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}

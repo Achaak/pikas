@@ -4,7 +4,7 @@ import { PuffLoader } from '@pikas-ui/loader'
 export const PuffLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
