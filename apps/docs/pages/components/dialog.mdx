@@ -1,0 +1,176 @@
+import { DefaultDialogExample } from './../../src/examples/dialog/defaultDialog'
+import { ErrorDialogExample } from './../../src/examples/dialog/errorDialog'
+import { SuccessDialogExample } from './../../src/examples/dialog/successDialog'
+import { ValidateDialogExample } from './../../src/examples/dialog/validateDialog'
+import { InfoDialogExample } from './../../src/examples/dialog/infoDialog'
+import { CustomDialogExample } from './../../src/examples/dialog/customDialog'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Dialog" />
+
+# @pikas-ui/dialog
+
+This package contains a dialog component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/dialog
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/dialog
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/dialog
+```
+
+---
+
+## Usage
+
+### DefaultDialog
+
+<DefaultDialogExample />
+
+```tsx
+import { DefaultDialog } from `@pikas-ui/dialog`;
+
+const Example: React.FC = () => {
+  return (
+    <DefaultDialog />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
+
+---
+
+### SuccessDialog
+
+<SuccessDialogExample />
+
+```tsx
+import { SuccessDialog } from `@pikas-ui/dialog`;
+
+const Example: React.FC = () => {
+  return (
+    <SuccessDialog />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
+
+---
+
+### ValidateDialog
+
+<ValidateDialogExample />
+
+```tsx
+import { ValidateDialog } from `@pikas-ui/dialog`;
+
+const Example: React.FC = () => {
+  return (
+    <ValidateDialog />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
+
+---
+
+### ErrorDialog
+
+<ErrorDialogExample />
+
+```tsx
+import { ErrorDialog } from `@pikas-ui/dialog`;
+
+const Example: React.FC = () => {
+  return (
+    <ErrorDialog />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
+
+---
+
+### InfoDialog
+
+<InfoDialogExample />
+
+```tsx
+import { InfoDialog } from `@pikas-ui/dialog`;
+
+const Example: React.FC = () => {
+  return (
+    <InfoDialog />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
+
+---
+
+### CustomDialog
+
+<CustomDialogExample />
+
+```tsx
+import { CustomDialog } from `@pikas-ui/dialog`;
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
+
+const IconExample: React.FC<IconProps> = (props) => {
+  return <IconByName {...props} name="bx:baguette" />
+}
+
+const Example: React.FC = () => {
+  return (
+    <CustomDialog />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |

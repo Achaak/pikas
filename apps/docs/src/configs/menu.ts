@@ -39,6 +39,10 @@ export const menu: Menu = [
         href: getLink('contextMenu'),
       },
       {
+        label: 'Dialog',
+        href: getLink('dialog'),
+      },
+      {
         label: 'Dropdown Menu',
         href: getLink('dropdownMenu'),
       },

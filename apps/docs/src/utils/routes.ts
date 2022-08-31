@@ -24,6 +24,7 @@ export const { getLink } = routes({
     textfield: '/components/textfield',
     tooltip: '/components/tooltip',
     skeleton: '/components/skeleton',
+    dialog: '/components/dialog',
     styles: '/utilities/styles',
     useTheme: '/utilities/useTheme',
   },
