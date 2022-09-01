@@ -4,7 +4,7 @@ import { Button } from '@pikas-ui/button'
 import { CustomDialog } from '@pikas-ui/dialog'
 
 export const CustomDialogExample: React.FC = () => {
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
 
   return (
     <ExampleContainer

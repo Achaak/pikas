@@ -1,4 +1,5 @@
-import { CustomDialog, DialogType } from '../CustomDialog/index.js'
+import type { DialogType } from '../CustomDialog/index.js'
+import { CustomDialog } from '../CustomDialog/index.js'
 import { ValidateDialogContent } from './ValidateDialogContent/index.js'
 import { ValidateDialogFooter } from './ValidateDialogFooter/index.js'
 import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
@@ -21,6 +22,7 @@ export const ValidateDialog: React.FC<ValidateDialogType> = ({
   return (
     <CustomDialog
       onClose={onClose}
+      hasCloseIcon={false}
       header={<ValidateDialogHeader title={title} />}
       content={<ValidateDialogContent content={content} />}
       footer={
@@ -30,6 +32,13 @@ export const ValidateDialog: React.FC<ValidateDialogType> = ({
           onClose={onClose}
         />
       }
+      padding={{
+        content: 'no-padding',
+        footer: 'lg',
+      }}
+      gap={{
+        container: 'no-gap',
+      }}
       {...props}
     />
   )

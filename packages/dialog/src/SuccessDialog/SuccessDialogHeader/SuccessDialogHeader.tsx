@@ -1,14 +1,15 @@
 import { styled } from '@pikas-ui/styles'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
+import { IconContainer } from '../../Components/IconContainer/index.js'
+import { Title } from '../../Components/Title/Title.js'
 
 const Container = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  flexDirection: 'column',
   width: '100%',
+  marginBottom: 8,
 })
-
-const Title = styled(DialogPrimitive.Title, {})
 
 export interface SuccessDialogHeaderType {
   title?: string
@@ -19,6 +20,7 @@ export const SuccessDialogHeader: React.FC<SuccessDialogHeaderType> = ({
 }) => {
   return (
     <Container>
+      <IconContainer iconName="bx:check-circle" backgroundColor="SUCCESS" />
       <Title>{title}</Title>
     </Container>
   )

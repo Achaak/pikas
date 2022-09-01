@@ -1,14 +1,15 @@
 import { styled } from '@pikas-ui/styles'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
+import { IconContainer } from '../../Components/IconContainer/index.js'
+import { Title } from '../../Components/Title/Title.js'
 
 const Container = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  flexDirection: 'column',
   width: '100%',
+  marginBottom: 8,
 })
-
-const Title = styled(DialogPrimitive.Title, {})
 
 export interface InfoDialogHeaderType {
   title?: string
@@ -17,6 +18,7 @@ export interface InfoDialogHeaderType {
 export const InfoDialogHeader: React.FC<InfoDialogHeaderType> = ({ title }) => {
   return (
     <Container>
+      <IconContainer iconName="bx:info-circle" backgroundColor="PRIMARY" />
       <Title>{title}</Title>
     </Container>
   )

@@ -1,4 +1,5 @@
-import { CustomDialog, DialogType } from '../CustomDialog/index.js'
+import type { DialogType } from '../CustomDialog/index.js'
+import { CustomDialog } from '../CustomDialog/index.js'
 import { SuccessDialogContent } from './SuccessDialogContent/index.js'
 import { SuccessDialogFooter } from './SuccessDialogFooter/index.js'
 import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
@@ -19,7 +20,7 @@ export const SuccessDialog: React.FC<SuccessDialogType> = ({
   return (
     <CustomDialog
       onClose={onClose}
-      hasCloseButton={false}
+      hasCloseIcon={false}
       header={<SuccessDialogHeader title={title} />}
       content={<SuccessDialogContent content={content} />}
       footer={
@@ -28,6 +29,13 @@ export const SuccessDialog: React.FC<SuccessDialogType> = ({
           onClose={onClose}
         />
       }
+      padding={{
+        content: 'no-padding',
+        footer: 'lg',
+      }}
+      gap={{
+        container: 'no-gap',
+      }}
       {...props}
     />
   )

@@ -91,19 +91,19 @@ const ButtonDOM = styled('button', {
     },
     padding: {
       xs: {
-        padding: '4px 16px',
+        padding: '4px 20px',
       },
       sm: {
-        padding: '4px 24px',
+        padding: '6px 30px',
       },
       md: {
-        padding: '8px 32px',
+        padding: '8px 40px',
       },
       lg: {
-        padding: '16px 40px',
+        padding: '12px 60px',
       },
       xl: {
-        padding: '16px 48px',
+        padding: '16px 80px',
       },
     },
 

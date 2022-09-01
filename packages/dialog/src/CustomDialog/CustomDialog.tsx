@@ -36,7 +36,6 @@ const Container = styled(DialogPrimitive.Content, {
   maxHeight: '100vh',
   transition: 'all 500ms',
   transform: 'scale(0.8)',
-  overflow: 'hidden',
   opacity: 0,
   zIndex: '$XX-HIGH',
 
@@ -106,13 +105,6 @@ const Container = styled(DialogPrimitive.Content, {
   },
 })
 
-const CloseBtn = styled('div', {
-  cursor: 'pointer',
-  position: 'absolute',
-  right: '24px',
-  top: '24px',
-})
-
 const DefaultContainer = styled('div', {
   display: 'flex',
   justifyContent: 'center',
@@ -157,6 +149,32 @@ const Content = styled(DefaultContainer, {
 
 const Footer = styled(DefaultContainer, {})
 
+export type CustomDialogPaddingElementType = 'no-padding' | 'sm' | 'md' | 'lg'
+
+export interface CustomDialogPaddingType {
+  container?: CustomDialogPaddingElementType
+  header?: CustomDialogPaddingElementType
+  content?: CustomDialogPaddingElementType
+  footer?: CustomDialogPaddingElementType
+}
+
+export type CustomDialogGapElementType = 'no-gap' | 'sm' | 'md' | 'lg'
+
+export interface CustomDialogGapType {
+  container?: CustomDialogGapElementType
+  header?: CustomDialogGapElementType
+  content?: CustomDialogGapElementType
+  footer?: CustomDialogGapElementType
+}
+
+export interface CustomDialogCSSType {
+  container?: CSS
+  header?: CSS
+  content?: CSS
+  footer?: CSS
+  closeIcon?: CSS
+}
+
 export interface DialogType {
   visible: boolean
   onOpen?: () => void
@@ -166,27 +184,12 @@ export interface DialogType {
 export interface CustomDialogType extends DialogType {
   closeIfClickOutside?: boolean
 
-  hasCloseButton?: boolean
-  css?: {
-    container?: CSS
-    header?: CSS
-    content?: CSS
-    footer?: CSS
-  }
+  hasCloseIcon?: boolean
+  css?: CustomDialogCSSType
   width?: string | number
   height?: string | number
-  padding?: {
-    container?: 'no-padding' | 'sm' | 'md' | 'lg'
-    header?: 'no-padding' | 'sm' | 'md' | 'lg'
-    content?: 'no-padding' | 'sm' | 'md' | 'lg'
-    footer?: 'no-padding' | 'sm' | 'md' | 'lg'
-  }
-  gap?: {
-    container?: 'no-gap' | 'sm' | 'md' | 'lg'
-    header?: 'no-gap' | 'sm' | 'md' | 'lg'
-    content?: 'no-gap' | 'sm' | 'md' | 'lg'
-    footer?: 'no-gap' | 'sm' | 'md' | 'lg'
-  }
+  padding?: CustomDialogPaddingType
+  gap?: CustomDialogGapType
   header?: React.ReactNode
   content?: React.ReactNode
   footer?: React.ReactNode
@@ -194,7 +197,7 @@ export interface CustomDialogType extends DialogType {
 
 export const CustomDialog: React.FC<CustomDialogType> = ({
   visible,
-  hasCloseButton,
+  hasCloseIcon,
   onClose,
   css,
   closeIfClickOutside,
@@ -271,10 +274,22 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
             ...css?.container,
           }}
         >
-          {hasCloseButton && (
-            <CloseBtn onClick={handleClose}>
-              <IconByName name="bx:x" size={32} color="PRIMARY" />
-            </CloseBtn>
+          {hasCloseIcon && (
+            <IconByName
+              name="bx:x"
+              size={32}
+              color="PRIMARY"
+              onClick={handleClose}
+              css={{
+                container: {
+                  cursor: 'pointer',
+                  position: 'absolute',
+                  right: 16,
+                  top: 16,
+                  ...css?.closeIcon,
+                },
+              }}
+            />
           )}
 
           {header && (
@@ -330,5 +345,5 @@ CustomDialog.defaultProps = {
     footer: 'md',
     header: 'md',
   },
-  hasCloseButton: true,
+  hasCloseIcon: true,
 }

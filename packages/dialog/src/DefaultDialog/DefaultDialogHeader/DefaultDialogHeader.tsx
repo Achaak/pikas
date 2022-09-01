@@ -1,5 +1,5 @@
 import { styled } from '@pikas-ui/styles'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
+import { Title } from '../../Components/Title/Title.js'
 
 const Container = styled('div', {
   display: 'flex',
@@ -7,8 +7,6 @@ const Container = styled('div', {
   alignItems: 'center',
   width: '100%',
 })
-
-const Title = styled(DialogPrimitive.Title, {})
 
 export interface DefaultDialogHeaderType {
   title: string
@@ -19,7 +17,7 @@ export const DefaultDialogHeader: React.FC<DefaultDialogHeaderType> = ({
 }) => {
   return (
     <Container>
-      <Title>{title}</Title>
+      <Title css={{ textAlign: 'left' }}>{title}</Title>
     </Container>
   )
 }

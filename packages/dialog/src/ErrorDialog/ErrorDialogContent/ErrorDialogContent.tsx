@@ -5,6 +5,7 @@ const Container = styled('div', {
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
+  color: '$BLACK',
 })
 
 export interface ErrorDialogContentType {

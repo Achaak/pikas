@@ -1,4 +1,5 @@
-import { CustomDialog, DialogType } from '../CustomDialog/index.js'
+import type { DialogType } from '../CustomDialog/index.js'
+import { CustomDialog } from '../CustomDialog/index.js'
 import { ErrorDialogContent } from './ErrorDialogContent/index.js'
 import { ErrorDialogFooter } from './ErrorDialogFooter/index.js'
 import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
@@ -19,7 +20,7 @@ export const ErrorDialog: React.FC<ErrorDialogType> = ({
   return (
     <CustomDialog
       onClose={onClose}
-      hasCloseButton={false}
+      hasCloseIcon={false}
       header={<ErrorDialogHeader title={title} />}
       content={<ErrorDialogContent content={content} />}
       footer={
@@ -28,6 +29,13 @@ export const ErrorDialog: React.FC<ErrorDialogType> = ({
           onClose={onClose}
         />
       }
+      padding={{
+        content: 'no-padding',
+        footer: 'lg',
+      }}
+      gap={{
+        container: 'no-gap',
+      }}
       {...props}
     />
   )

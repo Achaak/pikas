@@ -1,4 +1,5 @@
-import { CustomDialog, DialogType } from '../CustomDialog/index.js'
+import type { DialogType } from '../CustomDialog/index.js'
+import { CustomDialog } from '../CustomDialog/index.js'
 import { InfoDialogContent } from './InfoDialogContent/index.js'
 import { InfoDialogFooter } from './InfoDialogFooter/index.js'
 import { InfoDialogHeader } from './InfoDialogHeader/index.js'
@@ -19,7 +20,7 @@ export const InfoDialog: React.FC<InfoDialogType> = ({
   return (
     <CustomDialog
       onClose={onClose}
-      hasCloseButton={false}
+      hasCloseIcon={false}
       header={<InfoDialogHeader title={title} />}
       content={<InfoDialogContent content={content} />}
       footer={
@@ -28,6 +29,13 @@ export const InfoDialog: React.FC<InfoDialogType> = ({
           onClose={onClose}
         />
       }
+      padding={{
+        content: 'no-padding',
+        footer: 'lg',
+      }}
+      gap={{
+        container: 'no-gap',
+      }}
       {...props}
     />
   )
