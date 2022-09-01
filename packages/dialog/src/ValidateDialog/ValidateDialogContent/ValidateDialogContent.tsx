@@ -1,11 +1,18 @@
 import { styled } from '@pikas-ui/styles'
 
-const Container = styled('div', {})
+const Container = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+})
 
-export interface ValidateDialogContentType {}
+export interface ValidateDialogContentType {
+  content: React.ReactNode
+}
 
-export const ValidateDialogContent: React.FC<
-  ValidateDialogContentType
-> = ({}) => {
-  return <Container></Container>
+export const ValidateDialogContent: React.FC<ValidateDialogContentType> = ({
+  content,
+}) => {
+  return <Container>{content}</Container>
 }

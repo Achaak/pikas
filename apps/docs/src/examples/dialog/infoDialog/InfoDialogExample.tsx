@@ -13,7 +13,11 @@ export const InfoDialogExample: React.FC = () => {
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}
     >
-      <InfoDialog visible={visible} onClose={(): void => setVisible(false)} />
+      <InfoDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="You have successfully completed the task."
+      />
 
       <Button
         onClick={(): void => setVisible((lastState) => !lastState)}

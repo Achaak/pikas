@@ -317,10 +317,11 @@ importers:
 
   packages/dialog:
     specifiers:
-      '@pikas-ui/button': workspace:2.1.12
+      '@pikas-ui/button': 2.1.12
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 2.1.11
       '@pikas-ui/styles': 2.3.11
+      '@pikas-ui/title': 1.0.0
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-dialog': ^1.0.0
       '@types/node': ^18.7.14
@@ -336,6 +337,7 @@ importers:
       '@pikas-ui/button': link:../button
       '@pikas-ui/icons': link:../icons
       '@pikas-ui/styles': link:../styles
+      '@pikas-ui/title': link:../title
       '@radix-ui/react-dialog': 1.0.0_63dfw6rfgd64rl77ptfma4cvt4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -903,6 +905,35 @@ importers:
       '@radix-ui/react-label': 1.0.0_biqbaboplfbrettd7655fr4n2y
       '@react-hook/merged-ref': 1.3.2_react@18.2.0
       font-color-contrast: 11.1.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@pikas-ui/config': link:../config
+      '@pikas-ui/tsconfig': link:../tsconfig
+      '@types/node': 18.7.14
+      '@types/react': 18.0.18
+      '@types/react-dom': 18.0.6
+      cross-env: 7.0.3
+      eslint: 8.23.0
+      tsup: 6.2.3_typescript@4.8.2
+      typescript: 4.8.2
+
+  packages/title:
+    specifiers:
+      '@pikas-ui/config': workspace:*
+      '@pikas-ui/styles': 2.3.11
+      '@pikas-ui/tsconfig': workspace:*
+      '@types/node': ^18.7.14
+      '@types/react': ^18.0.18
+      '@types/react-dom': ^18.0.6
+      cross-env: ^7.0.3
+      eslint: ^8.23.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      tsup: ^6.2.3
+      typescript: 4.8.2
+    dependencies:
+      '@pikas-ui/styles': link:../styles
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:

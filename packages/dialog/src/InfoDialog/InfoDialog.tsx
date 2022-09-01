@@ -1,36 +1,39 @@
-import { CustomDialog } from '../CustomDialog/index.js'
+import { CustomDialog, DialogType } from '../CustomDialog/index.js'
 import { InfoDialogContent } from './InfoDialogContent/index.js'
 import { InfoDialogFooter } from './InfoDialogFooter/index.js'
 import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
-export interface InfoDialogType {
-  visible: boolean
-  onClose?: () => void
+export interface InfoDialogType extends DialogType {
   validateButtonLabel?: string
+  title?: string
+  content: React.ReactNode
 }
 
 export const InfoDialog: React.FC<InfoDialogType> = ({
-  visible,
   onClose,
   validateButtonLabel,
+  title,
+  content,
+  ...props
 }) => {
   return (
     <CustomDialog
-      visible={visible}
       onClose={onClose}
       hasCloseButton={false}
-      header={<InfoDialogHeader />}
-      content={<InfoDialogContent />}
+      header={<InfoDialogHeader title={title} />}
+      content={<InfoDialogContent content={content} />}
       footer={
         <InfoDialogFooter
           validateButtonLabel={validateButtonLabel}
           onClose={onClose}
         />
       }
+      {...props}
     />
   )
 }
 
 InfoDialog.defaultProps = {
   validateButtonLabel: 'Ok',
+  title: 'We have a information for you !',
 }

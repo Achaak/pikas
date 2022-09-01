@@ -16,6 +16,7 @@ export const ValidateDialogExample: React.FC = () => {
       <ValidateDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
+        content="Are you sure you want to do this ?"
       />
 
       <Button

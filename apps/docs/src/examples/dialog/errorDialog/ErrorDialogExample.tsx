@@ -13,7 +13,11 @@ export const ErrorDialogExample: React.FC = () => {
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}
     >
-      <ErrorDialog visible={visible} onClose={(): void => setVisible(false)} />
+      <ErrorDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="Please try again later."
+      />
 
       <Button
         onClick={(): void => setVisible((lastState) => !lastState)}

@@ -33,8 +33,12 @@ export const CustomAlertExample: React.FC = () => {
         width="auto"
         padding="sm"
         css={{
-          marginTop: !visible ? 0 : 16,
-          transition: `margin-top ${visible ? '500ms' : '1000ms'} ease-in-out`,
+          button: {
+            marginTop: !visible ? 0 : 16,
+            transition: `margin-top ${
+              visible ? '500ms' : '1000ms'
+            } ease-in-out`,
+          },
         }}
       >
         {visible ? 'Hide' : 'Show'}

@@ -1,5 +1,5 @@
 {
-  "extends": "@pikas-ui/tsconfig/next.json",
+  "extends": "@pikas-ui/tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",

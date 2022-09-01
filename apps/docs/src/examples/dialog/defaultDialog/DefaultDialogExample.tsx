@@ -16,6 +16,8 @@ export const DefaultDialogExample: React.FC = () => {
       <DefaultDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
+        content="Hello world!"
+        title="Hello"
       />
 
       <Button

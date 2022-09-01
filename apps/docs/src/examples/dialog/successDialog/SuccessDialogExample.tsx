@@ -16,6 +16,7 @@ export const SuccessDialogExample: React.FC = () => {
       <SuccessDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
+        content="You have successfully completed the task."
       />
 
       <Button
