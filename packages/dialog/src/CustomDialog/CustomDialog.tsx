@@ -183,7 +183,6 @@ export interface DialogType {
 
 export interface CustomDialogType extends DialogType {
   closeIfClickOutside?: boolean
-
   hasCloseIcon?: boolean
   css?: CustomDialogCSSType
   width?: string | number
@@ -333,17 +332,6 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
 
 CustomDialog.defaultProps = {
   width: 500,
-  padding: {
-    container: 'md',
-    content: 'no-padding',
-    footer: 'no-padding',
-    header: 'no-padding',
-  },
-  gap: {
-    container: 'sm',
-    content: 'md',
-    footer: 'md',
-    header: 'md',
-  },
   hasCloseIcon: true,
+  closeIfClickOutside: false
 }

@@ -30,11 +30,16 @@ export const InfoDialog: React.FC<InfoDialogType> = ({
         />
       }
       padding={{
+        container: 'md',
+        header: 'no-padding',
         content: 'no-padding',
         footer: 'lg',
       }}
       gap={{
         container: 'no-gap',
+        content: 'md',
+        footer: 'md',
+        header: 'md',
       }}
       {...props}
     />

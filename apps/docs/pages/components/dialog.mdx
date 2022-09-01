@@ -51,18 +51,40 @@ pnpm add @pikas-ui/dialog
 
 ```tsx
 import { DefaultDialog } from `@pikas-ui/dialog`;
+import { useState } from 'react'
+import { Button } from '@pikas-ui/button'
 
 const Example: React.FC = () => {
+  const [visible, setVisible] = useState(false)
+
   return (
-    <DefaultDialog />
+    <>
+      <DefaultDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="Hello world!"
+        title="Hello"
+      />
+
+      <Button
+        onClick={(): void => setVisible((lastState) => !lastState)}
+      >
+        {visible ? 'Hide' : 'Show'}
+      </Button>
+    </>
   )
 }
 ```
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+| Prop      | Description                        | Type              | Default  |
+| :-------- | :--------------------------------- | :---------------- | :------- |
+| `visible` | Sets the visibility of the dialog  | `boolean`         | required |
+| `onOpen`  | Callback when the dialog is opened | `function`        | -        |
+| `onClose` | Callback when the dialog is closed | `function`        | -        |
+| `title`   | Sets the title of the dialog       | `string`          | -        |
+| `content` | Sets the content of the dialog     | `React.ReactNode` | -        |
 
 ---
 
@@ -72,18 +94,41 @@ const Example: React.FC = () => {
 
 ```tsx
 import { SuccessDialog } from `@pikas-ui/dialog`;
+import { useState } from 'react'
+import { Button } from '@pikas-ui/button'
 
 const Example: React.FC = () => {
+  const [visible, setVisible] = useState(false)
+
   return (
-    <SuccessDialog />
+    <>
+      <SuccessDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="Hello world!"
+        title="Hello"
+      />
+
+      <Button
+        onClick={(): void => setVisible((lastState) => !lastState)}
+      >
+        {visible ? 'Hide' : 'Show'}
+      </Button>
+    </>
   )
 }
 ```
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+| Prop                  | Description                           | Type              | Default                 |
+| :-------------------- | :------------------------------------ | :---------------- | :---------------------- |
+| `visible`             | Sets the visibility of the dialog     | `boolean`         | required                |
+| `onOpen`              | Callback when the dialog is opened    | `function`        | -                       |
+| `onClose`             | Callback when the dialog is closed    | `function`        | -                       |
+| `title`               | Sets the title of the dialog          | `string`          | `"Yeah ! You did it !"` |
+| `content`             | Sets the content of the dialog        | `React.ReactNode` | required                |
+| `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`                  |
 
 ---
 
@@ -93,18 +138,42 @@ const Example: React.FC = () => {
 
 ```tsx
 import { ValidateDialog } from `@pikas-ui/dialog`;
+import { useState } from 'react'
+import { Button } from '@pikas-ui/button'
 
 const Example: React.FC = () => {
+  const [visible, setVisible] = useState(false)
+
   return (
-    <ValidateDialog />
+    <>
+      <ValidateDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="Hello world!"
+        title="Hello"
+      />
+
+      <Button
+        onClick={(): void => setVisible((lastState) => !lastState)}
+      >
+        {visible ? 'Hide' : 'Show'}
+      </Button>
+    </>
   )
 }
 ```
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+| Prop                  | Description                           | Type              | Default            |
+| :-------------------- | :------------------------------------ | :---------------- | :----------------- |
+| `visible`             | Sets the visibility of the dialog     | `boolean`         | required           |
+| `onOpen`              | Callback when the dialog is opened    | `function`        | -                  |
+| `onClose`             | Callback when the dialog is closed    | `function`        | -                  |
+| `title`               | Sets the title of the dialog          | `string`          | `"Are you sure ?"` |
+| `content`             | Sets the content of the dialog        | `React.ReactNode` | required           |
+| `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`             |
+| `cancelButtonLabel`   | Sets the label of the cancel button   | `string`          | `"Cancel"`         |
 
 ---
 
@@ -114,18 +183,41 @@ const Example: React.FC = () => {
 
 ```tsx
 import { ErrorDialog } from `@pikas-ui/dialog`;
+import { useState } from 'react'
+import { Button } from '@pikas-ui/button'
 
 const Example: React.FC = () => {
+  const [visible, setVisible] = useState(false)
+
   return (
-    <ErrorDialog />
+    <>
+      <ErrorDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="Hello world!"
+        title="Hello"
+      />
+
+      <Button
+        onClick={(): void => setVisible((lastState) => !lastState)}
+      >
+        {visible ? 'Hide' : 'Show'}
+      </Button>
+    </>
   )
 }
 ```
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+| Prop                  | Description                           | Type              | Default                        |
+| :-------------------- | :------------------------------------ | :---------------- | :----------------------------- |
+| `visible`             | Sets the visibility of the dialog     | `boolean`         | required                       |
+| `onOpen`              | Callback when the dialog is opened    | `function`        | -                              |
+| `onClose`             | Callback when the dialog is closed    | `function`        | -                              |
+| `title`               | Sets the title of the dialog          | `string`          | `"Oops ! A error occurred..."` |
+| `content`             | Sets the content of the dialog        | `React.ReactNode` | required                       |
+| `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`                         |
 
 ---
 
@@ -135,18 +227,41 @@ const Example: React.FC = () => {
 
 ```tsx
 import { InfoDialog } from `@pikas-ui/dialog`;
+import { useState } from 'react'
+import { Button } from '@pikas-ui/button'
 
 const Example: React.FC = () => {
+  const [visible, setVisible] = useState(false)
+
   return (
-    <InfoDialog />
+    <>
+      <InfoDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="Hello world!"
+        title="Hello"
+      />
+
+      <Button
+        onClick={(): void => setVisible((lastState) => !lastState)}
+      >
+        {visible ? 'Hide' : 'Show'}
+      </Button>
+    </>
   )
 }
 ```
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+| Prop                  | Description                           | Type              | Default                             |
+| :-------------------- | :------------------------------------ | :---------------- | :---------------------------------- |
+| `visible`             | Sets the visibility of the dialog     | `boolean`         | required                            |
+| `onOpen`              | Callback when the dialog is opened    | `function`        | -                                   |
+| `onClose`             | Callback when the dialog is closed    | `function`        | -                                   |
+| `title`               | Sets the title of the dialog          | `string`          | `"We have a information for you !"` |
+| `content`             | Sets the content of the dialog        | `React.ReactNode` | required                            |
+| `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`                              |
 
 ---
 
@@ -156,21 +271,45 @@ const Example: React.FC = () => {
 
 ```tsx
 import { CustomDialog } from `@pikas-ui/dialog`;
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-
-const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
+import { useState } from 'react'
+import { Button } from '@pikas-ui/button'
 
 const Example: React.FC = () => {
+  const [visible, setVisible] = useState(false)
+
   return (
-    <CustomDialog />
+    <>
+      <CustomDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        content="Hello world!"
+        title="Hello"
+      />
+
+      <Button
+        onClick={(): void => setVisible((lastState) => !lastState)}
+      >
+        {visible ? 'Hide' : 'Show'}
+      </Button>
+    </>
   )
 }
 ```
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+| Prop                  | Description                                        | Type                      | Default  |
+| :-------------------- | :------------------------------------------------- | :------------------------ | :------- |
+| `visible`             | Sets the visibility of the dialog                  | `boolean`                 | required |
+| `onOpen`              | Callback when the dialog is opened                 | `function`                | -        |
+| `onClose`             | Callback when the dialog is closed                 | `function`                | -        |
+| `closeIfClickOutside` | Closes the dialog if the user clicks outside of it | `boolean`                 | `false`  |
+| `hasCloseIcon`        | Adds a close icon to the dialog                    | `boolean`                 | `true`   |
+| `css`                 | Custom CSS of the dialog                           | `CustomDialogCSSType`     | -        |
+| `width`               | Sets the width of the dialog                       | `string or number`        | `500`    |
+| `height`              | Sets the height of the dialog                      | `string or number`        | -        |
+| `padding`             | Sets the padding of the dialog                     | `CustomDialogPaddingType` | -        |
+| `gap`                 | Sets the gap of the dialog                         | `CustomDialogGapType`     | -        |
+| `header`              | Sets the header of the dialog                      | `React.ReactNode`         | -        |
+| `content`             | Sets the content of the dialog                     | `React.ReactNode`         | -        |
+| `footer`              | Sets the footer of the dialog                      | `React.ReactNode`         | -        |

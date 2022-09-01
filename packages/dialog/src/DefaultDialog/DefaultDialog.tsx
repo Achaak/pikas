@@ -29,6 +29,9 @@ export const DefaultDialog: React.FC<DefaultDialogType> = ({
       }}
       gap={{
         container: 'no-gap',
+        content: 'md',
+        footer: 'md',
+        header: 'md',
       }}
       css={{
         header: {
