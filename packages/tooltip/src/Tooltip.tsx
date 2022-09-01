@@ -32,6 +32,8 @@ const slideLeftAndFade = keyframes({
 })
 
 const StyledContent = styled(TooltipPrimitive.Content, {
+  color: '$BLACK',
+
   variants: {
     padding: {
       sm: {
