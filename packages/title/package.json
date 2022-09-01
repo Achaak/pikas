@@ -2,8 +2,9 @@
   "name": "@pikas-ui/title",
   "version": "1.0.0",
   "private": false,
-  "description": "",
+  "description": "Components for creating titles",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

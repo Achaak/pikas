@@ -2,8 +2,9 @@
   "name": "@pikas-ui/checkbox",
   "version": "2.1.12",
   "private": false,
-  "description": "",
+  "description": "Components for creating checkboxes",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

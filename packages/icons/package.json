@@ -2,8 +2,9 @@
   "name": "@pikas-ui/icons",
   "version": "2.1.11",
   "private": false,
-  "description": "",
+  "description": "Components for creating icons",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

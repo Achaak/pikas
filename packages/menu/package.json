@@ -2,8 +2,8 @@
   "name": "@pikas-ui/menu",
   "version": "2.1.11",
   "private": false,
-  "description": "",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

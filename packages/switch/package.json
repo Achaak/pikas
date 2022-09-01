@@ -2,8 +2,9 @@
   "name": "@pikas-ui/switch",
   "version": "1.1.12",
   "private": false,
-  "description": "",
+  "description": "Components for creating a switch",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

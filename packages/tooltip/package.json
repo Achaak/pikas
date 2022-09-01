@@ -2,8 +2,9 @@
   "name": "@pikas-ui/tooltip",
   "version": "2.1.11",
   "private": false,
-  "description": "",
+  "description": "Components for creating tooltips",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

@@ -2,8 +2,9 @@
   "name": "@pikas-ui/searchbar",
   "version": "2.1.15",
   "private": false,
-  "description": "",
+  "description": "Components for creating search bars",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

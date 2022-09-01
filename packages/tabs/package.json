@@ -2,8 +2,9 @@
   "name": "@pikas-ui/tabs",
   "version": "1.0.9",
   "private": false,
-  "description": "",
+  "description": "Components for creating tabs",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

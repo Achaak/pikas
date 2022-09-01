@@ -2,8 +2,9 @@
   "name": "@pikas-ui/alert",
   "version": "2.1.11",
   "private": false,
-  "description": "",
+  "description": "Components for displaying alerts",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

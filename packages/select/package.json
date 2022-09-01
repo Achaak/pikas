@@ -2,8 +2,9 @@
   "name": "@pikas-ui/select",
   "version": "3.2.2",
   "private": false,
-  "description": "",
+  "description": "Components for creating select elements",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

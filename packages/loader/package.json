@@ -2,8 +2,9 @@
   "name": "@pikas-ui/loader",
   "version": "2.1.12",
   "private": false,
-  "description": "",
+  "description": "Components for creating loading indicators",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

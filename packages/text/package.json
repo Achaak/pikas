@@ -2,8 +2,9 @@
   "name": "@pikas-ui/text",
   "version": "3.1.11",
   "private": false,
-  "description": "",
+  "description": "Components for creating text elements",
   "license": "MIT",
+  "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
