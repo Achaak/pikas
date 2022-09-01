@@ -42,7 +42,9 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@pikas-ui/icons": "2.1.11",
-    "@pikas-ui/styles": "2.3.11",
+    "@pikas-ui/styles": "2.3.11"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

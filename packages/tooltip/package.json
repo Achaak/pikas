@@ -43,7 +43,9 @@
   "dependencies": {
     "@pikas-ui/styles": "2.3.11",
     "@radix-ui/react-tooltip": "^1.0.0",
-    "font-color-contrast": "^11.1.0",
+    "font-color-contrast": "^11.1.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -44,7 +44,9 @@
     "@pikas-ui/icons": "2.1.11",
     "@pikas-ui/loader": "2.1.12",
     "@pikas-ui/styles": "2.3.11",
-    "font-color-contrast": "^11.1.0",
+    "font-color-contrast": "^11.1.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -47,7 +47,9 @@
     "@pikas-ui/select": "3.2.2",
     "@pikas-ui/styles": "2.3.11",
     "@tanstack/react-table": "8.5.13",
-    "font-color-contrast": "^11.1.0",
+    "font-color-contrast": "^11.1.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

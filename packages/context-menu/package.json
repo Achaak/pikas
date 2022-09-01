@@ -45,7 +45,9 @@
     "@pikas-ui/loader": "2.1.12",
     "@pikas-ui/menu": "2.1.11",
     "@pikas-ui/styles": "2.3.11",
-    "@radix-ui/react-context-menu": "^1.0.0",
+    "@radix-ui/react-context-menu": "^1.0.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

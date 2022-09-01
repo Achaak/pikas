@@ -46,7 +46,9 @@
     "@pikas-ui/text": "3.1.11",
     "@pikas-ui/textfield": "2.1.15",
     "@pikas-ui/tooltip": "2.1.11",
-    "@radix-ui/react-select": "^1.0.0",
+    "@radix-ui/react-select": "^1.0.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
