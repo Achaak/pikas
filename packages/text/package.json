@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/text",
-  "version": "3.1.11",
+  "version": "4.0.0",
   "private": false,
   "description": "Components for creating text elements",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "2.3.11",
+    "@pikas-ui/styles": "3.0.0",
     "@radix-ui/react-label": "^1.0.0"
   },
   "peerDependencies": {

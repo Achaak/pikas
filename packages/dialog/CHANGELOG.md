@@ -1,4 +1,4 @@
-# @pikas-ui/skeleton
+# @pikas-ui/dialog
 
 ## 2.0.0
 
@@ -9,20 +9,10 @@
 ### Patch Changes
 
 - e6faec2: Add main in package.json
-- 19567fd: Upgrade dependencies
 - Updated dependencies [4e61678]
 - Updated dependencies [e6faec2]
 - Updated dependencies [19567fd]
+  - @pikas-ui/button@3.0.0
+  - @pikas-ui/icons@3.0.0
   - @pikas-ui/styles@3.0.0
-
-## 1.0.2
-
-### Patch Changes
-
-- Fix type
-
-## 1.0.1
-
-### Patch Changes
-
-- width and height optional
+  - @pikas-ui/title@1.0.1

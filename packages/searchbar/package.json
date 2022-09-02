@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/searchbar",
-  "version": "2.1.15",
+  "version": "3.0.0",
   "private": false,
   "description": "Components for creating search bars",
   "license": "MIT",
@@ -41,12 +41,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/button": "2.1.12",
-    "@pikas-ui/icons": "2.1.11",
-    "@pikas-ui/loader": "2.1.12",
-    "@pikas-ui/separator": "2.1.11",
-    "@pikas-ui/styles": "2.3.11",
-    "@pikas-ui/textfield": "2.1.15",
+    "@pikas-ui/button": "3.0.0",
+    "@pikas-ui/icons": "3.0.0",
+    "@pikas-ui/loader": "3.0.0",
+    "@pikas-ui/separator": "3.0.0",
+    "@pikas-ui/styles": "3.0.0",
+    "@pikas-ui/textfield": "3.0.0",
     "usehooks-ts": "^2.5.4"
   },
   "peerDependencies": {

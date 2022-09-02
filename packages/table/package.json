@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "2.1.17",
+  "version": "3.0.0",
   "private": false,
   "description": "Components for creating tables",
   "license": "MIT",
@@ -41,11 +41,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "2.1.12",
-    "@pikas-ui/icons": "2.1.11",
-    "@pikas-ui/loader": "2.1.12",
-    "@pikas-ui/select": "3.2.2",
-    "@pikas-ui/styles": "2.3.11",
+    "@pikas-ui/checkbox": "3.0.0",
+    "@pikas-ui/icons": "3.0.0",
+    "@pikas-ui/loader": "3.0.0",
+    "@pikas-ui/select": "4.0.0",
+    "@pikas-ui/styles": "3.0.0",
     "@tanstack/react-table": "8.5.13",
     "font-color-contrast": "^11.1.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/title",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Components for creating titles",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "2.3.11"
+    "@pikas-ui/styles": "3.0.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
