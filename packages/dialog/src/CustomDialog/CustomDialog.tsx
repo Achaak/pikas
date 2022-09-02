@@ -145,6 +145,10 @@ const Header = styled(DefaultContainer, {})
 
 const Content = styled(DefaultContainer, {
   overflow: 'auto',
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'start',
+  alignItems: 'start',
 })
 
 const Footer = styled(DefaultContainer, {})
@@ -333,5 +337,5 @@ export const CustomDialog: React.FC<CustomDialogType> = ({
 CustomDialog.defaultProps = {
   width: 500,
   hasCloseIcon: true,
-  closeIfClickOutside: false
+  closeIfClickOutside: false,
 }
