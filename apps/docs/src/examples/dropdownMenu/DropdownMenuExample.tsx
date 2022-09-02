@@ -5,7 +5,7 @@ import { Button } from '@pikas-ui/button'
 export const DropdownMenuExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         alignItems: 'center',
       }}
     >

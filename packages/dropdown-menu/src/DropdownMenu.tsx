@@ -9,52 +9,52 @@ import type {
   MenuData,
   MenuDataItem,
   MenuProps,
-  MenuStylesType,
+  MenuCSSType,
 } from '@pikas-ui/menu'
 import {
-  MenuContentStyle,
-  MenuCheckboxItemStyle,
-  MenuRadioItemStyle,
-  MenuItemIndicatorStyle,
-  MenuSeparatorStyle,
-  MenuLabelStyle,
-  MenuItemStyles,
-  RightSlotStyle,
-  SpanStyle,
+  MenuContentCSS,
+  MenuCheckboxItemCSS,
+  MenuRadioItemCSS,
+  MenuItemIndicatorCSS,
+  MenuSeparatorCSS,
+  MenuLabelCSS,
+  MenuItemCSS,
+  RightSlotCSS,
+  SpanCSS,
 } from '@pikas-ui/menu'
 import { IconByName } from '@pikas-ui/icons'
 
 const Content = styled(DropdownMenuPrimitive.Content, {
-  ...MenuContentStyle,
+  ...MenuContentCSS,
 })
 
 const Item = styled(DropdownMenuPrimitive.Item, {
-  ...MenuItemStyles,
+  ...MenuItemCSS,
 })
 const CheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem, {
-  ...MenuCheckboxItemStyle,
+  ...MenuCheckboxItemCSS,
 })
 const RadioGroup = styled(DropdownMenuPrimitive.RadioGroup)
 const RadioItem = styled(DropdownMenuPrimitive.RadioItem, {
-  ...MenuRadioItemStyle,
+  ...MenuRadioItemCSS,
 })
 const SubTrigger = styled(DropdownMenuPrimitive.SubTrigger, {
-  ...MenuItemStyles,
+  ...MenuItemCSS,
 })
 const SubContent = styled(DropdownMenuPrimitive.SubContent, {
-  ...MenuContentStyle,
+  ...MenuContentCSS,
 })
 
 const Label = styled(DropdownMenuPrimitive.Label, {
-  ...MenuLabelStyle,
+  ...MenuLabelCSS,
 })
 
 const Separator = styled(DropdownMenuPrimitive.Separator, {
-  ...MenuSeparatorStyle,
+  ...MenuSeparatorCSS,
 })
 
 const ItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
-  ...MenuItemIndicatorStyle,
+  ...MenuItemIndicatorCSS,
 })
 
 const IconButton = styled('div', {
@@ -66,11 +66,11 @@ const IconButton = styled('div', {
 })
 
 const Span = styled('span', {
-  ...SpanStyle,
+  ...SpanCSS,
 })
 
 const RightSlot = styled('div', {
-  ...RightSlotStyle,
+  ...RightSlotCSS,
 })
 
 export const DropdownMenuSide = {
@@ -93,6 +93,8 @@ export const DropdownMenuDirection = {
   rtl: true,
 }
 export type DropdownMenuDirectionType = keyof typeof DropdownMenuDirection
+
+export type DropdownMenuCSSType = MenuCSSType
 
 export type DropdownMenuData = MenuDataItem[]
 export interface DropdownMenuProps extends MenuProps {
@@ -125,7 +127,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   triggerContent,
   iconColor,
   onOpenChange,
-  styles,
+  css,
   modal,
   iconSize,
   open,
@@ -173,7 +175,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
         <DropdownMenuPrimitive.Portal className={theme}>
           <Content
-            css={styles?.content}
+            css={css?.content}
             loop={loop}
             onCloseAutoFocus={onCloseAutoFocus}
             onEscapeKeyDown={onEscapeKeyDown}
@@ -187,7 +189,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
             avoidCollisions={avoidCollisions}
             collisionPadding={collisionPadding}
           >
-            <DropdownMenuData data={data} styles={styles} />
+            <DropdownMenuData data={data} css={css} />
           </Content>
         </DropdownMenuPrimitive.Portal>
       </DropdownMenuPrimitive.Root>
@@ -197,13 +199,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
 interface DropdownMenuDataProps {
   data: MenuData
-  styles?: MenuStylesType
+  css?: DropdownMenuCSSType
 }
 
-const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
-  data,
-  styles,
-}) => {
+const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
   return (
     <>
       {data
@@ -217,16 +216,13 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
 
           if (dataIndex > 0) {
             res.push(
-              <Separator
-                key={`separator-${dataIndex}`}
-                css={styles?.separator}
-              />
+              <Separator key={`separator-${dataIndex}`} css={css?.separator} />
             )
           }
 
           if (data.label) {
             res.push(
-              <Label key={`label-${dataIndex}`} css={data?.style}>
+              <Label key={`label-${dataIndex}`} css={data?.css}>
                 {data.label}
               </Label>
             )
@@ -243,11 +239,11 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
                   onClick={item.onClick}
                   css={{
                     color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
-                    ...item?.styles?.container,
+                    ...item?.css?.container,
                   }}
                 >
                   {item.loading ? (
-                    <ItemIndicator forceMount css={item?.styles?.indicator}>
+                    <ItemIndicator forceMount css={item?.css?.indicator}>
                       <ClipLoader
                         size={16}
                         color={item.iconColor || item.color}
@@ -258,7 +254,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
                     </ItemIndicator>
                   ) : (
                     item.Icon && (
-                      <ItemIndicator forceMount css={item?.styles?.indicator}>
+                      <ItemIndicator forceMount css={item?.css?.indicator}>
                         <item.Icon
                           size={16}
                           color={item.iconColor || item.color}
@@ -269,10 +265,10 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
                       </ItemIndicator>
                     )
                   )}
-                  <Span css={item?.styles?.label}>{item.label}</Span>
+                  <Span css={item?.css?.label}>{item.label}</Span>
                   <RightSlot
                     css={{
-                      ...item?.styles?.rightSlot,
+                      ...item?.css?.rightSlot,
                     }}
                   >
                     {item.rightSlot}
@@ -288,13 +284,13 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
                   disabled={item?.disabled}
                   checked={item.checked}
                   onCheckedChange={item.onCheckedChange}
-                  css={item?.styles?.container}
+                  css={item?.css?.container}
                 >
-                  <ItemIndicator css={item?.styles?.indicator}>
+                  <ItemIndicator css={item?.css?.indicator}>
                     <IconByName name="bx:check" size={16} color="GRAY_DARKER" />
                   </ItemIndicator>
-                  <Span css={item?.styles?.label}>{item.label}</Span>
-                  <RightSlot css={item?.styles?.rightSlot}>
+                  <Span css={item?.css?.label}>{item.label}</Span>
+                  <RightSlot css={item?.css?.rightSlot}>
                     {item.rightSlot}
                   </RightSlot>
                 </CheckboxItem>
@@ -307,24 +303,24 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
                   key={`radio-${dataIndex}-${i}`}
                   value={item.value}
                   onValueChange={item.onValueChange}
-                  css={item?.styles?.container}
+                  css={item?.css?.container}
                 >
                   {item.radios.map((radio, radioIndex) => (
                     <RadioItem
                       key={`radio-${dataIndex}-${i}-${radioIndex}`}
                       disabled={radio?.disabled}
                       value={radio.value}
-                      css={radio?.styles?.container}
+                      css={radio?.css?.container}
                     >
-                      <ItemIndicator css={radio?.styles?.indicator}>
+                      <ItemIndicator css={radio?.css?.indicator}>
                         <IconByName
                           name="bxs:circle"
                           size={8}
                           color="GRAY_DARKER"
                         />
                       </ItemIndicator>
-                      <Span css={radio?.styles?.label}>{radio.label}</Span>
-                      <RightSlot css={radio?.styles?.rightSlot}>
+                      <Span css={radio?.css?.label}>{radio.label}</Span>
+                      <RightSlot css={radio?.css?.rightSlot}>
                         {radio.rightSlot}
                       </RightSlot>
                     </RadioItem>
@@ -347,7 +343,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({
                     </RightSlot>
                   </SubTrigger>
                   <SubContent>
-                    {<DropdownMenuData data={item.data} styles={styles} />}
+                    {<DropdownMenuData data={item.data} css={css} />}
                   </SubContent>
                 </DropdownMenuPrimitive.Sub>
               )

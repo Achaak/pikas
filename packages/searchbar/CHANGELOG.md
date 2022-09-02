@@ -1,5 +1,25 @@
 # @pikas-ui/searchbar
 
+## 3.0.0
+
+### Major Changes
+
+- 4e61678: style and styles props to css props
+
+### Patch Changes
+
+- e6faec2: Add main in package.json
+- 19567fd: Upgrade dependencies
+- Updated dependencies [4e61678]
+- Updated dependencies [e6faec2]
+- Updated dependencies [19567fd]
+  - @pikas-ui/button@3.0.0
+  - @pikas-ui/icons@3.0.0
+  - @pikas-ui/loader@3.0.0
+  - @pikas-ui/separator@3.0.0
+  - @pikas-ui/styles@3.0.0
+  - @pikas-ui/textfield@3.0.0
+
 ## 2.1.15
 
 ### Patch Changes
@@ -225,7 +245,7 @@
 
 ### Patch Changes
 
-- 34afd62: Upgrade dependences
+- 34afd62: Upgrade dependencies
 - Updated dependencies [34afd62]
 - Updated dependencies [34afd62]
   - @pikas-ui/button@2.0.12

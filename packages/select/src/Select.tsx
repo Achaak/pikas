@@ -7,13 +7,13 @@ import type {
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { IconStyleType } from '@pikas-ui/icons'
+import type { IconCSSType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import React, { useEffect, useState } from 'react'
-import type { TooltipStylesType } from '@pikas-ui/tooltip'
+import type { TooltipCSSType } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
@@ -81,7 +81,7 @@ const Viewport = styled(SelectPrimitive.Viewport, {
 
 const Group = styled(SelectPrimitive.Group, {})
 
-const scrollButtonStyles: CSS = {
+const scrollButtonCSS: CSS = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -89,14 +89,11 @@ const scrollButtonStyles: CSS = {
   cursor: 'default',
 }
 
-const ScrollUpButton = styled(
-  SelectPrimitive.ScrollUpButton,
-  scrollButtonStyles
-)
+const ScrollUpButton = styled(SelectPrimitive.ScrollUpButton, scrollButtonCSS)
 
 const ScrollDownButton = styled(
   SelectPrimitive.ScrollDownButton,
-  scrollButtonStyles
+  scrollButtonCSS
 )
 
 const ItemIndicator = styled(SelectPrimitive.ItemIndicator, {
@@ -183,11 +180,11 @@ export const SelectPadding = {
 }
 export type SelectPaddingType = keyof typeof SelectPadding
 
-export type SelectStylesType = {
+export type SelectCSSType = {
   container?: CSS
   trigger?: CSS
-  infoTooltip?: TooltipStylesType
-  infoIcon?: IconStyleType
+  infoTooltip?: TooltipCSSType
+  infoIcon?: IconCSSType
   required?: CSS
   label?: CSS
   description?: CSS
@@ -196,7 +193,7 @@ export type SelectStylesType = {
 }
 
 export interface SelectProps {
-  styles?: SelectStylesType
+  css?: SelectCSSType
   hasSearch?: boolean
   searchPlaceholder?: string
 
@@ -232,7 +229,7 @@ export interface SelectProps {
 
 export const Select: React.FC<SelectProps> = ({
   data,
-  styles,
+  css,
   onChange,
   defaultValue,
   label,
@@ -324,15 +321,15 @@ export const Select: React.FC<SelectProps> = ({
         width: width,
         maxWidth: maxWidth,
         minWidth: minWidth,
-        ...styles?.container,
+        ...css?.container,
       }}
     >
       {label ? (
         <LabelContainer>
           <Label
             htmlFor={id}
-            style={{
-              ...styles?.label,
+            css={{
+              ...css?.label,
             }}
           >
             {label}
@@ -341,24 +338,24 @@ export const Select: React.FC<SelectProps> = ({
           {required ? (
             <Required
               css={{
-                ...styles?.required,
+                ...css?.required,
               }}
             >
               *
             </Required>
           ) : null}
           {info ? (
-            <Tooltip content={info} styles={styles?.infoTooltip}>
+            <Tooltip content={info} css={css?.infoTooltip}>
               <IconByName
                 name="bx:info-circle"
                 color="BLACK_LIGHT"
-                styles={{
+                css={{
                   container: {
                     marginLeft: 4,
-                    ...styles?.infoIcon?.container,
+                    ...css?.infoIcon?.container,
                   },
                   svg: {
-                    ...styles?.infoIcon?.svg,
+                    ...css?.infoIcon?.svg,
                   },
                 }}
               />
@@ -369,9 +366,9 @@ export const Select: React.FC<SelectProps> = ({
 
       {description ? (
         <Description
-          style={{
+          css={{
             marginBottom: 4,
-            ...styles?.description,
+            ...css?.description,
           }}
         >
           {description}
@@ -385,7 +382,7 @@ export const Select: React.FC<SelectProps> = ({
         onOpenChange={handleOpenChange}
         defaultOpen={defaultOpen}
         css={{
-          ...styles?.container,
+          ...css?.container,
         }}
       >
         <Trigger
@@ -400,7 +397,7 @@ export const Select: React.FC<SelectProps> = ({
             borderWidth: borderWidth,
             boxShadow: `$${boxShadow}`,
             backgroundColor: `$${backgroundColor}`,
-            ...styles?.trigger,
+            ...css?.trigger,
           }}
         >
           <SelectValue />
@@ -410,7 +407,7 @@ export const Select: React.FC<SelectProps> = ({
         </Trigger>
 
         <SelectPrimitive.Portal className={theme}>
-          <Content css={styles?.content}>
+          <Content css={css?.content}>
             {hasSearch ? (
               <>
                 <SearchContainer>
@@ -481,7 +478,7 @@ export const Select: React.FC<SelectProps> = ({
       </SelectContainer>
 
       {textError ? (
-        <TextError style={{ marginTop: 5, ...styles?.textError }}>
+        <TextError css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}

@@ -13,24 +13,20 @@ const Container = styled('div', {
 
 const Center = styled('div', {
   position: 'relative',
-  paddingTop: '$10',
   overflow: 'auto',
   flex: 1,
+  marginTop: 'calc($10 + $9)',
 
-  '@sm': {
+  '@md': {
     paddingLeft: 250,
+    marginTop: '$10',
   },
 })
 
 const Content = styled('div', {
   padding: 16,
-  marginTop: 40,
   display: 'flex',
   justifyContent: 'center',
-
-  '@md': {
-    marginTop: 16,
-  },
 })
 
 const ContentChild = styled('div', {

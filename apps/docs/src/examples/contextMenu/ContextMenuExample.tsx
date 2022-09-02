@@ -56,7 +56,7 @@ export const ContextMenuExample: React.FC = () => {
       ]}
     >
       <ExampleContainer
-        style={{
+        css={{
           height: 200,
           border: '1px solid $GRAY',
           display: 'flex',

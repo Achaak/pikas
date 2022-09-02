@@ -4,7 +4,7 @@ import { BounceLoader } from '@pikas-ui/loader'
 export const BounceLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

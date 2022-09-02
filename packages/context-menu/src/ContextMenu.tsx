@@ -6,65 +6,65 @@ import type {
   MenuData,
   MenuDataItem,
   MenuProps,
-  MenuStylesType,
+  MenuCSSType,
 } from '@pikas-ui/menu'
 import {
-  MenuContentStyle,
-  MenuCheckboxItemStyle,
-  MenuRadioItemStyle,
-  MenuItemIndicatorStyle,
-  MenuSeparatorStyle,
-  MenuLabelStyle,
-  MenuItemStyles,
-  RightSlotStyle,
-  SpanStyle,
+  MenuContentCSS,
+  MenuCheckboxItemCSS,
+  MenuRadioItemCSS,
+  MenuItemIndicatorCSS,
+  MenuSeparatorCSS,
+  MenuLabelCSS,
+  MenuItemCSS,
+  RightSlotCSS,
+  SpanCSS,
 } from '@pikas-ui/menu'
 import { IconByName } from '@pikas-ui/icons'
 import React from 'react'
 
 const Content = styled(ContextMenuPrimitive.Content, {
-  ...MenuContentStyle,
+  ...MenuContentCSS,
 })
 
 const Item = styled(ContextMenuPrimitive.Item, {
-  ...MenuItemStyles,
+  ...MenuItemCSS,
 })
 const CheckboxItem = styled(ContextMenuPrimitive.CheckboxItem, {
-  ...MenuCheckboxItemStyle,
+  ...MenuCheckboxItemCSS,
 })
 const RadioGroup = styled(ContextMenuPrimitive.RadioGroup)
 const RadioItem = styled(ContextMenuPrimitive.RadioItem, {
-  ...MenuRadioItemStyle,
+  ...MenuRadioItemCSS,
 })
 const SubTrigger = styled(ContextMenuPrimitive.SubTrigger, {
-  ...MenuItemStyles,
+  ...MenuItemCSS,
 })
 const SubContent = styled(ContextMenuPrimitive.SubContent, {
-  ...MenuContentStyle,
+  ...MenuContentCSS,
 })
 
 const Label = styled(ContextMenuPrimitive.Label, {
-  ...MenuLabelStyle,
+  ...MenuLabelCSS,
 })
 
 const Separator = styled(ContextMenuPrimitive.Separator, {
-  ...MenuSeparatorStyle,
+  ...MenuSeparatorCSS,
 })
 
 const ItemIndicator = styled(ContextMenuPrimitive.ItemIndicator, {
-  ...MenuItemIndicatorStyle,
+  ...MenuItemIndicatorCSS,
 })
 
 const Arrow = styled(ContextMenuPrimitive.Arrow, {
-  ...MenuItemIndicatorStyle,
+  ...MenuItemIndicatorCSS,
 })
 
 const RightSlot = styled('div', {
-  ...RightSlotStyle,
+  ...RightSlotCSS,
 })
 
 const Span = styled('span', {
-  ...SpanStyle,
+  ...SpanCSS,
 })
 
 export const ContextMenuDirection = {
@@ -72,6 +72,8 @@ export const ContextMenuDirection = {
   rtl: true,
 }
 export type ContextMenuDirectionType = keyof typeof ContextMenuDirection
+
+export type ContextMenuCSSType = MenuCSSType
 
 export type ContextMenuData = MenuDataItem[]
 export interface ContextMenuProps extends MenuProps {
@@ -95,7 +97,7 @@ export interface ContextMenuProps extends MenuProps {
 export const ContextMenu: React.FC<ContextMenuProps> = ({
   data,
   children,
-  styles,
+  css,
   onOpenChange,
   modal,
   loop,
@@ -118,7 +120,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
       <ContextMenuPrimitive.Trigger>{children}</ContextMenuPrimitive.Trigger>
 
       <Content
-        css={styles?.content}
+        css={css?.content}
         loop={loop}
         onCloseAutoFocus={onCloseAutoFocus}
         onEscapeKeyDown={onEscapeKeyDown}
@@ -129,7 +131,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
         avoidCollisions={avoidCollisions}
         collisionPadding={collisionPadding}
       >
-        <ContextMenuData data={data} styles={styles} />
+        <ContextMenuData data={data} css={css} />
         <Arrow />
       </Content>
     </ContextMenuPrimitive.Root>
@@ -138,10 +140,10 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
 interface ContextMenuDataProps {
   data: MenuData
-  styles?: MenuStylesType
+  css?: ContextMenuCSSType
 }
 
-const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
+const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
   return (
     <>
       {data
@@ -155,13 +157,13 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
 
           if (dataIndex > 0) {
             res.push(
-              <Separator key={`separator-${dataIndex}`} css={styles?.content} />
+              <Separator key={`separator-${dataIndex}`} css={css?.content} />
             )
           }
 
           if (data.label) {
             res.push(
-              <Label key={`label-${dataIndex}`} css={data?.style}>
+              <Label key={`label-${dataIndex}`} css={data?.css}>
                 {data.label}
               </Label>
             )
@@ -178,11 +180,11 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
                   onClick={item.onClick}
                   css={{
                     color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
-                    ...item?.styles?.container,
+                    ...item?.css?.container,
                   }}
                 >
                   {item.loading ? (
-                    <ItemIndicator forceMount css={item?.styles?.indicator}>
+                    <ItemIndicator forceMount css={item?.css?.indicator}>
                       <ClipLoader
                         size={16}
                         color={item.iconColor || item.color}
@@ -193,7 +195,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
                     </ItemIndicator>
                   ) : (
                     item.Icon && (
-                      <ItemIndicator forceMount css={item?.styles?.indicator}>
+                      <ItemIndicator forceMount css={item?.css?.indicator}>
                         <item.Icon
                           size={16}
                           color={item.iconColor || item.color}
@@ -204,10 +206,10 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
                       </ItemIndicator>
                     )
                   )}
-                  <Span css={item?.styles?.label}>{item.label}</Span>
+                  <Span css={item?.css?.label}>{item.label}</Span>
                   <RightSlot
                     css={{
-                      ...item?.styles?.rightSlot,
+                      ...item?.css?.rightSlot,
                     }}
                   >
                     {item.rightSlot}
@@ -223,13 +225,13 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
                   disabled={item?.disabled}
                   checked={item.checked}
                   onCheckedChange={item.onCheckedChange}
-                  css={item?.styles?.container}
+                  css={item?.css?.container}
                 >
-                  <ItemIndicator css={item?.styles?.indicator}>
+                  <ItemIndicator css={item?.css?.indicator}>
                     <IconByName name="bx:check" size={16} color="GRAY_DARKER" />
                   </ItemIndicator>
-                  <Span css={item?.styles?.label}>{item.label}</Span>
-                  <RightSlot css={item?.styles?.rightSlot}>
+                  <Span css={item?.css?.label}>{item.label}</Span>
+                  <RightSlot css={item?.css?.rightSlot}>
                     {item.rightSlot}
                   </RightSlot>
                 </CheckboxItem>
@@ -242,24 +244,24 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
                   key={`radio-${dataIndex}-${i}`}
                   value={item.value}
                   onValueChange={item.onValueChange}
-                  css={item?.styles?.container}
+                  css={item?.css?.container}
                 >
                   {item.radios.map((radio, radioIndex) => (
                     <RadioItem
                       key={`radio-${dataIndex}-${i}-${radioIndex}`}
                       disabled={radio?.disabled}
                       value={radio.value}
-                      css={radio?.styles?.container}
+                      css={radio?.css?.container}
                     >
-                      <ItemIndicator css={radio?.styles?.indicator}>
+                      <ItemIndicator css={radio?.css?.indicator}>
                         <IconByName
                           name="bxs:circle"
                           size={8}
                           color="GRAY_DARKER"
                         />
                       </ItemIndicator>
-                      <Span css={radio?.styles?.label}>{radio.label}</Span>
-                      <RightSlot css={radio?.styles?.rightSlot}>
+                      <Span css={radio?.css?.label}>{radio.label}</Span>
+                      <RightSlot css={radio?.css?.rightSlot}>
                         {radio.rightSlot}
                       </RightSlot>
                     </RadioItem>
@@ -282,7 +284,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, styles }) => {
                     </RightSlot>
                   </SubTrigger>
                   <SubContent>
-                    {<ContextMenuData data={item.data} styles={styles} />}
+                    {<ContextMenuData data={item.data} css={css} />}
                   </SubContent>
                 </ContextMenuPrimitive.Sub>
               )

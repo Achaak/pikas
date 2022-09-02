@@ -100,7 +100,7 @@ export interface SkeletonProps {
   width?: string | number
   height?: string | number
   borderRadius?: BorderRadiusType
-  style?: CSS
+  css?: CSS
 }
 
 export const Skeleton: React.FC<SkeletonProps> = ({
@@ -108,7 +108,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   borderRadius,
   height,
   width,
-  style,
+  css,
 }) => {
   return (
     <Container
@@ -117,7 +117,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
         height,
         br: borderRadius,
 
-        ...style,
+        ...css,
       }}
       animation={animation}
     ></Container>

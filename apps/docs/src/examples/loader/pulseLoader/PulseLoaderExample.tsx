@@ -4,7 +4,7 @@ import { PulseLoader } from '@pikas-ui/loader'
 export const PulseLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

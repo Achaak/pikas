@@ -4,7 +4,7 @@ import { ClimbingBoxLoader } from '@pikas-ui/loader'
 export const ClimbingBoxLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

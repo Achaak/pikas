@@ -22,6 +22,7 @@ const Container = styled('div', {
   borderWidth: 0,
   borderBottomWidth: 1,
   borderColor: '$GRAY_LIGHT',
+  height: '$9',
 
   '@md': {
     width: 250,
@@ -29,12 +30,14 @@ const Container = styled('div', {
     borderBottomWidth: 0,
     padding: '16px 0',
     bottom: 0,
+    height: 'auto',
   },
 
   variants: {
     isOpen: {
       true: {
         bottom: 0,
+        height: 'auto',
       },
     },
   },
@@ -111,9 +114,9 @@ export const Menu: React.FC = () => {
         fontSize="EM-SMALL"
         width="auto"
         onClick={(): void => setIsOpen((state) => !state)}
-        styles={{
+        css={{
           button: {
-            margin: '8px 16px',
+            margin: '7px 16px',
             paddingLeft: '12px',
             paddingRight: '12px',
 

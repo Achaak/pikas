@@ -1,5 +1,16 @@
 # @pikas-ui/styles
 
+## 3.0.0
+
+### Major Changes
+
+- 4e61678: style and styles props to css props
+
+### Patch Changes
+
+- e6faec2: Add main in package.json
+- 19567fd: Upgrade dependencies
+
 ## 2.3.11
 
 ### Patch Changes
@@ -86,7 +97,7 @@
 
 ### Patch Changes
 
-- 34afd62: Upgrade dependences
+- 34afd62: Upgrade dependencies
 
 ## 2.1.7
 

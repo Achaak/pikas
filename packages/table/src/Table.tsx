@@ -135,7 +135,7 @@ export const TableVariant = {
 }
 export type TableVariantType = keyof typeof TableVariant
 
-export interface TableStylesTypes {
+export interface TableCSSTypes {
   container?: CSS
   table?: CSS
   thead?: CSS
@@ -169,7 +169,7 @@ export interface TableProps<T extends Record<string, unknown>> {
     onSortingChange?: OnChangeFn<SortingState>
   }
   columns: ColumnDef<T>[]
-  styles?: TableStylesTypes
+  css?: TableCSSTypes
   padding?: {
     th?: 'sm' | 'md' | 'lg'
     td?: 'sm' | 'md' | 'lg'
@@ -185,7 +185,7 @@ export const Table = <T extends Record<string, unknown>>({
   selection,
   sorting,
   variant,
-  styles,
+  css,
   padding,
   emptyMessage,
   hoverEffect,
@@ -285,9 +285,9 @@ export const Table = <T extends Record<string, unknown>>({
   }, [selection?.defaultState])
 
   return (
-    <Container css={styles?.container}>
-      <TableStyled variant={variant} css={styles?.table}>
-        <Thead variant={variant} css={styles?.thead}>
+    <Container css={css?.container}>
+      <TableStyled variant={variant} css={css?.table}>
+        <Thead variant={variant} css={css?.thead}>
           {table.getHeaderGroups().map((headerGroup) => (
             <Tr
               key={headerGroup.id}
@@ -303,7 +303,7 @@ export const Table = <T extends Record<string, unknown>>({
                     },
                   },
                 }),
-                ...styles?.tr,
+                ...css?.tr,
               }}
             >
               {headerGroup.headers.map((header) => (
@@ -312,14 +312,14 @@ export const Table = <T extends Record<string, unknown>>({
                   colSpan={header.colSpan}
                   variant={variant}
                   css={{
-                    ...styles?.th,
+                    ...css?.th,
                   }}
                   padding={padding?.th}
                 >
                   {header.isPlaceholder ? null : (
                     <ThSpan
                       css={{
-                        ...styles?.thSpan,
+                        ...css?.thSpan,
                         ...(header.column.getCanSort()
                           ? {
                               cursor: 'pointer',
@@ -338,7 +338,7 @@ export const Table = <T extends Record<string, unknown>>({
                           <IconByName
                             name="bx:chevron-up"
                             size="1em"
-                            styles={{
+                            css={{
                               container: {
                                 marginLeft: 4,
                               },
@@ -349,7 +349,7 @@ export const Table = <T extends Record<string, unknown>>({
                           <IconByName
                             name="bx:chevron-down"
                             size="1em"
-                            styles={{
+                            css={{
                               container: {
                                 marginLeft: 4,
                               },
@@ -364,17 +364,17 @@ export const Table = <T extends Record<string, unknown>>({
             </Tr>
           ))}
         </Thead>
-        <Tbody variant={variant} css={styles?.tbody}>
+        <Tbody variant={variant} css={css?.tbody}>
           {table.getRowModel().rows.map((row) => {
             return (
-              <Tr key={row.id} variant={variant} css={styles?.tr}>
+              <Tr key={row.id} variant={variant} css={css?.tr}>
                 {row.getVisibleCells().map((cell) => {
                   return (
                     <Td
                       key={cell.id}
                       variant={variant}
                       css={{
-                        ...styles?.td,
+                        ...css?.td,
                       }}
                       padding={padding?.td}
                     >
@@ -396,7 +396,7 @@ export const Table = <T extends Record<string, unknown>>({
               <Td
                 colSpan={1000}
                 css={{
-                  ...styles?.td,
+                  ...css?.td,
                 }}
                 padding={padding?.td}
               >
@@ -406,23 +406,23 @@ export const Table = <T extends Record<string, unknown>>({
           ) : null}
         </Tbody>
         {hasTfoot ? (
-          <Tfoot variant={variant} css={styles?.tfoot}>
+          <Tfoot variant={variant} css={css?.tfoot}>
             {table.getFooterGroups().map((footerGroup) => (
-              <Tr key={footerGroup.id} variant={variant} css={styles?.tr}>
+              <Tr key={footerGroup.id} variant={variant} css={css?.tr}>
                 {footerGroup.headers.map((header) => (
                   <Th
                     key={header.id}
                     colSpan={header.colSpan}
                     variant={variant}
                     css={{
-                      ...styles?.th,
+                      ...css?.th,
                     }}
                     padding={padding?.th}
                   >
                     {header.isPlaceholder ? null : (
                       <ThSpan
                         css={{
-                          ...styles?.thSpan,
+                          ...css?.thSpan,
                           ...(header.column.getCanSort()
                             ? {
                                 cursor: 'pointer',
@@ -441,7 +441,7 @@ export const Table = <T extends Record<string, unknown>>({
                             <IconByName
                               name="bx:chevron-up"
                               size="1em"
-                              styles={{
+                              css={{
                                 container: {
                                   marginLeft: 4,
                                 },
@@ -452,7 +452,7 @@ export const Table = <T extends Record<string, unknown>>({
                             <IconByName
                               name="bx:chevron-down"
                               size="1em"
-                              styles={{
+                              css={{
                                 container: {
                                   marginLeft: 4,
                                 },

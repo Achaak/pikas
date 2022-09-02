@@ -19,16 +19,16 @@ export const customGlobalCss = globalCss({
   },
 
   '::-webkit-scrollbar': {
-    width: '7px',
-    height: '7px',
-    borderRadius: '10px',
+    width: '10px',
+    height: '10px',
+    br: 'md',
   },
   '::-webkit-scrollbar-track': {
-    borderRadius: '10px',
-    backgroundColor: '$WHITE',
+    br: 'md',
+    backgroundColor: '$GRAY',
   },
   '::-webkit-scrollbar-thumb': {
-    background: '$GRAY',
-    borderRadius: '10px',
+    background: '$GRAY_DARK',
+    br: 'md',
   },
 })

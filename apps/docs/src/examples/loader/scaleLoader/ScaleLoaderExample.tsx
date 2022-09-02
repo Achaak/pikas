@@ -4,7 +4,7 @@ import { ScaleLoader } from '@pikas-ui/loader'
 export const ScaleLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

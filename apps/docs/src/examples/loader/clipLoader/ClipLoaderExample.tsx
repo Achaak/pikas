@@ -4,7 +4,7 @@ import { ClipLoader } from '@pikas-ui/loader'
 export const ClipLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

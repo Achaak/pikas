@@ -12,18 +12,18 @@ const LabelStyled = styled(LabelPrimitive.Label, {
 
 export interface LabelProps {
   children?: React.ReactNode
-  style?: CSS
+  css?: CSS
   htmlFor?: string
 }
 
-export const Label: React.FC<LabelProps> = ({ children, style, htmlFor }) => {
+export const Label: React.FC<LabelProps> = ({ children, css, htmlFor }) => {
   return (
     <LabelStyled
       css={{
         ...(htmlFor && {
           cursor: 'pointer',
         }),
-        ...style,
+        ...css,
       }}
       htmlFor={htmlFor}
     >

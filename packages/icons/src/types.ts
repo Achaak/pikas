@@ -1,6 +1,6 @@
 import type { ColorsType, CSS } from '@pikas-ui/styles'
 
-export interface IconStyleType {
+export interface IconCSSType {
   container?: CSS
   svg?: CSS
 }
@@ -8,7 +8,7 @@ export interface IconStyleType {
 export interface IconProps {
   className?: string
   size?: number | string
-  styles?: IconStyleType
+  css?: IconCSSType
   color?: ColorsType
   colorHex?: string
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void

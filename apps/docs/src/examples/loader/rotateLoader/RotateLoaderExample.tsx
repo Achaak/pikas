@@ -4,7 +4,7 @@ import { RotateLoader } from '@pikas-ui/loader'
 export const RotateLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

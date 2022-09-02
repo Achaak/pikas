@@ -12,12 +12,9 @@ const DescriptionStyled = styled('p', {
 
 export interface DescriptionProps {
   children?: React.ReactNode
-  style?: CSS
+  css?: CSS
 }
 
-export const Description: React.FC<DescriptionProps> = ({
-  children,
-  style,
-}) => {
-  return <DescriptionStyled css={style}>{children}</DescriptionStyled>
+export const Description: React.FC<DescriptionProps> = ({ children, css }) => {
+  return <DescriptionStyled css={css}>{children}</DescriptionStyled>
 }

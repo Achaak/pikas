@@ -7,7 +7,7 @@ import type {
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { IconStyleType } from '@pikas-ui/icons'
+import type { IconCSSType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
@@ -54,13 +54,13 @@ export const CheckboxSide = {
 }
 export type CheckboxSideType = keyof typeof CheckboxSide
 
-export interface CheckboxStylesType {
+export interface CheckboxCSSType {
   container?: CSS
   label?: CSS
   checkboxRoot?: CSS
   checkboxIndicator?: CSS
   textError?: CSS
-  icon?: IconStyleType
+  icon?: IconCSSType
 }
 
 export interface CheckboxProps {
@@ -85,7 +85,7 @@ export interface CheckboxProps {
   side?: CheckboxSideType
   outline?: boolean
   indeterminate?: boolean
-  styles?: CheckboxStylesType
+  css?: CheckboxCSSType
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -110,7 +110,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   side,
   outline,
   indeterminate,
-  styles,
+  css,
 }) => {
   const theme = useTheme()
 
@@ -151,17 +151,17 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           pointerEvents: disabled ? 'none' : undefined,
         },
 
-        ...styles?.container,
+        ...css?.container,
       }}
     >
       <Element>
         {label && side === 'left' ? (
           <Label
             htmlFor={id}
-            style={{
+            css={{
               marginRight: 8,
               fontWeight: '$NORMAL',
-              ...styles?.label,
+              ...css?.label,
             }}
           >
             {label}
@@ -192,7 +192,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               backgroundColor: `$${bgColorChecked}`,
             },
 
-            ...styles?.checkboxRoot,
+            ...css?.checkboxRoot,
           }}
         >
           <CheckboxIndicator
@@ -205,7 +205,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                   )) ||
                 undefined,
 
-              ...styles?.checkboxIndicator,
+              ...css?.checkboxIndicator,
             }}
           >
             {isChecked === 'indeterminate' && (
@@ -219,14 +219,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                     )) ||
                   ''
                 }
-                styles={{
+                css={{
                   container: {
                     opacity: 0.5,
 
-                    ...styles?.icon?.container,
+                    ...css?.icon?.container,
                   },
                   svg: {
-                    ...styles?.icon?.svg,
+                    ...css?.icon?.svg,
                   },
                 }}
                 size={size ? size / 1.25 : undefined}
@@ -236,8 +236,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               <IconByName
                 name="bx:check"
                 size={size ? size / 1.25 : undefined}
-                styles={{
-                  ...styles?.icon,
+                css={{
+                  ...css?.icon,
                 }}
               />
             )}
@@ -247,10 +247,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         {label && side === 'right' ? (
           <Label
             htmlFor={id}
-            style={{
+            css={{
               marginLeft: 8,
               fontWeight: '$NORMAL',
-              ...styles?.label,
+              ...css?.label,
             }}
           >
             {label}
@@ -259,7 +259,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       </Element>
 
       {textError ? (
-        <TextError style={{ marginTop: 5, ...styles?.textError }}>
+        <TextError css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}

@@ -4,7 +4,7 @@ import { HashLoader } from '@pikas-ui/loader'
 export const HashLoaderExample: React.FC = () => {
   return (
     <ExampleContainer
-      style={{
+      css={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

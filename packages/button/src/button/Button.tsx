@@ -10,7 +10,7 @@ import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
-import type { IconProps, IconStyleType } from '@pikas-ui/icons'
+import type { IconProps, IconCSSType } from '@pikas-ui/icons'
 import { BeatLoader } from '@pikas-ui/loader'
 import type {
   ButtonTypeType,
@@ -91,19 +91,19 @@ const ButtonDOM = styled('button', {
     },
     padding: {
       xs: {
-        padding: '4px 16px',
+        padding: '4px 20px',
       },
       sm: {
-        padding: '4px 24px',
+        padding: '6px 30px',
       },
       md: {
-        padding: '8px 32px',
+        padding: '8px 40px',
       },
       lg: {
-        padding: '16px 40px',
+        padding: '12px 60px',
       },
       xl: {
-        padding: '16px 48px',
+        padding: '16px 80px',
       },
     },
 
@@ -162,14 +162,14 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
-export type ButtonStylesType = {
+export type ButtonCSSType = {
   button?: CSS
-  icon?: IconStyleType
+  icon?: IconCSSType
 }
 
 export interface ButtonDefaultProps {
   children?: React.ReactNode
-  styles?: ButtonStylesType
+  css?: ButtonCSSType
   loading?: boolean
   padding?: ButtonPaddingType
   fontSize?: FontsSizesType
@@ -215,7 +215,7 @@ const getContent = ({
   RightIcon,
   loading,
   children,
-  styles,
+  css,
   contentColor,
   textTransform,
   gap,
@@ -224,7 +224,7 @@ const getContent = ({
   RightIcon?: React.FC<IconProps>
   loading?: boolean
   children?: React.ReactNode
-  styles?: ButtonStylesType
+  css?: ButtonCSSType
   contentColor?: string
   textTransform?: ButtonTextTransformType
   gap?: ButtonGapType
@@ -250,11 +250,11 @@ const getContent = ({
         }}
       >
         {LeftIcon ? (
-          <LeftIcon size="1em" colorHex={contentColor} styles={styles?.icon} />
+          <LeftIcon size="1em" colorHex={contentColor} css={css?.icon} />
         ) : null}
         <div>{children}</div>
         {RightIcon ? (
-          <RightIcon size="1em" colorHex={contentColor} styles={styles?.icon} />
+          <RightIcon size="1em" colorHex={contentColor} css={css?.icon} />
         ) : null}
       </Content>
     </>
@@ -266,7 +266,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       color,
       colorHex,
-      styles,
+      css,
       loading,
       disabled,
       effect,
@@ -329,7 +329,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             contentColorHex: contentColorHexFinal,
           }),
 
-          ...styles?.button,
+          ...css?.button,
         }}
         {...props}
       >
@@ -339,7 +339,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           children,
           gap,
           loading,
-          styles,
+          css,
           textTransform,
           contentColor: getContentColor({
             outlined,
@@ -376,7 +376,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     {
       color,
       colorHex,
-      styles,
+      css,
       loading,
       disabled,
       fontSize,
@@ -439,7 +439,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
             colorHex: colorHexFinal,
             contentColorHex: contentColorHexFinal,
           }),
-          ...styles?.button,
+          ...css?.button,
         }}
         {...props}
       >
@@ -449,7 +449,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           children,
           gap,
           loading,
-          styles,
+          css,
           textTransform,
           contentColor: getContentColor({
             outlined,

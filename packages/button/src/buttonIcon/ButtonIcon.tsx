@@ -15,7 +15,7 @@ import type {
   ButtonTargetType,
 } from '../types.js'
 
-import type { IconProps, IconStyleType } from '@pikas-ui/icons'
+import type { IconProps, IconCSSType } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
 import { getColors, getContentColor } from '../utils.js'
 
@@ -133,14 +133,14 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
-export type ButtonIconStylesType = {
+export type ButtonIconCSSType = {
   button?: CSS
-  icon?: IconStyleType
+  icon?: IconCSSType
 }
 
 export interface ButtonIconDefaultProps {
   Icon: React.FC<IconProps>
-  styles?: ButtonIconStylesType
+  css?: ButtonIconCSSType
   loading?: boolean
   outlined?: boolean
   effect?: ButtonEffectType
@@ -175,13 +175,13 @@ export interface ButtonIconLinkProps
 
 const getContent = ({
   loading,
-  styles,
+  css,
   contentColor,
   size,
   Icon,
 }: {
   loading?: boolean
-  styles?: ButtonIconStylesType
+  css?: ButtonIconCSSType
   contentColor?: string
   size?: SizesType
   Icon: React.FC<IconProps>
@@ -201,11 +201,7 @@ const getContent = ({
           opacity: loading ? 0 : 1,
         }}
       >
-        <Icon
-          size={Sizes[size || 6]}
-          colorHex={contentColor}
-          styles={styles?.icon}
-        />
+        <Icon size={Sizes[size || 6]} colorHex={contentColor} css={css?.icon} />
       </Content>
     </>
   )
@@ -216,7 +212,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
     {
       color,
       colorHex,
-      styles,
+      css,
       loading,
       disabled,
       effect,
@@ -266,7 +262,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
             contentColorHex: contentColorHexFinal,
           }),
 
-          ...styles?.button,
+          ...css?.button,
         }}
         {...props}
       >
@@ -278,7 +274,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
           }),
           loading,
           size,
-          styles,
+          css,
           Icon,
         })}
       </ButtonIconDOM>
@@ -307,7 +303,7 @@ export const ButtonIconLink = forwardRef<
     {
       color,
       colorHex,
-      styles,
+      css,
       loading,
       effect,
       onClick,
@@ -358,7 +354,7 @@ export const ButtonIconLink = forwardRef<
             contentColorHex: contentColorHexFinal,
           }),
 
-          ...styles?.button,
+          ...css?.button,
         }}
         {...props}
       >
@@ -370,7 +366,7 @@ export const ButtonIconLink = forwardRef<
           }),
           loading,
           size,
-          styles,
+          css,
           Icon,
         })}
       </ButtonIconDOM>

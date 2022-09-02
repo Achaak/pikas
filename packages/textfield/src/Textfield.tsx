@@ -1,4 +1,4 @@
-import type { IconProps, IconStyleType } from '@pikas-ui/icons'
+import type { IconProps, IconCSSType } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type {
   ShadowsType,
@@ -15,7 +15,7 @@ import type { InputHTMLAttributes } from 'react'
 import { forwardRef } from 'react'
 import React, { useRef, useState } from 'react'
 import useMergedRef from '@react-hook/merged-ref'
-import type { TooltipStylesType } from '@pikas-ui/tooltip'
+import type { TooltipCSSType } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
@@ -188,16 +188,16 @@ export const TextfieldGap = {
 }
 export type TextfieldGapType = keyof typeof TextfieldGap
 
-export type TextfieldStylesType = {
+export type TextfieldCSSType = {
   container?: CSS
   inputContainer?: CSS
   input?: CSS
   left?: CSS
   right?: CSS
-  leftIcon?: IconStyleType
-  rightIcon?: IconStyleType
-  infoTooltip?: TooltipStylesType
-  infoIcon?: IconStyleType
+  leftIcon?: IconCSSType
+  rightIcon?: IconCSSType
+  infoTooltip?: TooltipCSSType
+  infoIcon?: IconCSSType
   label?: CSS
   description?: CSS
   textError?: CSS
@@ -235,7 +235,7 @@ export type TextfieldProps = {
   rightIconSize?: number
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
-  styles?: TextfieldStylesType
+  css?: TextfieldCSSType
   min?: number
   max?: number
   outline?: boolean
@@ -259,7 +259,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       fontSize,
       textError,
       label,
-      styles,
+      css,
       borderColor,
       borderWidth,
       autoComplete,
@@ -350,28 +350,28 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
           '& > *': {
             pointerEvents: disabled ? 'none' : undefined,
           },
-          ...styles?.container,
+          ...css?.container,
         }}
       >
         {label ? (
           <LabelContainer>
-            <Label htmlFor={id} style={styles?.label}>
+            <Label htmlFor={id} css={css?.label}>
               {label}
             </Label>
 
-            {required ? <Required css={styles?.required}>*</Required> : null}
+            {required ? <Required css={css?.required}>*</Required> : null}
             {info ? (
-              <Tooltip content={info} styles={styles?.infoTooltip}>
+              <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
-                  styles={{
+                  css={{
                     container: {
                       marginLeft: 4,
-                      ...styles?.infoIcon?.container,
+                      ...css?.infoIcon?.container,
                     },
                     svg: {
-                      ...styles?.infoIcon?.svg,
+                      ...css?.infoIcon?.svg,
                     },
                   }}
                 />
@@ -382,9 +382,9 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
         {description ? (
           <Description
-            style={{
+            css={{
               marginBottom: 4,
-              ...styles?.description,
+              ...css?.description,
             }}
           >
             {description}
@@ -405,7 +405,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             boxShadow: `$${boxShadow}`,
             borderWidth: borderWidth,
 
-            ...styles?.inputContainer,
+            ...css?.inputContainer,
           }}
         >
           {leftChildren && (
@@ -416,7 +416,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 ...(id && {
                   cursor: 'pointer',
                 }),
-                ...styles?.left,
+                ...css?.left,
               }}
             >
               {leftChildren}
@@ -431,7 +431,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 ...(id && {
                   cursor: 'pointer',
                 }),
-                ...styles?.left,
+                ...css?.left,
               }}
             >
               <LeftIcon
@@ -440,7 +440,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                   color: leftIconColor || color,
                   colorHex: leftIconColorHex || colorHex,
                 })}
-                styles={styles?.leftIcon}
+                css={css?.leftIcon}
               />
             </LeftContainer>
           )}
@@ -468,7 +468,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 }),
               },
 
-              ...styles?.input,
+              ...css?.input,
             }}
             {...props}
             {...data}
@@ -482,7 +482,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 ...(id && {
                   cursor: 'pointer',
                 }),
-                ...styles?.right,
+                ...css?.right,
               }}
             >
               <RightIcon
@@ -491,7 +491,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                   color: rightIconColor || color,
                   colorHex: rightIconColorHex || colorHex,
                 })}
-                styles={styles?.rightIcon}
+                css={css?.rightIcon}
               />
             </RightContainer>
           )}
@@ -504,7 +504,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 ...(id && {
                   cursor: 'pointer',
                 }),
-                ...styles?.right,
+                ...css?.right,
               }}
             >
               {rightChildren}
@@ -513,7 +513,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         </InputContainer>
 
         {textError && (
-          <TextError style={{ marginTop: 5, ...styles?.textError }}>
+          <TextError css={{ marginTop: 5, ...css?.textError }}>
             {textError}
           </TextError>
         )}
