@@ -13,7 +13,23 @@ export const CustomDialogExample: React.FC = () => {
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}
     >
-      <CustomDialog visible={visible} onClose={(): void => setVisible(false)} />
+      <CustomDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+        header={<h2>Hello world !</h2>}
+        content={<p>This is a custom dialog.</p>}
+        footer={
+          <Button onClick={(): void => setVisible(false)} width="auto">
+            Ok
+          </Button>
+        }
+        padding={{
+          container: 'md',
+        }}
+        gap={{
+          container: 'md',
+        }}
+      />
 
       <Button
         onClick={(): void => setVisible((lastState) => !lastState)}

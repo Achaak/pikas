@@ -33,7 +33,7 @@ export const ValidateDialog: React.FC<ValidateDialogType> = ({
         />
       }
       padding={{
-        container: 'md',
+        container: 'no-padding',
         header: 'no-padding',
         content: 'no-padding',
         footer: 'lg',

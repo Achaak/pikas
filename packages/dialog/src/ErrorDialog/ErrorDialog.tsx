@@ -30,7 +30,7 @@ export const ErrorDialog: React.FC<ErrorDialogType> = ({
         />
       }
       padding={{
-        container: 'md',
+        container: 'no-padding',
         header: 'no-padding',
         content: 'no-padding',
         footer: 'lg',

@@ -105,8 +105,7 @@ const Example: React.FC = () => {
       <SuccessDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
-        content="Hello world!"
-        title="Hello"
+        content="You have successfully completed the task."
       />
 
       <Button
@@ -149,8 +148,7 @@ const Example: React.FC = () => {
       <ValidateDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
-        content="Hello world!"
-        title="Hello"
+        content="Are you sure you want to do this ?"
       />
 
       <Button
@@ -194,8 +192,7 @@ const Example: React.FC = () => {
       <ErrorDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
-        content="Hello world!"
-        title="Hello"
+        content="Please try again later."
       />
 
       <Button
@@ -238,8 +235,7 @@ const Example: React.FC = () => {
       <InfoDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
-        content="Hello world!"
-        title="Hello"
+        content="You have successfully completed the task."
       />
 
       <Button
@@ -282,8 +278,19 @@ const Example: React.FC = () => {
       <CustomDialog
         visible={visible}
         onClose={(): void => setVisible(false)}
-        content="Hello world!"
-        title="Hello"
+        header={<h2>Hello world !</h2>}
+        content={<p>This is a custom dialog.</p>}
+        footer={
+          <Button onClick={(): void => setVisible(false)} width="auto">
+            Ok
+          </Button>
+        }
+        padding={{
+          container: 'md',
+        }}
+        gap={{
+          container: 'md',
+        }}
       />
 
       <Button
