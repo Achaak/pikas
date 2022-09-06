@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "private": false,
   "description": "Components for creating dialogs",
   "license": "MIT",
@@ -41,10 +41,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.0.3",
-    "@pikas-ui/icons": "3.0.3",
-    "@pikas-ui/styles": "3.0.3",
-    "@pikas-ui/title": "1.0.4",
+    "@pikas-ui/button": "3.0.4",
+    "@pikas-ui/icons": "3.0.4",
+    "@pikas-ui/styles": "3.0.4",
+    "@pikas-ui/title": "1.0.5",
     "@radix-ui/react-dialog": "^1.0.0"
   },
   "peerDependencies": {

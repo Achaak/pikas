@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.0.4
+
+### Patch Changes
+
+- Fix theme props
+
 ## 3.0.3
 
 ### Patch Changes

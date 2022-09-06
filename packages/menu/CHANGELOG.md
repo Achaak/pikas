@@ -1,5 +1,13 @@
 # @pikas-ui/menu
 
+## 3.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.0.4
+  - @pikas-ui/icons@3.0.4
+
 ## 3.0.3
 
 ### Patch Changes

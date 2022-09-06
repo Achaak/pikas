@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/checkbox",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "private": false,
   "description": "Components for creating checkboxes",
   "license": "MIT",
@@ -41,9 +41,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.0.3",
-    "@pikas-ui/styles": "3.0.3",
-    "@pikas-ui/text": "4.0.3",
+    "@pikas-ui/icons": "3.0.4",
+    "@pikas-ui/styles": "3.0.4",
+    "@pikas-ui/text": "4.0.4",
     "@radix-ui/react-checkbox": "^1.0.0",
     "font-color-contrast": "^11.1.0"
   },

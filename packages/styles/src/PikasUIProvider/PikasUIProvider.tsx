@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import type { createTheme } from '../css.js'
 import { styled, theme as themeDefault } from '../css.js'
 import merge from 'lodash.merge'
@@ -8,6 +8,11 @@ import * as usehooks from 'usehooks-ts'
 const { useTernaryDarkMode } = usehooks
 
 export { useTernaryDarkMode }
+
+const ContainerStyled = styled('div', {
+  width: 'auto',
+  height: 'fit-content',
+})
 
 export interface PikasUIProviderProps {
   children?: React.ReactNode
@@ -24,35 +29,22 @@ export const PikasUIProvider: React.FC<PikasUIProviderProps> = ({
   darkTheme,
   children,
 }) => {
-  const [theme, setTheme] = useState<PikasUIContextType>(undefined)
+  const [theme, setTheme] = useState<PikasUIContextType>(
+    merge(cloneDeep(themeDefault), lightTheme)
+  )
   const { isDarkMode } = useTernaryDarkMode()
 
   useEffect(() => {
+    const newDarkTheme = darkTheme || lightTheme
+
     setTheme(
-      merge(cloneDeep(themeDefault), isDarkMode ? darkTheme : lightTheme)
+      merge(cloneDeep(themeDefault), isDarkMode ? newDarkTheme : lightTheme)
     )
   }, [isDarkMode, lightTheme, darkTheme])
 
   return (
     <PikasUIContext.Provider value={theme}>
-      <Container>{children}</Container>
+      <ContainerStyled className={theme}>{children}</ContainerStyled>
     </PikasUIContext.Provider>
-  )
-}
-
-const ContainerStyled = styled('div', {
-  width: 'auto',
-  height: 'fit-content',
-})
-
-interface ContainerProps {
-  children?: React.ReactNode
-}
-
-const Container: React.FC<ContainerProps> = ({ children }) => {
-  const pikasUIContext = useContext(PikasUIContext)
-
-  return (
-    <ContainerStyled className={pikasUIContext}>{children}</ContainerStyled>
   )
 }
