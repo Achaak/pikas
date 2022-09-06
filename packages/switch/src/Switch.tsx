@@ -6,7 +6,7 @@ import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
 import { Label, TextError } from '@pikas-ui/text'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {
   display: 'flex',
@@ -69,7 +69,7 @@ const Required = styled('div', {
 
 export interface SwitchCSSType {
   container?: CSS
-  infoTootip?: TooltipCSSType
+  infoTooltip?: TooltipCSSType
   infoIcon?: IconCSSType
   label?: CSS
   required?: CSS
@@ -93,6 +93,7 @@ export interface SwitchProps {
     unchecked: React.FC<IconProps>
   }
   required?: boolean
+  checked?: boolean
   info?: string
 }
 
@@ -110,13 +111,18 @@ export const Switch: React.FC<SwitchProps> = ({
   side,
   info,
   required,
+  checked,
 }) => {
-  const [checked, setChecked] = useState(defaultChecked)
+  const [checkedState, setCheckedState] = useState(defaultChecked || checked)
+
+  useEffect(() => {
+    setCheckedState(checked)
+  }, [checked])
 
   const onChangeInput = (val: boolean): void => {
     onChange?.(val)
 
-    setChecked(val)
+    setCheckedState(val)
   }
 
   const getIcon = (): React.ReactNode => {
@@ -124,7 +130,7 @@ export const Switch: React.FC<SwitchProps> = ({
       return
     }
 
-    if (checked) {
+    if (checkedState) {
       return <Icons.checked size={14} color="BLACK_FIX" />
     } else {
       return <Icons.unchecked size={14} color="BLACK_FIX" />
@@ -134,7 +140,7 @@ export const Switch: React.FC<SwitchProps> = ({
   return (
     <Container
       css={{
-        fontSize: fontSize,
+        fontSize: `$${fontSize}`,
         cursor: disabled ? 'not-allowed' : undefined,
         opacity: disabled ? 0.5 : 1,
 
@@ -171,7 +177,7 @@ export const Switch: React.FC<SwitchProps> = ({
               </Required>
             ) : null}
             {info ? (
-              <Tooltip content={info} css={css?.infoTootip}>
+              <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"
@@ -192,6 +198,7 @@ export const Switch: React.FC<SwitchProps> = ({
 
         <SwitchStyle
           defaultChecked={defaultChecked}
+          checked={checkedState}
           id={id}
           name={name}
           onCheckedChange={onChangeInput}
@@ -224,7 +231,7 @@ export const Switch: React.FC<SwitchProps> = ({
               </Required>
             ) : null}
             {info ? (
-              <Tooltip content={info} css={css?.infoTootip}>
+              <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
                   color="BLACK_LIGHT"

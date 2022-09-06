@@ -4,6 +4,7 @@ import { IconByName } from '@pikas-ui/icons'
 import { styled, useTernaryDarkMode } from '@pikas-ui/styles'
 import { Switch } from '@pikas-ui/switch'
 import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
 
 const Container = styled('header', {
   position: 'fixed',
@@ -60,6 +61,23 @@ const BxsMoon: React.FC<IconProps> = (props) => (
 
 export const Header: React.FC = () => {
   const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode()
+  const [switchComponent, setSwitchComponent] =
+    useState<React.ReactNode>(undefined)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setSwitchComponent(
+        <Switch
+          onChange={(bool): void => setTernaryDarkMode(bool ? 'dark' : 'light')}
+          checked={isDarkMode}
+          Icons={{
+            checked: BxsMoon,
+            unchecked: BxsSun,
+          }}
+        />
+      )
+    }
+  }, [isDarkMode])
 
   return (
     <Container>
@@ -86,14 +104,7 @@ export const Header: React.FC = () => {
             </NavItem>
           </Link>
         </Nav>
-        <Switch
-          onChange={(bool): void => setTernaryDarkMode(bool ? 'dark' : 'light')}
-          defaultChecked={isDarkMode}
-          Icons={{
-            checked: BxsMoon,
-            unchecked: BxsSun,
-          }}
-        />
+        {switchComponent}
       </Right>
     </Container>
   )

@@ -1,5 +1,11 @@
 # @pikas-ui/switch
 
+## 2.0.4
+
+### Patch Changes
+
+- Add checked props
+
 ## 2.0.3
 
 ### Patch Changes
