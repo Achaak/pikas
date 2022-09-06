@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": false,
   "description": "Styles for Pikas UI",
   "license": "MIT",
@@ -51,7 +51,7 @@
     "@pikas-ui/tsconfig": "workspace:*",
     "@types/lodash.clonedeep": "^4.5.7",
     "@types/lodash.merge": "^4.6.7",
-    "@types/node": "^18.7.14",
+    "@types/node": "^18.7.15",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "cross-env": "^7.0.3",

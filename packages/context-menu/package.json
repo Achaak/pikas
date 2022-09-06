@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/context-menu",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": false,
   "description": "Components for creating context menus",
   "license": "MIT",
@@ -41,10 +41,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.0.0",
-    "@pikas-ui/loader": "3.0.0",
-    "@pikas-ui/menu": "3.0.0",
-    "@pikas-ui/styles": "3.0.0",
+    "@pikas-ui/icons": "3.0.1",
+    "@pikas-ui/loader": "3.0.1",
+    "@pikas-ui/menu": "3.0.1",
+    "@pikas-ui/styles": "3.0.1",
     "@radix-ui/react-context-menu": "^1.0.0"
   },
   "peerDependencies": {
@@ -54,7 +54,7 @@
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
-    "@types/node": "^18.7.14",
+    "@types/node": "^18.7.15",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "cross-env": "^7.0.3",

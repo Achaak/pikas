@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textfield",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": false,
   "description": "Components for creating text fields",
   "license": "MIT",
@@ -41,11 +41,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.0.0",
-    "@pikas-ui/loader": "3.0.0",
-    "@pikas-ui/styles": "3.0.0",
-    "@pikas-ui/text": "4.0.0",
-    "@pikas-ui/tooltip": "3.0.0",
+    "@pikas-ui/icons": "3.0.1",
+    "@pikas-ui/loader": "3.0.1",
+    "@pikas-ui/styles": "3.0.1",
+    "@pikas-ui/text": "4.0.1",
+    "@pikas-ui/tooltip": "3.0.1",
     "@radix-ui/react-label": "^1.0.0",
     "@react-hook/merged-ref": "^1.3.2",
     "font-color-contrast": "^11.1.0"
@@ -57,7 +57,7 @@
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
-    "@types/node": "^18.7.14",
+    "@types/node": "^18.7.15",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "cross-env": "^7.0.3",

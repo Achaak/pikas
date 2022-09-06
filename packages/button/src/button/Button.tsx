@@ -162,6 +162,12 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
+const Children = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+})
+
 export type ButtonCSSType = {
   button?: CSS
   icon?: IconCSSType
@@ -252,7 +258,7 @@ const getContent = ({
         {LeftIcon ? (
           <LeftIcon size="1em" colorHex={contentColor} css={css?.icon} />
         ) : null}
-        <div>{children}</div>
+        <Children>{children}</Children>
         {RightIcon ? (
           <RightIcon size="1em" colorHex={contentColor} css={css?.icon} />
         ) : null}
