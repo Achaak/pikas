@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.0.3
+
+### Patch Changes
+
+- remove useSSR
+
 ## 3.0.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/avatar",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": false,
   "description": "Components for displaying avatars",
   "license": "MIT",
@@ -41,8 +41,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/skeleton": "2.0.2",
-    "@pikas-ui/styles": "3.0.2",
+    "@pikas-ui/skeleton": "2.0.3",
+    "@pikas-ui/styles": "3.0.3",
     "@radix-ui/react-avatar": "^1.0.0"
   },
   "peerDependencies": {

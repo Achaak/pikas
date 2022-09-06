@@ -5,7 +5,7 @@ import merge from 'lodash.merge'
 import cloneDeep from 'lodash.clonedeep'
 import * as usehooks from 'usehooks-ts'
 
-const { useTernaryDarkMode, useSsr } = usehooks
+const { useTernaryDarkMode } = usehooks
 
 export { useTernaryDarkMode }
 
@@ -51,11 +51,8 @@ interface ContainerProps {
 
 const Container: React.FC<ContainerProps> = ({ children }) => {
   const pikasUIContext = useContext(PikasUIContext)
-  const { isBrowser } = useSsr()
 
   return (
-    <ContainerStyled className={isBrowser ? pikasUIContext : undefined}>
-      {children}
-    </ContainerStyled>
+    <ContainerStyled className={pikasUIContext}>{children}</ContainerStyled>
   )
 }

@@ -1,5 +1,12 @@
 # @pikas-ui/title
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.0.3
+
 ## 1.0.3
 
 ### Patch Changes
