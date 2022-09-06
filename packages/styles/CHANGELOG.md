@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.0.2
+
+### Patch Changes
+
+- fix react
+
 ## 3.0.1
 
 ### Patch Changes

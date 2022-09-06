@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": false,
   "description": "Components for creating tables",
   "license": "MIT",
@@ -41,24 +41,24 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "3.0.1",
-    "@pikas-ui/icons": "3.0.1",
-    "@pikas-ui/loader": "3.0.1",
-    "@pikas-ui/select": "4.0.1",
-    "@pikas-ui/styles": "3.0.1",
+    "@pikas-ui/checkbox": "3.0.2",
+    "@pikas-ui/icons": "3.0.2",
+    "@pikas-ui/loader": "3.0.2",
+    "@pikas-ui/select": "4.0.2",
+    "@pikas-ui/styles": "3.0.2",
     "@tanstack/react-table": "8.5.13",
     "font-color-contrast": "^11.1.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
     "@types/node": "^18.7.15",
-    "@types/react": "^18.0.18",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "18.0.18",
+    "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.23.0",
     "tsup": "^6.2.3",

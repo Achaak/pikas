@@ -1,5 +1,18 @@
 # @pikas-ui/searchbar
 
+## 3.0.2
+
+### Patch Changes
+
+- fix react
+- Updated dependencies
+  - @pikas-ui/button@3.0.2
+  - @pikas-ui/icons@3.0.2
+  - @pikas-ui/loader@3.0.2
+  - @pikas-ui/separator@3.0.2
+  - @pikas-ui/styles@3.0.2
+  - @pikas-ui/textfield@3.0.2
+
 ## 3.0.1
 
 ### Patch Changes

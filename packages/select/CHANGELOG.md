@@ -1,5 +1,17 @@
 # @pikas-ui/select
 
+## 4.0.2
+
+### Patch Changes
+
+- fix react
+- Updated dependencies
+  - @pikas-ui/icons@3.0.2
+  - @pikas-ui/styles@3.0.2
+  - @pikas-ui/text@4.0.2
+  - @pikas-ui/textfield@3.0.2
+  - @pikas-ui/tooltip@3.0.2
+
 ## 4.0.1
 
 ### Patch Changes

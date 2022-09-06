@@ -1,5 +1,13 @@
 # @pikas-ui/skeleton
 
+## 2.0.2
+
+### Patch Changes
+
+- fix react
+- Updated dependencies
+  - @pikas-ui/styles@3.0.2
+
 ## 2.0.1
 
 ### Patch Changes

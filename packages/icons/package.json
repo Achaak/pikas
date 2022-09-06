@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/icons",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": false,
   "description": "Components for creating icons",
   "license": "MIT",
@@ -42,19 +42,19 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@iconify/react": "^3.2.2",
-    "@pikas-ui/styles": "3.0.1",
+    "@pikas-ui/styles": "3.0.2",
     "iconify-icon": "1.0.0-beta.3"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
     "@types/node": "^18.7.15",
-    "@types/react": "^18.0.18",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "18.0.18",
+    "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.23.0",
     "tsup": "^6.2.3",

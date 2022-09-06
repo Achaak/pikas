@@ -1,5 +1,13 @@
 # @pikas-ui/title
 
+## 1.0.3
+
+### Patch Changes
+
+- fix react
+- Updated dependencies
+  - @pikas-ui/styles@3.0.2
+
 ## 1.0.2
 
 ### Patch Changes
