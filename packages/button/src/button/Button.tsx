@@ -122,21 +122,6 @@ const Content = styled('div', {
   justifyContent: 'center',
 
   variants: {
-    textTransform: {
-      capitalize: {
-        textTransform: 'capitalize',
-      },
-      uppercase: {
-        textTransform: 'uppercase',
-      },
-      default: {
-        'div::first-letter': {
-          textTransform: 'uppercase',
-        },
-      },
-      none: {},
-    },
-
     gap: {
       sm: {
         customGap: 4,
@@ -166,6 +151,23 @@ const Children = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  variants: {
+    textTransform: {
+      capitalize: {
+        textTransform: 'capitalize',
+      },
+      uppercase: {
+        textTransform: 'uppercase',
+      },
+      default: {
+        'div::first-letter': {
+          textTransform: 'uppercase',
+        },
+      },
+      none: {},
+    },
+  },
 })
 
 export type ButtonCSSType = {
@@ -249,7 +251,6 @@ const getContent = ({
       </LoadingContainer>
 
       <Content
-        textTransform={textTransform}
         gap={gap}
         css={{
           opacity: loading ? 0 : 1,
@@ -258,7 +259,7 @@ const getContent = ({
         {LeftIcon ? (
           <LeftIcon size="1em" colorHex={contentColor} css={css?.icon} />
         ) : null}
-        <Children>{children}</Children>
+        <Children textTransform={textTransform}>{children}</Children>
         {RightIcon ? (
           <RightIcon size="1em" colorHex={contentColor} css={css?.icon} />
         ) : null}

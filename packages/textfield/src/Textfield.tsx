@@ -72,19 +72,19 @@ const Input = styled('input', {
   variants: {
     padding: {
       xs: {
-        padding: '2px 4px',
+        padding: '4px 8px',
       },
       sm: {
-        padding: '4px 8px',
+        padding: '6px 12px',
       },
       md: {
         padding: '8px 16px',
       },
       lg: {
-        padding: '16px 32px',
+        padding: '12px 24px',
       },
       xl: {
-        padding: '32px 64px',
+        padding: '16px 32px',
       },
     },
   },

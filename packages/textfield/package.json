@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textfield",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "private": false,
   "description": "Components for creating text fields",
   "license": "MIT",

@@ -1,5 +1,11 @@
 # @pikas-ui/button
 
+## 3.0.5
+
+### Patch Changes
+
+- Fix textTransform
+
 ## 3.0.4
 
 ### Patch Changes

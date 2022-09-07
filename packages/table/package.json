@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "private": false,
   "description": "Components for creating tables",
   "license": "MIT",
@@ -44,7 +44,7 @@
     "@pikas-ui/checkbox": "3.0.4",
     "@pikas-ui/icons": "3.0.4",
     "@pikas-ui/loader": "3.0.4",
-    "@pikas-ui/select": "4.0.4",
+    "@pikas-ui/select": "4.0.5",
     "@pikas-ui/styles": "3.0.4",
     "@tanstack/react-table": "8.5.13",
     "font-color-contrast": "^11.1.0"

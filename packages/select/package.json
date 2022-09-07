@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "private": false,
   "description": "Components for creating select elements",
   "license": "MIT",
@@ -44,7 +44,7 @@
     "@pikas-ui/icons": "3.0.4",
     "@pikas-ui/styles": "3.0.4",
     "@pikas-ui/text": "4.0.4",
-    "@pikas-ui/textfield": "3.0.4",
+    "@pikas-ui/textfield": "3.0.5",
     "@pikas-ui/tooltip": "3.0.4",
     "@radix-ui/react-select": "^1.0.0"
   },

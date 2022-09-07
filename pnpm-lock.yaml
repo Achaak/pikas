@@ -20,26 +20,26 @@ importers:
       '@next/mdx': ^12.2.5
       '@pikas-ui/alert': 3.0.4
       '@pikas-ui/avatar': 2.0.4
-      '@pikas-ui/button': 3.0.4
+      '@pikas-ui/button': 3.0.5
       '@pikas-ui/checkbox': 3.0.4
       '@pikas-ui/config': workspace:*
       '@pikas-ui/context-menu': 3.0.4
-      '@pikas-ui/dialog': 2.0.4
+      '@pikas-ui/dialog': 2.0.5
       '@pikas-ui/dropdown-menu': 3.0.4
       '@pikas-ui/icons': 3.0.4
       '@pikas-ui/loader': 3.0.4
-      '@pikas-ui/searchbar': 3.0.4
-      '@pikas-ui/select': 4.0.4
+      '@pikas-ui/searchbar': 3.0.6
+      '@pikas-ui/select': 4.0.5
       '@pikas-ui/separator': 3.0.4
       '@pikas-ui/skeleton': 2.0.4
       '@pikas-ui/slider': 3.0.4
       '@pikas-ui/styles': 3.0.4
       '@pikas-ui/switch': 2.0.5
-      '@pikas-ui/table': 3.0.4
+      '@pikas-ui/table': 3.0.5
       '@pikas-ui/tabs': 2.0.4
       '@pikas-ui/text': 4.0.4
       '@pikas-ui/textarea': 3.0.4
-      '@pikas-ui/textfield': 3.0.4
+      '@pikas-ui/textfield': 3.0.5
       '@pikas-ui/tooltip': 3.0.4
       '@pikas-ui/tsconfig': workspace:*
       '@pikas-utils/router': ^1.0.1
@@ -296,7 +296,7 @@ importers:
 
   packages/dialog:
     specifiers:
-      '@pikas-ui/button': 3.0.4
+      '@pikas-ui/button': 3.0.5
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 3.0.4
       '@pikas-ui/styles': 3.0.4
@@ -445,13 +445,13 @@ importers:
 
   packages/searchbar:
     specifiers:
-      '@pikas-ui/button': 3.0.4
+      '@pikas-ui/button': 3.0.5
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 3.0.4
       '@pikas-ui/loader': 3.0.4
       '@pikas-ui/separator': 3.0.4
       '@pikas-ui/styles': 3.0.4
-      '@pikas-ui/textfield': 3.0.4
+      '@pikas-ui/textfield': 3.0.5
       '@pikas-ui/tsconfig': workspace:*
       '@types/node': ^18.7.15
       '@types/react': 18.0.18
@@ -486,7 +486,7 @@ importers:
       '@pikas-ui/icons': 3.0.4
       '@pikas-ui/styles': 3.0.4
       '@pikas-ui/text': 4.0.4
-      '@pikas-ui/textfield': 3.0.4
+      '@pikas-ui/textfield': 3.0.5
       '@pikas-ui/tooltip': 3.0.4
       '@pikas-ui/tsconfig': workspace:*
       '@radix-ui/react-select': ^1.0.0
@@ -674,7 +674,7 @@ importers:
       '@pikas-ui/config': workspace:*
       '@pikas-ui/icons': 3.0.4
       '@pikas-ui/loader': 3.0.4
-      '@pikas-ui/select': 4.0.4
+      '@pikas-ui/select': 4.0.5
       '@pikas-ui/styles': 3.0.4
       '@pikas-ui/tsconfig': workspace:*
       '@tanstack/react-table': 8.5.13

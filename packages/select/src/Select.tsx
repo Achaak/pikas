@@ -12,7 +12,7 @@ import { IconByName } from '@pikas-ui/icons'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import type { TooltipCSSType } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
@@ -257,12 +257,12 @@ export const Select: React.FC<SelectProps> = ({
   required,
 }) => {
   const [searchValue, setSearchValue] = useState('')
-  const [formattedData, setformattedData] = useState(data)
+  const [formattedData, setFormattedData] = useState(data)
   const [focus, setFocus] = useState(false)
   const theme = useTheme()
 
   useEffect(() => {
-    setformattedData(
+    setFormattedData(
       data.map((group) => {
         const items = group.items.map((item) => {
           let hidden = item.hidden || false
@@ -313,6 +313,54 @@ export const Select: React.FC<SelectProps> = ({
       setSearchValue('')
     }
   }
+
+  const viewport = useMemo(
+    () => (
+      <Viewport>
+        {formattedData.map((group, groupIndex) => {
+          const res = []
+          const hidden = !group.items.some((item) => !item.hidden)
+
+          if (
+            groupIndex > 0 &&
+            !hidden &&
+            !formattedData[groupIndex - 1]?.hidden
+          ) {
+            res.push(<Separator key={`separator-${groupIndex}`} />)
+          }
+
+          res.push(
+            <Group
+              key={groupIndex}
+              css={{
+                ...(hidden ? { display: 'none' } : {}),
+              }}
+            >
+              {group.name ? <GroupLabel>{group.name}</GroupLabel> : null}
+              {group.items.map((item, itemIndex) => (
+                <Item
+                  key={itemIndex}
+                  value={item.value}
+                  disabled={item.disabled}
+                  css={{
+                    ...(item.hidden ? { display: 'none' } : {}),
+                  }}
+                >
+                  <ItemText>{item.label}</ItemText>
+                  <ItemIndicator>
+                    <IconByName name="bx:check" size={20} />
+                  </ItemIndicator>
+                </Item>
+              ))}
+            </Group>
+          )
+
+          return res
+        })}
+      </Viewport>
+    ),
+    [formattedData]
+  )
 
   return (
     <Container
@@ -428,48 +476,7 @@ export const Select: React.FC<SelectProps> = ({
             <ScrollUpButton>
               <IconByName name="bx:chevron-up" size={20} color="BLACK" />
             </ScrollUpButton>
-            <Viewport>
-              {formattedData.map((group, groupIndex) => {
-                const res = []
-                const hidden = !group.items.some((item) => !item.hidden)
-
-                if (
-                  groupIndex > 0 &&
-                  !hidden &&
-                  !formattedData[groupIndex - 1]?.hidden
-                ) {
-                  res.push(<Separator key={`separator-${groupIndex}`} />)
-                }
-
-                res.push(
-                  <Group
-                    key={groupIndex}
-                    css={{
-                      ...(hidden ? { display: 'none' } : {}),
-                    }}
-                  >
-                    {group.name ? <GroupLabel>{group.name}</GroupLabel> : null}
-                    {group.items.map((item, itemIndex) => (
-                      <Item
-                        key={itemIndex}
-                        value={item.value}
-                        disabled={item.disabled}
-                        css={{
-                          ...(item.hidden ? { display: 'none' } : {}),
-                        }}
-                      >
-                        <ItemText>{item.label}</ItemText>
-                        <ItemIndicator>
-                          <IconByName name="bx:check" size={20} />
-                        </ItemIndicator>
-                      </Item>
-                    ))}
-                  </Group>
-                )
-
-                return res
-              })}
-            </Viewport>
+            {viewport}
             <ScrollDownButton>
               <IconByName name="bx:chevron-down" size={20} color="BLACK" />
             </ScrollDownButton>
