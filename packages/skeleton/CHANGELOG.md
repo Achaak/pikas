@@ -1,5 +1,14 @@
 # @pikas-ui/skeleton
 
+## 2.0.5
+
+### Patch Changes
+
+- Fix overflow
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/styles@3.0.5
+
 ## 2.0.4
 
 ### Patch Changes

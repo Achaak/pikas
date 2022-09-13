@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "private": false,
   "description": "Styles for Pikas UI",
   "license": "MIT",
@@ -55,13 +55,13 @@
     "@pikas-ui/tsconfig": "workspace:*",
     "@types/lodash.clonedeep": "^4.5.7",
     "@types/lodash.merge": "^4.6.7",
-    "@types/node": "^18.7.15",
-    "@types/react": "18.0.18",
+    "@types/node": "^18.7.17",
+    "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
-    "eslint": "^8.23.0",
+    "eslint": "^8.23.1",
     "prettier": "^2.7.1",
     "tsup": "^6.2.3",
-    "typescript": "4.8.2"
+    "typescript": "4.8.3"
   }
 }
