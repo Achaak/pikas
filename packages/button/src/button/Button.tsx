@@ -148,10 +148,7 @@ const LoadingContainer = styled('div', {
 })
 
 const Children = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-
+  display: 'block',
   variants: {
     textTransform: {
       capitalize: {
@@ -161,7 +158,7 @@ const Children = styled('div', {
         textTransform: 'uppercase',
       },
       default: {
-        'div::first-letter': {
+        '&::first-letter': {
           textTransform: 'uppercase',
         },
       },
