@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/menu",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
@@ -40,8 +40,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.0.6",
-    "@pikas-ui/styles": "3.0.6"
+    "@pikas-ui/icons": "3.0.7",
+    "@pikas-ui/styles": "3.0.7"
   },
   "peerDependencies": {
     "react": "18.2.0",

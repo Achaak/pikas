@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.0.7
+
+### Patch Changes
+
+- Add info color
+
 ## 3.0.6
 
 ### Patch Changes

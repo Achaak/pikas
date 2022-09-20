@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/tabs",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "private": false,
   "description": "Components for creating tabs",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.0.6",
+    "@pikas-ui/styles": "3.0.7",
     "@radix-ui/react-tabs": "^1.0.0"
   },
   "peerDependencies": {

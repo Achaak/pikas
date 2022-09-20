@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textarea",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "private": false,
   "description": "Components for creating textareas",
   "license": "MIT",
@@ -41,11 +41,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.0.6",
-    "@pikas-ui/loader": "3.0.6",
-    "@pikas-ui/styles": "3.0.6",
-    "@pikas-ui/text": "4.0.6",
-    "@pikas-ui/tooltip": "3.0.6",
+    "@pikas-ui/icons": "3.0.7",
+    "@pikas-ui/loader": "3.0.7",
+    "@pikas-ui/styles": "3.0.7",
+    "@pikas-ui/text": "4.0.7",
+    "@pikas-ui/tooltip": "3.0.7",
     "font-color-contrast": "^11.1.0"
   },
   "peerDependencies": {

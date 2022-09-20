@@ -72,6 +72,14 @@ export const darkTheme = createTheme('dark-theme', {
     ERROR_LIGHTEST_2: '#300B0B',
     ERROR_LIGHTEST_1: '#240808',
 
+    INFO_DARKER: '#A8D0FF',
+    INFO_DARK: '#7DB9FF',
+    INFO: '#52A2FF',
+    INFO_LIGHT: '#3D79BF',
+    INFO_LIGHTER: '#295180',
+    INFO_LIGHTEST_2: '#102033',
+    INFO_LIGHTEST_1: '#0C1826',
+
     TRANSPARENT: 'rgba(0, 0, 0, 0)',
 
     BACKGROUND: '#242424',

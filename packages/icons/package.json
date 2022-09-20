@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/icons",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "private": false,
   "description": "Components for creating icons",
   "license": "MIT",
@@ -42,7 +42,7 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@iconify/react": "^4.0.0",
-    "@pikas-ui/styles": "3.0.6",
+    "@pikas-ui/styles": "3.0.7",
     "iconify-icon": "1.0.0"
   },
   "peerDependencies": {

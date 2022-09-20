@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "private": false,
   "description": "Components for creating select elements",
   "license": "MIT",
@@ -41,11 +41,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.0.6",
-    "@pikas-ui/styles": "3.0.6",
-    "@pikas-ui/text": "4.0.6",
-    "@pikas-ui/textfield": "3.0.7",
-    "@pikas-ui/tooltip": "3.0.6",
+    "@pikas-ui/icons": "3.0.7",
+    "@pikas-ui/styles": "3.0.7",
+    "@pikas-ui/text": "4.0.7",
+    "@pikas-ui/textfield": "3.0.8",
+    "@pikas-ui/tooltip": "3.0.7",
     "@radix-ui/react-select": "^1.0.0"
   },
   "peerDependencies": {
