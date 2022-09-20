@@ -251,7 +251,7 @@ export const Tabs = <T extends string>({
             css={item?.css?.content}
             padding={padding?.content}
           >
-            {item.trigger}
+            {item.content}
           </Content>
         )
       })}
