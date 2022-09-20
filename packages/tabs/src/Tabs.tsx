@@ -209,7 +209,7 @@ export const Tabs = <T extends string>({
   alignmentTrigger,
   endTrigger,
   startTrigger,
-}: TabsProps<T>): React.ReactElement => {
+}: TabsProps<T>): JSX.Element => {
   return (
     <Root
       defaultValue={defaultValue}
