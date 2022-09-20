@@ -1,5 +1,11 @@
 # @pikas-ui/tabs
 
+## 2.0.8
+
+### Patch Changes
+
+- Fix tabs content
+
 ## 2.0.7
 
 ### Patch Changes
