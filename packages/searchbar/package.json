@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/searchbar",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "private": false,
   "description": "Components for creating search bars",
   "license": "MIT",
@@ -41,13 +41,13 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.0.7",
-    "@pikas-ui/icons": "3.0.5",
-    "@pikas-ui/loader": "3.0.5",
-    "@pikas-ui/separator": "3.0.5",
-    "@pikas-ui/styles": "3.0.5",
-    "@pikas-ui/textfield": "3.0.6",
-    "usehooks-ts": "^2.5.4"
+    "@pikas-ui/button": "3.0.8",
+    "@pikas-ui/icons": "3.0.6",
+    "@pikas-ui/loader": "3.0.6",
+    "@pikas-ui/separator": "3.0.6",
+    "@pikas-ui/styles": "3.0.6",
+    "@pikas-ui/textfield": "3.0.7",
+    "usehooks-ts": "^2.7.0"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -56,8 +56,8 @@
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
-    "@types/node": "^18.7.17",
-    "@types/react": "18.0.19",
+    "@types/node": "^18.7.18",
+    "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.23.1",

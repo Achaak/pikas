@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/tooltip",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "private": false,
   "description": "Components for creating tooltips",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.0.5",
+    "@pikas-ui/styles": "3.0.6",
     "@radix-ui/react-tooltip": "^1.0.0",
     "font-color-contrast": "^11.1.0"
   },
@@ -52,8 +52,8 @@
   "devDependencies": {
     "@pikas-ui/config": "workspace:*",
     "@pikas-ui/tsconfig": "workspace:*",
-    "@types/node": "^18.7.17",
-    "@types/react": "18.0.19",
+    "@types/node": "^18.7.18",
+    "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.23.1",

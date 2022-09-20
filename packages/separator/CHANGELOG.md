@@ -1,5 +1,14 @@
 # @pikas-ui/separator
 
+## 3.0.6
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix vertical orientation height
+- Updated dependencies
+  - @pikas-ui/styles@3.0.6
+
 ## 3.0.5
 
 ### Patch Changes

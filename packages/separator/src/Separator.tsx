@@ -37,9 +37,11 @@ export const Separator: React.FC<SeparatorProps> = ({
         '&[data-orientation=horizontal]': {
           minHeight: size,
           height: size,
+          minWidth: '100%',
           width: '100%',
         },
         '&[data-orientation=vertical]': {
+          minHeight: '100%',
           height: '100%',
           minWidth: size,
           width: size,
