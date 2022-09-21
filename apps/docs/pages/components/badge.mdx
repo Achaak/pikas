@@ -1,0 +1,143 @@
+import { BadgeExample } from './../../src/examples/badge/badge'
+import { BadgeIconExample } from './../../src/examples/badge/badgeIcon'
+import { CustomBadgeExample } from './../../src/examples/badge/customBadge'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Badge" />
+
+# @pikas-ui/badge
+
+This package contains a badge component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/badge
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/badge
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/badge
+```
+
+---
+
+## Usage
+
+### Badge
+
+<BadgeExample />
+
+```tsx
+import { Badge } from `@pikas-ui/badge`;
+
+const Example: React.FC = () => {
+  return (
+    <Badge leftIconName="bx:baguette">Bread</Badge>
+  )
+}
+```
+
+#### Props
+
+Props extends `HTMLAttributes<HTMLDivElement>`.
+
+| Prop            | Description                     | Type               | Default                |
+| :-------------- | :------------------------------ | :----------------- | :--------------------- |
+| `children`      | The content of the badge.       | `React.ReactNode`  | -                      |
+| `color`         | The color of the badge.         | `ColorsType`       | `"PRIMARY"`            |
+| `colorHex`      | The color of the badge.         | `string`           | -                      |
+| `boxShadow`     | The shadow of the badge.        | `ShadowsType`      | `"ELEVATION_BOTTOM_1"` |
+| `borderRadius`  | The border radius of the badge. | `BorderRadiusType` | `"round"`              |
+| `css`           | The css of the badge.           | `CSS`              | -                      |
+| `fontSize`      | The font size of the badge.     | `FontsSizesType`   | `"EM-MEDIUM"`          |
+| `leftIconName`  | The left icon of the badge.     | `string`           | -                      |
+| `rightIconName` | The right icon of the badge.    | `string`           | -                      |
+| `gap`           | The gap of the badge.           | `BadgeGapType`     | `"md"`                 |
+| `padding`       | The padding of the badge.       | `BadgePaddingType` | `"md"`                 |
+
+---
+
+### BadgeIcon
+
+<BadgeIconExample />
+
+```tsx
+import { BadgeIcon } from `@pikas-ui/badge`;
+
+const Example: React.FC = () => {
+  return (
+    <BadgeIcon iconName="bx:baguette" />
+  )
+}
+```
+
+#### Props
+
+Props extends `HTMLAttributes<HTMLDivElement>`.
+
+| Prop           | Description                     | Type               | Default                |
+| :------------- | :------------------------------ | :----------------- | :--------------------- |
+| `iconName`     | The icon of the badge.          | `string`           | required               |
+| `children`     | The content of the badge.       | `React.ReactNode`  | -                      |
+| `color`        | The color of the badge.         | `ColorsType`       | `"PRIMARY"`            |
+| `colorHex`     | The color of the badge.         | `string`           | -                      |
+| `boxShadow`    | The shadow of the badge.        | `ShadowsType`      | `"ELEVATION_BOTTOM_1"` |
+| `borderRadius` | The border radius of the badge. | `BorderRadiusType` | `"round"`              |
+| `css`          | The css of the badge.           | `CSS`              | -                      |
+| `size`         | The size of the badge.          | `number`           | `24`                   |
+| `padding`      | The padding of the badge.       | `BadgePaddingType` | `"md"`                 |
+
+---
+
+### CustomBadge
+
+<CustomBadgeExample />
+
+```tsx
+import { CustomBadge } from `@pikas-ui/badge`;
+
+const Example: React.FC = () => {
+  return (
+    <CustomBadge
+      css={{
+        fontSize: '$EM-SMALL',
+        padding: '8px 16px',
+      }}
+    >
+      Hello world
+    </CustomBadge>
+  )
+}
+```
+
+#### Props
+
+Props extends `HTMLAttributes<HTMLDivElement>`.
+
+| Prop           | Description                     | Type               | Default                |
+| :------------- | :------------------------------ | :----------------- | :--------------------- |
+| `children`     | The content of the badge.       | `React.ReactNode`  | -                      |
+| `color`        | The color of the badge.         | `ColorsType`       | `"PRIMARY"`            |
+| `colorHex`     | The color of the badge.         | `string`           | -                      |
+| `boxShadow`    | The shadow of the badge.        | `ShadowsType`      | `"ELEVATION_BOTTOM_1"` |
+| `borderRadius` | The border radius of the badge. | `BorderRadiusType` | `"round"`              |
+| `css`          | The css of the badge.           | `CSS`              | -                      |

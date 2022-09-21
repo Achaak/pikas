@@ -254,7 +254,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         css={{
           br: borderRadius,
           borderWidth: borderWidth,
-          boxShadow: boxShadow,
+          boxShadow: `$${boxShadow}`,
 
           ...getColors({
             outlined,
@@ -346,7 +346,7 @@ export const ButtonIconLink = forwardRef<
         css={{
           br: borderRadius,
           borderWidth: borderWidth,
-          boxShadow: boxShadow,
+          boxShadow: `$${boxShadow}`,
 
           ...getColors({
             outlined,

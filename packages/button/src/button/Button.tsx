@@ -325,7 +325,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,
-          boxShadow: boxShadow,
+          boxShadow: `$${boxShadow}`,
 
           ...getColors({
             outlined,
@@ -436,7 +436,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           width: width,
           maxWidth: maxWidth,
           minWidth: minWidth,
-          boxShadow: boxShadow,
+          boxShadow: `$${boxShadow}`,
 
           ...getColors({
             outlined,

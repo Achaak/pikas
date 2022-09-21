@@ -27,6 +27,10 @@ export const menu: Menu = [
         href: getLink('avatar'),
       },
       {
+        label: 'Badge',
+        href: getLink('badge'),
+      },
+      {
         label: 'Button',
         href: getLink('button'),
       },

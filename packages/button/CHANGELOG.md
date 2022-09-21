@@ -1,5 +1,11 @@
 # @pikas-ui/button
 
+## 3.0.10
+
+### Patch Changes
+
+- Fix boxShadow props
+
 ## 3.0.9
 
 ### Patch Changes

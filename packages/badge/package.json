@@ -1,8 +1,8 @@
 {
-  "name": "@pikas-ui/searchbar",
-  "version": "3.0.11",
+  "name": "@pikas-ui/badge",
+  "version": "1.0.0",
   "private": false,
-  "description": "Components for creating search bars",
+  "description": "Components for creating badge",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -41,13 +41,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.0.10",
-    "@pikas-ui/icons": "3.0.7",
-    "@pikas-ui/loader": "3.0.7",
-    "@pikas-ui/separator": "3.0.7",
+    "@pikas-ui/icons": "workspace:*",
     "@pikas-ui/styles": "3.0.7",
-    "@pikas-ui/textfield": "3.0.8",
-    "usehooks-ts": "^2.7.0"
+    "font-color-contrast": "^11.1.0"
   },
   "peerDependencies": {
     "react": "18.2.0",

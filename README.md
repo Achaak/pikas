@@ -10,7 +10,6 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 - Add Radio component
 - Add Toast component
 - Add FileInput component
-- Add Badge component
 - Add TextfieldMultiple component
 
 ## License
