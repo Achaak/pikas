@@ -110,6 +110,10 @@ export const menu: Menu = [
         href: getLink('textfield'),
       },
       {
+        label: 'Title',
+        href: getLink('title'),
+      },
+      {
         label: 'Tooltip',
         href: getLink('tooltip'),
       },

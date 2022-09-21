@@ -26,6 +26,7 @@ export const { getLink } = routes({
     skeleton: '/components/skeleton',
     dialog: '/components/dialog',
     progress: '/components/progress',
+    title: '/components/title',
     badge: '/components/badge',
     styles: '/utilities/styles',
     useTheme: '/utilities/useTheme',

@@ -1,5 +1,14 @@
 # @pikas-ui/title
 
+## 1.0.9
+
+### Patch Changes
+
+- Add readme
+- Update css props and css of component
+- Updated dependencies
+  - @pikas-ui/styles@3.0.8
+
 ## 1.0.8
 
 ### Patch Changes

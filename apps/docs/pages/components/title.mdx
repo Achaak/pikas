@@ -1,0 +1,69 @@
+import { TitleExample } from './../../src/examples/title'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Title" />
+
+# @pikas-ui/title
+
+This package contains a title components.
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/title
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/title
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/title
+```
+
+---
+
+## Usage
+
+### Title
+
+<TitleExample />
+
+```tsx
+import { Title } from `@pikas-ui/title`;
+
+const Example: React.FC = () => {
+  return (
+    <>
+      <Title as="h1">Title H1</Title>
+      <Title as="h2">Title H2</Title>
+      <Title as="h3">Title H3</Title>
+      <Title as="h4">Title H4</Title>
+      <Title as="h5">Title H5</Title>
+    </>
+  )
+}
+```
+
+#### Props
+
+| Prop            | Description                               | Type                         | Default |
+| :-------------- | :---------------------------------------- | :--------------------------- | :------ |
+| `as`            | The HTML tag to use for the root element. | `TitleComponentType`         | -       |
+| `variant`       | The variant to use.                       | `TitleVariantType`           | -       |
+| `textTransform` | The text transform to use.                | `TextTransformComponentType` | -       |
+| `css`           | The css to use.                           | `TitleCSSType`               | -       |
+| `children`      | The content of the component.             | `React.ReactNode`            | -       |

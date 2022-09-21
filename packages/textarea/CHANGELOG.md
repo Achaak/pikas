@@ -1,5 +1,17 @@
 # @pikas-ui/textarea
 
+## 3.0.8
+
+### Patch Changes
+
+- Add readme
+- Updated dependencies
+  - @pikas-ui/icons@3.0.8
+  - @pikas-ui/loader@3.0.8
+  - @pikas-ui/styles@3.0.8
+  - @pikas-ui/text@4.0.8
+  - @pikas-ui/tooltip@3.0.8
+
 ## 3.0.7
 
 ### Patch Changes

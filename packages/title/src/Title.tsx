@@ -1,6 +1,6 @@
 import type { CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import { HTMLAttributes } from 'react'
+import type { HTMLAttributes } from 'react'
 
 const TitleStyle = styled('h1', {
   whiteSpace: 'pre-line',
@@ -14,21 +14,29 @@ const TitleStyle = styled('h1', {
     variant: {
       h1: {
         fontSize: '$EM-XXX-LARGE',
-        fontWeight: '$BLACK',
+        fontWeight: '$MEDIUM',
+        letterSpacing: '$MEDIUM',
       },
       h2: {
         fontSize: '$EM-XX-LARGE',
-        fontWeight: '$MEDIUM',
+        fontWeight: '$BOLD',
+        letterSpacing: '$MEDIUM',
       },
       h3: {
         fontSize: '$EM-X-LARGE',
         fontWeight: '$BOLD',
+        letterSpacing: '$SMALL',
       },
       h4: {
         fontSize: '$EM-LARGE',
         fontWeight: '$BOLD',
+        letterSpacing: '$SMALL',
       },
-      h5: {},
+      h5: {
+        fontSize: '$EM-MEDIUM',
+        fontWeight: '$BOLD',
+        letterSpacing: '$SMALL',
+      },
     },
   },
 })
@@ -53,28 +61,38 @@ export type TextTransformComponentType = keyof typeof TextTransformComponent
 export const TitleVariant = TitleComponent
 export type TitleVariantType = keyof typeof TitleVariant
 
+export interface TitleCSSType {
+  global?: CSS
+  h1?: CSS
+  h2?: CSS
+  h3?: CSS
+  h4?: CSS
+  h5?: CSS
+}
+
 export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  component: TitleComponentType
+  as: TitleComponentType
   variant?: TitleVariantType
   textTransform?: TextTransformComponentType
-  css?: CSS
+  css?: TitleCSSType
   children?: React.ReactNode
 }
 
 export const Title: React.FC<TitleProps> = ({
   children,
-  component,
+  as,
   variant,
   textTransform,
   css,
 }) => {
   return (
     <TitleStyle
-      as={component}
-      variant={variant || component}
+      as={as}
+      variant={variant || as}
       css={{
         textTransform,
-        ...css,
+        ...css?.global,
+        ...css?.[as],
       }}
     >
       {children}

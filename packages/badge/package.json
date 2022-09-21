@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/badge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -47,7 +47,7 @@
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
     "@pikas-ui/icons": "workspace:*",
-    "@pikas-ui/styles": "3.0.7",
+    "@pikas-ui/styles": "3.0.8",
     "font-color-contrast": "^11.1.0"
   },
   "peerDependencies": {
