@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "files": [
+    "eslint-preset-next.js",
     "eslint-preset.js",
     "prettier-preset.js"
   ],
