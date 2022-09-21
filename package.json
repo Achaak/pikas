@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "build:packages": "turbo run build --filter=./packages/*",
     "build:docs": "turbo run build --filter=@pikas-ui/docs...",
-    "clean": "turbo run clean && rm -rf node_modules",
+    "clean": "turbo run clean node_modules",
     "dev": "turbo run dev --parallel",
     "dev:packages": "turbo run dev --parallel --filter=./packages/*",
     "dev:docs": "turbo run dev --parallel --filter=@pikas-ui/docs...",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.24.4",
     "prettier": "^2.7.1",
-    "turbo": "^1.4.7"
+    "turbo": "^1.5.1"
   },
   "engines": {
     "npm": ">=7.0.0",

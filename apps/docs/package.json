@@ -9,7 +9,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,.md}\"",
     "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx}\" --fix",
     "start": "next start",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.1.3",

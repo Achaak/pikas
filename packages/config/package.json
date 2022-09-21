@@ -9,7 +9,7 @@
     "prettier-preset.js"
   ],
   "scripts": {
-    "clean": "rm -rf .turbo && rm -rf node_modules"
+    "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "12.3.1",

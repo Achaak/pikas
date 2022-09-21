@@ -18,8 +18,7 @@ export const Tfoot: React.FC<CustomProps> = (props) => {
         default: {
           backgroundColor: '$PRIMARY',
           color:
-            (theme &&
-              fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
+            (theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
             undefined,
 
           tr: {
