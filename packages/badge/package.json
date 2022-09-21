@@ -2,6 +2,11 @@
   "name": "@pikas-ui/badge",
   "version": "1.0.0",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "badge",
+    "react"
+  ],
   "description": "Components for creating badge",
   "license": "MIT",
   "main": "dist/index.js",

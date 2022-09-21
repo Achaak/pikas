@@ -2,6 +2,11 @@
   "name": "@pikas-ui/title",
   "version": "1.0.8",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "title",
+    "react"
+  ],
   "description": "Components for creating titles",
   "license": "MIT",
   "main": "dist/index.js",

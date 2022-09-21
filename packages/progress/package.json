@@ -2,6 +2,11 @@
   "name": "@pikas-ui/progress",
   "version": "1.0.1",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "progress",
+    "react"
+  ],
   "description": "Components for creating tabs",
   "license": "MIT",
   "main": "dist/index.js",

@@ -2,6 +2,11 @@
   "name": "@pikas-ui/table",
   "version": "3.0.8",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "table",
+    "react"
+  ],
   "description": "Components for creating tables",
   "license": "MIT",
   "main": "dist/index.js",

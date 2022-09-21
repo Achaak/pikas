@@ -2,6 +2,11 @@
   "name": "@pikas-ui/searchbar",
   "version": "3.0.11",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "searchbar",
+    "react"
+  ],
   "description": "Components for creating search bars",
   "license": "MIT",
   "main": "dist/index.js",

@@ -2,6 +2,11 @@
   "name": "@pikas-ui/select",
   "version": "4.0.8",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "select",
+    "react"
+  ],
   "description": "Components for creating select elements",
   "license": "MIT",
   "main": "dist/index.js",

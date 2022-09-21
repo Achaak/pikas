@@ -2,6 +2,11 @@
   "name": "@pikas-ui/alert",
   "version": "3.0.8",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "alert",
+    "react"
+  ],
   "description": "Components for displaying alerts",
   "license": "MIT",
   "main": "dist/index.js",

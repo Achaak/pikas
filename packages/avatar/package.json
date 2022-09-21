@@ -2,6 +2,11 @@
   "name": "@pikas-ui/avatar",
   "version": "2.0.7",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "avatar",
+    "react"
+  ],
   "description": "Components for displaying avatars",
   "license": "MIT",
   "main": "dist/index.js",

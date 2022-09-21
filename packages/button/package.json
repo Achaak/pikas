@@ -2,6 +2,11 @@
   "name": "@pikas-ui/button",
   "version": "3.0.10",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "button",
+    "react"
+  ],
   "description": "Components for creating buttons",
   "license": "MIT",
   "main": "dist/index.js",

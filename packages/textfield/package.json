@@ -2,6 +2,11 @@
   "name": "@pikas-ui/textfield",
   "version": "3.0.8",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "textfield",
+    "react"
+  ],
   "description": "Components for creating text fields",
   "license": "MIT",
   "main": "dist/index.js",

@@ -2,6 +2,11 @@
   "name": "@pikas-ui/checkbox",
   "version": "3.0.7",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "checkbox",
+    "react"
+  ],
   "description": "Components for creating checkboxes",
   "license": "MIT",
   "main": "dist/index.js",

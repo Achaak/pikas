@@ -2,6 +2,11 @@
   "name": "@pikas-ui/switch",
   "version": "2.0.8",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "switch",
+    "react"
+  ],
   "description": "Components for creating a switch",
   "license": "MIT",
   "main": "dist/index.js",

@@ -2,6 +2,11 @@
   "name": "@pikas-ui/tooltip",
   "version": "3.0.7",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "tooltip",
+    "react"
+  ],
   "description": "Components for creating tooltips",
   "license": "MIT",
   "main": "dist/index.js",

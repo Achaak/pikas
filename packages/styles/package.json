@@ -2,6 +2,11 @@
   "name": "@pikas-ui/styles",
   "version": "3.0.7",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "styles",
+    "react"
+  ],
   "description": "Styles for Pikas UI",
   "license": "MIT",
   "main": "dist/index.js",

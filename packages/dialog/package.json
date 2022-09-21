@@ -2,6 +2,11 @@
   "name": "@pikas-ui/dialog",
   "version": "2.0.10",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "dialog",
+    "react"
+  ],
   "description": "Components for creating dialogs",
   "license": "MIT",
   "main": "dist/index.js",

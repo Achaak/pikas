@@ -2,6 +2,11 @@
   "name": "@pikas-ui/dropdown-menu",
   "version": "3.0.7",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "dropdown-menu",
+    "react"
+  ],
   "description": "Components for creating dropdown menus",
   "license": "MIT",
   "main": "dist/index.js",

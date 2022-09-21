@@ -2,6 +2,11 @@
   "name": "@pikas-ui/separator",
   "version": "3.0.7",
   "private": false,
+  "keywords": [
+    "pikas-ui",
+    "separator",
+    "react"
+  ],
   "description": "Components for creating separators",
   "license": "MIT",
   "main": "dist/index.js",
