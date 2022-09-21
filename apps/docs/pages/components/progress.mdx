@@ -1,0 +1,71 @@
+import { ProgressExample } from './../../src/examples/progress'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Progress" />
+
+# @pikas-ui/progress
+
+This package contains a progress component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/progress
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/progress
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/progress
+```
+
+---
+
+## Usage
+
+### Progress
+
+<ProgressExample />
+
+```tsx
+import { Progress } from `@pikas-ui/progress`;
+
+const Example: React.FC = () => {
+  return (
+    <Progress progress={60} />
+  )
+}
+```
+
+#### Props
+
+| Prop                    | Description                                    | Type                                     | Default                                                         |
+| :---------------------- | :--------------------------------------------- | :--------------------------------------- | :-------------------------------------------------------------- |
+| `progress`              | The progress value of the progress.            | `number`                                 | `0`                                                             |
+| `max`                   | The max value of the progress.                 | `number or string`                       | `100`                                                           |
+| `width`                 | The width of the progress.                     | `number or string`                       | `280`                                                           |
+| `height`                | The height of the progress.                    | `number or string`                       | `16`                                                            |
+| `color`                 | The color of the progress.                     | `ColorsType`                             | `"PRIMARY"`                                                     |
+| `backgroundColor`       | The background color of the progress.          | `ColorsType`                             | `"GRAY"`                                                        |
+| `loading`               | The loading state of the progress.             | `boolean`                                | `false`                                                         |
+| `boxShadow`             | The box shadow of the progress.                | `ShadowsType or 'none'`                  | `"DIMINUTION_1"`                                                |
+| `borderRadius`          | The border radius of the progress.             | `BorderRadiusType`                       | `"round"`                                                       |
+| `borderRadiusIndicator` | The border radius of the indicator.            | `BorderRadiusType`                       | `"none"`                                                        |
+| `getValueLabel`         | The function to get the label of the progress. | `(value: number, max: number) => string` | `(value, max): string => Math.round((value / max) * 100) + "%"` |

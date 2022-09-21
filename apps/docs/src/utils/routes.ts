@@ -25,6 +25,7 @@ export const { getLink } = routes({
     tooltip: '/components/tooltip',
     skeleton: '/components/skeleton',
     dialog: '/components/dialog',
+    progress: '/components/progress',
     styles: '/utilities/styles',
     useTheme: '/utilities/useTheme',
   },

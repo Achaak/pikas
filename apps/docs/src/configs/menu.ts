@@ -55,6 +55,10 @@ export const menu: Menu = [
         href: getLink('loader'),
       },
       {
+        label: 'Progress',
+        href: getLink('progress'),
+      },
+      {
         label: 'Searchbar',
         href: getLink('searchbar'),
       },
