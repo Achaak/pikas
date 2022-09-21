@@ -10,6 +10,8 @@ The library is based on [Stitches](https://stitches.dev/).
 
 ## Getting Started
 
+---
+
 ### Installation
 
 With npm:
@@ -33,6 +35,8 @@ pnpm add @pikas-ui/styles
 ---
 
 ## Usage
+
+---
 
 ### globalCss
 
@@ -99,6 +103,8 @@ const App: React.FC = () => {
 }
 ```
 
+---
+
 ### Styling
 
 ```ts
@@ -144,12 +150,20 @@ const themeDark = createTheme({
 
 ## Theme Variables
 
+---
+
 ### BorderRadius
 
 Properties for border radius.
 
-```ts
-;'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'round'
+```bash
+'none'
+'xs'
+'sm'
+'md'
+'lg'
+'xl'
+'round'
 ```
 
 #### Example
@@ -162,32 +176,32 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### FontSize
 
 Properties for font size.
 
-```ts
-;'EM-XXX-SMALL' |
-  'EM-XX-SMALL' |
-  'EM-X-SMALL' |
-  'EM-SMALL' |
-  'EM-MEDIUM' |
-  'EM-LARGE' |
-  'EM-X-LARGE' |
-  'EM-XX-LARGE' |
-  'EM-XXX-LARGE'
-```
+```bash
+'EM-XXX-SMALL'
+'EM-XX-SMALL'
+'EM-X-SMALL'
+'EM-SMALL'
+'EM-MEDIUM'
+'EM-LARGE'
+'EM-X-LARGE'
+'EM-XX-LARGE'
+'EM-XXX-LARGE'
 
-```ts
-;'REM-XXX-SMALL' |
-  'REM-XX-SMALL' |
-  'REM-X-SMALL' |
-  'REM-SMALL' |
-  'REM-MEDIUM' |
-  'REM-LARGE' |
-  'REM-X-LARGE' |
-  'REM-XX-LARGE' |
-  'REM-XXX-LARGE'
+'REM-XXX-SMALL'
+'REM-XX-SMALL'
+'REM-X-SMALL'
+'REM-SMALL'
+'REM-MEDIUM'
+'REM-LARGE'
+'REM-X-LARGE'
+'REM-XX-LARGE'
+'REM-XXX-LARGE'
 ```
 
 #### Example
@@ -200,20 +214,22 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### FontWeight
 
 Properties for font weight.
 
-```ts
-;'THIN' |
-  'EXTRA-LIGHT' |
-  'LIGHT' |
-  'NORMAL' |
-  'MEDIUM' |
-  'SEMI-BOLD' |
-  'BOLD' |
-  'EXTRA-BOLD' |
-  'BLACK'
+```bash
+'THIN'
+'EXTRA-LIGHT'
+'LIGHT'
+'NORMAL'
+'MEDIUM'
+'SEMI-BOLD'
+'BOLD'
+'EXTRA-BOLD'
+'BLACK'
 ```
 
 #### Example
@@ -226,12 +242,20 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### LetterSpacing
 
 Properties for letter spacing.
 
-```ts
-;'XX-SMALL' | 'X-SMALL' | 'SMALL' | 'MEDIUM' | 'LARGE' | 'X-LARGE' | 'XX-LARGE'
+```bash
+'XX-SMALL'
+'X-SMALL'
+'SMALL'
+'MEDIUM'
+'LARGE'
+'X-LARGE'
+'XX-LARGE'
 ```
 
 #### Example
@@ -244,32 +268,32 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### LineHeight
 
 Properties for line height.
 
-```ts
-;'EM-XXX-SMALL' |
-  'EM-XX-SMALL' |
-  'EM-X-SMALL' |
-  'EM-SMALL' |
-  'EM-MEDIUM' |
-  'EM-LARGE' |
-  'EM-X-LARGE' |
-  'EM-XX-LARGE' |
-  'EM-XXX-LARGE'
-```
+```bash
+'EM-XXX-SMALL'
+'EM-XX-SMALL'
+'EM-X-SMALL'
+'EM-SMALL'
+'EM-MEDIUM'
+'EM-LARGE'
+'EM-X-LARGE'
+'EM-XX-LARGE'
+'EM-XXX-LARGE'
 
-```ts
-;'REM-XXX-SMALL' |
-  'REM-XX-SMALL' |
-  'REM-X-SMALL' |
-  'REM-SMALL' |
-  'REM-MEDIUM' |
-  'REM-LARGE' |
-  'REM-X-LARGE' |
-  'REM-XX-LARGE' |
-  'REM-XXX-LARGE'
+'REM-XXX-SMALL'
+'REM-XX-SMALL'
+'REM-X-SMALL'
+'REM-SMALL'
+'REM-MEDIUM'
+'REM-LARGE'
+'REM-X-LARGE'
+'REM-XX-LARGE'
+'REM-XXX-LARGE'
 ```
 
 #### Example
@@ -282,38 +306,37 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### BoxShadow
 
 Properties for box shadow.
 
-```ts
-;'ELEVATION_1' | 'ELEVATION_2' | 'ELEVATION_3' | 'ELEVATION_4'
-```
+```bash
+'ELEVATION_1'
+'ELEVATION_2'
+'ELEVATION_3'
+'ELEVATION_4'
 
-```ts
-;'ELEVATION_TOP_1' |
-  'ELEVATION_TOP_2' |
-  'ELEVATION_TOP_3' |
-  'ELEVATION_TOP_4' |
-  'ELEVATION_TOP_5' |
-  'ELEVATION_TOP_6'
-```
+'ELEVATION_TOP_1'
+'ELEVATION_TOP_2'
+'ELEVATION_TOP_3'
+'ELEVATION_TOP_4'
+'ELEVATION_TOP_5'
+'ELEVATION_TOP_6'
 
-```ts
-;'ELEVATION_BOTTOM_1' |
-  'ELEVATION_BOTTOM_2' |
-  'ELEVATION_BOTTOM_3' |
-  'ELEVATION_BOTTOM_4' |
-  'ELEVATION_BOTTOM_5' |
-  'ELEVATION_BOTTOM_6'
-```
+'ELEVATION_BOTTOM_1'
+'ELEVATION_BOTTOM_2'
+'ELEVATION_BOTTOM_3'
+'ELEVATION_BOTTOM_4'
+'ELEVATION_BOTTOM_5'
+'ELEVATION_BOTTOM_6'
 
-```ts
-;'DIMINUTION_1' |
-  'DIMINUTION_2' |
-  'DIMINUTION_3' |
-  'DIMINUTION_4' |
-  'DIMINUTION_5'
+'DIMINUTION_1'
+'DIMINUTION_2'
+'DIMINUTION_3'
+'DIMINUTION_4'
+'DIMINUTION_5'
 ```
 
 #### Example
@@ -326,20 +349,22 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### Size
 
 Properties for size.
 
-```ts
-;'XXX-SMALL' |
-  'XX-SMALL' |
-  'X-SMALL' |
-  'SMALL' |
-  'MEDIUM' |
-  'LARGE' |
-  'X-LARGE' |
-  'XX-LARGE' |
-  'XXX-LARGE'
+```bash
+'XXX-SMALL'
+'XX-SMALL'
+'X-SMALL'
+'SMALL'
+'MEDIUM'
+'LARGE'
+'X-LARGE'
+'XX-LARGE'
+'XXX-LARGE'
 ```
 
 #### Example
@@ -352,20 +377,22 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### ZIndeces
 
 Properties for z-index.
 
-```ts
-;'XXX-LOW' |
-  'XX-LOW' |
-  'X-LOW' |
-  'LOW' |
-  'MEDIUM' |
-  'HIGH' |
-  'X-HIGH' |
-  'XX-HIGH' |
-  'XXX-HIGH'
+```bash
+'XXX-LOW'
+'XX-LOW'
+'X-LOW'
+'LOW'
+'MEDIUM'
+'HIGH'
+'X-HIGH'
+'XX-HIGH'
+'XXX-HIGH'
 ```
 
 #### Example
@@ -377,6 +404,8 @@ const Div = styled('div', {
   zIndex: '$XXX-LOW',
 })
 ```
+
+---
 
 ### Custom Gap
 
@@ -394,137 +423,139 @@ const Div = styled('div', {
 })
 ```
 
+---
+
 ### Color
 
 Properties for color.
 
 #### Primary
 
-```ts
-;'PRIMARY_DARKER' |
-  'PRIMARY_DARK' |
-  'PRIMARY' |
-  'PRIMARY_LIGHT' |
-  'PRIMARY_LIGHTER' |
-  'PRIMARY_LIGHTEST_2' |
-  'PRIMARY_LIGHTEST_1'
+```bash
+'PRIMARY_DARKER'
+'PRIMARY_DARK'
+'PRIMARY'
+'PRIMARY_LIGHT'
+'PRIMARY_LIGHTER'
+'PRIMARY_LIGHTEST_2'
+'PRIMARY_LIGHTEST_1'
 ```
 
 #### Secondary
 
-```ts
-;'SECONDARY_DARKER' |
-  'SECONDARY_DARK' |
-  'SECONDARY' |
-  'SECONDARY_LIGHT' |
-  'SECONDARY_LIGHTER' |
-  'SECONDARY_LIGHTEST_2' |
-  'SECONDARY_LIGHTEST_1'
+```bash
+'SECONDARY_DARKER'
+'SECONDARY_DARK'
+'SECONDARY'
+'SECONDARY_LIGHT'
+'SECONDARY_LIGHTER'
+'SECONDARY_LIGHTEST_2'
+'SECONDARY_LIGHTEST_1'
 ```
 
 #### Tertiary
 
-```ts
-;'TERTIARY_DARKER' |
-  'TERTIARY_DARK' |
-  'TERTIARY' |
-  'TERTIARY_LIGHT' |
-  'TERTIARY_LIGHTER' |
-  'TERTIARY_LIGHTEST_2' |
-  'TERTIARY_LIGHTEST_1'
+```bash
+'TERTIARY_DARKER'
+'TERTIARY_DARK'
+'TERTIARY'
+'TERTIARY_LIGHT'
+'TERTIARY_LIGHTER'
+'TERTIARY_LIGHTEST_2'
+'TERTIARY_LIGHTEST_1'
 ```
 
 #### Black
 
-```ts
-;'BLACK' |
-  'BLACK_LIGHT' |
-  'BLACK_LIGHTER' |
-  'BLACK_LIGHTEST_2' |
-  'BLACK_LIGHTEST_1'
+```bash
+'BLACK'
+'BLACK_LIGHT'
+'BLACK_LIGHTER'
+'BLACK_LIGHTEST_2'
+'BLACK_LIGHTEST_1'
 ```
 
 #### Black fix
 
-```ts
-;'BLACK_FIX' |
-  'BLACK_FIX_LIGHT' |
-  'BLACK_FIX_LIGHTER' |
-  'BLACK_FIX_LIGHTEST_2' |
-  'BLACK_FIX_LIGHTEST_1'
+```bash
+'BLACK_FIX'
+'BLACK_FIX_LIGHT'
+'BLACK_FIX_LIGHTER'
+'BLACK_FIX_LIGHTEST_2'
+'BLACK_FIX_LIGHTEST_1'
 ```
 
 #### White
 
-```ts
-;'WHITE' |
-  'WHITE_LIGHT' |
-  'WHITE_LIGHTER' |
-  'WHITE_LIGHTEST_2' |
-  'WHITE_LIGHTEST_1'
+```bash
+'WHITE'
+'WHITE_LIGHT'
+'WHITE_LIGHTER'
+'WHITE_LIGHTEST_2'
+'WHITE_LIGHTEST_1'
 ```
 
 #### White fix
 
-```ts
-;'WHITE_FIX' |
-  'WHITE_FIX_LIGHT' |
-  'WHITE_FIX_LIGHTER' |
-  'WHITE_FIX_LIGHTEST_2' |
-  'WHITE_FIX_LIGHTEST_1'
+```bash
+'WHITE_FIX'
+'WHITE_FIX_LIGHT'
+'WHITE_FIX_LIGHTER'
+'WHITE_FIX_LIGHTEST_2'
+'WHITE_FIX_LIGHTEST_1'
 ```
 
 #### Gray
 
-```ts
-;'GRAY_DARKER' |
-  'GRAY_DARK' |
-  'GRAY' |
-  'GRAY_LIGHT' |
-  'GRAY_LIGHTER' |
-  'GRAY_LIGHTEST_2' |
-  'GRAY_LIGHTEST_1'
+```bash
+'GRAY_DARKER'
+'GRAY_DARK'
+'GRAY'
+'GRAY_LIGHT'
+'GRAY_LIGHTER'
+'GRAY_LIGHTEST_2'
+'GRAY_LIGHTEST_1'
 ```
 
 #### Success
 
-```ts
-;'SUCCESS_DARKER' |
-  'SUCCESS_DARK' |
-  'SUCCESS' |
-  'SUCCESS_LIGHT' |
-  'SUCCESS_LIGHTER' |
-  'SUCCESS_LIGHTEST_2' |
-  'SUCCESS_LIGHTEST_1'
+```bash
+'SUCCESS_DARKER'
+'SUCCESS_DARK'
+'SUCCESS'
+'SUCCESS_LIGHT'
+'SUCCESS_LIGHTER'
+'SUCCESS_LIGHTEST_2'
+'SUCCESS_LIGHTEST_1'
 ```
 
 #### Warning
 
-```ts
-;'WARNING_DARKER' |
-  'WARNING_DARK' |
-  'WARNING' |
-  'WARNING_LIGHT' |
-  'WARNING_LIGHTER' |
-  'WARNING_LIGHTEST_2' |
-  'WARNING_LIGHTEST_1'
+```bash
+'WARNING_DARKER'
+'WARNING_DARK'
+'WARNING'
+'WARNING_LIGHT'
+'WARNING_LIGHTER'
+'WARNING_LIGHTEST_2'
+'WARNING_LIGHTEST_1'
 ```
 
 #### Danger
 
-```ts
-;'DANGER_DARKER' |
-  'DANGER_DARK' |
-  'DANGER' |
-  'DANGER_LIGHT' |
-  'DANGER_LIGHTER' |
-  'DANGER_LIGHTEST_2' |
-  'DANGER_LIGHTEST_1'
+```bash
+'DANGER_DARKER'
+'DANGER_DARK'
+'DANGER'
+'DANGER_LIGHT'
+'DANGER_LIGHTER'
+'DANGER_LIGHTEST_2'
+'DANGER_LIGHTEST_1'
 ```
 
 #### Other
 
-```ts
+```bash
 'TRANSPARENT' | 'BACKGROUND'
 ```
 
@@ -541,6 +572,8 @@ const Div = styled('div', {
   borderStyle: 'solid',
 })
 ```
+
+---
 
 ### Change Log
 

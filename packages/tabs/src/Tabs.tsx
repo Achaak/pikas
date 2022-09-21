@@ -169,6 +169,7 @@ export interface TabsCSSType {
   triggerList?: CSS
   endTrigger?: CSS
   startTrigger?: CSS
+  trigger?: CSS
 }
 
 export interface TabsPaddingType {
@@ -231,7 +232,10 @@ export const Tabs = <T extends string>({
             <Trigger
               value={item.id}
               disabled={item.disabled}
-              css={item?.css?.trigger}
+              css={{
+                ...css?.trigger,
+                ...item.css?.trigger,
+              }}
               padding={padding?.trigger}
             >
               {item.trigger}

@@ -69,3 +69,5 @@ const Example: React.FC = () => {
 | `borderRadius`          | The border radius of the progress.             | `BorderRadiusType`                       | `"round"`                                                       |
 | `borderRadiusIndicator` | The border radius of the indicator.            | `BorderRadiusType`                       | `"none"`                                                        |
 | `getValueLabel`         | The function to get the label of the progress. | `(value: number, max: number) => string` | `(value, max): string => Math.round((value / max) * 100) + "%"` |
+| `css`                   | The css of the progress.                       | `ProgressCSSType`                        | `undefined`                                                     |
+| `content`               | The content of the progress.                   | `string`                                 | `undefined`                                                     |

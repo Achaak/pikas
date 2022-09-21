@@ -1,5 +1,11 @@
 # @pikas-ui/alert
 
+## 3.0.8
+
+### Patch Changes
+
+- Fix color
+
 ## 3.0.7
 
 ### Patch Changes

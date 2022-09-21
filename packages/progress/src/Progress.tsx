@@ -2,11 +2,14 @@ import type {
   BorderRadiusType,
   ColorsType,
   ShadowsType,
+  CSS,
 } from '@pikas-ui/styles'
+import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Skeleton } from '@pikas-ui/skeleton'
 import React from 'react'
 import * as ProgressPrimitive from '@radix-ui/react-progress'
+import fontColorContrast from 'font-color-contrast'
 
 const Root = styled(ProgressPrimitive.Root, {
   position: 'relative',
@@ -27,7 +30,8 @@ const Root = styled(ProgressPrimitive.Root, {
     pointerEvents: 'none',
   },
 })
-const Content = styled('div', {
+
+const ProgressContent = styled('div', {
   position: 'absolute',
   left: 0,
   right: 0,
@@ -42,6 +46,29 @@ const ProgressIndicator = styled(ProgressPrimitive.Indicator, {
   transition: 'transform 660ms cubic-bezier(0.65, 0, 0.35, 1)',
 })
 
+const Content = styled('span', {
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: '$WHITE',
+  transition: '660ms cubic-bezier(0.65, 0, 0.35, 1)',
+})
+
+const ContentBack = styled(Content, {})
+
+const ContentFront = styled(Content, {})
+
+export interface ProgressCSSType {
+  container?: CSS
+  content?: CSS
+  indicator?: CSS
+}
+
 export interface ProgressProps {
   progress: number
   max?: number
@@ -54,6 +81,8 @@ export interface ProgressProps {
   borderRadius?: BorderRadiusType
   borderRadiusIndicator?: BorderRadiusType
   getValueLabel?: (value: number, max: number) => string
+  content?: string
+  css?: ProgressCSSType
 }
 
 export const Progress: React.FC<ProgressProps> = ({
@@ -68,7 +97,11 @@ export const Progress: React.FC<ProgressProps> = ({
   borderRadius,
   borderRadiusIndicator,
   getValueLabel,
+  content,
+  css,
 }) => {
+  const theme = useTheme()
+
   return (
     <Root
       value={progress}
@@ -83,10 +116,12 @@ export const Progress: React.FC<ProgressProps> = ({
           br: borderRadius,
           boxShadow: `$${boxShadow}`,
         },
+
+        ...css?.container,
       }}
       getValueLabel={getValueLabel}
     >
-      <Content
+      <ProgressContent
         css={{
           br: borderRadius,
         }}
@@ -96,13 +131,46 @@ export const Progress: React.FC<ProgressProps> = ({
         ) : (
           <ProgressIndicator
             css={{
-              transform: `translateX(-${100 - progress}%)`,
+              transform: `translateX(-${
+                100 - Math.round((progress / (max || 100)) * 100)
+              }%)`,
               backgroundColor: `$${color}`,
               br: borderRadiusIndicator,
+
+              ...css?.indicator,
             }}
           />
         )}
-      </Content>
+        <ContentBack
+          css={{
+            ...css?.content,
+            clipPath: `inset(0 ${
+              100 - Math.round((progress / (max || 100)) * 100)
+            }% 0 0)`,
+            color:
+              theme &&
+              fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7),
+          }}
+        >
+          {content}
+        </ContentBack>
+        <ContentFront
+          css={{
+            ...css?.content,
+            clipPath: `inset(0 0 0 ${Math.round(
+              (progress / (max || 100)) * 100
+            )}%)`,
+            color:
+              theme &&
+              fontColorContrast(
+                theme.colors[backgroundColor || 'GRAY'].value,
+                0.7
+              ),
+          }}
+        >
+          {content}
+        </ContentFront>
+      </ProgressContent>
     </Root>
   )
 }

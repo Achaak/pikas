@@ -77,6 +77,7 @@ export interface CustomAlertProps extends DefaultAlertProps {
   Icon?: React.FC<IconProps>
   backgroundColor?: ColorsType
   color?: ColorsType
+  colorHex?: string
 }
 
 export const CustomAlert: React.FC<CustomAlertProps> = ({
@@ -84,6 +85,7 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
   Icon,
   backgroundColor,
   color,
+  colorHex,
   fontSize,
   borderRadius,
   iconSize,
@@ -100,7 +102,7 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
         padding={padding}
         css={{
           backgroundColor: `$${backgroundColor}`,
-          color: `$${color}`,
+          color: colorHex || `$${color}`,
           fontSize: `$${fontSize}`,
           fontWeight: `$${fontWeight}`,
           br: borderRadius,
