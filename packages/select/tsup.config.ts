@@ -6,7 +6,6 @@ export default defineConfig((options) => {
     entry: ['src'],
     splitting: true,
     sourcemap: true,
-    clean: true,
     dts: true,
     external: ['react', 'react-dom'],
     format: ['cjs', 'esm'],
