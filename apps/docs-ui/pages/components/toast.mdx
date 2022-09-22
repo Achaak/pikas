@@ -1,0 +1,82 @@
+import { ToastExample } from './../../src/examples/toast/toast'
+import { CustomToastExample } from './../../src/examples/toast/customToast'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Toast" />
+
+# @pikas-ui/toast
+
+This package contains a toast component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/toast
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/toast
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/toast
+```
+
+---
+
+## Usage
+
+### Toast
+
+<ToastExample />
+
+```tsx
+import { Toast } from `@pikas-ui/toast`;
+
+const Example: React.FC = () => {
+  return (
+    <Toast />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
+
+---
+
+### CustomToast
+
+<CustomToastExample />
+
+```tsx
+import { CustomToast } from `@pikas-ui/toast`;
+
+const Example: React.FC = () => {
+  return (
+    <CustomToast />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
