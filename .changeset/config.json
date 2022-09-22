@@ -6,6 +6,6 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@pikas-ui/docs-ui", "@pikas-ui/docs-utils"],
+  "ignore": ["@pikas-ui/docs", "@pikas-utils/docs"],
   "linked": []
 }
