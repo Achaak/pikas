@@ -46,9 +46,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas-ui#readme",
   "dependencies": {
+    "@pikas-ui/button": "workspace:^3.0.11",
     "@pikas-ui/icons": "3.0.8",
     "@pikas-ui/styles": "3.0.8",
-    "@radix-ui/react-toast": "^1.0.0"
+    "@radix-ui/react-toast": "^1.0.0",
+    "usehooks-ts": "^2.7.0"
   },
   "peerDependencies": {
     "react": "18.2.0",

@@ -1,30 +1,21 @@
-import type { CustomToastRef } from '@pikas-ui/toast'
-import { CustomToast } from '@pikas-ui/toast'
+import type { CustomToastPositionType } from '@pikas-ui/toast'
+import { CustomToastPosition } from '@pikas-ui/toast'
 import { ExampleContainer } from '@/components/ExampleContainer'
-import { Button } from '@pikas-ui/button'
-import { useRef } from 'react'
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-
-const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
+import { CustomToastItem } from './customToastItem'
 
 export const CustomToastExample: React.FC = () => {
-  const toastRef = useRef<CustomToastRef>(null)
-
   return (
     <ExampleContainer>
-      <CustomToast
-        ref={toastRef}
-        title="This is a title"
-        description="Cillum id cupidatat nisi aliquip nostrud consequat nostrud incididunt."
-        Icon={IconExample}
-      />
-
-      <Button width="auto" onClick={(): void => toastRef.current?.open()}>
-        Click here
-      </Button>
+      {Object.keys(CustomToastPosition).map(
+        (position: CustomToastPositionType) => (
+          <CustomToastItem position={position} />
+        )
+      )}
+      {Object.keys(CustomToastPosition).map(
+        (position: CustomToastPositionType) => (
+          <CustomToastItem position={position} />
+        )
+      )}
     </ExampleContainer>
   )
 }
