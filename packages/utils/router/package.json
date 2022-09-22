@@ -1,0 +1,57 @@
+{
+  "name": "@pikas-utils/router",
+  "version": "1.0.1",
+  "private": false,
+  "keywords": [
+    "pikas-utils",
+    "router"
+  ],
+  "description": "Create a router for your application",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "lint": "cross-env TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo node_modules dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Achaak/pikas-utils.git"
+  },
+  "author": {
+    "name": "Axel Lavoie",
+    "email": "axel.lavoie@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Achaak/pikas-utils/issues"
+  },
+  "homepage": "https://github.com/Achaak/pikas-utils#readme",
+  "devDependencies": {
+    "@pikas/tsconfig": "workspace:*",
+    "@pikas/tsconfig": "workspace:*",
+    "@types/node": "^18.7.18",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.23.1",
+    "tsup": "^6.2.3",
+    "typescript": "4.8.3"
+  },
+  "node": "12.20.0 || 14.13.1 || >=16.0.0"
+}

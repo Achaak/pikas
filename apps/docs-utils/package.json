@@ -1,0 +1,48 @@
+{
+  "name": "@pikas-utils/docs-utils",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "analyze": "ANALYZE=true yarn build",
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write \"**/*.{ts,tsx,.md}\"",
+    "lint": "cross-env TIMING=1 eslint \"./**/*.{ts,tsx}\" --fix",
+    "start": "next start",
+    "clean": "rm -rf .turbo node_modules dist"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^2.1.3",
+    "@mdx-js/react": "^2.1.3",
+    "@next/mdx": "^12.3.1",
+    "@pikas-ui/button": "^3.0.11",
+    "@pikas-ui/icons": "^3.0.8",
+    "@pikas-ui/styles": "^3.0.8",
+    "@pikas-ui/switch": "^2.0.9",
+    "@pikas-utils/router": "^1.0.1",
+    "next": "12.3.1",
+    "next-seo": "^5.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remark-gfm": "^3.0.1",
+    "remark-prism": "^1.3.6"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "12.3.1",
+    "@pikas/tsconfig": "workspace:*",
+    "@pikas/tsconfig": "workspace:*",
+    "@types/node": "^18.7.18",
+    "@types/react": "18.0.20",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.23.1",
+    "eslint-config-next": "^12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^9.0.0",
+    "prettier": "^2.6.2",
+    "typescript": "4.8.3"
+  }
+}

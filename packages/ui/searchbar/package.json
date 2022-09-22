@@ -1,0 +1,73 @@
+{
+  "name": "@pikas-ui/searchbar",
+  "version": "3.0.12",
+  "private": false,
+  "keywords": [
+    "pikas-ui",
+    "searchbar",
+    "react"
+  ],
+  "description": "Components for creating search bars",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "lint": "cross-env TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo node_modules dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Achaak/pikas-ui.git"
+  },
+  "author": {
+    "name": "Axel Lavoie",
+    "email": "axel.lavoie@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Achaak/pikas-ui/issues"
+  },
+  "homepage": "https://github.com/Achaak/pikas-ui#readme",
+  "dependencies": {
+    "@pikas-ui/button": "3.0.11",
+    "@pikas-ui/icons": "3.0.8",
+    "@pikas-ui/loader": "3.0.8",
+    "@pikas-ui/separator": "3.0.8",
+    "@pikas-ui/styles": "3.0.8",
+    "@pikas-ui/textfield": "3.0.9",
+    "usehooks-ts": "^2.7.0"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@pikas/config": "workspace:*",
+    "@pikas/tsconfig": "workspace:*",
+    "@types/node": "^18.7.18",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.23.1",
+    "tsup": "^6.2.3",
+    "typescript": "4.8.3"
+  },
+  "node": "12.20.0 || 14.13.1 || >=16.0.0"
+}
