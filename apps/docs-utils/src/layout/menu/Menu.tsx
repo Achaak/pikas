@@ -68,10 +68,6 @@ const Item = styled('li', {
   display: 'flex',
   alignItems: 'center',
 
-  '&:hover': {
-    backgroundColor: '$PRIMARY_LIGHTEST_2',
-  },
-
   a: {
     width: '100%',
     color: '$BLACK',
@@ -86,6 +82,21 @@ const Item = styled('li', {
     selected: {
       true: {
         backgroundColor: '$PRIMARY_LIGHTEST_2',
+      },
+    },
+    disabled: {
+      true: {
+        opacity: 0.5,
+        cursor: 'not-allowed',
+
+        a: {
+          pointerEvents: 'none',
+        },
+      },
+      false: {
+        '&:hover': {
+          backgroundColor: '$PRIMARY_LIGHTEST_2',
+        },
       },
     },
   },
@@ -134,11 +145,12 @@ export const Menu: React.FC = () => {
         {menu.map((group) => (
           <Group key={group.label}>
             <H3>{group.label}</H3>
-            {group.items.map((item) => (
+            {group.items.map((item, itemKey) => (
               <Item
-                key={item.label}
+                key={itemKey}
                 selected={pathname === item.href}
                 onClick={(): void => setIsOpen(false)}
+                disabled={item.disabled || false}
               >
                 <Link href={item.href} passHref>
                   <a>{item.label}</a>

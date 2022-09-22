@@ -51,6 +51,11 @@ export const menu: Menu = [
         href: getLink('dropdownMenu'),
       },
       {
+        label: 'File Input (Coming soon)',
+        href: getLink('fileInput'),
+        disabled: true,
+      },
+      {
         label: 'Icons',
         href: getLink('icons'),
       },
@@ -110,12 +115,27 @@ export const menu: Menu = [
         href: getLink('textfield'),
       },
       {
+        label: 'Textfield Multiple (Coming soon)',
+        href: getLink('textfieldMultiple'),
+        disabled: true,
+      },
+      {
         label: 'Title',
         href: getLink('title'),
       },
       {
+        label: 'Toast (Coming soon)',
+        href: getLink('toast'),
+        disabled: true,
+      },
+      {
         label: 'Tooltip',
         href: getLink('tooltip'),
+      },
+      {
+        label: 'Radio (Coming soon)',
+        href: getLink('radio'),
+        disabled: true,
       },
     ],
   },

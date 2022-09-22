@@ -1,6 +1,7 @@
 type Items = {
   label: string
   href: string
+  disabled?: boolean
 }
 
 type GroupeItem = {

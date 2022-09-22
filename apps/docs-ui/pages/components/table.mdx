@@ -1,4 +1,5 @@
 import { DefaultTableExample } from './../../src/examples/table/default'
+import { LightTableExample } from './../../src/examples/table/light'
 import { getLink } from './../../src/utils/routes'
 import { NextSeo } from 'next-seo'
 
@@ -42,6 +43,96 @@ pnpm add @pikas-ui/table
 
 ### Table
 
+#### Default
+
 <DefaultTableExample />
 
-TODO
+#### Light
+
+<LightTableExample />
+
+```tsx
+import { Table } from `@pikas-ui/table`
+
+const data = [
+  {
+    firstName: 'tanner',
+    lastName: 'linsley',
+    age: 24,
+    email: 'tanner@email.com',
+    number: 1234567890,
+  },
+  {
+    firstName: 'tandy',
+    lastName: 'miller',
+    age: 40,
+    email: 'tandy@email.com',
+    number: 1234567890,
+  },
+  {
+    firstName: 'joe',
+    lastName: 'dirte',
+    age: 45,
+    email: 'joe@email.com',
+    number: 1234567890,
+  },
+]
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      emptyMessage="No data found"
+      columns={[
+        {
+          header: 'Age',
+          accessorKey: 'age',
+          cell: (props) => props.getValue<string>(),
+        },
+        {
+          header: 'Name',
+          columns: [
+            {
+              header: 'First Name',
+              accessorKey: 'firstName',
+            },
+            {
+              header: 'Last Name',
+              accessorKey: 'lastName',
+            },
+          ],
+        },
+        {
+          header: 'Data',
+          columns: [
+            {
+              header: 'Email',
+              accessorKey: 'email',
+            },
+            {
+              header: 'Number',
+              accessorKey: 'number',
+            },
+          ],
+        },
+      ]}
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop           | Description                                 | Type                   | Default     |
+| :------------- | :------------------------------------------ | :--------------------- | :---------- |
+| `variant`      | The variant of the table                    | `TableVariantType`     | `'default'` |
+| `data`         | The data of the table                       | `T[]`                  | -           |
+| `emptyMessage` | The message to show when the table is empty | `React.ReactNode`      | -           |
+| `hasTfoot`     | If the table has a tfoot                    | `boolean`              | `false`     |
+| `pagination`   | The pagination of the table                 | `TablePaginationProps` | -           |
+| `selection`    | The selection of the table                  | `TableSelectionType`   | -           |
+| `sorting`      | The sorting of the table                    | `TableSortingType`     | -           |
+| `columns`      | The columns of the table                    | `ColumnDef<T>[]`       | -           |
+| `css`          | The css of the table                        | `TableCSSTypes`        | -           |
+| `padding`      | The padding of the table                    | `TablePaddingType`     | -           |
+| `hoverEffect`  | If the table has a hover effect             | `boolean`              | `true`      |

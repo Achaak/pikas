@@ -2,10 +2,11 @@ import { ExampleContainer } from '@/components/ExampleContainer'
 import { Table } from '@pikas-ui/table'
 import { dataTable } from '../data'
 
-export const DefaultTableExample: React.FC = () => {
+export const LightTableExample: React.FC = () => {
   return (
     <ExampleContainer>
       <Table
+        variant="light"
         data={dataTable}
         emptyMessage="No data found"
         columns={[

@@ -147,33 +147,41 @@ export interface TableCSSTypes {
   td?: CSS
 }
 
+export interface TablePaginationProps {
+  active: boolean
+  state?: PaginationState
+  onPaginationChange?: OnChangeFn<PaginationState>
+  selectValue?: number[]
+}
+
+export interface TableSelectionType {
+  active: boolean
+  defaultState?: RowSelectionState
+  onRowSelectionChange?: OnChangeFn<RowSelectionState>
+}
+
+export interface TableSortingType {
+  active: boolean
+  state?: SortingState
+  onSortingChange?: OnChangeFn<SortingState>
+}
+
+export interface TablePaddingType {
+  th?: 'sm' | 'md' | 'lg'
+  td?: 'sm' | 'md' | 'lg'
+}
+
 export interface TableProps<T extends Record<string, unknown>> {
   variant?: TableVariantType
   data: T[]
   emptyMessage?: React.ReactNode
   hasTfoot?: boolean
-  pagination?: {
-    active: boolean
-    state?: PaginationState
-    onPaginationChange?: OnChangeFn<PaginationState>
-    selectValue?: number[]
-  }
-  selection?: {
-    active: boolean
-    defaultState?: RowSelectionState
-    onRowSelectionChange?: OnChangeFn<RowSelectionState>
-  }
-  sorting?: {
-    active: boolean
-    state?: SortingState
-    onSortingChange?: OnChangeFn<SortingState>
-  }
+  pagination?: TablePaginationProps
+  selection?: TableSelectionType
+  sorting?: TableSortingType
   columns: ColumnDef<T>[]
   css?: TableCSSTypes
-  padding?: {
-    th?: 'sm' | 'md' | 'lg'
-    td?: 'sm' | 'md' | 'lg'
-  }
+  padding?: TablePaddingType
   hoverEffect?: boolean
 }
 
@@ -494,5 +502,6 @@ Table.defaultProps = {
     th: 'md',
     td: 'md',
   },
+  pagination: false,
   hoverEffect: true,
 }
