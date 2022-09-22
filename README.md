@@ -23,8 +23,6 @@ The library uses [Stitches](https://stitches.dev/) for styling and [Radix](https
 
 [Documentation](https://pikas-ui.vercel.app)
 
----
-
 ## Pikas Utils
 
 Pikas Utils is an open source library that contains a collection of utilities.
@@ -33,12 +31,8 @@ The library is written in [TypeScript](https://www.typescriptlang.org/).
 
 [Documentation](https://pikas-utils.vercel.app)
 
----
-
 ## License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
-
----
 
 ## Contact
 Axel Lavoie - [@Axel_Lve](https://twitter.com/Axel_Lve) - [axel.lavoie@gmail.com](axel.lavoie@gmail.com).
