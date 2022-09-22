@@ -6,7 +6,6 @@ Pikas is an open source project that aims to provide a simple and easy to use to
 
 <div align="center"> 
 
-  [![GitHub latest commit](https://badgen.net/github/last-commit/Achaak/pikas)](https://github.com/Achaak/pikas/commit/)
   [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Achaak/pikas/graphs/commit-activity)
   [![GitHub license](https://img.shields.io/github/license/Achaak/pikas)](https://github.com/Achaak/pikas/blob/master/LICENSE)
 
