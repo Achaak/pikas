@@ -9,7 +9,8 @@
   "scripts": {
     "build": "turbo run build",
     "build:packages": "turbo run build --filter=./packages/*",
-    "build:docs": "turbo run build --filter=@pikas-ui/docs...",
+    "build:docs-ui": "turbo run build --filter=@pikas-ui/docs-ui...",
+    "build:docs-utils": "turbo run build --filter=@pikas-ui/docs-utils...",
     "clean": "turbo run clean node_modules",
     "dev": "turbo run dev --parallel",
     "dev:packages": "turbo run dev --parallel --filter=./packages/*",
