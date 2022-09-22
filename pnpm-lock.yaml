@@ -130,6 +130,7 @@ importers:
       '@pikas-ui/styles': ^3.0.8
       '@pikas-ui/switch': ^2.0.9
       '@pikas-utils/router': ^1.0.1
+      '@pikas/config': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': ^18.7.18
       '@types/react': 18.0.20
@@ -167,6 +168,7 @@ importers:
       remark-prism: 1.3.6
     devDependencies:
       '@next/eslint-plugin-next': 12.3.1
+      '@pikas/config': link:../../packages/config
       '@pikas/tsconfig': link:../../packages/tsconfig
       '@types/node': 18.7.18
       '@types/react': 18.0.20
@@ -1023,6 +1025,7 @@ importers:
 
   packages/utils/router:
     specifiers:
+      '@pikas/config': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': ^18.7.18
       cross-env: ^7.0.3
@@ -1030,6 +1033,7 @@ importers:
       tsup: ^6.2.3
       typescript: 4.8.3
     devDependencies:
+      '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
       '@types/node': 18.7.18
       cross-env: 7.0.3

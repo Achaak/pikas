@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas-utils#readme",
   "devDependencies": {
-    "@pikas/tsconfig": "workspace:*",
+    "@pikas/config": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
     "@types/node": "^18.7.18",
     "cross-env": "^7.0.3",

@@ -1,1 +1,1 @@
-module.exports = require('@pikas/tsconfig/prettier-preset')
+module.exports = require('@pikas/config/prettier-preset')

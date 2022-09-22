@@ -1,1 +1,1 @@
-module.exports = require("@pikas/tsconfig/eslint-preset-next");
+module.exports = require("@pikas/config/eslint-preset-next");
