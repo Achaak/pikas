@@ -1,5 +1,5 @@
 {
-  "name": "@pikas-utils/docs-utils",
+  "name": "@pikas-utils/docs",
   "version": "1.0.0",
   "private": true,
   "scripts": {
