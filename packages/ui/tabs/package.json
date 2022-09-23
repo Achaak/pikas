@@ -35,16 +35,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Achaak/pikas-ui.git"
+    "url": "git+https://github.com/Achaak/pikas.git"
   },
   "author": {
     "name": "Axel Lavoie",
     "email": "axel.lavoie@gmail.com"
   },
   "bugs": {
-    "url": "https://github.com/Achaak/pikas-ui/issues"
+    "url": "https://github.com/Achaak/pikas/issues"
   },
-  "homepage": "https://github.com/Achaak/pikas-ui#readme",
+  "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
     "@pikas-ui/styles": "3.0.8",
     "@radix-ui/react-tabs": "^1.0.0"

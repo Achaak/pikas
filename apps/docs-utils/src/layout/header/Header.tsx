@@ -91,10 +91,10 @@ export const Header: React.FC = () => {
           <Link href={getLink('introduction')} passHref>
             <NavItem>Documentation</NavItem>
           </Link>
-          <Link href="https://github.com/Achaak/pikas-ui/releases" passHref>
+          <Link href="https://github.com/Achaak/pikas/releases" passHref>
             <NavItem>Releases</NavItem>
           </Link>
-          <Link href="https://github.com/Achaak/pikas-ui" passHref>
+          <Link href="https://github.com/Achaak/pikas" passHref>
             <NavItem>
               <IconByName
                 name="ant-design:github-filled"
