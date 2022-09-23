@@ -1,5 +1,11 @@
 # @pikas-ui/toast
 
+## 1.0.2
+
+### Patch Changes
+
+- Update style
+
 ## 1.0.1
 
 ### Patch Changes

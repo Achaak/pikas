@@ -5,7 +5,7 @@ import { getCssText } from '@pikas-ui/styles'
 class MyDocument extends Document {
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link

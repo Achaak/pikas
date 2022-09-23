@@ -11,7 +11,6 @@ const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'start',
-  overflow: 'auto',
   position: 'fixed',
   backgroundColor: '$WHITE',
   top: '$10',
@@ -31,6 +30,7 @@ const Container = styled('div', {
     padding: '16px 0',
     bottom: 0,
     height: 'auto',
+    overflow: 'auto',
   },
 
   variants: {
@@ -38,6 +38,7 @@ const Container = styled('div', {
       true: {
         bottom: 0,
         height: 'auto',
+        overflow: 'auto',
       },
     },
   },

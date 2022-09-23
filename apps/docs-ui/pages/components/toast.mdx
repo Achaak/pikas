@@ -87,7 +87,7 @@ const Parent: React.FC = () => {
 | `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
 | `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
 | `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
-| `type`            | Type of the custom toast                          | `ToastType`                      | `'foreground'` |
+| `type`            | Type of the custom toast                          | `ToastType`                      | `"foreground"` |
 | `onEscapeKeyDown` | Callback when the custom toast is escape key down | `(event: KeyboardEvent) => void` | -              |
 | `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
@@ -97,7 +97,10 @@ const Parent: React.FC = () => {
 | `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |
 | `title`           | Title of the custom toast                         | `string`                         | -              |
 | `description`     | Description of the custom toast                   | `string`                         | -              |
-| `variant`         | Variant of the custom toast                       | `ToastVariant`                   | `'info'`       |
+| `variant`         | Variant of the custom toast                       | `ToastVariant`                   | `"info"`       |
+| `width`           | Width of the custom toast                         | `number or string`               | `"auto"`       |
+| `maxWidth`        | Max width of the custom toast                     | `number or string`               | `"100%"`       |
+| `height`          | Height of the custom toast                        | `number or string`               | `"auto"`       |
 
 ---
 
@@ -152,7 +155,7 @@ const Parent: React.FC = () => {
 | `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
 | `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
 | `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
-| `type`            | Type of the custom toast                          | `ToastType`                      | `'foreground'` |
+| `type`            | Type of the custom toast                          | `ToastType`                      | `"foreground"` |
 | `onEscapeKeyDown` | Callback when the custom toast is escape key down | `(event: KeyboardEvent) => void` | -              |
 | `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
@@ -163,6 +166,9 @@ const Parent: React.FC = () => {
 | `title`           | Title of the custom toast                         | `string`                         | -              |
 | `description`     | Description of the custom toast                   | `string`                         | -              |
 | `Icon`            | Icon of the custom toast                          | `React.FC<IconProps>`            | -              |
+| `width`           | Width of the custom toast                         | `number or string`               | `"auto"`       |
+| `maxWidth`        | Max width of the custom toast                     | `number or string`               | `"100%"`       |
+| `height`          | Height of the custom toast                        | `number or string`               | `"auto"`       |
 
 ---
 
@@ -209,7 +215,7 @@ const Parent: React.FC = () => {
 | `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
 | `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
 | `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
-| `type`            | Type of the custom toast                          | `ToastType`                      | `'foreground'` |
+| `type`            | Type of the custom toast                          | `ToastType`                      | `"foreground"` |
 | `onEscapeKeyDown` | Callback when the custom toast is escape key down | `(event: KeyboardEvent) => void` | -              |
 | `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
@@ -217,3 +223,6 @@ const Parent: React.FC = () => {
 | `forceMount`      | Force mount the custom toast                      | `boolean`                        | -              |
 | `hasCloseButton`  | Has close button the custom toast                 | `boolean`                        | -              |
 | `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |
+| `width`           | Width of the custom toast                         | `number or string`               | `"auto"`       |
+| `maxWidth`        | Max width of the custom toast                     | `number or string`               | `"100%"`       |
+| `height`          | Height of the custom toast                        | `number or string`               | `"auto"`       |

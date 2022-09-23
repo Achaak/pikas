@@ -1,5 +1,11 @@
 # @pikas-ui/switch
 
+## 2.1.1
+
+### Patch Changes
+
+- Add HTML button props
+
 ## 2.1.0
 
 ### Minor Changes

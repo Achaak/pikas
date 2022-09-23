@@ -29,6 +29,9 @@ export interface ToastProps {
   forceMount?: boolean
   hasCloseButton?: boolean
   timer?: boolean
+  width?: number | string
+  maxWidth?: number | string
+  minWidth?: number | string
 }
 
 export const ToastPosition = {

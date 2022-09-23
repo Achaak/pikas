@@ -74,6 +74,8 @@ export const Header: React.FC = () => {
             checked: BxsMoon,
             unchecked: BxsSun,
           }}
+          aria-label={isDarkMode ? 'dark mode' : 'light mode'}
+          id="dark-mode-switch"
         />
       )
     }

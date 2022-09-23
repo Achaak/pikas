@@ -12,10 +12,11 @@ import { CustomToast } from '../customToast/CustomToast.js'
 const Content = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'center',
+  customRowGap: 8,
 })
 
 const Title = styled(ToastPrimitive.Title, {
-  marginBottom: 5,
   fontWeight: '$BOLD',
   color: '$BLACK',
   fontSize: '$EM-MEDIUM',

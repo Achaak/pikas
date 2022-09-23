@@ -6,7 +6,7 @@ import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
 import { Label, TextError } from '@pikas-ui/text'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import React, { useEffect, useState } from 'react'
+import React, { ButtonHTMLAttributes, useEffect, useState } from 'react'
 
 const Container = styled('div', {
   display: 'flex',
@@ -97,7 +97,9 @@ export interface SwitchProps {
   info?: string
 }
 
-export const Switch: React.FC<SwitchProps> = ({
+export const Switch: React.FC<
+  ButtonHTMLAttributes<HTMLButtonElement> & SwitchProps
+> = ({
   id,
   name,
   onChange,
@@ -112,6 +114,7 @@ export const Switch: React.FC<SwitchProps> = ({
   info,
   required,
   checked,
+  ...props
 }) => {
   const [checkedState, setCheckedState] = useState(defaultChecked || checked)
 
@@ -197,6 +200,7 @@ export const Switch: React.FC<SwitchProps> = ({
         ) : null}
 
         <SwitchStyle
+          {...props}
           defaultChecked={defaultChecked}
           checked={checkedState}
           id={id}

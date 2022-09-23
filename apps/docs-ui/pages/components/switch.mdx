@@ -59,6 +59,8 @@ const Example: React.FC = () => {
 
 #### Props
 
+Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
+
 | Prop             | Description                                       | Type                                                               | Default  |
 | :--------------- | :------------------------------------------------ | :----------------------------------------------------------------- | :------- |
 | `id`             | The id of the switch.                             | `string`                                                           | `-`      |
@@ -70,5 +72,5 @@ const Example: React.FC = () => {
 | `defaultChecked` | The default checked value of the switch.          | `boolean`                                                          | `false`  |
 | `css`            | The css of the switch.                            | `SwitchCSS`                                                        | `-`      |
 | `disabled`       | The disabled value of the switch.                 | `boolean`                                                          | `false`  |
-| `side`           | The side of the switch.                           | `'left' or 'right'`                                                | `'left'` |
+| `side`           | The side of the switch.                           | `"left' or 'right"`                                                | `"left"` |
 | `Icons`          | The icons of the switch.                          | `{ checked: React.FC<IconProps>, unchecked: React.FC<IconProps> }` | `-`      |

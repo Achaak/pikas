@@ -64,6 +64,9 @@ export const CustomToast: React.FC<CustomToastProps> = ({
   hasCloseButton,
   timer,
   children,
+  width,
+  minWidth,
+  maxWidth,
 }) => {
   const [isOpen, setIsOpen] = useState(true)
 
@@ -88,6 +91,9 @@ export const CustomToast: React.FC<CustomToastProps> = ({
         }
       }}
       css={{
+        width: width,
+        minWidth: minWidth,
+        maxWidth: maxWidth,
         ...css?.toast,
       }}
       onEscapeKeyDown={onEscapeKeyDown}
@@ -125,4 +131,7 @@ CustomToast.defaultProps = {
   duration: 5000,
   type: 'foreground',
   timer: true,
+  width: 'auto',
+  minWidth: 'auto',
+  maxWidth: '100%',
 }

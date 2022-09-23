@@ -84,7 +84,10 @@ const ContentChild = styled('div', {
     backgroundColor: '$GRAY_LIGHTEST_2',
     width: '100%',
     br: 'sm',
-    overflow: 'hidden',
+    overflowX: 'scroll',
+    display: 'block',
+    whiteSpace: 'nowrap',
+    fontSize: '$EM-SMALL',
 
     '& th': {
       color: '$PRIMARY',
