@@ -1,16 +1,11 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
 import { ClipLoader } from '@pikas-ui/loader'
-import type {
-  MenuData,
-  MenuDataItem,
-  MenuProps,
-  MenuCSSType,
-} from '@pikas-ui/menu'
+import type { MenuData, MenuDataItem, MenuProps, MenuCSS } from '@pikas-ui/menu'
 import {
   MenuContentCSS,
   MenuCheckboxItemCSS,
@@ -79,30 +74,30 @@ export const DropdownMenuSide = {
   top: true,
   bottom: true,
 }
-export type DropdownMenuSideType = keyof typeof DropdownMenuSide
+export type DropdownMenuSide = keyof typeof DropdownMenuSide
 
 export const DropdownMenuAlign = {
   center: true,
   start: true,
   end: true,
 }
-export type DropdownMenuAlignType = keyof typeof DropdownMenuAlign
+export type DropdownMenu = keyof typeof DropdownMenuAlign
 
 export const DropdownMenuDirection = {
   ltr: true,
   rtl: true,
 }
-export type DropdownMenuDirectionType = keyof typeof DropdownMenuDirection
+export type DropdownMenuDirection = keyof typeof DropdownMenuDirection
 
-export type DropdownMenuCSSType = MenuCSSType
+export type DropdownMenuCSS = MenuCSS
 
 export type DropdownMenuData = MenuDataItem[]
 export interface DropdownMenuProps extends MenuProps {
   triggerContent?: React.ReactNode
-  iconColor?: ColorsType
+  iconColor?: Colors
   iconSize?: number
 
-  direction?: DropdownMenuDirectionType
+  direction?: DropdownMenuDirection
   modal?: boolean
   defaultOpen?: boolean
   open?: boolean
@@ -114,9 +109,9 @@ export interface DropdownMenuProps extends MenuProps {
   onPointerDownOutside?: () => void
   onFocusOutside?: () => void
   onInteractOutside?: () => void
-  side?: DropdownMenuSideType
+  side?: DropdownMenuSide
   sideOffset?: number
-  align?: DropdownMenuAlignType
+  align?: DropdownMenu
   alignOffset?: number
   avoidCollisions?: boolean
   collisionPadding?: number
@@ -199,7 +194,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
 interface DropdownMenuDataProps {
   data: MenuData
-  css?: DropdownMenuCSSType
+  css?: DropdownMenuCSS
 }
 
 const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {

@@ -63,7 +63,7 @@ const Example: React.FC = () => {
 | :------------------ | :--------------------------------- | :-------------------------- | :-------------- |
 | `content`           | Tooltip content                    | `string or React.ReactNode` | -               |
 | `children`          | Trigger element                    | `React.ReactNode`           | -               |
-| `backgroundColor`   | Background color                   | `ColorsType`                | `"WHITE"`       |
+| `backgroundColor`   | Background color                   | `Colors`                    | `"WHITE"`       |
 | `open`              | Open state                         | `boolean`                   | -               |
 | `defaultOpen`       | Default open                       | `boolean`                   | -               |
 | `onOpenChange`      | Event handler                      | `(open: boolean) => void`   | -               |
@@ -72,15 +72,15 @@ const Example: React.FC = () => {
 | `hasArrow`          | Has arrow indicator                | `boolean`                   | `true`          |
 | `arrowSize`         | Arrow size                         | `number`                    | `10`            |
 | `arrowOffset`       | Arrow offset                       | `number`                    | `8`             |
-| `side`              | Side of the tooltip                | `TooltipSideType`           | -               |
+| `side`              | Side of the tooltip                | `TooltipSide`               | -               |
 | `sideOffset`        | Side offset of the tooltip         | `number`                    | -               |
-| `align`             | Align of content                   | `TooltipAlignType`          | -               |
+| `align`             | Align of content                   | `TooltipAlign`              | -               |
 | `alignOffset`       | Align offset                       | `number`                    | -               |
 | `avoidCollisions`   | Avoid collisions                   | `boolean`                   | -               |
 | `collisionPadding`  | Collision tolerance of the tooltip | `number`                    | -               |
-| `borderRadius`      | Border radius of the tooltip       | `BorderRadiusType`          | `"md"`          |
-| `fontSize`          | Font size of content               | `FontsSizesType`            | `"EM-SMALL"`    |
-| `fontWeight`        | Font weight of content             | `FontsWeightsType`          | -               |
-| `boxShadow`         | Box shadow of the tooltip          | `ShadowsType`               | `"ELEVATION_2"` |
-| `padding`           | Padding of the tooltip             | `TooltipPaddingType`        | `"md"`          |
-| `css`               | Custom css                         | `TooltipCSSType`            | -               |
+| `borderRadius`      | Border radius of the tooltip       | `BorderRadius`              | `"md"`          |
+| `fontSize`          | Font size of content               | `FontsSizes`                | `"EM-SMALL"`    |
+| `fontWeight`        | Font weight of content             | `FontsWeights`              | -               |
+| `boxShadow`         | Box shadow of the tooltip          | `Shadows`                   | `"ELEVATION_2"` |
+| `padding`           | Padding of the tooltip             | `TooltipPadding`            | `"md"`          |
+| `css`               | Custom css                         | `TooltipCSS`                | -               |

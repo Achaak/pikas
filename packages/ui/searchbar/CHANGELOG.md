@@ -654,7 +654,7 @@
 
 ### Minor Changes
 
-- onSearch props now need ResultGroupType in result
+- onSearch props now need ResultGroup in result
 
 ## 1.0.26
 

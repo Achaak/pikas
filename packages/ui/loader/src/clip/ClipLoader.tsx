@@ -1,10 +1,10 @@
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import { ClipLoader as ClipLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface ClipLoaderProps {
   size?: number | string
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number

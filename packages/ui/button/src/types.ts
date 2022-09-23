@@ -3,7 +3,7 @@ export const ButtonType = {
   submit: true,
   reset: true,
 }
-export type ButtonTypeType = keyof typeof ButtonType
+export type ButtonType = keyof typeof ButtonType
 
 export const ButtonPadding = {
   xs: true,
@@ -12,7 +12,7 @@ export const ButtonPadding = {
   lg: true,
   xl: true,
 }
-export type ButtonPaddingType = keyof typeof ButtonPadding
+export type ButtonPadding = keyof typeof ButtonPadding
 
 export const ButtonTextTransform = {
   capitalize: true,
@@ -20,21 +20,21 @@ export const ButtonTextTransform = {
   default: true,
   none: true,
 }
-export type ButtonTextTransformType = keyof typeof ButtonTextTransform
+export type ButtonTextTransform = keyof typeof ButtonTextTransform
 
 export const ButtonEffect = {
   globalScale: true,
   boxScale: true,
   opacity: true,
 }
-export type ButtonEffectType = keyof typeof ButtonEffect
+export type ButtonEffect = keyof typeof ButtonEffect
 
 export const ButtonGap = {
   sm: true,
   md: true,
   lg: true,
 }
-export type ButtonGapType = keyof typeof ButtonGap
+export type ButtonGap = keyof typeof ButtonGap
 
 export const ButtonTarget = {
   _self: true,
@@ -42,4 +42,4 @@ export const ButtonTarget = {
   _parent: true,
   _top: true,
 }
-export type ButtonTargetType = keyof typeof ButtonTarget
+export type ButtonTarget = keyof typeof ButtonTarget

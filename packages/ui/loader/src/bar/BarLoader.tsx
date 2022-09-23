@@ -1,11 +1,11 @@
 import { BarLoader as BarLoaderDefault } from 'react-spinners'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface BarLoaderProps {
   width?: number
   height?: number
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number

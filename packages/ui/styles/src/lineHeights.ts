@@ -20,4 +20,4 @@ export const LineHeights = {
   'REM-XXX-LARGE': '2rem',
 }
 
-export type LineHeightsType = keyof typeof LineHeights
+export type LineHeights = keyof typeof LineHeights

@@ -93,4 +93,4 @@ export const Colors = {
   BACKGROUND: '#EDF6FF',
 }
 
-export type ColorsType = keyof typeof Colors
+export type Colors = keyof typeof Colors

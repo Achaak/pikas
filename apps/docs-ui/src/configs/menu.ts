@@ -124,9 +124,8 @@ export const menu: Menu = [
         href: getLink('title'),
       },
       {
-        label: 'Toast (Coming soon)',
+        label: 'Toast',
         href: getLink('toast'),
-        disabled: true,
       },
       {
         label: 'Tooltip',

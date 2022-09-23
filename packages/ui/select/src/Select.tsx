@@ -1,19 +1,19 @@
 import type {
-  BorderRadiusType,
-  ColorsType,
+  BorderRadius,
+  Colors,
   CSS,
-  FontsSizesType,
-  ShadowsType,
+  FontsSizes,
+  Shadows,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { IconCSSType } from '@pikas-ui/icons'
+import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import React, { useEffect, useMemo, useState } from 'react'
-import type { TooltipCSSType } from '@pikas-ui/tooltip'
+import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
@@ -157,7 +157,7 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export type SelectItemType = {
+export type SelectItem = {
   label: React.ReactNode
   value: string
   disabled?: boolean
@@ -169,7 +169,7 @@ export const SelectDirections = {
   ltr: true,
   rtl: true,
 }
-export type SelectDirectionsType = keyof typeof SelectDirections
+export type SelectDirections = keyof typeof SelectDirections
 
 export const SelectPadding = {
   none: true,
@@ -178,13 +178,13 @@ export const SelectPadding = {
   md: true,
   lg: true,
 }
-export type SelectPaddingType = keyof typeof SelectPadding
+export type SelectPadding = keyof typeof SelectPadding
 
-export type SelectCSSType = {
+export type SelectCSS = {
   container?: CSS
   trigger?: CSS
-  infoTooltip?: TooltipCSSType
-  infoIcon?: IconCSSType
+  infoTooltip?: TooltipCSS
+  infoIcon?: IconCSS
   required?: CSS
   label?: CSS
   description?: CSS
@@ -193,31 +193,31 @@ export type SelectCSSType = {
 }
 
 export interface SelectProps {
-  css?: SelectCSSType
+  css?: SelectCSS
   hasSearch?: boolean
   searchPlaceholder?: string
 
   label?: string
-  borderRadius?: BorderRadiusType
-  padding?: SelectPaddingType
-  fontSize?: FontsSizesType
-  borderColor?: ColorsType
+  borderRadius?: BorderRadius
+  padding?: SelectPadding
+  fontSize?: FontsSizes
+  borderColor?: Colors
   borderWidth?: number
   data: {
     name?: string
     hidden?: boolean
-    items: Array<SelectItemType>
+    items: Array<SelectItem>
   }[]
   id?: string
   onChange?: (value: string) => void
   defaultValue: string
   ariaLabel?: string
   textError?: string
-  direction?: SelectDirectionsType
+  direction?: SelectDirections
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
-  boxShadow?: ShadowsType | 'none'
-  backgroundColor?: ColorsType
+  boxShadow?: Shadows | 'none'
+  backgroundColor?: Colors
   outline?: boolean
   description?: string
   width?: string | number

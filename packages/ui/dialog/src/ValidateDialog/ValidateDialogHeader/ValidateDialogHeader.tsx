@@ -11,11 +11,11 @@ const Container = styled('div', {
   marginBottom: 8,
 })
 
-export interface ValidateDialogHeaderType {
+export interface ValidateDialogHeaderProps {
   title?: string
 }
 
-export const ValidateDialogHeader: React.FC<ValidateDialogHeaderType> = ({
+export const ValidateDialogHeader: React.FC<ValidateDialogHeaderProps> = ({
   title,
 }) => {
   return (

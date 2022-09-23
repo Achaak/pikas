@@ -1,3 +1,3 @@
 export const Transitions = {}
 
-export type TransitionsType = keyof typeof Transitions
+export type Transitions = keyof typeof Transitions

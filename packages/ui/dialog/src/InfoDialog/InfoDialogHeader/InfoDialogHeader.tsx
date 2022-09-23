@@ -11,11 +11,13 @@ const Container = styled('div', {
   marginBottom: 8,
 })
 
-export interface InfoDialogHeaderType {
+export interface InfoDialogHeaderProps {
   title?: string
 }
 
-export const InfoDialogHeader: React.FC<InfoDialogHeaderType> = ({ title }) => {
+export const InfoDialogHeader: React.FC<InfoDialogHeaderProps> = ({
+  title,
+}) => {
   return (
     <Container>
       <IconContainer iconName="bx:info-circle" backgroundColor="PRIMARY" />

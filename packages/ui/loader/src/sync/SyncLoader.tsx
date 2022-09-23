@@ -1,11 +1,11 @@
 import { SyncLoader as SyncLoaderDefault } from 'react-spinners'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface SyncLoaderProps {
   size?: number
   margin?: number
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number

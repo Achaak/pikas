@@ -14,4 +14,4 @@ export const Space = {
   13: '80px',
 }
 
-export type SpaceType = keyof typeof Space
+export type Space = keyof typeof Space

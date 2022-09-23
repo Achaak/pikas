@@ -42,6 +42,7 @@ importers:
       '@pikas-ui/textarea': 3.0.8
       '@pikas-ui/textfield': 3.0.9
       '@pikas-ui/title': 1.0.9
+      '@pikas-ui/toast': 1.0.0
       '@pikas-ui/tooltip': 3.0.8
       '@pikas-utils/router': ^1.0.1
       '@pikas/config': workspace:*
@@ -93,6 +94,7 @@ importers:
       '@pikas-ui/textarea': link:../../packages/ui/textarea
       '@pikas-ui/textfield': link:../../packages/ui/textfield
       '@pikas-ui/title': link:../../packages/ui/title
+      '@pikas-ui/toast': link:../../packages/ui/toast
       '@pikas-ui/tooltip': link:../../packages/ui/tooltip
       '@pikas-utils/router': link:../../packages/utils/router
       next: 12.3.1_biqbaboplfbrettd7655fr4n2y
@@ -983,6 +985,39 @@ importers:
       typescript: 4.8.3
     dependencies:
       '@pikas-ui/styles': link:../styles
+    devDependencies:
+      '@pikas/config': link:../../config
+      '@pikas/tsconfig': link:../../tsconfig
+      '@types/node': 18.7.18
+      '@types/react': 18.0.20
+      '@types/react-dom': 18.0.6
+      cross-env: 7.0.3
+      eslint: 8.23.1
+      tsup: 6.2.3_typescript@4.8.3
+      typescript: 4.8.3
+
+  packages/ui/toast:
+    specifiers:
+      '@pikas-ui/button': workspace:^3.0.11
+      '@pikas-ui/icons': 3.0.8
+      '@pikas-ui/styles': 3.0.8
+      '@pikas/config': workspace:*
+      '@pikas/tsconfig': workspace:*
+      '@radix-ui/react-toast': ^1.0.0
+      '@types/node': ^18.7.18
+      '@types/react': 18.0.20
+      '@types/react-dom': 18.0.6
+      cross-env: ^7.0.3
+      eslint: ^8.23.1
+      font-color-contrast: ^11.1.0
+      tsup: ^6.2.3
+      typescript: 4.8.3
+    dependencies:
+      '@pikas-ui/button': link:../button
+      '@pikas-ui/icons': link:../icons
+      '@pikas-ui/styles': link:../styles
+      '@radix-ui/react-toast': 1.0.0
+      font-color-contrast: 11.1.0
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
@@ -2099,6 +2134,27 @@ packages:
       '@radix-ui/react-primitive': 1.0.0
       '@radix-ui/react-roving-focus': 1.0.0
       '@radix-ui/react-use-controllable-state': 1.0.0
+    dev: false
+
+  /@radix-ui/react-toast/1.0.0:
+    resolution: {integrity: sha512-mdoF6rahgushdev0OX+9a7JKoH0xZAZBo2Ktf/s779S7EnkZeL3/MFiRIV5LpRP5CtASmfdSD3FLnEvG1RHRtQ==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.19.0
+      '@radix-ui/primitive': 1.0.0
+      '@radix-ui/react-collection': 1.0.0
+      '@radix-ui/react-compose-refs': 1.0.0
+      '@radix-ui/react-context': 1.0.0
+      '@radix-ui/react-dismissable-layer': 1.0.0
+      '@radix-ui/react-portal': 1.0.0
+      '@radix-ui/react-presence': 1.0.0
+      '@radix-ui/react-primitive': 1.0.0
+      '@radix-ui/react-use-callback-ref': 1.0.0
+      '@radix-ui/react-use-controllable-state': 1.0.0
+      '@radix-ui/react-use-layout-effect': 1.0.0
+      '@radix-ui/react-visually-hidden': 1.0.0
     dev: false
 
   /@radix-ui/react-tooltip/1.0.0_@types+react@18.0.20:

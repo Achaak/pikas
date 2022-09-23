@@ -1,3 +1,3 @@
 export const BorderStyles = {}
 
-export type BorderStylesType = keyof typeof BorderStyles
+export type BorderStyles = keyof typeof BorderStyles

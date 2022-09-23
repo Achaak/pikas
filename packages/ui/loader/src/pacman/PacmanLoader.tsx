@@ -1,11 +1,11 @@
 import { PacmanLoader as PacmanLoaderDefault } from 'react-spinners'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface PacmanLoaderProps {
   size?: number
   margin?: number
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number

@@ -8,11 +8,11 @@ const Container = styled('div', {
   width: '100%',
 })
 
-export interface DefaultDialogFooterType {
+export interface DefaultDialogFooterProps {
   onClose?: () => void
 }
 
-export const DefaultDialogFooter: React.FC<DefaultDialogFooterType> = ({
+export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
   onClose,
 }) => {
   return (

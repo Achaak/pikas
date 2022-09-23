@@ -1,5 +1,5 @@
 import { FadeLoader as FadeLoaderDefault } from 'react-spinners'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface FadeLoaderProps {
@@ -7,7 +7,7 @@ export interface FadeLoaderProps {
   width?: number
   radius?: number
   margin?: number
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
 }

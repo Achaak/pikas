@@ -10,4 +10,4 @@ export const FontWeights = {
   BLACK: 900,
 }
 
-export type FontsWeightsType = keyof typeof FontWeights
+export type FontsWeights = keyof typeof FontWeights

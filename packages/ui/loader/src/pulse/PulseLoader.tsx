@@ -1,10 +1,10 @@
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import { PulseLoader as PulseLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface PulseLoaderProps {
   size?: number | string
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number

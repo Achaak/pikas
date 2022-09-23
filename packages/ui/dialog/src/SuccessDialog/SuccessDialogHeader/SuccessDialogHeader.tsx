@@ -11,11 +11,11 @@ const Container = styled('div', {
   marginBottom: 8,
 })
 
-export interface SuccessDialogHeaderType {
+export interface SuccessDialogHeaderProps {
   title?: string
 }
 
-export const SuccessDialogHeader: React.FC<SuccessDialogHeaderType> = ({
+export const SuccessDialogHeader: React.FC<SuccessDialogHeaderProps> = ({
   title,
 }) => {
   return (

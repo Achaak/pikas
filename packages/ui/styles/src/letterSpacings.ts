@@ -8,4 +8,4 @@ export const LetterSpacings = {
   'XX-LARGE': '3px',
 }
 
-export type LetterSpacingsType = keyof typeof LetterSpacings
+export type LetterSpacings = keyof typeof LetterSpacings

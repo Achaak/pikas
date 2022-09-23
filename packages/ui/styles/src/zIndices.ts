@@ -12,4 +12,4 @@ export const ZIndices = {
   MAX: 2147483647,
 }
 
-export type ZIndicesType = keyof typeof ZIndices
+export type ZIndices = keyof typeof ZIndices

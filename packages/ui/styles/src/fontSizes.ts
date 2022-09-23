@@ -20,4 +20,4 @@ export const FontSizes = {
   'REM-XXX-LARGE': '2em',
 }
 
-export type FontsSizesType = keyof typeof FontSizes
+export type FontsSizes = keyof typeof FontSizes

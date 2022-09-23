@@ -1,0 +1,219 @@
+import { ToastExample } from './../../src/examples/toast/toast'
+import { CustomToastExample } from './../../src/examples/toast/customToast'
+import { DefaultToastExample } from './../../src/examples/toast/defaultToast'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Toast" />
+
+# @pikas-ui/toast
+
+This package contains a toast component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/toast
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/toast
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/toast
+```
+
+---
+
+## Usage
+
+### Toast
+
+<ToastExample />
+
+```tsx
+import { Toast, useToast, ToastProvider } from `@pikas-ui/toast`;
+
+const Child: React.FC = () => {
+  const toast = useToast();
+
+  const handleClick = () => {
+    toast.publish(
+      <Toast
+        title="Title"
+        description="Description"
+        variant="success"
+      />
+    );
+  };
+
+  return (
+    <button onClick={handleClick}>
+      Show toast
+    </button>
+  )
+}
+
+const Parent: React.FC = () => {
+  return (
+    <ToastProvider position="top-right">
+      <Child />
+    </ToastProvider>
+  )
+}
+```
+
+#### Props
+
+| Prop              | Description                                       | Type                             | Default        |
+| :---------------- | :------------------------------------------------ | :------------------------------- | :------------- |
+| `css`             | Custom css of the custom toast                    | `DefaultToastCSS`                | -              |
+| `children`        | Children of the custom toast                      | `React.ReactNode`                | -              |
+| `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
+| `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
+| `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
+| `type`            | Type of the custom toast                          | `ToastType`                      | `'foreground'` |
+| `onEscapeKeyDown` | Callback when the custom toast is escape key down | `(event: KeyboardEvent) => void` | -              |
+| `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
+| `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
+| `onSwipeEnd`      | Callback when the custom toast is swipe end       | `(event: SwipeEvent) => void`    | -              |
+| `forceMount`      | Force mount the custom toast                      | `boolean`                        | -              |
+| `hasCloseButton`  | Has close button the custom toast                 | `boolean`                        | -              |
+| `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |
+| `title`           | Title of the custom toast                         | `string`                         | -              |
+| `description`     | Description of the custom toast                   | `string`                         | -              |
+| `variant`         | Variant of the custom toast                       | `ToastVariant`                   | `'info'`       |
+
+---
+
+### DefaultToast
+
+<DefaultToastExample />
+
+```tsx
+import { DefaultToast, useToast, ToastProvider } from `@pikas-ui/toast`;
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
+
+const IconExample: React.FC<IconProps> = (props) => {
+  return <IconByName {...props} name="bx:baguette" />
+}
+
+const Child: React.FC = () => {
+  const toast = useToast();
+
+  const handleClick = () => {
+    toast.publish(
+      <DefaultToast
+        title="Title"
+        description="Description"
+        Icon={IconExample}
+      />
+    );
+  };
+
+  return (
+    <button onClick={handleClick}>
+      Show toast
+    </button>
+  )
+}
+
+const Parent: React.FC = () => {
+  return (
+    <ToastProvider position="top-right">
+      <Child />
+    </ToastProvider>
+  )
+}
+```
+
+#### Props
+
+| Prop              | Description                                       | Type                             | Default        |
+| :---------------- | :------------------------------------------------ | :------------------------------- | :------------- |
+| `css`             | Custom css of the custom toast                    | `DefaultToastCSS`                | -              |
+| `children`        | Children of the custom toast                      | `React.ReactNode`                | -              |
+| `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
+| `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
+| `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
+| `type`            | Type of the custom toast                          | `ToastType`                      | `'foreground'` |
+| `onEscapeKeyDown` | Callback when the custom toast is escape key down | `(event: KeyboardEvent) => void` | -              |
+| `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
+| `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
+| `onSwipeEnd`      | Callback when the custom toast is swipe end       | `(event: SwipeEvent) => void`    | -              |
+| `forceMount`      | Force mount the custom toast                      | `boolean`                        | -              |
+| `hasCloseButton`  | Has close button the custom toast                 | `boolean`                        | -              |
+| `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |
+| `title`           | Title of the custom toast                         | `string`                         | -              |
+| `description`     | Description of the custom toast                   | `string`                         | -              |
+| `Icon`            | Icon of the custom toast                          | `React.FC<IconProps>`            | -              |
+
+---
+
+### CustomToast
+
+<CustomToastExample />
+
+```tsx
+import { CustomToast, useToast, ToastProvider } from `@pikas-ui/toast`;
+
+const Child: React.FC = () => {
+  const toast = useToast();
+
+  const handleClick = () => {
+    toast.publish(
+      <CustomToast>
+        Hello world
+      </CustomToast>
+    );
+  };
+
+  return (
+    <button onClick={handleClick}>
+      Show toast
+    </button>
+  )
+}
+
+const Parent: React.FC = () => {
+  return (
+    <ToastProvider position="top-right">
+      <Child />
+    </ToastProvider>
+  )
+}
+```
+
+#### Props
+
+| Prop              | Description                                       | Type                             | Default        |
+| :---------------- | :------------------------------------------------ | :------------------------------- | :------------- |
+| `css`             | Custom css of the custom toast                    | `CustomToastCSS`                 | -              |
+| `children`        | Children of the custom toast                      | `React.ReactNode`                | -              |
+| `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
+| `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
+| `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
+| `type`            | Type of the custom toast                          | `ToastType`                      | `'foreground'` |
+| `onEscapeKeyDown` | Callback when the custom toast is escape key down | `(event: KeyboardEvent) => void` | -              |
+| `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
+| `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
+| `onSwipeEnd`      | Callback when the custom toast is swipe end       | `(event: SwipeEvent) => void`    | -              |
+| `forceMount`      | Force mount the custom toast                      | `boolean`                        | -              |
+| `hasCloseButton`  | Has close button the custom toast                 | `boolean`                        | -              |
+| `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |

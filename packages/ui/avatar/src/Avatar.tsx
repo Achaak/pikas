@@ -1,6 +1,6 @@
 import React from 'react'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import type { BorderRadiusType, ColorsType, CSS } from '@pikas-ui/styles'
+import type { BorderRadius, Colors, CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
 import { Skeleton } from '@pikas-ui/skeleton'
@@ -34,7 +34,7 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarCSSType {
+export interface AvatarCSS {
   container?: CSS
   image?: CSS
   fallback?: CSS
@@ -46,11 +46,11 @@ export interface AvatarProps {
   onLoadingStatusChange?: (status: ImageLoadingStatus) => void
   delayMs?: number
   fallback?: string
-  fallbackColor?: ColorsType
-  fallbackBackgroundColor?: ColorsType
-  css?: AvatarCSSType
+  fallbackColor?: Colors
+  fallbackBackgroundColor?: Colors
+  css?: AvatarCSS
   size?: number
-  borderRadius?: BorderRadiusType
+  borderRadius?: BorderRadius
   loading?: boolean
 }
 

@@ -1,5 +1,5 @@
 import { IconByName } from '@pikas-ui/icons'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
@@ -14,7 +14,7 @@ const Container = styled('div', {
 })
 
 interface InfoDialogProps {
-  backgroundColor: ColorsType
+  backgroundColor: Colors
   iconName: string
 }
 

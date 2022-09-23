@@ -1,5 +1,5 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type { ColorsType, CSS } from '@pikas-ui/styles'
+import type { Colors, CSS } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import 'react'
 
@@ -140,19 +140,19 @@ export const RightSlotCSS: CSS = {
 
 export const SpanCSS: CSS = {}
 
-interface ItemDefault {
+interface ItemBase {
   disabled?: boolean
   rightSlot?: string
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   type: 'item' | 'checkbox' | 'radio' | 'menu'
   hide?: boolean
 }
 
-interface Item extends ItemDefault {
+interface DefaultItem extends ItemBase {
   type: 'item'
   Icon?: React.FC<IconProps>
-  iconColor?: ColorsType
+  iconColor?: Colors
   iconColorHex?: string
   loading?: boolean
   label: React.ReactNode
@@ -165,7 +165,7 @@ interface Item extends ItemDefault {
   }
 }
 
-interface CheckboxItem extends ItemDefault {
+interface CheckboxItem extends ItemBase {
   type: 'checkbox'
   checked: boolean
   label: React.ReactNode
@@ -178,7 +178,7 @@ interface CheckboxItem extends ItemDefault {
   }
 }
 
-interface RadioItem extends ItemDefault {
+interface RadioItem extends ItemBase {
   type: 'radio'
   onValueChange: (value: string) => void
   value: string
@@ -199,28 +199,28 @@ interface RadioItem extends ItemDefault {
   }
 }
 
-interface MenuItem extends ItemDefault {
+interface MenuItem extends ItemBase {
   type: 'menu'
   data: MenuData
   label: React.ReactNode
 }
 
+type Item = DefaultItem | CheckboxItem | RadioItem | MenuItem
+
 export interface MenuDataItem {
   label?: React.ReactNode
   css?: CSS
-  items: ItemType[]
+  items: Item[]
 }
 
 export type MenuData = MenuDataItem[]
 
-type ItemType = Item | CheckboxItem | RadioItem | MenuItem
-
-export interface MenuCSSType {
+export interface MenuCSS {
   content?: CSS
   separator?: CSS
 }
 
 export interface MenuProps {
   data: MenuData
-  css?: MenuCSSType
+  css?: MenuCSS
 }

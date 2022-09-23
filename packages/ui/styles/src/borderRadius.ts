@@ -8,10 +8,10 @@ export const BorderRadius = {
   round: true,
 }
 
-export type BorderRadiusType = keyof typeof BorderRadius
+export type BorderRadius = keyof typeof BorderRadius
 
 export const BR = {
-  br: (value: BorderRadiusType): Record<string, unknown> => {
+  br: (value: BorderRadius): Record<string, unknown> => {
     switch (value) {
       case 'none':
         return {
@@ -43,7 +43,7 @@ export const BR = {
         }
     }
   },
-  brTL: (value: BorderRadiusType): Record<string, unknown> => {
+  brTL: (value: BorderRadius): Record<string, unknown> => {
     switch (value) {
       case 'none':
         return {
@@ -75,7 +75,7 @@ export const BR = {
         }
     }
   },
-  brTR: (value: BorderRadiusType): Record<string, unknown> => {
+  brTR: (value: BorderRadius): Record<string, unknown> => {
     switch (value) {
       case 'none':
         return {
@@ -107,7 +107,7 @@ export const BR = {
         }
     }
   },
-  brBL: (value: BorderRadiusType): Record<string, unknown> => {
+  brBL: (value: BorderRadius): Record<string, unknown> => {
     switch (value) {
       case 'none':
         return {
@@ -139,7 +139,7 @@ export const BR = {
         }
     }
   },
-  brBR: (value: BorderRadiusType): Record<string, unknown> => {
+  brBR: (value: BorderRadius): Record<string, unknown> => {
     switch (value) {
       case 'none':
         return {

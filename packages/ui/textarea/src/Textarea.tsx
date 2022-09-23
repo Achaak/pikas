@@ -1,9 +1,9 @@
 import type {
-  ShadowsType,
-  ColorsType,
+  Shadows,
+  Colors,
   CSS,
-  FontsSizesType,
-  BorderRadiusType,
+  FontsSizes,
+  BorderRadius,
 } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Label, TextError, Description } from '@pikas-ui/text'
@@ -11,9 +11,9 @@ import fontColorContrast from 'font-color-contrast'
 import type { TextareaHTMLAttributes } from 'react'
 import { forwardRef } from 'react'
 import React, { useState } from 'react'
-import type { IconCSSType } from '@pikas-ui/icons'
+import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { TooltipCSSType } from '@pikas-ui/tooltip'
+import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
@@ -76,7 +76,7 @@ export const TextareaPadding = {
   md: true,
   lg: true,
 }
-export type TextareaPaddingType = keyof typeof TextareaPadding
+export type TextareaPadding = keyof typeof TextareaPadding
 
 export const TextareaResize = {
   none: true,
@@ -84,14 +84,14 @@ export const TextareaResize = {
   horizontal: true,
   both: true,
 }
-export type TextareaResizeType = keyof typeof TextareaResize
+export type TextareaResize = keyof typeof TextareaResize
 
-export interface TextareaCSSType {
+export interface TextareaCSS {
   container?: CSS
   textareaContainer?: CSS
   textarea?: CSS
-  infoTooltip?: TooltipCSSType
-  infoIcon?: IconCSSType
+  infoTooltip?: TooltipCSS
+  infoIcon?: IconCSS
   label?: CSS
   description?: CSS
   textError?: CSS
@@ -101,15 +101,15 @@ export interface TextareaCSSType {
 export type TextareaProps = {
   id?: string
   label?: string
-  boxShadow?: ShadowsType | 'none'
-  borderRadius?: BorderRadiusType
-  padding?: TextareaPaddingType
-  fontSize?: FontsSizesType
+  boxShadow?: Shadows | 'none'
+  borderRadius?: BorderRadius
+  padding?: TextareaPadding
+  fontSize?: FontsSizes
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  css?: TextareaCSSType
+  css?: TextareaCSS
   outline?: boolean
-  resize?: TextareaResizeType
+  resize?: TextareaResize
   description?: string
   width?: string | number
   maxWidth?: string | number
@@ -117,14 +117,14 @@ export type TextareaProps = {
   maxHeight?: string | number
   minHeight?: string | number
   minWidth?: string | number
-  borderColor?: ColorsType
+  borderColor?: Colors
   borderColorHex?: string
   borderWidth?: number
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
-  placeholderColor?: ColorsType
+  placeholderColor?: Colors
   placeholderColorHex?: string
-  backgroundColor?: ColorsType
+  backgroundColor?: Colors
   backgroundColorHex?: string
   info?: React.ReactNode
   data?: DOMStringMap

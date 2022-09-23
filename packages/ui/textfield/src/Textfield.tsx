@@ -1,11 +1,11 @@
-import type { IconProps, IconCSSType } from '@pikas-ui/icons'
+import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type {
-  ShadowsType,
-  ColorsType,
+  Shadows,
+  Colors,
   CSS,
-  FontsSizesType,
-  BorderRadiusType,
+  FontsSizes,
+  BorderRadius,
 } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
@@ -15,7 +15,7 @@ import type { InputHTMLAttributes } from 'react'
 import { forwardRef } from 'react'
 import React, { useRef, useState } from 'react'
 import useMergedRef from '@react-hook/merged-ref'
-import type { TooltipCSSType } from '@pikas-ui/tooltip'
+import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
 const Container = styled('div', {
@@ -168,7 +168,7 @@ export const TextfieldType = {
   url: true,
   week: true,
 }
-export type TextfieldTypeType = keyof typeof TextfieldType
+export type TextfieldType = keyof typeof TextfieldType
 
 export const TextfieldPadding = {
   xs: true,
@@ -177,7 +177,7 @@ export const TextfieldPadding = {
   lg: true,
   xl: true,
 }
-export type TextfieldPaddingType = keyof typeof TextfieldPadding
+export type TextfieldPadding = keyof typeof TextfieldPadding
 
 export const TextfieldGap = {
   xs: true,
@@ -186,18 +186,18 @@ export const TextfieldGap = {
   lg: true,
   xl: true,
 }
-export type TextfieldGapType = keyof typeof TextfieldGap
+export type TextfieldGap = keyof typeof TextfieldGap
 
-export type TextfieldCSSType = {
+export type TextfieldCSS = {
   container?: CSS
   inputContainer?: CSS
   input?: CSS
   left?: CSS
   right?: CSS
-  leftIcon?: IconCSSType
-  rightIcon?: IconCSSType
-  infoTooltip?: TooltipCSSType
-  infoIcon?: IconCSSType
+  leftIcon?: IconCSS
+  rightIcon?: IconCSS
+  infoTooltip?: TooltipCSS
+  infoIcon?: IconCSS
   label?: CSS
   description?: CSS
   textError?: CSS
@@ -205,37 +205,37 @@ export type TextfieldCSSType = {
 }
 
 export type TextfieldProps = {
-  type?: TextfieldTypeType
+  type?: TextfieldType
   id?: string
   label?: string
-  boxShadow?: ShadowsType | 'none'
-  borderRadius?: BorderRadiusType
-  padding?: TextfieldPaddingType
-  gap?: TextfieldGapType
-  fontSize?: FontsSizesType
-  borderColor?: ColorsType
+  boxShadow?: Shadows | 'none'
+  borderRadius?: BorderRadius
+  padding?: TextfieldPadding
+  gap?: TextfieldGap
+  fontSize?: FontsSizes
+  borderColor?: Colors
   borderColorHex?: string
   borderWidth?: number
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
-  placeholderColor?: ColorsType
+  placeholderColor?: Colors
   placeholderColorHex?: string
-  backgroundColor?: ColorsType
+  backgroundColor?: Colors
   backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
-  leftIconColor?: ColorsType
+  leftIconColor?: Colors
   leftIconColorHex?: string
-  rightIconColor?: ColorsType
+  rightIconColor?: Colors
   rightIconColorHex?: string
   leftIconSize?: number
   rightIconSize?: number
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
-  css?: TextfieldCSSType
+  css?: TextfieldCSS
   min?: number
   max?: number
   outline?: boolean

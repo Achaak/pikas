@@ -37,6 +37,7 @@
     "@pikas-ui/text": "4.0.8",
     "@pikas-ui/textarea": "3.0.8",
     "@pikas-ui/textfield": "3.0.9",
+    "@pikas-ui/toast": "1.0.0",
     "@pikas-ui/tooltip": "3.0.8",
     "@pikas-ui/title": "1.0.9",
     "@pikas-ui/progress": "1.0.2",

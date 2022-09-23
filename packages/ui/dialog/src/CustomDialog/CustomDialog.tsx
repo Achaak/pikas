@@ -153,25 +153,25 @@ const Content = styled(DefaultContainer, {
 
 const Footer = styled(DefaultContainer, {})
 
-export type CustomDialogPaddingElementType = 'no-padding' | 'sm' | 'md' | 'lg'
+export type CustomDialogPaddingElement = 'no-padding' | 'sm' | 'md' | 'lg'
 
-export interface CustomDialogPaddingType {
-  container?: CustomDialogPaddingElementType
-  header?: CustomDialogPaddingElementType
-  content?: CustomDialogPaddingElementType
-  footer?: CustomDialogPaddingElementType
+export interface CustomDialogPadding {
+  container?: CustomDialogPaddingElement
+  header?: CustomDialogPaddingElement
+  content?: CustomDialogPaddingElement
+  footer?: CustomDialogPaddingElement
 }
 
-export type CustomDialogGapElementType = 'no-gap' | 'sm' | 'md' | 'lg'
+export type CustomDialogGapElement = 'no-gap' | 'sm' | 'md' | 'lg'
 
-export interface CustomDialogGapType {
-  container?: CustomDialogGapElementType
-  header?: CustomDialogGapElementType
-  content?: CustomDialogGapElementType
-  footer?: CustomDialogGapElementType
+export interface CustomDialogGap {
+  container?: CustomDialogGapElement
+  header?: CustomDialogGapElement
+  content?: CustomDialogGapElement
+  footer?: CustomDialogGapElement
 }
 
-export interface CustomDialogCSSType {
+export interface CustomDialogCSS {
   container?: CSS
   header?: CSS
   content?: CSS
@@ -179,26 +179,26 @@ export interface CustomDialogCSSType {
   closeIcon?: CSS
 }
 
-export interface DialogType {
+export interface Dialog {
   visible: boolean
   onOpen?: () => void
   onClose?: () => void
 }
 
-export interface CustomDialogType extends DialogType {
+export interface CustomDialog extends Dialog {
   closeIfClickOutside?: boolean
   hasCloseIcon?: boolean
-  css?: CustomDialogCSSType
+  css?: CustomDialogCSS
   width?: string | number
   height?: string | number
-  padding?: CustomDialogPaddingType
-  gap?: CustomDialogGapType
+  padding?: CustomDialogPadding
+  gap?: CustomDialogGap
   header?: React.ReactNode
   content?: React.ReactNode
   footer?: React.ReactNode
 }
 
-export const CustomDialog: React.FC<CustomDialogType> = ({
+export const CustomDialog: React.FC<CustomDialog> = ({
   visible,
   hasCloseIcon,
   onClose,

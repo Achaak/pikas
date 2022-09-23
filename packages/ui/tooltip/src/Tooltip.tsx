@@ -1,10 +1,10 @@
 import type {
-  BorderRadiusType,
-  ColorsType,
+  BorderRadius,
+  Colors,
   CSS,
-  FontsSizesType,
-  FontsWeightsType,
-  ShadowsType,
+  FontsSizes,
+  FontsWeights,
+  Shadows,
 } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { keyframes, styled, useTheme } from '@pikas-ui/styles'
@@ -82,23 +82,23 @@ export const TooltipSide = {
   bottom: true,
   left: true,
 }
-export type TooltipSideType = keyof typeof TooltipSide
+export type TooltipSide = keyof typeof TooltipSide
 
 export const TooltipAlign = {
   start: true,
   center: true,
   end: true,
 }
-export type TooltipAlignType = keyof typeof TooltipAlign
+export type TooltipAlign = keyof typeof TooltipAlign
 
 export const TooltipPadding = {
   sm: true,
   md: true,
   lg: true,
 }
-export type TooltipPaddingType = keyof typeof TooltipPadding
+export type TooltipPadding = keyof typeof TooltipPadding
 
-export type TooltipCSSType = {
+export type TooltipCSS = {
   trigger?: CSS
   content?: CSS
 }
@@ -106,7 +106,7 @@ export type TooltipCSSType = {
 export interface TooltipProps {
   content: string | React.ReactNode
   children?: React.ReactNode
-  backgroundColor?: ColorsType
+  backgroundColor?: Colors
   open?: boolean
   defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void
@@ -115,18 +115,18 @@ export interface TooltipProps {
   hasArrow?: boolean
   arrowSize?: number
   arrowOffset?: number
-  side?: TooltipSideType
+  side?: TooltipSide
   sideOffset?: number
-  align?: TooltipAlignType
+  align?: TooltipAlign
   alignOffset?: number
   avoidCollisions?: boolean
   collisionPadding?: number
-  borderRadius?: BorderRadiusType
-  fontSize?: FontsSizesType
-  fontWeight?: FontsWeightsType
-  boxShadow?: ShadowsType
-  padding?: TooltipPaddingType
-  css?: TooltipCSSType
+  borderRadius?: BorderRadius
+  fontSize?: FontsSizes
+  fontWeight?: FontsWeights
+  boxShadow?: Shadows
+  padding?: TooltipPadding
+  css?: TooltipCSS
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({

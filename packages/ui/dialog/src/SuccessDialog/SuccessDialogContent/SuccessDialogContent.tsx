@@ -8,11 +8,11 @@ const Container = styled('div', {
   color: '$BLACK',
 })
 
-export interface SuccessDialogContentType {
+export interface SuccessDialogContentProps {
   content: React.ReactNode
 }
 
-export const SuccessDialogContent: React.FC<SuccessDialogContentType> = ({
+export const SuccessDialogContent: React.FC<SuccessDialogContentProps> = ({
   content,
 }) => {
   return <Container>{content}</Container>

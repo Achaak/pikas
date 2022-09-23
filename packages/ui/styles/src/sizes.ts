@@ -14,4 +14,4 @@ export const Sizes = {
   13: '80px',
 }
 
-export type SizesType = keyof typeof Sizes
+export type Sizes = keyof typeof Sizes

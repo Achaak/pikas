@@ -9,13 +9,13 @@ const Container = styled('div', {
   width: '100%',
 })
 
-export interface ValidateDialogFooterType {
+export interface ValidateDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
   cancelButtonLabel?: string
 }
 
-export const ValidateDialogFooter: React.FC<ValidateDialogFooterType> = ({
+export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
   cancelButtonLabel,
   validateButtonLabel,
   onClose,
