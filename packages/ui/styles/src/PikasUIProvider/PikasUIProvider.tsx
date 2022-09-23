@@ -20,16 +20,16 @@ export interface PikasUIProviderProps {
   darkTheme?: ReturnType<typeof createTheme>
 }
 
-export type PikasUIContextType = typeof themeDefault | undefined
+export type PikasUIContext = typeof themeDefault | undefined
 
-export const PikasUIContext = createContext<PikasUIContextType>(undefined)
+export const PikasUIContext = createContext<PikasUIContext>(undefined)
 
 export const PikasUIProvider: React.FC<PikasUIProviderProps> = ({
   lightTheme,
   darkTheme,
   children,
 }) => {
-  const [theme, setTheme] = useState<PikasUIContextType>(
+  const [theme, setTheme] = useState<PikasUIContext>(
     merge(cloneDeep(themeDefault), lightTheme)
   )
   const { isDarkMode } = useTernaryDarkMode()

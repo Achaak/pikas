@@ -133,9 +133,9 @@ export const TableVariant = {
   default: true,
   light: true,
 }
-export type TableVariantType = keyof typeof TableVariant
+export type TableVariant = keyof typeof TableVariant
 
-export interface TableCSSTypes {
+export interface TableCSSs {
   container?: CSS
   table?: CSS
   thead?: CSS
@@ -154,34 +154,34 @@ export interface TablePaginationProps {
   selectValue?: number[]
 }
 
-export interface TableSelectionType {
+export interface TableSelection {
   active: boolean
   defaultState?: RowSelectionState
   onRowSelectionChange?: OnChangeFn<RowSelectionState>
 }
 
-export interface TableSortingType {
+export interface TableSorting {
   active: boolean
   state?: SortingState
   onSortingChange?: OnChangeFn<SortingState>
 }
 
-export interface TablePaddingType {
+export interface TablePadding {
   th?: 'sm' | 'md' | 'lg'
   td?: 'sm' | 'md' | 'lg'
 }
 
 export interface TableProps<T extends Record<string, unknown>> {
-  variant?: TableVariantType
+  variant?: TableVariant
   data: T[]
   emptyMessage?: React.ReactNode
   hasTfoot?: boolean
   pagination?: TablePaginationProps
-  selection?: TableSelectionType
-  sorting?: TableSortingType
+  selection?: TableSelection
+  sorting?: TableSorting
   columns: ColumnDef<T>[]
-  css?: TableCSSTypes
-  padding?: TablePaddingType
+  css?: TableCSSs
+  padding?: TablePadding
   hoverEffect?: boolean
 }
 

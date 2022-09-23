@@ -1,10 +1,10 @@
 import { ClimbingBoxLoader as ClimbingBoxLoaderDefault } from 'react-spinners'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface ClimbingBoxLoaderProps {
   size?: number
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number

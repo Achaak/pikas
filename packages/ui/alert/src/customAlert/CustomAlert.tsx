@@ -1,5 +1,5 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { DefaultAlertProps } from '../types.js'
@@ -75,8 +75,8 @@ const Child = styled('p', {
 
 export interface CustomAlertProps extends DefaultAlertProps {
   Icon?: React.FC<IconProps>
-  backgroundColor?: ColorsType
-  color?: ColorsType
+  backgroundColor?: Colors
+  color?: Colors
   colorHex?: string
 }
 

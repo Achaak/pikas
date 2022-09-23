@@ -158,13 +158,13 @@ export interface TabsItem<T extends string> {
   }
 }
 
-export type TabsOrientationType = 'horizontal' | 'vertical'
+export type TabsOrientation = 'horizontal' | 'vertical'
 
-export type TabsDirectionType = 'ltr' | 'rtl'
+export type TabsDirection = 'ltr' | 'rtl'
 
-export type TabsActivationModeType = 'manual' | 'automatic'
+export type TabsActivationMode = 'manual' | 'automatic'
 
-export interface TabsCSSType {
+export interface TabsCSS {
   container?: CSS
   triggerList?: CSS
   endTrigger?: CSS
@@ -172,26 +172,26 @@ export interface TabsCSSType {
   trigger?: CSS
 }
 
-export interface TabsPaddingType {
+export interface TabsPadding {
   trigger?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   content?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export type TabsAlignmentTriggerType = 'start' | 'center' | 'end' | 'stretch'
+export type TabsAlignmentTrigger = 'start' | 'center' | 'end' | 'stretch'
 
 export interface TabsProps<T extends string> {
   items: TabsItem<T>[]
   defaultValue: T
   value?: string
   onValueChange?: (value: string) => void
-  orientation?: TabsOrientationType
+  orientation?: TabsOrientation
 
-  direction?: TabsDirectionType
-  activationMode?: TabsActivationModeType
+  direction?: TabsDirection
+  activationMode?: TabsActivationMode
   loop?: boolean
-  css?: TabsCSSType
-  padding?: TabsPaddingType
-  alignmentTrigger?: TabsAlignmentTriggerType
+  css?: TabsCSS
+  padding?: TabsPadding
+  alignmentTrigger?: TabsAlignmentTrigger
   startTrigger?: React.ReactNode
   endTrigger?: React.ReactNode
 }

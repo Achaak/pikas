@@ -62,21 +62,21 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 
 | Prop                  | Description                                 | Type                                               | Default             |
 | :-------------------- | :------------------------------------------ | :------------------------------------------------- | :------------------ |
-| `type`                | The type of the textfield.                  | `TextfieldTypeType`                                | `"text"`            |
+| `type`                | The type of the textfield.                  | `TextfieldType`                                    | `"text"`            |
 | `label`               | The label of the textfield.                 | `string`                                           | -                   |
-| `boxShadow`           | The box shadow of the textfield.            | `ShadowsType`                                      | `"DIMINUTION_1"`    |
-| `borderRadius`        | The border radius of the textfield.         | `BorderRadiusType`                                 | `"md"`              |
-| `padding`             | The padding of the textfield.               | `TextfieldPaddingType`                             | `"md"`              |
-| `gap`                 | The gap of the textfield.                   | `TextfieldGapType`                                 | -                   |
-| `fontSize`            | The font size of the textfield.             | `FontsSizesType`                                   | `"EM-MEDIUM"`       |
-| `color`               | The color of the textfield.                 | `ColorsType`                                       | -                   |
+| `boxShadow`           | The box shadow of the textfield.            | `Shadows`                                          | `"DIMINUTION_1"`    |
+| `borderRadius`        | The border radius of the textfield.         | `BorderRadius`                                     | `"md"`              |
+| `padding`             | The padding of the textfield.               | `TextfieldPadding`                                 | `"md"`              |
+| `gap`                 | The gap of the textfield.                   | `TextfieldGap`                                     | -                   |
+| `fontSize`            | The font size of the textfield.             | `FontsSizes`                                       | `"EM-MEDIUM"`       |
+| `color`               | The color of the textfield.                 | `Colors`                                           | -                   |
 | `colorHex`            | The color hex of the textfield.             | `string`                                           | -                   |
-| `placeholderColor`    | The placeholder color of the textfield.     | `ColorsType`                                       | -                   |
+| `placeholderColor`    | The placeholder color of the textfield.     | `Colors`                                           | -                   |
 | `placeholderColorHex` | The placeholder color hex of the textfield. | `string`                                           | -                   |
-| `borderColor`         | The border color of the textfield.          | `ColorsType`                                       | `"TRANSPARENT"`     |
+| `borderColor`         | The border color of the textfield.          | `Colors`                                           | `"TRANSPARENT"`     |
 | `borderColorHex`      | The border color hex of the textfield.      | `string`                                           | -                   |
 | `borderWidth`         | The border width of the textfield.          | `number`                                           | `0`                 |
-| `backgroundColor`     | The background color of the textfield.      | `ColorsType`                                       | `"GRAY_LIGHTEST_1"` |
+| `backgroundColor`     | The background color of the textfield.      | `Colors`                                           | `"GRAY_LIGHTEST_1"` |
 | `backgroundColorHex`  | The background color hex of the textfield.  | `string`                                           | -                   |
 | `textError`           | The error text of the textfield.            | `string`                                           | -                   |
 | `onChange`            | The onChange event of the textfield.        | `(e: React.ChangeEvent<HTMLInputElement>) => void` | -                   |
@@ -86,15 +86,15 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | `RightIcon`           | The right icon of the textfield.            | `React.FC<IconProps>`                              | -                   |
 | `leftChildren`        | The left children of the textfield.         | `React.ReactNode`                                  | -                   |
 | `rightChildren`       | The right children of the textfield.        | `React.ReactNode`                                  | -                   |
-| `css`                 | The css of the textfield.                   | `TextfieldCSSType`                                 | -                   |
+| `css`                 | The css of the textfield.                   | `TextfieldCSS`                                     | -                   |
 | `outline`             | The outline of the textfield.               | `boolean`                                          | `true`              |
 | `description`         | The description of the textfield.           | `string`                                           | -                   |
 | `width`               | The width of the textfield.                 | `string or number`                                 | `"100%"`            |
 | `maxWidth`            | The max width of the textfield.             | `string or number`                                 | `"100%"`            |
 | `minWidth`            | The min width of the textfield.             | `string or number`                                 | -                   |
-| `leftIconColor`       | The left icon color of the textfield.       | `ColorsType`                                       | -                   |
+| `leftIconColor`       | The left icon color of the textfield.       | `Colors`                                           | -                   |
 | `leftIconColorHex`    | The left icon color hex of the textfield.   | `string`                                           | -                   |
-| `rightIconColor`      | The right icon color of the textfield.      | `ColorsType`                                       | -                   |
+| `rightIconColor`      | The right icon color of the textfield.      | `Colors`                                           | -                   |
 | `rightIconColorHex`   | The right icon color hex of the textfield.  | `string`                                           | -                   |
 | `leftIconSize`        | The left icon size of the textfield.        | `number`                                           | -                   |
 | `rightIconSize`       | The right icon size of the textfield.       | `number`                                           | -                   |

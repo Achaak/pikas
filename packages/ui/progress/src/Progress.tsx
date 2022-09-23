@@ -1,9 +1,4 @@
-import type {
-  BorderRadiusType,
-  ColorsType,
-  ShadowsType,
-  CSS,
-} from '@pikas-ui/styles'
+import type { BorderRadius, Colors, Shadows, CSS } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Skeleton } from '@pikas-ui/skeleton'
@@ -63,7 +58,7 @@ const ContentBack = styled(Content, {})
 
 const ContentFront = styled(Content, {})
 
-export interface ProgressCSSType {
+export interface ProgressCSS {
   container?: CSS
   content?: CSS
   indicator?: CSS
@@ -74,15 +69,15 @@ export interface ProgressProps {
   max?: number
   width?: number | string
   height?: number | string
-  color?: ColorsType
-  backgroundColor?: ColorsType
+  color?: Colors
+  backgroundColor?: Colors
   loading?: boolean
-  boxShadow?: ShadowsType | 'none'
-  borderRadius?: BorderRadiusType
-  borderRadiusIndicator?: BorderRadiusType
+  boxShadow?: Shadows | 'none'
+  borderRadius?: BorderRadius
+  borderRadiusIndicator?: BorderRadius
   getValueLabel?: (value: number, max: number) => string
   content?: string
-  css?: ProgressCSSType
+  css?: ProgressCSS
 }
 
 export const Progress: React.FC<ProgressProps> = ({

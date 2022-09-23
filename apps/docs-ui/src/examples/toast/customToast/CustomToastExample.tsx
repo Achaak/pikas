@@ -1,21 +1,22 @@
-import type { CustomToastPositionType } from '@pikas-ui/toast'
-import { CustomToastPosition } from '@pikas-ui/toast'
+import type { ToastPosition } from '@pikas-ui/toast'
 import { ExampleContainer } from '@/components/ExampleContainer'
-import { CustomToastItem } from './customToastItem'
+import { CustomToastProvider } from './customToastProvider'
+import { toastPosition } from '../utils'
 
 export const CustomToastExample: React.FC = () => {
   return (
-    <ExampleContainer>
-      {Object.keys(CustomToastPosition).map(
-        (position: CustomToastPositionType) => (
-          <CustomToastItem position={position} />
-        )
-      )}
-      {Object.keys(CustomToastPosition).map(
-        (position: CustomToastPositionType) => (
-          <CustomToastItem position={position} />
-        )
-      )}
+    <ExampleContainer
+      css={{
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+      }}
+    >
+      {toastPosition.map((position, positionKey) => (
+        <CustomToastProvider
+          key={positionKey}
+          position={position as ToastPosition}
+        />
+      ))}
     </ExampleContainer>
   )
 }

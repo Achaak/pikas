@@ -1,16 +1,16 @@
-import type { DialogType } from '../CustomDialog/index.js'
+import type { Dialog } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { InfoDialogContent } from './InfoDialogContent/index.js'
 import { InfoDialogFooter } from './InfoDialogFooter/index.js'
 import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
-export interface InfoDialogType extends DialogType {
+export interface InfoDialog extends Dialog {
   validateButtonLabel?: string
   title?: string
   content: React.ReactNode
 }
 
-export const InfoDialog: React.FC<InfoDialogType> = ({
+export const InfoDialog: React.FC<InfoDialog> = ({
   onClose,
   validateButtonLabel,
   title,

@@ -8,11 +8,11 @@ const Container = styled('div', {
   color: '$BLACK',
 })
 
-export interface DefaultDialogContentType {
+export interface DefaultDialogContentProps {
   content: React.ReactNode
 }
 
-export const DefaultDialogContent: React.FC<DefaultDialogContentType> = ({
+export const DefaultDialogContent: React.FC<DefaultDialogContentProps> = ({
   content,
 }) => {
   return <Container>{content}</Container>

@@ -11,11 +11,11 @@ const Container = styled('div', {
   marginBottom: 8,
 })
 
-export interface ErrorDialogHeaderType {
+export interface ErrorDialogHeaderProps {
   title?: string
 }
 
-export const ErrorDialogHeader: React.FC<ErrorDialogHeaderType> = ({
+export const ErrorDialogHeader: React.FC<ErrorDialogHeaderProps> = ({
   title,
 }) => {
   return (

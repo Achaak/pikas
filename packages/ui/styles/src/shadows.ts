@@ -25,4 +25,4 @@ export const Shadows = {
   DIMINUTION_5: 'inset 0px 1px 24px rgba(0, 0, 0, 0.20)',
 }
 
-export type ShadowsType = keyof typeof Shadows
+export type Shadows = keyof typeof Shadows

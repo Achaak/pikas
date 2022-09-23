@@ -8,11 +8,11 @@ const Container = styled('div', {
   width: '100%',
 })
 
-export interface DefaultDialogHeaderType {
+export interface DefaultDialogHeaderProps {
   title: string
 }
 
-export const DefaultDialogHeader: React.FC<DefaultDialogHeaderType> = ({
+export const DefaultDialogHeader: React.FC<DefaultDialogHeaderProps> = ({
   title,
 }) => {
   return (

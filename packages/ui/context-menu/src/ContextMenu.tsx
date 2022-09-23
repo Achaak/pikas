@@ -2,12 +2,7 @@ import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
 import { styled } from '@pikas-ui/styles'
 
 import { ClipLoader } from '@pikas-ui/loader'
-import type {
-  MenuData,
-  MenuDataItem,
-  MenuProps,
-  MenuCSSType,
-} from '@pikas-ui/menu'
+import type { MenuData, MenuDataItem, MenuProps, MenuCSS } from '@pikas-ui/menu'
 import {
   MenuContentCSS,
   MenuCheckboxItemCSS,
@@ -71,9 +66,9 @@ export const ContextMenuDirection = {
   ltr: true,
   rtl: true,
 }
-export type ContextMenuDirectionType = keyof typeof ContextMenuDirection
+export type ContextMenuDirection = keyof typeof ContextMenuDirection
 
-export type ContextMenuCSSType = MenuCSSType
+export type ContextMenuCSS = MenuCSS
 
 export type ContextMenuData = MenuDataItem[]
 export interface ContextMenuProps extends MenuProps {
@@ -83,7 +78,7 @@ export interface ContextMenuProps extends MenuProps {
   modal?: boolean
 
   loop?: boolean
-  direction?: ContextMenuDirectionType
+  direction?: ContextMenuDirection
   onCloseAutoFocus?: (event: Event) => void
   onEscapeKeyDown?: (event: KeyboardEvent) => void
   onPointerDownOutside?: () => void
@@ -140,7 +135,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
 interface ContextMenuDataProps {
   data: MenuData
-  css?: ContextMenuCSSType
+  css?: ContextMenuCSS
 }
 
 const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {

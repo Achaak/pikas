@@ -5,7 +5,7 @@ import { ClipLoader } from '@pikas-ui/loader'
 import { Separator } from '@pikas-ui/separator'
 import type { CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { TextfieldProps, TextfieldCSSType } from '@pikas-ui/textfield'
+import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
 import React, { useEffect, useState, useRef } from 'react'
 import * as usehook from 'usehooks-ts'
@@ -113,41 +113,41 @@ export const SearchbarDirection = {
 }
 export type SearchbarDirection = typeof SearchbarDirection
 
-export type ResultItemType = {
+export type ResultItem = {
   content: React.ReactNode
   onClick?: () => void
 }
 
-export type ResultGroupType = {
+export type ResultGroup = {
   title?: string
-  items: ResultItemType[]
+  items: ResultItem[]
 }
 
-type ResultGroupWithIdType = {
+type ResultGroupWithId = {
   title?: string
-  items: (ResultItemType & { id: number })[]
+  items: (ResultItem & { id: number })[]
 }
 
-export type SearchbarCSSType = {
+export type SearchbarCSS = {
   container?: CSS
   resultContainer?: CSS
   noResult?: CSS
   resultItem?: CSS
-  textfield?: TextfieldCSSType
+  textfield?: TextfieldCSS
   resultGroup?: CSS
   resultGroupTitle?: CSS
 }
 
 export interface SearchbarProps<T> {
   searchFunction: (value: string) => Promise<T>
-  onSearch: (value: T) => ResultGroupType[] | null
+  onSearch: (value: T) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
   isOpen?: boolean
   id?: string
   searchWhenKeyUp?: boolean
   debounceDelay?: number
   textfield?: TextfieldProps
-  css?: SearchbarCSSType
+  css?: SearchbarCSS
   noResult?: React.ReactNode
   loading?: React.ReactNode
   direction?: SearchbarDirection
@@ -178,7 +178,7 @@ export const Searchbar = <T,>({
   minWidth,
   directResult,
 }: SearchbarProps<T>): JSX.Element => {
-  const [result, setResult] = useState<ResultGroupWithIdType[]>()
+  const [result, setResult] = useState<ResultGroupWithId[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
   const [nbItems, setNbItems] = useState(0)
   const [isOpen, setIsOpen] = useState(isOpenProp)
@@ -202,15 +202,15 @@ export const Searchbar = <T,>({
   }, [windowSize])
 
   const getResultFormat = (
-    result: ResultGroupType[] | null
-  ): ResultGroupWithIdType[] => {
+    result: ResultGroup[] | null
+  ): ResultGroupWithId[] => {
     if (!result) return []
 
     let i = directResult?.enabled ? 1 : 0
-    const resultFormat: ResultGroupWithIdType[] = []
+    const resultFormat: ResultGroupWithId[] = []
 
     result.forEach((group) => {
-      const items: (ResultItemType & { id: number })[] = []
+      const items: (ResultItem & { id: number })[] = []
       group.items.forEach((item) => {
         items.push({
           ...item,

@@ -1,24 +1,24 @@
 import type {
-  ColorsType,
+  Colors,
   CSS,
-  FontsWeightsType,
-  BorderRadiusType,
-  FontsSizesType,
-  ShadowsType,
+  FontsWeights,
+  BorderRadius,
+  FontsSizes,
+  Shadows,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
-import type { IconProps, IconCSSType } from '@pikas-ui/icons'
+import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { BeatLoader } from '@pikas-ui/loader'
 import type {
-  ButtonTypeType,
-  ButtonEffectType,
-  ButtonGapType,
-  ButtonPaddingType,
-  ButtonTextTransformType,
-  ButtonTargetType,
+  ButtonType,
+  ButtonEffect,
+  ButtonGap,
+  ButtonPadding,
+  ButtonTextTransform,
+  ButtonTarget,
 } from '../types.js'
 import { getColors, getContentColor } from '../utils.js'
 
@@ -167,52 +167,52 @@ const Children = styled('div', {
   },
 })
 
-export type ButtonCSSType = {
+export type ButtonCSS = {
   button?: CSS
-  icon?: IconCSSType
+  icon?: IconCSS
 }
 
 export interface ButtonDefaultProps {
   children?: React.ReactNode
-  css?: ButtonCSSType
+  css?: ButtonCSS
   loading?: boolean
-  padding?: ButtonPaddingType
-  fontSize?: FontsSizesType
-  gap?: ButtonGapType
-  color?: ColorsType
+  padding?: ButtonPadding
+  fontSize?: FontsSizes
+  gap?: ButtonGap
+  color?: Colors
   colorHex?: string
-  contentColor?: ColorsType
+  contentColor?: Colors
   contentColorHex?: string
-  textTransform?: ButtonTextTransformType
-  fontWeight?: FontsWeightsType
+  textTransform?: ButtonTextTransform
+  fontWeight?: FontsWeights
   outlined?: boolean
-  effect?: ButtonEffectType
+  effect?: ButtonEffect
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
   disabled?: boolean
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
-  borderRadius?: BorderRadiusType
+  borderRadius?: BorderRadius
   borderWidth?: number
-  boxShadow?: ShadowsType | 'none'
+  boxShadow?: Shadows | 'none'
 }
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonDefaultProps {
   onClick?: () => void
-  color?: ColorsType
-  type?: ButtonTypeType
+  color?: Colors
+  type?: ButtonType
 }
 
 export interface ButtonLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement>,
     ButtonDefaultProps {
   onClick?: () => void
-  color?: ColorsType
+  color?: Colors
   href?: string
-  target?: ButtonTargetType
+  target?: ButtonTarget
 }
 
 const getContent = ({
@@ -229,10 +229,10 @@ const getContent = ({
   RightIcon?: React.FC<IconProps>
   loading?: boolean
   children?: React.ReactNode
-  css?: ButtonCSSType
+  css?: ButtonCSS
   contentColor?: string
-  textTransform?: ButtonTextTransformType
-  gap?: ButtonGapType
+  textTransform?: ButtonTextTransform
+  gap?: ButtonGap
 }): React.ReactNode => {
   const theme = useTheme()
 

@@ -1,13 +1,13 @@
 import type {
-  BorderRadiusType,
-  ColorsType,
+  BorderRadius,
+  Colors,
   CSS,
-  FontsSizesType,
-  ShadowsType,
+  FontsSizes,
+  Shadows,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { IconCSSType } from '@pikas-ui/icons'
+import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
@@ -52,15 +52,15 @@ export const CheckboxSide = {
   left: true,
   right: true,
 }
-export type CheckboxSideType = keyof typeof CheckboxSide
+export type CheckboxSide = keyof typeof CheckboxSide
 
-export interface CheckboxCSSType {
+export interface CheckboxCSS {
   container?: CSS
   label?: CSS
   checkboxRoot?: CSS
   checkboxIndicator?: CSS
   textError?: CSS
-  icon?: IconCSSType
+  icon?: IconCSS
 }
 
 export interface CheckboxProps {
@@ -68,24 +68,24 @@ export interface CheckboxProps {
   onChange?: (checked: boolean) => void
   id?: string
   label?: string | ReactNode
-  bgColor?: ColorsType
-  bgColorChecked?: ColorsType
+  bgColor?: Colors
+  bgColorChecked?: Colors
   textError?: string
-  boxShadow?: ShadowsType | 'none'
-  borderColor?: ColorsType
+  boxShadow?: Shadows | 'none'
+  borderColor?: Colors
   borderWidth?: number
-  borderRadius?: BorderRadiusType
-  fontSize?: FontsSizesType
+  borderRadius?: BorderRadius
+  fontSize?: FontsSizes
   size?: number
   checked?: boolean
   className?: string
   disabled?: boolean
   required?: boolean
   name?: string
-  side?: CheckboxSideType
+  side?: CheckboxSide
   outline?: boolean
   indeterminate?: boolean
-  css?: CheckboxCSSType
+  css?: CheckboxCSS
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({

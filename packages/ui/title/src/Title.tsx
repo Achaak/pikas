@@ -48,7 +48,7 @@ export const TitleComponent = {
   h4: true,
   h5: true,
 }
-export type TitleComponentType = keyof typeof TitleComponent
+export type TitleAs = keyof typeof TitleComponent
 
 export const TextTransformComponent = {
   uppercase: true,
@@ -56,12 +56,12 @@ export const TextTransformComponent = {
   capitalize: true,
   none: true,
 }
-export type TextTransformComponentType = keyof typeof TextTransformComponent
+export type TitleTextTransform = keyof typeof TextTransformComponent
 
 export const TitleVariant = TitleComponent
-export type TitleVariantType = keyof typeof TitleVariant
+export type TitleVariant = keyof typeof TitleVariant
 
-export interface TitleCSSType {
+export interface TitleCSS {
   global?: CSS
   h1?: CSS
   h2?: CSS
@@ -71,10 +71,10 @@ export interface TitleCSSType {
 }
 
 export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  as: TitleComponentType
-  variant?: TitleVariantType
-  textTransform?: TextTransformComponentType
-  css?: TitleCSSType
+  as: TitleAs
+  variant?: TitleVariant
+  textTransform?: TitleTextTransform
+  css?: TitleCSS
   children?: React.ReactNode
 }
 

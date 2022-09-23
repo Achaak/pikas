@@ -5,4 +5,4 @@ export const BadgePadding = {
   lg: true,
   xl: true,
 }
-export type BadgePaddingType = keyof typeof BadgePadding
+export type BadgePadding = keyof typeof BadgePadding

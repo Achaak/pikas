@@ -1,5 +1,5 @@
 import { ExampleContainer } from '@/components/ExampleContainer'
-import type { ResultGroupType } from '@pikas-ui/searchbar'
+import type { ResultGroup } from '@pikas-ui/searchbar'
 import { Searchbar } from '@pikas-ui/searchbar'
 
 type SearchbarData = {
@@ -12,7 +12,7 @@ export const SearchbarExample: React.FC = () => {
     <ExampleContainer>
       <Searchbar<SearchbarData>
         searchWhenKeyUp={true}
-        onSearch={(value): ResultGroupType[] | null => {
+        onSearch={(value): ResultGroup[] | null => {
           return [
             {
               items: value.map((item) => {

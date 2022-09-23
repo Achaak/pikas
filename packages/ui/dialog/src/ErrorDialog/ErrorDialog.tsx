@@ -1,16 +1,16 @@
-import type { DialogType } from '../CustomDialog/index.js'
+import type { Dialog } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ErrorDialogContent } from './ErrorDialogContent/index.js'
 import { ErrorDialogFooter } from './ErrorDialogFooter/index.js'
 import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
-export interface ErrorDialogType extends DialogType {
+export interface ErrorDialog extends Dialog {
   validateButtonLabel?: string
   title?: string
   content: React.ReactNode
 }
 
-export const ErrorDialog: React.FC<ErrorDialogType> = ({
+export const ErrorDialog: React.FC<ErrorDialog> = ({
   validateButtonLabel,
   title,
   onClose,

@@ -1,5 +1,5 @@
 import React from 'react'
-import type { BorderRadiusType, CSS } from '@pikas-ui/styles'
+import type { BorderRadius, CSS } from '@pikas-ui/styles'
 import { styled, keyframes } from '@pikas-ui/styles'
 
 const wave = keyframes({
@@ -94,13 +94,13 @@ const Container = styled('div', {
   },
 })
 
-export type SkeletonAnimationType = 'pulse' | 'wave' | false
+export type SkeletonAnimation = 'pulse' | 'wave' | false
 
 export interface SkeletonProps {
-  animation?: SkeletonAnimationType
+  animation?: SkeletonAnimation
   width?: string | number
   height?: string | number
-  borderRadius?: BorderRadiusType
+  borderRadius?: BorderRadius
   css?: CSS
 }
 

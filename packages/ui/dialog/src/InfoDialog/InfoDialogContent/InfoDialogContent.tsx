@@ -8,11 +8,11 @@ const Container = styled('div', {
   color: '$BLACK',
 })
 
-export interface InfoDialogContentType {
+export interface InfoDialogContentProps {
   content: React.ReactNode
 }
 
-export const InfoDialogContent: React.FC<InfoDialogContentType> = ({
+export const InfoDialogContent: React.FC<InfoDialogContentProps> = ({
   content,
 }) => {
   return <Container>{content}</Container>

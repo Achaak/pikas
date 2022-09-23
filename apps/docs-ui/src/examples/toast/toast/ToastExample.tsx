@@ -1,13 +1,21 @@
-import { Toast } from '@pikas-ui/toast'
+import { ToastVariant } from '@pikas-ui/toast'
+import { ToastProvider } from '@pikas-ui/toast'
 import { ExampleContainer } from '@/components/ExampleContainer'
-import { Button } from '@pikas-ui/button'
+import { ToastItem } from './toastItem'
 
 export const ToastExample: React.FC = () => {
   return (
-    <ExampleContainer>
-      <Toast />
-
-      <Button width="auto">Click here</Button>
+    <ExampleContainer
+      css={{
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+      }}
+    >
+      <ToastProvider position="top-left">
+        {Object.keys(ToastVariant).map((variant, variantKey) => (
+          <ToastItem variant={variant as ToastVariant} key={variantKey} />
+        ))}
+      </ToastProvider>
     </ExampleContainer>
   )
 }

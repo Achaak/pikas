@@ -1009,15 +1009,15 @@ importers:
       '@types/react-dom': 18.0.6
       cross-env: ^7.0.3
       eslint: ^8.23.1
+      font-color-contrast: ^11.1.0
       tsup: ^6.2.3
       typescript: 4.8.3
-      usehooks-ts: ^2.7.0
     dependencies:
       '@pikas-ui/button': link:../button
       '@pikas-ui/icons': link:../icons
       '@pikas-ui/styles': link:../styles
       '@radix-ui/react-toast': 1.0.0
-      usehooks-ts: 2.7.0
+      font-color-contrast: 11.1.0
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig

@@ -1,10 +1,10 @@
 import { IconByName } from '@pikas-ui/icons'
-import type { FontsSizesType } from '@pikas-ui/styles'
+import type { FontsSizes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { CustomBadgeProps } from '../customBadge/index.js'
 import { CustomBadge } from '../customBadge/index.js'
-import type { BadgePaddingType } from '../types.js'
+import type { BadgePadding } from '../types.js'
 
 const BadgeStyled = styled(CustomBadge, {
   variants: {
@@ -52,14 +52,14 @@ export const GapPadding = {
   lg: true,
   xl: true,
 }
-export type BadgeGapType = keyof typeof GapPadding
+export type BadgeGap = keyof typeof GapPadding
 
 export interface BadgeProps extends CustomBadgeProps {
-  fontSize?: FontsSizesType
+  fontSize?: FontsSizes
   leftIconName?: string
   rightIconName?: string
-  gap?: BadgeGapType
-  padding?: BadgePaddingType
+  gap?: BadgeGap
+  padding?: BadgePadding
 }
 
 export const Badge: React.FC<BadgeProps> = ({

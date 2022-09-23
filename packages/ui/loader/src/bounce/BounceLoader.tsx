@@ -1,10 +1,10 @@
-import type { ColorsType } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import { BounceLoader as BounceLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface BounceLoaderProps {
   size?: number | string
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number

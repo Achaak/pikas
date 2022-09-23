@@ -1,3 +1,3 @@
 export const Radii = {}
 
-export type RadiiType = keyof typeof Radii
+export type Radii = keyof typeof Radii

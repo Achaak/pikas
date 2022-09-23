@@ -1,9 +1,4 @@
-import type {
-  BorderRadiusType,
-  ColorsType,
-  CSS,
-  FontsSizesType,
-} from '@pikas-ui/styles'
+import type { BorderRadius, Colors, CSS, FontsSizes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
@@ -55,15 +50,15 @@ export const SliderDirection = {
   ltr: true,
   rtl: true,
 }
-export type SliderDirectionType = keyof typeof SliderDirection
+export type SliderDirection = keyof typeof SliderDirection
 
 export const SliderOrientation = {
   horizontal: true,
   vertical: true,
 }
-export type SliderOrientationType = keyof typeof SliderOrientation
+export type SliderOrientation = keyof typeof SliderOrientation
 
-export interface SliderCSSType {
+export interface SliderCSS {
   container?: CSS
   label?: CSS
   description?: CSS
@@ -81,7 +76,7 @@ export interface SliderProps {
   id?: string
   label?: string | ReactNode
   textError?: string
-  fontSize?: FontsSizesType
+  fontSize?: FontsSizes
   className?: string
   description?: string
   value?: number[]
@@ -89,8 +84,8 @@ export interface SliderProps {
   min?: number
   max?: number
   name?: string
-  direction?: SliderDirectionType
-  orientation?: SliderOrientationType
+  direction?: SliderDirection
+  orientation?: SliderOrientation
   step?: number
   minStepsBetweenThumbs?: number
   size?: string | number
@@ -99,18 +94,18 @@ export interface SliderProps {
   weight?: number
   thumbSize?: number
   thumbColor?: string
-  thumbBorderColor?: ColorsType
+  thumbBorderColor?: Colors
   thumbBorderColorHex?: string
-  thumbBorderColorHover?: ColorsType
+  thumbBorderColorHover?: Colors
   thumbBorderColorHoverHex?: string
   thumbBorderWidth?: number
-  thumbBorderRadius?: BorderRadiusType
-  trackColor?: ColorsType
+  thumbBorderRadius?: BorderRadius
+  trackColor?: Colors
   trackColorHex?: string
-  rangeColor?: ColorsType
+  rangeColor?: Colors
   rangeColorHex?: string
-  sliderBorderRadius?: BorderRadiusType
-  css?: SliderCSSType
+  sliderBorderRadius?: BorderRadius
+  css?: SliderCSS
 }
 
 export const Slider: React.FC<SliderProps> = ({

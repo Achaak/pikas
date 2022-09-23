@@ -62,12 +62,12 @@ const Example: React.FC = () => {
 | `max`                   | The max value of the progress.                 | `number or string`                       | `100`                                                           |
 | `width`                 | The width of the progress.                     | `number or string`                       | `280`                                                           |
 | `height`                | The height of the progress.                    | `number or string`                       | `16`                                                            |
-| `color`                 | The color of the progress.                     | `ColorsType`                             | `"PRIMARY"`                                                     |
-| `backgroundColor`       | The background color of the progress.          | `ColorsType`                             | `"GRAY"`                                                        |
+| `color`                 | The color of the progress.                     | `Colors`                                 | `"PRIMARY"`                                                     |
+| `backgroundColor`       | The background color of the progress.          | `Colors`                                 | `"GRAY"`                                                        |
 | `loading`               | The loading state of the progress.             | `boolean`                                | `false`                                                         |
-| `boxShadow`             | The box shadow of the progress.                | `ShadowsType or 'none'`                  | `"DIMINUTION_1"`                                                |
-| `borderRadius`          | The border radius of the progress.             | `BorderRadiusType`                       | `"round"`                                                       |
-| `borderRadiusIndicator` | The border radius of the indicator.            | `BorderRadiusType`                       | `"none"`                                                        |
+| `boxShadow`             | The box shadow of the progress.                | `Shadows or 'none'`                      | `"DIMINUTION_1"`                                                |
+| `borderRadius`          | The border radius of the progress.             | `BorderRadius`                           | `"round"`                                                       |
+| `borderRadiusIndicator` | The border radius of the indicator.            | `BorderRadius`                           | `"none"`                                                        |
 | `getValueLabel`         | The function to get the label of the progress. | `(value: number, max: number) => string` | `(value, max): string => Math.round((value / max) * 100) + "%"` |
-| `css`                   | The css of the progress.                       | `ProgressCSSType`                        | -                                                               |
+| `css`                   | The css of the progress.                       | `ProgressCSS`                            | -                                                               |
 | `content`               | The content of the progress.                   | `string`                                 | -                                                               |

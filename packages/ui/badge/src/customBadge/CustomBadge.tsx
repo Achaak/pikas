@@ -1,9 +1,4 @@
-import type {
-  BorderRadiusType,
-  ColorsType,
-  CSS,
-  ShadowsType,
-} from '@pikas-ui/styles'
+import type { BorderRadius, Colors, CSS, Shadows } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
@@ -18,10 +13,10 @@ const Container = styled('div', {
 
 export interface CustomBadgeProps {
   children?: React.ReactNode
-  color?: ColorsType
+  color?: Colors
   colorHex?: string
-  boxShadow?: ShadowsType | 'none'
-  borderRadius?: BorderRadiusType
+  boxShadow?: Shadows | 'none'
+  borderRadius?: BorderRadius
   css?: CSS
 }
 

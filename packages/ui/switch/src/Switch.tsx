@@ -1,7 +1,7 @@
-import type { IconProps, IconCSSType } from '@pikas-ui/icons'
+import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { CSS, FontsSizesType } from '@pikas-ui/styles'
-import type { TooltipCSSType } from '@pikas-ui/tooltip'
+import type { CSS, FontsSizes } from '@pikas-ui/styles'
+import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
 import { Label, TextError } from '@pikas-ui/text'
@@ -67,10 +67,10 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSSType {
+export interface SwitchCSS {
   container?: CSS
-  infoTooltip?: TooltipCSSType
-  infoIcon?: IconCSSType
+  infoTooltip?: TooltipCSS
+  infoIcon?: IconCSS
   label?: CSS
   required?: CSS
   textError?: CSS
@@ -80,12 +80,12 @@ export interface SwitchProps {
   id?: string
   label?: string
   name?: string
-  fontSize?: FontsSizesType
+  fontSize?: FontsSizes
   textError?: string
 
   onChange?: (val: boolean) => void
   defaultChecked?: boolean
-  css?: SwitchCSSType
+  css?: SwitchCSS
   disabled?: boolean
   side?: 'left' | 'right'
   Icons?: {

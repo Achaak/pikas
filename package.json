@@ -4,16 +4,17 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/ui/*",
+    "packages/utils/*"
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:packages": "turbo run build --filter=./packages/*",
+    "build:packages": "turbo run build --filter=./packages/**/*",
     "build:docs-ui": "turbo run build --filter=@pikas-ui/docs...",
     "build:docs-utils": "turbo run build --filter=@pikas-utils/docs...",
     "clean": "turbo run clean node_modules",
     "dev": "turbo run dev --parallel",
-    "dev:packages": "turbo run dev --parallel --filter=./packages/*",
+    "dev:packages": "turbo run dev --parallel --filter=./packages/**/*",
     "dev:docs-ui": "turbo run dev --parallel --filter=@pikas-ui/docs...",
     "dev:docs-utils": "turbo run dev --parallel --filter=@pikas-utils/docs...",
     "start": "turbo run start --parallel",

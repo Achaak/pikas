@@ -1,21 +1,15 @@
-import type {
-  BorderRadiusType,
-  ColorsType,
-  CSS,
-  ShadowsType,
-  SizesType,
-} from '@pikas-ui/styles'
+import type { BorderRadius, Colors, CSS, Shadows } from '@pikas-ui/styles'
 import { styled, Sizes, useTheme } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
 import type {
-  ButtonTypeType,
-  ButtonEffectType,
-  ButtonPaddingType,
-  ButtonTargetType,
+  ButtonType,
+  ButtonEffect,
+  ButtonPadding,
+  ButtonTarget,
 } from '../types.js'
 
-import type { IconProps, IconCSSType } from '@pikas-ui/icons'
+import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
 import { getColors, getContentColor } from '../utils.js'
 
@@ -133,44 +127,44 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
-export type ButtonIconCSSType = {
+export type ButtonIconCSS = {
   button?: CSS
-  icon?: IconCSSType
+  icon?: IconCSS
 }
 
 export interface ButtonIconDefaultProps {
   Icon: React.FC<IconProps>
-  css?: ButtonIconCSSType
+  css?: ButtonIconCSS
   loading?: boolean
   outlined?: boolean
-  effect?: ButtonEffectType
-  padding?: ButtonPaddingType
-  size?: SizesType
-  color?: ColorsType
+  effect?: ButtonEffect
+  padding?: ButtonPadding
+  size?: Sizes
+  color?: Colors
   colorHex?: string
-  contentColor?: ColorsType
+  contentColor?: Colors
   contentColorHex?: string
   disabled?: boolean
-  borderRadius?: BorderRadiusType
+  borderRadius?: BorderRadius
   borderWidth?: number
-  boxShadow?: ShadowsType | 'none'
+  boxShadow?: Shadows | 'none'
 }
 
 export interface ButtonIconProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonIconDefaultProps {
   onClick?: () => void
-  color?: ColorsType
-  type?: ButtonTypeType
+  color?: Colors
+  type?: ButtonType
 }
 
 export interface ButtonIconLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement>,
     ButtonIconDefaultProps {
   onClick?: () => void
-  color?: ColorsType
+  color?: Colors
   href?: string
-  target?: ButtonTargetType
+  target?: ButtonTarget
 }
 
 const getContent = ({
@@ -181,9 +175,9 @@ const getContent = ({
   Icon,
 }: {
   loading?: boolean
-  css?: ButtonIconCSSType
+  css?: ButtonIconCSS
   contentColor?: string
-  size?: SizesType
+  size?: Sizes
   Icon: React.FC<IconProps>
 }): React.ReactNode => {
   return (
