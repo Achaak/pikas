@@ -1,5 +1,16 @@
 # @pikas-ui/tooltip
 
+## 3.1.0
+
+### Minor Changes
+
+- 3fa3b2f: Update types
+
+### Patch Changes
+
+- Updated dependencies [3fa3b2f]
+  - @pikas-ui/styles@3.1.0
+
 ## 3.0.8
 
 ### Patch Changes

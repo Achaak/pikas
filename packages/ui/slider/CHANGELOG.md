@@ -1,5 +1,18 @@
 # @pikas-ui/slider
 
+## 3.1.0
+
+### Minor Changes
+
+- 3fa3b2f: Update types
+
+### Patch Changes
+
+- Updated dependencies [3fa3b2f]
+  - @pikas-ui/icons@3.1.0
+  - @pikas-ui/styles@3.1.0
+  - @pikas-ui/text@4.0.9
+
 ## 3.0.8
 
 ### Patch Changes
