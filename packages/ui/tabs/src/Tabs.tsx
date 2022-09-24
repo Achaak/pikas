@@ -17,6 +17,7 @@ const Root = styled(TabsPrimitive.Root, {
 
 const List = styled(TabsPrimitive.List, {
   display: 'flex',
+  overflow: 'auto',
 
   '&[aria-orientation="horizontal"]': {
     flexDirection: 'column',
@@ -170,6 +171,7 @@ export interface TabsCSS {
   endTrigger?: CSS
   startTrigger?: CSS
   trigger?: CSS
+  content?: CSS
 }
 
 export interface TabsPadding {
@@ -252,7 +254,10 @@ export const Tabs = <T extends string>({
         return (
           <Content
             value={item.id}
-            css={item?.css?.content}
+            css={{
+              ...css?.content,
+              ...item?.css?.content,
+            }}
             padding={padding?.content}
           >
             {item.content}
