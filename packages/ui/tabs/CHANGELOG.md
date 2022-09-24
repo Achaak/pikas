@@ -1,5 +1,11 @@
 # @pikas-ui/tabs
 
+## 2.1.1
+
+### Patch Changes
+
+- fix css
+
 ## 2.1.0
 
 ### Minor Changes
