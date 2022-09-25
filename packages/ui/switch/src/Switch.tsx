@@ -6,7 +6,8 @@ import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
 import { Label, TextError } from '@pikas-ui/text'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import React, { ButtonHTMLAttributes, useEffect, useState } from 'react'
+import type { ButtonHTMLAttributes } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Container = styled('div', {
   display: 'flex',
@@ -76,8 +77,7 @@ export interface SwitchCSS {
   textError?: CSS
 }
 
-export interface SwitchProps {
-  id?: string
+export interface BasicSwitchProps {
   label?: string
   name?: string
   fontSize?: FontsSizes
@@ -97,9 +97,10 @@ export interface SwitchProps {
   info?: string
 }
 
-export const Switch: React.FC<
-  ButtonHTMLAttributes<HTMLButtonElement> & SwitchProps
-> = ({
+export type SwitchProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  BasicSwitchProps
+
+export const Switch: React.FC<SwitchProps> = ({
   id,
   name,
   onChange,

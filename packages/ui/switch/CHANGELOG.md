@@ -1,5 +1,11 @@
 # @pikas-ui/switch
 
+## 2.1.3
+
+### Patch Changes
+
+- Fix props type
+
 ## 2.1.2
 
 ### Patch Changes

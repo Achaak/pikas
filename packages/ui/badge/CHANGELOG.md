@@ -1,5 +1,11 @@
 # @pikas-ui/badge
 
+## 1.1.2
+
+### Patch Changes
+
+- Fix props type
+
 ## 1.1.1
 
 ### Patch Changes

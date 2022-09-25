@@ -11,7 +11,7 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface CustomBadgeProps {
+export interface CustomBadgeProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   color?: Colors
   colorHex?: string
@@ -20,9 +20,15 @@ export interface CustomBadgeProps {
   css?: CSS
 }
 
-export const CustomBadge: React.FC<
-  CustomBadgeProps & HTMLAttributes<HTMLDivElement>
-> = ({ color, colorHex, children, boxShadow, borderRadius, css, ...props }) => {
+export const CustomBadge: React.FC<CustomBadgeProps> = ({
+  color,
+  colorHex,
+  children,
+  boxShadow,
+  borderRadius,
+  css,
+  ...props
+}) => {
   const theme = useTheme()
 
   return (
