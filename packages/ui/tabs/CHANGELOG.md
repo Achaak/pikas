@@ -1,5 +1,11 @@
 # @pikas-ui/tabs
 
+## 2.1.4
+
+### Patch Changes
+
+- Add none in padding props
+
 ## 2.1.3
 
 ### Patch Changes

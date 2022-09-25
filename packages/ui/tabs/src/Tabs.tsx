@@ -70,6 +70,7 @@ const Trigger = styled(TabsPrimitive.Trigger, {
 
   variants: {
     padding: {
+      none: {},
       xs: {
         padding: '2px 4px',
       },
@@ -97,6 +98,7 @@ const TriggerExtremities = styled('div', {
 
   variants: {
     padding: {
+      none: {},
       xs: {
         padding: '2px 4px',
       },
@@ -135,6 +137,7 @@ const Content = styled(TabsPrimitive.Content, {
 
   variants: {
     padding: {
+      none: {},
       xs: {
         padding: 4,
       },
@@ -181,8 +184,8 @@ export interface TabsCSS {
 }
 
 export interface TabsPadding {
-  trigger?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  content?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  trigger?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
+  content?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
 }
 
 export type TabsAlignmentTrigger = 'start' | 'center' | 'end' | 'stretch'
