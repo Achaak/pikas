@@ -4,13 +4,13 @@ import { SuccessDialogContent } from './SuccessDialogContent/index.js'
 import { SuccessDialogFooter } from './SuccessDialogFooter/index.js'
 import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
-export interface SuccessDialog extends Dialog {
+export interface SuccessDialogProps extends Dialog {
   validateButtonLabel?: string
   title?: string
   content: React.ReactNode
 }
 
-export const SuccessDialog: React.FC<SuccessDialog> = ({
+export const SuccessDialog: React.FC<SuccessDialogProps> = ({
   validateButtonLabel,
   onClose,
   title,

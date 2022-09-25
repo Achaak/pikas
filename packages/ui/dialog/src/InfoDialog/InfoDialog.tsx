@@ -4,13 +4,13 @@ import { InfoDialogContent } from './InfoDialogContent/index.js'
 import { InfoDialogFooter } from './InfoDialogFooter/index.js'
 import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
-export interface InfoDialog extends Dialog {
+export interface InfoDialogProps extends Dialog {
   validateButtonLabel?: string
   title?: string
   content: React.ReactNode
 }
 
-export const InfoDialog: React.FC<InfoDialog> = ({
+export const InfoDialog: React.FC<InfoDialogProps> = ({
   onClose,
   validateButtonLabel,
   title,

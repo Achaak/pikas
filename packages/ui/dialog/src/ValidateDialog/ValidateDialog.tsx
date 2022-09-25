@@ -4,14 +4,14 @@ import { ValidateDialogContent } from './ValidateDialogContent/index.js'
 import { ValidateDialogFooter } from './ValidateDialogFooter/index.js'
 import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 
-export interface ValidateDialog extends Dialog {
+export interface ValidateDialogProps extends Dialog {
   cancelButtonLabel?: string
   validateButtonLabel?: string
   title?: string
   content: React.ReactNode
 }
 
-export const ValidateDialog: React.FC<ValidateDialog> = ({
+export const ValidateDialog: React.FC<ValidateDialogProps> = ({
   onClose,
   cancelButtonLabel,
   validateButtonLabel,

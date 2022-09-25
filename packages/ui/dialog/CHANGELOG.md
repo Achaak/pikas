@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.1.2
+
+### Patch Changes
+
+- Fix export props
+
 ## 2.1.1
 
 ### Patch Changes

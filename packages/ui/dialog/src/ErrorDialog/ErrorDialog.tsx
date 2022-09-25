@@ -4,13 +4,13 @@ import { ErrorDialogContent } from './ErrorDialogContent/index.js'
 import { ErrorDialogFooter } from './ErrorDialogFooter/index.js'
 import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
-export interface ErrorDialog extends Dialog {
+export interface ErrorDialogProps extends Dialog {
   validateButtonLabel?: string
   title?: string
   content: React.ReactNode
 }
 
-export const ErrorDialog: React.FC<ErrorDialog> = ({
+export const ErrorDialog: React.FC<ErrorDialogProps> = ({
   validateButtonLabel,
   title,
   onClose,

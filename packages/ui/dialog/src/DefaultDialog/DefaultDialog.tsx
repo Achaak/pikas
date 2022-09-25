@@ -4,12 +4,12 @@ import { DefaultDialogContent } from './DefaultDialogContent/index.js'
 import { DefaultDialogFooter } from './DefaultDialogFooter/index.js'
 import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 
-export interface DefaultDialog extends Dialog {
+export interface DefaultDialogProps extends Dialog {
   title: string
   content: React.ReactNode
 }
 
-export const DefaultDialog: React.FC<DefaultDialog> = ({
+export const DefaultDialog: React.FC<DefaultDialogProps> = ({
   title,
   content,
   onClose,

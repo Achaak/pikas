@@ -185,7 +185,7 @@ export interface Dialog {
   onClose?: () => void
 }
 
-export interface CustomDialog extends Dialog {
+export interface CustomDialogProps extends Dialog {
   closeIfClickOutside?: boolean
   hasCloseIcon?: boolean
   css?: CustomDialogCSS
@@ -198,7 +198,7 @@ export interface CustomDialog extends Dialog {
   footer?: React.ReactNode
 }
 
-export const CustomDialog: React.FC<CustomDialog> = ({
+export const CustomDialog: React.FC<CustomDialogProps> = ({
   visible,
   hasCloseIcon,
   onClose,
