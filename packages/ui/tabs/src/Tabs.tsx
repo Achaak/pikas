@@ -126,6 +126,12 @@ const Content = styled(TabsPrimitive.Content, {
   borderBottomRightRadius: 6,
   outline: 'none',
   color: '$BLACK',
+  display: 'none',
+
+  '&[data-state="active"]': {
+    display: 'flex',
+    flex: 1,
+  },
 
   variants: {
     padding: {

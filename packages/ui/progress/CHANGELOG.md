@@ -1,5 +1,14 @@
 # @pikas-ui/progress
 
+## 1.1.1
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/skeleton@2.1.1
+  - @pikas-ui/styles@3.1.1
+
 ## 1.1.0
 
 ### Minor Changes
