@@ -286,10 +286,18 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   disabled={item?.disabled}
                   checked={item.checked}
                   onCheckedChange={item.onCheckedChange}
-                  css={item?.css?.container}
+                  css={{
+                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    ...item?.css?.container,
+                  }}
                 >
                   <ItemIndicator css={item?.css?.indicator}>
-                    <IconByName name="bx:check" size={16} color="GRAY_DARKER" />
+                    <IconByName
+                      name="bx:check"
+                      size={16}
+                      color={item.color}
+                      colorHex={item.colorHex || 'GRAY_DARKER'}
+                    />
                   </ItemIndicator>
                   <Span css={item?.css?.label}>{item.label}</Span>
                   <RightSlot css={item?.css?.rightSlot}>
@@ -304,8 +312,10 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                 <RadioGroup
                   key={`radio-${dataIndex}-${i}`}
                   value={item.value}
-                  onValueChange={item.onValueChange}
-                  css={item?.css?.container}
+                  css={{
+                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    ...item?.css?.container,
+                  }}
                 >
                   {item.radios.map((radio, radioIndex) => (
                     <RadioItem
@@ -318,7 +328,8 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                         <IconByName
                           name="bxs:circle"
                           size={8}
-                          color="GRAY_DARKER"
+                          color={item.color}
+                          colorHex={item.colorHex || 'GRAY_DARKER'}
                         />
                       </ItemIndicator>
                       <Span css={radio?.css?.label}>{radio.label}</Span>
@@ -334,12 +345,18 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
             if (item.type === 'menu') {
               res.push(
                 <DropdownMenuPrimitive.Sub key={`menu-${dataIndex}-${i}`}>
-                  <SubTrigger>
+                  <SubTrigger
+                    css={{
+                      color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                      ...item?.css?.container,
+                    }}
+                  >
                     {item.label}
                     <RightSlot>
                       <IconByName
                         name="bxs:chevron-right"
-                        color="GRAY_DARK"
+                        color={item.color}
+                        colorHex={item.colorHex || 'GRAY_DARKER'}
                         size={20}
                       />
                     </RightSlot>

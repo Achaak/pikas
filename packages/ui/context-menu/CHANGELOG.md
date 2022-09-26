@@ -1,5 +1,18 @@
 # @pikas-ui/context-menu
 
+## 3.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/menu@3.2.1
+
+## 3.2.1
+
+### Patch Changes
+
+- fix colors props of item
+
 ## 3.2.0
 
 ### Minor Changes
