@@ -6,6 +6,10 @@ export const menu: Menu = [
     label: 'Docs',
     items: [
       {
+        label: 'Screen',
+        href: getLink('screen'),
+      },
+      {
         label: 'Router',
         href: getLink('router'),
       },

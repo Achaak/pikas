@@ -5,5 +5,6 @@ export const { getLink } = routes({
   links: {
     introduction: '/',
     router: '/router',
+    screen: '/screen',
   },
 })
