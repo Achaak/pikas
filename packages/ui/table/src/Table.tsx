@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from 'react'
 import type {
   ColumnDef,
@@ -135,7 +134,7 @@ export const TableVariant = {
 }
 export type TableVariant = keyof typeof TableVariant
 
-export interface TableCSSs {
+export interface TableCSS<T> {
   container?: CSS
   table?: CSS
   thead?: CSS
@@ -145,6 +144,16 @@ export interface TableCSSs {
   th?: CSS
   thSpan?: CSS
   td?: CSS
+  column?: Partial<
+    Record<
+      keyof T,
+      {
+        th?: CSS
+        td?: CSS
+        thSpan?: CSS
+      }
+    >
+  >
 }
 
 export interface TablePaginationProps {
@@ -180,7 +189,7 @@ export interface TableProps<T extends Record<string, unknown>> {
   selection?: TableSelection
   sorting?: TableSorting
   columns: ColumnDef<T>[]
-  css?: TableCSSs
+  css?: TableCSS<T>
   padding?: TablePadding
   hoverEffect?: boolean
 }
@@ -321,6 +330,7 @@ export const Table = <T extends Record<string, unknown>>({
                   variant={variant}
                   css={{
                     ...css?.th,
+                    ...css?.column?.[header.id as keyof T]?.th,
                   }}
                   padding={padding?.th}
                 >
@@ -328,6 +338,7 @@ export const Table = <T extends Record<string, unknown>>({
                     <ThSpan
                       css={{
                         ...css?.thSpan,
+                        ...css?.column?.[header.id as keyof T]?.thSpan,
                         ...(header.column.getCanSort()
                           ? {
                               cursor: 'pointer',
@@ -383,6 +394,7 @@ export const Table = <T extends Record<string, unknown>>({
                       variant={variant}
                       css={{
                         ...css?.td,
+                        ...css?.column?.[cell.column.id as keyof T]?.td,
                       }}
                       padding={padding?.td}
                     >
@@ -424,6 +436,7 @@ export const Table = <T extends Record<string, unknown>>({
                     variant={variant}
                     css={{
                       ...css?.th,
+                      ...css?.column?.[header.id as keyof T]?.th,
                     }}
                     padding={padding?.th}
                   >
@@ -431,6 +444,7 @@ export const Table = <T extends Record<string, unknown>>({
                       <ThSpan
                         css={{
                           ...css?.thSpan,
+                          ...css?.column?.[header.id as keyof T]?.thSpan,
                           ...(header.column.getCanSort()
                             ? {
                                 cursor: 'pointer',

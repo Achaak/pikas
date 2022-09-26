@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 3.1.3
+
+### Patch Changes
+
+- Add custom column css
+
 ## 3.1.2
 
 ### Patch Changes
