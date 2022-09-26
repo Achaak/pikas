@@ -12,6 +12,8 @@ export interface ErrorDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
   validateButtonColor?: Colors
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
   onValidated?: () => void
 }
 
@@ -19,6 +21,8 @@ export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({
   onClose,
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
   onValidated,
 }) => {
   return (
@@ -30,6 +34,8 @@ export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({
           onClose?.()
         }}
         width="auto"
+        disabled={validateButtonDisabled}
+        loading={validateButtonLoading}
       >
         {validateButtonLabel}
       </Button>

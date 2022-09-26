@@ -8,6 +8,8 @@ import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 export interface SuccessDialogProps extends Dialog {
   validateButtonLabel?: string
   validateButtonColor?: Colors
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
   onValidated?: () => void
   title?: string
   content: React.ReactNode
@@ -16,6 +18,8 @@ export interface SuccessDialogProps extends Dialog {
 export const SuccessDialog: React.FC<SuccessDialogProps> = ({
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
   onClose,
   title,
   content,
@@ -31,6 +35,8 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
         <SuccessDialogFooter
           validateButtonLabel={validateButtonLabel}
           validateButtonColor={validateButtonColor}
+          validateButtonDisabled={validateButtonDisabled}
+          validateButtonLoading={validateButtonLoading}
           onClose={onClose}
         />
       }

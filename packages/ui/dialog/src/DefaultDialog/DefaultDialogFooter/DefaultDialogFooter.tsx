@@ -13,6 +13,8 @@ export interface DefaultDialogFooterProps {
   validateButtonLabel?: string
   validateButtonColor?: Colors
   onValidated?: () => void
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
 }
 
 export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
@@ -20,6 +22,8 @@ export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
   onValidated,
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
 }) => {
   return (
     <Container>
@@ -30,6 +34,8 @@ export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
           onClose?.()
         }}
         color={validateButtonColor}
+        disabled={validateButtonDisabled}
+        loading={validateButtonLoading}
       >
         {validateButtonLabel}
       </Button>

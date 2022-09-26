@@ -8,6 +8,8 @@ import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 export interface InfoDialogProps extends Dialog {
   validateButtonLabel?: string
   validateButtonColor?: Colors
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
   onValidated?: () => void
   title?: string
   content: React.ReactNode
@@ -17,6 +19,8 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
   onClose,
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
   onValidated,
   title,
   content,
@@ -32,6 +36,8 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
         <InfoDialogFooter
           validateButtonLabel={validateButtonLabel}
           validateButtonColor={validateButtonColor}
+          validateButtonDisabled={validateButtonDisabled}
+          validateButtonLoading={validateButtonLoading}
           onValidated={onValidated}
           onClose={onClose}
         />

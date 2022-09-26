@@ -10,6 +10,10 @@ export interface ValidateDialogProps extends Dialog {
   validateButtonLabel?: string
   cancelButtonColor?: Colors
   validateButtonColor?: Colors
+  cancelButtonDisabled?: boolean
+  validateButtonDisabled?: boolean
+  cancelButtonLoading?: boolean
+  validateButtonLoading?: boolean
   onCanceled?: () => void
   onValidated?: () => void
   title?: string
@@ -22,6 +26,10 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
   validateButtonLabel,
   cancelButtonColor,
   validateButtonColor,
+  cancelButtonDisabled,
+  validateButtonDisabled,
+  cancelButtonLoading,
+  validateButtonLoading,
   onCanceled,
   onValidated,
   title,
@@ -40,6 +48,10 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
           validateButtonLabel={validateButtonLabel}
           cancelButtonColor={cancelButtonColor}
           validateButtonColor={validateButtonColor}
+          cancelButtonDisabled={cancelButtonDisabled}
+          validateButtonDisabled={validateButtonDisabled}
+          cancelButtonLoading={cancelButtonLoading}
+          validateButtonLoading={validateButtonLoading}
           onCanceled={onCanceled}
           onValidated={onValidated}
           onClose={onClose}

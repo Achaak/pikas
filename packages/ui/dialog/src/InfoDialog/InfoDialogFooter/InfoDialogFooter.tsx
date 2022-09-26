@@ -12,6 +12,8 @@ export interface InfoDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
   validateButtonColor?: Colors
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
   onValidated?: () => void
 }
 
@@ -20,6 +22,8 @@ export const InfoDialogFooter: React.FC<InfoDialogFooterProps> = ({
   onValidated,
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
 }) => {
   return (
     <Container>
@@ -30,6 +34,8 @@ export const InfoDialogFooter: React.FC<InfoDialogFooterProps> = ({
           onClose?.()
         }}
         width="auto"
+        disabled={validateButtonDisabled}
+        loading={validateButtonLoading}
       >
         {validateButtonLabel}
       </Button>

@@ -11,17 +11,27 @@ const Container = styled('div', {
 export interface SuccessDialogFooterProps {
   validateButtonLabel?: string
   validateButtonColor?: Colors
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
   onClose?: () => void
 }
 
 export const SuccessDialogFooter: React.FC<SuccessDialogFooterProps> = ({
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
   onClose,
 }) => {
   return (
     <Container>
-      <Button color={validateButtonColor} onClick={onClose} width="auto">
+      <Button
+        color={validateButtonColor}
+        onClick={onClose}
+        width="auto"
+        disabled={validateButtonDisabled}
+        loading={validateButtonLoading}
+      >
         {validateButtonLabel}
       </Button>
     </Container>

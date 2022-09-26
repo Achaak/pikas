@@ -8,6 +8,8 @@ import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 export interface ErrorDialogProps extends Dialog {
   validateButtonLabel?: string
   validateButtonColor?: Colors
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
   onValidated?: () => void
   title?: string
   content: React.ReactNode
@@ -16,6 +18,8 @@ export interface ErrorDialogProps extends Dialog {
 export const ErrorDialog: React.FC<ErrorDialogProps> = ({
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
   title,
   onClose,
   content,
@@ -32,6 +36,8 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
         <ErrorDialogFooter
           validateButtonLabel={validateButtonLabel}
           validateButtonColor={validateButtonColor}
+          validateButtonDisabled={validateButtonDisabled}
+          validateButtonLoading={validateButtonLoading}
           onValidated={onValidated}
           onClose={onClose}
         />

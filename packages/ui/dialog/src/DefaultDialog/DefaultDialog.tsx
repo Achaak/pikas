@@ -10,6 +10,8 @@ export interface DefaultDialogProps extends Dialog {
   content: React.ReactNode
   validateButtonLabel?: string
   validateButtonColor?: Colors
+  validateButtonDisabled?: boolean
+  validateButtonLoading?: boolean
   onValidated?: () => void
 }
 
@@ -20,6 +22,8 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
   onValidated,
   validateButtonLabel,
   validateButtonColor,
+  validateButtonDisabled,
+  validateButtonLoading,
   ...props
 }) => {
   return (
@@ -33,6 +37,8 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
           onValidated={onValidated}
           validateButtonLabel={validateButtonLabel}
           validateButtonColor={validateButtonColor}
+          validateButtonDisabled={validateButtonDisabled}
+          validateButtonLoading={validateButtonLoading}
         />
       }
       padding={{
