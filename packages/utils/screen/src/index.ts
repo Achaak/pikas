@@ -2,22 +2,16 @@ import * as usehook from 'usehooks-ts'
 
 const { useScreen } = usehook
 
-// xs: '(min-width: 480px)',
-// sm: '(min-width: 640px)',
-// md: '(min-width: 768px)',
-// lg: '(min-width: 1024px)',
-// xl: '(min-width: 1280px)',
-
 export type Medias = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export const getMediaByScreenSize = (screenSize: number): Medias => {
-  if (screen.width < 480) {
+  if (screenSize < 480) {
     return 'xs'
-  } else if (screen.width < 640) {
+  } else if (screenSize < 640) {
     return 'sm'
-  } else if (screen.width < 768) {
+  } else if (screenSize < 768) {
     return 'md'
-  } else if (screen.width < 1024) {
+  } else if (screenSize < 1024) {
     return 'lg'
   } else {
     return 'xl'
@@ -39,8 +33,12 @@ export const getScreenSizeByMedia = (media: Medias): number => {
   }
 }
 
-export const useMediaScreen = (): Medias => {
+export const useMediaScreen = (): Medias | undefined => {
   const screen = useScreen()
+
+  if (!screen) {
+    return undefined
+  }
 
   return getMediaByScreenSize(screen.width)
 }
@@ -51,8 +49,12 @@ export const useMediaScreenValid = ({
 }: {
   media: Medias
   operator?: '>' | '<' | '>=' | '<=' | '='
-}) => {
+}): boolean | undefined => {
   const screen = useScreen()
+
+  if (!screen) {
+    return undefined
+  }
 
   switch (operator) {
     case '>':
