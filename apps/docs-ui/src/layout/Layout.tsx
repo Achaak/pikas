@@ -36,6 +36,9 @@ const ContentChild = styled('div', {
   '& > *': {
     marginBottom: 40,
   },
+  '& > a': {
+    color: '$PRIMARY',
+  },
   '& > p': {
     marginTop: 12,
     marginBottom: 12,
