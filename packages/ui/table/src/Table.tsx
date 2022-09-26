@@ -144,6 +144,7 @@ export interface TableCSS<T> {
   th?: CSS
   thSpan?: CSS
   td?: CSS
+  tdContent?: CSS
   column?: Partial<
     Record<
       keyof T,
@@ -151,6 +152,7 @@ export interface TableCSS<T> {
         th?: CSS
         td?: CSS
         thSpan?: CSS
+        tdContent?: CSS
       }
     >
   >
@@ -398,7 +400,13 @@ export const Table = <T extends Record<string, unknown>>({
                       }}
                       padding={padding?.td}
                     >
-                      <TdContent>
+                      <TdContent
+                        css={{
+                          ...css?.tdContent,
+                          ...css?.column?.[cell.column.id as keyof T]
+                            ?.tdContent,
+                        }}
+                      >
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
