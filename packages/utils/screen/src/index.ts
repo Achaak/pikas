@@ -36,9 +36,9 @@ export const getScreenSizeByMedia = (media: Medias): number => {
   }
 }
 
-export const useMediaScreen = (): Medias | undefined => {
+export const useMediaScreen = (): Medias => {
   const { width } = useWindowSize()
-  const [media, setMedia] = useState<Medias | undefined>(undefined)
+  const [media, setMedia] = useState<Medias>(getMediaByScreenSize(width))
 
   useEffect(() => {
     setMedia(getMediaByScreenSize(width))
@@ -53,9 +53,11 @@ export const useMediaScreenValid = ({
 }: {
   media: Medias
   operator?: '>' | '<' | '>=' | '<=' | '='
-}): boolean | undefined => {
+}): boolean => {
   const { width } = useWindowSize()
-  const [valid, setValid] = useState<boolean | undefined>(undefined)
+  const [valid, setValid] = useState<boolean>(
+    width > getScreenSizeByMedia(media)
+  )
 
   useEffect(() => {
     switch (operator) {
