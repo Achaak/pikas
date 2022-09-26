@@ -1,6 +1,6 @@
 import { Alert } from '@pikas-ui/alert'
 import { Button } from '@pikas-ui/button'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { useState } from 'react'
 
 export const AlertExample: React.FC = () => {

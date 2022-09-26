@@ -1,0 +1,67 @@
+{
+  "name": "@pikas/docs-ui",
+  "version": "1.0.0",
+  "private": false,
+  "keywords": [
+    "pikas-ui",
+    "docs-ui",
+    "react"
+  ],
+  "description": "Components for displaying docs-uis",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "lint": "cross-env TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo node_modules dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Achaak/pikas.git"
+  },
+  "author": {
+    "name": "Axel Lavoie",
+    "email": "axel.lavoie@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Achaak/pikas/issues"
+  },
+  "homepage": "https://github.com/Achaak/pikas#readme",
+  "dependencies": {
+    "@pikas-ui/styles": "3.1.1"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@pikas/config": "workspace:*",
+    "@pikas/tsconfig": "workspace:*",
+    "@types/node": "^18.7.20",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.24.0",
+    "tsup": "^6.2.3",
+    "typescript": "4.8.3"
+  },
+  "node": "12.20.0 || 14.13.1 || >=16.0.0"
+}

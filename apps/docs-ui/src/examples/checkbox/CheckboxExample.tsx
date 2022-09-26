@@ -1,5 +1,5 @@
 import { Checkbox } from '@pikas-ui/checkbox'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { useState } from 'react'
 
 export const CheckboxExample: React.FC = () => {

@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { DotLoader } from '@pikas-ui/loader'
 
 export const DotLoaderExample: React.FC = () => {

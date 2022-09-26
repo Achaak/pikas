@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { MoonLoader } from '@pikas-ui/loader'
 
 export const MoonLoaderExample: React.FC = () => {

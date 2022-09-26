@@ -1,6 +1,6 @@
 import { ToastVariant } from '@pikas-ui/toast'
 import { ToastProvider } from '@pikas-ui/toast'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { ToastItem } from './toastItem'
 
 export const ToastExample: React.FC = () => {

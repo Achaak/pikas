@@ -1,5 +1,5 @@
 import { Button } from '@pikas-ui/button'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 
 export const ButtonExample: React.FC = () => {
   return (

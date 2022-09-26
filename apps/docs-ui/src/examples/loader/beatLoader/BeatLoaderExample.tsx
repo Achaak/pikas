@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { BeatLoader } from '@pikas-ui/loader'
 
 export const BeatLoaderExample: React.FC = () => {

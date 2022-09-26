@@ -238,9 +238,10 @@ export const Tabs = <T extends string>({
             {startTrigger}
           </StartTrigger>
         )}
-        {items.map((item) => {
+        {items.map((item, itemKey) => {
           return (
             <Trigger
+              key={itemKey}
               value={item.id}
               disabled={item.disabled}
               css={{
@@ -259,9 +260,10 @@ export const Tabs = <T extends string>({
           </EndTrigger>
         )}
       </List>
-      {items.map((item) => {
+      {items.map((item, itemKey) => {
         return (
           <Content
+            key={itemKey}
             value={item.id}
             css={{
               ...css?.content,

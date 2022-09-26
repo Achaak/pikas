@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { ClockLoader } from '@pikas-ui/loader'
 
 export const ClockLoaderExample: React.FC = () => {

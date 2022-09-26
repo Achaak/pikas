@@ -1,5 +1,5 @@
 import { Tabs } from '@pikas-ui/tabs'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 
 export const TabsExample: React.FC = () => {
   return (

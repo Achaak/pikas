@@ -1,5 +1,5 @@
 import { Avatar } from '@pikas-ui/avatar'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 
 export const AvatarExample: React.FC = () => {
   return (

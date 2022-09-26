@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { Textfield } from '@pikas-ui/textfield'
 
 export const TextfieldExample: React.FC = () => {

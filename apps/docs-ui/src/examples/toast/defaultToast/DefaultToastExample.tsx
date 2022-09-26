@@ -1,5 +1,5 @@
 import type { ToastPosition } from '@pikas-ui/toast'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { DefaultToastProvider } from './defaultToastProvider'
 import { toastPosition } from '../utils'
 

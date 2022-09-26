@@ -1,5 +1,5 @@
 import { ContextMenu } from '@pikas-ui/context-menu'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 
 export const ContextMenuExample: React.FC = () => {
   return (

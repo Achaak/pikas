@@ -1,5 +1,5 @@
 import { BadgeIcon } from '@pikas-ui/badge'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 
 export const BadgeIconExample: React.FC = () => {
   return (

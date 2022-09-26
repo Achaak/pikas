@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { Table } from '@pikas-ui/table'
 import { dataTable } from '../data'
 

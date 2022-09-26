@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { IconByName } from '@pikas-ui/icons'
 import { Tooltip } from '@pikas-ui/tooltip'
 

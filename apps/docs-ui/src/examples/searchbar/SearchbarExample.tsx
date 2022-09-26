@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import type { ResultGroup } from '@pikas-ui/searchbar'
 import { Searchbar } from '@pikas-ui/searchbar'
 

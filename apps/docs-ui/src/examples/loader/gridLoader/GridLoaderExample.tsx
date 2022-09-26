@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { GridLoader } from '@pikas-ui/loader'
 
 export const GridLoaderExample: React.FC = () => {

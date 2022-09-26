@@ -1,5 +1,5 @@
 import { Progress } from '@pikas-ui/progress'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { useEffect, useState } from 'react'
 
 export const ProgressExample: React.FC = () => {

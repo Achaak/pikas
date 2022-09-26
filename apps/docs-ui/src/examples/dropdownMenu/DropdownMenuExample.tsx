@@ -1,5 +1,5 @@
 import { DropdownMenu } from '@pikas-ui/dropdown-menu'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { Button } from '@pikas-ui/button'
 
 export const DropdownMenuExample: React.FC = () => {

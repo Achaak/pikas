@@ -1,5 +1,5 @@
 import { Skeleton } from '@pikas-ui/skeleton'
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 
 export const SkeletonExample: React.FC = () => {
   return (

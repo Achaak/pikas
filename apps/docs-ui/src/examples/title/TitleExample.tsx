@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { Title } from '@pikas-ui/title'
 
 export const TitleExample: React.FC = () => {

@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { Label } from '@pikas-ui/text'
 
 export const LabelExample: React.FC = () => {

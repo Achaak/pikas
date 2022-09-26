@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { Slider } from '@pikas-ui/slider'
 
 export const SliderExample: React.FC = () => {

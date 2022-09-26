@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { Switch } from '@pikas-ui/switch'
 
 export const SwitchExample: React.FC = () => {

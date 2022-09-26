@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react'
 import * as usehook from 'usehooks-ts'
 
-const { useScreen } = usehook
+const { useWindowSize } = usehook
+
+export { useWindowSize }
 
 export type Medias = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
@@ -34,13 +37,14 @@ export const getScreenSizeByMedia = (media: Medias): number => {
 }
 
 export const useMediaScreen = (): Medias | undefined => {
-  const screen = useScreen()
+  const { width } = useWindowSize()
+  const [media, setMedia] = useState<Medias | undefined>(undefined)
 
-  if (!screen) {
-    return undefined
-  }
+  useEffect(() => {
+    setMedia(getMediaByScreenSize(width))
+  }, [width])
 
-  return getMediaByScreenSize(screen.width)
+  return media
 }
 
 export const useMediaScreenValid = ({
@@ -50,24 +54,31 @@ export const useMediaScreenValid = ({
   media: Medias
   operator?: '>' | '<' | '>=' | '<=' | '='
 }): boolean | undefined => {
-  const screen = useScreen()
+  const { width } = useWindowSize()
+  const [valid, setValid] = useState<boolean | undefined>(undefined)
 
-  if (!screen) {
-    return undefined
-  }
+  useEffect(() => {
+    switch (operator) {
+      case '>':
+        setValid(width > getScreenSizeByMedia(media))
+        break
+      case '<':
+        setValid(width < getScreenSizeByMedia(media))
+        break
+      case '>=':
+        setValid(width >= getScreenSizeByMedia(media))
+        break
+      case '<=':
+        setValid(width <= getScreenSizeByMedia(media))
+        break
+      case '=':
+        setValid(width === getScreenSizeByMedia(media))
+        break
+      default:
+        setValid(width === getScreenSizeByMedia(media))
+        break
+    }
+  }, [width, media, operator])
 
-  switch (operator) {
-    case '>':
-      return screen.width > getScreenSizeByMedia(media)
-    case '<':
-      return screen.width < getScreenSizeByMedia(media)
-    case '>=':
-      return screen.width >= getScreenSizeByMedia(media)
-    case '<=':
-      return screen.width <= getScreenSizeByMedia(media)
-    case '=':
-      return screen.width === getScreenSizeByMedia(media)
-    default:
-      return screen.width === getScreenSizeByMedia(media)
-  }
+  return valid
 }

@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { TextError } from '@pikas-ui/text'
 
 export const TextErrorExample: React.FC = () => {

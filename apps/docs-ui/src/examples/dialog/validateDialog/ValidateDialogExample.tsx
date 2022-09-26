@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { useState } from 'react'
 import { Button } from '@pikas-ui/button'
 import { ValidateDialog } from '@pikas-ui/dialog'

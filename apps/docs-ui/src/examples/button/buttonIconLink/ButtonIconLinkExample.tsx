@@ -1,4 +1,4 @@
-import { ExampleContainer } from '@/components/ExampleContainer'
+import { ExampleContainer } from '@pikas/docs-ui'
 import { ButtonIconLink } from '@pikas-ui/button'
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'

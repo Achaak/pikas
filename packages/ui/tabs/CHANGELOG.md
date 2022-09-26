@@ -1,5 +1,11 @@
 # @pikas-ui/tabs
 
+## 2.1.5
+
+### Patch Changes
+
+- Fix key
+
 ## 2.1.4
 
 ### Patch Changes
