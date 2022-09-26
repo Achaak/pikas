@@ -7,12 +7,16 @@ import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 export interface DefaultDialogProps extends Dialog {
   title: string
   content: React.ReactNode
+  validateButtonLabel?: string
+  onValidated?: () => void
 }
 
 export const DefaultDialog: React.FC<DefaultDialogProps> = ({
   title,
   content,
   onClose,
+  onValidated,
+  validateButtonLabel,
   ...props
 }) => {
   return (
@@ -20,7 +24,13 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
       onClose={onClose}
       header={<DefaultDialogHeader title={title} />}
       content={<DefaultDialogContent content={content} />}
-      footer={<DefaultDialogFooter onClose={onClose} />}
+      footer={
+        <DefaultDialogFooter
+          onClose={onClose}
+          onValidated={onValidated}
+          validateButtonLabel={validateButtonLabel}
+        />
+      }
       padding={{
         container: 'no-padding',
         content: 'sm',
@@ -48,4 +58,6 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
   )
 }
 
-DefaultDialog.defaultProps = {}
+DefaultDialog.defaultProps = {
+  validateButtonLabel: 'Ok',
+}

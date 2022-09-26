@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.1.3
+
+### Patch Changes
+
+- Add callback
+
 ## 2.1.2
 
 ### Patch Changes

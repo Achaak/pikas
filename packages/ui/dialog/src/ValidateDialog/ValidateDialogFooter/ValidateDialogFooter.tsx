@@ -13,19 +13,37 @@ export interface ValidateDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
   cancelButtonLabel?: string
+  onCanceled?: () => void
+  onValidated?: () => void
 }
 
 export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
   cancelButtonLabel,
   validateButtonLabel,
+  onCanceled,
+  onValidated,
   onClose,
 }) => {
   return (
     <Container>
-      <Button color="ERROR" onClick={onClose} width="auto">
+      <Button
+        color="ERROR"
+        onClick={(): void => {
+          onCanceled?.()
+          onClose?.()
+        }}
+        width="auto"
+      >
         {cancelButtonLabel}
       </Button>
-      <Button color="SUCCESS" onClick={onClose} width="auto">
+      <Button
+        color="SUCCESS"
+        onClick={(): void => {
+          onValidated?.()
+          onClose?.()
+        }}
+        width="auto"
+      >
         {validateButtonLabel}
       </Button>
     </Container>

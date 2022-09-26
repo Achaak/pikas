@@ -11,15 +11,24 @@ const Container = styled('div', {
 export interface InfoDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
+  onValidated?: () => void
 }
 
 export const InfoDialogFooter: React.FC<InfoDialogFooterProps> = ({
   onClose,
+  onValidated,
   validateButtonLabel,
 }) => {
   return (
     <Container>
-      <Button color="PRIMARY" onClick={onClose} width="auto">
+      <Button
+        color="PRIMARY"
+        onClick={(): void => {
+          onValidated?.()
+          onClose?.()
+        }}
+        width="auto"
+      >
         {validateButtonLabel}
       </Button>
     </Container>

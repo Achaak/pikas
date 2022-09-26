@@ -7,6 +7,8 @@ import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 export interface ValidateDialogProps extends Dialog {
   cancelButtonLabel?: string
   validateButtonLabel?: string
+  onCanceled?: () => void
+  onValidated?: () => void
   title?: string
   content: React.ReactNode
 }
@@ -15,6 +17,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
   onClose,
   cancelButtonLabel,
   validateButtonLabel,
+  onCanceled,
+  onValidated,
   title,
   content,
   ...props
@@ -29,6 +33,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
         <ValidateDialogFooter
           cancelButtonLabel={cancelButtonLabel}
           validateButtonLabel={validateButtonLabel}
+          onCanceled={onCanceled}
+          onValidated={onValidated}
           onClose={onClose}
         />
       }

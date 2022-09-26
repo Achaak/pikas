@@ -10,15 +10,25 @@ const Container = styled('div', {
 
 export interface DefaultDialogFooterProps {
   onClose?: () => void
+  validateButtonLabel?: string
+  onValidated?: () => void
 }
 
 export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
   onClose,
+  onValidated,
+  validateButtonLabel,
 }) => {
   return (
     <Container>
-      <Button width="auto" onClick={onClose}>
-        Ok
+      <Button
+        width="auto"
+        onClick={(): void => {
+          onValidated?.()
+          onClose?.()
+        }}
+      >
+        {validateButtonLabel}
       </Button>
     </Container>
   )

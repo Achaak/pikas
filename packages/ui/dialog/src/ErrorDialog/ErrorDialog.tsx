@@ -6,6 +6,7 @@ import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
 export interface ErrorDialogProps extends Dialog {
   validateButtonLabel?: string
+  onValidated?: () => void
   title?: string
   content: React.ReactNode
 }
@@ -15,6 +16,7 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
   title,
   onClose,
   content,
+  onValidated,
   ...props
 }) => {
   return (
@@ -26,6 +28,7 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
       footer={
         <ErrorDialogFooter
           validateButtonLabel={validateButtonLabel}
+          onValidated={onValidated}
           onClose={onClose}
         />
       }

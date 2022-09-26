@@ -6,6 +6,7 @@ import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
 export interface SuccessDialogProps extends Dialog {
   validateButtonLabel?: string
+  onValidated?: () => void
   title?: string
   content: React.ReactNode
 }
