@@ -1,3 +1,4 @@
+import { Colors } from '@pikas-ui/styles'
 import type { Dialog } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { DefaultDialogContent } from './DefaultDialogContent/index.js'
@@ -8,6 +9,7 @@ export interface DefaultDialogProps extends Dialog {
   title: string
   content: React.ReactNode
   validateButtonLabel?: string
+  validateButtonColor?: Colors
   onValidated?: () => void
 }
 
@@ -17,6 +19,7 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
   onClose,
   onValidated,
   validateButtonLabel,
+  validateButtonColor,
   ...props
 }) => {
   return (
@@ -29,6 +32,7 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
           onClose={onClose}
           onValidated={onValidated}
           validateButtonLabel={validateButtonLabel}
+          validateButtonColor={validateButtonColor}
         />
       }
       padding={{
@@ -60,4 +64,5 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
 
 DefaultDialog.defaultProps = {
   validateButtonLabel: 'Ok',
+  validateButtonColor: 'PRIMARY',
 }

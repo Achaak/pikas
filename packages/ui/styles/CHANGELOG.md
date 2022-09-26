@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.2.0
+
+### Minor Changes
+
+- ERROR colors to DANGER colors
+
 ## 3.1.1
 
 ### Patch Changes

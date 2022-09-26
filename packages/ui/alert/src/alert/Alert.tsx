@@ -11,7 +11,7 @@ export const AlertVariant = {
   info: true,
   success: true,
   warning: true,
-  error: true,
+  danger: true,
 }
 export type AlertVariant = keyof typeof AlertVariant
 
@@ -32,7 +32,7 @@ export const Alert: React.FC<AlertProps> = ({
         return <IconByName {...props} name="bx:check-circle" />
       case 'warning':
         return <IconByName {...props} name="bx:error" />
-      case 'error':
+      case 'danger':
         return <IconByName {...props} name="bx:x-circle" />
       case 'info':
         return <IconByName {...props} name="bx:info-circle" />
@@ -48,8 +48,8 @@ export const Alert: React.FC<AlertProps> = ({
           return 'SUCCESS'
         case 'warning':
           return 'WARNING'
-        case 'error':
-          return 'ERROR'
+        case 'danger':
+          return 'DANGER'
         case 'info':
           return 'PRIMARY'
         default:

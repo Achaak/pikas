@@ -1,3 +1,4 @@
+import { Colors } from '@pikas-ui/styles'
 import type { Dialog } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { SuccessDialogContent } from './SuccessDialogContent/index.js'
@@ -6,6 +7,7 @@ import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
 export interface SuccessDialogProps extends Dialog {
   validateButtonLabel?: string
+  validateButtonColor?: Colors
   onValidated?: () => void
   title?: string
   content: React.ReactNode
@@ -13,6 +15,7 @@ export interface SuccessDialogProps extends Dialog {
 
 export const SuccessDialog: React.FC<SuccessDialogProps> = ({
   validateButtonLabel,
+  validateButtonColor,
   onClose,
   title,
   content,
@@ -27,6 +30,7 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
       footer={
         <SuccessDialogFooter
           validateButtonLabel={validateButtonLabel}
+          validateButtonColor={validateButtonColor}
           onClose={onClose}
         />
       }
@@ -50,4 +54,5 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
 SuccessDialog.defaultProps = {
   validateButtonLabel: 'Ok',
   title: 'Yeah ! You did it !',
+  validateButtonColor: 'SUCCESS',
 }

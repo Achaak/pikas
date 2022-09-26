@@ -20,7 +20,7 @@ export const ErrorDialogHeader: React.FC<ErrorDialogHeaderProps> = ({
 }) => {
   return (
     <Container>
-      <IconContainer iconName="bx:x-circle" backgroundColor="ERROR" />
+      <IconContainer iconName="bx:x-circle" backgroundColor="DANGER" />
       <Title>{title}</Title>
     </Container>
   )

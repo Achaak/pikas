@@ -1,5 +1,16 @@
 # @pikas-ui/text
 
+## 4.1.0
+
+### Minor Changes
+
+- ERROR colors to DANGER colors
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.2.0
+
 ## 4.0.10
 
 ### Patch Changes

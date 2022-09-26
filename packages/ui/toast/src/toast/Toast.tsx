@@ -8,7 +8,7 @@ import type { ToastProps } from '../types'
 
 export const ToastVariant = {
   warning: true,
-  error: true,
+  danger: true,
   success: true,
   info: true,
 } as const
@@ -32,7 +32,7 @@ export const Toast: React.FC<CustomToastProps> = ({
         return <IconByName {...props} name="bx:check-circle" />
       case 'warning':
         return <IconByName {...props} name="bx:error" />
-      case 'error':
+      case 'danger':
         return <IconByName {...props} name="bx:x-circle" />
       case 'info':
         return <IconByName {...props} name="bx:info-circle" />
@@ -48,8 +48,8 @@ export const Toast: React.FC<CustomToastProps> = ({
           return 'SUCCESS'
         case 'warning':
           return 'WARNING'
-        case 'error':
-          return 'ERROR'
+        case 'danger':
+          return 'DANGER'
         case 'info':
           return 'PRIMARY'
         default:

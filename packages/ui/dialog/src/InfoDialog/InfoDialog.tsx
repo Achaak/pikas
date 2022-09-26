@@ -1,3 +1,4 @@
+import { Colors } from '@pikas-ui/styles'
 import type { Dialog } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { InfoDialogContent } from './InfoDialogContent/index.js'
@@ -6,6 +7,7 @@ import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
 export interface InfoDialogProps extends Dialog {
   validateButtonLabel?: string
+  validateButtonColor?: Colors
   onValidated?: () => void
   title?: string
   content: React.ReactNode
@@ -14,6 +16,7 @@ export interface InfoDialogProps extends Dialog {
 export const InfoDialog: React.FC<InfoDialogProps> = ({
   onClose,
   validateButtonLabel,
+  validateButtonColor,
   onValidated,
   title,
   content,
@@ -28,6 +31,7 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
       footer={
         <InfoDialogFooter
           validateButtonLabel={validateButtonLabel}
+          validateButtonColor={validateButtonColor}
           onValidated={onValidated}
           onClose={onClose}
         />
@@ -52,4 +56,5 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
 InfoDialog.defaultProps = {
   validateButtonLabel: 'Ok',
   title: 'We have a information for you !',
+  validateButtonColor: 'PRIMARY',
 }

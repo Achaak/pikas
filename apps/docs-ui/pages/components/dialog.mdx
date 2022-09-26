@@ -78,15 +78,16 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                  | Description                           | Type              | Default  |
-| :-------------------- | :------------------------------------ | :---------------- | :------- |
-| `visible`             | Sets the visibility of the dialog     | `boolean`         | required |
-| `onOpen`              | Callback when the dialog is opened    | `function`        | -        |
-| `onClose`             | Callback when the dialog is closed    | `function`        | -        |
-| `title`               | Sets the title of the dialog          | `string`          | -        |
-| `content`             | Sets the content of the dialog        | `React.ReactNode` | -        |
-| `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`   |
-| `onValidated`         | Callback when the dialog is validated | `() => void`      | -        |
+| Prop                  | Description                           | Type              | Default     |
+| :-------------------- | :------------------------------------ | :---------------- | :---------- |
+| `visible`             | Sets the visibility of the dialog     | `boolean`         | required    |
+| `onOpen`              | Callback when the dialog is opened    | `function`        | -           |
+| `onClose`             | Callback when the dialog is closed    | `function`        | -           |
+| `title`               | Sets the title of the dialog          | `string`          | -           |
+| `content`             | Sets the content of the dialog        | `React.ReactNode` | -           |
+| `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`      |
+| `onValidated`         | Callback when the dialog is validated | `() => void`      | -           |
+| `validateButtonColor` | Sets the color of the validate button | `Colors`          | `"PRIMARY"` |
 
 ---
 
@@ -131,6 +132,7 @@ const Example: React.FC = () => {
 | `content`             | Sets the content of the dialog        | `React.ReactNode` | required                |
 | `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`                  |
 | `onValidated`         | Callback when the dialog is validated | `() => void`      | -                       |
+| `validateButtonColor` | Sets the color of the validate button | `Colors`          | `"PRIMARY"`             |
 
 ---
 
@@ -177,6 +179,8 @@ const Example: React.FC = () => {
 | `onValidated`         | Callback when the dialog is validated | `() => void`      | -                  |
 | `cancelButtonLabel`   | Sets the label of the cancel button   | `string`          | `"Cancel"`         |
 | `onCanceled`          | Callback when the dialog is canceled  | `() => void`      | -                  |
+| `validateButtonColor` | Sets the color of the validate button | `Colors`          | `"SUCCESS"`        |
+| `cancelButtonColor`   | Sets the color of the cancel button   | `Colors`          | `"DANGER"`         |
 
 ---
 
@@ -221,6 +225,7 @@ const Example: React.FC = () => {
 | `content`             | Sets the content of the dialog        | `React.ReactNode` | required                       |
 | `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`                         |
 | `onValidated`         | Callback when the dialog is validated | `() => void`      | -                              |
+| `validateButtonColor` | Sets the color of the validate button | `Colors`          | `"DANGER"`                     |
 
 ---
 
@@ -265,6 +270,7 @@ const Example: React.FC = () => {
 | `content`             | Sets the content of the dialog        | `React.ReactNode` | required                            |
 | `validateButtonLabel` | Sets the label of the validate button | `string`          | `"Ok"`                              |
 | `onValidated`         | Callback when the dialog is validated | `() => void`      | -                                   |
+| `validateButtonColor` | Sets the color of the validate button | `Colors`          | `"PRIMARY"`                         |
 
 ---
 

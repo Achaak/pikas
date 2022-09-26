@@ -1,3 +1,4 @@
+import { Colors } from '@pikas-ui/styles'
 import type { Dialog } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ValidateDialogContent } from './ValidateDialogContent/index.js'
@@ -7,6 +8,8 @@ import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 export interface ValidateDialogProps extends Dialog {
   cancelButtonLabel?: string
   validateButtonLabel?: string
+  cancelButtonColor?: Colors
+  validateButtonColor?: Colors
   onCanceled?: () => void
   onValidated?: () => void
   title?: string
@@ -17,6 +20,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
   onClose,
   cancelButtonLabel,
   validateButtonLabel,
+  cancelButtonColor,
+  validateButtonColor,
   onCanceled,
   onValidated,
   title,
@@ -33,6 +38,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
         <ValidateDialogFooter
           cancelButtonLabel={cancelButtonLabel}
           validateButtonLabel={validateButtonLabel}
+          cancelButtonColor={cancelButtonColor}
+          validateButtonColor={validateButtonColor}
           onCanceled={onCanceled}
           onValidated={onValidated}
           onClose={onClose}
@@ -59,4 +66,6 @@ ValidateDialog.defaultProps = {
   cancelButtonLabel: 'Cancel',
   validateButtonLabel: 'Ok',
   title: 'Are you sure ?',
+  cancelButtonColor: 'DANGER',
+  validateButtonColor: 'SUCCESS',
 }

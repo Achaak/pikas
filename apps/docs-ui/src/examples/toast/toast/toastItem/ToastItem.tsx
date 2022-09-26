@@ -27,8 +27,8 @@ export const ToastItem: React.FC<ToastExampleProps> = ({ variant }) => {
         return 'SUCCESS'
       case 'warning':
         return 'WARNING'
-      case 'error':
-        return 'ERROR'
+      case 'danger':
+        return 'DANGER'
       default:
         return 'PRIMARY'
     }

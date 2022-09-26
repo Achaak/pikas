@@ -1,5 +1,18 @@
 # @pikas-ui/menu
 
+## 3.2.0
+
+### Minor Changes
+
+- ERROR colors to DANGER colors
+
+### Patch Changes
+
+- Update type
+- Updated dependencies
+  - @pikas-ui/styles@3.2.0
+  - @pikas-ui/icons@3.1.2
+
 ## 3.1.1
 
 ### Patch Changes

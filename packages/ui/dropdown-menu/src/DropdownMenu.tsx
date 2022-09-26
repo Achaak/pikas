@@ -5,7 +5,13 @@ import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
 import { ClipLoader } from '@pikas-ui/loader'
-import type { MenuData, MenuDataItem, MenuProps, MenuCSS } from '@pikas-ui/menu'
+import type {
+  MenuData,
+  MenuDataItem,
+  MenuProps,
+  MenuCSS,
+  ItemEntry,
+} from '@pikas-ui/menu'
 import {
   MenuContentCSS,
   MenuCheckboxItemCSS,
@@ -90,7 +96,8 @@ export const DropdownMenuDirection = {
 export type DropdownMenuDirection = keyof typeof DropdownMenuDirection
 
 export type DropdownMenuCSS = MenuCSS
-
+export type DropdownMenuDataItem = MenuDataItem
+export type DropdownMenuDataItemEntry = ItemEntry
 export type DropdownMenuData = MenuDataItem[]
 export interface DropdownMenuProps extends MenuProps {
   triggerContent?: React.ReactNode

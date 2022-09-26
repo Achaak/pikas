@@ -13,8 +13,8 @@ export const AlertExample: React.FC = () => {
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}
     >
-      <Alert variant="error" visible={visible}>
-        This is an error alert.
+      <Alert variant="danger" visible={visible}>
+        This is an danger alert.
       </Alert>
       <Alert variant="success" visible={visible}>
         This is a success alert.

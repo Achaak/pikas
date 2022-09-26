@@ -205,12 +205,12 @@ interface MenuItem extends ItemBase {
   label: React.ReactNode
 }
 
-type Item = DefaultItem | CheckboxItem | RadioItem | MenuItem
+export type ItemEntry = DefaultItem | CheckboxItem | RadioItem | MenuItem
 
 export interface MenuDataItem {
   label?: React.ReactNode
   css?: CSS
-  items: Item[]
+  items: ItemEntry[]
 }
 
 export type MenuData = MenuDataItem[]

@@ -1,5 +1,18 @@
 # @pikas-ui/toast
 
+## 1.1.0
+
+### Minor Changes
+
+- ERROR colors to DANGER colors
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.2.0
+  - @pikas-ui/button@3.1.2
+  - @pikas-ui/icons@3.1.2
+
 ## 1.0.3
 
 ### Patch Changes

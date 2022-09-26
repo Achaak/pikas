@@ -25,7 +25,7 @@ export const CustomAlertExample: React.FC = () => {
         backgroundColor="SECONDARY"
         visible={visible}
       >
-        This is an error alert.
+        This is an danger alert.
       </CustomAlert>
 
       <Button

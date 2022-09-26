@@ -1,3 +1,4 @@
+import { Colors } from '@pikas-ui/styles'
 import type { Dialog } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ErrorDialogContent } from './ErrorDialogContent/index.js'
@@ -6,6 +7,7 @@ import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
 export interface ErrorDialogProps extends Dialog {
   validateButtonLabel?: string
+  validateButtonColor?: Colors
   onValidated?: () => void
   title?: string
   content: React.ReactNode
@@ -13,6 +15,7 @@ export interface ErrorDialogProps extends Dialog {
 
 export const ErrorDialog: React.FC<ErrorDialogProps> = ({
   validateButtonLabel,
+  validateButtonColor,
   title,
   onClose,
   content,
@@ -28,6 +31,7 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
       footer={
         <ErrorDialogFooter
           validateButtonLabel={validateButtonLabel}
+          validateButtonColor={validateButtonColor}
           onValidated={onValidated}
           onClose={onClose}
         />
@@ -52,4 +56,5 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
 ErrorDialog.defaultProps = {
   validateButtonLabel: 'Ok',
   title: 'Oops ! A error occurred...',
+  validateButtonColor: 'DANGER',
 }

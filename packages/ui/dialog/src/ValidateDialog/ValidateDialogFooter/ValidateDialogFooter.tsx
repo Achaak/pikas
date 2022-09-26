@@ -1,5 +1,5 @@
 import { Button } from '@pikas-ui/button'
-import { styled } from '@pikas-ui/styles'
+import { Colors, styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
   display: 'flex',
@@ -13,6 +13,8 @@ export interface ValidateDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
   cancelButtonLabel?: string
+  cancelButtonColor?: Colors
+  validateButtonColor?: Colors
   onCanceled?: () => void
   onValidated?: () => void
 }
@@ -23,11 +25,13 @@ export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
   onCanceled,
   onValidated,
   onClose,
+  cancelButtonColor,
+  validateButtonColor,
 }) => {
   return (
     <Container>
       <Button
-        color="ERROR"
+        color={cancelButtonColor}
         onClick={(): void => {
           onCanceled?.()
           onClose?.()
@@ -37,7 +41,7 @@ export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
         {cancelButtonLabel}
       </Button>
       <Button
-        color="SUCCESS"
+        color={validateButtonColor}
         onClick={(): void => {
           onValidated?.()
           onClose?.()

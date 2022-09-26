@@ -2,7 +2,13 @@ import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
 import { styled } from '@pikas-ui/styles'
 
 import { ClipLoader } from '@pikas-ui/loader'
-import type { MenuData, MenuDataItem, MenuProps, MenuCSS } from '@pikas-ui/menu'
+import type {
+  MenuData,
+  MenuDataItem,
+  MenuProps,
+  MenuCSS,
+  ItemEntry,
+} from '@pikas-ui/menu'
 import {
   MenuContentCSS,
   MenuCheckboxItemCSS,
@@ -69,7 +75,8 @@ export const ContextMenuDirection = {
 export type ContextMenuDirection = keyof typeof ContextMenuDirection
 
 export type ContextMenuCSS = MenuCSS
-
+export type ContextMenuDataItem = MenuDataItem
+export type ContextMenuDataItemEntry = ItemEntry
 export type ContextMenuData = MenuDataItem[]
 export interface ContextMenuProps extends MenuProps {
   children?: React.ReactNode

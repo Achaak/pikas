@@ -3,7 +3,7 @@ import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
 const TextErrorStyled = styled('p', {
-  color: '$ERROR',
+  color: '$DANGER',
   fontSize: '$EM-X-SMALL',
 })
 
