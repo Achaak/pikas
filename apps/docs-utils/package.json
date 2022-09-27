@@ -19,7 +19,7 @@
     "@pikas-ui/button": "^3.1.2",
     "@pikas-ui/icons": "^3.1.2",
     "@pikas-ui/styles": "^3.2.0",
-    "@pikas-ui/switch": "^2.1.4",
+    "@pikas-ui/switch": "^2.1.5",
     "@pikas-utils/router": "^1.0.2",
     "@pikas-utils/screen": "^1.0.2",
     "next": "12.3.1",

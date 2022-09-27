@@ -1,5 +1,11 @@
 # @pikas-ui/switch
 
+## 2.1.5
+
+### Patch Changes
+
+- Update onChange props to onCheckedChange
+
 ## 2.1.4
 
 ### Patch Changes

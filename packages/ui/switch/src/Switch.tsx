@@ -83,7 +83,7 @@ export interface BasicSwitchProps {
   fontSize?: FontsSizes
   textError?: string
 
-  onChange?: (val: boolean) => void
+  onCheckedChange?: (val: boolean) => void
   defaultChecked?: boolean
   css?: SwitchCSS
   disabled?: boolean
@@ -103,7 +103,7 @@ export type SwitchProps = ButtonHTMLAttributes<HTMLButtonElement> &
 export const Switch: React.FC<SwitchProps> = ({
   id,
   name,
-  onChange,
+  onCheckedChange,
   fontSize,
   textError,
   label,
@@ -124,7 +124,7 @@ export const Switch: React.FC<SwitchProps> = ({
   }, [checked])
 
   const onChangeInput = (val: boolean): void => {
-    onChange?.(val)
+    onCheckedChange?.(val)
 
     setCheckedState(val)
   }

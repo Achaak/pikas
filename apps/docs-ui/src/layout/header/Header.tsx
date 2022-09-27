@@ -68,7 +68,9 @@ export const Header: React.FC = () => {
     if (typeof window !== 'undefined') {
       setSwitchComponent(
         <Switch
-          onChange={(bool): void => setTernaryDarkMode(bool ? 'dark' : 'light')}
+          onCheckedChange={(bool): void =>
+            setTernaryDarkMode(bool ? 'dark' : 'light')
+          }
           checked={isDarkMode}
           Icons={{
             checked: BxsMoon,
