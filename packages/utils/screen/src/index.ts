@@ -53,32 +53,36 @@ export const useMediaScreenValid = ({
 }: {
   media: Medias
   operator?: '>' | '<' | '>=' | '<=' | '='
-}): boolean => {
+}): boolean | undefined => {
   const { width } = useWindowSize()
-  const [valid, setValid] = useState<boolean>(
-    width > getScreenSizeByMedia(media)
+  const [valid, setValid] = useState<boolean | undefined>(
+    width === 0 || width > getScreenSizeByMedia(media)
   )
 
   useEffect(() => {
-    switch (operator) {
-      case '>':
-        setValid(width > getScreenSizeByMedia(media))
-        break
-      case '<':
-        setValid(width < getScreenSizeByMedia(media))
-        break
-      case '>=':
-        setValid(width >= getScreenSizeByMedia(media))
-        break
-      case '<=':
-        setValid(width <= getScreenSizeByMedia(media))
-        break
-      case '=':
-        setValid(width === getScreenSizeByMedia(media))
-        break
-      default:
-        setValid(width === getScreenSizeByMedia(media))
-        break
+    if (width === 0) {
+      setValid(undefined)
+    } else {
+      switch (operator) {
+        case '>':
+          setValid(width > getScreenSizeByMedia(media))
+          break
+        case '<':
+          setValid(width < getScreenSizeByMedia(media))
+          break
+        case '>=':
+          setValid(width >= getScreenSizeByMedia(media))
+          break
+        case '<=':
+          setValid(width <= getScreenSizeByMedia(media))
+          break
+        case '=':
+          setValid(width === getScreenSizeByMedia(media))
+          break
+        default:
+          setValid(width === getScreenSizeByMedia(media))
+          break
+      }
     }
   }, [width, media, operator])
 
