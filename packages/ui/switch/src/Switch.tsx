@@ -70,6 +70,7 @@ const Required = styled('div', {
 
 export interface SwitchCSS {
   container?: CSS
+  content?: CSS
   infoTooltip?: TooltipCSS
   infoIcon?: IconCSS
   label?: CSS
@@ -155,7 +156,7 @@ export const Switch: React.FC<SwitchProps> = ({
         ...css?.container,
       }}
     >
-      <SwitchContainer>
+      <SwitchContainer css={css?.content}>
         {label && side === 'left' ? (
           <LabelContainer
             css={{

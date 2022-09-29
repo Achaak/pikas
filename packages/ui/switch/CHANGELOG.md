@@ -1,5 +1,11 @@
 # @pikas-ui/switch
 
+## 2.1.6
+
+### Patch Changes
+
+- Add content in css props
+
 ## 2.1.5
 
 ### Patch Changes
