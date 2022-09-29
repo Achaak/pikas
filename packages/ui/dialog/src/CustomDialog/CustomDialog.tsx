@@ -179,13 +179,13 @@ export interface CustomDialogCSS {
   closeIcon?: CSS
 }
 
-export interface Dialog {
+export interface DialogProps {
   visible: boolean
   onOpen?: () => void
   onClose?: () => void
 }
 
-export interface CustomDialogProps extends Dialog {
+export interface CustomDialogProps extends DialogProps {
   closeIfClickOutside?: boolean
   hasCloseIcon?: boolean
   css?: CustomDialogCSS

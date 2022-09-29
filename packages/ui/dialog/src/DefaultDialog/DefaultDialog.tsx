@@ -1,11 +1,11 @@
-import { Colors } from '@pikas-ui/styles'
-import type { Dialog } from '../CustomDialog/index.js'
+import type { Colors } from '@pikas-ui/styles'
+import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { DefaultDialogContent } from './DefaultDialogContent/index.js'
 import { DefaultDialogFooter } from './DefaultDialogFooter/index.js'
 import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 
-export interface DefaultDialogProps extends Dialog {
+export interface DefaultDialogProps extends DialogProps {
   title: string
   content: React.ReactNode
   validateButtonLabel?: string

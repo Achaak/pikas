@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.2.2
+
+### Patch Changes
+
+- Rename dialog props
+
 ## 2.2.1
 
 ### Patch Changes
