@@ -51,6 +51,10 @@ export const menu: Menu = [
         href: getLink('dropdownMenu'),
       },
       {
+        label: 'Grid',
+        href: getLink('grid'),
+      },
+      {
         label: 'File Input (Coming soon)',
         href: getLink('fileInput'),
         disabled: true,

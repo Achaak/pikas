@@ -50,24 +50,6 @@ export const stitchesConfig = createStitches({
     linearGradient: (value: number | string) => ({
       backgroundImage: `linear-gradient(${value})`,
     }),
-
-    gridCols: (value: number | string) => ({
-      display: 'grid',
-      gridTemplateColumns: `repeat(${value}, minmax(0, 1fr))`,
-      width: '100%',
-      height: 'auto',
-    }),
-    col: (value: number | string) => {
-      if (!value) {
-        return {}
-      }
-
-      const split = value.toString().split(' ')
-
-      return {
-        gridColumn: `${split[1] || 'auto'} / span ${split[0]}`,
-      }
-    },
   },
 })
 

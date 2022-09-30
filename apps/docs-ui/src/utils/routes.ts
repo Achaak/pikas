@@ -29,6 +29,7 @@ export const { getLink } = routes({
     title: '/components/title',
     radio: '/components/radio',
     toast: '/components/toast',
+    grid: '/components/grid',
     fileInput: '/components/fileInput',
     textfieldMultiple: '/components/textfield-multiple',
     badge: '/components/badge',

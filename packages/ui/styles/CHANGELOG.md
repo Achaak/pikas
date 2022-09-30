@@ -1,5 +1,15 @@
 # @pikas-ui/styles
 
+## 3.3.0
+
+### Minor Changes
+
+- Remove gridCols and col
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 3.2.0
 
 ### Minor Changes

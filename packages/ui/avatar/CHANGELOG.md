@@ -1,5 +1,15 @@
 # @pikas-ui/avatar
 
+## 2.1.3
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/styles@3.3.0
+  - @pikas-ui/skeleton@2.1.3
+
 ## 2.1.2
 
 ### Patch Changes

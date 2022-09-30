@@ -1,0 +1,127 @@
+import { GridExample } from './../../src/examples/grid'
+import { getLink } from './../../src/utils/routes'
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Grid" />
+
+# @pikas-ui/grid
+
+This package contains a grid component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/grid/CHANGELOG.md">
+  Change Log
+</a>
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/grid
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/grid
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/grid
+```
+
+---
+
+## Usage
+
+### Grid
+
+<GridExample />
+
+```tsx
+import { Grid } from `@pikas-ui/grid`;
+
+const Example: React.FC = () => {
+  return (
+    <Grid type="container" cols={{ default: 12 }}>
+      <Grid type="item" cols={{ default: 12, xl: 6 }}>
+        <Block>1</Block>
+      </Grid>
+      <Grid type="item" cols={{ default: 12, md: 6, xl: 3 }}>
+        <Block>2</Block>
+      </Grid>
+      <Grid type="item" cols={{ default: 12, md: 6, xl: 3 }}>
+        <Block>3</Block>
+      </Grid>
+      <Grid
+        type="item"
+        cols={{ default: 12, xl: 6 }}
+        start={{ default: 1, xl: 7 }}
+      >
+        <Block>4</Block>
+      </Grid>
+    </Grid>
+  )
+}
+```
+
+#### Container
+
+```tsx
+import { Grid } from `@pikas-ui/grid`;
+
+const Example: React.FC = () => {
+  return (
+    <Grid type="container" />
+  )
+}
+```
+
+#### Props
+
+| Prop             | Description                             | Type                          | Default  |
+| :--------------- | :-------------------------------------- | :---------------------------- | :------- |
+| `children`       | The children of the component.          | `React.ReactNode`             | -        |
+| `css`            | The css of the component.               | `CSS`                         | -        |
+| `type`           | The type of the component.              | `GridType`                    | required |
+| `rowGap`         | The row gap of the component.           | `GridContainerRowGap`         | -        |
+| `columnGap`      | The column gap of the component.        | `GridContainerColumnGap`      | -        |
+| `cols`           | The number of columns of the component. | `GridContainerCols`           | required |
+| `direction`      | The direction of the component.         | `GridContainerDirection`      | -        |
+| `justifyContent` | The justify content of the component.   | `GridContainerJustifyContent` | -        |
+| `alignItems`     | The align items of the component.       | `GridContainerAlignItems`     | -        |
+
+---
+
+#### Item
+
+```tsx
+import { Grid } from `@pikas-ui/grid`;
+
+const Example: React.FC = () => {
+  return (
+    <Grid type="type" />
+  )
+}
+```
+
+#### Props
+
+| Prop       | Description                                   | Type              | Default  |
+| :--------- | :-------------------------------------------- | :---------------- | :------- |
+| `children` | The children of the component.                | `React.ReactNode` | -        |
+| `css`      | The css of the component.                     | `CSS`             | -        |
+| `type`     | The type of the component.                    | `GridType`        | required |
+| `cols`     | Number of columns the item should span.       | `GridItemCols`    | -        |
+| `start`    | The start of the column the item should span. | `GridItemStart`   | -        |
+| `end`      | The end of the column the item should span.   | `GridItemEnd`     | -        |
