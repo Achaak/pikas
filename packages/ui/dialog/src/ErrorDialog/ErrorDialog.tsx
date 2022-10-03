@@ -1,4 +1,4 @@
-import { Colors } from '@pikas-ui/styles'
+import type { Colors } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ErrorDialogContent } from './ErrorDialogContent/index.js'
