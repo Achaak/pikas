@@ -286,90 +286,72 @@ export const Grid: React.FC<GridProps> = (props) => {
           gridRowStart: 'auto',
           gridColumn: 'span 1',
           gridRow: `span 1`,
-        }),
 
-        ...(type === 'item' &&
-          props.cols?.default && {
+          ...(props.cols?.default && {
             gridColumn: `span ${props.cols.default} / span ${props.cols.default}`,
           }),
-        ...(type === 'item' &&
-          props.start?.default && {
+          ...(props.start?.default && {
             gridColumnStart: props.start.default,
           }),
-        ...(type === 'item' &&
-          props.end?.default && {
+          ...(props.end?.default && {
             gridColumnEnd: props.end.default,
           }),
-        '@xs': {
-          ...(type === 'item' &&
-            props.cols?.xs && {
+          '@xs': {
+            ...(props.cols?.xs && {
               gridColumn: `span ${props.cols.xs} / span ${props.cols.xs}`,
             }),
-          ...(type === 'item' &&
-            props.start?.xs && {
+            ...(props.start?.xs && {
               gridColumnStart: props.start.xs,
             }),
-          ...(type === 'item' &&
-            props.end?.xs && {
+            ...(props.end?.xs && {
               gridColumnEnd: props.end.xs,
             }),
-        },
-        '@sm': {
-          ...(type === 'item' &&
-            props.cols?.sm && {
+          },
+          '@sm': {
+            ...(props.cols?.sm && {
               gridColumn: `span ${props.cols.sm} / span ${props.cols.sm}`,
             }),
-          ...(type === 'item' &&
-            props.start?.sm && {
+            ...(props.start?.sm && {
               gridColumnStart: props.start.sm,
             }),
-          ...(type === 'item' &&
-            props.end?.sm && {
+            ...(props.end?.sm && {
               gridColumnEnd: props.end.sm,
             }),
-        },
-        '@md': {
-          ...(type === 'item' &&
-            props.cols?.md && {
+          },
+          '@md': {
+            ...(props.cols?.md && {
               gridColumn: `span ${props.cols.md} / span ${props.cols.md}`,
             }),
-          ...(type === 'item' &&
-            props.start?.md && {
+            ...(props.start?.md && {
               gridColumnStart: props.start.md,
             }),
-          ...(type === 'item' &&
-            props.end?.md && {
+            ...(props.end?.md && {
               gridColumnEnd: props.end.md,
             }),
-        },
-        '@lg': {
-          ...(type === 'item' &&
-            props.cols?.lg && {
+          },
+          '@lg': {
+            ...(props.cols?.lg && {
               gridColumn: `span ${props.cols.lg} / span ${props.cols.lg}`,
             }),
-          ...(type === 'item' &&
-            props.start?.lg && {
+            ...(props.start?.lg && {
               gridColumnStart: props.start.lg,
             }),
-          ...(type === 'item' &&
-            props.end?.lg && {
+            ...(props.end?.lg && {
               gridColumnEnd: props.end.lg,
             }),
-        },
-        '@xl': {
-          ...(type === 'item' &&
-            props.cols?.xl && {
+          },
+          '@xl': {
+            ...(props.cols?.xl && {
               gridColumn: `span ${props.cols.xl} / span ${props.cols.xl}`,
             }),
-          ...(type === 'item' &&
-            props.start?.xl && {
+            ...(props.start?.xl && {
               gridColumnStart: props.start.xl,
             }),
-          ...(type === 'item' &&
-            props.end?.xl && {
+            ...(props.end?.xl && {
               gridColumnEnd: props.end.xl,
             }),
-        },
+          },
+        }),
 
         ...css,
       }}
