@@ -13,106 +13,106 @@ const Container = styled('div', {
     columnGap: {
       none: {},
       xs: {
-        gridColumnGap: 8,
+        columnGap: 8,
 
         '@md': {
-          gridColumnGap: 8,
+          columnGap: 8,
         },
         '@lg': {
-          gridColumnGap: 8,
+          columnGap: 8,
         },
       },
       sm: {
-        gridColumnGap: 8,
+        columnGap: 8,
 
         '@md': {
-          gridColumnGap: 8,
+          columnGap: 8,
         },
         '@lg': {
-          gridColumnGap: 16,
+          columnGap: 16,
         },
       },
       md: {
-        gridColumnGap: 8,
+        columnGap: 8,
 
         '@md': {
-          gridColumnGap: 16,
+          columnGap: 16,
         },
         '@lg': {
-          gridColumnGap: 24,
+          columnGap: 24,
         },
       },
       lg: {
-        gridColumnGap: 16,
+        columnGap: 16,
 
         '@md': {
-          gridColumnGap: 24,
+          columnGap: 24,
         },
         '@lg': {
-          gridColumnGap: 32,
+          columnGap: 32,
         },
       },
       xl: {
-        gridColumnGap: 24,
+        columnGap: 24,
 
         '@md': {
-          gridColumnGap: 32,
+          columnGap: 32,
         },
         '@lg': {
-          gridColumnGap: 40,
+          columnGap: 40,
         },
       },
     },
     rowGap: {
       none: {},
       xs: {
-        gridRowGap: 8,
+        rowGap: 8,
 
         '@md': {
-          gridRowGap: 8,
+          rowGap: 8,
         },
         '@lg': {
-          gridRowGap: 8,
+          rowGap: 8,
         },
       },
       sm: {
-        gridRowGap: 8,
+        rowGap: 8,
 
         '@md': {
-          gridRowGap: 8,
+          rowGap: 8,
         },
         '@lg': {
-          gridRowGap: 16,
+          rowGap: 16,
         },
       },
       md: {
-        gridRowGap: 8,
+        rowGap: 8,
 
         '@md': {
-          gridRowGap: 16,
+          rowGap: 16,
         },
         '@lg': {
-          gridRowGap: 24,
+          rowGap: 24,
         },
       },
       lg: {
-        gridRowGap: 16,
+        rowGap: 16,
 
         '@md': {
-          gridRowGap: 24,
+          rowGap: 24,
         },
         '@lg': {
-          gridRowGap: 32,
+          rowGap: 32,
         },
       },
       xl: {
-        gridRowGap: 24,
+        rowGap: 24,
 
         '@md': {
-          gridRowGap: 32,
+          rowGap: 32,
         },
         '@lg': {
-          gridRowGap: 40,
+          rowGap: 40,
         },
       },
     },
@@ -256,10 +256,10 @@ export const Grid: React.FC<GridProps> = (props) => {
           gridTemplateColumns: `repeat(${props.cols.default}, 1fr)`,
 
           ...(typeof props.rowGap === 'object' && {
-            gridRowGap: props.rowGap.default,
+            rowGap: props.rowGap.default,
           }),
           ...(typeof props.columnGap === 'object' && {
-            gridColumnGap: props.columnGap.default,
+            columnGap: props.columnGap.default,
           }),
         }),
 
@@ -291,11 +291,11 @@ export const Grid: React.FC<GridProps> = (props) => {
 
               ...(typeof props.rowGap === 'object' &&
                 props.rowGap.xs && {
-                  gridRowGap: props.rowGap.xs,
+                  rowGap: props.rowGap.xs,
                 }),
               ...(typeof props.columnGap === 'object' &&
                 props.columnGap.xs && {
-                  gridColumnGap: props.columnGap.xs,
+                  columnGap: props.columnGap.xs,
                 }),
             }),
 
@@ -320,11 +320,11 @@ export const Grid: React.FC<GridProps> = (props) => {
 
               ...(typeof props.rowGap === 'object' &&
                 props.rowGap.sm && {
-                  gridRowGap: props.rowGap.sm,
+                  rowGap: props.rowGap.sm,
                 }),
               ...(typeof props.columnGap === 'object' &&
                 props.columnGap.sm && {
-                  gridColumnGap: props.columnGap.sm,
+                  columnGap: props.columnGap.sm,
                 }),
             }),
 
@@ -349,11 +349,11 @@ export const Grid: React.FC<GridProps> = (props) => {
 
               ...(typeof props.rowGap === 'object' &&
                 props.rowGap.md && {
-                  gridRowGap: props.rowGap.md,
+                  rowGap: props.rowGap.md,
                 }),
               ...(typeof props.columnGap === 'object' &&
                 props.columnGap.md && {
-                  gridColumnGap: props.columnGap.md,
+                  columnGap: props.columnGap.md,
                 }),
             }),
 
@@ -378,11 +378,11 @@ export const Grid: React.FC<GridProps> = (props) => {
 
               ...(typeof props.rowGap === 'object' &&
                 props.rowGap.lg && {
-                  gridRowGap: props.rowGap.lg,
+                  rowGap: props.rowGap.lg,
                 }),
               ...(typeof props.columnGap === 'object' &&
                 props.columnGap.lg && {
-                  gridColumnGap: props.columnGap.lg,
+                  columnGap: props.columnGap.lg,
                 }),
             }),
 
@@ -407,11 +407,11 @@ export const Grid: React.FC<GridProps> = (props) => {
 
               ...(typeof props.rowGap === 'object' &&
                 props.rowGap.xl && {
-                  gridRowGap: props.rowGap.xl,
+                  rowGap: props.rowGap.xl,
                 }),
               ...(typeof props.columnGap === 'object' &&
                 props.columnGap.xl && {
-                  gridColumnGap: props.columnGap.xl,
+                  columnGap: props.columnGap.xl,
                 }),
             }),
 
