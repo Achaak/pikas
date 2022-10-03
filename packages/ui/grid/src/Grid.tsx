@@ -246,57 +246,45 @@ export const Grid: React.FC<GridProps> = (props) => {
           : undefined
       }
       css={{
+        // CONTAINER
         ...(type === 'container' && {
           display: 'grid',
           gridAutoFlow: props.direction,
           justifyContent: props.justifyContent,
           alignItems: props.alignItems,
           width: '100%',
-
           gridTemplateColumns: `repeat(${props.cols.default}, 1fr)`,
-          '@xs': {
-            ...(props.cols.xs && {
-              gridTemplateColumns: `repeat(${props.cols.xs}, 1fr)`,
-            }),
-          },
-          '@sm': {
-            ...(props.cols.sm && {
-              gridTemplateColumns: `repeat(${props.cols.sm}, 1fr)`,
-            }),
-          },
-          '@md': {
-            ...(props.cols.md && {
-              gridTemplateColumns: `repeat(${props.cols.md}, 1fr)`,
-            }),
-          },
-          '@lg': {
-            ...(props.cols.lg && {
-              gridTemplateColumns: `repeat(${props.cols.lg}, 1fr)`,
-            }),
-          },
-          '@xl': {
-            ...(props.cols.xl && {
-              gridTemplateColumns: `repeat(${props.cols.xl}, 1fr)`,
-            }),
-          },
         }),
 
+        // ITEM
         ...(type === 'item' && {
           // Default to 1 column
           gridRowStart: 'auto',
           gridColumn: 'span 1',
           gridRow: `span 1`,
-
-          ...(props.cols?.default && {
+        }),
+        ...(type === 'item' &&
+          props.cols?.default && {
             gridColumn: `span ${props.cols.default} / span ${props.cols.default}`,
           }),
-          ...(props.start?.default && {
+        ...(type === 'item' &&
+          props.start?.default && {
             gridColumnStart: props.start.default,
           }),
-          ...(props.end?.default && {
+        ...(type === 'item' &&
+          props.end?.default && {
             gridColumnEnd: props.end.default,
           }),
-          '@xs': {
+
+        '@xs': {
+          // CONTAINER
+          ...(type === 'container' &&
+            props.cols.xs && {
+              gridTemplateColumns: `repeat(${props.cols.xs}, 1fr)`,
+            }),
+
+          // ITEM
+          ...(type === 'item' && {
             ...(props.cols?.xs && {
               gridColumn: `span ${props.cols.xs} / span ${props.cols.xs}`,
             }),
@@ -306,8 +294,17 @@ export const Grid: React.FC<GridProps> = (props) => {
             ...(props.end?.xs && {
               gridColumnEnd: props.end.xs,
             }),
-          },
-          '@sm': {
+          }),
+        },
+        '@sm': {
+          // CONTAINER
+          ...(type === 'container' &&
+            props.cols.sm && {
+              gridTemplateColumns: `repeat(${props.cols.sm}, 1fr)`,
+            }),
+
+          // ITEM
+          ...(type === 'item' && {
             ...(props.cols?.sm && {
               gridColumn: `span ${props.cols.sm} / span ${props.cols.sm}`,
             }),
@@ -317,8 +314,17 @@ export const Grid: React.FC<GridProps> = (props) => {
             ...(props.end?.sm && {
               gridColumnEnd: props.end.sm,
             }),
-          },
-          '@md': {
+          }),
+        },
+        '@md': {
+          // CONTAINER
+          ...(type === 'container' &&
+            props.cols.md && {
+              gridTemplateColumns: `repeat(${props.cols.md}, 1fr)`,
+            }),
+
+          // ITEM
+          ...(type === 'item' && {
             ...(props.cols?.md && {
               gridColumn: `span ${props.cols.md} / span ${props.cols.md}`,
             }),
@@ -328,8 +334,17 @@ export const Grid: React.FC<GridProps> = (props) => {
             ...(props.end?.md && {
               gridColumnEnd: props.end.md,
             }),
-          },
-          '@lg': {
+          }),
+        },
+        '@lg': {
+          // CONTAINER
+          ...(type === 'container' &&
+            props.cols.lg && {
+              gridTemplateColumns: `repeat(${props.cols.lg}, 1fr)`,
+            }),
+
+          // ITEM
+          ...(type === 'item' && {
             ...(props.cols?.lg && {
               gridColumn: `span ${props.cols.lg} / span ${props.cols.lg}`,
             }),
@@ -339,8 +354,17 @@ export const Grid: React.FC<GridProps> = (props) => {
             ...(props.end?.lg && {
               gridColumnEnd: props.end.lg,
             }),
-          },
-          '@xl': {
+          }),
+        },
+        '@xl': {
+          // CONTAINER
+          ...(type === 'container' &&
+            props.cols.xl && {
+              gridTemplateColumns: `repeat(${props.cols.xl}, 1fr)`,
+            }),
+
+          // ITEM
+          ...(type === 'item' && {
             ...(props.cols?.xl && {
               gridColumn: `span ${props.cols.xl} / span ${props.cols.xl}`,
             }),
@@ -350,8 +374,8 @@ export const Grid: React.FC<GridProps> = (props) => {
             ...(props.end?.xl && {
               gridColumnEnd: props.end.xl,
             }),
-          },
-        }),
+          }),
+        },
 
         ...css,
       }}

@@ -1,5 +1,11 @@
 # @pikas-ui/grid
 
+## 1.0.3
+
+### Patch Changes
+
+- fix media
+
 ## 1.0.2
 
 ### Patch Changes
