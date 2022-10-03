@@ -1,5 +1,11 @@
 # @pikas-ui/grid
 
+## 1.0.5
+
+### Patch Changes
+
+- fix gap
+
 ## 1.0.4
 
 ### Patch Changes
