@@ -48,7 +48,7 @@
   "dependencies": {
     "@pikas-ui/icons": "3.1.4",
     "@pikas-ui/loader": "3.1.4",
-    "@pikas-ui/styles": "workspace:3.3.1",
+    "@pikas-ui/styles": "3.3.1",
     "@pikas-ui/text": "4.1.2",
     "@pikas-ui/tooltip": "3.1.4",
     "font-color-contrast": "^11.1.0"
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@pikas/config": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "^18.8.1",
+    "@types/node": "^18.8.2",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "cross-env": "^7.0.3",

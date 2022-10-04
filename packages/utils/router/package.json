@@ -47,7 +47,7 @@
   "devDependencies": {
     "@pikas/config": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "^18.8.1",
+    "@types/node": "^18.8.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.24.0",
     "tsup": "^6.2.3",
