@@ -18,6 +18,14 @@ export const themeDark = createTheme({
     SECONDARY_LIGHTEST_2: '#331217',
     SECONDARY_LIGHTEST_1: '#260D11',
 
+    TERTIARY_DARKER: '#FFDBA9',
+    TERTIARY_DARK: '#FFCA7E',
+    TERTIARY: '#FFB853',
+    TERTIARY_LIGHT: '#BF8A3E',
+    TERTIARY_LIGHTER: '#805C2A',
+    TERTIARY_LIGHTEST_2: '#332511',
+    TERTIARY_LIGHTEST_1: '#261B0C',
+
     BLACK: '#ffffff',
     BLACK2: '#292E36',
     BLACK_LIGHT: 'rgba(249, 247, 247, 0.7)',
@@ -64,15 +72,15 @@ export const themeDark = createTheme({
     DANGER_LIGHTEST_2: '#300B0B',
     DANGER_LIGHTEST_1: '#240808',
 
-    TRANSPARENT: 'rgba(0, 0, 0, 0)',
+    INFO_DARKER: '#A8D0FF',
+    INFO_DARK: '#7DB9FF',
+    INFO: '#52A2FF',
+    INFO_LIGHT: '#3D79BF',
+    INFO_LIGHTER: '#295180',
+    INFO_LIGHTEST_2: '#102033',
+    INFO_LIGHTEST_1: '#0C1826',
 
-    FACEBOOK: '#3b5998',
-    GOOGLE: '#DB4437',
-    APPLE: '#fbfbfd',
-    GITHUB: '#ffffff',
-    TWITTER: '#1da1f2',
-    DISCORD: '#7289da',
-    LINKEDIN: '#0077b5',
+    TRANSPARENT: 'rgba(0, 0, 0, 0)',
 
     BACKGROUND: '#242424',
   },

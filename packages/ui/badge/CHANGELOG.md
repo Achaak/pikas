@@ -1,5 +1,13 @@
 # @pikas-ui/badge
 
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.3.3
+  - @pikas-ui/icons@3.1.6
+
 ## 1.1.6
 
 ### Patch Changes

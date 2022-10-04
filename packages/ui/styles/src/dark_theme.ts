@@ -27,7 +27,7 @@ export const darkTheme = createTheme('dark-theme', {
     TERTIARY_LIGHTEST_1: '#261B0C',
 
     BLACK: '#ffffff',
-    BLACK2: '#292E36',
+    BLACK2: '#ffffff',
     BLACK_LIGHT: 'rgba(249, 247, 247, 0.7)',
     BLACK_LIGHTER: 'rgba(249, 247, 247, 0.5)',
     BLACK_LIGHTEST_2: 'rgba(249, 247, 247, 0.35)',

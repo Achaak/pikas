@@ -24,6 +24,7 @@ export const Colors = {
   TERTIARY_LIGHTEST_1: '#FFFBF6',
 
   BLACK: '#292E36',
+  BLACK2: '#292E36',
   BLACK_LIGHT: 'rgba(34, 40, 49, 0.5)',
   BLACK_LIGHTER: 'rgba(34, 40, 49, 0.25)',
   BLACK_LIGHTEST_2: 'rgba(34, 40, 49, 0.1)',

@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.3.3
+
+### Patch Changes
+
+- Add black2
+
 ## 3.3.2
 
 ### Patch Changes

@@ -49,7 +49,7 @@ const SwitchThumb = styled(SwitchPrimitive.Thumb, {
   backgroundColor: '$WHITE',
   br: 'round',
   boxShadow: '$ELEVATION_BOTTOM_1',
-  transition: 'transform 100ms',
+  transition: 'all 100ms',
   transform: 'translateX(2px)',
   willChange: 'transform',
 

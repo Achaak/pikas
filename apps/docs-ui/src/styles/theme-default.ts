@@ -18,6 +18,14 @@ export const themeDefault = createTheme({
     SECONDARY_LIGHTEST_2: '#FFEEF1',
     SECONDARY_LIGHTEST_1: '#FFF7F8',
 
+    TERTIARY_DARKER: '#805C2A',
+    TERTIARY_DARK: '#BF8A3E',
+    TERTIARY: '#FFB853',
+    TERTIARY_LIGHT: '#FFDBA9',
+    TERTIARY_LIGHTER: '#FFEDD4',
+    TERTIARY_LIGHTEST_2: '#FFF8ED',
+    TERTIARY_LIGHTEST_1: '#FFFBF6',
+
     BLACK: '#292E36',
     BLACK_LIGHT: 'rgba(34, 40, 49, 0.5)',
     BLACK_LIGHTER: 'rgba(34, 40, 49, 0.25)',
@@ -75,15 +83,15 @@ export const themeDefault = createTheme({
     DANGER_LIGHTEST_2: '#FDEBEB',
     DANGER_LIGHTEST_1: '#FEF5F5',
 
-    TRANSPARENT: 'rgba(0, 0, 0, 0)',
+    INFO_DARKER: '#295180',
+    INFO_DARK: '#3D79BF',
+    INFO: '#52A2FF',
+    INFO_LIGHT: '#A8D0FF',
+    INFO_LIGHTER: '#D4E8FF',
+    INFO_LIGHTEST_2: '#EDF6FF',
+    INFO_LIGHTEST_1: '#F6FAFF',
 
-    FACEBOOK: '#3b5998',
-    GOOGLE: '#DB4437',
-    APPLE: '#fbfbfd',
-    GITHUB: '#333333',
-    TWITTER: '#1da1f2',
-    DISCORD: '#7289da',
-    LINKEDIN: '#0077b5',
+    TRANSPARENT: 'rgba(0, 0, 0, 0)',
 
     BACKGROUND: '#EDF6FF',
   },
