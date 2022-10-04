@@ -150,6 +150,8 @@ export interface TableCSS<T> {
   thSpan?: CSS
   td?: CSS
   tdContent?: CSS
+  tdEmptyMessage?: CSS
+  tdContentEmptyMessage?: CSS
   column?: Partial<
     Record<
       keyof T,
@@ -430,11 +432,21 @@ export const Table = <T extends Record<string, unknown>>({
               <Td
                 colSpan={1000}
                 css={{
-                  ...css?.td,
+                  ...css?.tdEmptyMessage,
                 }}
                 padding={padding?.td}
+                variant={variant}
               >
-                <TdContent>{emptyMessage}</TdContent>
+                <TdContent
+                  css={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    ...css?.tdContentEmptyMessage,
+                  }}
+                  variant={variant}
+                >
+                  {emptyMessage}
+                </TdContent>
               </Td>
             </Tr>
           ) : null}
