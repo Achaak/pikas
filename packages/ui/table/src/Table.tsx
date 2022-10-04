@@ -124,8 +124,13 @@ const Td = styled('td', {
 
 const TdContent = styled('div', {
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+
+  variants: {
+    variant: {
+      default: {},
+      light: {},
+    },
+  },
 })
 
 export const TableVariant = {
@@ -401,6 +406,7 @@ export const Table = <T extends Record<string, unknown>>({
                       padding={padding?.td}
                     >
                       <TdContent
+                        variant={variant}
                         css={{
                           ...css?.tdContent,
                           ...css?.column?.[cell.column.id as keyof T]

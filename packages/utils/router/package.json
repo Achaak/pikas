@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/router",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@pikas/config": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "^18.7.23",
+    "@types/node": "^18.8.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.24.0",
     "tsup": "^6.2.3",

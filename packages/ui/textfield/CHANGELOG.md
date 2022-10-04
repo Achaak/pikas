@@ -1,5 +1,17 @@
 # @pikas-ui/textfield
 
+## 3.1.4
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/icons@3.1.4
+  - @pikas-ui/loader@3.1.4
+  - @pikas-ui/styles@3.3.1
+  - @pikas-ui/text@4.1.2
+  - @pikas-ui/tooltip@3.1.4
+
 ## 3.1.3
 
 ### Patch Changes
