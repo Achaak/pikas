@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/searchbar",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,12 +46,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.1.4",
-    "@pikas-ui/icons": "3.1.4",
-    "@pikas-ui/loader": "3.1.4",
-    "@pikas-ui/separator": "3.1.4",
-    "@pikas-ui/styles": "3.3.1",
-    "@pikas-ui/textfield": "3.1.4",
+    "@pikas-ui/button": "3.1.5",
+    "@pikas-ui/icons": "3.1.5",
+    "@pikas-ui/loader": "3.1.5",
+    "@pikas-ui/separator": "3.1.5",
+    "@pikas-ui/styles": "3.3.2",
+    "@pikas-ui/textfield": "3.1.5",
     "usehooks-ts": "^2.7.2"
   },
   "peerDependencies": {

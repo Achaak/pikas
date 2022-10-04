@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.3.2
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 3.3.1
 
 ### Patch Changes
