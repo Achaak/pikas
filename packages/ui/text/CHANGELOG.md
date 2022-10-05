@@ -1,5 +1,11 @@
 # @pikas-ui/text
 
+## 4.1.5
+
+### Patch Changes
+
+- fix dependencies
+
 ## 4.1.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @pikas-ui/progress
 
+## 1.1.7
+
+### Patch Changes
+
+- fix dependencies
+- Updated dependencies
+  - @pikas-ui/skeleton@2.1.7
+
 ## 1.1.6
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @pikas-ui/select
 
+## 4.1.8
+
+### Patch Changes
+
+- fix dependencies
+- Updated dependencies
+  - @pikas-ui/icons@3.1.7
+  - @pikas-ui/text@4.1.5
+  - @pikas-ui/textfield@3.1.7
+  - @pikas-ui/tooltip@3.1.7
+
 ## 4.1.7
 
 ### Patch Changes

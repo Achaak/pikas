@@ -1,5 +1,11 @@
 # @pikas-ui/separator
 
+## 3.1.7
+
+### Patch Changes
+
+- fix dependencies
+
 ## 3.1.6
 
 ### Patch Changes

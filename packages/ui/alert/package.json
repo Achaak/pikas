@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/alert",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,8 +46,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.1.6",
-    "@pikas-ui/styles": "workspace:3.3.3",
+    "@pikas-ui/icons": "3.1.7",
+    "@pikas-ui/styles": "3.3.3",
     "font-color-contrast": "^11.1.0"
   },
   "peerDependencies": {

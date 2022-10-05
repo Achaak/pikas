@@ -1,5 +1,13 @@
 # @pikas-ui/alert
 
+## 3.2.5
+
+### Patch Changes
+
+- fix dependencies
+- Updated dependencies
+  - @pikas-ui/icons@3.1.7
+
 ## 3.2.4
 
 ### Patch Changes
