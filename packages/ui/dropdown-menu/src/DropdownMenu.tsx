@@ -175,8 +175,9 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </DropdownMenuPrimitive.Trigger>
         )}
 
-        <DropdownMenuPrimitive.Portal className={theme}>
+        <DropdownMenuPrimitive.Portal>
           <Content
+            className={theme}
             css={css?.content}
             loop={loop}
             onCloseAutoFocus={onCloseAutoFocus}
@@ -240,7 +241,10 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   disabled={item?.disabled}
                   onClick={item.onClick}
                   css={{
-                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    color:
+                      item.colorHex ||
+                      (item.color && `$${item.color}`) ||
+                      '$GRAY_DARKER',
                     ...item?.css?.container,
                   }}
                 >
@@ -287,7 +291,10 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   checked={item.checked}
                   onCheckedChange={item.onCheckedChange}
                   css={{
-                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    color:
+                      item.colorHex ||
+                      (item.color && `$${item.color}`) ||
+                      '$GRAY_DARKER',
                     ...item?.css?.container,
                   }}
                 >
@@ -313,7 +320,10 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   key={`radio-${dataIndex}-${i}`}
                   value={item.value}
                   css={{
-                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    color:
+                      item.colorHex ||
+                      (item.color && `$${item.color}`) ||
+                      '$GRAY_DARKER',
                     ...item?.css?.container,
                   }}
                 >
@@ -347,7 +357,10 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                 <DropdownMenuPrimitive.Sub key={`menu-${dataIndex}-${i}`}>
                   <SubTrigger
                     css={{
-                      color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                      color:
+                        item.colorHex ||
+                        (item.color && `$${item.color}`) ||
+                        '$GRAY_DARKER',
                       ...item?.css?.container,
                     }}
                   >

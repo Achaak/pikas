@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 4.1.7
+
+### Patch Changes
+
+- Fix darkmode
+
 ## 4.1.6
 
 ### Patch Changes

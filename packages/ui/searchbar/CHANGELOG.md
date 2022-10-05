@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 3.1.7
+
+### Patch Changes
+
+- Fix darkmode
+
 ## 3.1.6
 
 ### Patch Changes

@@ -69,6 +69,7 @@ const ResultGroupTitle = styled('span', {
 const ResultItem = styled('div', {
   padding: '8px 16px',
   cursor: 'pointer',
+  color: '$BLACK',
   transition: 'background-color 0.2s ease-in-out',
 
   '&:hover': {

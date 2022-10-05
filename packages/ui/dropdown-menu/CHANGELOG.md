@@ -1,5 +1,13 @@
 # @pikas-ui/dropdown-menu
 
+## 3.2.7
+
+### Patch Changes
+
+- Fix darkmode
+- Updated dependencies
+  - @pikas-ui/menu@3.2.6
+
 ## 3.2.6
 
 ### Patch Changes

@@ -114,6 +114,7 @@ const GroupLabel = styled(SelectPrimitive.Label, {
   padding: '4px 16px 4px 24px',
   fontWeight: '$MEDIUM',
   fontSize: '$EM-SMALL',
+  color: '$BLACK',
 })
 
 const Item = styled(SelectPrimitive.Item, {
@@ -139,8 +140,9 @@ const Item = styled(SelectPrimitive.Item, {
   },
 })
 
-const ItemText = styled(SelectPrimitive.ItemText, {
+const ItemText = styled('span', {
   fontSize: '$EM-SMALL',
+  color: '$BLACK',
 })
 
 const SearchContainer = styled('div', {
@@ -150,6 +152,7 @@ const SearchContainer = styled('div', {
 const LabelContainer = styled('div', {
   display: 'flex',
   marginBottom: 4,
+  color: '$BLACK',
 })
 
 const Required = styled('div', {
@@ -346,9 +349,11 @@ export const Select: React.FC<SelectProps> = ({
                     ...(item.hidden ? { display: 'none' } : {}),
                   }}
                 >
-                  <ItemText>{item.label}</ItemText>
+                  <SelectPrimitive.ItemText>
+                    <ItemText>{item.label}</ItemText>
+                  </SelectPrimitive.ItemText>
                   <ItemIndicator>
-                    <IconByName name="bx:check" size={20} />
+                    <IconByName name="bx:check" size={20} color="BLACK" />
                   </ItemIndicator>
                 </Item>
               ))}
@@ -454,8 +459,8 @@ export const Select: React.FC<SelectProps> = ({
           </Icon>
         </Trigger>
 
-        <SelectPrimitive.Portal className={theme}>
-          <Content css={css?.content}>
+        <SelectPrimitive.Portal>
+          <Content css={css?.content} className={theme}>
             {hasSearch ? (
               <>
                 <SearchContainer>

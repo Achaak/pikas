@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/context-menu",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,7 +48,7 @@
   "dependencies": {
     "@pikas-ui/icons": "3.1.6",
     "@pikas-ui/loader": "3.1.6",
-    "@pikas-ui/menu": "3.2.5",
+    "@pikas-ui/menu": "3.2.6",
     "@pikas-ui/styles": "workspace:3.3.3",
     "@radix-ui/react-context-menu": "^1.0.0"
   },
