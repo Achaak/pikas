@@ -93,7 +93,8 @@ export interface SliderProps {
   minSize?: string | number
   weight?: number
   thumbSize?: number
-  thumbColor?: string
+  thumbColor?: Colors
+  thumbColorHex?: string
   thumbBorderColor?: Colors
   thumbBorderColorHex?: string
   thumbBorderColorHover?: Colors
@@ -132,6 +133,7 @@ export const Slider: React.FC<SliderProps> = ({
   size,
   thumbSize,
   thumbColor,
+  thumbColorHex,
   thumbBorderColor,
   thumbBorderColorHex,
   thumbBorderColorHover,
@@ -245,7 +247,7 @@ export const Slider: React.FC<SliderProps> = ({
               width: thumbSize,
               height: thumbSize,
               backgroundColor:
-                thumbColor || thumbColor ? `$${thumbColor}` : undefined,
+                thumbColorHex || thumbColor ? `$${thumbColor}` : undefined,
               borderColor:
                 thumbBorderColorHex || thumbBorderColor
                   ? `$${thumbBorderColor}`
@@ -292,6 +294,6 @@ Slider.defaultProps = {
   sliderBorderRadius: 'round',
   trackColor: 'GRAY_LIGHTER',
   rangeColor: 'PRIMARY',
-  thumbColor: 'WHITE',
+  thumbColor: 'WHITE_FIX',
   thumbBorderColorHover: 'GRAY_LIGHTER',
 }

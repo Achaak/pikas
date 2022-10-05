@@ -1,5 +1,11 @@
 # @pikas-ui/slider
 
+## 3.1.8
+
+### Patch Changes
+
+- Fix slider
+
 ## 3.1.7
 
 ### Patch Changes
