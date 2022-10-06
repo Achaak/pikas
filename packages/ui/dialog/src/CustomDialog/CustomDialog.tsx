@@ -177,6 +177,7 @@ export interface CustomDialogCSS {
   content?: CSS
   footer?: CSS
   closeIcon?: CSS
+  overlay?: CSS
 }
 
 export interface DialogProps {
@@ -255,6 +256,7 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
           visible={visibleStyle}
           css={{
             pointerEvents: 'initial',
+            ...css?.overlay,
           }}
         />
 

@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.2.8
+
+### Patch Changes
+
+- Add css props
+
 ## 2.2.7
 
 ### Patch Changes
