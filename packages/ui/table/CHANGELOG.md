@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 3.1.11
+
+### Patch Changes
+
+- fix pagination
+
 ## 3.1.10
 
 ### Patch Changes

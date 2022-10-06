@@ -10,6 +10,8 @@ const Footer = styled('div', {
   justifyContent: 'space-between',
   alignItems: 'center',
   marginTop: 8,
+  color: '$BLACK',
+  paddingBottom: 2,
 })
 
 const Left = styled('div', {
@@ -154,20 +156,20 @@ export const Pagination: React.FC<PaginationProps> = ({
           onClick={(): void => setPageIndex(0)}
           disabled={!canPreviousPage}
         >
-          <IconByName name="bx:chevrons-left" size="1em" />
+          <IconByName name="bx:chevrons-left" size="1em" color="BLACK" />
         </ButtonArrowLeft>
         <ButtonArrowLeft onClick={previousPage} disabled={!canPreviousPage}>
-          <IconByName name="bx:chevron-left" size="1em" />
+          <IconByName name="bx:chevron-left" size="1em" color="BLACK" />
         </ButtonArrowLeft>
         {getNumber()}
         <ButtonArrowRight onClick={nextPage} disabled={!canNextPage}>
-          <IconByName name="bx:chevron-right" size="1em" />
+          <IconByName name="bx:chevron-right" size="1em" color="BLACK" />
         </ButtonArrowRight>
         <ButtonArrowRight
           onClick={(): void => setPageIndex(pageCount - 1)}
           disabled={!canNextPage}
         >
-          <IconByName name="bx:chevrons-right" size="1em" />
+          <IconByName name="bx:chevrons-right" size="1em" color="BLACK" />
         </ButtonArrowRight>
       </Right>
     </Footer>

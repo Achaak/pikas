@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import type {
   ColumnDef,
   OnChangeFn,
   PaginationState,
   RowSelectionState,
   SortingState,
+  Updater,
 } from '@tanstack/react-table'
 import { flexRender } from '@tanstack/react-table'
 import { useReactTable } from '@tanstack/react-table'
@@ -33,7 +34,6 @@ const TableStyled = styled('table', {
   borderCollapse: 'collapse',
   br: 'sm',
   color: '$BLACK',
-  overflow: 'hidden',
 
   variants: {
     variant: {
@@ -216,10 +216,45 @@ export const Table = <T extends Record<string, unknown>>({
   emptyMessage,
   hoverEffect,
 }: TableProps<T>): JSX.Element => {
-  const [selectionState, setSelectionState] = React.useState(
+  const [selectionState, setSelectionState] = useState(
     selection?.defaultState || {}
   )
-  const [sortingState, setSortingState] = React.useState<SortingState>([])
+  const [sortingState, setSortingState] = useState<SortingState>([])
+
+  /* Pagination */
+  const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>(
+    pagination?.state || {
+      pageIndex: 0,
+      pageSize: 5,
+    }
+  )
+
+  const paginationMemo = useMemo(
+    () => ({
+      pageIndex,
+      pageSize,
+    }),
+    [pageIndex, pageSize]
+  )
+
+  useEffect(() => {
+    if (pagination?.state) {
+      setPagination(pagination.state)
+    }
+  }, [pagination?.state])
+
+  const handlePaginationChange = (state: Updater<PaginationState>): void => {
+    pagination?.onPaginationChange?.(state)
+    setPagination(state)
+  }
+  /* Pagination */
+
+  /* Selection */
+  const handleRowSelectionChange = (): void => {
+    selection?.onRowSelectionChange?.(selectionState)
+    setSelectionState(selectionState)
+  }
+  /* Selection */
 
   const columnsMemo = React.useMemo<ColumnDef<T>[]>(
     () => [
@@ -257,13 +292,21 @@ export const Table = <T extends Record<string, unknown>>({
     data,
     columns: columnsMemo,
     state: {
-      ...(pagination?.active && pagination?.state
-        ? { pagination: pagination?.state }
-        : { pageIndex: 0, pageSize: 5, pageCount: undefined }),
+      ...(pagination?.active && { pagination: paginationMemo }),
       ...(selection?.active ? { rowSelection: selectionState } : {}),
       ...(sorting?.active ? { sorting: sortingState } : {}),
     },
-    ...(pagination?.active && pagination?.onPaginationChange
+    ...(pagination?.active
+      ? {
+          onPaginationChange: handlePaginationChange,
+        }
+      : {}),
+    ...(selection?.active
+      ? {
+          onRowSelectionChange: handleRowSelectionChange,
+        }
+      : {}),
+    ...(sorting?.active
       ? {
           onPaginationChange: pagination?.onPaginationChange,
         }
