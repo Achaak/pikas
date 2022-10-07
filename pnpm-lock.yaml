@@ -31,13 +31,13 @@ importers:
       '@pikas-ui/loader': 3.1.7
       '@pikas-ui/progress': 1.1.7
       '@pikas-ui/searchbar': 3.1.8
-      '@pikas-ui/select': 4.1.8
+      '@pikas-ui/select': 4.1.9
       '@pikas-ui/separator': 3.1.7
       '@pikas-ui/skeleton': 2.1.7
       '@pikas-ui/slider': 3.1.8
       '@pikas-ui/styles': 3.3.3
       '@pikas-ui/switch': 2.1.11
-      '@pikas-ui/table': 3.1.11
+      '@pikas-ui/table': 3.1.12
       '@pikas-ui/tabs': 2.1.11
       '@pikas-ui/text': 4.1.5
       '@pikas-ui/textarea': 3.1.7
@@ -869,7 +869,7 @@ importers:
       '@pikas-ui/checkbox': 3.1.7
       '@pikas-ui/icons': 3.1.7
       '@pikas-ui/loader': 3.1.7
-      '@pikas-ui/select': 4.1.8
+      '@pikas-ui/select': 4.1.9
       '@pikas-ui/styles': 3.3.3
       '@pikas/config': workspace:*
       '@pikas/tsconfig': workspace:*

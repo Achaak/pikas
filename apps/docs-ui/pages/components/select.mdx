@@ -121,3 +121,30 @@ const Example: React.FC = () => {
 | `minWidth`          | The min width of the select.                  | `string or number`                                                                                                                                    | -        |
 | `required`          | The required of the select.                   | `boolean`                                                                                                                                             | `false`  |
 | `info`              | Add a info icon with a tooltip.               | `string`                                                                                                                                              | -        |
+
+#### Reference
+
+```tsx
+import { Select } from `@pikas-ui/select`;
+import type { SelectRef } from `@pikas-ui/select`;
+
+const Example: React.FC = () => {
+  const selectRef = useRef<SelectRef>(null);
+
+  const handleChange = (): void => {
+    selectRef.current?.setValue("option-1-2");
+  };
+
+  return (
+    <Select
+      ref={selectRef}
+      defaultValue="option-1-1"
+      data={...}
+    />
+  )
+}
+```
+
+| Ref        | Description                  | Type                      | Default |
+| :--------- | :--------------------------- | :------------------------ | :------ |
+| `setValue` | Set the value of the select. | `(value: string) => void` | -       |

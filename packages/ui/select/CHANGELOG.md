@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 4.1.9
+
+### Patch Changes
+
+- Add setValue reference
+
 ## 4.1.8
 
 ### Patch Changes

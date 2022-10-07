@@ -1,5 +1,6 @@
 import { ExampleContainer } from '@pikas/docs-ui'
 import { Select } from '@pikas-ui/select'
+import React from 'react'
 
 export const SelectExample: React.FC = () => {
   return (

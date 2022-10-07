@@ -12,7 +12,13 @@ import { IconByName } from '@pikas-ui/icons'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useState,
+} from 'react'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 
@@ -230,273 +236,291 @@ export interface SelectProps {
   required?: boolean
 }
 
-export const Select: React.FC<SelectProps> = ({
-  data,
-  css,
-  onChange,
-  defaultValue,
-  label,
-  hasSearch,
-  searchPlaceholder,
-  id,
-  ariaLabel,
-  borderRadius,
-  padding,
-  textError,
-  direction,
-  onOpenChange,
-  defaultOpen,
-  borderColor,
-  borderWidth,
-  fontSize,
-  boxShadow,
-  backgroundColor,
-  outline,
-  description,
-  maxWidth,
-  width,
-  minWidth,
-  info,
-  required,
-}) => {
-  const [searchValue, setSearchValue] = useState('')
-  const [formattedData, setFormattedData] = useState(data)
-  const [focus, setFocus] = useState(false)
-  const theme = useTheme()
+export interface SelectRef {
+  setValue: (value: string) => void
+}
 
-  useEffect(() => {
-    setFormattedData(
-      data.map((group) => {
-        const items = group.items.map((item) => {
-          let hidden = item.hidden || false
+export const Select = forwardRef<SelectRef, SelectProps>(
+  (
+    {
+      data,
+      css,
+      onChange,
+      defaultValue,
+      label,
+      hasSearch,
+      searchPlaceholder,
+      id,
+      ariaLabel,
+      borderRadius,
+      padding,
+      textError,
+      direction,
+      onOpenChange,
+      defaultOpen,
+      borderColor,
+      borderWidth,
+      fontSize,
+      boxShadow,
+      backgroundColor,
+      outline,
+      description,
+      maxWidth,
+      width,
+      minWidth,
+      info,
+      required,
+    },
+    ref
+  ) => {
+    const [searchValue, setSearchValue] = useState('')
+    const [value, setValue] = useState(defaultValue || '')
+    const [formattedData, setFormattedData] = useState(data)
+    const [focus, setFocus] = useState(false)
+    const theme = useTheme()
 
-          if (searchValue.length > 0) {
-            if (typeof item.label === 'string') {
-              if (
-                !item.label.toLowerCase().includes(searchValue.toLowerCase())
-              ) {
-                hidden = false
+    useEffect(() => {
+      setFormattedData(
+        data.map((group) => {
+          const items = group.items.map((item) => {
+            let hidden = item.hidden || false
+
+            if (searchValue.length > 0) {
+              if (typeof item.label === 'string') {
+                if (
+                  !item.label.toLowerCase().includes(searchValue.toLowerCase())
+                ) {
+                  hidden = false
+                }
+              }
+
+              if (item.searchValue) {
+                if (
+                  !item.searchValue
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase())
+                ) {
+                  hidden = false
+                }
               }
             }
 
-            if (item.searchValue) {
-              if (
-                !item.searchValue
-                  .toLowerCase()
-                  .includes(searchValue.toLowerCase())
-              ) {
-                hidden = false
-              }
+            return {
+              ...item,
+              hidden: hidden,
             }
-          }
+          })
 
           return {
-            ...item,
-            hidden: hidden,
+            ...group,
+            hidden: !items.some((item) => !item.hidden),
+            items,
           }
         })
+      )
+    }, [data, searchValue])
 
-        return {
-          ...group,
-          hidden: !items.some((item) => !item.hidden),
-          items,
-        }
-      })
-    )
-  }, [data, searchValue])
-
-  const handleChange = (value: string): void => {
-    onChange?.(value)
-  }
-
-  const handleOpenChange = (open: boolean): void => {
-    onOpenChange?.(open)
-
-    if (!open) {
-      setSearchValue('')
+    const handleChange = (value: string): void => {
+      onChange?.(value)
+      setValue(value)
     }
-  }
 
-  const viewport = useMemo(
-    () => (
-      <Viewport>
-        {formattedData.map((group, groupIndex) => {
-          const res = []
-          const hidden = !group.items.some((item) => !item.hidden)
+    useImperativeHandle(ref, () => ({
+      setValue: (value: string): void => {
+        handleChange(value)
+      },
+    }))
 
-          if (
-            groupIndex > 0 &&
-            !hidden &&
-            !formattedData[groupIndex - 1]?.hidden
-          ) {
-            res.push(<Separator key={`separator-${groupIndex}`} />)
-          }
+    const handleOpenChange = (open: boolean): void => {
+      onOpenChange?.(open)
 
-          res.push(
-            <Group
-              key={groupIndex}
-              css={{
-                ...(hidden ? { display: 'none' } : {}),
-              }}
-            >
-              {group.name ? <GroupLabel>{group.name}</GroupLabel> : null}
-              {group.items.map((item, itemIndex) => (
-                <Item
-                  key={itemIndex}
-                  value={item.value}
-                  disabled={item.disabled}
-                  css={{
-                    ...(item.hidden ? { display: 'none' } : {}),
-                  }}
-                >
-                  <SelectPrimitive.ItemText>
-                    <ItemText>{item.label}</ItemText>
-                  </SelectPrimitive.ItemText>
-                  <ItemIndicator>
-                    <IconByName name="bx:check" size={20} color="BLACK" />
-                  </ItemIndicator>
-                </Item>
-              ))}
-            </Group>
-          )
+      if (!open) {
+        setSearchValue('')
+      }
+    }
 
-          return res
-        })}
-      </Viewport>
-    ),
-    [formattedData]
-  )
+    const viewport = useMemo(
+      () => (
+        <Viewport>
+          {formattedData.map((group, groupIndex) => {
+            const res = []
+            const hidden = !group.items.some((item) => !item.hidden)
 
-  return (
-    <Container
-      css={{
-        fontSize: `$${fontSize}`,
-        width: width,
-        maxWidth: maxWidth,
-        minWidth: minWidth,
-        ...css?.container,
-      }}
-    >
-      {label ? (
-        <LabelContainer>
-          <Label
-            htmlFor={id}
-            css={{
-              ...css?.label,
-            }}
-          >
-            {label}
-          </Label>
+            if (
+              groupIndex > 0 &&
+              !hidden &&
+              !formattedData[groupIndex - 1]?.hidden
+            ) {
+              res.push(<Separator key={`separator-${groupIndex}`} />)
+            }
 
-          {required ? (
-            <Required
-              css={{
-                ...css?.required,
-              }}
-            >
-              *
-            </Required>
-          ) : null}
-          {info ? (
-            <Tooltip content={info} css={css?.infoTooltip}>
-              <IconByName
-                name="bx:info-circle"
-                color="BLACK_LIGHT"
+            res.push(
+              <Group
+                key={groupIndex}
                 css={{
-                  container: {
-                    marginLeft: 4,
-                    ...css?.infoIcon?.container,
-                  },
-                  svg: {
-                    ...css?.infoIcon?.svg,
-                  },
+                  ...(hidden ? { display: 'none' } : {}),
                 }}
-              />
-            </Tooltip>
-          ) : null}
-        </LabelContainer>
-      ) : null}
+              >
+                {group.name ? <GroupLabel>{group.name}</GroupLabel> : null}
+                {group.items.map((item, itemIndex) => (
+                  <Item
+                    key={itemIndex}
+                    value={item.value}
+                    disabled={item.disabled}
+                    css={{
+                      ...(item.hidden ? { display: 'none' } : {}),
+                    }}
+                  >
+                    <SelectPrimitive.ItemText>
+                      <ItemText>{item.label}</ItemText>
+                    </SelectPrimitive.ItemText>
+                    <ItemIndicator>
+                      <IconByName name="bx:check" size={20} color="BLACK" />
+                    </ItemIndicator>
+                  </Item>
+                ))}
+              </Group>
+            )
 
-      {description ? (
-        <Description
-          css={{
-            marginBottom: 4,
-            ...css?.description,
-          }}
-        >
-          {description}
-        </Description>
-      ) : null}
+            return res
+          })}
+        </Viewport>
+      ),
+      [formattedData]
+    )
 
-      <SelectContainer
-        defaultValue={defaultValue}
-        onValueChange={handleChange}
-        dir={direction}
-        onOpenChange={handleOpenChange}
-        defaultOpen={defaultOpen}
+    return (
+      <Container
         css={{
+          fontSize: `$${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
           ...css?.container,
         }}
       >
-        <Trigger
-          aria-label={ariaLabel}
-          padding={padding}
-          focus={outline ? focus : undefined}
-          onFocus={(): void => setFocus(true)}
-          onBlur={(): void => setFocus(false)}
+        {label ? (
+          <LabelContainer>
+            <Label
+              htmlFor={id}
+              css={{
+                ...css?.label,
+              }}
+            >
+              {label}
+            </Label>
+
+            {required ? (
+              <Required
+                css={{
+                  ...css?.required,
+                }}
+              >
+                *
+              </Required>
+            ) : null}
+            {info ? (
+              <Tooltip content={info} css={css?.infoTooltip}>
+                <IconByName
+                  name="bx:info-circle"
+                  color="BLACK_LIGHT"
+                  css={{
+                    container: {
+                      marginLeft: 4,
+                      ...css?.infoIcon?.container,
+                    },
+                    svg: {
+                      ...css?.infoIcon?.svg,
+                    },
+                  }}
+                />
+              </Tooltip>
+            ) : null}
+          </LabelContainer>
+        ) : null}
+
+        {description ? (
+          <Description
+            css={{
+              marginBottom: 4,
+              ...css?.description,
+            }}
+          >
+            {description}
+          </Description>
+        ) : null}
+
+        <SelectContainer
+          defaultValue={defaultValue}
+          onValueChange={handleChange}
+          dir={direction}
+          onOpenChange={handleOpenChange}
+          defaultOpen={defaultOpen}
+          value={value}
           css={{
-            br: borderRadius,
-            borderColor: `$${borderColor}`,
-            borderWidth: borderWidth,
-            boxShadow: `$${boxShadow}`,
-            backgroundColor: `$${backgroundColor}`,
-            ...css?.trigger,
+            ...css?.container,
           }}
         >
-          <SelectValue />
-          <Icon>
-            <IconByName name="bx:chevron-down" size="1em" color="BLACK" />
-          </Icon>
-        </Trigger>
+          <Trigger
+            aria-label={ariaLabel}
+            padding={padding}
+            focus={outline ? focus : undefined}
+            onFocus={(): void => setFocus(true)}
+            onBlur={(): void => setFocus(false)}
+            css={{
+              br: borderRadius,
+              borderColor: `$${borderColor}`,
+              borderWidth: borderWidth,
+              boxShadow: `$${boxShadow}`,
+              backgroundColor: `$${backgroundColor}`,
+              ...css?.trigger,
+            }}
+          >
+            <SelectValue />
+            <Icon>
+              <IconByName name="bx:chevron-down" size="1em" color="BLACK" />
+            </Icon>
+          </Trigger>
 
-        <SelectPrimitive.Portal>
-          <Content css={css?.content} className={theme}>
-            {hasSearch ? (
-              <>
-                <SearchContainer>
-                  <Textfield
-                    onChange={(e): void => {
-                      setSearchValue(e.target.value)
-                    }}
-                    placeholder={searchPlaceholder}
-                    borderRadius="round"
-                    padding="sm"
-                    fontSize="EM-SMALL"
-                  />
-                </SearchContainer>
-                <Separator />
-              </>
-            ) : null}
+          <SelectPrimitive.Portal>
+            <Content css={css?.content} className={theme}>
+              {hasSearch ? (
+                <>
+                  <SearchContainer>
+                    <Textfield
+                      onChange={(e): void => {
+                        setSearchValue(e.target.value)
+                      }}
+                      placeholder={searchPlaceholder}
+                      borderRadius="round"
+                      padding="sm"
+                      fontSize="EM-SMALL"
+                    />
+                  </SearchContainer>
+                  <Separator />
+                </>
+              ) : null}
 
-            <ScrollUpButton>
-              <IconByName name="bx:chevron-up" size={20} color="BLACK" />
-            </ScrollUpButton>
-            {viewport}
-            <ScrollDownButton>
-              <IconByName name="bx:chevron-down" size={20} color="BLACK" />
-            </ScrollDownButton>
-          </Content>
-        </SelectPrimitive.Portal>
-      </SelectContainer>
+              <ScrollUpButton>
+                <IconByName name="bx:chevron-up" size={20} color="BLACK" />
+              </ScrollUpButton>
+              {viewport}
+              <ScrollDownButton>
+                <IconByName name="bx:chevron-down" size={20} color="BLACK" />
+              </ScrollDownButton>
+            </Content>
+          </SelectPrimitive.Portal>
+        </SelectContainer>
 
-      {textError ? (
-        <TextError css={{ marginTop: 5, ...css?.textError }}>
-          {textError}
-        </TextError>
-      ) : null}
-    </Container>
-  )
-}
+        {textError ? (
+          <TextError css={{ marginTop: 5, ...css?.textError }}>
+            {textError}
+          </TextError>
+        ) : null}
+      </Container>
+    )
+  }
+)
 
 Select.defaultProps = {
   fontSize: 'EM-MEDIUM',
