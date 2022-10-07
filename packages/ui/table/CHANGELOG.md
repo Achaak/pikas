@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 3.1.14
+
+### Patch Changes
+
+- Add css props
+
 ## 3.1.13
 
 ### Patch Changes

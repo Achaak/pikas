@@ -17,7 +17,8 @@ import {
 } from '@tanstack/react-table'
 import type { CSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import { Pagination } from './pagination'
+import type { PaginationCSSProps } from './pagination/index.js'
+import { Pagination } from './pagination/index.js'
 import { IconByName } from '@pikas-ui/icons'
 import { Checkbox } from '@pikas-ui/checkbox'
 import { Thead } from './thead/index.js'
@@ -152,6 +153,7 @@ export interface TableCSS<T> {
   tdContent?: CSS
   tdEmptyMessage?: CSS
   tdContentEmptyMessage?: CSS
+  pagination?: PaginationCSSProps
   column?: Partial<
     Record<
       keyof T,
@@ -573,6 +575,7 @@ export const Table = <T extends Record<string, unknown>>({
           setPageSize={table.setPageSize}
           setPageIndex={table.setPageIndex}
           defaultPageSize={5}
+          css={css?.pagination}
         />
       ) : null}
     </Container>

@@ -1,8 +1,10 @@
 import type { ReactElement } from 'react'
 import React from 'react'
+import type { CSS } from '@pikas-ui/styles'
 import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { IconByName } from '@pikas-ui/icons'
+import type { SelectCSS } from '@pikas-ui/select'
 import { Select } from '@pikas-ui/select'
 
 const Footer = styled('div', {
@@ -17,11 +19,6 @@ const Footer = styled('div', {
 const Left = styled('div', {
   display: 'flex',
   alignItems: 'center',
-})
-
-const LeftSpan = styled('span', {
-  marginRight: 8,
-  fontSize: '$EM-SMALL',
 })
 
 const Right = styled('div', {
@@ -49,6 +46,7 @@ const ButtonArrow = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
+  color: '$BLACK',
 })
 
 const ButtonArrowLeft = styled(ButtonArrow, {
@@ -58,6 +56,19 @@ const ButtonArrowLeft = styled(ButtonArrow, {
 const ButtonArrowRight = styled(ButtonArrow, {
   marginLeft: 8,
 })
+
+export interface PaginationCSSProps {
+  container?: CSS
+  leftContainer?: CSS
+  rightContainer?: CSS
+  pageNumber?: CSS
+  pageNumberActive?: CSS
+  select?: SelectCSS
+  buttonChevronsLeft?: CSS
+  buttonChevronsRight?: CSS
+  buttonChevronLeft?: CSS
+  buttonChevronRight?: CSS
+}
 
 export interface PaginationProps {
   previousPage: () => void
@@ -70,6 +81,7 @@ export interface PaginationProps {
   setPageIndex: (pageIndex: number) => void
   selectValue: number[]
   defaultPageSize: number
+  css?: PaginationCSSProps
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
@@ -83,6 +95,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   setPageIndex,
   defaultPageSize,
   selectValue,
+  css,
 }) => {
   const theme = useTheme()
 
@@ -112,12 +125,14 @@ export const Pagination: React.FC<PaginationProps> = ({
             key={i}
             onClick={(): void => setPageIndex(i)}
             css={{
+              ...css?.pageNumber,
               ...(i === pageIndex && {
                 backgroundColor: '$PRIMARY',
                 color:
                   (theme &&
                     fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
                   undefined,
+                ...css?.pageNumberActive,
               }),
             }}
           >
@@ -131,9 +146,8 @@ export const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <Footer>
-      <Left>
-        <LeftSpan>Show</LeftSpan>
+    <Footer css={css?.container}>
+      <Left css={css?.leftContainer}>
         <Select
           data={[
             {
@@ -149,27 +163,38 @@ export const Pagination: React.FC<PaginationProps> = ({
           }}
           padding="sm"
           fontSize="EM-SMALL"
+          css={css?.select}
         />
       </Left>
-      <Right>
+      <Right css={css?.rightContainer}>
         <ButtonArrowLeft
           onClick={(): void => setPageIndex(0)}
           disabled={!canPreviousPage}
+          css={css?.buttonChevronsLeft}
         >
-          <IconByName name="bx:chevrons-left" size="1em" color="BLACK" />
+          <IconByName name="bx:chevrons-left" size="1em" />
         </ButtonArrowLeft>
-        <ButtonArrowLeft onClick={previousPage} disabled={!canPreviousPage}>
-          <IconByName name="bx:chevron-left" size="1em" color="BLACK" />
+        <ButtonArrowLeft
+          onClick={previousPage}
+          disabled={!canPreviousPage}
+          css={css?.buttonChevronLeft}
+        >
+          <IconByName name="bx:chevron-left" size="1em" />
         </ButtonArrowLeft>
         {getNumber()}
-        <ButtonArrowRight onClick={nextPage} disabled={!canNextPage}>
-          <IconByName name="bx:chevron-right" size="1em" color="BLACK" />
+        <ButtonArrowRight
+          onClick={nextPage}
+          disabled={!canNextPage}
+          css={css?.buttonChevronRight}
+        >
+          <IconByName name="bx:chevron-right" size="1em" />
         </ButtonArrowRight>
         <ButtonArrowRight
           onClick={(): void => setPageIndex(pageCount - 1)}
           disabled={!canNextPage}
+          css={css?.buttonChevronsRight}
         >
-          <IconByName name="bx:chevrons-right" size="1em" color="BLACK" />
+          <IconByName name="bx:chevrons-right" size="1em" />
         </ButtonArrowRight>
       </Right>
     </Footer>

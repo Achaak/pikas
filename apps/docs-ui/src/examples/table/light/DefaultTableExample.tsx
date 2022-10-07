@@ -42,6 +42,9 @@ export const LightTableExample: React.FC = () => {
             ],
           },
         ]}
+        pagination={{
+          active: true,
+        }}
       />
     </ExampleContainer>
   )
