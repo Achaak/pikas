@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 3.1.15
+
+### Patch Changes
+
+- fix color
+
 ## 3.1.14
 
 ### Patch Changes

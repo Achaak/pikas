@@ -12,7 +12,6 @@ const Footer = styled('div', {
   justifyContent: 'space-between',
   alignItems: 'center',
   marginTop: 8,
-  color: '$BLACK',
   paddingBottom: 2,
 })
 
@@ -46,7 +45,6 @@ const ButtonArrow = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  color: '$BLACK',
 })
 
 const ButtonArrowLeft = styled(ButtonArrow, {
