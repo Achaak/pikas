@@ -8,6 +8,7 @@ Pikas is an open source project that aims to provide a simple and easy to use to
 
   [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Achaak/pikas/graphs/commit-activity)
   [![GitHub license](https://img.shields.io/github/license/Achaak/pikas)](https://github.com/Achaak/pikas/blob/master/LICENSE)
+  ![npm](https://img.shields.io/npm/dw/@pikas-ui/styles) 
 
 </div>
 
