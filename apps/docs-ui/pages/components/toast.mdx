@@ -1,7 +1,8 @@
 import { ToastExample } from './../../src/examples/toast/toast'
 import { CustomToastExample } from './../../src/examples/toast/customToast'
 import { DefaultToastExample } from './../../src/examples/toast/defaultToast'
-import { getLink } from './../../src/utils/routes'
+import { docsUIRoutes } from '@pikas/docs-routes'
+export const { getLink } = docsUIRoutes
 import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')

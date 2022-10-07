@@ -4,7 +4,8 @@ import { SuccessDialogExample } from './../../src/examples/dialog/successDialog'
 import { ValidateDialogExample } from './../../src/examples/dialog/validateDialog'
 import { InfoDialogExample } from './../../src/examples/dialog/infoDialog'
 import { CustomDialogExample } from './../../src/examples/dialog/customDialog'
-import { getLink } from './../../src/utils/routes'
+import { docsUIRoutes } from '@pikas/docs-routes'
+export const { getLink } = docsUIRoutes
 import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')

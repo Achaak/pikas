@@ -1,7 +1,7 @@
 import { routes } from '@pikas-utils/router'
 
-export const { getLink } = routes({
-  origin: 'https://docs.pikas.io',
+export const docsUIRoutes = routes({
+  origin: 'https://pikas-ui.vercel.app',
   links: {
     introduction: '/',
     alert: '/components/alert',
@@ -35,5 +35,14 @@ export const { getLink } = routes({
     badge: '/components/badge',
     styles: '/utilities/styles',
     useTheme: '/utilities/useTheme',
+  },
+})
+
+export const docsUtilsRoutes = routes({
+  origin: 'https://pikas-utils.vercel.app',
+  links: {
+    introduction: '/',
+    router: '/router',
+    screen: '/screen',
   },
 })

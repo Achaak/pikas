@@ -1,7 +1,8 @@
 import { LabelExample } from './../../src/examples/text/label'
 import { DescriptionExample } from './../../src/examples/text/description'
 import { TextErrorExample } from './../../src/examples/text/textError'
-import { getLink } from './../../src/utils/routes'
+import { docsUIRoutes } from '@pikas/docs-routes'
+export const { getLink } = docsUIRoutes
 import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')

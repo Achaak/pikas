@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { Button } from '@pikas-ui/button'
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import { menu } from '@/configs/menu'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import type { LayoutMenu } from '../Layout.js'
 
 const Container = styled('div', {
   display: 'flex',
@@ -114,7 +114,11 @@ const MenuIcon: React.FC<IconProps> = (props) => {
   return <IconByName name="bx:menu" {...props} />
 }
 
-export const Menu: React.FC = () => {
+interface CustomProps {
+  menu: LayoutMenu
+}
+
+export const Menu: React.FC<CustomProps> = ({ menu }) => {
   const [isOpen, setIsOpen] = useState(false)
   const { pathname } = useRouter()
 

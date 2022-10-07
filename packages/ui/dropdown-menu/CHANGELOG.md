@@ -1,5 +1,16 @@
 # @pikas-ui/dropdown-menu
 
+## 3.2.9
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/icons@3.1.8
+  - @pikas-ui/loader@3.1.8
+  - @pikas-ui/menu@3.2.8
+  - @pikas-ui/styles@3.3.4
+
 ## 3.2.8
 
 ### Patch Changes

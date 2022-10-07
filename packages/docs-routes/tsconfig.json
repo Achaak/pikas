@@ -1,0 +1,9 @@
+{
+  "extends": "@pikas/tsconfig/package-default.json",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "tsup.config.ts", "dist"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+  }
+}

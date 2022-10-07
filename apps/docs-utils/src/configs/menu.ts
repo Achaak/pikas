@@ -1,7 +1,8 @@
-import type { Menu } from '@/types/menu'
-import { getLink } from '@/utils/routes'
+import type { LayoutMenu } from '@pikas/docs-ui'
+import { docsUtilsRoutes } from '@pikas/docs-routes'
+const { getLink } = docsUtilsRoutes
 
-export const menu: Menu = [
+export const menu: LayoutMenu = [
   {
     label: 'Docs',
     items: [

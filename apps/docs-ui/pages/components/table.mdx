@@ -1,6 +1,7 @@
 import { DefaultTableExample } from './../../src/examples/table/default'
 import { LightTableExample } from './../../src/examples/table/light'
-import { getLink } from './../../src/utils/routes'
+import { docsUIRoutes } from '@pikas/docs-routes'
+export const { getLink } = docsUIRoutes
 import { NextSeo } from 'next-seo'
 
 export const stylesLink = getLink('styles')

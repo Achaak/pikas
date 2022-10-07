@@ -1,6 +1,6 @@
 import { styled } from '@pikas-ui/styles'
-import { Header } from './header'
-import { Menu } from './menu'
+import { Header } from './header/index.js'
+import { Menu } from './menu/index.js'
 
 const Container = styled('div', {
   display: 'flex',
@@ -35,6 +35,9 @@ const ContentChild = styled('div', {
 
   '& > *': {
     marginBottom: 40,
+  },
+  '& > a': {
+    color: '$PRIMARY',
   },
   '& > p': {
     marginTop: 12,
@@ -84,7 +87,7 @@ const ContentChild = styled('div', {
     backgroundColor: '$GRAY_LIGHTEST_2',
     width: '100%',
     br: 'sm',
-    overflowX: 'scroll',
+    overflowX: 'auto',
     display: 'block',
     whiteSpace: 'nowrap',
     fontSize: '$EM-SMALL',
@@ -110,16 +113,37 @@ const ContentChild = styled('div', {
   },
 })
 
-interface LayoutProps {
-  children?: React.ReactNode
+type LayoutMenuItem = {
+  label: string
+  href: string
+  disabled?: boolean
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+type LayoutMenuGroupeItem = {
+  label: string
+  items: LayoutMenuItem[]
+}
+
+export type LayoutMenu = LayoutMenuGroupeItem[]
+
+interface LayoutProps {
+  children?: React.ReactNode
+  menu: LayoutMenu
+  documentationLink: string
+  githubLink: string
+}
+
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  menu,
+  githubLink,
+  documentationLink,
+}) => {
   return (
     <Container>
-      <Header />
+      <Header documentationLink={documentationLink} githubLink={githubLink} />
       <Center>
-        <Menu />
+        <Menu menu={menu} />
         <Content>
           <ContentChild>{children}</ContentChild>
         </Content>

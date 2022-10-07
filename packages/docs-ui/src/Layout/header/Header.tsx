@@ -1,4 +1,3 @@
-import { getLink } from '@/utils/routes'
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { styled, useTernaryDarkMode } from '@pikas-ui/styles'
@@ -59,7 +58,15 @@ const BxsMoon: React.FC<IconProps> = (props) => (
   <IconByName name="bxs:moon" {...props} />
 )
 
-export const Header: React.FC = () => {
+interface CustomProps {
+  documentationLink: string
+  githubLink: string
+}
+
+export const Header: React.FC<CustomProps> = ({
+  documentationLink,
+  githubLink,
+}) => {
   const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode()
   const [switchComponent, setSwitchComponent] =
     useState<React.ReactNode>(undefined)
@@ -76,6 +83,8 @@ export const Header: React.FC = () => {
             checked: BxsMoon,
             unchecked: BxsSun,
           }}
+          aria-label={isDarkMode ? 'dark mode' : 'light mode'}
+          id="dark-mode-switch"
         />
       )
     }
@@ -90,13 +99,10 @@ export const Header: React.FC = () => {
       </Left>
       <Right>
         <Nav>
-          <Link href={getLink('introduction')} passHref>
+          <Link href={documentationLink} passHref>
             <NavItem>Documentation</NavItem>
           </Link>
-          <Link href="https://github.com/Achaak/pikas/releases" passHref>
-            <NavItem>Releases</NavItem>
-          </Link>
-          <Link href="https://github.com/Achaak/pikas" passHref>
+          <Link href={githubLink} passHref>
             <NavItem>
               <IconByName
                 name="ant-design:github-filled"

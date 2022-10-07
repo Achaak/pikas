@@ -7,7 +7,7 @@ export default defineConfig((options) => {
     splitting: true,
     sourcemap: true,
     dts: true,
-    external: ['react', 'react-dom'],
+    external: ['react', 'react-dom', 'next'],
     format: ['cjs', 'esm'],
     target: 'esnext',
     platform: 'browser',

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/router",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -45,12 +45,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas-utils#readme",
   "devDependencies": {
-    "@pikas/config": "workspace:*",
-    "@pikas/tsconfig": "workspace:*",
-    "@types/node": "^18.8.2",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.24.0",
-    "tsup": "^6.2.3",
+    "@pikas/config": "1.0.0",
+    "@pikas/tsconfig": "1.0.0",
+    "@types/node": "18.8.3",
+    "cross-env": "7.0.3",
+    "eslint": "8.24.0",
+    "tsup": "6.2.3",
     "typescript": "4.8.4"
   },
   "node": "12.20.0 || 14.13.1 || >=16.0.0"
