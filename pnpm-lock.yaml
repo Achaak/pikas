@@ -6,28 +6,28 @@ importers:
     specifiers:
       '@changesets/cli': 2.25.0
       prettier: 2.7.1
-      turbo: 1.5.5
+      turbo: 1.5.6
     devDependencies:
       '@changesets/cli': 2.25.0
       prettier: 2.7.1
-      turbo: 1.5.5
+      turbo: 1.5.6
 
   apps/docs-ui:
     specifiers:
-      '@mdx-js/loader': 2.1.4
-      '@mdx-js/react': 2.1.4
+      '@mdx-js/loader': 2.1.5
+      '@mdx-js/react': 2.1.5
       '@next/eslint-plugin-next': 12.3.1
       '@next/mdx': 12.3.1
       '@pikas-ui/alert': 3.2.6
       '@pikas-ui/avatar': 2.1.8
       '@pikas-ui/badge': 1.1.9
-      '@pikas-ui/button': 3.1.8
+      '@pikas-ui/button': workspace:3.1.8
       '@pikas-ui/checkbox': 3.1.8
       '@pikas-ui/context-menu': 3.2.9
       '@pikas-ui/dialog': 2.2.9
       '@pikas-ui/dropdown-menu': 3.2.9
       '@pikas-ui/grid': 1.0.11
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
       '@pikas-ui/progress': 1.1.8
       '@pikas-ui/searchbar': 3.1.9
@@ -35,8 +35,8 @@ importers:
       '@pikas-ui/separator': 3.1.8
       '@pikas-ui/skeleton': 2.1.8
       '@pikas-ui/slider': 3.1.9
-      '@pikas-ui/styles': 3.3.4
-      '@pikas-ui/switch': 2.1.12
+      '@pikas-ui/styles': workspace:3.3.4
+      '@pikas-ui/switch': workspace:2.1.12
       '@pikas-ui/table': 3.1.15
       '@pikas-ui/tabs': 2.1.12
       '@pikas-ui/text': 4.1.6
@@ -49,19 +49,19 @@ importers:
       '@pikas/docs-routes': 1.0.0
       '@pikas/docs-ui': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
-      '@typescript-eslint/eslint-plugin': 5.39.0
-      '@typescript-eslint/parser': 5.39.0
+      '@typescript-eslint/eslint-plugin': 5.40.0
+      '@typescript-eslint/parser': 5.40.0
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       eslint-config-next: 12.3.1
       eslint-config-prettier: 8.5.0
       eslint-plugin-prettier: 4.2.1
       next: 12.3.1
       next-compose-plugins: 2.2.1
       next-seo: 5.5.0
-      next-transpile-modules: 9.0.0
+      next-transpile-modules: 9.1.0
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
@@ -69,9 +69,9 @@ importers:
       remark-prism: 1.3.6
       typescript: 4.8.4
     dependencies:
-      '@mdx-js/loader': 2.1.4
-      '@mdx-js/react': 2.1.4_react@18.2.0
-      '@next/mdx': 12.3.1_rj6w2tqk5jpf3257utt7msfu4a
+      '@mdx-js/loader': 2.1.5
+      '@mdx-js/react': 2.1.5_react@18.2.0
+      '@next/mdx': 12.3.1_wuv4qx5dshjptmdbtsqqkih5iu
       '@pikas-ui/alert': link:../../packages/ui/alert
       '@pikas-ui/avatar': link:../../packages/ui/avatar
       '@pikas-ui/badge': link:../../packages/ui/badge
@@ -111,48 +111,48 @@ importers:
       '@next/eslint-plugin-next': 12.3.1
       '@pikas/config': link:../../packages/config
       '@pikas/tsconfig': link:../../packages/tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
-      '@typescript-eslint/eslint-plugin': 5.39.0_xyciw6oqjoiiono4dhv3uhn5my
-      '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
+      '@typescript-eslint/eslint-plugin': 5.40.0_25sstg4uu2sk4pm7xcyzuov7xq
+      '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       cross-env: 7.0.3
-      eslint: 8.24.0
-      eslint-config-next: 12.3.1_ypn2ylkkyfa5i233caldtndbqa
-      eslint-config-prettier: 8.5.0_eslint@8.24.0
-      eslint-plugin-prettier: 4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm
+      eslint: 8.25.0
+      eslint-config-next: 12.3.1_z4bbprzjrhnsfa24uvmcbu7f5q
+      eslint-config-prettier: 8.5.0_eslint@8.25.0
+      eslint-plugin-prettier: 4.2.1_hvbqyfstm4urdpm6ffpwfka4e4
       next-compose-plugins: 2.2.1
-      next-transpile-modules: 9.0.0
+      next-transpile-modules: 9.1.0
       prettier: 2.7.1
       typescript: 4.8.4
 
   apps/docs-utils:
     specifiers:
-      '@mdx-js/loader': 2.1.4
-      '@mdx-js/react': 2.1.4
+      '@mdx-js/loader': 2.1.5
+      '@mdx-js/react': 2.1.5
       '@next/eslint-plugin-next': 12.3.1
       '@next/mdx': 12.3.1
-      '@pikas-ui/button': 3.1.8
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
-      '@pikas-ui/switch': 2.1.12
+      '@pikas-ui/button': workspace:3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
+      '@pikas-ui/switch': workspace:2.1.12
       '@pikas-utils/screen': 1.0.7
       '@pikas/config': 1.0.0
       '@pikas/docs-routes': 1.0.0
       '@pikas/docs-ui': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
-      '@typescript-eslint/eslint-plugin': 5.39.0
-      '@typescript-eslint/parser': 5.39.0
+      '@typescript-eslint/eslint-plugin': 5.40.0
+      '@typescript-eslint/parser': 5.40.0
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       eslint-config-next: 12.3.1
       eslint-config-prettier: 8.5.0
       eslint-plugin-prettier: 4.2.1
       next: 12.3.1
       next-compose-plugins: 2.2.1
       next-seo: 5.5.0
-      next-transpile-modules: 9.0.0
+      next-transpile-modules: 9.1.0
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
@@ -160,9 +160,9 @@ importers:
       remark-prism: 1.3.6
       typescript: 4.8.4
     dependencies:
-      '@mdx-js/loader': 2.1.4
-      '@mdx-js/react': 2.1.4_react@18.2.0
-      '@next/mdx': 12.3.1_rj6w2tqk5jpf3257utt7msfu4a
+      '@mdx-js/loader': 2.1.5
+      '@mdx-js/react': 2.1.5_react@18.2.0
+      '@next/mdx': 12.3.1_wuv4qx5dshjptmdbtsqqkih5iu
       '@pikas-ui/button': link:../../packages/ui/button
       '@pikas-ui/icons': link:../../packages/ui/icons
       '@pikas-ui/styles': link:../../packages/ui/styles
@@ -180,100 +180,100 @@ importers:
       '@next/eslint-plugin-next': 12.3.1
       '@pikas/config': link:../../packages/config
       '@pikas/tsconfig': link:../../packages/tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
-      '@typescript-eslint/eslint-plugin': 5.39.0_xyciw6oqjoiiono4dhv3uhn5my
-      '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
+      '@typescript-eslint/eslint-plugin': 5.40.0_25sstg4uu2sk4pm7xcyzuov7xq
+      '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       cross-env: 7.0.3
-      eslint: 8.24.0
-      eslint-config-next: 12.3.1_ypn2ylkkyfa5i233caldtndbqa
-      eslint-config-prettier: 8.5.0_eslint@8.24.0
-      eslint-plugin-prettier: 4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm
+      eslint: 8.25.0
+      eslint-config-next: 12.3.1_z4bbprzjrhnsfa24uvmcbu7f5q
+      eslint-config-prettier: 8.5.0_eslint@8.25.0
+      eslint-plugin-prettier: 4.2.1_hvbqyfstm4urdpm6ffpwfka4e4
       next-compose-plugins: 2.2.1
-      next-transpile-modules: 9.0.0
+      next-transpile-modules: 9.1.0
       prettier: 2.7.1
       typescript: 4.8.4
 
   packages/config:
     specifiers:
       '@next/eslint-plugin-next': 12.3.1
-      '@typescript-eslint/eslint-plugin': 5.39.0
-      '@typescript-eslint/parser': 5.39.0
+      '@typescript-eslint/eslint-plugin': 5.40.0
+      '@typescript-eslint/parser': 5.40.0
       babel-eslint: 10.1.0
-      eslint: 8.24.0
+      eslint: 8.25.0
       eslint-config-next: 12.3.1
       eslint-config-prettier: 8.5.0
       eslint-plugin-json: 3.1.0
       eslint-plugin-prettier: 4.2.1
-      eslint-plugin-react: 7.31.8
+      eslint-plugin-react: 7.31.10
       eslint-plugin-react-hooks: 4.6.0
       typescript: 4.8.4
     dependencies:
       '@next/eslint-plugin-next': 12.3.1
-      '@typescript-eslint/eslint-plugin': 5.39.0_xyciw6oqjoiiono4dhv3uhn5my
-      '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
-      babel-eslint: 10.1.0_eslint@8.24.0
-      eslint: 8.24.0
-      eslint-config-next: 12.3.1_ypn2ylkkyfa5i233caldtndbqa
-      eslint-config-prettier: 8.5.0_eslint@8.24.0
+      '@typescript-eslint/eslint-plugin': 5.40.0_25sstg4uu2sk4pm7xcyzuov7xq
+      '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
+      babel-eslint: 10.1.0_eslint@8.25.0
+      eslint: 8.25.0
+      eslint-config-next: 12.3.1_z4bbprzjrhnsfa24uvmcbu7f5q
+      eslint-config-prettier: 8.5.0_eslint@8.25.0
       eslint-plugin-json: 3.1.0
-      eslint-plugin-prettier: 4.2.1_awmkh7s2gfwufkvh6fnk6cae3q
-      eslint-plugin-react: 7.31.8_eslint@8.24.0
-      eslint-plugin-react-hooks: 4.6.0_eslint@8.24.0
+      eslint-plugin-prettier: 4.2.1_u5xbctzubob3vemckh2ey3p2dm
+      eslint-plugin-react: 7.31.10_eslint@8.25.0
+      eslint-plugin-react-hooks: 4.6.0_eslint@8.25.0
       typescript: 4.8.4
 
   packages/docs-routes:
     specifiers:
-      '@pikas-utils/router': 1.0.5
+      '@pikas-utils/router': workspace:1.0.6
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       next: 12.3.1
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
-      '@pikas-utils/router': 1.0.5
+      '@pikas-utils/router': link:../utils/router
     devDependencies:
       '@pikas/config': link:../config
       '@pikas/tsconfig': link:../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       next: 12.3.1
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/docs-ui:
     specifiers:
-      '@pikas-ui/button': 3.1.7
-      '@pikas-ui/icons': 3.1.7
-      '@pikas-ui/styles': 3.3.3
-      '@pikas-ui/switch': 2.1.11
+      '@pikas-ui/button': workspace:3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
+      '@pikas-ui/switch': workspace:2.1.12
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       next: 12.3.1
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
-      '@pikas-ui/button': 3.1.7
-      '@pikas-ui/icons': 3.1.7
-      '@pikas-ui/styles': 3.3.3
-      '@pikas-ui/switch': 2.1.11_@types+react@18.0.21
+      '@pikas-ui/button': link:../ui/button
+      '@pikas-ui/icons': link:../ui/icons
+      '@pikas-ui/styles': link:../ui/styles
+      '@pikas-ui/switch': link:../ui/switch
     devDependencies:
       '@pikas/config': link:../config
       '@pikas/tsconfig': link:../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       next: 12.3.1
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
@@ -283,15 +283,15 @@ importers:
 
   packages/ui/alert:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -302,26 +302,26 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/avatar:
     specifiers:
       '@pikas-ui/skeleton': 2.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-avatar': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -331,25 +331,25 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/badge:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.2
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -360,26 +360,26 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.2
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/button:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -391,27 +391,27 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/checkbox:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/text': 4.1.6
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-checkbox': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -424,28 +424,28 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/context-menu:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
       '@pikas-ui/menu': 3.2.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-context-menu': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -457,28 +457,28 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/dialog:
     specifiers:
-      '@pikas-ui/button': 3.1.8
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/button': workspace:3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/title': 1.1.8
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-dialog': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -490,28 +490,28 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/dropdown-menu:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
       '@pikas-ui/menu': 3.2.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-dropdown-menu': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -523,24 +523,24 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/grid:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -548,81 +548,81 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/icons:
     specifiers:
       '@iconify/react': 4.0.0
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
-      iconify-icon: 1.0.0
+      eslint: 8.25.0
+      iconify-icon: 1.0.1
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
       '@iconify/react': 4.0.0
       '@pikas-ui/styles': link:../styles
-      iconify-icon: 1.0.0
+      iconify-icon: 1.0.1
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/loader:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
-      react-spinners: 0.13.5
+      eslint: 8.25.0
+      react-spinners: 0.13.6
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
       '@pikas-ui/styles': link:../styles
-      react-spinners: 0.13.5
+      react-spinners: 0.13.6
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/menu:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -631,26 +631,26 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/progress:
     specifiers:
       '@pikas-ui/skeleton': 2.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-progress': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -662,32 +662,32 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/searchbar:
     specifiers:
-      '@pikas-ui/button': 3.1.8
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/button': workspace:3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
       '@pikas-ui/separator': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/textfield': 3.1.8
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
-      usehooks-ts: 2.7.2
+      usehooks-ts: 2.9.1
     dependencies:
       '@pikas-ui/button': link:../button
       '@pikas-ui/icons': link:../icons
@@ -695,33 +695,33 @@ importers:
       '@pikas-ui/separator': link:../separator
       '@pikas-ui/styles': link:../styles
       '@pikas-ui/textfield': link:../textfield
-      usehooks-ts: 2.7.2
+      usehooks-ts: 2.9.1
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/select:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/text': 4.1.6
       '@pikas-ui/textfield': 3.1.8
       '@pikas-ui/tooltip': 3.1.8
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-select': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -734,25 +734,25 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/separator:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-separator': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -761,24 +761,24 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/skeleton:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -786,27 +786,27 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/slider:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/text': 4.1.6
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-slider': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -817,11 +817,11 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
@@ -832,50 +832,50 @@ importers:
       '@stitches/react': 1.2.8
       '@types/lodash.clonedeep': 4.5.7
       '@types/lodash.merge': 4.6.7
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       lodash.clonedeep: 4.5.0
       lodash.merge: 4.6.2
       prettier: 2.7.1
       tsup: 6.2.3
       typescript: 4.8.4
-      usehooks-ts: 2.7.2
+      usehooks-ts: 2.9.1
     dependencies:
       '@stitches/react': 1.2.8
       lodash.clonedeep: 4.5.0
       lodash.merge: 4.6.2
-      usehooks-ts: 2.7.2
+      usehooks-ts: 2.9.1
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
       '@types/lodash.clonedeep': 4.5.7
       '@types/lodash.merge': 4.6.7
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       prettier: 2.7.1
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/switch:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/text': 4.1.6
       '@pikas-ui/tooltip': 3.1.8
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-switch': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -887,29 +887,29 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/table:
     specifiers:
       '@pikas-ui/checkbox': 3.1.8
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
       '@pikas-ui/select': 4.1.10
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@tanstack/react-table': 8.5.15
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -924,25 +924,25 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/tabs:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-tabs': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -951,25 +951,25 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/text:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-label': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -978,28 +978,28 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/textarea:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/text': 4.1.6
       '@pikas-ui/tooltip': 3.1.8
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -1013,30 +1013,30 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/textfield:
     specifiers:
-      '@pikas-ui/icons': 3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
       '@pikas-ui/loader': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas-ui/text': 4.1.6
       '@pikas-ui/tooltip': 3.1.8
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-label': 1.0.0
       '@react-hook/merged-ref': 1.3.2
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -1052,24 +1052,24 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/title:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -1077,27 +1077,27 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/toast:
     specifiers:
-      '@pikas-ui/button': 3.1.8
-      '@pikas-ui/icons': 3.1.8
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/button': workspace:3.1.8
+      '@pikas-ui/icons': workspace:3.1.8
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-toast': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     dependencies:
@@ -1108,25 +1108,25 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
   packages/ui/tooltip:
     specifiers:
-      '@pikas-ui/styles': 3.3.4
+      '@pikas-ui/styles': workspace:3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-tooltip': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       font-color-contrast: 11.1.0
       tsup: 6.2.3
       typescript: 4.8.4
@@ -1137,11 +1137,11 @@ importers:
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
@@ -1149,17 +1149,17 @@ importers:
     specifiers:
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
@@ -1167,24 +1167,24 @@ importers:
     specifiers:
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3
       typescript: 4.8.4
-      usehooks-ts: 2.7.2
+      usehooks-ts: 2.9.1
     dependencies:
-      usehooks-ts: 2.7.2
+      usehooks-ts: 2.9.1
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
-      '@types/node': 18.8.3
+      '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsup: 6.2.3_typescript@4.8.4
       typescript: 4.8.4
 
@@ -1196,11 +1196,11 @@ packages:
     dependencies:
       '@babel/highlight': 7.18.6
 
-  /@babel/generator/7.19.3:
-    resolution: {integrity: sha512-fqVZnmp1ncvZU757UzDheKZpfPgatqY59XtW2/j/18H7u76akb8xqvjw82f+i2UKd/ksYsSick/BCLQUUtJ/qQ==}
+  /@babel/generator/7.19.5:
+    resolution: {integrity: sha512-DxbNz9Lz4aMZ99qPpO1raTbcrI1ZeYh+9NR9qhfkQIbFtVEqotHojEBxHzmxhVONkGt6VyrqVQcgpefMy9pqcg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.19.3
+      '@babel/types': 7.19.4
       '@jridgewell/gen-mapping': 0.3.2
       jsesc: 2.5.2
     dev: false
@@ -1215,25 +1215,25 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/template': 7.18.10
-      '@babel/types': 7.19.3
+      '@babel/types': 7.19.4
     dev: false
 
   /@babel/helper-hoist-variables/7.18.6:
     resolution: {integrity: sha512-UlJQPkFqFULIcyW5sbzgbkxn2FKRgwWiRexcuaR8RNJRy8+LLveqPjwZV/bwrLZCN0eUHD/x8D0heK1ozuoo6Q==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.19.3
+      '@babel/types': 7.19.4
     dev: false
 
   /@babel/helper-split-export-declaration/7.18.6:
     resolution: {integrity: sha512-bde1etTx6ZyTmobl9LLMMQsaizFVZrquTEHOqKeQESMKo4PlObf+8+JA25ZsIpZhT/WEd39+vOdLXAFG/nELpA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.19.3
+      '@babel/types': 7.19.4
     dev: false
 
-  /@babel/helper-string-parser/7.18.10:
-    resolution: {integrity: sha512-XtIfWmeNY3i4t7t4D2t02q50HvqHybPqW2ki1kosnvWCwuCMeo81Jf0gwr85jy/neUdg5XDdeFE/80DXiO+njw==}
+  /@babel/helper-string-parser/7.19.4:
+    resolution: {integrity: sha512-nHtDoQcuqFmwYNYPz3Rah5ph2p8PFeFCsZk9A/48dPc/rGocJ5J3hAAZ7pb76VWX3fZKu+uEr/FhH5jLx7umrw==}
     engines: {node: '>=6.9.0'}
     dev: false
 
@@ -1249,12 +1249,12 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
 
-  /@babel/parser/7.19.3:
-    resolution: {integrity: sha512-pJ9xOlNWHiy9+FuFP09DEAFbAn4JskgRsVcc169w2xRBC3FRGuQEwjeIMMND9L2zc0iEhO/tGv4Zq+km+hxNpQ==}
+  /@babel/parser/7.19.4:
+    resolution: {integrity: sha512-qpVT7gtuOLjWeDTKLkJ6sryqLliBaFpAtGeqw5cs5giLldvh+Ch0plqnUMKoVAUS6ZEueQQiZV+p5pxtPitEsA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.19.3
+      '@babel/types': 7.19.4
     dev: false
 
   /@babel/runtime-corejs3/7.19.1:
@@ -1275,33 +1275,33 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.18.6
-      '@babel/parser': 7.19.3
-      '@babel/types': 7.19.3
+      '@babel/parser': 7.19.4
+      '@babel/types': 7.19.4
     dev: false
 
-  /@babel/traverse/7.19.3:
-    resolution: {integrity: sha512-qh5yf6149zhq2sgIXmwjnsvmnNQC2iw70UFjp4olxucKrWd/dvlUsBI88VSLUsnMNF7/vnOiA+nk1+yLoCqROQ==}
+  /@babel/traverse/7.19.4:
+    resolution: {integrity: sha512-w3K1i+V5u2aJUOXBFFC5pveFLmtq1s3qcdDNC2qRI6WPBQIDaKFqXxDEqDO/h1dQ3HjsZoZMyIy6jGLq0xtw+g==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.18.6
-      '@babel/generator': 7.19.3
+      '@babel/generator': 7.19.5
       '@babel/helper-environment-visitor': 7.18.9
       '@babel/helper-function-name': 7.19.0
       '@babel/helper-hoist-variables': 7.18.6
       '@babel/helper-split-export-declaration': 7.18.6
-      '@babel/parser': 7.19.3
-      '@babel/types': 7.19.3
+      '@babel/parser': 7.19.4
+      '@babel/types': 7.19.4
       debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@babel/types/7.19.3:
-    resolution: {integrity: sha512-hGCaQzIY22DJlDh9CH7NOxgKkFjBk0Cw9xDO1Xmh2151ti7wiGfQ3LauXzL4HP1fmFlTX6XjpRETTpUcv7wQLw==}
+  /@babel/types/7.19.4:
+    resolution: {integrity: sha512-M5LK7nAeS6+9j7hAq+b3fQs+pNfUtTGq+yFFfHnauFA8zQtLRfmuipmsKDKKLuyG+wC8ABW43A153YNawNTEtw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/helper-string-parser': 7.18.10
+      '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
     dev: false
@@ -1507,8 +1507,8 @@ packages:
     dev: true
     optional: true
 
-  /@eslint/eslintrc/1.3.2:
-    resolution: {integrity: sha512-AXYd23w1S/bv3fTs3Lz0vjiYemS08jWkI3hYyS9I1ry+0f+Yjs1wm+sU0BS8qDOPrBIkp4qHYC16I8uVtpLajQ==}
+  /@eslint/eslintrc/1.3.3:
+    resolution: {integrity: sha512-uj3pT6Mg+3t39fvLrj8iuCIJ38zKO9FpGtJ4BBJebJhEwjoT+KLVNCcHT5QC9NGRIEi7fZ0ZR8YRb884auB4Lg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       ajv: 6.12.6
@@ -1555,9 +1555,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@humanwhocodes/gitignore-to-minimatch/1.0.2:
-    resolution: {integrity: sha512-rSqmMJDdLFUsyxR6FMtD00nfQKKLFb1kv+qBbOVKqErvloEIJLo5bDTJTQNTYgeyp78JsA7u/NPi5jT1GR/MuA==}
-
   /@humanwhocodes/module-importer/1.0.1:
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
     engines: {node: '>=12.22'}
@@ -1583,7 +1580,7 @@ packages:
     dependencies:
       '@jridgewell/set-array': 1.1.2
       '@jridgewell/sourcemap-codec': 1.4.14
-      '@jridgewell/trace-mapping': 0.3.15
+      '@jridgewell/trace-mapping': 0.3.16
     dev: false
 
   /@jridgewell/resolve-uri/3.1.0:
@@ -1600,8 +1597,8 @@ packages:
     resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
     dev: false
 
-  /@jridgewell/trace-mapping/0.3.15:
-    resolution: {integrity: sha512-oWZNOULl+UbhsgB51uuZzglikfIKSUBO/M9W2OfEjn7cmqoAiCgmv9lyACTUacZwBz0ITnJ2NqjU8Tx0DHL88g==}
+  /@jridgewell/trace-mapping/0.3.16:
+    resolution: {integrity: sha512-LCQ+NeThyJ4k1W2d+vIKdxuSt9R3pQSZ4P92m7EakaYuXcVWbHuT5bjNcqLd4Rdgi6xYWYDvBJZJLZSLanjDcA==}
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
@@ -1627,19 +1624,19 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
-  /@mdx-js/loader/2.1.4:
-    resolution: {integrity: sha512-7k2I1vYht89cONaAkThmbq6CW0yyaEZOHDFngAMj6jqfpMfUnCE+zIbpKYJNPlgmWCR9T5r/deVNvH3BcokbKw==}
+  /@mdx-js/loader/2.1.5:
+    resolution: {integrity: sha512-oXjfTa/iAcMmW8DdQ+hQFodPCLqw5VKT2yoZkLwrZfPVVpUgKrI+5/ZePYq328xxtAUStZmR3ed0PWJrwd5Pkg==}
     peerDependencies:
       webpack: '>=4'
     dependencies:
-      '@mdx-js/mdx': 2.1.4
+      '@mdx-js/mdx': 2.1.5
       source-map: 0.7.4
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@mdx-js/mdx/2.1.4:
-    resolution: {integrity: sha512-47drTDRr6QiMx1SXIoIyjTL8izoC+IBP5nmOLTUbuFJZYXdV9TPLuZJic0i96FGKfL7DpRN4WylpsxOVlpufMg==}
+  /@mdx-js/mdx/2.1.5:
+    resolution: {integrity: sha512-zEG0lt+Bl/r5U6e0TOS7qDbsXICtemfAPquxWFsMbdzrvlWaqMGemLl+sjVpqlyaaiCiGVQBSGdCk0t1qXjkQg==}
     dependencies:
       '@types/estree-jsx': 1.0.0
       '@types/mdx': 2.0.2
@@ -1650,7 +1647,7 @@ packages:
       hast-util-to-estree: 2.1.0
       markdown-extensions: 1.1.1
       periscopic: 3.0.4
-      remark-mdx: 2.1.4
+      remark-mdx: 2.1.5
       remark-parse: 10.0.1
       remark-rehype: 10.1.0
       unified: 10.1.2
@@ -1662,8 +1659,8 @@ packages:
       - supports-color
     dev: false
 
-  /@mdx-js/react/2.1.4_react@18.2.0:
-    resolution: {integrity: sha512-PRwLjoAxhSA6xTB2+FA5CPGUCOsIK3bJD0RYsoju+nUIyOpIZUSw6SJChfILByLizzxqslE0R+l8IjARo0N+hA==}
+  /@mdx-js/react/2.1.5_react@18.2.0:
+    resolution: {integrity: sha512-3Az1I6SAWA9R38rYjz5rXBrGKeZhq96CSSyQtqY+maPj8stBsoUH5pNcmIixuGkufYsh8F5+ka2CVPo2fycWZw==}
     peerDependencies:
       react: '>=16'
     dependencies:
@@ -1680,14 +1677,14 @@ packages:
     dependencies:
       glob: 7.1.7
 
-  /@next/mdx/12.3.1_rj6w2tqk5jpf3257utt7msfu4a:
+  /@next/mdx/12.3.1_wuv4qx5dshjptmdbtsqqkih5iu:
     resolution: {integrity: sha512-b7G3CsAwyD/8Eo6uDjCCqNwEi68LTyo/JYPC0N2Yu3yl/iveMDCi03ME+9JsnFPr3DcjmGSKc1ioiYM4dJUkTg==}
     peerDependencies:
       '@mdx-js/loader': '>=0.15.0'
       '@mdx-js/react': '*'
     dependencies:
-      '@mdx-js/loader': 2.1.4
-      '@mdx-js/react': 2.1.4_react@18.2.0
+      '@mdx-js/loader': 2.1.5
+      '@mdx-js/react': 2.1.5_react@18.2.0
     dev: false
 
   /@next/swc-android-arm-eabi/12.3.1:
@@ -1811,93 +1808,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
-
-  /@pikas-ui/button/3.1.7:
-    resolution: {integrity: sha512-CDvdOebFZDqfXHSf6SmHsK8DAN3BJbqazasBjxoNJiiujdsV2fr3saBrUxcHkbb/5NKYy4Xiu8UGjOO617EDoA==}
-    peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-    dependencies:
-      '@pikas-ui/icons': 3.1.7
-      '@pikas-ui/loader': 3.1.7
-      '@pikas-ui/styles': 3.3.3
-      font-color-contrast: 11.1.0
-    dev: false
-
-  /@pikas-ui/icons/3.1.7:
-    resolution: {integrity: sha512-Q9xuuBMpmrsq81MlrlPaIbCetQHAqQstDX8ONSmm+WA2GVqsaya09dqyC+Yaxz6iQR8D662vqFPxyUn3rLjGdw==}
-    peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-    dependencies:
-      '@iconify/react': 4.0.0
-      '@pikas-ui/styles': 3.3.3
-      iconify-icon: 1.0.0
-    dev: false
-
-  /@pikas-ui/loader/3.1.7:
-    resolution: {integrity: sha512-biNc8XtEf4Z24yB/ZDJg5JUpCh6AQZrRpJU0x3aUtBXjfjM/rsPlk73IWaYYvrLmll704EBV5U7pnPlP78fsRg==}
-    peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-    dependencies:
-      '@pikas-ui/styles': 3.3.3
-      react-spinners: 0.13.5
-    dev: false
-
-  /@pikas-ui/styles/3.3.3:
-    resolution: {integrity: sha512-jO0/1F8T5AuxwBr328RUsQPFbZJzPl9J/WUNOFpYb3Dm3VP7ne9gzlp889vZCNrpkEFggmQAfZ/FPNvXT0oaTw==}
-    peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-    dependencies:
-      '@stitches/react': 1.2.8
-      lodash.clonedeep: 4.5.0
-      lodash.merge: 4.6.2
-      usehooks-ts: 2.7.2
-    dev: false
-
-  /@pikas-ui/switch/2.1.11_@types+react@18.0.21:
-    resolution: {integrity: sha512-KmYH+rG6K7KT3zCbtaANNAyWWyhmeFZ0qaBywFq5NQT/wqxnQa8EWd1v6qDvYpB3E4RWSEGas+eydRz0hS3FZQ==}
-    peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-    dependencies:
-      '@pikas-ui/icons': 3.1.7
-      '@pikas-ui/styles': 3.3.3
-      '@pikas-ui/text': 4.1.5
-      '@pikas-ui/tooltip': 3.1.7_@types+react@18.0.21
-      '@radix-ui/react-switch': 1.0.0
-    transitivePeerDependencies:
-      - '@types/react'
-    dev: false
-
-  /@pikas-ui/text/4.1.5:
-    resolution: {integrity: sha512-OGff+Whxdso3xndcipCv54g6zl3A60QpeFwmTZvt/G0Fn67JIPx2fKHTihCpf91AeSidHmjdf0FeqiCBwMY32A==}
-    peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-    dependencies:
-      '@pikas-ui/styles': 3.3.3
-      '@radix-ui/react-label': 1.0.0
-    dev: false
-
-  /@pikas-ui/tooltip/3.1.7_@types+react@18.0.21:
-    resolution: {integrity: sha512-Q1wanano8G6yaRiyScnw0SVgLcYXRxpXwMBTCkPl085DRu/O9pFKZdqWVCiuDhqdnjgEOXbLZX4G+UmLz8BWYA==}
-    peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-    dependencies:
-      '@pikas-ui/styles': 3.3.3
-      '@radix-ui/react-tooltip': 1.0.0_@types+react@18.0.21
-      font-color-contrast: 11.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-    dev: false
-
-  /@pikas-utils/router/1.0.5:
-    resolution: {integrity: sha512-pMJj3XQTQXCAF12gWfB1LuERtGNOk0pyXxLNzOKj/FKoKUBdGWwY8cBp5HYLfqDdovsMkpN4ZkJJCCTxpSR+TA==}
-    dev: false
 
   /@radix-ui/number/1.0.0:
     resolution: {integrity: sha512-Ofwh/1HX69ZfJRiRBMTy7rgjAzHmwe4kW9C9Y99HTRUcYLUuVT0KESFj15rPjRgKJs20GPq8Bm5aEDJ8DuA3vA==}
@@ -2557,12 +2467,8 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: true
 
-  /@types/node/18.8.2:
-    resolution: {integrity: sha512-cRMwIgdDN43GO4xMWAfJAecYn8wV4JbsOGHNfNUIDiuYkUYAR5ec4Rj7IO2SAhFPEfpPtLtUTbbny/TCT7aDwA==}
-    dev: true
-
-  /@types/node/18.8.3:
-    resolution: {integrity: sha512-0os9vz6BpGwxGe9LOhgP/ncvYN5Tx1fNcd2TM3rD/aCGBkysb+ZWpXEocG24h6ZzOi13+VB8HndAQFezsSOw1w==}
+  /@types/node/18.8.5:
+    resolution: {integrity: sha512-Bq7G3AErwe5A/Zki5fdD3O6+0zDChhg671NfPjtIcbtzDNZTv4NPKMRFr7gtYPG7y+B8uTiNK4Ngd9T0FTar6Q==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -2596,8 +2502,8 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: false
 
-  /@typescript-eslint/eslint-plugin/5.39.0_xyciw6oqjoiiono4dhv3uhn5my:
-    resolution: {integrity: sha512-xVfKOkBm5iWMNGKQ2fwX5GVgBuHmZBO1tCRwXmY5oAIsPscfwm2UADDuNB8ZVYCtpQvJK4xpjrK7jEhcJ0zY9A==}
+  /@typescript-eslint/eslint-plugin/5.40.0_25sstg4uu2sk4pm7xcyzuov7xq:
+    resolution: {integrity: sha512-FIBZgS3DVJgqPwJzvZTuH4HNsZhHMa9SjxTKAZTlMsPw/UzpEjcf9f4dfgDJEHjK+HboUJo123Eshl6niwEm/Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       '@typescript-eslint/parser': ^5.0.0
@@ -2607,12 +2513,12 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
-      '@typescript-eslint/scope-manager': 5.39.0
-      '@typescript-eslint/type-utils': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
-      '@typescript-eslint/utils': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
+      '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
+      '@typescript-eslint/scope-manager': 5.40.0
+      '@typescript-eslint/type-utils': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
+      '@typescript-eslint/utils': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       debug: 4.3.4
-      eslint: 8.24.0
+      eslint: 8.25.0
       ignore: 5.2.0
       regexpp: 3.2.0
       semver: 7.3.8
@@ -2621,8 +2527,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@typescript-eslint/parser/5.39.0_ypn2ylkkyfa5i233caldtndbqa:
-    resolution: {integrity: sha512-PhxLjrZnHShe431sBAGHaNe6BDdxAASDySgsBCGxcBecVCi8NQWxQZMcizNA4g0pN51bBAn/FUfkWG3SDVcGlA==}
+  /@typescript-eslint/parser/5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q:
+    resolution: {integrity: sha512-Ah5gqyX2ySkiuYeOIDg7ap51/b63QgWZA7w6AHtFrag7aH0lRQPbLzUjk0c9o5/KZ6JRkTTDKShL4AUrQa6/hw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -2631,24 +2537,24 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/scope-manager': 5.39.0
-      '@typescript-eslint/types': 5.39.0
-      '@typescript-eslint/typescript-estree': 5.39.0_typescript@4.8.4
+      '@typescript-eslint/scope-manager': 5.40.0
+      '@typescript-eslint/types': 5.40.0
+      '@typescript-eslint/typescript-estree': 5.40.0_typescript@4.8.4
       debug: 4.3.4
-      eslint: 8.24.0
+      eslint: 8.25.0
       typescript: 4.8.4
     transitivePeerDependencies:
       - supports-color
 
-  /@typescript-eslint/scope-manager/5.39.0:
-    resolution: {integrity: sha512-/I13vAqmG3dyqMVSZPjsbuNQlYS082Y7OMkwhCfLXYsmlI0ca4nkL7wJ/4gjX70LD4P8Hnw1JywUVVAwepURBw==}
+  /@typescript-eslint/scope-manager/5.40.0:
+    resolution: {integrity: sha512-d3nPmjUeZtEWRvyReMI4I1MwPGC63E8pDoHy0BnrYjnJgilBD3hv7XOiETKLY/zTwI7kCnBDf2vWTRUVpYw0Uw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      '@typescript-eslint/types': 5.39.0
-      '@typescript-eslint/visitor-keys': 5.39.0
+      '@typescript-eslint/types': 5.40.0
+      '@typescript-eslint/visitor-keys': 5.40.0
 
-  /@typescript-eslint/type-utils/5.39.0_ypn2ylkkyfa5i233caldtndbqa:
-    resolution: {integrity: sha512-KJHJkOothljQWzR3t/GunL0TPKY+fGJtnpl+pX+sJ0YiKTz3q2Zr87SGTmFqsCMFrLt5E0+o+S6eQY0FAXj9uA==}
+  /@typescript-eslint/type-utils/5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q:
+    resolution: {integrity: sha512-nfuSdKEZY2TpnPz5covjJqav+g5qeBqwSHKBvz7Vm1SAfy93SwKk/JeSTymruDGItTwNijSsno5LhOHRS1pcfw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '*'
@@ -2657,21 +2563,21 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/typescript-estree': 5.39.0_typescript@4.8.4
-      '@typescript-eslint/utils': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
+      '@typescript-eslint/typescript-estree': 5.40.0_typescript@4.8.4
+      '@typescript-eslint/utils': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       debug: 4.3.4
-      eslint: 8.24.0
+      eslint: 8.25.0
       tsutils: 3.21.0_typescript@4.8.4
       typescript: 4.8.4
     transitivePeerDependencies:
       - supports-color
 
-  /@typescript-eslint/types/5.39.0:
-    resolution: {integrity: sha512-gQMZrnfEBFXK38hYqt8Lkwt8f4U6yq+2H5VDSgP/qiTzC8Nw8JO3OuSUOQ2qW37S/dlwdkHDntkZM6SQhKyPhw==}
+  /@typescript-eslint/types/5.40.0:
+    resolution: {integrity: sha512-V1KdQRTXsYpf1Y1fXCeZ+uhjW48Niiw0VGt4V8yzuaDTU8Z1Xl7yQDyQNqyAFcVhpYXIVCEuxSIWTsLDpHgTbw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  /@typescript-eslint/typescript-estree/5.39.0_typescript@4.8.4:
-    resolution: {integrity: sha512-qLFQP0f398sdnogJoLtd43pUgB18Q50QSA+BTE5h3sUxySzbWDpTSdgt4UyxNSozY/oDK2ta6HVAzvGgq8JYnA==}
+  /@typescript-eslint/typescript-estree/5.40.0_typescript@4.8.4:
+    resolution: {integrity: sha512-b0GYlDj8TLTOqwX7EGbw2gL5EXS2CPEWhF9nGJiGmEcmlpNBjyHsTwbqpyIEPVpl6br4UcBOYlcI2FJVtJkYhg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       typescript: '*'
@@ -2679,8 +2585,8 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/types': 5.39.0
-      '@typescript-eslint/visitor-keys': 5.39.0
+      '@typescript-eslint/types': 5.40.0
+      '@typescript-eslint/visitor-keys': 5.40.0
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
@@ -2690,28 +2596,29 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@typescript-eslint/utils/5.39.0_ypn2ylkkyfa5i233caldtndbqa:
-    resolution: {integrity: sha512-+DnY5jkpOpgj+EBtYPyHRjXampJfC0yUZZzfzLuUWVZvCuKqSdJVC8UhdWipIw7VKNTfwfAPiOWzYkAwuIhiAg==}
+  /@typescript-eslint/utils/5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q:
+    resolution: {integrity: sha512-MO0y3T5BQ5+tkkuYZJBjePewsY+cQnfkYeRqS6tPh28niiIwPnQ1t59CSRcs1ZwJJNOdWw7rv9pF8aP58IMihA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       '@types/json-schema': 7.0.11
-      '@typescript-eslint/scope-manager': 5.39.0
-      '@typescript-eslint/types': 5.39.0
-      '@typescript-eslint/typescript-estree': 5.39.0_typescript@4.8.4
-      eslint: 8.24.0
+      '@typescript-eslint/scope-manager': 5.40.0
+      '@typescript-eslint/types': 5.40.0
+      '@typescript-eslint/typescript-estree': 5.40.0_typescript@4.8.4
+      eslint: 8.25.0
       eslint-scope: 5.1.1
-      eslint-utils: 3.0.0_eslint@8.24.0
+      eslint-utils: 3.0.0_eslint@8.25.0
+      semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  /@typescript-eslint/visitor-keys/5.39.0:
-    resolution: {integrity: sha512-yyE3RPwOG+XJBLrhvsxAidUgybJVQ/hG8BhiJo0k8JSAYfk/CshVcxf0HwP4Jt7WZZ6vLmxdo1p6EyN3tzFTkg==}
+  /@typescript-eslint/visitor-keys/5.40.0:
+    resolution: {integrity: sha512-ijJ+6yig+x9XplEpG2K6FUdJeQGGj/15U3S56W9IqXKJqleuD7zJ2AX/miLezwxpd7ZxDAqO87zWufKg+RPZyQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      '@typescript-eslint/types': 5.39.0
+      '@typescript-eslint/types': 5.40.0
       eslint-visitor-keys: 3.3.0
 
   /abab/2.0.6:
@@ -2884,7 +2791,7 @@ packages:
   /axobject-query/2.2.0:
     resolution: {integrity: sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==}
 
-  /babel-eslint/10.1.0_eslint@8.24.0:
+  /babel-eslint/10.1.0_eslint@8.25.0:
     resolution: {integrity: sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg==}
     engines: {node: '>=6'}
     deprecated: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
@@ -2892,10 +2799,10 @@ packages:
       eslint: '>= 4.12.1'
     dependencies:
       '@babel/code-frame': 7.18.6
-      '@babel/parser': 7.19.3
-      '@babel/traverse': 7.19.3
-      '@babel/types': 7.19.3
-      eslint: 8.24.0
+      '@babel/parser': 7.19.4
+      '@babel/traverse': 7.19.4
+      '@babel/types': 7.19.4
+      eslint: 8.25.0
       eslint-visitor-keys: 1.3.0
       resolve: 1.22.1
     transitivePeerDependencies:
@@ -3623,7 +3530,7 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /eslint-config-next/12.3.1_ypn2ylkkyfa5i233caldtndbqa:
+  /eslint-config-next/12.3.1_z4bbprzjrhnsfa24uvmcbu7f5q:
     resolution: {integrity: sha512-EN/xwKPU6jz1G0Qi6Bd/BqMnHLyRAL0VsaQaWA7F3KkjAgZHi4f1uL1JKGWNxdQpHTW/sdGONBd0bzxUka/DJg==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
@@ -3634,26 +3541,26 @@ packages:
     dependencies:
       '@next/eslint-plugin-next': 12.3.1
       '@rushstack/eslint-patch': 1.2.0
-      '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
-      eslint: 8.24.0
+      '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
+      eslint: 8.25.0
       eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-typescript: 2.7.1_dg2pe6kqkrddxbf2funb723kue
-      eslint-plugin-import: 2.26.0_gcianqk2r5w7qn6wdun4jzyvom
-      eslint-plugin-jsx-a11y: 6.6.1_eslint@8.24.0
-      eslint-plugin-react: 7.31.8_eslint@8.24.0
-      eslint-plugin-react-hooks: 4.6.0_eslint@8.24.0
+      eslint-import-resolver-typescript: 2.7.1_fyln4uq2tv75svthy6prqvt6lm
+      eslint-plugin-import: 2.26.0_tdchah5va4mh2m6fdzqgaf23si
+      eslint-plugin-jsx-a11y: 6.6.1_eslint@8.25.0
+      eslint-plugin-react: 7.31.10_eslint@8.25.0
+      eslint-plugin-react-hooks: 4.6.0_eslint@8.25.0
       typescript: 4.8.4
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
 
-  /eslint-config-prettier/8.5.0_eslint@8.24.0:
+  /eslint-config-prettier/8.5.0_eslint@8.25.0:
     resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
     dependencies:
-      eslint: 8.24.0
+      eslint: 8.25.0
 
   /eslint-import-resolver-node/0.3.6:
     resolution: {integrity: sha512-0En0w03NRVMn9Uiyn8YRPDKvWjxCWkslUEhGNTdGx15RvPJYQ+lbOlqrlNI2vEAs4pDYK4f/HN2TbDmk5TP0iw==}
@@ -3663,7 +3570,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /eslint-import-resolver-typescript/2.7.1_dg2pe6kqkrddxbf2funb723kue:
+  /eslint-import-resolver-typescript/2.7.1_fyln4uq2tv75svthy6prqvt6lm:
     resolution: {integrity: sha512-00UbgGwV8bSgUv34igBDbTOtKhqoRMy9bFjNehT40bXg6585PNIct8HhXZ0SybqB9rWtXj9crcku8ndDn/gIqQ==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -3671,8 +3578,8 @@ packages:
       eslint-plugin-import: '*'
     dependencies:
       debug: 4.3.4
-      eslint: 8.24.0
-      eslint-plugin-import: 2.26.0_gcianqk2r5w7qn6wdun4jzyvom
+      eslint: 8.25.0
+      eslint-plugin-import: 2.26.0_tdchah5va4mh2m6fdzqgaf23si
       glob: 7.2.3
       is-glob: 4.0.3
       resolve: 1.22.1
@@ -3680,7 +3587,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /eslint-module-utils/2.7.4_u3o3cbxhjcofsya2eebinaptmi:
+  /eslint-module-utils/2.7.4_kvmn5toouaofuvkp3zid4sxfqu:
     resolution: {integrity: sha512-j4GT+rqzCoRKHwURX7pddtIPGySnX9Si/cgMI5ztrcqOPtk5dDEeZ34CQVPphnqkJytlc97Vuk05Um2mJ3gEQA==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -3701,15 +3608,15 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
+      '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       debug: 3.2.7
-      eslint: 8.24.0
+      eslint: 8.25.0
       eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-typescript: 2.7.1_dg2pe6kqkrddxbf2funb723kue
+      eslint-import-resolver-typescript: 2.7.1_fyln4uq2tv75svthy6prqvt6lm
     transitivePeerDependencies:
       - supports-color
 
-  /eslint-plugin-import/2.26.0_gcianqk2r5w7qn6wdun4jzyvom:
+  /eslint-plugin-import/2.26.0_tdchah5va4mh2m6fdzqgaf23si:
     resolution: {integrity: sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -3719,14 +3626,14 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
+      '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       array-includes: 3.1.5
       array.prototype.flat: 1.3.0
       debug: 2.6.9
       doctrine: 2.1.0
-      eslint: 8.24.0
+      eslint: 8.25.0
       eslint-import-resolver-node: 0.3.6
-      eslint-module-utils: 2.7.4_u3o3cbxhjcofsya2eebinaptmi
+      eslint-module-utils: 2.7.4_kvmn5toouaofuvkp3zid4sxfqu
       has: 1.0.3
       is-core-module: 2.10.0
       is-glob: 4.0.3
@@ -3747,7 +3654,7 @@ packages:
       vscode-json-languageservice: 4.2.1
     dev: false
 
-  /eslint-plugin-jsx-a11y/6.6.1_eslint@8.24.0:
+  /eslint-plugin-jsx-a11y/6.6.1_eslint@8.25.0:
     resolution: {integrity: sha512-sXgFVNHiWffBq23uiS/JaP6eVR622DqwB4yTzKvGZGcPq6/yZ3WmOZfuBks/vHWo9GaFOqC2ZK4i6+C35knx7Q==}
     engines: {node: '>=4.0'}
     peerDependencies:
@@ -3761,14 +3668,14 @@ packages:
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
-      eslint: 8.24.0
+      eslint: 8.25.0
       has: 1.0.3
       jsx-ast-utils: 3.3.3
       language-tags: 1.0.5
       minimatch: 3.1.2
       semver: 6.3.0
 
-  /eslint-plugin-prettier/4.2.1_awmkh7s2gfwufkvh6fnk6cae3q:
+  /eslint-plugin-prettier/4.2.1_hvbqyfstm4urdpm6ffpwfka4e4:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3779,38 +3686,38 @@ packages:
       eslint-config-prettier:
         optional: true
     dependencies:
-      eslint: 8.24.0
-      eslint-config-prettier: 8.5.0_eslint@8.24.0
-      prettier-linter-helpers: 1.0.0
-    dev: false
-
-  /eslint-plugin-prettier/4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm:
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      eslint: '>=7.28.0'
-      eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
-    peerDependenciesMeta:
-      eslint-config-prettier:
-        optional: true
-    dependencies:
-      eslint: 8.24.0
-      eslint-config-prettier: 8.5.0_eslint@8.24.0
+      eslint: 8.25.0
+      eslint-config-prettier: 8.5.0_eslint@8.25.0
       prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-react-hooks/4.6.0_eslint@8.24.0:
+  /eslint-plugin-prettier/4.2.1_u5xbctzubob3vemckh2ey3p2dm:
+    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      eslint: '>=7.28.0'
+      eslint-config-prettier: '*'
+      prettier: '>=2.0.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.25.0
+      eslint-config-prettier: 8.5.0_eslint@8.25.0
+      prettier-linter-helpers: 1.0.0
+    dev: false
+
+  /eslint-plugin-react-hooks/4.6.0_eslint@8.25.0:
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
     dependencies:
-      eslint: 8.24.0
+      eslint: 8.25.0
 
-  /eslint-plugin-react/7.31.8_eslint@8.24.0:
-    resolution: {integrity: sha512-5lBTZmgQmARLLSYiwI71tiGVTLUuqXantZM6vlSY39OaDSV0M7+32K5DnLkmFrwTe+Ksz0ffuLUC91RUviVZfw==}
+  /eslint-plugin-react/7.31.10_eslint@8.25.0:
+    resolution: {integrity: sha512-e4N/nc6AAlg4UKW/mXeYWd3R++qUano5/o+t+wnWxIf+bLsOaH3a4q74kX3nDjYym3VBN4HyO9nEn1GcAqgQOA==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
@@ -3818,7 +3725,7 @@ packages:
       array-includes: 3.1.5
       array.prototype.flatmap: 1.3.0
       doctrine: 2.1.0
-      eslint: 8.24.0
+      eslint: 8.25.0
       estraverse: 5.3.0
       jsx-ast-utils: 3.3.3
       minimatch: 3.1.2
@@ -3845,13 +3752,13 @@ packages:
       esrecurse: 4.3.0
       estraverse: 5.3.0
 
-  /eslint-utils/3.0.0_eslint@8.24.0:
+  /eslint-utils/3.0.0_eslint@8.25.0:
     resolution: {integrity: sha512-uuQC43IGctw68pJA1RgbQS8/NP7rch6Cwd4j3ZBtgo4/8Flj4eGE7ZYSZRN3iq5pVUv6GPdW5Z1RFleo84uLDA==}
     engines: {node: ^10.0.0 || ^12.0.0 || >= 14.0.0}
     peerDependencies:
       eslint: '>=5'
     dependencies:
-      eslint: 8.24.0
+      eslint: 8.25.0
       eslint-visitor-keys: 2.1.0
 
   /eslint-visitor-keys/1.3.0:
@@ -3867,14 +3774,13 @@ packages:
     resolution: {integrity: sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  /eslint/8.24.0:
-    resolution: {integrity: sha512-dWFaPhGhTAiPcCgm3f6LI2MBWbogMnTJzFBbhXVRQDJPkr9pGZvVjlVfXd+vyDcWPA2Ic9L2AXPIQM0+vk/cSQ==}
+  /eslint/8.25.0:
+    resolution: {integrity: sha512-DVlJOZ4Pn50zcKW5bYH7GQK/9MsoQG2d5eDH0ebEkE8PbgzTTmtt/VTH9GGJ4BfeZCpBLqFfvsjX35UacUL83A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     hasBin: true
     dependencies:
-      '@eslint/eslintrc': 1.3.2
+      '@eslint/eslintrc': 1.3.3
       '@humanwhocodes/config-array': 0.10.7
-      '@humanwhocodes/gitignore-to-minimatch': 1.0.2
       '@humanwhocodes/module-importer': 1.0.1
       ajv: 6.12.6
       chalk: 4.1.2
@@ -3883,7 +3789,7 @@ packages:
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.1.1
-      eslint-utils: 3.0.0_eslint@8.24.0
+      eslint-utils: 3.0.0_eslint@8.25.0
       eslint-visitor-keys: 3.3.0
       espree: 9.4.0
       esquery: 1.4.0
@@ -4353,8 +4259,8 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /iconify-icon/1.0.0:
-    resolution: {integrity: sha512-UY4PDCKQPpIGgDIx2yxM8wiOdMdLz0mb93dTV0Ox5hThwO8OA2zy8gDmjRReKqkPHK/mY7p/ivDaDGHE8O9xIw==}
+  /iconify-icon/1.0.1:
+    resolution: {integrity: sha512-8qXahj8q0fJ1uMkVJ1DujJw35CWBFxUY9UFCzytfItNjcoj+Dz7yUakuXTzaByIc8seQCnw9CuLVzHdw7yEkBQ==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: false
@@ -5439,8 +5345,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /next-transpile-modules/9.0.0:
-    resolution: {integrity: sha512-VCNFOazIAnXn1hvgYYSTYMnoWgKgwlYh4lm1pKbSfiB3kj5ZYLcKVhfh3jkPOg1cnd9DP+pte9yCUocdPEUBTQ==}
+  /next-transpile-modules/9.1.0:
+    resolution: {integrity: sha512-yzJji65xDqcIqjvx5vPJcs1M+MYQTzLM1pXH/qf8Q88ohx+bwVGDc1AeV+HKr1NwvMCNTpwVPSFI7cA5WdyeWA==}
     dependencies:
       enhanced-resolve: 5.10.0
       escalade: 3.1.1
@@ -5930,8 +5836,8 @@ packages:
       use-sidecar: 1.1.2_@types+react@18.0.21
     dev: false
 
-  /react-spinners/0.13.5:
-    resolution: {integrity: sha512-je7Z3MGK1w+VHGgflGaJz2KMi723zKeSpRd52keYWlfr+//JLzwY+YiG9ESFPxyT2MG9TEvUXNlg5EN8vlAwww==}
+  /react-spinners/0.13.6:
+    resolution: {integrity: sha512-+VoSs1wN6oMhJy7PzCPiHUt6zUi9fvnGQizem8q/NzXhGovbdXFDWNhspk6KEKXQEafInUtpvtDlp/zJ5sES/A==}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -6030,8 +5936,8 @@ packages:
       - supports-color
     dev: false
 
-  /remark-mdx/2.1.4:
-    resolution: {integrity: sha512-zZxHdd0s8xfMmIKcxhFoUT4x54VOJTUJ+lPys7ZR2Vcgb4xwuAwxvUfkVrsCTdo/lBVxLQv43bXVNu3ZIbahnA==}
+  /remark-mdx/2.1.5:
+    resolution: {integrity: sha512-A8vw5s+BgOa968Irt8BO7DfWJTE0Fe7Ge3hX8zzDB1DnwMZTNdK6qF2IcFao+/7nzk1vSysKcFp+3ku4vhMpaQ==}
     dependencies:
       mdast-util-mdx: 2.0.0
       micromark-extension-mdxjs: 1.0.0
@@ -6603,65 +6509,65 @@ packages:
       yargs: 17.6.0
     dev: true
 
-  /turbo-darwin-64/1.5.5:
-    resolution: {integrity: sha512-HvEn6P2B+NXDekq9LRpRgUjcT9/oygLTcK47U0qsAJZXRBSq/2hvD7lx4nAwgY/4W3rhYJeWtHTzbhoN6BXqGQ==}
+  /turbo-darwin-64/1.5.6:
+    resolution: {integrity: sha512-CWdXMwenBS2+QXIR2Czx7JPnAcoMzWx/QwTDcHVxZyeayMHgz8Oq5AHCtfaHDSfV8YhD3xa0GLSk6+cFt+W8BQ==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64/1.5.5:
-    resolution: {integrity: sha512-Dmxr09IUy6M0nc7/xWod9galIO2DD500B75sJSkHeT+CCdJOWnlinux0ZPF8CSygNqymwYO8AO2l15/6yxcycg==}
+  /turbo-darwin-arm64/1.5.6:
+    resolution: {integrity: sha512-c/aXgW9JuXT2bJSKf01pdSDQKnrdcdj3WFKmKiVldb9We6eqFzI0fLHBK97k5LM/OesmRMfCMQ2Cv2DU8RqBAA==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64/1.5.5:
-    resolution: {integrity: sha512-wd07TZ4zXXWjzZE00FcFMLmkybQQK/NV9ff66vvAV0vdiuacSMBCNLrD6Mm4ncfrUPW/rwFW5kU/7hyuEqqtDw==}
+  /turbo-linux-64/1.5.6:
+    resolution: {integrity: sha512-y/jNF7SG+XJEwk2GxIqy3g4dj/a0PgZKDGyOkp24qp4KBRcHBl6dI1ZEfNed30EhEqmW4F5Dr7IpeCZoqgbrMg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64/1.5.5:
-    resolution: {integrity: sha512-q3q33tuo74R7gicnfvFbnZZvqmlq7Vakcvx0eshifnJw4PR+oMnTCb4w8ElVFx070zsb8DVTibq99y8NJH8T1Q==}
+  /turbo-linux-arm64/1.5.6:
+    resolution: {integrity: sha512-FRcxPtW7eFrbR3QaYBVX8cK7i+2Cerqi6F0t5ulcq+d1OGSdSW3l35rPPyJdwCzCy+k/S9sBcyCV0RtbS6RKCQ==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64/1.5.5:
-    resolution: {integrity: sha512-lPp9kHonNFfqgovbaW+UAPO5cLmoAN+m3G3FzqcrRPnlzt97vXYsDhDd/4Zy3oAKoAcprtP4CGy0ddisqsKTVw==}
+  /turbo-windows-64/1.5.6:
+    resolution: {integrity: sha512-/5KIExY7zbrbeL5fhKGuO85u5VtJ3Ue4kI0MbYCNnTGe7a10yTYkwswgtGihsgEF4AW0Nm0159aHmXZS2Le8IA==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64/1.5.5:
-    resolution: {integrity: sha512-3AfGULKNZiZVrEzsIE+W79ZRW1+f5r4nM4wLlJ1PTBHyRxBZdD6KTH1tijGfy/uTlcV5acYnKHEkDc6Q9PAXGQ==}
+  /turbo-windows-arm64/1.5.6:
+    resolution: {integrity: sha512-p+LQN9O39+rZuOAyc6BzyVGvdEKo+v+XmtdeyZsZpfj4xuOLtsEptW1w6cUD439u0YcPknuccGq1MQ0lXQ6Xuw==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo/1.5.5:
-    resolution: {integrity: sha512-PVQSDl0STC9WXIyHcYUWs9gXsf8JjQig/FuHfuB8N6+XlgCGB3mPbfMEE6zrChGz2hufH4/guKRX1XJuNL6XTA==}
+  /turbo/1.5.6:
+    resolution: {integrity: sha512-xJO/fhiMo4lI62iGR9OgUfJTC9tnnuoMwNC52IfvvBDEPlA8RWGMS8SFpDVG9bNCXvVRrtUTNJXMe6pJWBiOTA==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.5.5
-      turbo-darwin-arm64: 1.5.5
-      turbo-linux-64: 1.5.5
-      turbo-linux-arm64: 1.5.5
-      turbo-windows-64: 1.5.5
-      turbo-windows-arm64: 1.5.5
+      turbo-darwin-64: 1.5.6
+      turbo-darwin-arm64: 1.5.6
+      turbo-linux-64: 1.5.6
+      turbo-linux-arm64: 1.5.6
+      turbo-windows-64: 1.5.6
+      turbo-windows-arm64: 1.5.6
     dev: true
 
   /type-check/0.3.2:
@@ -6859,8 +6765,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /usehooks-ts/2.7.2:
-    resolution: {integrity: sha512-DeLqSnGg9VvpwPZA+6lKVURJKM9EBu7bbIXuYclQ9COO3w4lacnJa0uP0iJbC/lAmY7GlmPinjZfGNNmDTlUpg==}
+  /usehooks-ts/2.9.1:
+    resolution: {integrity: sha512-2FAuSIGHlY+apM9FVlj8/oNhd+1y+Uwv5QNkMQz1oSfdHk4PXo1qoCw9I5M7j0vpH8CSWFJwXbVPeYDjLCx9PA==}
     engines: {node: '>=16.15.0', npm: '>=8'}
     peerDependencies:
       react: ^16.8.0  || ^17.0.0 || ^18.0.0
