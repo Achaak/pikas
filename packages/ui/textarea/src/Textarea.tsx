@@ -1,7 +1,7 @@
 import type {
   Shadows,
-  Colors,
-  CSS,
+  PikasColor,
+  PikasCSS,
   FontsSizes,
   BorderRadius,
 } from '@pikas-ui/styles'
@@ -87,15 +87,15 @@ export const TextareaResize = {
 export type TextareaResize = keyof typeof TextareaResize
 
 export interface TextareaCSS {
-  container?: CSS
-  textareaContainer?: CSS
-  textarea?: CSS
+  container?: PikasCSS
+  textareaContainer?: PikasCSS
+  textarea?: PikasCSS
   infoTooltip?: TooltipCSS
   infoIcon?: IconCSS
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  required?: CSS
+  label?: PikasCSS
+  description?: PikasCSS
+  textError?: PikasCSS
+  required?: PikasCSS
 }
 
 export type TextareaProps = {
@@ -117,14 +117,14 @@ export type TextareaProps = {
   maxHeight?: string | number
   minHeight?: string | number
   minWidth?: string | number
-  borderColor?: Colors
+  borderColor?: PikasColor
   borderColorHex?: string
   borderWidth?: number
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
-  placeholderColor?: Colors
+  placeholderColor?: PikasColor
   placeholderColorHex?: string
-  backgroundColor?: Colors
+  backgroundColor?: PikasColor
   backgroundColorHex?: string
   info?: React.ReactNode
   data?: DOMStringMap

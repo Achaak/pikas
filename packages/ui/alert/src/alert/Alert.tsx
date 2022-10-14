@@ -2,7 +2,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useCallback } from 'react'
 import { CustomAlert } from '../customAlert/index.js'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import type { DefaultAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
@@ -41,7 +41,7 @@ export const Alert: React.FC<AlertProps> = ({
     }
   }
 
-  const getBackgroundColor = useCallback((): Colors => {
+  const getBackgroundColor = useCallback((): PikasColor => {
     {
       switch (variant) {
         case 'success':

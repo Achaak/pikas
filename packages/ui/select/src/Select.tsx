@@ -1,7 +1,7 @@
 import type {
   BorderRadius,
-  Colors,
-  CSS,
+  PikasColor,
+  PikasCSS,
   FontsSizes,
   Shadows,
 } from '@pikas-ui/styles'
@@ -87,7 +87,7 @@ const Viewport = styled(SelectPrimitive.Viewport, {
 
 const Group = styled(SelectPrimitive.Group, {})
 
-const scrollButtonCSS: CSS = {
+const scrollButtonCSS: PikasCSS = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -190,15 +190,15 @@ export const SelectPadding = {
 export type SelectPadding = keyof typeof SelectPadding
 
 export type SelectCSS = {
-  container?: CSS
-  trigger?: CSS
+  container?: PikasCSS
+  trigger?: PikasCSS
   infoTooltip?: TooltipCSS
   infoIcon?: IconCSS
-  required?: CSS
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  content?: CSS
+  required?: PikasCSS
+  label?: PikasCSS
+  description?: PikasCSS
+  textError?: PikasCSS
+  content?: PikasCSS
 }
 
 export interface SelectProps {
@@ -210,7 +210,7 @@ export interface SelectProps {
   borderRadius?: BorderRadius
   padding?: SelectPadding
   fontSize?: FontsSizes
-  borderColor?: Colors
+  borderColor?: PikasColor
   borderWidth?: number
   data: {
     name?: string
@@ -226,7 +226,7 @@ export interface SelectProps {
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
   boxShadow?: Shadows | 'none'
-  backgroundColor?: Colors
+  backgroundColor?: PikasColor
   outline?: boolean
   description?: string
   width?: string | number

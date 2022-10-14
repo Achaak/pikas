@@ -1,5 +1,5 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
@@ -101,7 +101,7 @@ export type DropdownMenuDataItemEntry = ItemEntry
 export type DropdownMenuData = MenuDataItem[]
 export interface DropdownMenuProps extends MenuProps {
   triggerContent?: React.ReactNode
-  iconColor?: Colors
+  iconColor?: PikasColor
   iconSize?: number
 
   direction?: DropdownMenuDirection

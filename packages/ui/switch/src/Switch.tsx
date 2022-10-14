@@ -1,6 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { CSS, FontsSizes } from '@pikas-ui/styles'
+import type { PikasCSS, FontsSizes } from '@pikas-ui/styles'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
@@ -69,13 +69,13 @@ const Required = styled('div', {
 })
 
 export interface SwitchCSS {
-  container?: CSS
-  content?: CSS
+  container?: PikasCSS
+  content?: PikasCSS
   infoTooltip?: TooltipCSS
   infoIcon?: IconCSS
-  label?: CSS
-  required?: CSS
-  textError?: CSS
+  label?: PikasCSS
+  required?: PikasCSS
+  textError?: PikasCSS
 }
 
 export interface BasicSwitchProps {

@@ -2,8 +2,8 @@ import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type {
   Shadows,
-  Colors,
-  CSS,
+  PikasColor,
+  PikasCSS,
   FontsSizes,
   BorderRadius,
 } from '@pikas-ui/styles'
@@ -189,19 +189,19 @@ export const TextfieldGap = {
 export type TextfieldGap = keyof typeof TextfieldGap
 
 export type TextfieldCSS = {
-  container?: CSS
-  inputContainer?: CSS
-  input?: CSS
-  left?: CSS
-  right?: CSS
+  container?: PikasCSS
+  inputContainer?: PikasCSS
+  input?: PikasCSS
+  left?: PikasCSS
+  right?: PikasCSS
   leftIcon?: IconCSS
   rightIcon?: IconCSS
   infoTooltip?: TooltipCSS
   infoIcon?: IconCSS
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  required?: CSS
+  label?: PikasCSS
+  description?: PikasCSS
+  textError?: PikasCSS
+  required?: PikasCSS
 }
 
 export type TextfieldProps = {
@@ -213,23 +213,23 @@ export type TextfieldProps = {
   padding?: TextfieldPadding
   gap?: TextfieldGap
   fontSize?: FontsSizes
-  borderColor?: Colors
+  borderColor?: PikasColor
   borderColorHex?: string
   borderWidth?: number
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
-  placeholderColor?: Colors
+  placeholderColor?: PikasColor
   placeholderColorHex?: string
-  backgroundColor?: Colors
+  backgroundColor?: PikasColor
   backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
-  leftIconColor?: Colors
+  leftIconColor?: PikasColor
   leftIconColorHex?: string
-  rightIconColor?: Colors
+  rightIconColor?: PikasColor
   rightIconColorHex?: string
   leftIconSize?: number
   rightIconSize?: number

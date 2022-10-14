@@ -1,6 +1,6 @@
 import React from 'react'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 const Root = styled(TabsPrimitive.Root, {
@@ -163,8 +163,8 @@ export interface TabsItem<T extends string> {
   content: React.ReactNode
   disabled?: boolean
   css?: {
-    trigger?: CSS
-    content?: CSS
+    trigger?: PikasCSS
+    content?: PikasCSS
   }
 }
 
@@ -175,12 +175,12 @@ export type TabsDirection = 'ltr' | 'rtl'
 export type TabsActivationMode = 'manual' | 'automatic'
 
 export interface TabsCSS {
-  container?: CSS
-  triggerList?: CSS
-  endTrigger?: CSS
-  startTrigger?: CSS
-  trigger?: CSS
-  content?: CSS
+  container?: PikasCSS
+  triggerList?: PikasCSS
+  endTrigger?: PikasCSS
+  startTrigger?: PikasCSS
+  trigger?: PikasCSS
+  content?: PikasCSS
 }
 
 export interface TabsPadding {

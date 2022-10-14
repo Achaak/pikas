@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconCSS, IconProps } from '@pikas-ui/icons'
 import React from 'react'
@@ -36,8 +36,8 @@ const Container = styled('div', {
 
 export interface DefaultToastCSS extends CustomToastCSS {
   icon?: IconCSS
-  title?: CSS
-  description?: CSS
+  title?: PikasCSS
+  description?: PikasCSS
 }
 
 export interface DefaultToastProps extends CustomToastProps {

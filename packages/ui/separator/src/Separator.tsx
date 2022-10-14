@@ -1,4 +1,4 @@
-import type { BorderRadius, Colors, CSS } from '@pikas-ui/styles'
+import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 import React from 'react'
@@ -13,8 +13,8 @@ export interface SeparatorProps {
   orientation?: SeparatorOrientation
   className?: string
   size?: number
-  css?: CSS
-  color?: Colors
+  css?: PikasCSS
+  color?: PikasColor
   borderRadius?: BorderRadius
 }
 

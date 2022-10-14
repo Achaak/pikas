@@ -1,4 +1,9 @@
-import type { BorderRadius, Colors, Shadows, CSS } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  PikasColor,
+  Shadows,
+  PikasCSS,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Skeleton } from '@pikas-ui/skeleton'
@@ -59,9 +64,9 @@ const ContentBack = styled(Content, {})
 const ContentFront = styled(Content, {})
 
 export interface ProgressCSS {
-  container?: CSS
-  content?: CSS
-  indicator?: CSS
+  container?: PikasCSS
+  content?: PikasCSS
+  indicator?: PikasCSS
 }
 
 export interface ProgressProps {
@@ -69,8 +74,8 @@ export interface ProgressProps {
   max?: number
   width?: number | string
   height?: number | string
-  color?: Colors
-  backgroundColor?: Colors
+  color?: PikasColor
+  backgroundColor?: PikasColor
   loading?: boolean
   boxShadow?: Shadows | 'none'
   borderRadius?: BorderRadius

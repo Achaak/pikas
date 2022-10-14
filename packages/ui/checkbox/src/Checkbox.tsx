@@ -1,7 +1,7 @@
 import type {
   BorderRadius,
-  Colors,
-  CSS,
+  PikasColor,
+  PikasCSS,
   FontsSizes,
   Shadows,
 } from '@pikas-ui/styles'
@@ -55,11 +55,11 @@ export const CheckboxSide = {
 export type CheckboxSide = keyof typeof CheckboxSide
 
 export interface CheckboxCSS {
-  container?: CSS
-  label?: CSS
-  checkboxRoot?: CSS
-  checkboxIndicator?: CSS
-  textError?: CSS
+  container?: PikasCSS
+  label?: PikasCSS
+  checkboxRoot?: PikasCSS
+  checkboxIndicator?: PikasCSS
+  textError?: PikasCSS
   icon?: IconCSS
 }
 
@@ -68,11 +68,11 @@ export interface CheckboxProps {
   onChange?: (checked: boolean) => void
   id?: string
   label?: string | ReactNode
-  bgColor?: Colors
-  bgColorChecked?: Colors
+  bgColor?: PikasColor
+  bgColorChecked?: PikasColor
   textError?: string
   boxShadow?: Shadows | 'none'
-  borderColor?: Colors
+  borderColor?: PikasColor
   borderWidth?: number
   borderRadius?: BorderRadius
   fontSize?: FontsSizes

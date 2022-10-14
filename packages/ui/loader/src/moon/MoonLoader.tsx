@@ -1,10 +1,10 @@
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { MoonLoader as MoonLoaderDefault } from 'react-spinners'
 import React from 'react'
 
 export interface MoonLoaderProps {
   size?: number | string
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -21,7 +21,7 @@ export const MoonLoader: React.FC<MoonLoaderProps> = ({
     <MoonLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
+      color={colorHex || (color ? `var(--pikas-colors-${color})` : undefined)}
       loading={loading}
     />
   )

@@ -1,5 +1,5 @@
 import { IconByName } from '@pikas-ui/icons'
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
@@ -172,12 +172,12 @@ export interface CustomDialogGap {
 }
 
 export interface CustomDialogCSS {
-  container?: CSS
-  header?: CSS
-  content?: CSS
-  footer?: CSS
-  closeIcon?: CSS
-  overlay?: CSS
+  container?: PikasCSS
+  header?: PikasCSS
+  content?: PikasCSS
+  footer?: PikasCSS
+  closeIcon?: PikasCSS
+  overlay?: PikasCSS
 }
 
 export interface DialogProps {

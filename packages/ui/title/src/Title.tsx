@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { HTMLAttributes } from 'react'
 
@@ -68,13 +68,13 @@ export const TitleVariant = TitleComponent
 export type TitleVariant = keyof typeof TitleVariant
 
 export interface TitleCSS {
-  global?: CSS
-  h1?: CSS
-  h2?: CSS
-  h3?: CSS
-  h4?: CSS
-  h5?: CSS
-  h6?: CSS
+  global?: PikasCSS
+  h1?: PikasCSS
+  h2?: PikasCSS
+  h3?: PikasCSS
+  h4?: PikasCSS
+  h5?: PikasCSS
+  h6?: PikasCSS
 }
 
 export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {

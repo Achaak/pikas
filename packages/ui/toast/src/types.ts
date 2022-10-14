@@ -1,8 +1,8 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import type { SwipeEvent } from '@radix-ui/react-toast'
 
 export interface ToastCSS {
-  toast?: CSS
+  toast?: PikasCSS
 }
 
 export interface ToastAction {

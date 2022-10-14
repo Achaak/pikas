@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
@@ -14,7 +14,7 @@ const Container = styled('div', {
 
 interface ExampleContainerProps {
   children?: React.ReactNode
-  css?: CSS
+  css?: PikasCSS
 }
 
 export const ExampleContainer: React.FC<ExampleContainerProps> = ({

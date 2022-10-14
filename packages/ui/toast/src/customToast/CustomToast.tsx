@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { keyframes, styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useState } from 'react'
@@ -41,9 +41,9 @@ const Timer = styled('div', {
 })
 
 export interface CustomToastCSS extends ToastCSS {
-  close?: CSS
-  timer?: CSS
-  content?: CSS
+  close?: PikasCSS
+  timer?: PikasCSS
+  content?: PikasCSS
 }
 
 export interface CustomToastProps extends ToastProps {

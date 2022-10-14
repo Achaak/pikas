@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -9,7 +9,7 @@ const TextErrorStyled = styled('p', {
 
 export interface TextErrorProps {
   children?: React.ReactNode
-  css?: CSS
+  css?: PikasCSS
 }
 
 export const TextError: React.FC<TextErrorProps> = ({ children, css }) => {

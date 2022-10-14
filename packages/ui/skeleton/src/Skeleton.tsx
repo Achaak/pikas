@@ -1,5 +1,5 @@
 import React from 'react'
-import type { BorderRadius, CSS } from '@pikas-ui/styles'
+import type { BorderRadius, PikasCSS } from '@pikas-ui/styles'
 import { styled, keyframes } from '@pikas-ui/styles'
 
 const wave = keyframes({
@@ -101,7 +101,7 @@ export interface SkeletonProps {
   width?: string | number
   height?: string | number
   borderRadius?: BorderRadius
-  css?: CSS
+  css?: PikasCSS
 }
 
 export const Skeleton: React.FC<SkeletonProps> = ({

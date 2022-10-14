@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -12,7 +12,7 @@ const DescriptionStyled = styled('p', {
 
 export interface DescriptionProps {
   children?: React.ReactNode
-  css?: CSS
+  css?: PikasCSS
 }
 
 export const Description: React.FC<DescriptionProps> = ({ children, css }) => {

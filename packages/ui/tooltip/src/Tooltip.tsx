@@ -1,7 +1,7 @@
 import type {
   BorderRadius,
-  Colors,
-  CSS,
+  PikasColor,
+  PikasCSS,
   FontsSizes,
   FontsWeights,
   Shadows,
@@ -99,14 +99,14 @@ export const TooltipPadding = {
 export type TooltipPadding = keyof typeof TooltipPadding
 
 export type TooltipCSS = {
-  trigger?: CSS
-  content?: CSS
+  trigger?: PikasCSS
+  content?: PikasCSS
 }
 
 export interface TooltipProps {
   content: string | React.ReactNode
   children?: React.ReactNode
-  backgroundColor?: Colors
+  backgroundColor?: PikasColor
   open?: boolean
   defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void

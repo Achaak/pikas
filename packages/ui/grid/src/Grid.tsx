@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -123,7 +123,7 @@ export type GridType = 'container' | 'item'
 
 export interface GridBaseProps {
   children?: React.ReactNode
-  css?: CSS
+  css?: PikasCSS
   type: GridType
 }
 

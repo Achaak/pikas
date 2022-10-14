@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 
 export const getContentColor = ({
@@ -29,9 +29,9 @@ export const getColors = ({
   outlined?: boolean
   colorHex?: string
   contentColorHex?: string
-}): CSS => {
+}): PikasCSS => {
   if (!outlined) {
-    const colors: CSS = {
+    const colors: PikasCSS = {
       backgroundColor: colorHex,
       borderColor: colorHex,
       color: getContentColor({
@@ -43,7 +43,7 @@ export const getColors = ({
 
     return colors
   } else {
-    const colors: CSS = {
+    const colors: PikasCSS = {
       backgroundColor: '$TRANSPARENT',
       borderColor: colorHex,
       color: getContentColor({

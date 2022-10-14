@@ -1,6 +1,6 @@
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import React, { useCallback } from 'react'
 import type { DefaultToastCSS } from '../defaultToast'
 import { DefaultToast } from '../defaultToast'
@@ -41,7 +41,7 @@ export const Toast: React.FC<CustomToastProps> = ({
     }
   }
 
-  const getColor = useCallback((): Colors => {
+  const getColor = useCallback((): PikasColor => {
     {
       switch (variant) {
         case 'success':

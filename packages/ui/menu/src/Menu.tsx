@@ -1,5 +1,5 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type { Colors, CSS } from '@pikas-ui/styles'
+import type { PikasColor, PikasCSS } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import 'react'
 
@@ -23,7 +23,7 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 })
 
-export const MenuContentCSS: CSS = {
+export const MenuContentCSS: PikasCSS = {
   backgroundColor: '$WHITE',
   br: 'md',
   padding: 8,
@@ -52,7 +52,7 @@ export const MenuContentCSS: CSS = {
   },
 }
 
-export const MenuItemCSS: CSS = {
+export const MenuItemCSS: PikasCSS = {
   all: 'unset',
   fontSize: '$EM-SMALL',
   color: '$BLACK',
@@ -84,41 +84,41 @@ export const MenuItemCSS: CSS = {
   },
 }
 
-export const MenuCheckboxItemCSS: CSS = {
+export const MenuCheckboxItemCSS: PikasCSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
   ...MenuItemCSS,
 }
 
-export const MenuRadioItemCSS: CSS = {
+export const MenuRadioItemCSS: PikasCSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
   ...MenuItemCSS,
 }
 
-export const MenuTriggerItemCSS: CSS = {
+export const MenuTriggerItemCSS: PikasCSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
   ...MenuItemCSS,
 }
 
-export const MenuLabelCSS: CSS = {
+export const MenuLabelCSS: PikasCSS = {
   padding: '4px 0',
   paddingLeft: 24,
   fontSize: '$EM-X-SMALL',
   color: '$BLACK',
 }
 
-export const MenuSeparatorCSS: CSS = {
+export const MenuSeparatorCSS: PikasCSS = {
   height: 1,
   backgroundColor: '$GRAY_LIGHT',
   margin: 4,
 }
 
-export const MenuItemIndicatorCSS: CSS = {
+export const MenuItemIndicatorCSS: PikasCSS = {
   position: 'absolute',
   left: 0,
   width: 24,
@@ -127,7 +127,7 @@ export const MenuItemIndicatorCSS: CSS = {
   justifyContent: 'center',
 }
 
-export const RightSlotCSS: CSS = {
+export const RightSlotCSS: PikasCSS = {
   marginLeft: 'auto',
   paddingLeft: 20,
   color: '$BLACK',
@@ -138,12 +138,12 @@ export const RightSlotCSS: CSS = {
   },
 }
 
-export const SpanCSS: CSS = {}
+export const SpanCSS: PikasCSS = {}
 
 interface ItemBase {
   disabled?: boolean
   rightSlot?: string
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
   type: 'item' | 'checkbox' | 'radio' | 'menu'
   hide?: boolean
@@ -152,16 +152,16 @@ interface ItemBase {
 interface DefaultItem extends ItemBase {
   type: 'item'
   Icon?: React.FC<IconProps>
-  iconColor?: Colors
+  iconColor?: PikasColor
   iconColorHex?: string
   loading?: boolean
   label: React.ReactNode
   onClick?: () => void
   css?: {
-    container?: CSS
-    indicator?: CSS
-    label?: CSS
-    rightSlot?: CSS
+    container?: PikasCSS
+    indicator?: PikasCSS
+    label?: PikasCSS
+    rightSlot?: PikasCSS
   }
 }
 
@@ -171,10 +171,10 @@ interface CheckboxItem extends ItemBase {
   label: React.ReactNode
   onCheckedChange: (checked: boolean) => void
   css?: {
-    container?: CSS
-    indicator?: CSS
-    label?: CSS
-    rightSlot?: CSS
+    container?: PikasCSS
+    indicator?: PikasCSS
+    label?: PikasCSS
+    rightSlot?: PikasCSS
   }
 }
 
@@ -188,14 +188,14 @@ interface RadioItem extends ItemBase {
     disabled?: boolean
     rightSlot?: string
     css?: {
-      container?: CSS
-      indicator?: CSS
-      label?: CSS
-      rightSlot?: CSS
+      container?: PikasCSS
+      indicator?: PikasCSS
+      label?: PikasCSS
+      rightSlot?: PikasCSS
     }
   }[]
   css?: {
-    container?: CSS
+    container?: PikasCSS
   }
 }
 
@@ -204,7 +204,7 @@ interface MenuItem extends ItemBase {
   data: MenuData
   label: React.ReactNode
   css?: {
-    container?: CSS
+    container?: PikasCSS
   }
 }
 
@@ -212,15 +212,15 @@ export type ItemEntry = DefaultItem | CheckboxItem | RadioItem | MenuItem
 
 export interface MenuDataItem {
   label?: React.ReactNode
-  css?: CSS
+  css?: PikasCSS
   items: ItemEntry[]
 }
 
 export type MenuData = MenuDataItem[]
 
 export interface MenuCSS {
-  content?: CSS
-  separator?: CSS
+  content?: PikasCSS
+  separator?: PikasCSS
 }
 
 export interface MenuProps {

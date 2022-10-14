@@ -1,4 +1,9 @@
-import type { BorderRadius, Colors, CSS, Shadows } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  PikasColor,
+  PikasCSS,
+  Shadows,
+} from '@pikas-ui/styles'
 import { styled, Sizes, useTheme } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
@@ -128,7 +133,7 @@ const LoadingContainer = styled('div', {
 })
 
 export type ButtonIconCSS = {
-  button?: CSS
+  button?: PikasCSS
   icon?: IconCSS
 }
 
@@ -140,9 +145,9 @@ export interface ButtonIconDefaultProps {
   effect?: ButtonEffect
   padding?: ButtonPadding
   size?: Sizes
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
-  contentColor?: Colors
+  contentColor?: PikasColor
   contentColorHex?: string
   disabled?: boolean
   borderRadius?: BorderRadius
@@ -154,7 +159,7 @@ export interface ButtonIconProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonIconDefaultProps {
   onClick?: () => void
-  color?: Colors
+  color?: PikasColor
   type?: ButtonType
 }
 
@@ -162,7 +167,7 @@ export interface ButtonIconLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement>,
     ButtonIconDefaultProps {
   onClick?: () => void
-  color?: Colors
+  color?: PikasColor
   href?: string
   target?: ButtonTarget
 }

@@ -3,7 +3,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
 import { Separator } from '@pikas-ui/separator'
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
@@ -130,13 +130,13 @@ type ResultGroupWithId = {
 }
 
 export type SearchbarCSS = {
-  container?: CSS
-  resultContainer?: CSS
-  noResult?: CSS
-  resultItem?: CSS
+  container?: PikasCSS
+  resultContainer?: PikasCSS
+  noResult?: PikasCSS
+  resultItem?: PikasCSS
   textfield?: TextfieldCSS
-  resultGroup?: CSS
-  resultGroupTitle?: CSS
+  resultGroup?: PikasCSS
+  resultGroupTitle?: PikasCSS
 }
 
 export interface SearchbarProps<T> {

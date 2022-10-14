@@ -1,4 +1,4 @@
-import { Colors } from '@pikas-ui/styles'
+import { PikasColor } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ValidateDialogContent } from './ValidateDialogContent/index.js'
@@ -8,8 +8,8 @@ import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 export interface ValidateDialogProps extends DialogProps {
   cancelButtonLabel?: string
   validateButtonLabel?: string
-  cancelButtonColor?: Colors
-  validateButtonColor?: Colors
+  cancelButtonColor?: PikasColor
+  validateButtonColor?: PikasColor
   cancelButtonDisabled?: boolean
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean

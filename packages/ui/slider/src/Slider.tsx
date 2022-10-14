@@ -1,8 +1,13 @@
-import type { BorderRadius, Colors, CSS, FontsSizes } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  PikasCSS,
+  FontsSizes,
+  PikasColors,
+  Colors,
+} from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
-import React from 'react'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 const Container = styled('div', {
@@ -39,7 +44,7 @@ const Thumb = styled(SliderPrimitive.Thumb, {
   '&:focus': { boxShadow: 'ELEVATION_2' },
 })
 
-const Element = styled('div', {
+const Item = styled('div', {
   display: 'flex',
   alignItems: 'center',
   paddingTop: 8,
@@ -58,7 +63,7 @@ export const SliderOrientation = {
 }
 export type SliderOrientation = keyof typeof SliderOrientation
 
-export interface SliderCSS {
+export interface SliderCSS<CSS> {
   container?: CSS
   label?: CSS
   description?: CSS
@@ -70,7 +75,7 @@ export interface SliderCSS {
   thumb?: CSS
 }
 
-export interface SliderProps {
+export interface SliderProps<CSS, Color> {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
   id?: string
@@ -93,23 +98,26 @@ export interface SliderProps {
   minSize?: string | number
   weight?: number
   thumbSize?: number
-  thumbColor?: Colors
+  thumbColor?: Color
   thumbColorHex?: string
-  thumbBorderColor?: Colors
+  thumbBorderColor?: Color
   thumbBorderColorHex?: string
-  thumbBorderColorHover?: Colors
+  thumbBorderColorHover?: Color
   thumbBorderColorHoverHex?: string
   thumbBorderWidth?: number
   thumbBorderRadius?: BorderRadius
-  trackColor?: Colors
+  trackColor?: Color
   trackColorHex?: string
-  rangeColor?: Colors
+  rangeColor?: Color
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadius
-  css?: SliderCSS
+  css?: SliderCSS<CSS>
 }
 
-export const Slider: React.FC<SliderProps> = ({
+export const Slider = <
+  CSS extends Record<string, unknown> = PikasCSS,
+  Color extends Colors<Record<string, string>> = PikasColors
+>({
   id,
   label,
   textError,
@@ -146,7 +154,7 @@ export const Slider: React.FC<SliderProps> = ({
   rangeColorHex,
   sliderBorderRadius,
   css,
-}) => {
+}: SliderProps<CSS, keyof Color>): JSX.Element => {
   return (
     <Container
       className={className}
@@ -184,7 +192,7 @@ export const Slider: React.FC<SliderProps> = ({
         </Description>
       ) : null}
 
-      <Element
+      <Item
         css={{
           height: orientation === 'vertical' ? '100%' : undefined,
           width: orientation === 'horizontal' ? '100%' : undefined,
@@ -223,7 +231,9 @@ export const Slider: React.FC<SliderProps> = ({
             css={{
               br: sliderBorderRadius,
               backgroundColor:
-                trackColorHex || trackColor ? `$${trackColor}` : undefined,
+                trackColorHex || trackColor
+                  ? `$${trackColor as string}`
+                  : undefined,
 
               '&[data-orientation="horizontal"]': { height: weight },
               '&[data-orientation="vertical"]': { width: weight },
@@ -235,7 +245,9 @@ export const Slider: React.FC<SliderProps> = ({
               css={{
                 br: sliderBorderRadius,
                 backgroundColor:
-                  rangeColorHex || rangeColor ? `$${rangeColor}` : undefined,
+                  rangeColorHex || rangeColor
+                    ? `$${rangeColor as string}`
+                    : undefined,
 
                 ...css?.range,
               }}
@@ -247,10 +259,12 @@ export const Slider: React.FC<SliderProps> = ({
               width: thumbSize,
               height: thumbSize,
               backgroundColor:
-                thumbColorHex || thumbColor ? `$${thumbColor}` : undefined,
+                thumbColorHex || thumbColor
+                  ? `$${thumbColor as string}`
+                  : undefined,
               borderColor:
                 thumbBorderColorHex || thumbBorderColor
-                  ? `$${thumbBorderColor}`
+                  ? `$${thumbBorderColor as string}`
                   : undefined,
               borderWidth: thumbBorderWidth,
               borderRadius: thumbBorderRadius,
@@ -258,7 +272,7 @@ export const Slider: React.FC<SliderProps> = ({
               '&:hover': {
                 backgroundColor:
                   thumbBorderColorHoverHex || thumbBorderColorHover
-                    ? `$${thumbBorderColorHover}`
+                    ? `$${thumbBorderColorHover as string}`
                     : undefined,
               },
 
@@ -266,7 +280,7 @@ export const Slider: React.FC<SliderProps> = ({
             }}
           />
         </SliderStyled>
-      </Element>
+      </Item>
 
       {textError ? (
         <TextError css={{ marginTop: 5, ...css?.textError }}>

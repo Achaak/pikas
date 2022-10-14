@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import React from 'react'
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { IconByName } from '@pikas-ui/icons'
@@ -56,16 +56,16 @@ const ButtonArrowRight = styled(ButtonArrow, {
 })
 
 export interface PaginationCSSProps {
-  container?: CSS
-  leftContainer?: CSS
-  rightContainer?: CSS
-  pageNumber?: CSS
-  pageNumberActive?: CSS
+  container?: PikasCSS
+  leftContainer?: PikasCSS
+  rightContainer?: PikasCSS
+  pageNumber?: PikasCSS
+  pageNumberActive?: PikasCSS
   select?: SelectCSS
-  buttonChevronsLeft?: CSS
-  buttonChevronsRight?: CSS
-  buttonChevronLeft?: CSS
-  buttonChevronRight?: CSS
+  buttonChevronsLeft?: PikasCSS
+  buttonChevronsRight?: PikasCSS
+  buttonChevronLeft?: PikasCSS
+  buttonChevronRight?: PikasCSS
 }
 
 export interface PaginationProps {

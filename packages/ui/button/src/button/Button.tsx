@@ -1,6 +1,6 @@
 import type {
-  Colors,
-  CSS,
+  PikasColor,
+  PikasCSS,
   FontsWeights,
   BorderRadius,
   FontsSizes,
@@ -168,7 +168,7 @@ const Children = styled('div', {
 })
 
 export type ButtonCSS = {
-  button?: CSS
+  button?: PikasCSS
   icon?: IconCSS
 }
 
@@ -179,9 +179,9 @@ export interface ButtonDefaultProps {
   padding?: ButtonPadding
   fontSize?: FontsSizes
   gap?: ButtonGap
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
-  contentColor?: Colors
+  contentColor?: PikasColor
   contentColorHex?: string
   textTransform?: ButtonTextTransform
   fontWeight?: FontsWeights
@@ -202,7 +202,7 @@ export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonDefaultProps {
   onClick?: () => void
-  color?: Colors
+  color?: PikasColor
   type?: ButtonType
 }
 
@@ -210,7 +210,7 @@ export interface ButtonLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement>,
     ButtonDefaultProps {
   onClick?: () => void
-  color?: Colors
+  color?: PikasColor
   href?: string
   target?: ButtonTarget
 }

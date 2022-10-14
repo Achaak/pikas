@@ -1,11 +1,11 @@
 import { RiseLoader as RiseLoaderDefault } from 'react-spinners'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface RiseLoaderProps {
   size?: number
   margin?: number
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -24,7 +24,7 @@ export const RiseLoader: React.FC<RiseLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
+      color={colorHex || (color ? `var(--pikas-colors-${color})` : undefined)}
       loading={loading}
     />
   )

@@ -1,5 +1,5 @@
 import { ScaleLoader as ScaleLoaderDefault } from 'react-spinners'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface ScaleLoaderProps {
@@ -7,7 +7,7 @@ export interface ScaleLoaderProps {
   width?: number
   radius?: number
   margin?: number
-  color?: Colors
+  color?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -30,7 +30,7 @@ export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
       radius={radius}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
+      color={colorHex || (color ? `var(--pikas-colors-${color})` : undefined)}
       loading={loading}
     />
   )

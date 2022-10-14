@@ -15,7 +15,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
 } from '@tanstack/react-table'
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { PaginationCSSProps } from './pagination/index.js'
 import { Pagination } from './pagination/index.js'
@@ -141,27 +141,27 @@ export const TableVariant = {
 export type TableVariant = keyof typeof TableVariant
 
 export interface TableCSS<T> {
-  container?: CSS
-  table?: CSS
-  thead?: CSS
-  tbody?: CSS
-  tfoot?: CSS
-  tr?: CSS
-  th?: CSS
-  thSpan?: CSS
-  td?: CSS
-  tdContent?: CSS
-  tdEmptyMessage?: CSS
-  tdContentEmptyMessage?: CSS
+  container?: PikasCSS
+  table?: PikasCSS
+  thead?: PikasCSS
+  tbody?: PikasCSS
+  tfoot?: PikasCSS
+  tr?: PikasCSS
+  th?: PikasCSS
+  thSpan?: PikasCSS
+  td?: PikasCSS
+  tdContent?: PikasCSS
+  tdEmptyMessage?: PikasCSS
+  tdContentEmptyMessage?: PikasCSS
   pagination?: PaginationCSSProps
   column?: Partial<
     Record<
       keyof T,
       {
-        th?: CSS
-        td?: CSS
-        thSpan?: CSS
-        tdContent?: CSS
+        th?: PikasCSS
+        td?: PikasCSS
+        thSpan?: PikasCSS
+        tdContent?: PikasCSS
       }
     >
   >
