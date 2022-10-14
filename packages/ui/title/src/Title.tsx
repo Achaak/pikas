@@ -37,6 +37,11 @@ const TitleStyle = styled('h1', {
         fontWeight: '$BOLD',
         letterSpacing: '$SMALL',
       },
+      h6: {
+        fontSize: '$EM-MEDIUM',
+        fontWeight: '$MEDIUM',
+        letterSpacing: '$SMALL',
+      },
     },
   },
 })
@@ -47,6 +52,7 @@ export const TitleComponent = {
   h3: true,
   h4: true,
   h5: true,
+  h6: true,
 }
 export type TitleAs = keyof typeof TitleComponent
 
@@ -68,6 +74,7 @@ export interface TitleCSS {
   h3?: CSS
   h4?: CSS
   h5?: CSS
+  h6?: CSS
 }
 
 export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {

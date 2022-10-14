@@ -13,6 +13,7 @@ export const TitleExample: React.FC = () => {
       <Title as="h3">Title H3</Title>
       <Title as="h4">Title H4</Title>
       <Title as="h5">Title H5</Title>
+      <Title as="h6">Title H6</Title>
     </ExampleContainer>
   )
 }
