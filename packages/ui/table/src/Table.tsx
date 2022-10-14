@@ -308,17 +308,17 @@ export const Table = <T extends Record<string, unknown>>({
           onRowSelectionChange: handleRowSelectionChange,
         }
       : {}),
-    ...(sorting?.active
-      ? {
-          onPaginationChange: pagination?.onPaginationChange,
-        }
-      : {}),
     ...(selection?.active && selection?.onRowSelectionChange
       ? {
           onRowSelectionChange: setSelectionState,
         }
       : {}),
-    ...(sorting?.active && sorting?.onSortingChange
+    ...(sorting?.active
+      ? {
+          onPaginationChange: pagination?.onPaginationChange,
+        }
+      : {}),
+    ...(sorting?.active
       ? {
           onSortingChange: setSortingState,
         }
@@ -345,7 +345,7 @@ export const Table = <T extends Record<string, unknown>>({
 
   useEffect(() => {
     if (!sorting) return
-    if (!sorting.active) return
+    if (!sorting?.active) return
     setSortingState(sorting.state || [])
   }, [sorting?.state])
 
@@ -429,7 +429,7 @@ export const Table = <T extends Record<string, unknown>>({
                             }}
                           />
                         ),
-                      }[header.column.getIsSorted() as string] ?? null}
+                      }[header.column.getIsSorted()] ?? null}
                     </ThSpan>
                   )}
                 </Th>
@@ -552,7 +552,7 @@ export const Table = <T extends Record<string, unknown>>({
                               }}
                             />
                           ),
-                        }[header.column.getIsSorted() as string] ?? null}
+                        }[header.column.getIsSorted()] ?? null}
                       </ThSpan>
                     )}
                   </Th>

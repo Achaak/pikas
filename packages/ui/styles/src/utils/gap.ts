@@ -77,3 +77,5 @@ export const gap = {
     }
   },
 }
+
+export type Gap = typeof gap

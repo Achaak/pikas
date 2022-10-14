@@ -1,6 +1,10 @@
-import React from 'react'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  ColorsRecord,
+  CSSRecord,
+  Color as ColorByPikas,
+} from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
 import { Skeleton } from '@pikas-ui/skeleton'
@@ -34,27 +38,33 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarCSS {
-  container?: PikasCSS
-  image?: PikasCSS
-  fallback?: PikasCSS
+export interface AvatarCSS<CSS extends CSSRecord> {
+  container?: CSS
+  image?: CSS
+  fallback?: CSS
 }
 
-export interface AvatarProps {
+export interface AvatarProps<
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord>
+> {
   alt?: string
   src?: string
   onLoadingStatusChange?: (status: ImageLoadingStatus) => void
   delayMs?: number
   fallback?: string
-  fallbackColor?: PikasColor
-  fallbackBackgroundColor?: PikasColor
-  css?: AvatarCSS
+  fallbackColor?: Color
+  fallbackBackgroundColor?: Color
+  css?: AvatarCSS<CSS>
   size?: number
   borderRadius?: BorderRadius
   loading?: boolean
 }
 
-export const Avatar: React.FC<AvatarProps> = ({
+export const Avatar = <
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord>
+>({
   alt,
   src,
   onLoadingStatusChange,
@@ -66,7 +76,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   size,
   borderRadius,
   loading,
-}) => {
+}: AvatarProps<CSS, Color>): JSX.Element => {
   return (
     <Root
       css={{

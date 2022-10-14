@@ -1,6 +1,12 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasCSS, PikasFontSize } from '@pikas-ui/styles'
+import type {
+  CSSRecord,
+  FontSize as FontSizeByPikas,
+  FontSizesRecord,
+  PikasCSS,
+  PikasFontSize,
+} from '@pikas-ui/styles'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
@@ -68,25 +74,28 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSS {
-  container?: PikasCSS
-  content?: PikasCSS
-  infoTooltip?: TooltipCSS
+export interface SwitchCSS<CSS extends CSSRecord> {
+  container?: CSS
+  content?: CSS
+  infoTooltip?: TooltipCSS<CSS>
   infoIcon?: IconCSS
-  label?: PikasCSS
-  required?: PikasCSS
-  textError?: PikasCSS
+  label?: CSS
+  required?: CSS
+  textError?: CSS
 }
 
-export interface BasicSwitchProps {
+export interface BasicSwitchProps<
+  CSS extends CSSRecord,
+  FontSize extends FontSizeByPikas<FontSizesRecord>
+> {
   label?: string
   name?: string
-  fontSize?: PikasFontSize
+  fontSize?: FontSize
   textError?: string
 
   onCheckedChange?: (val: boolean) => void
   defaultChecked?: boolean
-  css?: SwitchCSS
+  css?: SwitchCSS<CSS>
   disabled?: boolean
   side?: 'left' | 'right'
   Icons?: {
@@ -98,10 +107,15 @@ export interface BasicSwitchProps {
   info?: string
 }
 
-export type SwitchProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  BasicSwitchProps
+export type SwitchProps<
+  CSS extends CSSRecord,
+  FontSize extends FontSizeByPikas<FontSizesRecord>
+> = ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<CSS, FontSize>
 
-export const Switch: React.FC<SwitchProps> = ({
+export const Switch = <
+  CSS extends CSSRecord = PikasCSS,
+  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize
+>({
   id,
   name,
   onCheckedChange,
@@ -117,7 +131,7 @@ export const Switch: React.FC<SwitchProps> = ({
   required,
   checked,
   ...props
-}) => {
+}: SwitchProps<CSS, FontSize>): JSX.Element => {
   const [checkedState, setCheckedState] = useState(defaultChecked || checked)
 
   useEffect(() => {

@@ -54,6 +54,17 @@ const Example: React.FC = () => {
 }
 ```
 
+#### With a custom configuration
+
+```tsx
+import { Separator } from `@pikas-ui/separator`;
+import type { PikasCSS, Color } from 'your_config'
+
+const Example: React.FC = () => {
+  return <Separator<PikasCSS, Color> />
+}
+```
+
 | Prop           | Description                         | Type                   | Default        |
 | :------------- | :---------------------------------- | :--------------------- | :------------- |
 | `orientation`  | The orientation of the separator.   | `SeparatorOrientation` | `"horizontal"` |

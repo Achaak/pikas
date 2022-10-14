@@ -1,5 +1,6 @@
 import { DotLoader as DotLoaderDefault } from 'react-spinners'
 import type { PikasColor } from '@pikas-ui/styles'
+import { useTheme } from '@pikas-ui/styles'
 import React from 'react'
 
 export interface DotLoaderProps {
@@ -17,11 +18,13 @@ export const DotLoader: React.FC<DotLoaderProps> = ({
   loading,
   speedMultiplier,
 }) => {
+  const theme = useTheme()
+
   return (
     <DotLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? `var(--pikas-colors-${color})` : undefined)}
+      color={colorHex || (color ? theme?.colors[color].value : undefined)}
       loading={loading}
     />
   )

@@ -97,17 +97,21 @@ export const pikasColors = {
 export type PikasColors = typeof pikasColors
 export type PikasColor = keyof PikasColors
 
-export type Colors<T extends Record<string, string>> = PikasColors & T
-export type Color<T extends Record<string, string>> = keyof Colors<T>
+export type ColorsRecordValue = string
+export type ColorsRecordKey = string | number | PikasColor
+export type ColorsRecord = Record<ColorsRecordKey, ColorsRecordValue>
 
-export const loadColors = <T extends Record<string, string>>(
-  colors?:
+export type Colors<T extends ColorsRecord> = PikasColors & T
+export type Color<T extends ColorsRecord> = keyof Colors<T>
+
+export const loadColors = <T extends ColorsRecord>(
+  values:
     | {
-        [key in keyof PikasColors]?: string
+        [key in keyof PikasColors]?: ColorsRecordValue
       }
     | T
 ): PikasColors & T =>
   ({
     ...pikasColors,
-    ...colors,
+    ...values,
   } as PikasColors & T)

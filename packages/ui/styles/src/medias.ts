@@ -9,17 +9,21 @@ export const pikasMedias = {
 export type PikasMedias = typeof pikasMedias
 export type PikasMedia = keyof PikasMedias
 
-export type Medias<T extends Record<string, string>> = PikasMedias & T
-export type Media<T extends Record<string, string>> = keyof Medias<T>
+export type MediasRecordValue = string
+export type MediasRecordKey = string | number
+export type MediasRecord = Record<MediasRecordKey, MediasRecordValue>
 
-export const loadMedias = <T extends Record<string, string>>(
-  Medias?:
+export type Medias<T extends MediasRecord> = PikasMedias & T
+export type Media<T extends MediasRecord> = keyof Medias<T>
+
+export const loadMedias = <T extends MediasRecord>(
+  values:
     | {
-        [key in keyof PikasMedias]?: string
+        [key in keyof PikasMedias]?: MediasRecordValue
       }
     | T
 ): PikasMedias & T =>
   ({
     ...pikasMedias,
-    ...Medias,
+    ...values,
   } as PikasMedias & T)

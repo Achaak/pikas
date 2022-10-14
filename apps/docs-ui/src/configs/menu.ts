@@ -12,7 +12,11 @@ export const menu: LayoutMenu = [
       },
       {
         label: 'Getting Started',
-        href: '/docs/getting-started',
+        href: getLink('gettingStarted'),
+      },
+      {
+        label: 'Custom config',
+        href: getLink('createPikas'),
       },
     ],
   },

@@ -43,6 +43,16 @@ const ContentChild = styled('div', {
     marginTop: 12,
     marginBottom: 12,
     color: '$BLACK',
+
+    '& > code': {
+      all: 'unset',
+      color: '$WARNING',
+      backgroundColor: '$WARNING_LIGHTEST_2',
+      padding: '4px 8px',
+      margin: '1px 0',
+      display: 'inline-block',
+      br: 'sm',
+    },
   },
   '& > hr': {
     marginTop: 40,
@@ -88,7 +98,7 @@ const ContentChild = styled('div', {
     width: '100%',
     br: 'sm',
     overflowX: 'auto',
-    display: 'block',
+    display: 'inline-block',
     whiteSpace: 'nowrap',
     fontSize: '$EM-SMALL',
 
@@ -97,6 +107,10 @@ const ContentChild = styled('div', {
       padding: '8px 16px',
       borderBottom: '1px solid',
       borderColor: '$GRAY_LIGHT',
+
+      '&:nth-child(2)': {
+        width: '100%',
+      },
     },
     '& td': {
       padding: '8px 16px',
@@ -104,7 +118,7 @@ const ContentChild = styled('div', {
     '& code': {
       all: 'unset',
       color: '$WARNING',
-      backgroundColor: '$WHITE2',
+      backgroundColor: '$WARNING_LIGHTEST_2',
       padding: '4px 8px',
       margin: '1px 0',
       display: 'inline-block',

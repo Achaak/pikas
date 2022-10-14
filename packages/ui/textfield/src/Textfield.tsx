@@ -6,6 +6,13 @@ import type {
   PikasCSS,
   PikasFontSize,
   BorderRadius,
+  CSSRecord,
+  FontSize as FontSizeByPikas,
+  Shadow as ShadowByPikas,
+  Color as ColorByPikas,
+  FontSizesRecord,
+  ColorsRecord,
+  ShadowsRecord,
 } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
@@ -188,54 +195,59 @@ export const TextfieldGap = {
 }
 export type TextfieldGap = keyof typeof TextfieldGap
 
-export type TextfieldCSS = {
-  container?: PikasCSS
-  inputContainer?: PikasCSS
-  input?: PikasCSS
-  left?: PikasCSS
-  right?: PikasCSS
+export type TextfieldCSS<CSS extends CSSRecord> = {
+  container?: CSS
+  inputContainer?: CSS
+  input?: CSS
+  left?: CSS
+  right?: CSS
   leftIcon?: IconCSS
   rightIcon?: IconCSS
-  infoTooltip?: TooltipCSS
+  infoTooltip?: TooltipCSS<CSS>
   infoIcon?: IconCSS
-  label?: PikasCSS
-  description?: PikasCSS
-  textError?: PikasCSS
-  required?: PikasCSS
+  label?: CSS
+  description?: CSS
+  textError?: CSS
+  required?: CSS
 }
 
-export type TextfieldProps = {
+export type TextfieldProps<
+  CSS extends CSSRecord,
+  FontSize extends FontSizeByPikas<FontSizesRecord>,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> = {
   type?: TextfieldType
   id?: string
   label?: string
-  boxShadow?: PikasShadow | 'none'
+  boxShadow?: Shadow | 'none'
   borderRadius?: BorderRadius
   padding?: TextfieldPadding
   gap?: TextfieldGap
-  fontSize?: PikasFontSize
-  borderColor?: PikasColor
+  fontSize?: FontSize
+  borderColor?: Color
   borderColorHex?: string
   borderWidth?: number
-  color?: PikasColor
+  color?: Color
   colorHex?: string
-  placeholderColor?: PikasColor
+  placeholderColor?: Color
   placeholderColorHex?: string
-  backgroundColor?: PikasColor
+  backgroundColor?: Color
   backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
   LeftIcon?: React.FC<IconProps>
   RightIcon?: React.FC<IconProps>
-  leftIconColor?: PikasColor
+  leftIconColor?: Color
   leftIconColorHex?: string
-  rightIconColor?: PikasColor
+  rightIconColor?: Color
   rightIconColorHex?: string
   leftIconSize?: number
   rightIconSize?: number
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
-  css?: TextfieldCSS
+  css?: TextfieldCSS<CSS>
   min?: number
   max?: number
   outline?: boolean
@@ -247,8 +259,13 @@ export type TextfieldProps = {
   data?: DOMStringMap
 } & InputHTMLAttributes<HTMLInputElement>
 
-export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
-  (
+export const Textfield = forwardRef(
+  <
+    CSS extends CSSRecord = PikasCSS,
+    FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
+    Color extends ColorByPikas<ColorsRecord> = PikasColor,
+    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
+  >(
     {
       id,
       type,
@@ -293,8 +310,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       disabled,
       data,
       ...props
-    },
-    ref
+    }: TextfieldProps<CSS, FontSize, Color, Shadow>,
+    ref: React.Ref<HTMLInputElement>
   ) => {
     const refInput = useRef<HTMLInputElement>(null)
     const multiRef = useMergedRef(ref, refInput)
@@ -321,7 +338,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       color,
       colorHex,
     }: {
-      color?: string
+      color?: Color
       colorHex?: string
     }): string => {
       return (
@@ -329,7 +346,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         (color ? `$${color}` : undefined) ||
         (theme
           ? fontColorContrast(
-              theme.colors[backgroundColor || 'WHITE'].value,
+              theme.colors[(backgroundColor as PikasColor) || 'WHITE'].value,
               0.7
             )
           : undefined) ||

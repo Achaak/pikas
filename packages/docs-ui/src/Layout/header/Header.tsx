@@ -67,6 +67,7 @@ export const Header: React.FC<CustomProps> = ({
   documentationLink,
   githubLink,
 }) => {
+
   const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode()
   const [switchComponent, setSwitchComponent] =
     useState<React.ReactNode>(undefined)

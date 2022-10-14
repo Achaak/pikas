@@ -59,6 +59,21 @@ const Example: React.FC = () => {
 }
 ```
 
+#### With a custom configuration
+
+```tsx
+import { Skeleton } from `@pikas-ui/skeleton`;
+import type { PikasCSS } from 'your_config'
+
+const Example: React.FC = () => {
+  return (
+    <Skeleton<PikasCSS> animation="pulse" width="100%" height={24} />
+    <Skeleton<PikasCSS> animation="wave" width="100%" height={24} />
+    <Skeleton<PikasCSS> animation={false} width="100%" height={24} />
+  )
+}
+```
+
 #### Props
 
 | Prop           | Description                        | Type                | Default   |

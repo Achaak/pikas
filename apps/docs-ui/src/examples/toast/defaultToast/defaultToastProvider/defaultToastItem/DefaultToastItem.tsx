@@ -16,6 +16,8 @@ interface DefaultToastExampleProps {
 export const DefaultToastItem: React.FC<DefaultToastExampleProps> = ({
   position,
 }) => {
+  
+
   const { publish } = useToast()
 
   const handlePublish = (): void => {

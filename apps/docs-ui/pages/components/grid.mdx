@@ -88,11 +88,24 @@ const Example: React.FC = () => {
 }
 ```
 
+#### With a custom configuration
+
+```tsx
+import { Grid } from `@pikas-ui/grid`;
+import type { PikasCSS } from 'your_config'
+
+const Example: React.FC = () => {
+  return (
+    <Grid<PikasCSS> type="container" />
+  )
+}
+```
+
 #### Props
 
 | Prop             | Description                             | Type                          | Default  |
 | :--------------- | :-------------------------------------- | :---------------------------- | :------- |
-| `children`       | The children of the component.          | `React.ReactNode`             | -        |
+| `children`       | The children of the component.          | `ReactNode`                   | -        |
 | `css`            | The css of the component.               | `PikasCSS`                    | -        |
 | `type`           | The type of the component.              | `GridType`                    | required |
 | `rowGap`         | The row gap of the component.           | `GridContainerRowGap`         | -        |
@@ -118,11 +131,11 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop       | Description                                   | Type              | Default  |
-| :--------- | :-------------------------------------------- | :---------------- | :------- |
-| `children` | The children of the component.                | `React.ReactNode` | -        |
-| `css`      | The css of the component.                     | `PikasCSS`        | -        |
-| `type`     | The type of the component.                    | `GridType`        | required |
-| `cols`     | Number of columns the item should span.       | `GridItemCols`    | -        |
-| `start`    | The start of the column the item should span. | `GridItemStart`   | -        |
-| `end`      | The end of the column the item should span.   | `GridItemEnd`     | -        |
+| Prop       | Description                                   | Type            | Default  |
+| :--------- | :-------------------------------------------- | :-------------- | :------- |
+| `children` | The children of the component.                | `ReactNode`     | -        |
+| `css`      | The css of the component.                     | `PikasCSS`      | -        |
+| `type`     | The type of the component.                    | `GridType`      | required |
+| `cols`     | Number of columns the item should span.       | `GridItemCols`  | -        |
+| `start`    | The start of the column the item should span. | `GridItemStart` | -        |
+| `end`      | The end of the column the item should span.   | `GridItemEnd`   | -        |

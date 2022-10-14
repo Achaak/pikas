@@ -4,6 +4,13 @@ import type {
   PikasCSS,
   PikasFontSize,
   BorderRadius,
+  CSSRecord,
+  FontSizesRecord,
+  ColorsRecord,
+  ShadowsRecord,
+  FontSize as FontSizeByPikas,
+  Shadow as ShadowByPikas,
+  Color as ColorByPikas,
 } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Label, TextError, Description } from '@pikas-ui/text'
@@ -86,28 +93,33 @@ export const TextareaResize = {
 }
 export type TextareaResize = keyof typeof TextareaResize
 
-export interface TextareaCSS {
-  container?: PikasCSS
-  textareaContainer?: PikasCSS
-  textarea?: PikasCSS
-  infoTooltip?: TooltipCSS
+export interface TextareaCSS<CSS extends CSSRecord> {
+  container?: CSS
+  textareaContainer?: CSS
+  textarea?: CSS
+  infoTooltip?: TooltipCSS<CSS>
   infoIcon?: IconCSS
-  label?: PikasCSS
-  description?: PikasCSS
-  textError?: PikasCSS
-  required?: PikasCSS
+  label?: CSS
+  description?: CSS
+  textError?: CSS
+  required?: CSS
 }
 
-export type TextareaProps = {
+export type TextareaProps<
+  CSS extends CSSRecord,
+  FontSize extends FontSizeByPikas<FontSizesRecord>,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> = {
   id?: string
   label?: string
-  boxShadow?: PikasShadow | 'none'
+  boxShadow?: Shadow | 'none'
   borderRadius?: BorderRadius
   padding?: TextareaPadding
-  fontSize?: PikasFontSize
+  fontSize?: FontSize
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  css?: TextareaCSS
+  css?: TextareaCSS<CSS>
   outline?: boolean
   resize?: TextareaResize
   description?: string
@@ -117,21 +129,26 @@ export type TextareaProps = {
   maxHeight?: string | number
   minHeight?: string | number
   minWidth?: string | number
-  borderColor?: PikasColor
+  borderColor?: Color
   borderColorHex?: string
   borderWidth?: number
-  color?: PikasColor
+  color?: Color
   colorHex?: string
-  placeholderColor?: PikasColor
+  placeholderColor?: Color
   placeholderColorHex?: string
-  backgroundColor?: PikasColor
+  backgroundColor?: Color
   backgroundColorHex?: string
   info?: React.ReactNode
   data?: DOMStringMap
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
+export const Textarea = forwardRef(
+  <
+    CSS extends CSSRecord = PikasCSS,
+    FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
+    Color extends ColorByPikas<ColorsRecord> = PikasColor,
+    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
+  >(
     {
       id,
       onChange,
@@ -165,8 +182,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       disabled,
       data,
       ...props
-    },
-    ref
+    }: TextareaProps<CSS, FontSize, Color, Shadow>,
+    ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
     const [focus, setFocus] = useState(false)
     const theme = useTheme()
@@ -183,7 +200,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       color,
       colorHex,
     }: {
-      color?: string
+      color?: Color
       colorHex?: string
     }): string => {
       return colorHex || color
@@ -191,7 +208,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         : undefined ||
             (theme &&
               fontColorContrast(
-                theme.colors[backgroundColor || 'WHITE'].value,
+                theme.colors[(backgroundColor as PikasColor) || 'WHITE'].value,
                 0.7
               )) ||
             ''

@@ -1,4 +1,8 @@
-import { createTheme } from '@pikas-ui/styles'
+import { createTheme } from './globalCss.js'
+
+// TODO: Remove the workaround whenever MS fixes the issue
+// https://github.com/microsoft/TypeScript/issues/48212
+import type {} from '@stitches/react'
 
 export const themeDefault = createTheme({
   colors: {

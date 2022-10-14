@@ -23,17 +23,21 @@ export const pikasFontSizes = {
 export type PikasFontSizes = typeof pikasFontSizes
 export type PikasFontSize = keyof PikasFontSizes
 
-export type FontSizes<T extends Record<string, string>> = PikasFontSizes & T
-export type FontSize<T extends Record<string, string>> = keyof FontSizes<T>
+export type FontSizesRecordValue = string | number
+export type FontSizesRecordKey = string | number
+export type FontSizesRecord = Record<FontSizesRecordKey, FontSizesRecordValue>
 
-export const loadFontSizes = <T extends Record<string, string>>(
-  FontSizes?:
+export type FontSizes<T extends FontSizesRecord> = PikasFontSizes & T
+export type FontSize<T extends FontSizesRecord> = keyof FontSizes<T>
+
+export const loadFontSizes = <T extends FontSizesRecord>(
+  values:
     | {
-        [key in keyof PikasFontSizes]?: string
+        [key in keyof PikasFontSizes]?: FontSizesRecordValue
       }
     | T
 ): PikasFontSizes & T =>
   ({
     ...pikasFontSizes,
-    ...FontSizes,
+    ...values,
   } as PikasFontSizes & T)

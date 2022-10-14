@@ -1,9 +1,13 @@
 import type {
   BorderRadius,
   PikasCSS,
+  PikasColor,
+  Color as ColorByPikas,
+  FontSize as FontSizeByPikas,
+  CSSRecord,
+  ColorsRecord,
+  FontSizesRecord,
   PikasFontSize,
-  PikasColors,
-  Colors,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
@@ -63,7 +67,7 @@ export const SliderOrientation = {
 }
 export type SliderOrientation = keyof typeof SliderOrientation
 
-export interface SliderCSS<CSS> {
+export interface SliderCSS<CSS extends CSSRecord> {
   container?: CSS
   label?: CSS
   description?: CSS
@@ -75,13 +79,17 @@ export interface SliderCSS<CSS> {
   thumb?: CSS
 }
 
-export interface SliderProps<CSS, Color> {
+export interface SliderProps<
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord>,
+  FontSize extends FontSizeByPikas<FontSizesRecord>
+> {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
   id?: string
   label?: string | ReactNode
   textError?: string
-  fontSize?: PikasFontSize
+  fontSize?: FontSize
   className?: string
   description?: string
   value?: number[]
@@ -115,8 +123,9 @@ export interface SliderProps<CSS, Color> {
 }
 
 export const Slider = <
-  CSS extends Record<string, unknown> = PikasCSS,
-  Color extends Colors<Record<string, string>> = PikasColors
+  CSS extends CSSRecord = PikasCSS,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor,
+  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize
 >({
   id,
   label,
@@ -154,7 +163,7 @@ export const Slider = <
   rangeColorHex,
   sliderBorderRadius,
   css,
-}: SliderProps<CSS, keyof Color>): JSX.Element => {
+}: SliderProps<CSS, Color, FontSize>): JSX.Element => {
   return (
     <Container
       className={className}
@@ -231,9 +240,7 @@ export const Slider = <
             css={{
               br: sliderBorderRadius,
               backgroundColor:
-                trackColorHex || trackColor
-                  ? `$${trackColor as string}`
-                  : undefined,
+                trackColorHex || trackColor ? `$${trackColor}` : undefined,
 
               '&[data-orientation="horizontal"]': { height: weight },
               '&[data-orientation="vertical"]': { width: weight },
@@ -245,9 +252,7 @@ export const Slider = <
               css={{
                 br: sliderBorderRadius,
                 backgroundColor:
-                  rangeColorHex || rangeColor
-                    ? `$${rangeColor as string}`
-                    : undefined,
+                  rangeColorHex || rangeColor ? `$${rangeColor}` : undefined,
 
                 ...css?.range,
               }}
@@ -259,12 +264,10 @@ export const Slider = <
               width: thumbSize,
               height: thumbSize,
               backgroundColor:
-                thumbColorHex || thumbColor
-                  ? `$${thumbColor as string}`
-                  : undefined,
+                thumbColorHex || thumbColor ? `$${thumbColor}` : undefined,
               borderColor:
                 thumbBorderColorHex || thumbBorderColor
-                  ? `$${thumbBorderColor as string}`
+                  ? `$${thumbBorderColor}`
                   : undefined,
               borderWidth: thumbBorderWidth,
               borderRadius: thumbBorderRadius,
@@ -272,7 +275,7 @@ export const Slider = <
               '&:hover': {
                 backgroundColor:
                   thumbBorderColorHoverHex || thumbBorderColorHover
-                    ? `$${thumbBorderColorHover as string}`
+                    ? `$${thumbBorderColorHover}`
                     : undefined,
               },
 

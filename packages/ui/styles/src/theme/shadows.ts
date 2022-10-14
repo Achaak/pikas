@@ -28,17 +28,21 @@ export const pikasShadows = {
 export type PikasShadows = typeof pikasShadows
 export type PikasShadow = keyof PikasShadows
 
-export type Shadows<T extends Record<string, string>> = PikasShadows & T
-export type Shadow<T extends Record<string, string>> = keyof Shadows<T>
+export type ShadowsRecordValue = string
+export type ShadowsRecordKey = string | number
+export type ShadowsRecord = Record<ShadowsRecordKey, ShadowsRecordValue>
 
-export const loadShadows = <T extends Record<string, string>>(
-  Shadows?:
+export type Shadows<T extends ShadowsRecord> = PikasShadows & T
+export type Shadow<T extends ShadowsRecord> = keyof Shadows<T>
+
+export const loadShadows = <T extends ShadowsRecord>(
+  values:
     | {
-        [key in keyof PikasShadows]?: string
+        [key in keyof PikasShadows]?: ShadowsRecordValue
       }
     | T
 ): PikasShadows & T =>
   ({
     ...pikasShadows,
-    ...Shadows,
+    ...values,
   } as PikasShadows & T)

@@ -1,10 +1,19 @@
 import type {
   BorderRadius,
+  Color as ColorByPikas,
+  ColorsRecord,
+  CSSRecord,
+  FontSize as FontSizeByPikas,
+  FontSizesRecord,
+  FontWeight as FontWeightByPikas,
+  FontWeightsRecord,
   PikasColor,
   PikasCSS,
   PikasFontSize,
   PikasFontWeight,
   PikasShadow,
+  Shadow as ShadowByPikas,
+  ShadowsRecord,
 } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { keyframes, styled, useTheme } from '@pikas-ui/styles'
@@ -98,15 +107,21 @@ export const TooltipPadding = {
 }
 export type TooltipPadding = keyof typeof TooltipPadding
 
-export type TooltipCSS = {
-  trigger?: PikasCSS
-  content?: PikasCSS
+export type TooltipCSS<CSS extends CSSRecord> = {
+  trigger?: CSS
+  content?: CSS
 }
 
-export interface TooltipProps {
+export interface TooltipProps<
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord>,
+  FontSize extends FontSizeByPikas<FontSizesRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>,
+  FontWeight extends FontWeightByPikas<FontWeightsRecord>
+> {
   content: string | React.ReactNode
   children?: React.ReactNode
-  backgroundColor?: PikasColor
+  backgroundColor?: Color
   open?: boolean
   defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void
@@ -122,14 +137,20 @@ export interface TooltipProps {
   avoidCollisions?: boolean
   collisionPadding?: number
   borderRadius?: BorderRadius
-  fontSize?: PikasFontSize
-  fontWeight?: PikasFontWeight
-  boxShadow?: PikasShadow
+  fontSize?: FontSize
+  fontWeight?: FontWeight
+  boxShadow?: Shadow
   padding?: TooltipPadding
-  css?: TooltipCSS
+  css?: TooltipCSS<CSS>
 }
 
-export const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip = <
+  CSS extends CSSRecord = PikasCSS,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor,
+  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
+  Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow,
+  FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight
+>({
   content,
   children,
   backgroundColor,
@@ -153,7 +174,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   hasArrow,
   padding,
   css,
-}) => {
+}: TooltipProps<CSS, Color, FontSize, Shadow, FontWeight>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -190,7 +211,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
               color:
                 (theme &&
                   fontColorContrast(
-                    theme.colors[backgroundColor || 'BLACK'].value,
+                    theme.colors[(backgroundColor as PikasColor) || 'BLACK']
+                      .value,
                     0.7
                   )) ||
                 undefined,

@@ -71,6 +71,8 @@ export const Badge: React.FC<BadgeProps> = ({
   gap,
   ...props
 }) => {
+  
+
   return (
     <BadgeStyled
       gap={gap}

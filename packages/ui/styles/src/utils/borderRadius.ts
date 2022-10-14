@@ -172,3 +172,5 @@ export const BR = {
     }
   },
 }
+
+export type BR = typeof BR

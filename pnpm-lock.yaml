@@ -255,6 +255,7 @@ importers:
       '@pikas-ui/switch': workspace:2.1.12
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
+      '@stitches/react': 1.2.8
       '@types/node': 18.8.5
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -268,6 +269,7 @@ importers:
       '@pikas-ui/icons': link:../ui/icons
       '@pikas-ui/styles': link:../ui/styles
       '@pikas-ui/switch': link:../ui/switch
+      '@stitches/react': 1.2.8
     devDependencies:
       '@pikas/config': link:../config
       '@pikas/tsconfig': link:../tsconfig
