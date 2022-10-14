@@ -20,7 +20,7 @@ export interface AlertProps extends DefaultAlertProps {
 }
 
 export const Alert: React.FC<AlertProps> = ({
-  variant,
+  variant = 'info',
   children,
   ...props
 }) => {
@@ -71,9 +71,4 @@ export const Alert: React.FC<AlertProps> = ({
       {children}
     </CustomAlert>
   )
-}
-
-Alert.defaultProps = {
-  ...CustomAlert.defaultProps,
-  variant: 'info',
 }

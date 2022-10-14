@@ -14,9 +14,9 @@ export interface RotateLoaderProps {
 
 export const RotateLoader: React.FC<RotateLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   margin,
   speedMultiplier,
 }) => {
@@ -31,9 +31,4 @@ export const RotateLoader: React.FC<RotateLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-RotateLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

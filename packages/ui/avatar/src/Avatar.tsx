@@ -4,6 +4,8 @@ import type {
   ColorsRecord,
   CSSRecord,
   Color as ColorByPikas,
+  PikasColor,
+  PikasCSS,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
@@ -62,20 +64,20 @@ export interface AvatarProps<
 }
 
 export const Avatar = <
-  CSS extends CSSRecord,
-  Color extends ColorByPikas<ColorsRecord>
+  CSS extends CSSRecord = PikasCSS,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   alt,
   src,
   onLoadingStatusChange,
   delayMs,
   fallback,
-  fallbackBackgroundColor,
-  fallbackColor,
+  fallbackBackgroundColor = 'PRIMARY_LIGHTEST_2' as Color,
+  fallbackColor = 'PRIMARY' as Color,
   css,
-  size,
-  borderRadius,
-  loading,
+  size = 80,
+  borderRadius = 'round',
+  loading = false,
 }: AvatarProps<CSS, Color>): JSX.Element => {
   return (
     <Root
@@ -121,12 +123,4 @@ export const Avatar = <
       </Fallback>
     </Root>
   )
-}
-
-Avatar.defaultProps = {
-  size: 80,
-  fallbackColor: 'PRIMARY',
-  fallbackBackgroundColor: 'PRIMARY_LIGHTEST_2',
-  borderRadius: 'round',
-  loading: false,
 }

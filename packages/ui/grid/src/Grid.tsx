@@ -1,4 +1,4 @@
-import type { CSSRecord, PikasCSS } from '@pikas-ui/styles'
+import type { CSSRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -235,7 +235,12 @@ export type GridProps<CSS extends CSSRecord> =
   | GridItemProps<CSS>
 
 export const Grid = <CSS extends CSSRecord>(
-  props: GridProps<CSS>
+  props: GridProps<CSS> = {
+    type: 'container',
+    rowGap: 'md',
+    columnGap: 'md',
+    cols: { default: 12 },
+  }
 ): JSX.Element => {
   const { children, css, type } = props
 
@@ -441,9 +446,4 @@ export const Grid = <CSS extends CSSRecord>(
       {children}
     </Container>
   )
-}
-
-Grid.defaultProps = {
-  rowGap: 'md',
-  columnGap: 'md',
 }

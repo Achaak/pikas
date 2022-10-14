@@ -15,9 +15,9 @@ export interface BeatLoaderProps {
 export const BeatLoader: React.FC<BeatLoaderProps> = ({
   size,
   margin,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -31,9 +31,4 @@ export const BeatLoader: React.FC<BeatLoaderProps> = ({
       speedMultiplier={speedMultiplier}
     />
   )
-}
-
-BeatLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

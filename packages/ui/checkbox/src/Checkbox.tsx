@@ -94,22 +94,22 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   textError,
   fontSize,
   className,
-  defaultChecked,
+  defaultChecked = false,
   checked,
   onChange,
-  disabled,
-  required,
+  disabled = false,
+  required = false,
   name,
-  bgColor,
-  bgColorChecked,
-  borderRadius,
-  boxShadow,
+  bgColor = 'WHITE',
+  bgColorChecked = 'PRIMARY',
+  borderRadius = 'md',
+  boxShadow = 'DIMINUTION_1',
   borderColor,
-  borderWidth,
-  size,
+  borderWidth = 0,
+  size = 24,
   side,
-  outline,
-  indeterminate,
+  outline = true,
+  indeterminate = false,
   css,
 }) => {
   const theme = useTheme()
@@ -265,20 +265,4 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       ) : null}
     </Container>
   )
-}
-
-Checkbox.defaultProps = {
-  bgColor: 'WHITE',
-  bgColorChecked: 'PRIMARY',
-  boxShadow: 'DIMINUTION_1',
-  borderRadius: 'md',
-  size: 24,
-  side: 'right',
-  borderWidth: 0,
-  outline: true,
-  fontSize: 'EM-MEDIUM',
-  disabled: false,
-  required: false,
-  indeterminate: false,
-  defaultChecked: false,
 }

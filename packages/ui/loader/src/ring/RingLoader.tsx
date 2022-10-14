@@ -13,9 +13,9 @@ export interface RingLoaderProps {
 
 export const RingLoader: React.FC<RingLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const RingLoader: React.FC<RingLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-RingLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

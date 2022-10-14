@@ -26,11 +26,11 @@ export interface CustomBadgeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const CustomBadge: React.FC<CustomBadgeProps> = ({
-  color,
+  color = 'PRIMARY',
   colorHex,
   children,
-  boxShadow,
-  borderRadius,
+  boxShadow = 'ELEVATION_BOTTOM_1',
+  borderRadius = 'round',
   css,
   ...props
 }) => {
@@ -55,10 +55,4 @@ export const CustomBadge: React.FC<CustomBadgeProps> = ({
       {children}
     </Container>
   )
-}
-
-CustomBadge.defaultProps = {
-  color: 'PRIMARY',
-  boxShadow: 'ELEVATION_BOTTOM_1',
-  borderRadius: 'round',
 }

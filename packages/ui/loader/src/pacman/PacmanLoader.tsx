@@ -21,12 +21,12 @@ export interface PacmanLoaderProps {
 
 export const PacmanLoader: React.FC<PacmanLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
   colorBubble,
   colorBubbleHex,
   margin,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -55,7 +55,4 @@ export const PacmanLoader: React.FC<PacmanLoaderProps> = ({
   )
 }
 
-PacmanLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
-}
+

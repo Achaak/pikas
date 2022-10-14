@@ -31,11 +31,11 @@ export const Separator = <
   CSS extends CSSRecord = PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
-  orientation,
+  orientation = 'horizontal',
   css,
   className,
-  color,
-  size,
+  color = 'GRAY_LIGHT',
+  size = 2,
   borderRadius,
 }: SeparatorProps<CSS, Color>): JSX.Element => {
   return (
@@ -63,10 +63,4 @@ export const Separator = <
       }}
     />
   )
-}
-
-Separator.defaultProps = {
-  orientation: 'horizontal',
-  size: 2,
-  color: 'GRAY_LIGHT',
 }

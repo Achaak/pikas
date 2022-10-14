@@ -13,9 +13,9 @@ export interface ClimbingBoxLoaderProps {
 
 export const ClimbingBoxLoader: React.FC<ClimbingBoxLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const ClimbingBoxLoader: React.FC<ClimbingBoxLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-ClimbingBoxLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

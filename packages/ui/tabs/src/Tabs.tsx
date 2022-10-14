@@ -212,13 +212,16 @@ export const Tabs = <T extends string>({
   defaultValue,
   value,
   onValueChange,
-  orientation,
-  direction,
+  orientation = 'vertical',
+  direction = 'ltr',
   activationMode,
   loop,
   css,
-  padding,
-  alignmentTrigger,
+  padding = {
+    trigger: 'md',
+    content: 'md',
+  },
+  alignmentTrigger = 'stretch',
   endTrigger,
   startTrigger,
 }: TabsProps<T>): JSX.Element => {
@@ -277,14 +280,4 @@ export const Tabs = <T extends string>({
       })}
     </Root>
   )
-}
-
-Tabs.defaultProps = {
-  padding: {
-    trigger: 'md',
-    content: 'md',
-  },
-  alignmentTrigger: 'stretch',
-  orientation: 'vertical',
-  direction: 'ltr',
 }

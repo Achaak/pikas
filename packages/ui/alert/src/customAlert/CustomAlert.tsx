@@ -86,13 +86,13 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
   backgroundColor,
   color,
   colorHex,
-  fontSize,
-  borderRadius,
-  iconSize,
-  fontWeight,
-  gap,
-  padding,
-  visible,
+  fontSize = 'EM-SMALL',
+  borderRadius = 'md',
+  iconSize = 24,
+  fontWeight = 'NORMAL',
+  gap = 'sm',
+  padding = 'md',
+  visible = true,
   css,
 }) => {
   return (
@@ -120,14 +120,4 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
       </Content>
     </Container>
   )
-}
-
-CustomAlert.defaultProps = {
-  fontSize: 'EM-SMALL',
-  borderRadius: 'md',
-  iconSize: 24,
-  fontWeight: 'NORMAL',
-  padding: 'md',
-  gap: 'sm',
-  visible: true,
 }

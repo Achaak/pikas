@@ -72,7 +72,6 @@ export interface ToastProviderProps {
   label?: string
   css?: PikasCSS
   swipeThreshold?: number
-  type?: 'foreground' | 'foreground'
   width?: number
   position?: ToastPosition
   closeWithSwipe?: boolean
@@ -94,14 +93,17 @@ export const ToastContext = React.createContext<ToastContextProps>({
 })
 
 export const ToastProvider: React.FC<ToastProviderProps> = ({
-  duration,
-  label,
+  duration = 5000,
+  label = 'Notification',
   css,
   swipeThreshold,
-  width,
-  position,
-  closeWithSwipe,
-  viewport,
+  width = 400,
+  position = 'top',
+  closeWithSwipe = true,
+  viewport = {
+    hotkey: ['F8'],
+    label: 'Notifications ({hotkey})',
+  },
   children,
 }) => {
   const [toasts, setToasts] = useState<React.ReactElement<ToastProps>[]>([])
@@ -231,17 +233,4 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
       </ToastPrimitive.Provider>
     </ToastContext.Provider>
   )
-}
-
-ToastProvider.defaultProps = {
-  duration: 5000,
-  label: 'Notification',
-  viewport: {
-    hotkey: ['F8'],
-    label: 'Notifications ({hotkey})',
-  },
-  type: 'foreground',
-  width: 400,
-  position: 'top',
-  closeWithSwipe: true,
 }

@@ -15,9 +15,9 @@ export interface GridLoaderProps {
 export const GridLoader: React.FC<GridLoaderProps> = ({
   size,
   margin,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -31,9 +31,4 @@ export const GridLoader: React.FC<GridLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-GridLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

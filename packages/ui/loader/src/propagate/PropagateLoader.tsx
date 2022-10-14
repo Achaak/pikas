@@ -13,9 +13,9 @@ export interface PropagateLoaderProps {
 
 export const PropagateLoader: React.FC<PropagateLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -30,7 +30,3 @@ export const PropagateLoader: React.FC<PropagateLoaderProps> = ({
   )
 }
 
-PropagateLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
-}

@@ -14,9 +14,9 @@ export interface SyncLoaderProps {
 
 export const SyncLoader: React.FC<SyncLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   margin,
   speedMultiplier,
 }) => {
@@ -31,9 +31,4 @@ export const SyncLoader: React.FC<SyncLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-SyncLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

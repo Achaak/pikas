@@ -1,4 +1,4 @@
-import { PikasColor } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { SuccessDialogContent } from './SuccessDialogContent/index.js'
@@ -16,12 +16,12 @@ export interface SuccessDialogProps extends DialogProps {
 }
 
 export const SuccessDialog: React.FC<SuccessDialogProps> = ({
-  validateButtonLabel,
-  validateButtonColor,
+  validateButtonLabel = 'Ok',
+  validateButtonColor = 'SUCCESS',
   validateButtonDisabled,
   validateButtonLoading,
   onClose,
-  title,
+  title = 'Yeah ! You did it !',
   content,
   ...props
 }) => {
@@ -55,10 +55,4 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
       {...props}
     />
   )
-}
-
-SuccessDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  title: 'Yeah ! You did it !',
-  validateButtonColor: 'SUCCESS',
 }

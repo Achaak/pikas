@@ -153,26 +153,26 @@ export const Tooltip = <
 >({
   content,
   children,
-  backgroundColor,
+  backgroundColor = 'WHITE' as Color,
   open,
   onOpenChange,
   delayDuration,
   skipDelayDuration,
   defaultOpen,
-  arrowSize,
-  arrowOffset,
+  arrowSize = 10,
+  arrowOffset = 8,
   side,
   align,
   alignOffset,
   sideOffset,
   avoidCollisions,
   collisionPadding,
-  borderRadius,
-  fontSize,
+  borderRadius = 'md' as BorderRadius,
+  fontSize = 'EM-SMALL' as FontSize,
   fontWeight,
-  boxShadow,
-  hasArrow,
-  padding,
+  boxShadow = 'ELEVATION_2' as Shadow,
+  hasArrow = true,
+  padding = 'md' as TooltipPadding,
   css,
 }: TooltipProps<CSS, Color, FontSize, Shadow, FontWeight>): JSX.Element => {
   const theme = useTheme()
@@ -236,15 +236,4 @@ export const Tooltip = <
       </TooltipPrimitive.Root>
     </TooltipPrimitive.Provider>
   )
-}
-
-Tooltip.defaultProps = {
-  backgroundColor: 'WHITE',
-  arrowOffset: 8,
-  borderRadius: 'md',
-  fontSize: 'EM-SMALL',
-  boxShadow: 'ELEVATION_2',
-  hasArrow: true,
-  padding: 'md',
-  arrowSize: 10,
 }

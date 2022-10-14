@@ -35,8 +35,8 @@ export interface BadgeIconProps extends CustomBadgeProps {
 
 export const BadgeIcon: React.FC<BadgeIconProps> = ({
   iconName,
-  size,
-  padding,
+  size = 24,
+  padding = 'md',
   ...props
 }) => {
   return (
@@ -44,9 +44,4 @@ export const BadgeIcon: React.FC<BadgeIconProps> = ({
       <IconByName name={iconName} size={size} />
     </BadgeStyled>
   )
-}
-
-BadgeIcon.defaultProps = {
-  size: 24,
-  padding: 'md',
 }

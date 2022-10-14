@@ -1,4 +1,4 @@
-import { PikasColor } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { InfoDialogContent } from './InfoDialogContent/index.js'
@@ -17,12 +17,12 @@ export interface InfoDialogProps extends DialogProps {
 
 export const InfoDialog: React.FC<InfoDialogProps> = ({
   onClose,
-  validateButtonLabel,
-  validateButtonColor,
+  validateButtonLabel = 'Ok',
+  validateButtonColor = 'PRIMARY',
   validateButtonDisabled,
   validateButtonLoading,
   onValidated,
-  title,
+  title = 'We have a information for you !',
   content,
   ...props
 }) => {
@@ -57,10 +57,4 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
       {...props}
     />
   )
-}
-
-InfoDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  title: 'We have a information for you !',
-  validateButtonColor: 'PRIMARY',
 }

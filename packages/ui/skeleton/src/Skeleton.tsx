@@ -104,8 +104,8 @@ export interface SkeletonProps<CSS extends CSSRecord> {
 }
 
 export const Skeleton = <CSS extends CSSRecord = PikasCSS>({
-  animation,
-  borderRadius,
+  animation = 'pulse'
+  borderRadius = "sm"
   height,
   width,
   css,
@@ -124,7 +124,3 @@ export const Skeleton = <CSS extends CSSRecord = PikasCSS>({
   )
 }
 
-Skeleton.defaultProps = {
-  animation: 'pulse',
-  borderRadius: 'sm',
-}

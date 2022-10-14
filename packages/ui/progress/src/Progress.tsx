@@ -3,11 +3,15 @@ import type {
   PikasColor,
   PikasShadow,
   PikasCSS,
+  ColorsRecord,
+  Color as ColorByPikas,
+  CSSRecord,
+  ShadowsRecord,
+  Shadow as ShadowByPikas,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Skeleton } from '@pikas-ui/skeleton'
-import React from 'react'
 import * as ProgressPrimitive from '@radix-ui/react-progress'
 import fontColorContrast from 'font-color-contrast'
 
@@ -63,43 +67,51 @@ const ContentBack = styled(Content, {})
 
 const ContentFront = styled(Content, {})
 
-export interface ProgressCSS {
-  container?: PikasCSS
-  content?: PikasCSS
-  indicator?: PikasCSS
+export interface ProgressCSS<CSS extends CSSRecord> {
+  container?: CSS
+  content?: CSS
+  indicator?: CSS
 }
 
-export interface ProgressProps {
+export interface ProgressProps<
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> {
   progress: number
   max?: number
   width?: number | string
   height?: number | string
-  color?: PikasColor
-  backgroundColor?: PikasColor
+  color?: Color
+  backgroundColor?: Color
   loading?: boolean
-  boxShadow?: PikasShadow | 'none'
+  boxShadow?: Shadow | 'none'
   borderRadius?: BorderRadius
   borderRadiusIndicator?: BorderRadius
   getValueLabel?: (value: number, max: number) => string
   content?: string
-  css?: ProgressCSS
+  css?: ProgressCSS<CSS>
 }
 
-export const Progress: React.FC<ProgressProps> = ({
-  progress,
-  height,
-  width,
-  backgroundColor,
-  color,
-  max,
-  loading,
-  boxShadow,
-  borderRadius,
-  borderRadiusIndicator,
-  getValueLabel,
+export const Progress = <
+  CSS extends CSSRecord = PikasCSS,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor,
+  Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
+>({
+  progress = 0,
+  height = 16,
+  width = 280,
+  backgroundColor = 'GRAY' as Color,
+  color = 'PRIMARY' as Color,
+  max = 100,
+  loading = false,
+  boxShadow = 'DIMINUTION_1' as Shadow,
+  borderRadius = 'round',
+  borderRadiusIndicator = 'none',
+  getValueLabel = (value, max): string => `${Math.round((value / max) * 100)}%`,
   content,
   css,
-}) => {
+}: ProgressProps<CSS, Color, Shadow>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -149,7 +161,10 @@ export const Progress: React.FC<ProgressProps> = ({
             }% 0 0)`,
             color:
               theme &&
-              fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7),
+              fontColorContrast(
+                theme.colors[(color as PikasColor) || 'PRIMARY'].value,
+                0.7
+              ),
           }}
         >
           {content}
@@ -163,7 +178,7 @@ export const Progress: React.FC<ProgressProps> = ({
             color:
               theme &&
               fontColorContrast(
-                theme.colors[backgroundColor || 'GRAY'].value,
+                theme.colors[(backgroundColor as PikasColor) || 'GRAY'].value,
                 0.7
               ),
           }}
@@ -173,18 +188,4 @@ export const Progress: React.FC<ProgressProps> = ({
       </ProgressContent>
     </Root>
   )
-}
-
-Progress.defaultProps = {
-  progress: 0,
-  width: 280,
-  height: 16,
-  color: 'PRIMARY',
-  backgroundColor: 'GRAY',
-  max: 100,
-  loading: false,
-  boxShadow: 'DIMINUTION_1',
-  borderRadius: 'round',
-  borderRadiusIndicator: 'none',
-  getValueLabel: (value, max): string => `${Math.round((value / max) * 100)}%`,
 }

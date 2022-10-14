@@ -13,9 +13,9 @@ export interface PuffLoaderProps {
 
 export const PuffLoader: React.FC<PuffLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const PuffLoader: React.FC<PuffLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-PuffLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

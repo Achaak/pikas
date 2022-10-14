@@ -101,8 +101,8 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   children,
   css,
   onOpenChange,
-  modal,
-  loop,
+  modal = true,
+  loop = false,
   direction,
   onCloseAutoFocus,
   onEscapeKeyDown,
@@ -110,7 +110,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   onFocusOutside,
   onInteractOutside,
   alignOffset,
-  avoidCollisions,
+  avoidCollisions = true,
   collisionPadding,
 }) => {
   return (
@@ -315,10 +315,4 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
         })}
     </>
   )
-}
-
-ContextMenu.defaultProps = {
-  modal: true,
-  loop: false,
-  avoidCollisions: true,
 }

@@ -20,8 +20,8 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
   content,
   onClose,
   onValidated,
-  validateButtonLabel,
-  validateButtonColor,
+  validateButtonLabel = 'Ok',
+  validateButtonColor = 'PRIMARY',
   validateButtonDisabled,
   validateButtonLoading,
   ...props
@@ -66,9 +66,4 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
       {...props}
     />
   )
-}
-
-DefaultDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  validateButtonColor: 'PRIMARY',
 }

@@ -268,29 +268,30 @@ const getContent = ({
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      color,
+      color = 'PRIMARY',
       colorHex,
       css,
-      loading,
-      disabled,
-      effect,
+      loading = false,
+      disabled = false,
+      effect = 'opacity',
       onClick,
       children,
-      gap,
+      gap = 'md',
       LeftIcon,
       RightIcon,
-      outlined,
-      width,
-      maxWidth,
+      outlined = false,
+      width = '100%',
+      maxWidth = '100%',
       minWidth,
-      fontSize,
-      textTransform,
-      fontWeight,
-      borderRadius,
-      borderWidth,
-      boxShadow,
+      fontSize = 'EM-MEDIUM',
+      textTransform = 'default',
+      fontWeight = 'NORMAL',
+      borderRadius = 'md',
+      borderWidth = 2,
+      boxShadow = 'ELEVATION_BOTTOM_1',
       contentColor,
       contentColorHex,
+      padding = 'md',
       ...props
     },
     ref
@@ -317,6 +318,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={handleClick}
         disabled={loading || disabled}
         effect={disabled ? undefined : effect}
+        padding={padding}
         css={{
           br: borderRadius,
           fontWeight: `$${fontWeight}`,
@@ -356,51 +358,33 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 )
 
-Button.defaultProps = {
-  type: 'button',
-  disabled: false,
-  loading: false,
-  padding: 'md',
-  color: 'PRIMARY',
-  gap: 'md',
-  effect: 'opacity',
-  outlined: false,
-  width: '100%',
-  maxWidth: '100%',
-  fontSize: 'EM-MEDIUM',
-  textTransform: 'default',
-  fontWeight: 'NORMAL',
-  borderRadius: 'md',
-  borderWidth: 2,
-  boxShadow: 'ELEVATION_BOTTOM_1',
-}
-
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   (
     {
-      color,
+      color = 'PRIMARY',
       colorHex,
       css,
-      loading,
-      disabled,
-      fontSize,
-      effect,
+      loading = false,
+      disabled = false,
+      fontSize = 'EM-MEDIUM',
+      effect = 'opacity',
       onClick,
       children,
-      gap,
+      gap = 'md',
       LeftIcon,
       RightIcon,
-      outlined,
-      width,
-      maxWidth,
+      outlined = false,
+      width = '100%',
+      maxWidth = '100%',
       minWidth,
-      textTransform,
-      fontWeight,
-      borderRadius,
-      borderWidth,
-      boxShadow,
+      textTransform = 'default',
+      fontWeight = 'NORMAL',
+      borderRadius = 'md',
+      borderWidth = 2,
+      boxShadow = 'ELEVATION_BOTTOM_1',
       contentColor,
       contentColorHex,
+      padding = 'md',
       ...props
     },
     ref
@@ -428,6 +412,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         onClick={handleClick}
         disabled={loading || disabled}
         effect={disabled ? undefined : effect}
+        padding={padding}
         css={{
           br: borderRadius,
           fontWeight: `$${fontWeight}`,
@@ -465,21 +450,3 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     )
   }
 )
-
-ButtonLink.defaultProps = {
-  disabled: false,
-  loading: false,
-  padding: 'md',
-  color: 'PRIMARY',
-  gap: 'md',
-  effect: 'opacity',
-  outlined: false,
-  width: '100%',
-  maxWidth: '100%',
-  fontSize: 'EM-MEDIUM',
-  textTransform: 'default',
-  fontWeight: 'NORMAL',
-  borderRadius: 'md',
-  borderWidth: 2,
-  boxShadow: 'ELEVATION_BOTTOM_1',
-}

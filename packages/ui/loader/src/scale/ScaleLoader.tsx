@@ -18,9 +18,9 @@ export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
   height,
   width,
   radius,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   margin,
   speedMultiplier,
 }) => {
@@ -37,9 +37,4 @@ export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-ScaleLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

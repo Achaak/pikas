@@ -13,9 +13,9 @@ export interface HashLoaderProps {
 
 export const HashLoader: React.FC<HashLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -30,7 +30,3 @@ export const HashLoader: React.FC<HashLoaderProps> = ({
   )
 }
 
-HashLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
-}

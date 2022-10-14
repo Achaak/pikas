@@ -164,18 +164,18 @@ export interface SearchbarProps<T> {
 export const Searchbar = <T,>({
   onSearch,
   searchFunction,
-  searchType,
-  isOpen: isOpenProp,
+  searchType = 'button',
+  isOpen: isOpenProp = false,
   id,
   searchWhenKeyUp,
   css,
   textfield,
-  debounceDelay,
-  loading: loadingProp,
-  noResult,
+  debounceDelay = 500,
+  loading: loadingProp = false,
+  noResult = 'No result',
   direction: directionProp,
-  width,
-  maxWidth,
+  width = '100%',
+  maxWidth = '100%',
   minWidth,
   directResult,
 }: SearchbarProps<T>): JSX.Element => {
@@ -480,14 +480,4 @@ export const Searchbar = <T,>({
       </Result>
     </Form>
   )
-}
-
-Searchbar.defaultProps = {
-  searchType: 'button',
-  isOpen: false,
-  debounceDelay: 500,
-  loading: false,
-  noResult: 'No result',
-  width: '100%',
-  maxWidth: '100%',
 }

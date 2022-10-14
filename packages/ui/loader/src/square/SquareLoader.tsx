@@ -13,9 +13,9 @@ export interface SquareLoaderProps {
 
 export const SquareLoader: React.FC<SquareLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const SquareLoader: React.FC<SquareLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-SquareLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

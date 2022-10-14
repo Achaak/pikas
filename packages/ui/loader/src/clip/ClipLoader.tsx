@@ -13,9 +13,9 @@ export interface ClipLoaderProps {
 
 export const ClipLoader: React.FC<ClipLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const ClipLoader: React.FC<ClipLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-ClipLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

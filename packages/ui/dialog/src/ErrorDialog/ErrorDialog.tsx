@@ -16,11 +16,11 @@ export interface ErrorDialogProps extends DialogProps {
 }
 
 export const ErrorDialog: React.FC<ErrorDialogProps> = ({
-  validateButtonLabel,
-  validateButtonColor,
+  validateButtonLabel = 'Ok',
+  validateButtonColor = 'DANGER',
   validateButtonDisabled,
   validateButtonLoading,
-  title,
+  title = 'Oops ! A error occurred...',
   onClose,
   content,
   onValidated,
@@ -57,10 +57,4 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
       {...props}
     />
   )
-}
-
-ErrorDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  title: 'Oops ! A error occurred...',
-  validateButtonColor: 'DANGER',
 }

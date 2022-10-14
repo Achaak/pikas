@@ -13,9 +13,9 @@ export interface CircleLoaderProps {
 
 export const CircleLoader: React.FC<CircleLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const CircleLoader: React.FC<CircleLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-CircleLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

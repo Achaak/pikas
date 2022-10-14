@@ -208,15 +208,18 @@ export interface TableProps<T extends Record<string, unknown>> {
 export const Table = <T extends Record<string, unknown>>({
   data,
   hasTfoot,
-  pagination,
+  pagination = false,
   columns,
   selection,
   sorting,
-  variant,
+  variant = 'default',
   css,
-  padding,
+  padding = {
+    th: 'md',
+    td: 'md',
+  },
   emptyMessage,
-  hoverEffect,
+  hoverEffect = true,
 }: TableProps<T>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
     selection?.defaultState || {}
@@ -580,14 +583,4 @@ export const Table = <T extends Record<string, unknown>>({
       ) : null}
     </Container>
   )
-}
-
-Table.defaultProps = {
-  variant: 'default',
-  padding: {
-    th: 'md',
-    td: 'md',
-  },
-  pagination: false,
-  hoverEffect: true,
 }

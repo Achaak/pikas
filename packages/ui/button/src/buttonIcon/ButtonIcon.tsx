@@ -219,21 +219,22 @@ const getContent = ({
 export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   (
     {
-      color,
+      color = 'PRIMARY',
       colorHex,
       css,
-      loading,
-      disabled,
-      effect,
+      loading = false,
+      disabled = false,
+      effect = 'opacity',
       onClick,
       outlined,
       Icon,
-      size,
-      borderRadius,
-      borderWidth,
-      boxShadow,
+      size = 6,
+      borderRadius = 'md',
+      borderWidth = 2,
+      boxShadow = 'ELEVATION_BOTTOM_1',
       contentColor,
       contentColorHex,
+      padding = 'md',
       ...props
     },
     ref
@@ -260,6 +261,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         onClick={handleClick}
         disabled={loading || disabled}
         effect={disabled ? undefined : effect}
+        padding={padding}
         css={{
           br: borderRadius,
           borderWidth: borderWidth,
@@ -291,40 +293,28 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   }
 )
 
-ButtonIcon.defaultProps = {
-  type: 'button',
-  disabled: false,
-  loading: false,
-  color: 'PRIMARY',
-  size: 6,
-  effect: 'opacity',
-  padding: 'md',
-  borderRadius: 'md',
-  borderWidth: 2,
-  boxShadow: 'ELEVATION_BOTTOM_1',
-}
-
 export const ButtonIconLink = forwardRef<
   HTMLAnchorElement,
   ButtonIconLinkProps
 >(
   (
     {
-      color,
+      color = 'PRIMARY',
       colorHex,
       css,
-      loading,
-      effect,
+      loading = false,
+      effect = 'opacity',
       onClick,
       outlined,
       Icon,
-      size,
+      size = 6,
       disabled,
-      borderRadius,
-      borderWidth,
-      boxShadow,
+      borderRadius = 'md',
+      borderWidth = 2,
+      boxShadow = 'ELEVATION_BOTTOM_1',
       contentColor,
       contentColorHex,
+      padding = 'md',
       ...props
     },
     ref
@@ -352,6 +342,7 @@ export const ButtonIconLink = forwardRef<
         onClick={handleClick}
         disabled={loading || disabled}
         effect={disabled ? undefined : effect}
+        padding={padding}
         css={{
           br: borderRadius,
           borderWidth: borderWidth,
@@ -382,14 +373,3 @@ export const ButtonIconLink = forwardRef<
     )
   }
 )
-
-ButtonIconLink.defaultProps = {
-  loading: false,
-  color: 'PRIMARY',
-  size: 6,
-  padding: 'md',
-  effect: 'opacity',
-  borderRadius: 'md',
-  borderWidth: 2,
-  boxShadow: 'ELEVATION_BOTTOM_1',
-}

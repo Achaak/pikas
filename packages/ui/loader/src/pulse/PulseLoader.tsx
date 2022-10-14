@@ -13,9 +13,9 @@ export interface PulseLoaderProps {
 
 export const PulseLoader: React.FC<PulseLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -30,7 +30,3 @@ export const PulseLoader: React.FC<PulseLoaderProps> = ({
   )
 }
 
-PulseLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
-}

@@ -13,9 +13,9 @@ export interface ClockLoaderProps {
 
 export const ClockLoader: React.FC<ClockLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const ClockLoader: React.FC<ClockLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-ClockLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

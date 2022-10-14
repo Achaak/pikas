@@ -13,9 +13,9 @@ export interface DotLoaderProps {
 
 export const DotLoader: React.FC<DotLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const DotLoader: React.FC<DotLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-DotLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

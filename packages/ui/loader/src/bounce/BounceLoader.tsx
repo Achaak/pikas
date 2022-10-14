@@ -13,9 +13,9 @@ export interface BounceLoaderProps {
 
 export const BounceLoader: React.FC<BounceLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const BounceLoader: React.FC<BounceLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-BounceLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

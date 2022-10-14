@@ -201,12 +201,12 @@ export interface CustomDialogProps extends DialogProps {
 
 export const CustomDialog: React.FC<CustomDialogProps> = ({
   visible,
-  hasCloseIcon,
+  hasCloseIcon = true,
   onClose,
   css,
-  closeIfClickOutside,
+  closeIfClickOutside = false,
   onOpen,
-  width,
+  width = 500,
   padding,
   height,
   header,
@@ -334,10 +334,4 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
       </DialogPrimitive.Portal>
     </DialogPrimitive.Root>
   )
-}
-
-CustomDialog.defaultProps = {
-  width: 500,
-  hasCloseIcon: true,
-  closeIfClickOutside: false,
 }

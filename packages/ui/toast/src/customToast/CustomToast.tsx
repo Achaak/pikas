@@ -52,7 +52,7 @@ export interface CustomToastProps extends ToastProps {
 }
 
 export const CustomToast: React.FC<CustomToastProps> = ({
-  duration,
+  duration = 5000,
   onOpenChange,
   css,
   onEscapeKeyDown,
@@ -62,11 +62,12 @@ export const CustomToast: React.FC<CustomToastProps> = ({
   forceMount,
   action,
   hasCloseButton,
-  timer,
+  timer = true,
   children,
-  width,
-  minWidth,
-  maxWidth,
+  width = 'auto',
+  minWidth = 'auto',
+  maxWidth = '100%',
+  type = 'foreground',
 }) => {
   const [isOpen, setIsOpen] = useState(true)
 
@@ -101,6 +102,7 @@ export const CustomToast: React.FC<CustomToastProps> = ({
       onSwipeMove={onSwipeMove}
       onSwipeEnd={onSwipeEnd}
       forceMount={forceMount || undefined}
+      type={type}
     >
       <Content css={css?.content}>
         {children}
@@ -125,13 +127,4 @@ export const CustomToast: React.FC<CustomToastProps> = ({
       )}
     </Toast>
   )
-}
-
-CustomToast.defaultProps = {
-  duration: 5000,
-  type: 'foreground',
-  timer: true,
-  width: 'auto',
-  minWidth: 'auto',
-  maxWidth: '100%',
 }

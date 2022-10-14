@@ -14,9 +14,9 @@ export interface RiseLoaderProps {
 
 export const RiseLoader: React.FC<RiseLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   margin,
   speedMultiplier,
 }) => {
@@ -31,9 +31,4 @@ export const RiseLoader: React.FC<RiseLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-RiseLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

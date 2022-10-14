@@ -22,7 +22,7 @@ interface CustomToastProps extends ToastProps {
 }
 
 export const Toast: React.FC<CustomToastProps> = ({
-  variant,
+  variant = 'info',
   css,
   ...props
 }) => {
@@ -77,8 +77,4 @@ export const Toast: React.FC<CustomToastProps> = ({
       {...props}
     />
   )
-}
-
-Toast.defaultProps = {
-  variant: 'info',
 }

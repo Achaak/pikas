@@ -18,9 +18,9 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
   width,
   radius,
   margin,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
 }) => {
   const theme = useTheme()
 
@@ -36,7 +36,3 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
   )
 }
 
-FadeLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
-}

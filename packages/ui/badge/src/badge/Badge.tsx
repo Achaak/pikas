@@ -64,15 +64,13 @@ export interface BadgeProps extends CustomBadgeProps {
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
-  fontSize,
+  fontSize = 'EM-MEDIUM',
   leftIconName,
   rightIconName,
-  padding,
-  gap,
+  padding = 'md',
+  gap = 'md',
   ...props
 }) => {
-  
-
   return (
     <BadgeStyled
       gap={gap}
@@ -87,10 +85,4 @@ export const Badge: React.FC<BadgeProps> = ({
       {rightIconName && <IconByName name={rightIconName} size="1em" />}
     </BadgeStyled>
   )
-}
-
-Badge.defaultProps = {
-  fontSize: 'EM-MEDIUM',
-  gap: 'md',
-  padding: 'md',
 }

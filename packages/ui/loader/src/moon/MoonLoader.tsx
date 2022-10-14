@@ -13,9 +13,9 @@ export interface MoonLoaderProps {
 
 export const MoonLoader: React.FC<MoonLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const MoonLoader: React.FC<MoonLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-MoonLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

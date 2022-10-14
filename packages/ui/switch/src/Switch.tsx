@@ -119,14 +119,14 @@ export const Switch = <
   id,
   name,
   onCheckedChange,
-  fontSize,
+  fontSize = 'EM-MEDIUM' as FontSize,
   textError,
   label,
   css,
   defaultChecked,
   Icons,
-  disabled,
-  side,
+  disabled = false,
+  side = 'left',
   info,
   required,
   checked,
@@ -278,10 +278,4 @@ export const Switch = <
       )}
     </Container>
   )
-}
-
-Switch.defaultProps = {
-  fontSize: 'EM-MEDIUM',
-  side: 'left',
-  disabled: false,
 }

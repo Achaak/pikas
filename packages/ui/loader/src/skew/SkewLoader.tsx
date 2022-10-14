@@ -13,9 +13,9 @@ export interface SkewLoaderProps {
 
 export const SkewLoader: React.FC<SkewLoaderProps> = ({
   size,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -28,9 +28,4 @@ export const SkewLoader: React.FC<SkewLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-SkewLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

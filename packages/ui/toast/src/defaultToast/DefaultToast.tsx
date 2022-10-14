@@ -70,5 +70,3 @@ export const DefaultToast: React.FC<DefaultToastProps> = ({
     </CustomToast>
   )
 }
-
-DefaultToast.defaultProps = {}

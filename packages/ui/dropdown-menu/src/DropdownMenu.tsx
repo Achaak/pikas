@@ -130,12 +130,12 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   iconColor,
   onOpenChange,
   css,
-  modal,
-  iconSize,
+  modal = false,
+  iconSize = 24,
   open,
   direction,
-  defaultOpen,
-  loop,
+  defaultOpen = false,
+  loop = false,
   onCloseAutoFocus,
   onEscapeKeyDown,
   onPointerDownOutside,
@@ -145,7 +145,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   sideOffset,
   align,
   alignOffset,
-  avoidCollisions,
+  avoidCollisions = false,
   collisionPadding,
 }) => {
   const theme = useTheme()
@@ -386,12 +386,4 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
         })}
     </>
   )
-}
-
-DropdownMenu.defaultProps = {
-  iconSize: 24,
-  modal: false,
-  defaultOpen: false,
-  loop: false,
-  avoidCollisions: false,
 }

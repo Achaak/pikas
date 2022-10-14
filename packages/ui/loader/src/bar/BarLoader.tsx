@@ -15,9 +15,9 @@ export interface BarLoaderProps {
 export const BarLoader: React.FC<BarLoaderProps> = ({
   width,
   height,
-  color,
+  color = 'PRIMARY',
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
 }) => {
   const theme = useTheme()
@@ -31,9 +31,4 @@ export const BarLoader: React.FC<BarLoaderProps> = ({
       loading={loading}
     />
   )
-}
-
-BarLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }
