@@ -1,25 +1,30 @@
-import { BarLoader as BarLoaderDefault } from 'react-spinners'
-import type { PikasColor } from '@pikas-ui/styles'
+import type {
+  ColorsRecord,
+  Color as ColorByPikas,
+  PikasColor,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
-import React from 'react'
+import { BarLoader as BarLoaderDefault } from 'react-spinners'
 
-export interface BarLoaderProps {
+export interface BarLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   width?: number
   height?: number
-  color?: PikasColor
+  color?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const BarLoader: React.FC<BarLoaderProps> = ({
+export const BarLoader = <
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
+>({
   width,
   height,
-  color = 'PRIMARY',
+  color = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   speedMultiplier,
-}) => {
+}: BarLoaderProps<Color>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -27,7 +32,10 @@ export const BarLoader: React.FC<BarLoaderProps> = ({
       width={width}
       height={height}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? theme?.colors[color].value : undefined)}
+      color={
+        colorHex ||
+        (color ? theme?.colors[color as PikasColor].value : undefined)
+      }
       loading={loading}
     />
   )

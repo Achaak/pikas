@@ -1,32 +1,40 @@
-import type { PikasColor } from '@pikas-ui/styles'
+import type {
+  ColorsRecord,
+  Color as ColorByPikas,
+  PikasColor,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { BeatLoader as BeatLoaderDefault } from 'react-spinners'
-import React from 'react'
 
-export interface BeatLoaderProps {
+export interface BeatLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number | string
   margin?: number
-  color?: PikasColor
+  color?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const BeatLoader: React.FC<BeatLoaderProps> = ({
+export const BeatLoader = <
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
+>({
   size,
   margin,
-  color = 'PRIMARY',
+  color = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   speedMultiplier,
-}) => {
+}: BeatLoaderProps<Color>): JSX.Element => {
   const theme = useTheme()
 
   return (
     <BeatLoaderDefault
       size={size}
       margin={margin}
-      color={colorHex || (color ? theme?.colors[color].value : undefined)}
+      color={
+        colorHex ||
+        (color ? theme?.colors[color as PikasColor].value : undefined)
+      }
       loading={loading}
       speedMultiplier={speedMultiplier}
     />

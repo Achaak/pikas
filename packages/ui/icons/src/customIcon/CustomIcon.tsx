@@ -1,3 +1,10 @@
+import type {
+  ColorsRecord,
+  CSSRecord,
+  PikasColor,
+  PikasCSS,
+  Color as ColorByPikas,
+} from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { IconProps } from '../types'
@@ -8,11 +15,17 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface CustomIconProps extends IconProps {
+export interface CustomIconProps<
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord>
+> extends IconProps<CSS, Color> {
   children?: React.ReactNode
 }
 
-export const CustomIcon: React.FC<CustomIconProps> = ({
+export const CustomIcon = <
+  CSS extends CSSRecord = PikasCSS,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
+>({
   children,
   className,
   color,
@@ -20,7 +33,7 @@ export const CustomIcon: React.FC<CustomIconProps> = ({
   onClick,
   size,
   css,
-}) => {
+}: CustomIconProps<CSS, Color>): JSX.Element => {
   return (
     <Container
       onClick={onClick}

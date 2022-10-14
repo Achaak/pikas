@@ -2,7 +2,16 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useCallback } from 'react'
 import { CustomAlert } from '../customAlert/index.js'
-import type { PikasColor } from '@pikas-ui/styles'
+import type {
+  PikasColor,
+  FontSize as FontSizeByPikas,
+  FontWeight as FontWeightByPikas,
+  PikasFontWeight,
+  PikasFontSize,
+  FontSizesRecord,
+  FontWeightsRecord,
+  CSSRecord,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import type { DefaultAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
@@ -15,15 +24,23 @@ export const AlertVariant = {
 }
 export type AlertVariant = keyof typeof AlertVariant
 
-export interface AlertProps extends DefaultAlertProps {
+export interface AlertProps<
+  CSS extends CSSRecord,
+  FontSize extends FontSizeByPikas<FontSizesRecord>,
+  FontWeight extends FontWeightByPikas<FontWeightsRecord>
+> extends DefaultAlertProps<CSS, FontSize, FontWeight> {
   variant?: AlertVariant
 }
 
-export const Alert: React.FC<AlertProps> = ({
+export const Alert = <
+  CSS extends CSSRecord,
+  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
+  FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight
+>({
   variant = 'info',
   children,
   ...props
-}) => {
+}: AlertProps<CSS, FontSize, FontWeight>): JSX.Element => {
   const theme = useTheme()
 
   const Icon: React.FC<IconProps> = (props) => {

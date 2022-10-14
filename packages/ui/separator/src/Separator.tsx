@@ -34,7 +34,7 @@ export const Separator = <
   orientation = 'horizontal',
   css,
   className,
-  color = 'GRAY_LIGHT',
+  color = 'GRAY_LIGHT' as Color,
   size = 2,
   borderRadius,
 }: SeparatorProps<CSS, Color>): JSX.Element => {

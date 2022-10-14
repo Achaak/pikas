@@ -18,6 +18,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
+    "iconify",
+    "Pacman",
     "Roboto"
   ]
 }

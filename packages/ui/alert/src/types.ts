@@ -1,9 +1,11 @@
 import type { IconCSS } from '@pikas-ui/icons'
 import type {
   BorderRadius,
-  PikasCSS,
-  PikasFontSize,
-  PikasFontWeight,
+  FontSizesRecord,
+  FontSize as FontSizeByPikas,
+  FontWeight as FontWeightByPikas,
+  CSSRecord,
+  FontWeightsRecord,
 } from '@pikas-ui/styles'
 
 export const AlertPadding = {
@@ -24,21 +26,25 @@ export const AlertGap = {
 }
 export type AlertGap = keyof typeof AlertGap
 
-export interface AlertCSS {
-  container?: PikasCSS
-  content?: PikasCSS
+export interface AlertCSS<CSS extends CSSRecord> {
+  container?: CSS
+  content?: CSS
   icon?: IconCSS
-  child?: PikasCSS
+  child?: CSS
 }
 
-export interface DefaultAlertProps {
+export interface DefaultAlertProps<
+  CSS extends CSSRecord,
+  FontSize extends FontSizeByPikas<FontSizesRecord>,
+  FontWeight extends FontWeightByPikas<FontWeightsRecord>
+> {
   children?: React.ReactNode
-  fontSize?: PikasFontSize
-  fontWeight?: PikasFontWeight
+  fontSize?: FontSize
+  fontWeight?: FontWeight
   borderRadius?: BorderRadius
   iconSize?: number
   padding?: AlertPadding
   gap?: AlertGap
   visible?: boolean
-  css?: AlertCSS
+  css?: AlertCSS<CSS>
 }

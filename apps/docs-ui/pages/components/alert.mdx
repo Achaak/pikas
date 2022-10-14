@@ -62,6 +62,25 @@ const Example: React.FC = () => {
 }
 ```
 
+#### With a custom configuration
+
+```tsx
+import { Alert } from `@pikas-ui/alert`;
+import type {
+  PikasCSS,
+  FontSize,
+  FontWeight
+} from 'your_config'
+
+const Example: React.FC = () => {
+  return (
+    <Alert<PikasCSS, FontSize, FontWeight> variant="alert">
+      Ea Lorem fugiat aliquip irure aliquip quis mollit ullamco aliquip occaecat culpa.
+    </Alert>
+  )
+}
+```
+
 #### Props
 
 | Prop           | Description                          | Type              | Default      |
@@ -86,7 +105,6 @@ const Example: React.FC = () => {
 ```tsx
 import { CustomAlert } from `@pikas-ui/alert`;
 import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
 
 const IconExample: React.FC<IconProps> = (props) => {
   return <IconByName {...props} name="bx:baguette" />
@@ -105,19 +123,49 @@ const Example: React.FC = () => {
 }
 ```
 
+#### With a custom configuration
+
+```tsx
+import { CustomAlert } from `@pikas-ui/alert`;
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
+import type {
+  PikasCSS,
+  Color,
+  FontSize,
+  FontWeight
+} from 'your_config'
+
+const IconExample: React.FC<IconProps> = (props) => {
+  return <IconByName {...props} name="bx:baguette" />
+}
+
+const Example: React.FC = () => {
+  return (
+    <CustomAlert<PikasCSS, Color, FontSize, FontWeight>
+      Icon={IconExample}
+      color="WHITE"
+      backgroundColor="SECONDARY"
+    >
+      This is an error alert.
+    </CustomAlert>
+  )
+}
+```
+
 #### Props
 
-| Prop              | Description                             | Type                  | Default      |
-| :---------------- | :-------------------------------------- | :-------------------- | :----------- |
-| `children`        | Alert content                           | `ReactNode`           | -            |
-| `fontSize`        | Font size of the alert component        | `PikasFontSize`       | `"EM-SMALL"` |
-| `fontWeight`      | Font weight of the alert component      | `PikasFontWeight`     | `"NORMAL"`   |
-| `borderRadius`    | Border radius of the alert component    | `BorderRadius`        | `"md"`       |
-| `iconSize`        | Icon size of the alert component        | `number`              | `24`         |
-| `padding`         | Padding of the alert component          | `AlertPadding`        | `"md"`       |
-| `gap`             | Gap of the alert component              | `AlertGap`            | `"sm"`       |
-| `Icon`            | Icon of the alert component             | `FC<IconProps>` | -            |
-| `backgroundColor` | Background color of the alert component | `Colors`              | -            |
-| `color`           | Color of the alert component            | `Colors`              | -            |
-| `visible`         | Visibility of the alert component       | `boolean`             | `true`       |
-| `css`             | Custom css of the alert component       | `AlertCSS`            | -            |
+| Prop              | Description                             | Type              | Default      |
+| :---------------- | :-------------------------------------- | :---------------- | :----------- |
+| `children`        | Alert content                           | `ReactNode`       | -            |
+| `fontSize`        | Font size of the alert component        | `PikasFontSize`   | `"EM-SMALL"` |
+| `fontWeight`      | Font weight of the alert component      | `PikasFontWeight` | `"NORMAL"`   |
+| `borderRadius`    | Border radius of the alert component    | `BorderRadius`    | `"md"`       |
+| `iconSize`        | Icon size of the alert component        | `number`          | `24`         |
+| `padding`         | Padding of the alert component          | `AlertPadding`    | `"md"`       |
+| `gap`             | Gap of the alert component              | `AlertGap`        | `"sm"`       |
+| `Icon`            | Icon of the alert component             | `FC<IconProps>`   | -            |
+| `backgroundColor` | Background color of the alert component | `Colors`          | -            |
+| `color`           | Color of the alert component            | `Colors`          | -            |
+| `visible`         | Visibility of the alert component       | `boolean`         | `true`       |
+| `css`             | Custom css of the alert component       | `AlertCSS`        | -            |

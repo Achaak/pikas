@@ -208,7 +208,7 @@ export interface TableProps<T extends Record<string, unknown>> {
 export const Table = <T extends Record<string, unknown>>({
   data,
   hasTfoot,
-  pagination = false,
+  pagination,
   columns,
   selection,
   sorting,
@@ -432,7 +432,7 @@ export const Table = <T extends Record<string, unknown>>({
                             }}
                           />
                         ),
-                      }[header.column.getIsSorted()] ?? null}
+                      }[header.column.getIsSorted() as string] ?? null}
                     </ThSpan>
                   )}
                 </Th>
@@ -555,7 +555,7 @@ export const Table = <T extends Record<string, unknown>>({
                               }}
                             />
                           ),
-                        }[header.column.getIsSorted()] ?? null}
+                        }[header.column.getIsSorted() as string] ?? null}
                       </ThSpan>
                     )}
                   </Th>

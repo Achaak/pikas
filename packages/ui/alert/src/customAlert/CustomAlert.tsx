@@ -1,5 +1,16 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type { PikasColor } from '@pikas-ui/styles'
+import type {
+  ColorsRecord,
+  PikasColor,
+  Color as ColorByPikas,
+  FontSize as FontSizeByPikas,
+  FontWeight as FontWeightByPikas,
+  PikasFontWeight,
+  PikasFontSize,
+  FontSizesRecord,
+  FontWeightsRecord,
+  CSSRecord,
+} from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { DefaultAlertProps } from '../types.js'
@@ -73,28 +84,38 @@ const Child = styled('p', {
   margin: 0,
 })
 
-export interface CustomAlertProps extends DefaultAlertProps {
+export interface CustomAlertProps<
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord>,
+  FontSize extends FontSizeByPikas<FontSizesRecord>,
+  FontWeight extends FontWeightByPikas<FontWeightsRecord>
+> extends DefaultAlertProps<CSS, FontSize, FontWeight> {
   Icon?: React.FC<IconProps>
-  backgroundColor?: PikasColor
-  color?: PikasColor
+  backgroundColor?: Color
+  color?: Color
   colorHex?: string
 }
 
-export const CustomAlert: React.FC<CustomAlertProps> = ({
+export const CustomAlert = <
+  CSS extends CSSRecord,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor,
+  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
+  FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight
+>({
   children,
   Icon,
   backgroundColor,
   color,
   colorHex,
-  fontSize = 'EM-SMALL',
+  fontSize = 'EM-SMALL' as FontSize,
   borderRadius = 'md',
   iconSize = 24,
-  fontWeight = 'NORMAL',
+  fontWeight = 'NORMAL' as FontWeight,
   gap = 'sm',
   padding = 'md',
   visible = true,
   css,
-}) => {
+}: CustomAlertProps<CSS, Color, FontSize, FontWeight>): JSX.Element => {
   return (
     <Container visible={visible} css={css?.container}>
       <Content

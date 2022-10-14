@@ -1,30 +1,38 @@
 import { SquareLoader as SquareLoaderDefault } from 'react-spinners'
-import type { PikasColor } from '@pikas-ui/styles'
+import type {
+  ColorsRecord,
+  Color as ColorByPikas,
+  PikasColor,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
-import React from 'react'
 
-export interface SquareLoaderProps {
+export interface SquareLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number
-  color?: PikasColor
+  color?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const SquareLoader: React.FC<SquareLoaderProps> = ({
+export const SquareLoader = <
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
+>({
   size,
-  color = 'PRIMARY',
+  color = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   speedMultiplier,
-}) => {
+}: SquareLoaderProps<Color>): JSX.Element => {
   const theme = useTheme()
 
   return (
     <SquareLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? theme?.colors[color].value : undefined)}
+      color={
+        colorHex ||
+        (color ? theme?.colors[color as PikasColor].value : undefined)
+      }
       loading={loading}
     />
   )
