@@ -43,23 +43,50 @@ import type Stitches from '@stitches/react/types/stitches.js'
 
 export const createPikas = <
   Prefix extends string = '',
-  Media extends Record<string, unknown> = Record<string, unknown> & {
-    xs?: string
-    sm?: string
-    md?: string
-    lg?: string
-  },
+  Media extends Record<string, unknown> = Record<string, unknown>,
   Theme extends Record<string, unknown> = Record<string, unknown>,
   ThemeMap extends DefaultThemeMap = DefaultThemeMap,
   Utils extends Record<string, unknown> = Record<string, unknown>
 >(config?: {
   prefix?: ConfigType.Prefix<Prefix>
-  media?: ConfigType.Media<Media>
+  media?: ConfigType.Media<Media> & {
+    xs?: string
+    sm?: string
+    md?: string
+    lg?: string
+    xl?: string
+  }
   theme?: ConfigType.Theme<Theme>
   themeMap?: ConfigType.ThemeMap<ThemeMap>
   utils?: ConfigType.Utils<Utils>
-}): Stitches<Prefix | 'pikas', Media, Theme, ThemeMap, Utils> =>
-  createStitches({
+}): Stitches<
+  Prefix | 'pikas',
+  | Media
+  | {
+      xs: string
+      sm: string
+      md: string
+      lg: string
+      xl: string
+    },
+  Theme,
+  ThemeMap,
+  Utils
+> =>
+  createStitches<
+    Prefix | 'pikas',
+    | Media
+    | {
+        xs: string
+        sm: string
+        md: string
+        lg: string
+        xl: string
+      },
+    Theme,
+    ThemeMap,
+    Utils
+  >({
     prefix: config?.prefix ?? 'pikas',
     theme: {
       colors: Colors,
