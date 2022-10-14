@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import type { DefaultThemeMap } from '@stitches/react'
 import { createStitches } from '@stitches/react'
 import { BR } from './borderRadius.js'
@@ -56,18 +57,15 @@ export const createPikas = <
   Utils extends {} = {}
 >(config?: {
   prefix?: ConfigType.Prefix<Prefix>
-  media?: MediaDefault
+  media?: ConfigType.Media<Media>
   theme?: ConfigType.Theme<Theme>
   themeMap?: ConfigType.ThemeMap<ThemeMap>
   utils?: ConfigType.Utils<Utils>
-}) =>
-  createStitches<Prefix, Media, Theme, ThemeMap, Utils>({
+}) /* :  Stitches<Prefix, Media & { xs: string }, Theme, ThemeMap, Utils> */ =>
+  createStitches<Prefix, Media & { xs: string }, Theme, ThemeMap, Utils>({
     media: {
       xs: `(min-width: 480px)`,
-      sm: `(min-width: 640px)`,
-      md: `(min-width: 768px)`,
-      lg: `(min-width: 1024px)`,
-      xl: `(min-width: 1280px)`,
+      ...config?.media,
     },
   })
 
@@ -136,8 +134,8 @@ export const {
   theme,
 } = createPikas({
   media: {
-    jeveuxuntrucchelou: '(min-width: 1536px)',
-    lg: '(min-width: 1024px)',
+    lg: '',
+    coucou: '',
   },
   utils: {
     mar: (value: number | string) => ({
