@@ -1,10 +1,10 @@
 import type {
   PikasColor,
   PikasCSS,
-  FontsWeights,
+  PikasFontWeight,
   BorderRadius,
-  FontsSizes,
-  Shadows,
+  PikasFontSize,
+  PikasShadow,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
@@ -177,14 +177,14 @@ export interface ButtonDefaultProps {
   css?: ButtonCSS
   loading?: boolean
   padding?: ButtonPadding
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   gap?: ButtonGap
   color?: PikasColor
   colorHex?: string
   contentColor?: PikasColor
   contentColorHex?: string
   textTransform?: ButtonTextTransform
-  fontWeight?: FontsWeights
+  fontWeight?: PikasFontWeight
   outlined?: boolean
   effect?: ButtonEffect
   LeftIcon?: React.FC<IconProps>
@@ -195,7 +195,7 @@ export interface ButtonDefaultProps {
   minWidth?: string | number
   borderRadius?: BorderRadius
   borderWidth?: number
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
 }
 
 export interface ButtonProps

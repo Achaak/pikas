@@ -1,50 +1,44 @@
 import { createStitches } from '@stitches/react'
 import { BR } from './borderRadius.js'
-import { BorderStyles } from './borderStyles.js'
-import { BorderWidths } from './borderWidths.js'
+import { loadBorderStyles } from './borderStyles.js'
+import { loadBorderWidths } from './borderWidths.js'
 import { loadColors } from './colors.js'
-import { FontSizes } from './fontSizes.js'
-import { FontWeights } from './fontWeights.js'
+import { loadFontSizes } from './fontSizes.js'
+import { loadFontWeights } from './fontWeights.js'
 import { gap } from './gap.js'
-import { LetterSpacings } from './letterSpacings.js'
-import { LineHeights } from './lineHeights.js'
-import { Radii } from './radii.js'
-import { Shadows } from './shadows.js'
-import { Sizes } from './sizes.js'
-import { Space } from './space.js'
-import { Transitions } from './transitions.js'
-import { ZIndices } from './zIndices.js'
+import { loadLetterSpacings } from './letterSpacings.js'
+import { loadLineHeights } from './lineHeights.js'
+import { loadRadiis } from './radii.js'
+import { loadShadows } from './shadows.js'
+import { loadSizes } from './sizes.js'
+import { loadSpaces } from './space.js'
+import { loadTransitions } from './transitions.js'
+import { loadZIndices } from './zIndices.js'
 import type { CSS as CSSStitches } from '@stitches/react'
+import { loadFonts } from './fonts.js'
+import { loadMedias } from './medias.js'
 
 export const createPikas = createStitches
 
-export const pikasConfig = createStitches({
+export const pikasConfig = createPikas({
   prefix: 'pikas',
   theme: {
     colors: loadColors(),
-    fonts: {
-      roboto: 'Roboto',
-    },
-    shadows: Shadows,
-    fontSizes: FontSizes,
-    space: Space,
-    sizes: Sizes,
-    fontWeights: FontWeights,
-    lineHeights: LineHeights,
-    letterSpacings: LetterSpacings,
-    borderWidths: BorderWidths,
-    borderStyles: BorderStyles,
-    radii: Radii,
-    zIndices: ZIndices,
-    transitions: Transitions,
+    fonts: loadFonts(),
+    shadows: loadShadows(),
+    fontSizes: loadFontSizes(),
+    space: loadSpaces(),
+    sizes: loadSizes(),
+    fontWeights: loadFontWeights(),
+    lineHeights: loadLineHeights(),
+    letterSpacings: loadLetterSpacings(),
+    borderWidths: loadBorderWidths(),
+    borderStyles: loadBorderStyles(),
+    radii: loadRadiis(),
+    zIndices: loadZIndices(),
+    transitions: loadTransitions(),
   },
-  media: {
-    xs: `(min-width: 480px)`,
-    sm: `(min-width: 640px)`,
-    md: `(min-width: 768px)`,
-    lg: `(min-width: 1024px)`,
-    xl: `(min-width: 1280px)`,
-  },
+  media: loadMedias(),
   utils: {
     ...gap,
     ...BR,

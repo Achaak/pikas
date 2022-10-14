@@ -1,6 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasCSS, FontsSizes } from '@pikas-ui/styles'
+import type { PikasCSS, PikasFontSize } from '@pikas-ui/styles'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
@@ -81,7 +81,7 @@ export interface SwitchCSS {
 export interface BasicSwitchProps {
   label?: string
   name?: string
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   textError?: string
 
   onCheckedChange?: (val: boolean) => void

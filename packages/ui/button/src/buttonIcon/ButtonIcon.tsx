@@ -2,9 +2,10 @@ import type {
   BorderRadius,
   PikasColor,
   PikasCSS,
-  Shadows,
+  PikasShadow,
+  PikasSize,
 } from '@pikas-ui/styles'
-import { styled, Sizes, useTheme } from '@pikas-ui/styles'
+import { styled, useTheme } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import React, { forwardRef, useCallback } from 'react'
 import type {
@@ -144,7 +145,7 @@ export interface ButtonIconDefaultProps {
   outlined?: boolean
   effect?: ButtonEffect
   padding?: ButtonPadding
-  size?: Sizes
+  size?: PikasSize
   color?: PikasColor
   colorHex?: string
   contentColor?: PikasColor
@@ -152,7 +153,7 @@ export interface ButtonIconDefaultProps {
   disabled?: boolean
   borderRadius?: BorderRadius
   borderWidth?: number
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
 }
 
 export interface ButtonIconProps
@@ -182,14 +183,19 @@ const getContent = ({
   loading?: boolean
   css?: ButtonIconCSS
   contentColor?: string
-  size?: Sizes
+  size?: PikasSize
   Icon: React.FC<IconProps>
 }): React.ReactNode => {
+  const theme = useTheme()
+
+  if (!theme) {
+    return null
+  }
   return (
     <>
       <LoadingContainer>
         <ClipLoader
-          size={Sizes[size || 6]}
+          size={theme.sizes[size || 6].value}
           colorHex={contentColor}
           loading={loading}
         />
@@ -200,7 +206,11 @@ const getContent = ({
           opacity: loading ? 0 : 1,
         }}
       >
-        <Icon size={Sizes[size || 6]} colorHex={contentColor} css={css?.icon} />
+        <Icon
+          size={theme.sizes[size || 6].value}
+          colorHex={contentColor}
+          css={css?.icon}
+        />
       </Content>
     </>
   )

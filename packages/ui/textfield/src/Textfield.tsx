@@ -1,10 +1,10 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type {
-  Shadows,
+  PikasShadow,
   PikasColor,
   PikasCSS,
-  FontsSizes,
+  PikasFontSize,
   BorderRadius,
 } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
@@ -208,11 +208,11 @@ export type TextfieldProps = {
   type?: TextfieldType
   id?: string
   label?: string
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
   borderRadius?: BorderRadius
   padding?: TextfieldPadding
   gap?: TextfieldGap
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   borderColor?: PikasColor
   borderColorHex?: string
   borderWidth?: number

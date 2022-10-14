@@ -1,4 +1,4 @@
-export const LineHeights = {
+export const pikasLineHeights = {
   'EM-XXX-SMALL': '0.3em',
   'EM-XX-SMALL': '0.5em',
   'EM-X-SMALL': '0.7em',
@@ -20,4 +20,20 @@ export const LineHeights = {
   'REM-XXX-LARGE': '2rem',
 }
 
-export type LineHeights = keyof typeof LineHeights
+export type PikasLineHeights = typeof pikasLineHeights
+export type PikasLineHeight = keyof PikasLineHeights
+
+export type LineHeights<T extends Record<string, string>> = PikasLineHeights & T
+export type LineHeight<T extends Record<string, string>> = keyof LineHeights<T>
+
+export const loadLineHeights = <T extends Record<string, string>>(
+  LineHeights?:
+    | {
+        [key in keyof PikasLineHeights]?: string
+      }
+    | T
+): PikasLineHeights & T =>
+  ({
+    ...pikasLineHeights,
+    ...LineHeights,
+  } as PikasLineHeights & T)

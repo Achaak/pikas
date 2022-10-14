@@ -1,8 +1,8 @@
 import type {
-  Shadows,
+  PikasShadow,
   PikasColor,
   PikasCSS,
-  FontsSizes,
+  PikasFontSize,
   BorderRadius,
 } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
@@ -101,10 +101,10 @@ export interface TextareaCSS {
 export type TextareaProps = {
   id?: string
   label?: string
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
   borderRadius?: BorderRadius
   padding?: TextareaPadding
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   css?: TextareaCSS

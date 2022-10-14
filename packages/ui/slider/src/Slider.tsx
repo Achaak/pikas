@@ -1,7 +1,7 @@
 import type {
   BorderRadius,
   PikasCSS,
-  FontsSizes,
+  PikasFontSize,
   PikasColors,
   Colors,
 } from '@pikas-ui/styles'
@@ -81,7 +81,7 @@ export interface SliderProps<CSS, Color> {
   id?: string
   label?: string | ReactNode
   textError?: string
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   className?: string
   description?: string
   value?: number[]

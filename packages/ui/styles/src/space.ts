@@ -1,4 +1,4 @@
-export const Space = {
+export const pikasSpaces = {
   1: '1px',
   2: '2px',
   3: '4px',
@@ -14,4 +14,20 @@ export const Space = {
   13: '80px',
 }
 
-export type Space = keyof typeof Space
+export type PikasSpaces = typeof pikasSpaces
+export type PikasSpace = keyof PikasSpaces
+
+export type Spaces<T extends Record<string, string>> = PikasSpaces & T
+export type Space<T extends Record<string, string>> = keyof Spaces<T>
+
+export const loadSpaces = <T extends Record<string, string>>(
+  Spaces?:
+    | {
+        [key in keyof PikasSpaces]?: string
+      }
+    | T
+): PikasSpaces & T =>
+  ({
+    ...pikasSpaces,
+    ...Spaces,
+  } as PikasSpaces & T)

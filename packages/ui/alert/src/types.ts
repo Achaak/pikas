@@ -2,8 +2,8 @@ import type { IconCSS } from '@pikas-ui/icons'
 import type {
   BorderRadius,
   PikasCSS,
-  FontsSizes,
-  FontsWeights,
+  PikasFontSize,
+  PikasFontWeight,
 } from '@pikas-ui/styles'
 
 export const AlertPadding = {
@@ -33,8 +33,8 @@ export interface AlertCSS {
 
 export interface DefaultAlertProps {
   children?: React.ReactNode
-  fontSize?: FontsSizes
-  fontWeight?: FontsWeights
+  fontSize?: PikasFontSize
+  fontWeight?: PikasFontWeight
   borderRadius?: BorderRadius
   iconSize?: number
   padding?: AlertPadding

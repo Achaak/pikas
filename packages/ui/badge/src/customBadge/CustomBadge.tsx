@@ -2,7 +2,7 @@ import type {
   BorderRadius,
   PikasColor,
   PikasCSS,
-  Shadows,
+  PikasShadow,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
@@ -20,7 +20,7 @@ export interface CustomBadgeProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   color?: PikasColor
   colorHex?: string
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
   borderRadius?: BorderRadius
   css?: PikasCSS
 }

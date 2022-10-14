@@ -1,7 +1,7 @@
 import type {
   BorderRadius,
   PikasColor,
-  Shadows,
+  PikasShadow,
   PikasCSS,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
@@ -77,7 +77,7 @@ export interface ProgressProps {
   color?: PikasColor
   backgroundColor?: PikasColor
   loading?: boolean
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
   borderRadius?: BorderRadius
   borderRadiusIndicator?: BorderRadius
   getValueLabel?: (value: number, max: number) => string

@@ -2,9 +2,9 @@ import type {
   BorderRadius,
   PikasColor,
   PikasCSS,
-  FontsSizes,
-  FontsWeights,
-  Shadows,
+  PikasFontSize,
+  PikasFontWeight,
+  PikasShadow,
 } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { keyframes, styled, useTheme } from '@pikas-ui/styles'
@@ -122,9 +122,9 @@ export interface TooltipProps {
   avoidCollisions?: boolean
   collisionPadding?: number
   borderRadius?: BorderRadius
-  fontSize?: FontsSizes
-  fontWeight?: FontsWeights
-  boxShadow?: Shadows
+  fontSize?: PikasFontSize
+  fontWeight?: PikasFontWeight
+  boxShadow?: PikasShadow
   padding?: TooltipPadding
   css?: TooltipCSS
 }

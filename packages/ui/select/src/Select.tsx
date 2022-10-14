@@ -2,8 +2,8 @@ import type {
   BorderRadius,
   PikasColor,
   PikasCSS,
-  FontsSizes,
-  Shadows,
+  PikasFontSize,
+  PikasShadow,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
@@ -209,7 +209,7 @@ export interface SelectProps {
   label?: string
   borderRadius?: BorderRadius
   padding?: SelectPadding
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   borderColor?: PikasColor
   borderWidth?: number
   data: {
@@ -225,7 +225,7 @@ export interface SelectProps {
   direction?: SelectDirections
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
   backgroundColor?: PikasColor
   outline?: boolean
   description?: string

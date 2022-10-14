@@ -2,8 +2,8 @@ import type {
   BorderRadius,
   PikasColor,
   PikasCSS,
-  FontsSizes,
-  Shadows,
+  PikasFontSize,
+  PikasShadow,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
@@ -71,11 +71,11 @@ export interface CheckboxProps {
   bgColor?: PikasColor
   bgColorChecked?: PikasColor
   textError?: string
-  boxShadow?: Shadows | 'none'
+  boxShadow?: PikasShadow | 'none'
   borderColor?: PikasColor
   borderWidth?: number
   borderRadius?: BorderRadius
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   size?: number
   checked?: boolean
   className?: string

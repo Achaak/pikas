@@ -1,5 +1,5 @@
 import { IconByName } from '@pikas-ui/icons'
-import type { FontsSizes } from '@pikas-ui/styles'
+import type { PikasFontSize } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { CustomBadgeProps } from '../customBadge/index.js'
@@ -55,7 +55,7 @@ export const GapPadding = {
 export type BadgeGap = keyof typeof GapPadding
 
 export interface BadgeProps extends CustomBadgeProps {
-  fontSize?: FontsSizes
+  fontSize?: PikasFontSize
   leftIconName?: string
   rightIconName?: string
   gap?: BadgeGap
