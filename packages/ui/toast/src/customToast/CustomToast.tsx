@@ -1,4 +1,4 @@
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { keyframes, styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useState } from 'react'
@@ -40,20 +40,20 @@ const Timer = styled('div', {
   position: 'relative',
 })
 
-export interface CustomToastCSS<CSS extends PikasCSS = PikasCSS>
+export interface CustomToastCSS<Config extends PikasConfig>
   extends ToastCSS<CSS> {
-  close?: CSS
-  timer?: CSS
-  content?: CSS
+  close?: Config['css']
+  timer?: Config['css']
+  content?: Config['css']
 }
 
-export interface CustomToastProps<CSS extends PikasCSS = PikasCSS>
-  extends BaseToastProps<CSS> {
-  css?: CustomToastCSS<CSS>
+export interface CustomToastProps<Config extends PikasConfig>
+  extends BaseToastProps<Config> {
+  css?: CustomToastCSS<Config>
   children?: React.ReactNode
 }
 
-export const CustomToast = <CSS extends PikasCSS = PikasCSS>({
+export const CustomToast = <Config extends PikasConfig = PikasConfig>({
   duration = 5000,
   onOpenChange,
   css,
@@ -70,7 +70,7 @@ export const CustomToast = <CSS extends PikasCSS = PikasCSS>({
   minWidth = 'auto',
   maxWidth = '100%',
   type = 'foreground',
-}: CustomToastProps<CSS>): JSX.Element => {
+}: CustomToastProps<Config>): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true)
 
   const handleOpen = (): void => {

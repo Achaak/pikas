@@ -1,4 +1,4 @@
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -121,9 +121,9 @@ const Container = styled('div', {
 
 export type GridType = 'container' | 'item'
 
-export interface GridBaseProps<CSS extends PikasCSS> {
+export interface GridBaseProps<Config extends PikasConfig> {
   children?: React.ReactNode
-  css?: CSS
+  css?: Config['css']
   type: GridType
 }
 
@@ -184,8 +184,8 @@ export type GridContainerJustifyContent =
 
 export type GridContainerAlignItems = 'start' | 'center' | 'end' | 'stretch'
 
-export interface GridContainerProps<CSS extends PikasCSS>
-  extends GridBaseProps<CSS> {
+export interface GridContainerProps<Config extends PikasConfig>
+  extends GridBaseProps<Config> {
   type: 'container'
   rowGap?: GridContainerRowGap
   columnGap?: GridContainerColumnGap
@@ -222,20 +222,20 @@ export type GridItemEnd = {
   xl?: number
 }
 
-export interface GridItemProps<CSS extends PikasCSS>
-  extends GridBaseProps<CSS> {
+export interface GridItemProps<Config extends PikasConfig>
+  extends GridBaseProps<Config> {
   type: 'item'
   cols?: GridItemCols
   start?: GridItemStart
   end?: GridItemEnd
 }
 
-export type GridProps<CSS extends PikasCSS> =
-  | GridContainerProps<CSS>
-  | GridItemProps<CSS>
+export type GridProps<Config extends PikasConfig> =
+  | GridContainerProps<Config>
+  | GridItemProps<Config>
 
-export const Grid = <CSS extends PikasCSS>(
-  props: GridProps<CSS> = {
+export const Grid = <Config extends PikasConfig = PikasConfig>(
+  props: GridProps<Config> = {
     type: 'container',
     rowGap: 'md',
     columnGap: 'md',

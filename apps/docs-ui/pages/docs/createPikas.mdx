@@ -156,4 +156,22 @@ export const customGlobalCss = globalCss({
     br: 'md',
   },
 })
+
+export type PikasConfig = GlobalPikasConfig & {
+  color: Color
+  fontSize: FontSize
+  fontWeight: FontWeight
+  letterSpacing: LetterSpacing
+  lineHeight: LineHeight
+  size: Size
+  space: Space
+  borderStyle: BorderStyle
+  borderWidth: BorderWidth
+  radius: Radius
+  shadow: Shadow
+  transition: Transition
+  zIndex: ZIndex
+  font: Font
+  media: Media
+}
 ```

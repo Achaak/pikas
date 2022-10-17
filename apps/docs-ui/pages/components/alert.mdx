@@ -62,26 +62,6 @@ const Example: React.FC = () => {
 }
 ```
 
-#### With a custom configuration
-
-```tsx
-import { Alert } from `@pikas-ui/alert`;
-import type {
-  PikasCSS,
-  Color,
-  FontSize,
-  FontWeight
-} from 'your_config'
-
-const Example: React.FC = () => {
-  return (
-    <Alert<PikasCSS, Color, FontSize, FontWeight> variant="alert">
-      Ea Lorem fugiat aliquip irure aliquip quis mollit ullamco aliquip occaecat culpa.
-    </Alert>
-  )
-}
-```
-
 #### Props
 
 | Prop           | Description                          | Type              | Default      |
@@ -114,36 +94,6 @@ const IconExample: React.FC<IconProps> = (props) => {
 const Example: React.FC = () => {
   return (
     <CustomAlert
-      Icon={IconExample}
-      color="WHITE"
-      backgroundColor="SECONDARY"
-    >
-      This is an error alert.
-    </CustomAlert>
-  )
-}
-```
-
-#### With a custom configuration
-
-```tsx
-import { CustomAlert } from `@pikas-ui/alert`;
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import type {
-  PikasCSS,
-  Color,
-  FontSize,
-  FontWeight
-} from 'your_config'
-
-const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
-
-const Example: React.FC = () => {
-  return (
-    <CustomAlert<PikasCSS, Color, FontSize, FontWeight>
       Icon={IconExample}
       color="WHITE"
       backgroundColor="SECONDARY"

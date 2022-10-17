@@ -14,7 +14,7 @@ export const ToastVariant = {
 } as const
 export type ToastVariant = keyof typeof ToastVariant
 
-export interface ToastProps<CSS extends PikasCSS = PikasCSS>
+export interface ToastProps<Config extends PikasConfig>
   extends BaseToastProps<CSS> {
   variant?: ToastVariant
   title?: string
@@ -22,7 +22,7 @@ export interface ToastProps<CSS extends PikasCSS = PikasCSS>
   css?: DefaultToastCSS<CSS>
 }
 
-export const Toast = <CSS extends PikasCSS = PikasCSS>({
+export const Toast = <Config extends PikasConfig = PikasConfig>({
   variant = 'info',
   css,
   ...props

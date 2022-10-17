@@ -148,3 +148,21 @@ export const customGlobalCss = globalCss({
     br: 'md',
   },
 })
+
+export type GlobalConfig = {
+  colors: Colors
+  fontSizes: FontSizes
+  fontWeights: FontWeights
+  letterSpacings: LetterSpacings
+  lineHeights: LineHeights
+  sizes: Sizes
+  spaces: Spaces
+  borderStyles: BorderStyles
+  borderWidths: BorderWidths
+  radii: Radii
+  shadows: Shadows
+  transitions: Transitions
+  zIndices: ZIndices
+  fonts: Fonts
+  medias: Medias
+}

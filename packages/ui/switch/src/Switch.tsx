@@ -1,11 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type {
-  FontSize as FontSizeByPikas,
-  FontSizesRecord,
-  PikasCSS,
-  PikasFontSize,
-} from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
@@ -73,52 +68,44 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSS<CSS extends PikasCSS> {
-  container?: CSS
-  content?: CSS
-  infoTooltip?: TooltipCSS<CSS>
-  infoIcon?: IconCSS<CSS>
-  label?: CSS
-  required?: CSS
-  textError?: CSS
+export interface SwitchCSS<Config extends PikasConfig> {
+  container?: Config['css']
+  content?: Config['css']
+  infoTooltip?: TooltipCSS<Config>
+  infoIcon?: IconCSS<Config>
+  label?: Config['css']
+  required?: Config['css']
+  textError?: Config['css']
 }
 
-export interface BasicSwitchProps<
-  CSS extends PikasCSS,
-  FontSize extends FontSizeByPikas<FontSizesRecord>
-> {
+export interface BasicSwitchProps<Config extends PikasConfig> {
   label?: string
   name?: string
-  fontSize?: FontSize
+  fontSize?: Config['fontSize']
   textError?: string
 
   onCheckedChange?: (val: boolean) => void
   defaultChecked?: boolean
-  css?: SwitchCSS<CSS>
+  css?: SwitchCSS<Config>
   disabled?: boolean
   side?: 'left' | 'right'
   Icons?: {
-    checked: React.FC<IconProps>
-    unchecked: React.FC<IconProps>
+    checked: React.FC<IconProps<Config>>
+    unchecked: React.FC<IconProps<Config>>
   }
   required?: boolean
   checked?: boolean
   info?: string
 }
 
-export type SwitchProps<
-  CSS extends PikasCSS,
-  FontSize extends FontSizeByPikas<FontSizesRecord>
-> = ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<CSS, FontSize>
+export type SwitchProps<Config extends PikasConfig> =
+  ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<Config>
 
-export const Switch = <
-  CSS extends PikasCSS = PikasCSS,
-  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize
->({
+export const Switch = <Config extends PikasConfig = PikasConfig>({
   id,
   name,
   onCheckedChange,
-  fontSize = 'EM-MEDIUM' as FontSize,
+  fontSize = 'EM-MEDIUM' as Config['fontSize'],
   textError,
   label,
   css,
@@ -130,7 +117,7 @@ export const Switch = <
   required,
   checked,
   ...props
-}: SwitchProps<CSS, FontSize>): JSX.Element => {
+}: SwitchProps<Config>): JSX.Element => {
   const [checkedState, setCheckedState] = useState(defaultChecked || checked)
 
   useEffect(() => {
@@ -149,9 +136,9 @@ export const Switch = <
     }
 
     if (checkedState) {
-      return <Icons.checked size={14} color="BLACK_FIX" />
+      return <Icons.checked size={14} colorName="BLACK_FIX" />
     } else {
-      return <Icons.unchecked size={14} color="BLACK_FIX" />
+      return <Icons.unchecked size={14} colorName="BLACK_FIX" />
     }
   }
 
@@ -198,7 +185,7 @@ export const Switch = <
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  color="BLACK_LIGHT"
+                  colorName="BLACK_LIGHT"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -253,7 +240,7 @@ export const Switch = <
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  color="BLACK_LIGHT"
+                  colorName="BLACK_LIGHT"
                   css={{
                     container: {
                       marginLeft: 4,

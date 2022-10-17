@@ -2,18 +2,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useCallback } from 'react'
 import { CustomAlert } from '../customAlert/index.js'
-import type {
-  PikasColor,
-  FontSize as FontSizeByPikas,
-  FontWeight as FontWeightByPikas,
-  Color as ColorByPikas,
-  PikasFontWeight,
-  PikasFontSize,
-  FontSizesRecord,
-  FontWeightsRecord,
-  PikasCSS,
-  ColorsRecord,
-} from '@pikas-ui/styles'
+import type { PikasColor, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import type { BaseAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
@@ -26,27 +15,19 @@ export const AlertVariant = {
 }
 export type AlertVariant = keyof typeof AlertVariant
 
-export interface AlertProps<
-  CSS extends PikasCSS,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord>
-> extends BaseAlertProps<CSS, FontSize, FontWeight> {
+export interface AlertProps<Config extends PikasConfig>
+  extends BaseAlertProps<Config> {
   variant?: AlertVariant
 }
 
-export const Alert = <
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord> = PikasColor,
-  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight
->({
+export const Alert = <Config extends PikasConfig>({
   variant = 'info',
   children,
   ...props
-}: AlertProps<CSS, FontSize, FontWeight>): JSX.Element => {
+}: AlertProps<Config>): JSX.Element => {
   const theme = useTheme()
 
-  const Icon: React.FC<IconProps<CSS, Color>> = (props) => {
+  const Icon: React.FC<IconProps<Config>> = (props) => {
     switch (variant) {
       case 'success':
         return <IconByName {...props} name="bx:check-circle" />
@@ -61,19 +42,19 @@ export const Alert = <
     }
   }
 
-  const getBackgroundColor = useCallback((): Color => {
+  const getBackgroundColor = useCallback((): Config['color'] => {
     {
       switch (variant) {
         case 'success':
-          return 'SUCCESS' as Color
+          return 'SUCCESS' as Config['color']
         case 'warning':
-          return 'WARNING' as Color
+          return 'WARNING' as Config['color']
         case 'danger':
-          return 'DANGER' as Color
+          return 'DANGER' as Config['color']
         case 'info':
-          return 'PRIMARY' as Color
+          return 'PRIMARY' as Config['color']
         default:
-          return 'PRIMARY' as Color
+          return 'PRIMARY' as Config['color']
       }
     }
   }, [variant])

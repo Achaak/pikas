@@ -83,39 +83,6 @@ const Parent: React.FC = () => {
 }
 ```
 
-```tsx
-import { Toast, useToast, ToastProvider } from `@pikas-ui/toast`;
-import type { PikasCSS } from 'your_config'
-
-const Child: React.FC = () => {
-  const toast = useToast();
-
-  const handleClick = () => {
-    toast.publish(
-      <Toast<PikasCSS>
-        title="Title"
-        description="Description"
-        variant="success"
-      />
-    );
-  };
-
-  return (
-    <button onClick={handleClick}>
-      Show toast
-    </button>
-  )
-}
-
-const Parent: React.FC = () => {
-  return (
-    <ToastProvider<PikasCSS> position="top-right">
-      <Child />
-    </ToastProvider>
-  )
-}
-```
-
 #### Props
 
 | Prop              | Description                                       | Type                             | Default        |
@@ -184,45 +151,6 @@ const Parent: React.FC = () => {
 }
 ```
 
-```tsx
-import { DefaultToast, useToast, ToastProvider } from `@pikas-ui/toast`;
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import type { PikasCSS } from 'your_config'
-
-const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
-
-const Child: React.FC = () => {
-  const toast = useToast();
-
-  const handleClick = () => {
-    toast.publish(
-      <DefaultToast<PikasCSS>
-        title="Title"
-        description="Description"
-        Icon={IconExample}
-      />
-    );
-  };
-
-  return (
-    <button onClick={handleClick}>
-      Show toast
-    </button>
-  )
-}
-
-const Parent: React.FC = () => {
-  return (
-    <ToastProvider<PikasCSS> position="top-right">
-      <Child />
-    </ToastProvider>
-  )
-}
-```
-
 #### Props
 
 | Prop              | Description                                       | Type                             | Default        |
@@ -277,37 +205,6 @@ const Child: React.FC = () => {
 const Parent: React.FC = () => {
   return (
     <ToastProvider position="top-right">
-      <Child />
-    </ToastProvider>
-  )
-}
-```
-
-```tsx
-import { CustomToast, useToast, ToastProvider } from `@pikas-ui/toast`;
-import type { PikasCSS } from 'your_config'
-
-const Child: React.FC = () => {
-  const toast = useToast();
-
-  const handleClick = () => {
-    toast.publish(
-      <CustomToast<PikasCSS>>
-        Hello world
-      </CustomToast>
-    );
-  };
-
-  return (
-    <button onClick={handleClick}>
-      Show toast
-    </button>
-  )
-}
-
-const Parent: React.FC = () => {
-  return (
-    <ToastProvider<PikasCSS> position="top-right">
       <Child />
     </ToastProvider>
   )

@@ -62,34 +62,6 @@ const Example: React.FC = () => {
 }
 ```
 
-#### With a custom configuration
-
-```tsx
-import { Tooltip } from `@pikas-ui/tooltip`;
-import { IconByName } from `@pikas-ui/icons`;
-import type {
-  PikasCSS,
-  Color,
-  FontSize,
-  Shadow,
-  FontWeight
-} from 'your_config'
-
-
-const Example: React.FC = () => {
-  return (
-    <Tooltip<
-      PikasCSS,
-      Color,
-      FontSize,
-      Shadow,
-      FontWeight
-    > content="Hello world">
-      <IconByName size={40} name="bx:baguette" />
-    </Tooltip>
-  )
-}
-```
 
 #### Props
 

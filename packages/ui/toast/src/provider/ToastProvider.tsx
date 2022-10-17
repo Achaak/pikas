@@ -1,4 +1,4 @@
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React, { useState } from 'react'
@@ -66,11 +66,11 @@ const Viewport = styled(ToastPrimitive.Viewport, {
   transition: 'transform 0.2s 150ms ease',
 })
 
-export interface ToastProviderProps<CSS extends PikasCSS = PikasCSS> {
+export interface ToastProviderProps<Config extends PikasConfig> {
   children?: React.ReactNode
   duration?: number
   label?: string
-  css?: CSS
+  css?: Config['css']
   swipeThreshold?: number
   width?: number
   position?: ToastPosition
@@ -81,14 +81,14 @@ export interface ToastProviderProps<CSS extends PikasCSS = PikasCSS> {
   }
 }
 
-export interface ToastContextProps<CSS extends PikasCSS = PikasCSS> {
-  toasts: React.ReactElement<BaseToastProps<CSS>>[]
-  publish: (toast: React.ReactElement<BaseToastProps<CSS>>) => void
+export interface ToastContextProps<Config extends PikasConfig> {
+  toasts: React.ReactElement<BaseToastProps<Config>>[]
+  publish: (toast: React.ReactElement<BaseToastProps<Config>>) => void
 }
 export const createToastContext = <
-  CSS extends PikasCSS = PikasCSS
->(): React.Context<ToastContextProps<CSS>> => {
-  return React.createContext<ToastContextProps<CSS>>({
+  Config extends PikasConfig = PikasConfig
+>(): React.Context<ToastContextProps<Config>> => {
+  return React.createContext<ToastContextProps<Config>>({
     toasts: [],
     publish: () => {
       console.log('publish')
@@ -96,7 +96,7 @@ export const createToastContext = <
   })
 }
 
-export const ToastProvider = <CSS extends PikasCSS = PikasCSS>({
+export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
   duration = 5000,
   label = 'Notification',
   css,
@@ -109,10 +109,10 @@ export const ToastProvider = <CSS extends PikasCSS = PikasCSS>({
     label: 'Notifications ({hotkey})',
   },
   children,
-}: ToastProviderProps<CSS>): JSX.Element => {
-  const ToastContext = createToastContext<CSS>()
+}: ToastProviderProps<Config>): JSX.Element => {
+  const ToastContext = createToastContext<Config>()
   const [toasts, setToasts] = useState<
-    React.ReactElement<BaseToastProps<CSS>>[]
+    React.ReactElement<BaseToastProps<Config>>[]
   >([])
 
   const getSwipeDirection = (): ToastPrimitive.SwipeDirection => {

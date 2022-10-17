@@ -1,18 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type {
-  PikasShadow,
-  PikasColor,
-  PikasCSS,
-  PikasFontSize,
-  BorderRadius,
-  FontSize as FontSizeByPikas,
-  Shadow as ShadowByPikas,
-  Color as ColorByPikas,
-  FontSizesRecord,
-  ColorsRecord,
-  ShadowsRecord,
-} from '@pikas-ui/styles'
+import type { PikasConfig, PikasColor, BorderRadius } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
@@ -194,28 +182,23 @@ export const TextfieldGap = {
 }
 export type TextfieldGap = keyof typeof TextfieldGap
 
-export type TextfieldCSS<CSS extends PikasCSS> = {
-  container?: CSS
-  inputContainer?: CSS
-  input?: CSS
-  left?: CSS
-  right?: CSS
-  leftIcon?: IconCSS<CSS>
-  rightIcon?: IconCSS<CSS>
-  infoTooltip?: TooltipCSS<CSS>
-  infoIcon?: IconCSS<CSS>
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  required?: CSS
+export type TextfieldCSS<Config extends PikasConfig> = {
+  container?: Config['css']
+  inputContainer?: Config['css']
+  input?: Config['css']
+  left?: Config['css']
+  right?: Config['css']
+  leftIcon?: IconCSS<Config>
+  rightIcon?: IconCSS<Config>
+  infoTooltip?: TooltipCSS<Config>
+  infoIcon?: IconCSS<Config>
+  label?: Config['css']
+  description?: Config['css']
+  textError?: Config['css']
+  required?: Config['css']
 }
 
-export type TextfieldProps<
-  CSS extends PikasCSS,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  Color extends ColorByPikas<ColorsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> = {
+export type TextfieldProps<Config extends PikasConfig> = {
   type?: TextfieldType
   id?: string
   label?: string
@@ -236,8 +219,8 @@ export type TextfieldProps<
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
-  LeftIcon?: React.FC<IconProps<CSS, Color>>
-  RightIcon?: React.FC<IconProps<CSS, Color>>
+  LeftIcon?: React.FC<IconProps<Config>>
+  RightIcon?: React.FC<IconProps<Config>>
   leftIconColorName?: Color
   leftIconColorHex?: string
   rightIconColorName?: Color
@@ -246,7 +229,7 @@ export type TextfieldProps<
   rightIconSize?: number
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
-  css?: TextfieldCSS<CSS>
+  css?: TextfieldCSS<Config>
   min?: number
   max?: number
   outline?: boolean
@@ -259,17 +242,12 @@ export type TextfieldProps<
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Textfield = forwardRef(
-  <
-    CSS extends PikasCSS = PikasCSS,
-    FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
-    Color extends ColorByPikas<ColorsRecord> = PikasColor,
-    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
-  >(
+  <Config extends PikasConfig = PikasConfig>(
     {
       id,
       type = 'text',
       onChange,
-      boxShadow = 'DIMINUTION_1' as Shadow,
+      boxShadow = 'DIMINUTION_1' as Config['s'],
       borderRadius = 'md',
       padding = 'md',
       fontSize = 'EM-MEDIUM' as FontSize,
@@ -309,7 +287,7 @@ export const Textfield = forwardRef(
       disabled = false,
       data,
       ...props
-    }: TextfieldProps<CSS, FontSize, Color, Shadow>,
+    }: TextfieldProps<Config>,
     ref: React.Ref<HTMLInputElement>
   ) => {
     const refInput = useRef<HTMLInputElement>(null)
@@ -381,7 +359,7 @@ export const Textfield = forwardRef(
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  color="BLACK_LIGHT"
+                  colorName="BLACK_LIGHT"
                   css={{
                     container: {
                       marginLeft: 4,

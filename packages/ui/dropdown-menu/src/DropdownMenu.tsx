@@ -169,7 +169,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
               <IconByName
                 name="bx:dots-vertical-rounded"
                 size={iconSize}
-                color={iconColorName || 'BLACK_LIGHT'}
+                colorName={iconColorName || 'BLACK_LIGHT'}
               />
             </IconButton>
           </DropdownMenuPrimitive.Trigger>
@@ -252,7 +252,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     <ItemIndicator forceMount css={item?.css?.indicator}>
                       <ClipLoader
                         size={16}
-                        color={item.iconColorName || item.colorName}
+                        colorName={item.iconColorName || item.colorName}
                         colorHex={
                           item.iconColorHex || item.colorHex || 'GRAY_DARKER'
                         }
@@ -263,7 +263,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                       <ItemIndicator forceMount css={item?.css?.indicator}>
                         <item.Icon
                           size={16}
-                          color={item.iconColorName || item.colorName}
+                          colorName={item.iconColorName || item.colorName}
                           colorHex={
                             item.iconColorHex || item.colorName || 'GRAY_DARKER'
                           }
@@ -293,7 +293,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   css={{
                     color:
                       item.colorHex ||
-                      (item.color && `$${item.colorName}`) ||
+                      (item.colorName && `$${item.colorName}`) ||
                       '$GRAY_DARKER',
                     ...item?.css?.container,
                   }}
@@ -302,7 +302,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     <IconByName
                       name="bx:check"
                       size={16}
-                      color={item.colorName}
+                      colorName={item.colorName}
                       colorHex={item.colorHex || 'GRAY_DARKER'}
                     />
                   </ItemIndicator>
@@ -338,7 +338,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                         <IconByName
                           name="bxs:circle"
                           size={8}
-                          color={item.colorName}
+                          colorName={item.colorName}
                           colorHex={item.colorHex || 'GRAY_DARKER'}
                         />
                       </ItemIndicator>
@@ -368,7 +368,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     <RightSlot>
                       <IconByName
                         name="bxs:chevron-right"
-                        color={item.colorName}
+                        colorName={item.colorName}
                         colorHex={item.colorHex || 'GRAY_DARKER'}
                         size={20}
                       />

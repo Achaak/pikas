@@ -1,16 +1,4 @@
-import type {
-  PikasShadow,
-  PikasColor,
-  PikasCSS,
-  PikasFontSize,
-  BorderRadius,
-  FontSizesRecord,
-  ColorsRecord,
-  ShadowsRecord,
-  FontSize as FontSizeByPikas,
-  Shadow as ShadowByPikas,
-  Color as ColorByPikas,
-} from '@pikas-ui/styles'
+import type { PikasColor, BorderRadius, PikasConfig } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Label, TextError, Description } from '@pikas-ui/text'
 import fontColorContrast from 'font-color-contrast'
@@ -92,33 +80,28 @@ export const TextareaResize = {
 }
 export type TextareaResize = keyof typeof TextareaResize
 
-export interface TextareaCSS<CSS extends PikasCSS> {
-  container?: CSS
-  textareaContainer?: CSS
-  textarea?: CSS
-  infoTooltip?: TooltipCSS<CSS>
-  infoIcon?: IconCSS<CSS>
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  required?: CSS
+export interface TextareaCSS<Config extends PikasConfig> {
+  container?: Config['css']
+  textareaContainer?: Config['css']
+  textarea?: Config['css']
+  infoTooltip?: TooltipCSS<Config>
+  infoIcon?: IconCSS<Config>
+  label?: Config['css']
+  description?: Config['css']
+  textError?: Config['css']
+  required?: Config['css']
 }
 
-export type TextareaProps<
-  CSS extends PikasCSS,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  Color extends ColorByPikas<ColorsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> = {
+export type TextareaProps<Config extends PikasConfig> = {
   id?: string
   label?: string
-  boxShadow?: Shadow | 'none'
+  boxShadow?: Config['shadow'] | 'none'
   borderRadius?: BorderRadius
   padding?: TextareaPadding
-  fontSize?: FontSize
+  fontSize?: Config['fontSize']
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  css?: TextareaCSS<CSS>
+  css?: TextareaCSS<Config>
   outline?: boolean
   resize?: TextareaResize
   description?: string
@@ -128,39 +111,34 @@ export type TextareaProps<
   maxHeight?: string | number
   minHeight?: string | number
   minWidth?: string | number
-  borderColorName?: Color
+  borderColorName?: Config['color']
   borderColorHex?: string
   borderWidth?: number
-  colorName?: Color
+  colorName?: Config['color']
   colorHex?: string
-  placeholderColorName?: Color
+  placeholderColorName?: Config['color']
   placeholderColorHex?: string
-  backgroundColorName?: Color
+  backgroundColorName?: Config['color']
   backgroundColorHex?: string
   info?: React.ReactNode
   data?: DOMStringMap
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = forwardRef(
-  <
-    CSS extends PikasCSS = PikasCSS,
-    FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
-    Color extends ColorByPikas<ColorsRecord> = PikasColor,
-    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
-  >(
+  <Config extends PikasConfig = PikasConfig>(
     {
       id,
       onChange,
-      boxShadow = 'DIMINUTION_1' as Shadow,
+      boxShadow = 'DIMINUTION_1' as Config['shadow'],
       borderRadius = 'md',
       padding = 'md',
-      fontSize = 'EM-MEDIUM' as FontSize,
+      fontSize = 'EM-MEDIUM' as Config['fontSize'],
       textError,
       label,
       css,
-      borderColorName = 'TRANSPARENT' as Color,
+      borderColorName = 'TRANSPARENT' as Config['color'],
       borderWidth = 0,
-      backgroundColorName = 'GRAY_LIGHTEST_1' as Color,
+      backgroundColorName = 'GRAY_LIGHTEST_1' as Config['color'],
       outline = true,
       resize,
       description,
@@ -181,7 +159,7 @@ export const Textarea = forwardRef(
       disabled = false,
       data,
       ...props
-    }: TextareaProps<CSS, FontSize, Color, Shadow>,
+    }: TextareaProps<Config>,
     ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
     const [focus, setFocus] = useState(false)
@@ -199,7 +177,7 @@ export const Textarea = forwardRef(
       colorName,
       colorHex,
     }: {
-      colorName?: Color
+      colorName?: Config['color']
       colorHex?: string
     }): string => {
       return colorHex || colorName
@@ -242,7 +220,7 @@ export const Textarea = forwardRef(
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  color="BLACK_LIGHT"
+                  colorName="BLACK_LIGHT"
                   css={{
                     container: {
                       marginLeft: 4,

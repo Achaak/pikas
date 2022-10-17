@@ -1,19 +1,4 @@
-import type {
-  PikasColor,
-  PikasCSS,
-  PikasFontWeight,
-  BorderRadius,
-  PikasFontSize,
-  PikasShadow,
-  FontSize as FontSizeByPikas,
-  Shadow as ShadowByPikas,
-  Color as ColorByPikas,
-  FontWeight as FontWeightByPikas,
-  FontWeightsRecord,
-  FontSizesRecord,
-  ColorsRecord,
-  ShadowsRecord,
-} from '@pikas-ui/styles'
+import type { PikasColor, BorderRadius, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
@@ -175,30 +160,24 @@ const Children = styled('div', {
   },
 })
 
-export type ButtonCSS<CSS extends PikasCSS> = {
-  button?: CSS
-  icon?: IconCSS<CSS>
+export type ButtonCSS<Config extends PikasConfig> = {
+  button?: Config['css']
+  icon?: IconCSS<Config>
 }
 
-export interface ButtonDefaultProps<
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord>,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> {
+export interface ButtonDefaultProps<Config extends PikasConfig> {
   children?: React.ReactNode
-  css?: ButtonCSS<CSS>
+  css?: ButtonCSS<Config>
   loading?: boolean
   padding?: ButtonPadding
-  fontSize?: FontSize
+  fontSize?: Config['fontSize']
   gap?: ButtonGap
-  colorName?: Color
+  colorName?: Config['color']
   colorHex?: string
-  contentColorName?: Color
+  contentColorName?: Config['color']
   contentColorHex?: string
   textTransform?: ButtonTextTransform
-  fontWeight?: FontWeight
+  fontWeight?: Config['fontWeight']
   outlined?: boolean
   effect?: ButtonEffect
   LeftIcon?: React.FC<IconProps>
@@ -209,51 +188,29 @@ export interface ButtonDefaultProps<
   minWidth?: string | number
   borderRadius?: BorderRadius
   borderWidth?: number
-  boxShadow?: Shadow | 'none'
+  boxShadow?: Config['shadow'] | 'none'
 }
 
-export interface BaseButtonProps<
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord>,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> extends ButtonDefaultProps<CSS, Color, FontSize, FontWeight, Shadow> {
+export interface BaseButtonProps<Config extends PikasConfig>
+  extends ButtonDefaultProps<Config> {
   onClick?: () => void
   type?: ButtonType
 }
 
-export type ButtonProps<
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord>,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> = ButtonHTMLAttributes<HTMLButtonElement> &
-  BaseButtonProps<CSS, Color, FontSize, FontWeight, Shadow>
+export type ButtonProps<Config extends PikasConfig> =
+  ButtonHTMLAttributes<HTMLButtonElement> & BaseButtonProps<Config>
 
-export interface BaseButtonLinkProps<
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord>,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> extends ButtonDefaultProps<CSS, Color, FontSize, FontWeight, Shadow> {
+export interface BaseButtonLinkProps<Config extends PikasConfig>
+  extends ButtonDefaultProps<Config> {
   onClick?: () => void
   href?: string
   target?: ButtonTarget
 }
 
-export type ButtonLinkProps<
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord>,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> = AnchorHTMLAttributes<HTMLAnchorElement> &
-  BaseButtonLinkProps<CSS, Color, FontSize, FontWeight, Shadow>
+export type ButtonLinkProps<Config extends PikasConfig> =
+  AnchorHTMLAttributes<HTMLAnchorElement> & BaseButtonLinkProps<Config>
 
-const getContent = <CSS extends PikasCSS>({
+const getContent = <Config extends PikasConfig = PikasConfig>({
   LeftIcon,
   RightIcon,
   loading,
@@ -267,7 +224,7 @@ const getContent = <CSS extends PikasCSS>({
   RightIcon?: React.FC<IconProps>
   loading?: boolean
   children?: React.ReactNode
-  css?: ButtonCSS<CSS>
+  css?: ButtonCSS<Config>
   contentColor?: string
   textTransform?: ButtonTextTransform
   gap?: ButtonGap
@@ -304,15 +261,9 @@ const getContent = <CSS extends PikasCSS>({
 }
 
 export const Button = forwardRef(
-  <
-    CSS extends PikasCSS = PikasCSS,
-    Color extends ColorByPikas<ColorsRecord> = PikasColor,
-    FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
-    FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight,
-    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
-  >(
+  <Config extends PikasConfig = PikasConfig>(
     {
-      colorName = 'PRIMARY' as Color,
+      colorName = 'PRIMARY' as Config['color'],
       colorHex,
       css,
       loading = false,
@@ -327,17 +278,17 @@ export const Button = forwardRef(
       width = '100%',
       maxWidth = '100%',
       minWidth,
-      fontSize = 'EM-MEDIUM' as FontSize,
+      fontSize = 'EM-MEDIUM' as Config['fontSize'],
       textTransform = 'default',
-      fontWeight = 'NORMAL' as FontWeight,
+      fontWeight = 'NORMAL' as Config['fontWeight'],
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1' as Shadow,
+      boxShadow = 'ELEVATION_BOTTOM_1' as Config['shadow'],
       contentColorName,
       contentColorHex,
       padding = 'md',
       ...props
-    }: ButtonProps<CSS, Color, FontSize, FontWeight, Shadow>,
+    }: ButtonProps<Config>,
     ref: React.ForwardedRef<HTMLButtonElement>
   ): JSX.Element => {
     const theme = useTheme()
@@ -385,7 +336,7 @@ export const Button = forwardRef(
         }}
         {...props}
       >
-        {getContent<CSS>({
+        {getContent<Config>({
           LeftIcon,
           RightIcon,
           children,
@@ -405,20 +356,14 @@ export const Button = forwardRef(
 )
 
 export const ButtonLink = forwardRef(
-  <
-    CSS extends PikasCSS = PikasCSS,
-    Color extends ColorByPikas<ColorsRecord> = PikasColor,
-    FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
-    FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight,
-    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
-  >(
+  <Config extends PikasConfig = PikasConfig>(
     {
-      colorName = 'PRIMARY' as Color,
+      colorName = 'PRIMARY' as Config['color'],
       colorHex,
       css,
       loading = false,
       disabled = false,
-      fontSize = 'EM-MEDIUM' as FontSize,
+      fontSize = 'EM-MEDIUM' as Config['fontSize'],
       effect = 'opacity',
       onClick,
       children,
@@ -430,15 +375,15 @@ export const ButtonLink = forwardRef(
       maxWidth = '100%',
       minWidth,
       textTransform = 'default',
-      fontWeight = 'NORMAL' as FontWeight,
+      fontWeight = 'NORMAL' as Config['fontWeight'],
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1' as Shadow,
+      boxShadow = 'ELEVATION_BOTTOM_1' as Config['shadow'],
       contentColorName,
       contentColorHex,
       padding = 'md',
       ...props
-    }: ButtonLinkProps<CSS, Color, FontSize, FontWeight, Shadow>,
+    }: ButtonLinkProps<Config>,
     ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
     const theme = useTheme()
@@ -486,7 +431,7 @@ export const ButtonLink = forwardRef(
         }}
         {...props}
       >
-        {getContent<CSS>({
+        {getContent<Config>({
           LeftIcon,
           RightIcon,
           children,

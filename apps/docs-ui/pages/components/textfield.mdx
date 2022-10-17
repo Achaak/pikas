@@ -61,33 +61,6 @@ const Example: React.FC = () => {
 }
 ```
 
-#### With a custom configuration
-
-```tsx
-import { Textfield } from `@pikas-ui/textfield`;
-import type {
-  PikasCSS,
-  Color,
-  FontSize,
-  Shadow
-} from 'your_config'
-
-const Example: React.FC = () => {
-  return (
-    <Textfield<
-      PikasCSS,
-      FontSize,
-      Color,
-      Shadow
-    >
-      label="Textfield label"
-      description="Eu est labore ea laborum laborum mollit non minim eu commodo."
-      required
-    />
-  )
-}
-```
-
 #### Props
 
 Props extends `InputHTMLAttributes<HTMLInputElement>`

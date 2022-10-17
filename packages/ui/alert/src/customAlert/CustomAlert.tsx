@@ -1,16 +1,5 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type {
-  ColorsRecord,
-  PikasColor,
-  Color as ColorByPikas,
-  FontSize as FontSizeByPikas,
-  FontWeight as FontWeightByPikas,
-  PikasFontWeight,
-  PikasFontSize,
-  FontSizesRecord,
-  FontWeightsRecord,
-  PikasCSS,
-} from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { BaseAlertProps } from '../types.js'
@@ -84,38 +73,29 @@ const Child = styled('p', {
   margin: 0,
 })
 
-export interface CustomAlertProps<
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord>,
-  FontSize extends FontSizeByPikas<FontSizesRecord>,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord>
-> extends BaseAlertProps<CSS, FontSize, FontWeight> {
-  Icon?: React.FC<IconProps<CSS, Color>>
-  backgroundColorName?: Color
-  colorName?: Color
+export interface CustomAlertProps<Config extends PikasConfig>
+  extends BaseAlertProps<Config> {
+  Icon?: React.FC<IconProps<Config>>
+  backgroundColorName?: Config['color']
+  colorName?: Config['color']
   colorHex?: string
 }
 
-export const CustomAlert = <
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord> = PikasColor,
-  FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
-  FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight
->({
+export const CustomAlert = <Config extends PikasConfig>({
   children,
   Icon,
   backgroundColorName,
   colorName,
   colorHex,
-  fontSize = 'EM-SMALL' as FontSize,
+  fontSize = 'EM-SMALL' as Config['fontSize'],
   borderRadius = 'md',
   iconSize = 24,
-  fontWeight = 'NORMAL' as FontWeight,
+  fontWeight = 'NORMAL' as Config['fontWeight'],
   gap = 'sm',
   padding = 'md',
   visible = true,
   css,
-}: CustomAlertProps<CSS, Color, FontSize, FontWeight>): JSX.Element => {
+}: CustomAlertProps<Config>): JSX.Element => {
   return (
     <Container visible={visible} css={css?.container}>
       <Content

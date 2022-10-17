@@ -1,13 +1,4 @@
-import type {
-  BorderRadius,
-  PikasColor,
-  PikasShadow,
-  PikasCSS,
-  ColorsRecord,
-  Color as ColorByPikas,
-  ShadowsRecord,
-  Shadow as ShadowByPikas,
-} from '@pikas-ui/styles'
+import type { BorderRadius, PikasColor, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Skeleton } from '@pikas-ui/skeleton'
@@ -66,51 +57,43 @@ const ContentBack = styled(Content, {})
 
 const ContentFront = styled(Content, {})
 
-export interface ProgressCSS<CSS extends PikasCSS> {
-  container?: CSS
-  content?: CSS
-  indicator?: CSS
+export interface ProgressCSS<Config extends PikasConfig> {
+  container?: Config['css']
+  content?: Config['css']
+  indicator?: Config['css']
 }
 
-export interface ProgressProps<
-  CSS extends PikasCSS,
-  Color extends ColorByPikas<ColorsRecord>,
-  Shadow extends ShadowByPikas<ShadowsRecord>
-> {
+export interface ProgressProps<Config extends PikasConfig> {
   progress: number
   max?: number
   width?: number | string
   height?: number | string
-  colorName?: Color
-  backgroundColorName?: Color
+  colorName?: Config['color']
+  backgroundColorName?: Config['color']
   loading?: boolean
-  boxShadow?: Shadow | 'none'
+  boxShadow?: Config['shadow'] | 'none'
   borderRadius?: BorderRadius
   borderRadiusIndicator?: BorderRadius
   getValueLabel?: (value: number, max: number) => string
   content?: string
-  css?: ProgressCSS<CSS>
+  css?: ProgressCSS<Config>
 }
 
-export const Progress = <
-  CSS extends PikasCSS = PikasCSS,
-  Color extends ColorByPikas<ColorsRecord> = PikasColor,
-  Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
->({
+export const Progress = <Config extends PikasConfig = PikasConfig>({
   progress = 0,
   height = 16,
   width = 280,
-  backgroundColorName = 'GRAY' as Color,
-  colorName = 'PRIMARY' as Color,
+  backgroundColorName = 'GRAY' as Config['color'],
+  colorName = 'PRIMARY' as Config['color'],
   max = 100,
   loading = false,
-  boxShadow = 'DIMINUTION_1' as Shadow,
+  boxShadow = 'DIMINUTION_1' as Config['shadow'],
   borderRadius = 'round',
   borderRadiusIndicator = 'none',
   getValueLabel = (value, max): string => `${Math.round((value / max) * 100)}%`,
   content,
   css,
-}: ProgressProps<CSS, Color, Shadow>): JSX.Element => {
+}: ProgressProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (

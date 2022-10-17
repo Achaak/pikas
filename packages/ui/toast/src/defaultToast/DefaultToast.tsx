@@ -1,4 +1,4 @@
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconCSS, IconProps } from '@pikas-ui/icons'
 import React from 'react'
@@ -34,32 +34,32 @@ const Container = styled('div', {
   alignItems: 'center',
 })
 
-export interface DefaultToastCSS<CSS extends PikasCSS = PikasCSS>
-  extends CustomToastCSS<CSS> {
-  icon?: IconCSS<CSS>
-  title?: CSS
-  description?: CSS
+export interface DefaultToastCSS<Config extends PikasConfig>
+  extends CustomToastCSS<Config> {
+  icon?: IconCSS<Config>
+  title?: Config['css']
+  description?: Config['css']
 }
 
-export interface DefaultToastProps<CSS extends PikasCSS = PikasCSS>
-  extends CustomToastProps<CSS> {
+export interface DefaultToastProps<Config extends PikasConfig>
+  extends CustomToastProps<Config> {
   title?: string
   description?: string
-  Icon?: React.FC<IconProps>
-  css?: DefaultToastCSS<CSS>
+  Icon?: React.FC<Config>
+  css?: DefaultToastCSS<Config>
 }
 
-export const DefaultToast = <CSS extends PikasCSS = PikasCSS>({
+export const DefaultToast = <Config extends PikasConfig = PikasConfig>({
   description,
   title,
   Icon,
   css,
   ...props
-}: DefaultToastProps<CSS>): JSX.Element => {
+}: DefaultToastProps<Config>): JSX.Element => {
   return (
-    <CustomToast<CSS> {...props} css={css}>
+    <CustomToast<Config> {...props} css={css}>
       <Container>
-        {Icon && <Icon size={24} color="BLACK" css={css?.icon} />}
+        {Icon && <Icon size={24} colorName="BLACK" css={css?.icon} />}
         {title || description ? (
           <Content>
             {title && <Title css={css?.title}>{title}</Title>}
