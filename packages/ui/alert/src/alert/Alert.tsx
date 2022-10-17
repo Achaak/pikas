@@ -6,14 +6,16 @@ import type {
   PikasColor,
   FontSize as FontSizeByPikas,
   FontWeight as FontWeightByPikas,
+  Color as ColorByPikas,
   PikasFontWeight,
   PikasFontSize,
   FontSizesRecord,
   FontWeightsRecord,
-  CSSRecord,
+  PikasCSS,
+  ColorsRecord,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
-import type { DefaultAlertProps } from '../types.js'
+import type { BaseAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
 
 export const AlertVariant = {
@@ -25,15 +27,16 @@ export const AlertVariant = {
 export type AlertVariant = keyof typeof AlertVariant
 
 export interface AlertProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   FontSize extends FontSizeByPikas<FontSizesRecord>,
   FontWeight extends FontWeightByPikas<FontWeightsRecord>
-> extends DefaultAlertProps<CSS, FontSize, FontWeight> {
+> extends BaseAlertProps<CSS, FontSize, FontWeight> {
   variant?: AlertVariant
 }
 
 export const Alert = <
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor,
   FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
   FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight
 >({
@@ -43,7 +46,7 @@ export const Alert = <
 }: AlertProps<CSS, FontSize, FontWeight>): JSX.Element => {
   const theme = useTheme()
 
-  const Icon: React.FC<IconProps> = (props) => {
+  const Icon: React.FC<IconProps<CSS, Color>> = (props) => {
     switch (variant) {
       case 'success':
         return <IconByName {...props} name="bx:check-circle" />
@@ -58,19 +61,19 @@ export const Alert = <
     }
   }
 
-  const getBackgroundColor = useCallback((): PikasColor => {
+  const getBackgroundColor = useCallback((): Color => {
     {
       switch (variant) {
         case 'success':
-          return 'SUCCESS'
+          return 'SUCCESS' as Color
         case 'warning':
-          return 'WARNING'
+          return 'WARNING' as Color
         case 'danger':
-          return 'DANGER'
+          return 'DANGER' as Color
         case 'info':
-          return 'PRIMARY'
+          return 'PRIMARY' as Color
         default:
-          return 'PRIMARY'
+          return 'PRIMARY' as Color
       }
     }
   }, [variant])
@@ -78,10 +81,13 @@ export const Alert = <
   return (
     <CustomAlert
       Icon={Icon}
-      backgroundColor={getBackgroundColor()}
+      backgroundColorName={getBackgroundColor()}
       colorHex={
         theme &&
-        fontColorContrast(theme.colors[getBackgroundColor()].value, 0.7)
+        fontColorContrast(
+          theme.colors[getBackgroundColor() as PikasColor].value,
+          0.7
+        )
       }
       {...props}
     >

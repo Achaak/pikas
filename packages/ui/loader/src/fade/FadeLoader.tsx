@@ -11,7 +11,7 @@ export interface FadeLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   width?: number
   radius?: number
   margin?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
   loading?: boolean
 }
@@ -23,7 +23,7 @@ export const FadeLoader = <
   width,
   radius,
   margin,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   loading = true,
 }: FadeLoaderProps<Color>): JSX.Element => {
@@ -37,7 +37,7 @@ export const FadeLoader = <
       margin={margin}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
     />

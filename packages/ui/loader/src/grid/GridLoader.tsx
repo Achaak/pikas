@@ -9,7 +9,7 @@ import { useTheme } from '@pikas-ui/styles'
 export interface GridLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number
   margin?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -20,7 +20,7 @@ export const GridLoader = <
 >({
   size,
   margin,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   speedMultiplier,
@@ -34,7 +34,7 @@ export const GridLoader = <
       margin={margin}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
     />

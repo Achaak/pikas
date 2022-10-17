@@ -18,7 +18,7 @@ const Container = styled('div', {
 
 export interface CustomBadgeProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
-  color?: PikasColor
+  colorName?: PikasColor
   colorHex?: string
   boxShadow?: PikasShadow | 'none'
   borderRadius?: BorderRadius
@@ -26,7 +26,7 @@ export interface CustomBadgeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const CustomBadge: React.FC<CustomBadgeProps> = ({
-  color = 'PRIMARY',
+  colorName = 'PRIMARY',
   colorHex,
   children,
   boxShadow = 'ELEVATION_BOTTOM_1',
@@ -39,13 +39,13 @@ export const CustomBadge: React.FC<CustomBadgeProps> = ({
   return (
     <Container
       css={{
-        backgroundColor: `$${color}`,
+        backgroundColor: `$${colorName}`,
         boxShadow: `$${boxShadow}`,
         br: borderRadius,
         color:
           theme &&
           fontColorContrast(
-            colorHex || theme.colors[color || 'PRIMARY'].value,
+            colorHex || theme.colors[colorName || 'PRIMARY'].value,
             0.7
           ),
         ...css,

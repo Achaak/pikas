@@ -193,7 +193,7 @@ export type SelectCSS = {
   container?: PikasCSS
   trigger?: PikasCSS
   infoTooltip?: TooltipCSS
-  infoIcon?: IconCSS
+  infoIcon?: IconCSS<CSS>
   required?: PikasCSS
   label?: PikasCSS
   description?: PikasCSS
@@ -210,7 +210,7 @@ export interface SelectProps {
   borderRadius?: BorderRadius
   padding?: SelectPadding
   fontSize?: PikasFontSize
-  borderColor?: PikasColor
+  borderColorName?: PikasColor
   borderWidth?: number
   data: {
     name?: string
@@ -226,7 +226,7 @@ export interface SelectProps {
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
   boxShadow?: PikasShadow | 'none'
-  backgroundColor?: PikasColor
+  backgroundColorName?: PikasColor
   outline?: boolean
   description?: string
   width?: string | number
@@ -258,11 +258,11 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       direction,
       onOpenChange,
       defaultOpen,
-      borderColor = 'TRANSPARENT',
+      borderColorName = 'TRANSPARENT',
       borderWidth = 0,
       fontSize = 'EM-MEDIUM',
       boxShadow = 'DIMINUTION_1',
-      backgroundColor = 'GRAY_LIGHTEST_1',
+      backgroundColorName = 'GRAY_LIGHTEST_1',
       outline = true,
       description,
       maxWidth,
@@ -469,10 +469,10 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             onBlur={(): void => setFocus(false)}
             css={{
               br: borderRadius,
-              borderColor: `$${borderColor}`,
+              borderColor: `$${borderColorName}`,
               borderWidth: borderWidth,
               boxShadow: `$${boxShadow}`,
-              backgroundColor: `$${backgroundColor}`,
+              backgroundColor: `$${backgroundColorName}`,
               ...css?.trigger,
             }}
           >

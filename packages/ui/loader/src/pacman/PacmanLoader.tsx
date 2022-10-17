@@ -14,7 +14,7 @@ const PacmanLoaderStyled = styled(PacmanLoaderDefault, {
 export interface PacmanLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number
   margin?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
   colorBubble?: PikasColor
   colorBubbleHex?: string
@@ -26,7 +26,7 @@ export const PacmanLoader = <
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   size,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   colorBubble,
   colorBubbleHex,
@@ -43,7 +43,7 @@ export const PacmanLoader = <
       speedMultiplier={speedMultiplier}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
       css={{

@@ -55,6 +55,3 @@ export const {
 } = pikasConfig
 
 export type PikasCSS = CSS<typeof config>
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CSSRecord = Record<string | number | symbol, any>

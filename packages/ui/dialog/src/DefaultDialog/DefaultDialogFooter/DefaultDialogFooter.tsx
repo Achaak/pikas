@@ -12,7 +12,7 @@ const Container = styled('div', {
 export interface DefaultDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
-  validateButtonColor?: PikasColor
+  validateButtonColorName?: PikasColor
   onValidated?: () => void
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
@@ -22,7 +22,7 @@ export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
   onClose,
   onValidated,
   validateButtonLabel,
-  validateButtonColor,
+  validateButtonColorName,
   validateButtonDisabled,
   validateButtonLoading,
 }) => {
@@ -34,7 +34,7 @@ export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
           onValidated?.()
           onClose?.()
         }}
-        color={validateButtonColor}
+        color={validateButtonColorName}
         disabled={validateButtonDisabled}
         loading={validateButtonLoading}
       >

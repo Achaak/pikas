@@ -1,7 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import type {
-  CSSRecord,
   FontSize as FontSizeByPikas,
   FontSizesRecord,
   PikasCSS,
@@ -74,18 +73,18 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSS<CSS extends CSSRecord> {
+export interface SwitchCSS<CSS extends PikasCSS> {
   container?: CSS
   content?: CSS
   infoTooltip?: TooltipCSS<CSS>
-  infoIcon?: IconCSS
+  infoIcon?: IconCSS<CSS>
   label?: CSS
   required?: CSS
   textError?: CSS
 }
 
 export interface BasicSwitchProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   FontSize extends FontSizeByPikas<FontSizesRecord>
 > {
   label?: string
@@ -108,12 +107,12 @@ export interface BasicSwitchProps<
 }
 
 export type SwitchProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   FontSize extends FontSizeByPikas<FontSizesRecord>
 > = ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<CSS, FontSize>
 
 export const Switch = <
-  CSS extends CSSRecord = PikasCSS,
+  CSS extends PikasCSS = PikasCSS,
   FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize
 >({
   id,

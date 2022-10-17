@@ -2,7 +2,6 @@ import type {
   BorderRadius,
   Color as ColorByPikas,
   ColorsRecord,
-  CSSRecord,
   FontSize as FontSizeByPikas,
   FontSizesRecord,
   FontWeight as FontWeightByPikas,
@@ -107,13 +106,13 @@ export const TooltipPadding = {
 }
 export type TooltipPadding = keyof typeof TooltipPadding
 
-export type TooltipCSS<CSS extends CSSRecord> = {
+export type TooltipCSS<CSS extends PikasCSS> = {
   trigger?: CSS
   content?: CSS
 }
 
 export interface TooltipProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   Color extends ColorByPikas<ColorsRecord>,
   FontSize extends FontSizeByPikas<FontSizesRecord>,
   Shadow extends ShadowByPikas<ShadowsRecord>,
@@ -121,7 +120,7 @@ export interface TooltipProps<
 > {
   content: string | React.ReactNode
   children?: React.ReactNode
-  backgroundColor?: Color
+  backgroundColorName?: Color
   open?: boolean
   defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void
@@ -145,7 +144,7 @@ export interface TooltipProps<
 }
 
 export const Tooltip = <
-  CSS extends CSSRecord = PikasCSS,
+  CSS extends PikasCSS = PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor,
   FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
   Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow,
@@ -153,7 +152,7 @@ export const Tooltip = <
 >({
   content,
   children,
-  backgroundColor = 'WHITE' as Color,
+  backgroundColorName = 'WHITE' as Color,
   open,
   onOpenChange,
   delayDuration,
@@ -204,14 +203,14 @@ export const Tooltip = <
             padding={padding}
             css={{
               br: borderRadius,
-              backgroundColor: `$${backgroundColor}`,
+              backgroundColor: `$${backgroundColorName}`,
               fontSize: `$${fontSize}`,
               fontWeight: `$${fontWeight}`,
               boxShadow: `$${boxShadow}`,
               color:
                 (theme &&
                   fontColorContrast(
-                    theme.colors[(backgroundColor as PikasColor) || 'BLACK']
+                    theme.colors[(backgroundColorName as PikasColor) || 'BLACK']
                       .value,
                     0.7
                   )) ||
@@ -227,7 +226,7 @@ export const Tooltip = <
                 width={arrowSize}
                 height={arrowSize ? arrowSize / 2 : undefined}
                 css={{
-                  fill: `$${backgroundColor}`,
+                  fill: `$${backgroundColorName}`,
                 }}
               />
             )}

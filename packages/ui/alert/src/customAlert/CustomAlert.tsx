@@ -9,11 +9,11 @@ import type {
   PikasFontSize,
   FontSizesRecord,
   FontWeightsRecord,
-  CSSRecord,
+  PikasCSS,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
-import type { DefaultAlertProps } from '../types.js'
+import type { BaseAlertProps } from '../types.js'
 
 const Container = styled('div', {
   display: 'flex',
@@ -85,27 +85,27 @@ const Child = styled('p', {
 })
 
 export interface CustomAlertProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   Color extends ColorByPikas<ColorsRecord>,
   FontSize extends FontSizeByPikas<FontSizesRecord>,
   FontWeight extends FontWeightByPikas<FontWeightsRecord>
-> extends DefaultAlertProps<CSS, FontSize, FontWeight> {
-  Icon?: React.FC<IconProps>
-  backgroundColor?: Color
-  color?: Color
+> extends BaseAlertProps<CSS, FontSize, FontWeight> {
+  Icon?: React.FC<IconProps<CSS, Color>>
+  backgroundColorName?: Color
+  colorName?: Color
   colorHex?: string
 }
 
 export const CustomAlert = <
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor,
   FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
   FontWeight extends FontWeightByPikas<FontWeightsRecord> = PikasFontWeight
 >({
   children,
   Icon,
-  backgroundColor,
-  color,
+  backgroundColorName,
+  colorName,
   colorHex,
   fontSize = 'EM-SMALL' as FontSize,
   borderRadius = 'md',
@@ -122,8 +122,8 @@ export const CustomAlert = <
         gap={gap}
         padding={padding}
         css={{
-          backgroundColor: `$${backgroundColor}`,
-          color: colorHex || `$${color}`,
+          backgroundColor: `$${backgroundColorName}`,
+          color: colorHex || `$${colorName}`,
           fontSize: `$${fontSize}`,
           fontWeight: `$${fontWeight}`,
           br: borderRadius,

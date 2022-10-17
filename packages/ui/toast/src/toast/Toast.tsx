@@ -1,10 +1,10 @@
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasColor } from '@pikas-ui/styles'
+import type { PikasCSS, PikasColor } from '@pikas-ui/styles'
 import React, { useCallback } from 'react'
 import type { DefaultToastCSS } from '../defaultToast'
 import { DefaultToast } from '../defaultToast'
-import type { ToastProps } from '../types'
+import type { BaseToastProps } from '../types'
 
 export const ToastVariant = {
   warning: true,
@@ -14,18 +14,19 @@ export const ToastVariant = {
 } as const
 export type ToastVariant = keyof typeof ToastVariant
 
-interface CustomToastProps extends ToastProps {
+export interface ToastProps<CSS extends PikasCSS = PikasCSS>
+  extends BaseToastProps<CSS> {
   variant?: ToastVariant
   title?: string
   description?: string
-  css?: DefaultToastCSS
+  css?: DefaultToastCSS<CSS>
 }
 
-export const Toast: React.FC<CustomToastProps> = ({
+export const Toast = <CSS extends PikasCSS = PikasCSS>({
   variant = 'info',
   css,
   ...props
-}) => {
+}: ToastProps<CSS>): JSX.Element => {
   const Icon: React.FC<IconProps> = (props) => {
     switch (variant) {
       case 'success':
@@ -59,19 +60,26 @@ export const Toast: React.FC<CustomToastProps> = ({
   }, [variant])
 
   return (
-    <DefaultToast
+    <DefaultToast<CSS>
       Icon={Icon}
       css={{
         ...css,
         icon: {
           ...css?.icon,
+          // TODO: fix types
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           svg: {
             color: `$${getColor()}`,
             ...css?.icon?.container,
           },
         },
+        // TODO: fix types
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         timer: {
           backgroundColor: `$${getColor()}`,
+          ...css?.timer,
         },
       }}
       {...props}

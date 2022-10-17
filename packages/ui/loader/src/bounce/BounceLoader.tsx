@@ -8,7 +8,7 @@ import { BounceLoader as BounceLoaderDefault } from 'react-spinners'
 
 export interface BounceLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number | string
-  color?: Color
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -18,7 +18,7 @@ export const BounceLoader = <
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   size,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   speedMultiplier,
@@ -31,7 +31,7 @@ export const BounceLoader = <
       speedMultiplier={speedMultiplier}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
     />

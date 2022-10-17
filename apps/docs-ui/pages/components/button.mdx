@@ -62,33 +62,33 @@ const Example: React.FC = () => (
 
 Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 
-| Prop              | Description                                       | Type                    | Default                |
-| :---------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
-| `children`        | The content of the button.                        | `ReactNode`             | -                      |
-| `type`            | The type of the button.                           | `ButtonTarget`          | `"button"`             |
-| `color`           | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
-| `colorHex`        | The color of the button (hex).                    | `string`                | -                      |
-| `contentColor`    | The color of the content of the button.           | `Colors`                | -                      |
-| `contentColorHex` | The color of the content of the button (hex).     | `string`                | -                      |
-| `css`             | The css of the button.                            | `ButtonCSS`             | -                      |
-| `padding`         | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
-| `loading`         | If the button is loading.                         | `boolean`               | `false`                |
-| `disabled`        | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`    | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
-| `fontSize`        | The font size of the button.                      | `PikasFontSize`         | `"EM-MEDIUM"`          |
-| `textTransform`   | The text transform of the button.                 | `ButtonTextTransform`   | `"default"`            |
-| `fontWeight`      | The font weight of the button.                    | `PikasFontWeight`       | `"NORMAL"`             |
-| `effect`          | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
-| `onClick`         | The function to call on click.                    | `function`              | -                      |
-| `gap`             | The gap of the button.                            | `ButtonGap`             | `"md"`                 |
-| `LeftIcon`        | The left icon of the button.                      | `FC<IconProps>`         | -                      |
-| `RightIcon`       | The right icon of the button.                     | `FC<IconProps>`         | -                      |
-| `outlined`        | If the button is outlined.                        | `boolean`               | `false`                |
-| `borderWidth`     | The border width of the button.                   | `number`                | `2`                    |
-| `width`           | The width of the button.                          | `string or number`      | `"100%"`               |
-| `maxWidth`        | The max width of the button.                      | `string or number`      | `"100%"`               |
-| `minWidth`        | The min width of the button.                      | `string or number`      | -                      |
-| `boxShadow`       | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| Prop               | Description                                       | Type                    | Default                |
+| :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
+| `children`         | The content of the button.                        | `ReactNode`             | -                      |
+| `type`             | The type of the button.                           | `ButtonTarget`          | `"button"`             |
+| `colorName`        | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
+| `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
+| `contentColorName` | The color of the content of the button.           | `Colors`                | -                      |
+| `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
+| `css`              | The css of the button.                            | `ButtonCSS`             | -                      |
+| `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
+| `loading`          | If the button is loading.                         | `boolean`               | `false`                |
+| `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
+| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
+| `fontSize`         | The font size of the button.                      | `PikasFontSize`         | `"EM-MEDIUM"`          |
+| `textTransform`    | The text transform of the button.                 | `ButtonTextTransform`   | `"default"`            |
+| `fontWeight`       | The font weight of the button.                    | `PikasFontWeight`       | `"NORMAL"`             |
+| `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
+| `onClick`          | The function to call on click.                    | `function`              | -                      |
+| `gap`              | The gap of the button.                            | `ButtonGap`             | `"md"`                 |
+| `LeftIcon`         | The left icon of the button.                      | `FC<IconProps>`         | -                      |
+| `RightIcon`        | The right icon of the button.                     | `FC<IconProps>`         | -                      |
+| `outlined`         | If the button is outlined.                        | `boolean`               | `false`                |
+| `borderWidth`      | The border width of the button.                   | `number`                | `2`                    |
+| `width`            | The width of the button.                          | `string or number`      | `"100%"`               |
+| `maxWidth`         | The max width of the button.                      | `string or number`      | `"100%"`               |
+| `minWidth`         | The min width of the button.                      | `string or number`      | -                      |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
 
 ---
 
@@ -108,34 +108,34 @@ const Example: React.FC = () => (
 
 Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 
-| Prop              | Description                                       | Type                    | Default                |
-| :---------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
-| `children`        | The content of the button.                        | `ReactNode`             | -                      |
-| `color`           | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
-| `colorHex`        | The color of the button (hex).                    | `string`                | -                      |
-| `contentColor`    | The color of the content of the button.           | `Colors`                | -                      |
-| `contentColorHex` | The color of the content of the button (hex).     | `string`                | -                      |
-| `css`             | The css of the button.                            | `ButtonCSS`             | -                      |
-| `padding`         | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
-| `loading`         | If the button is loading.                         | `boolean`               | `false`                |
-| `disabled`        | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`    | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
-| `fontSize`        | The font size of the button.                      | `PikasFontSize`         | `"EM-MEDIUM"`          |
-| `textTransform`   | The text transform of the button.                 | `ButtonTextTransform`   | `"default"`            |
-| `fontWeight`      | The font weight of the button.                    | `PikasFontWeight`       | `"NORMAL"`             |
-| `effect`          | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
-| `onClick`         | The function to call on click.                    | `function`              | -                      |
-| `gap`             | The gap of the button.                            | `ButtonGap`             | `"md"`                 |
-| `href`            | The href of the button.                           | `string`                | -                      |
-| `LeftIcon`        | The left icon of the button.                      | `FC<IconProps>`         | -                      |
-| `RightIcon`       | The right icon of the button.                     | `FC<IconProps>`         | -                      |
-| `outlined`        | If the button is outlined.                        | `boolean`               | `false`                |
-| `borderWidth`     | The border width of the button.                   | `number`                | `2`                    |
-| `target`          | The target of the button.                         | `ButtonTarget`          | `"_self"`              |
-| `width`           | The width of the button.                          | `string or number`      | `"100%"`               |
-| `maxWidth`        | The max width of the button.                      | `string or number`      | `"100%"`               |
-| `minWidth`        | The min width of the button.                      | `string or number`      | -                      |
-| `boxShadow`       | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| Prop               | Description                                       | Type                    | Default                |
+| :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
+| `children`         | The content of the button.                        | `ReactNode`             | -                      |
+| `colorName`        | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
+| `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
+| `contentColorName` | The color of the content of the button.           | `Colors`                | -                      |
+| `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
+| `css`              | The css of the button.                            | `ButtonCSS`             | -                      |
+| `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
+| `loading`          | If the button is loading.                         | `boolean`               | `false`                |
+| `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
+| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
+| `fontSize`         | The font size of the button.                      | `PikasFontSize`         | `"EM-MEDIUM"`          |
+| `textTransform`    | The text transform of the button.                 | `ButtonTextTransform`   | `"default"`            |
+| `fontWeight`       | The font weight of the button.                    | `PikasFontWeight`       | `"NORMAL"`             |
+| `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
+| `onClick`          | The function to call on click.                    | `function`              | -                      |
+| `gap`              | The gap of the button.                            | `ButtonGap`             | `"md"`                 |
+| `href`             | The href of the button.                           | `string`                | -                      |
+| `LeftIcon`         | The left icon of the button.                      | `FC<IconProps>`         | -                      |
+| `RightIcon`        | The right icon of the button.                     | `FC<IconProps>`         | -                      |
+| `outlined`         | If the button is outlined.                        | `boolean`               | `false`                |
+| `borderWidth`      | The border width of the button.                   | `number`                | `2`                    |
+| `target`           | The target of the button.                         | `ButtonTarget`          | `"_self"`              |
+| `width`            | The width of the button.                          | `string or number`      | `"100%"`               |
+| `maxWidth`         | The max width of the button.                      | `string or number`      | `"100%"`               |
+| `minWidth`         | The min width of the button.                      | `string or number`      | -                      |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
 
 ---
 
@@ -160,24 +160,24 @@ const Example: React.FC = () => (
 
 Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 
-| Prop              | Description                                       | Type                    | Default                |
-| :---------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
-| `type`            | The type of the button.                           | `ButtonTarget`          | `"button"`             |
-| `color`           | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
-| `colorHex`        | The color of the button (hex).                    | `string`                | -                      |
-| `contentColor`    | The color of the content of the button.           | `Colors`                | -                      |
-| `contentColorHex` | The color of the content of the button (hex).     | `string`                | -                      |
-| `css`             | The css of the button.                            | `ButtonCSS`             | -                      |
-| `padding`         | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
-| `loading`         | If the button is loading.                         | `boolean`               | `false`                |
-| `disabled`        | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`    | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
-| `effect`          | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
-| `onClick`         | The function to call on click.                    | `function`              | -                      |
-| `outlined`        | If the button is outlined.                        | `boolean`               | `false`                |
-| `borderWidth`     | The border width of the button.                   | `number`                | `2`                    |
-| `size`            | The size of the button.                           | `Sizes`                 | `6`                    |
-| `boxShadow`       | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| Prop               | Description                                       | Type                    | Default                |
+| :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
+| `type`             | The type of the button.                           | `ButtonTarget`          | `"button"`             |
+| `colorName`        | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
+| `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
+| `contentColorName` | The color of the content of the button.           | `Colors`                | -                      |
+| `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
+| `css`              | The css of the button.                            | `ButtonCSS`             | -                      |
+| `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
+| `loading`          | If the button is loading.                         | `boolean`               | `false`                |
+| `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
+| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
+| `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
+| `onClick`          | The function to call on click.                    | `function`              | -                      |
+| `outlined`         | If the button is outlined.                        | `boolean`               | `false`                |
+| `borderWidth`      | The border width of the button.                   | `number`                | `2`                    |
+| `size`             | The size of the button.                           | `Sizes`                 | `6`                    |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
 
 ---
 
@@ -202,22 +202,22 @@ const Example: React.FC = () => (
 
 Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 
-| Prop              | Description                                       | Type                    | Default                |
-| :---------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
-| `color`           | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
-| `colorHex`        | The color of the button (hex).                    | `string`                | -                      |
-| `contentColor`    | The color of the content of the button.           | `Colors`                | -                      |
-| `contentColorHex` | The color of the content of the button (hex).     | `string`                | -                      |
-| `css`             | The css of the button.                            | `ButtonCSS`             | -                      |
-| `padding`         | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
-| `loading`         | If the button is loading.                         | `boolean`               | `false`                |
-| `disabled`        | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`    | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
-| `effect`          | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
-| `onClick`         | The function to call on click.                    | `function`              | -                      |
-| `href`            | The href of the button.                           | `string`                | -                      |
-| `outlined`        | If the button is outlined.                        | `boolean`               | `false`                |
-| `borderWidth`     | The border width of the button.                   | `number`                | `2`                    |
-| `size`            | The size of the button.                           | `Sizes`                 | `6`                    |
-| `target`          | The target of the button.                         | `ButtonTarget`          | `"_self"`              |
-| `boxShadow`       | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| Prop               | Description                                       | Type                    | Default                |
+| :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
+| `colorName`        | The color of the button.                          | `Colors`                | `"PRIMARY"`            |
+| `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
+| `contentColorName` | The color of the content of the button.           | `Colors`                | -                      |
+| `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
+| `css`              | The css of the button.                            | `ButtonCSS`             | -                      |
+| `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
+| `loading`          | If the button is loading.                         | `boolean`               | `false`                |
+| `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
+| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
+| `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
+| `onClick`          | The function to call on click.                    | `function`              | -                      |
+| `href`             | The href of the button.                           | `string`                | -                      |
+| `outlined`         | If the button is outlined.                        | `boolean`               | `false`                |
+| `borderWidth`      | The border width of the button.                   | `number`                | `2`                    |
+| `size`             | The size of the button.                           | `Sizes`                 | `6`                    |
+| `target`           | The target of the button.                         | `ButtonTarget`          | `"_self"`              |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |

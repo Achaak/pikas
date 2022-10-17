@@ -68,11 +68,11 @@ export interface CheckboxProps {
   onChange?: (checked: boolean) => void
   id?: string
   label?: string | ReactNode
-  bgColor?: PikasColor
-  bgColorChecked?: PikasColor
+  bgColorName?: PikasColor
+  bgColorNameChecked?: PikasColor
   textError?: string
   boxShadow?: PikasShadow | 'none'
-  borderColor?: PikasColor
+  borderColorName?: PikasColor
   borderWidth?: number
   borderRadius?: BorderRadius
   fontSize?: PikasFontSize
@@ -100,11 +100,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   disabled = false,
   required = false,
   name,
-  bgColor = 'WHITE',
-  bgColorChecked = 'PRIMARY',
+  bgColorName = 'WHITE',
+  bgColorNameChecked = 'PRIMARY',
   borderRadius = 'md',
   boxShadow = 'DIMINUTION_1',
-  borderColor,
+  borderColorName,
   borderWidth = 0,
   size = 24,
   side,
@@ -180,16 +180,16 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           onFocus={(): void => setFocus(true)}
           onBlur={(): void => setFocus(false)}
           css={{
-            backgroundColor: `$${bgColor}`,
+            backgroundColor: `$${bgColorName}`,
             br: borderRadius,
             boxShadow: `$${boxShadow}`,
-            borderColor: `$${borderColor}`,
+            borderColor: `$${borderColorName}`,
             borderWidth: borderWidth,
             width: size,
             height: size,
 
             '&[aria-checked="true"]': {
-              backgroundColor: `$${bgColorChecked}`,
+              backgroundColor: `$${bgColorNameChecked}`,
             },
 
             ...css?.checkboxRoot,
@@ -200,7 +200,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               color:
                 (theme &&
                   fontColorContrast(
-                    theme.colors[bgColorChecked || 'WHITE'].value,
+                    theme.colors[bgColorNameChecked || 'WHITE'].value,
                     0.7
                   )) ||
                 undefined,
@@ -214,7 +214,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                 colorHex={
                   (theme &&
                     fontColorContrast(
-                      theme.colors[bgColor || 'BLACK'].value,
+                      theme.colors[bgColorName || 'BLACK'].value,
                       0.7
                     )) ||
                   ''

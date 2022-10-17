@@ -4,6 +4,10 @@ import type {
   PikasCSS,
   PikasShadow,
   PikasSize,
+  ColorsRecord,
+  ShadowsRecord,
+  Shadow as ShadowByPikas,
+  Color as ColorByPikas,
 } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
@@ -133,47 +137,67 @@ const LoadingContainer = styled('div', {
   bottom: 0,
 })
 
-export type ButtonIconCSS = {
-  button?: PikasCSS
-  icon?: IconCSS
+export type ButtonIconCSS<CSS extends PikasCSS> = {
+  button?: CSS
+  icon?: IconCSS<CSS>
 }
 
-export interface ButtonIconDefaultProps {
+export interface ButtonIconDefaultProps<
+  CSS extends PikasCSS,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> {
   Icon: React.FC<IconProps>
-  css?: ButtonIconCSS
+  css?: ButtonIconCSS<CSS>
   loading?: boolean
   outlined?: boolean
   effect?: ButtonEffect
   padding?: ButtonPadding
   size?: PikasSize
-  color?: PikasColor
+  colorName?: Color
   colorHex?: string
-  contentColor?: PikasColor
+  contentColorName?: Color
   contentColorHex?: string
   disabled?: boolean
   borderRadius?: BorderRadius
   borderWidth?: number
-  boxShadow?: PikasShadow | 'none'
+  boxShadow?: Shadow | 'none'
 }
 
-export interface ButtonIconProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    ButtonIconDefaultProps {
+export interface BaseButtonIconProps<
+  CSS extends PikasCSS,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> extends ButtonIconDefaultProps<CSS, Color, Shadow> {
   onClick?: () => void
-  color?: PikasColor
   type?: ButtonType
 }
 
-export interface ButtonIconLinkProps
-  extends AnchorHTMLAttributes<HTMLAnchorElement>,
-    ButtonIconDefaultProps {
+export type ButtonIconProps<
+  CSS extends PikasCSS,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> = ButtonHTMLAttributes<HTMLButtonElement> &
+  BaseButtonIconProps<CSS, Color, Shadow>
+
+export interface BaseButtonIconLinkProps<
+  CSS extends PikasCSS,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> extends ButtonIconDefaultProps<CSS, Color, Shadow> {
   onClick?: () => void
-  color?: PikasColor
   href?: string
   target?: ButtonTarget
 }
 
-const getContent = ({
+export type ButtonIconLinkProps<
+  CSS extends PikasCSS,
+  Color extends ColorByPikas<ColorsRecord>,
+  Shadow extends ShadowByPikas<ShadowsRecord>
+> = AnchorHTMLAttributes<HTMLAnchorElement> &
+  BaseButtonIconLinkProps<CSS, Color, Shadow>
+
+const getContent = <CSS extends PikasCSS>({
   loading,
   css,
   contentColor,
@@ -181,7 +205,7 @@ const getContent = ({
   Icon,
 }: {
   loading?: boolean
-  css?: ButtonIconCSS
+  css?: ButtonIconCSS<CSS>
   contentColor?: string
   size?: PikasSize
   Icon: React.FC<IconProps>
@@ -216,10 +240,14 @@ const getContent = ({
   )
 }
 
-export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
-  (
+export const ButtonIcon = forwardRef(
+  <
+    CSS extends PikasCSS = PikasCSS,
+    Color extends ColorByPikas<ColorsRecord> = PikasColor,
+    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
+  >(
     {
-      color = 'PRIMARY',
+      colorName = 'PRIMARY' as Color,
       colorHex,
       css,
       loading = false,
@@ -231,13 +259,13 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       size = 6,
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1',
-      contentColor,
+      boxShadow = 'ELEVATION_BOTTOM_1' as Shadow,
+      contentColorName,
       contentColorHex,
       padding = 'md',
       ...props
-    },
-    ref
+    }: ButtonIconProps<CSS, Color, Shadow>,
+    ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     const theme = useTheme()
 
@@ -251,9 +279,11 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
 
     if (!theme) return null
 
-    const colorHexFinal = colorHex || (color && theme.colors[color].value)
+    const colorHexFinal =
+      colorHex || (colorName && theme.colors[colorName as PikasColor].value)
     const contentColorHexFinal =
-      contentColorHex || (contentColor && theme.colors[contentColor].value)
+      contentColorHex ||
+      (contentColorName && theme.colors[contentColorName as PikasColor].value)
 
     return (
       <ButtonIconDOM
@@ -277,7 +307,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         }}
         {...props}
       >
-        {getContent({
+        {getContent<CSS>({
           contentColor: getContentColor({
             outlined,
             contentColorHex: contentColorHex,
@@ -293,13 +323,14 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   }
 )
 
-export const ButtonIconLink = forwardRef<
-  HTMLAnchorElement,
-  ButtonIconLinkProps
->(
-  (
+export const ButtonIconLink = forwardRef(
+  <
+    CSS extends PikasCSS = PikasCSS,
+    Color extends ColorByPikas<ColorsRecord> = PikasColor,
+    Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
+  >(
     {
-      color = 'PRIMARY',
+      colorName = 'PRIMARY' as Color,
       colorHex,
       css,
       loading = false,
@@ -311,13 +342,13 @@ export const ButtonIconLink = forwardRef<
       disabled,
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1',
-      contentColor,
+      boxShadow = 'ELEVATION_BOTTOM_1' as Shadow,
+      contentColorName,
       contentColorHex,
       padding = 'md',
       ...props
-    },
-    ref
+    }: ButtonIconLinkProps<CSS, Color, Shadow>,
+    ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
     const theme = useTheme()
 
@@ -331,9 +362,11 @@ export const ButtonIconLink = forwardRef<
 
     if (!theme) return null
 
-    const colorHexFinal = colorHex || (color && theme.colors[color].value)
+    const colorHexFinal =
+      colorHex || (colorName && theme.colors[colorName as PikasColor].value)
     const contentColorHexFinal =
-      contentColorHex || (contentColor && theme.colors[contentColor].value)
+      contentColorHex ||
+      (contentColorName && theme.colors[contentColorName as PikasColor].value)
 
     return (
       <ButtonIconDOM
@@ -358,7 +391,7 @@ export const ButtonIconLink = forwardRef<
         }}
         {...props}
       >
-        {getContent({
+        {getContent<CSS>({
           contentColor: getContentColor({
             outlined,
             contentColorHex: contentColorHex,

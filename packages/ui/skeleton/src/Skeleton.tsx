@@ -1,4 +1,4 @@
-import type { BorderRadius, CSSRecord, PikasCSS } from '@pikas-ui/styles'
+import type { BorderRadius, PikasCSS } from '@pikas-ui/styles'
 import { styled, keyframes } from '@pikas-ui/styles'
 
 const wave = keyframes({
@@ -95,7 +95,7 @@ const Container = styled('div', {
 
 export type SkeletonAnimation = 'pulse' | 'wave' | false
 
-export interface SkeletonProps<CSS extends CSSRecord> {
+export interface SkeletonProps<CSS extends PikasCSS> {
   animation?: SkeletonAnimation
   width?: string | number
   height?: string | number
@@ -103,7 +103,7 @@ export interface SkeletonProps<CSS extends CSSRecord> {
   css?: CSS
 }
 
-export const Skeleton = <CSS extends CSSRecord = PikasCSS>({
+export const Skeleton = <CSS extends PikasCSS = PikasCSS>({
   animation = 'pulse',
   borderRadius = 'sm',
   height,

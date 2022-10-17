@@ -3,7 +3,7 @@ import { keyframes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React, { useState } from 'react'
 import * as ToastPrimitive from '@radix-ui/react-toast'
-import type { ToastPosition, ToastProps } from '../types.js'
+import type { ToastPosition, BaseToastProps } from '../types.js'
 
 const VIEWPORT_PADDING = 25
 
@@ -66,11 +66,11 @@ const Viewport = styled(ToastPrimitive.Viewport, {
   transition: 'transform 0.2s 150ms ease',
 })
 
-export interface ToastProviderProps {
+export interface ToastProviderProps<CSS extends PikasCSS = PikasCSS> {
   children?: React.ReactNode
   duration?: number
   label?: string
-  css?: PikasCSS
+  css?: CSS
   swipeThreshold?: number
   width?: number
   position?: ToastPosition
@@ -81,18 +81,22 @@ export interface ToastProviderProps {
   }
 }
 
-export interface ToastContextProps {
-  toasts: React.ReactElement<ToastProps>[]
-  publish: (toast: React.ReactElement<ToastProps>) => void
+export interface ToastContextProps<CSS extends PikasCSS = PikasCSS> {
+  toasts: React.ReactElement<BaseToastProps<CSS>>[]
+  publish: (toast: React.ReactElement<BaseToastProps<CSS>>) => void
 }
-export const ToastContext = React.createContext<ToastContextProps>({
-  toasts: [],
-  publish: () => {
-    console.log('publish')
-  },
-})
+export const createToastContext = <
+  CSS extends PikasCSS = PikasCSS
+>(): React.Context<ToastContextProps<CSS>> => {
+  return React.createContext<ToastContextProps<CSS>>({
+    toasts: [],
+    publish: () => {
+      console.log('publish')
+    },
+  })
+}
 
-export const ToastProvider: React.FC<ToastProviderProps> = ({
+export const ToastProvider = <CSS extends PikasCSS = PikasCSS>({
   duration = 5000,
   label = 'Notification',
   css,
@@ -105,8 +109,11 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
     label: 'Notifications ({hotkey})',
   },
   children,
-}) => {
-  const [toasts, setToasts] = useState<React.ReactElement<ToastProps>[]>([])
+}: ToastProviderProps<CSS>): JSX.Element => {
+  const ToastContext = createToastContext<CSS>()
+  const [toasts, setToasts] = useState<
+    React.ReactElement<BaseToastProps<CSS>>[]
+  >([])
 
   const getSwipeDirection = (): ToastPrimitive.SwipeDirection => {
     switch (position) {
@@ -143,6 +150,9 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
           return React.cloneElement(toast, {
             key: index,
             css: {
+              // TODO: fix types
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               toast: {
                 '@media (prefers-reduced-motion: no-preference)': {
                   '&[data-state="open"]': {

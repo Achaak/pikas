@@ -4,7 +4,6 @@ import type {
   PikasCSS,
   PikasFontSize,
   BorderRadius,
-  CSSRecord,
   FontSizesRecord,
   ColorsRecord,
   ShadowsRecord,
@@ -93,12 +92,12 @@ export const TextareaResize = {
 }
 export type TextareaResize = keyof typeof TextareaResize
 
-export interface TextareaCSS<CSS extends CSSRecord> {
+export interface TextareaCSS<CSS extends PikasCSS> {
   container?: CSS
   textareaContainer?: CSS
   textarea?: CSS
   infoTooltip?: TooltipCSS<CSS>
-  infoIcon?: IconCSS
+  infoIcon?: IconCSS<CSS>
   label?: CSS
   description?: CSS
   textError?: CSS
@@ -106,7 +105,7 @@ export interface TextareaCSS<CSS extends CSSRecord> {
 }
 
 export type TextareaProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   FontSize extends FontSizeByPikas<FontSizesRecord>,
   Color extends ColorByPikas<ColorsRecord>,
   Shadow extends ShadowByPikas<ShadowsRecord>
@@ -129,14 +128,14 @@ export type TextareaProps<
   maxHeight?: string | number
   minHeight?: string | number
   minWidth?: string | number
-  borderColor?: Color
+  borderColorName?: Color
   borderColorHex?: string
   borderWidth?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
-  placeholderColor?: Color
+  placeholderColorName?: Color
   placeholderColorHex?: string
-  backgroundColor?: Color
+  backgroundColorName?: Color
   backgroundColorHex?: string
   info?: React.ReactNode
   data?: DOMStringMap
@@ -144,7 +143,7 @@ export type TextareaProps<
 
 export const Textarea = forwardRef(
   <
-    CSS extends CSSRecord = PikasCSS,
+    CSS extends PikasCSS = PikasCSS,
     FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
     Color extends ColorByPikas<ColorsRecord> = PikasColor,
     Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
@@ -159,9 +158,9 @@ export const Textarea = forwardRef(
       textError,
       label,
       css,
-      borderColor = 'TRANSPARENT' as Color,
+      borderColorName = 'TRANSPARENT' as Color,
       borderWidth = 0,
-      backgroundColor = 'GRAY_LIGHTEST_1' as Color,
+      backgroundColorName = 'GRAY_LIGHTEST_1' as Color,
       outline = true,
       resize,
       description,
@@ -173,9 +172,9 @@ export const Textarea = forwardRef(
       minWidth,
       backgroundColorHex,
       borderColorHex,
-      color,
+      colorName,
       colorHex,
-      placeholderColor,
+      placeholderColorName,
       placeholderColorHex,
       info,
       required,
@@ -197,18 +196,19 @@ export const Textarea = forwardRef(
     }
 
     const getColor = ({
-      color,
+      colorName,
       colorHex,
     }: {
-      color?: Color
+      colorName?: Color
       colorHex?: string
     }): string => {
-      return colorHex || color
-        ? `$${color}`
+      return colorHex || colorName
+        ? `$${colorName}`
         : undefined ||
             (theme &&
               fontColorContrast(
-                theme.colors[(backgroundColor as PikasColor) || 'WHITE'].value,
+                theme.colors[(backgroundColorName as PikasColor) || 'WHITE']
+                  .value,
                 0.7
               )) ||
             ''
@@ -275,10 +275,12 @@ export const Textarea = forwardRef(
           css={{
             br: borderRadius,
             borderColor:
-              borderColorHex || borderColor ? `$${borderColor}` : undefined,
+              borderColorHex || borderColorName
+                ? `$${borderColorName}`
+                : undefined,
             backgroundColor:
-              backgroundColorHex || backgroundColor
-                ? `$${backgroundColor}`
+              backgroundColorHex || backgroundColorName
+                ? `$${backgroundColorName}`
                 : undefined,
             boxShadow: `$${boxShadow}`,
             borderWidth: borderWidth,
@@ -299,11 +301,11 @@ export const Textarea = forwardRef(
               height: height,
               maxHeight: maxHeight,
               minHeight: minHeight,
-              color: getColor({ color: color, colorHex: colorHex }),
+              color: getColor({ colorName: colorName, colorHex: colorHex }),
 
               '&::placeholder': {
                 color: getColor({
-                  color: placeholderColor,
+                  colorName: placeholderColorName,
                   colorHex: placeholderColorHex,
                 }),
               },

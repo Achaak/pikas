@@ -9,7 +9,7 @@ import { useTheme } from '@pikas-ui/styles'
 export interface RiseLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number
   margin?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -19,7 +19,7 @@ export const RiseLoader = <
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   size,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   margin,
@@ -34,7 +34,7 @@ export const RiseLoader = <
       speedMultiplier={speedMultiplier}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
     />

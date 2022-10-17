@@ -8,8 +8,8 @@ import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 export interface ValidateDialogProps extends DialogProps {
   cancelButtonLabel?: string
   validateButtonLabel?: string
-  cancelButtonColor?: PikasColor
-  validateButtonColor?: PikasColor
+  cancelButtonColorName?: PikasColor
+  validateButtonColorName?: PikasColor
   cancelButtonDisabled?: boolean
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean
@@ -24,8 +24,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
   onClose,
   cancelButtonLabel = 'Cancel',
   validateButtonLabel = 'Ok',
-  cancelButtonColor = 'DANGER',
-  validateButtonColor = 'SUCCESS',
+  cancelButtonColorName = 'DANGER',
+  validateButtonColorName = 'SUCCESS',
   cancelButtonDisabled,
   validateButtonDisabled,
   cancelButtonLoading,
@@ -46,8 +46,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
         <ValidateDialogFooter
           cancelButtonLabel={cancelButtonLabel}
           validateButtonLabel={validateButtonLabel}
-          cancelButtonColor={cancelButtonColor}
-          validateButtonColor={validateButtonColor}
+          cancelButtonColorName={cancelButtonColorName}
+          validateButtonColorName={validateButtonColorName}
           cancelButtonDisabled={cancelButtonDisabled}
           validateButtonDisabled={validateButtonDisabled}
           cancelButtonLoading={cancelButtonLoading}

@@ -2,10 +2,9 @@ import * as AvatarPrimitive from '@radix-ui/react-avatar'
 import type {
   BorderRadius,
   ColorsRecord,
-  CSSRecord,
+  PikasCSS,
   Color as ColorByPikas,
   PikasColor,
-  PikasCSS,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
@@ -40,14 +39,14 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarCSS<CSS extends CSSRecord> {
+export interface AvatarCSS<CSS extends PikasCSS> {
   container?: CSS
   image?: CSS
   fallback?: CSS
 }
 
 export interface AvatarProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   Color extends ColorByPikas<ColorsRecord>
 > {
   alt?: string
@@ -55,8 +54,8 @@ export interface AvatarProps<
   onLoadingStatusChange?: (status: ImageLoadingStatus) => void
   delayMs?: number
   fallback?: string
-  fallbackColor?: Color
-  fallbackBackgroundColor?: Color
+  fallbackColorName?: Color
+  fallbackBackgroundColorName?: Color
   css?: AvatarCSS<CSS>
   size?: number
   borderRadius?: BorderRadius
@@ -64,7 +63,7 @@ export interface AvatarProps<
 }
 
 export const Avatar = <
-  CSS extends CSSRecord = PikasCSS,
+  CSS extends PikasCSS = PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   alt,
@@ -72,8 +71,8 @@ export const Avatar = <
   onLoadingStatusChange,
   delayMs,
   fallback,
-  fallbackBackgroundColor = 'PRIMARY_LIGHTEST_2' as Color,
-  fallbackColor = 'PRIMARY' as Color,
+  fallbackBackgroundColorName = 'PRIMARY_LIGHTEST_2' as Color,
+  fallbackColorName = 'PRIMARY' as Color,
   css,
   size = 80,
   borderRadius = 'round',
@@ -114,8 +113,8 @@ export const Avatar = <
         delayMs={delayMs}
         css={{
           fontSize: size ? size / 2.5 : undefined,
-          color: `$${fallbackColor}`,
-          backgroundColor: `$${fallbackBackgroundColor}`,
+          color: `$${fallbackColorName}`,
+          backgroundColor: `$${fallbackBackgroundColorName}`,
           ...css?.fallback,
         }}
       >

@@ -143,7 +143,7 @@ export const SpanCSS: PikasCSS = {}
 interface ItemBase {
   disabled?: boolean
   rightSlot?: string
-  color?: PikasColor
+  colorName?: PikasColor
   colorHex?: string
   type: 'item' | 'checkbox' | 'radio' | 'menu'
   hide?: boolean

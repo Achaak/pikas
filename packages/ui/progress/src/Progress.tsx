@@ -5,7 +5,6 @@ import type {
   PikasCSS,
   ColorsRecord,
   Color as ColorByPikas,
-  CSSRecord,
   ShadowsRecord,
   Shadow as ShadowByPikas,
 } from '@pikas-ui/styles'
@@ -67,14 +66,14 @@ const ContentBack = styled(Content, {})
 
 const ContentFront = styled(Content, {})
 
-export interface ProgressCSS<CSS extends CSSRecord> {
+export interface ProgressCSS<CSS extends PikasCSS> {
   container?: CSS
   content?: CSS
   indicator?: CSS
 }
 
 export interface ProgressProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   Color extends ColorByPikas<ColorsRecord>,
   Shadow extends ShadowByPikas<ShadowsRecord>
 > {
@@ -82,8 +81,8 @@ export interface ProgressProps<
   max?: number
   width?: number | string
   height?: number | string
-  color?: Color
-  backgroundColor?: Color
+  colorName?: Color
+  backgroundColorName?: Color
   loading?: boolean
   boxShadow?: Shadow | 'none'
   borderRadius?: BorderRadius
@@ -94,15 +93,15 @@ export interface ProgressProps<
 }
 
 export const Progress = <
-  CSS extends CSSRecord = PikasCSS,
+  CSS extends PikasCSS = PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor,
   Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
 >({
   progress = 0,
   height = 16,
   width = 280,
-  backgroundColor = 'GRAY' as Color,
-  color = 'PRIMARY' as Color,
+  backgroundColorName = 'GRAY' as Color,
+  colorName = 'PRIMARY' as Color,
   max = 100,
   loading = false,
   boxShadow = 'DIMINUTION_1' as Shadow,
@@ -121,7 +120,7 @@ export const Progress = <
       css={{
         width,
         height,
-        backgroundColor: `$${backgroundColor}`,
+        backgroundColor: `$${backgroundColorName}`,
         br: borderRadius,
 
         '&:after': {
@@ -146,7 +145,7 @@ export const Progress = <
               transform: `translateX(-${
                 100 - Math.round((progress / (max || 100)) * 100)
               }%)`,
-              backgroundColor: `$${color}`,
+              backgroundColor: `$${colorName}`,
               br: borderRadiusIndicator,
 
               ...css?.indicator,
@@ -162,7 +161,7 @@ export const Progress = <
             color:
               theme &&
               fontColorContrast(
-                theme.colors[(color as PikasColor) || 'PRIMARY'].value,
+                theme.colors[(colorName as PikasColor) || 'PRIMARY'].value,
                 0.7
               ),
           }}
@@ -178,7 +177,8 @@ export const Progress = <
             color:
               theme &&
               fontColorContrast(
-                theme.colors[(backgroundColor as PikasColor) || 'GRAY'].value,
+                theme.colors[(backgroundColorName as PikasColor) || 'GRAY']
+                  .value,
                 0.7
               ),
           }}

@@ -11,7 +11,7 @@ export interface ScaleLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   width?: number
   radius?: number
   margin?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -23,7 +23,7 @@ export const ScaleLoader = <
   height,
   width,
   radius,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   margin,
@@ -40,7 +40,7 @@ export const ScaleLoader = <
       speedMultiplier={speedMultiplier}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
     />

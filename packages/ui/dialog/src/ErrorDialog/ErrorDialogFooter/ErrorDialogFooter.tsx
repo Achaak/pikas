@@ -1,5 +1,6 @@
 import { Button } from '@pikas-ui/button'
-import { PikasColor, styled } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
   display: 'flex',
@@ -11,7 +12,7 @@ const Container = styled('div', {
 export interface ErrorDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
-  validateButtonColor?: PikasColor
+  validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -20,7 +21,7 @@ export interface ErrorDialogFooterProps {
 export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({
   onClose,
   validateButtonLabel,
-  validateButtonColor,
+  validateButtonColorName,
   validateButtonDisabled,
   validateButtonLoading,
   onValidated,
@@ -28,7 +29,7 @@ export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({
   return (
     <Container>
       <Button
-        color={validateButtonColor}
+        color={validateButtonColorName}
         onClick={(): void => {
           onValidated?.()
           onClose?.()

@@ -2,9 +2,8 @@ import type {
   BorderRadius,
   Color as ColorByPikas,
   ColorsRecord,
-  CSSRecord,
-  PikasColor,
   PikasCSS,
+  PikasColor,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
@@ -16,25 +15,25 @@ const StyledSeparator = styled(SeparatorPrimitive.Root, {
 export type SeparatorOrientation = SeparatorPrimitive.Orientation
 
 export interface SeparatorProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   Color extends ColorByPikas<ColorsRecord>
 > {
   orientation?: SeparatorOrientation
   className?: string
   size?: number
   css?: CSS
-  color?: Color
+  colorName?: Color
   borderRadius?: BorderRadius
 }
 
 export const Separator = <
-  CSS extends CSSRecord = PikasCSS,
+  CSS extends PikasCSS = PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   orientation = 'horizontal',
   css,
   className,
-  color = 'GRAY_LIGHT' as Color,
+  colorName = 'GRAY_LIGHT' as Color,
   size = 2,
   borderRadius,
 }: SeparatorProps<CSS, Color>): JSX.Element => {
@@ -43,7 +42,7 @@ export const Separator = <
       orientation={orientation}
       className={className}
       css={{
-        backgroundColor: `$${color}`,
+        backgroundColor: `$${colorName}`,
         br: borderRadius,
 
         '&[data-orientation=horizontal]': {

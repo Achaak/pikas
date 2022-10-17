@@ -7,7 +7,7 @@ import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
 export interface ErrorDialogProps extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColor?: PikasColor
+  validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -17,7 +17,7 @@ export interface ErrorDialogProps extends DialogProps {
 
 export const ErrorDialog: React.FC<ErrorDialogProps> = ({
   validateButtonLabel = 'Ok',
-  validateButtonColor = 'DANGER',
+  validateButtonColorName = 'DANGER',
   validateButtonDisabled,
   validateButtonLoading,
   title = 'Oops ! A error occurred...',
@@ -35,7 +35,7 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
       footer={
         <ErrorDialogFooter
           validateButtonLabel={validateButtonLabel}
-          validateButtonColor={validateButtonColor}
+          validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
           onValidated={onValidated}

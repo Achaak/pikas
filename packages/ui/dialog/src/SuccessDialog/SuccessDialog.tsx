@@ -7,7 +7,7 @@ import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
 export interface SuccessDialogProps extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColor?: PikasColor
+  validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -17,7 +17,7 @@ export interface SuccessDialogProps extends DialogProps {
 
 export const SuccessDialog: React.FC<SuccessDialogProps> = ({
   validateButtonLabel = 'Ok',
-  validateButtonColor = 'SUCCESS',
+  validateButtonColorName = 'SUCCESS',
   validateButtonDisabled,
   validateButtonLoading,
   onClose,
@@ -34,7 +34,7 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
       footer={
         <SuccessDialogFooter
           validateButtonLabel={validateButtonLabel}
-          validateButtonColor={validateButtonColor}
+          validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
           onClose={onClose}

@@ -1,4 +1,4 @@
-import type { CSSRecord, PikasCSS } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -7,12 +7,12 @@ const TextErrorStyled = styled('p', {
   fontSize: '$EM-X-SMALL',
 })
 
-export interface TextErrorProps<CSS extends CSSRecord> {
+export interface TextErrorProps<CSS extends PikasCSS> {
   children?: React.ReactNode
   css?: CSS
 }
 
-export const TextError = <CSS extends CSSRecord = PikasCSS>({
+export const TextError = <CSS extends PikasCSS = PikasCSS>({
   children,
   css,
 }: TextErrorProps<CSS>): JSX.Element => {

@@ -11,7 +11,7 @@ const Container = styled('div', {
 export interface InfoDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
-  validateButtonColor?: PikasColor
+  validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -21,14 +21,14 @@ export const InfoDialogFooter: React.FC<InfoDialogFooterProps> = ({
   onClose,
   onValidated,
   validateButtonLabel,
-  validateButtonColor,
+  validateButtonColorName,
   validateButtonDisabled,
   validateButtonLoading,
 }) => {
   return (
     <Container>
       <Button
-        color={validateButtonColor}
+        color={validateButtonColorName}
         onClick={(): void => {
           onValidated?.()
           onClose?.()

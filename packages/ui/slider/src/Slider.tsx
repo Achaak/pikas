@@ -4,7 +4,6 @@ import type {
   PikasColor,
   Color as ColorByPikas,
   FontSize as FontSizeByPikas,
-  CSSRecord,
   ColorsRecord,
   FontSizesRecord,
   PikasFontSize,
@@ -67,7 +66,7 @@ export const SliderOrientation = {
 }
 export type SliderOrientation = keyof typeof SliderOrientation
 
-export interface SliderCSS<CSS extends CSSRecord> {
+export interface SliderCSS<CSS extends PikasCSS> {
   container?: CSS
   label?: CSS
   description?: CSS
@@ -80,7 +79,7 @@ export interface SliderCSS<CSS extends CSSRecord> {
 }
 
 export interface SliderProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   Color extends ColorByPikas<ColorsRecord>,
   FontSize extends FontSizeByPikas<FontSizesRecord>
 > {
@@ -106,24 +105,24 @@ export interface SliderProps<
   minSize?: string | number
   weight?: number
   thumbSize?: number
-  thumbColor?: Color
+  thumbColorName?: Color
   thumbColorHex?: string
-  thumbBorderColor?: Color
+  thumbBorderColorName?: Color
   thumbBorderColorHex?: string
-  thumbBorderColorHover?: Color
+  thumbBorderColorNameHover?: Color
   thumbBorderColorHoverHex?: string
   thumbBorderWidth?: number
   thumbBorderRadius?: BorderRadius
-  trackColor?: Color
+  trackColorName?: Color
   trackColorHex?: string
-  rangeColor?: Color
+  rangeColorName?: Color
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadius
   css?: SliderCSS<CSS>
 }
 
 export const Slider = <
-  CSS extends CSSRecord = PikasCSS,
+  CSS extends PikasCSS = PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor,
   FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize
 >({
@@ -149,17 +148,17 @@ export const Slider = <
   minSize,
   size = '100%',
   thumbSize = 16,
-  thumbColor = 'WHITE_FIX' as Color,
+  thumbColorName = 'WHITE_FIX' as Color,
   thumbColorHex,
-  thumbBorderColor,
+  thumbBorderColorName,
   thumbBorderColorHex,
-  thumbBorderColorHover = 'GRAY_LIGHTER' as Color,
+  thumbBorderColorNameHover = 'GRAY_LIGHTER' as Color,
   thumbBorderColorHoverHex,
   thumbBorderWidth,
   thumbBorderRadius,
-  trackColor = 'GRAY_LIGHTER' as Color,
+  trackColorName = 'GRAY_LIGHTER' as Color,
   trackColorHex,
-  rangeColor = 'PRIMARY' as Color,
+  rangeColorName = 'PRIMARY' as Color,
   rangeColorHex,
   sliderBorderRadius,
   css,
@@ -240,7 +239,9 @@ export const Slider = <
             css={{
               br: sliderBorderRadius,
               backgroundColor:
-                trackColorHex || trackColor ? `$${trackColor}` : undefined,
+                trackColorHex || trackColorName
+                  ? `$${trackColorName}`
+                  : undefined,
 
               '&[data-orientation="horizontal"]': { height: weight },
               '&[data-orientation="vertical"]': { width: weight },
@@ -252,7 +253,9 @@ export const Slider = <
               css={{
                 br: sliderBorderRadius,
                 backgroundColor:
-                  rangeColorHex || rangeColor ? `$${rangeColor}` : undefined,
+                  rangeColorHex || rangeColorName
+                    ? `$${rangeColorName}`
+                    : undefined,
 
                 ...css?.range,
               }}
@@ -264,18 +267,20 @@ export const Slider = <
               width: thumbSize,
               height: thumbSize,
               backgroundColor:
-                thumbColorHex || thumbColor ? `$${thumbColor}` : undefined,
+                thumbColorHex || thumbColorName
+                  ? `$${thumbColorName}`
+                  : undefined,
               borderColor:
-                thumbBorderColorHex || thumbBorderColor
-                  ? `$${thumbBorderColor}`
+                thumbBorderColorHex || thumbBorderColorName
+                  ? `$${thumbBorderColorName}`
                   : undefined,
               borderWidth: thumbBorderWidth,
               borderRadius: thumbBorderRadius,
 
               '&:hover': {
                 backgroundColor:
-                  thumbBorderColorHoverHex || thumbBorderColorHover
-                    ? `$${thumbBorderColorHover}`
+                  thumbBorderColorHoverHex || thumbBorderColorNameHover
+                    ? `$${thumbBorderColorNameHover}`
                     : undefined,
               },
 

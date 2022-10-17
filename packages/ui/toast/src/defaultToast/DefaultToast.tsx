@@ -34,28 +34,30 @@ const Container = styled('div', {
   alignItems: 'center',
 })
 
-export interface DefaultToastCSS extends CustomToastCSS {
-  icon?: IconCSS
-  title?: PikasCSS
-  description?: PikasCSS
+export interface DefaultToastCSS<CSS extends PikasCSS = PikasCSS>
+  extends CustomToastCSS<CSS> {
+  icon?: IconCSS<CSS>
+  title?: CSS
+  description?: CSS
 }
 
-export interface DefaultToastProps extends CustomToastProps {
+export interface DefaultToastProps<CSS extends PikasCSS = PikasCSS>
+  extends CustomToastProps<CSS> {
   title?: string
   description?: string
   Icon?: React.FC<IconProps>
-  css?: DefaultToastCSS
+  css?: DefaultToastCSS<CSS>
 }
 
-export const DefaultToast: React.FC<DefaultToastProps> = ({
+export const DefaultToast = <CSS extends PikasCSS = PikasCSS>({
   description,
   title,
   Icon,
   css,
   ...props
-}) => {
+}: DefaultToastProps<CSS>): JSX.Element => {
   return (
-    <CustomToast {...props} css={css}>
+    <CustomToast<CSS> {...props} css={css}>
       <Container>
         {Icon && <Icon size={24} color="BLACK" css={css?.icon} />}
         {title || description ? (

@@ -7,7 +7,7 @@ import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
 export interface InfoDialogProps extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColor?: PikasColor
+  validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -18,7 +18,7 @@ export interface InfoDialogProps extends DialogProps {
 export const InfoDialog: React.FC<InfoDialogProps> = ({
   onClose,
   validateButtonLabel = 'Ok',
-  validateButtonColor = 'PRIMARY',
+  validateButtonColorName = 'PRIMARY',
   validateButtonDisabled,
   validateButtonLoading,
   onValidated,
@@ -35,7 +35,7 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
       footer={
         <InfoDialogFooter
           validateButtonLabel={validateButtonLabel}
-          validateButtonColor={validateButtonColor}
+          validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
           onValidated={onValidated}

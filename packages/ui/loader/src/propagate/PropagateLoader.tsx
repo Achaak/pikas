@@ -10,7 +10,7 @@ export interface PropagateLoaderProps<
   Color extends ColorByPikas<ColorsRecord>
 > {
   size?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -20,7 +20,7 @@ export const PropagateLoader = <
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   size,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   speedMultiplier,
@@ -33,7 +33,7 @@ export const PropagateLoader = <
       speedMultiplier={speedMultiplier}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
     />

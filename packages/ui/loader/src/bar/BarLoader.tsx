@@ -9,7 +9,7 @@ import { BarLoader as BarLoaderDefault } from 'react-spinners'
 export interface BarLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   width?: number
   height?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
@@ -20,7 +20,7 @@ export const BarLoader = <
 >({
   width,
   height,
-  color = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
   loading = true,
   speedMultiplier,
@@ -34,7 +34,7 @@ export const BarLoader = <
       speedMultiplier={speedMultiplier}
       color={
         colorHex ||
-        (color ? theme?.colors[color as PikasColor].value : undefined)
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
       }
       loading={loading}
     />

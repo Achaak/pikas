@@ -1,8 +1,7 @@
 import type {
   ColorsRecord,
-  CSSRecord,
-  PikasColor,
   PikasCSS,
+  PikasColor,
   Color as ColorByPikas,
 } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
@@ -16,19 +15,19 @@ const Container = styled('div', {
 })
 
 export interface CustomIconProps<
-  CSS extends CSSRecord,
-  Color extends ColorByPikas<ColorsRecord>
+  CSS extends PikasCSS = PikasCSS,
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
 > extends IconProps<CSS, Color> {
   children?: React.ReactNode
 }
 
 export const CustomIcon = <
-  CSS extends CSSRecord = PikasCSS,
+  CSS extends PikasCSS = PikasCSS,
   Color extends ColorByPikas<ColorsRecord> = PikasColor
 >({
   children,
   className,
-  color,
+  colorName,
   colorHex,
   onClick,
   size,
@@ -43,7 +42,7 @@ export const CustomIcon = <
         svg: {
           width: size,
           height: size,
-          color: (color ? `$${color}` : undefined) || colorHex,
+          color: (colorName ? `$${colorName}` : undefined) || colorHex,
           ...css?.svg,
         },
       }}

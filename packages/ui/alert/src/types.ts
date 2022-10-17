@@ -4,7 +4,7 @@ import type {
   FontSizesRecord,
   FontSize as FontSizeByPikas,
   FontWeight as FontWeightByPikas,
-  CSSRecord,
+  PikasCSS,
   FontWeightsRecord,
 } from '@pikas-ui/styles'
 
@@ -26,15 +26,15 @@ export const AlertGap = {
 }
 export type AlertGap = keyof typeof AlertGap
 
-export interface AlertCSS<CSS extends CSSRecord> {
+export interface AlertCSS<CSS extends PikasCSS> {
   container?: CSS
   content?: CSS
-  icon?: IconCSS
+  icon?: IconCSS<CSS>
   child?: CSS
 }
 
-export interface DefaultAlertProps<
-  CSS extends CSSRecord,
+export interface BaseAlertProps<
+  CSS extends PikasCSS,
   FontSize extends FontSizeByPikas<FontSizesRecord>,
   FontWeight extends FontWeightByPikas<FontWeightsRecord>
 > {

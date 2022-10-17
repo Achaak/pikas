@@ -6,7 +6,6 @@ import type {
   PikasCSS,
   PikasFontSize,
   BorderRadius,
-  CSSRecord,
   FontSize as FontSizeByPikas,
   Shadow as ShadowByPikas,
   Color as ColorByPikas,
@@ -195,16 +194,16 @@ export const TextfieldGap = {
 }
 export type TextfieldGap = keyof typeof TextfieldGap
 
-export type TextfieldCSS<CSS extends CSSRecord> = {
+export type TextfieldCSS<CSS extends PikasCSS> = {
   container?: CSS
   inputContainer?: CSS
   input?: CSS
   left?: CSS
   right?: CSS
-  leftIcon?: IconCSS
-  rightIcon?: IconCSS
+  leftIcon?: IconCSS<CSS>
+  rightIcon?: IconCSS<CSS>
   infoTooltip?: TooltipCSS<CSS>
-  infoIcon?: IconCSS
+  infoIcon?: IconCSS<CSS>
   label?: CSS
   description?: CSS
   textError?: CSS
@@ -212,7 +211,7 @@ export type TextfieldCSS<CSS extends CSSRecord> = {
 }
 
 export type TextfieldProps<
-  CSS extends CSSRecord,
+  CSS extends PikasCSS,
   FontSize extends FontSizeByPikas<FontSizesRecord>,
   Color extends ColorByPikas<ColorsRecord>,
   Shadow extends ShadowByPikas<ShadowsRecord>
@@ -225,23 +224,23 @@ export type TextfieldProps<
   padding?: TextfieldPadding
   gap?: TextfieldGap
   fontSize?: FontSize
-  borderColor?: Color
+  borderColorName?: Color
   borderColorHex?: string
   borderWidth?: number
-  color?: Color
+  colorName?: Color
   colorHex?: string
-  placeholderColor?: Color
+  placeholderColorName?: Color
   placeholderColorHex?: string
-  backgroundColor?: Color
+  backgroundColorName?: Color
   backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
-  LeftIcon?: React.FC<IconProps>
-  RightIcon?: React.FC<IconProps>
-  leftIconColor?: Color
+  LeftIcon?: React.FC<IconProps<CSS, Color>>
+  RightIcon?: React.FC<IconProps<CSS, Color>>
+  leftIconColorName?: Color
   leftIconColorHex?: string
-  rightIconColor?: Color
+  rightIconColorName?: Color
   rightIconColorHex?: string
   leftIconSize?: number
   rightIconSize?: number
@@ -261,7 +260,7 @@ export type TextfieldProps<
 
 export const Textfield = forwardRef(
   <
-    CSS extends CSSRecord = PikasCSS,
+    CSS extends PikasCSS = PikasCSS,
     FontSize extends FontSizeByPikas<FontSizesRecord> = PikasFontSize,
     Color extends ColorByPikas<ColorsRecord> = PikasColor,
     Shadow extends ShadowByPikas<ShadowsRecord> = PikasShadow
@@ -277,7 +276,7 @@ export const Textfield = forwardRef(
       textError,
       label,
       css,
-      borderColor = 'TRANSPARENT' as Color,
+      borderColorName = 'TRANSPARENT' as Color,
       borderWidth = 0,
       autoComplete,
       min,
@@ -286,7 +285,7 @@ export const Textfield = forwardRef(
       RightIcon,
       leftChildren,
       rightChildren,
-      backgroundColor = 'GRAY_LIGHTEST_1' as Color,
+      backgroundColorName = 'GRAY_LIGHTEST_1' as Color,
       outline = true,
       description,
       gap,
@@ -295,13 +294,13 @@ export const Textfield = forwardRef(
       minWidth,
       backgroundColorHex,
       borderColorHex,
-      color,
+      colorName,
       colorHex,
-      placeholderColor,
+      placeholderColorName,
       placeholderColorHex,
-      leftIconColor,
+      leftIconColorName,
       leftIconColorHex,
-      rightIconColor,
+      rightIconColorName,
       rightIconColorHex,
       leftIconSize,
       rightIconSize,
@@ -335,18 +334,19 @@ export const Textfield = forwardRef(
     }
 
     const getColor = ({
-      color,
+      colorName,
       colorHex,
     }: {
-      color?: Color
+      colorName?: Color
       colorHex?: string
     }): string => {
       return (
         colorHex ||
-        (color ? `$${color}` : undefined) ||
+        (colorName ? `$${colorName}` : undefined) ||
         (theme
           ? fontColorContrast(
-              theme.colors[(backgroundColor as PikasColor) || 'WHITE'].value,
+              theme.colors[(backgroundColorName as PikasColor) || 'WHITE']
+                .value,
               0.7
             )
           : undefined) ||
@@ -414,10 +414,12 @@ export const Textfield = forwardRef(
           css={{
             br: borderRadius,
             borderColor:
-              borderColorHex || borderColor ? `$${borderColor}` : undefined,
+              borderColorHex || borderColorName
+                ? `$${borderColorName}`
+                : undefined,
             backgroundColor:
-              backgroundColorHex || backgroundColor
-                ? `$${backgroundColor}`
+              backgroundColorHex || backgroundColorName
+                ? `$${backgroundColorName}`
                 : undefined,
             boxShadow: `$${boxShadow}`,
             borderWidth: borderWidth,
@@ -454,7 +456,7 @@ export const Textfield = forwardRef(
               <LeftIcon
                 size={leftIconSize || '1em'}
                 colorHex={getColor({
-                  color: leftIconColor || color,
+                  colorName: leftIconColorName || colorName,
                   colorHex: leftIconColorHex || colorHex,
                 })}
                 css={css?.leftIcon}
@@ -476,11 +478,11 @@ export const Textfield = forwardRef(
             disabled={disabled}
             required={required}
             css={{
-              color: getColor({ color, colorHex }),
+              color: getColor({ colorName, colorHex }),
 
               '&::placeholder': {
                 color: getColor({
-                  color: placeholderColor,
+                  colorName: placeholderColorName,
                   colorHex: placeholderColorHex,
                 }),
               },
@@ -505,7 +507,7 @@ export const Textfield = forwardRef(
               <RightIcon
                 size={rightIconSize || '1em'}
                 colorHex={getColor({
-                  color: rightIconColor || color,
+                  colorName: rightIconColorName || colorName,
                   colorHex: rightIconColorHex || colorHex,
                 })}
                 css={css?.rightIcon}
