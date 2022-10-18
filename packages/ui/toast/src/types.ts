@@ -10,11 +10,11 @@ export interface ToastAction {
   trigger?: JSX.Element
 }
 
-export const ToastType = {
+export const toastType = {
   foreground: true,
   background: true,
 } as const
-export type ToastType = keyof typeof ToastType
+export type ToastType = keyof typeof toastType
 
 export interface BaseToastProps<Config extends PikasConfig> {
   css?: ToastCSS<Config>
@@ -34,7 +34,7 @@ export interface BaseToastProps<Config extends PikasConfig> {
   minWidth?: number | string
 }
 
-export const ToastPosition = {
+export const toastPosition = {
   'top-left': true,
   'top-right': true,
   'bottom-left': true,
@@ -43,4 +43,4 @@ export const ToastPosition = {
   bottom: true,
 }
 
-export type ToastPosition = keyof typeof ToastPosition
+export type ToastPosition = keyof typeof toastPosition

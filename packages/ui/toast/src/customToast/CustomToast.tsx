@@ -41,7 +41,7 @@ const Timer = styled('div', {
 })
 
 export interface CustomToastCSS<Config extends PikasConfig>
-  extends ToastCSS<CSS> {
+  extends ToastCSS<Config> {
   close?: Config['css']
   timer?: Config['css']
   content?: Config['css']

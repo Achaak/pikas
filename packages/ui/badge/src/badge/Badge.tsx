@@ -44,14 +44,14 @@ const BadgeStyled = styled(CustomBadge, {
   },
 })
 
-export const GapPadding = {
+export const gapPadding = {
   xs: true,
   sm: true,
   md: true,
   lg: true,
   xl: true,
-}
-export type BadgeGap = keyof typeof GapPadding
+} as const
+export type BadgeGap = keyof typeof gapPadding
 
 export interface BadgeProps<Config extends PikasConfig>
   extends CustomBadgeProps<Config> {

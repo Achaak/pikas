@@ -122,7 +122,7 @@ export const {
   theme,
 } = pikasConfig
 
-export type PikasCSS = CSS<typeof config>
+export type CustomPikasCSS = CSS<typeof config>
 
 export const customGlobalCss = globalCss({
   'html, body, #__next': {
@@ -157,7 +157,7 @@ export const customGlobalCss = globalCss({
   },
 })
 
-export type PikasConfig = GlobalPikasConfig & {
+export type CustomPikasConfig = GlobalPikasConfig & {
   color: Color
   fontSize: FontSize
   fontWeight: FontWeight

@@ -45,17 +45,17 @@ const Item = styled('div', {
   paddingBottom: 8,
 })
 
-export const SliderDirection = {
+export const sliderDirection = {
   ltr: true,
   rtl: true,
-}
-export type SliderDirection = keyof typeof SliderDirection
+} as const
+export type SliderDirection = keyof typeof sliderDirection
 
-export const SliderOrientation = {
+export const sliderOrientation = {
   horizontal: true,
   vertical: true,
-}
-export type SliderOrientation = keyof typeof SliderOrientation
+} as const
+export type SliderOrientation = keyof typeof sliderOrientation
 
 export interface SliderCSS<Config extends PikasConfig> {
   container?: Config['css']

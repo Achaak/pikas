@@ -14,7 +14,7 @@ export type PikasFontWeights = typeof pikasFontWeights
 export type PikasFontWeight = keyof PikasFontWeights
 
 export type FontWeightsRecordValue = string | number
-export type FontWeightsRecordKey = string | number
+export type FontWeightsRecordKey = string | number | PikasFontWeight
 export type FontWeightsRecord = Record<
   FontWeightsRecordKey,
   FontWeightsRecordValue

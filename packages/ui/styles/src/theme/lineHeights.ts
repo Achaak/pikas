@@ -24,7 +24,7 @@ export type PikasLineHeights = typeof pikasLineHeights
 export type PikasLineHeight = keyof PikasLineHeights
 
 export type LineHeightsRecordValue = string | number
-export type LineHeightsRecordKey = string | number
+export type LineHeightsRecordKey = string | number | PikasLineHeight
 export type LineHeightsRecord = Record<
   LineHeightsRecordKey,
   LineHeightsRecordValue

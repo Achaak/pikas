@@ -1,45 +1,45 @@
-export const ButtonType = {
+export const buttonType = {
   button: true,
   submit: true,
   reset: true,
-}
-export type ButtonType = keyof typeof ButtonType
+} as const
+export type ButtonType = keyof typeof buttonType
 
-export const ButtonPadding = {
+export const buttonPadding = {
   xs: true,
   sm: true,
   md: true,
   lg: true,
   xl: true,
-}
-export type ButtonPadding = keyof typeof ButtonPadding
+} as const
+export type ButtonPadding = keyof typeof buttonPadding
 
-export const ButtonTextTransform = {
+export const buttonTextTransform = {
   capitalize: true,
   uppercase: true,
   default: true,
   none: true,
-}
-export type ButtonTextTransform = keyof typeof ButtonTextTransform
+} as const
+export type ButtonTextTransform = keyof typeof buttonTextTransform
 
-export const ButtonEffect = {
+export const buttonEffect = {
   globalScale: true,
   boxScale: true,
   opacity: true,
-}
-export type ButtonEffect = keyof typeof ButtonEffect
+} as const
+export type ButtonEffect = keyof typeof buttonEffect
 
-export const ButtonGap = {
+export const buttonGap = {
   sm: true,
   md: true,
   lg: true,
-}
-export type ButtonGap = keyof typeof ButtonGap
+} as const
+export type ButtonGap = keyof typeof buttonGap
 
-export const ButtonTarget = {
+export const buttonTarget = {
   _self: true,
   _blank: true,
   _parent: true,
   _top: true,
-}
-export type ButtonTarget = keyof typeof ButtonTarget
+} as const
+export type ButtonTarget = keyof typeof buttonTarget

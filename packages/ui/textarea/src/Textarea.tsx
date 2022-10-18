@@ -65,20 +65,20 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export const TextareaPadding = {
+export const textareaPadding = {
   sm: true,
   md: true,
   lg: true,
-}
-export type TextareaPadding = keyof typeof TextareaPadding
+} as const
+export type TextareaPadding = keyof typeof textareaPadding
 
-export const TextareaResize = {
+export const textareaResize = {
   none: true,
   vertical: true,
   horizontal: true,
   both: true,
-}
-export type TextareaResize = keyof typeof TextareaResize
+} as const
+export type TextareaResize = keyof typeof textareaResize
 
 export interface TextareaCSS<Config extends PikasConfig> {
   container?: Config['css']
@@ -124,183 +124,189 @@ export type TextareaProps<Config extends PikasConfig> = {
   data?: DOMStringMap
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
-export const Textarea = forwardRef(
-  <Config extends PikasConfig = PikasConfig>(
-    {
-      id,
-      onChange,
-      boxShadow = 'DIMINUTION_1' as Config['shadow'],
-      borderRadius = 'md',
-      padding = 'md',
-      fontSize = 'EM-MEDIUM' as Config['fontSize'],
-      textError,
-      label,
-      css,
-      borderColorName = 'TRANSPARENT' as Config['color'],
-      borderWidth = 0,
-      backgroundColorName = 'GRAY_LIGHTEST_1' as Config['color'],
-      outline = true,
-      resize,
-      description,
-      width = '100%',
-      maxWidth = '100%',
-      height = 300,
-      maxHeight,
-      minHeight,
-      minWidth,
-      backgroundColorHex,
-      borderColorHex,
-      colorName,
-      colorHex,
-      placeholderColorName,
-      placeholderColorHex,
-      info,
-      required,
-      disabled = false,
-      data,
-      ...props
-    }: TextareaProps<Config>,
-    ref: React.ForwardedRef<HTMLTextAreaElement>
-  ) => {
-    const [focus, setFocus] = useState(false)
-    const theme = useTheme()
+const TextareaInner = <Config extends PikasConfig = PikasConfig>(
+  {
+    id,
+    onChange,
+    boxShadow = 'DIMINUTION_1' as Config['shadow'],
+    borderRadius = 'md',
+    padding = 'md',
+    fontSize = 'EM-MEDIUM' as Config['fontSize'],
+    textError,
+    label,
+    css,
+    borderColorName = 'TRANSPARENT' as Config['color'],
+    borderWidth = 0,
+    backgroundColorName = 'GRAY_LIGHTEST_1' as Config['color'],
+    outline = true,
+    resize,
+    description,
+    width = '100%',
+    maxWidth = '100%',
+    height = 300,
+    maxHeight,
+    minHeight,
+    minWidth,
+    backgroundColorHex,
+    borderColorHex,
+    colorName,
+    colorHex,
+    placeholderColorName,
+    placeholderColorHex,
+    info,
+    required,
+    disabled = false,
+    data,
+    ...props
+  }: TextareaProps<Config>,
+  ref: React.ForwardedRef<HTMLTextAreaElement>
+): JSX.Element => {
+  const [focus, setFocus] = useState(false)
+  const theme = useTheme()
 
-    const onChangeTextarea = (
-      e: React.ChangeEvent<HTMLTextAreaElement>
-    ): void => {
-      if (onChange) {
-        onChange(e)
-      }
+  const onChangeTextarea = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
+    if (onChange) {
+      onChange(e)
     }
+  }
 
-    const getColor = ({
-      colorName,
-      colorHex,
-    }: {
-      colorName?: Config['color']
-      colorHex?: string
-    }): string => {
-      return colorHex || colorName
-        ? `$${colorName}`
-        : undefined ||
-            (theme &&
-              fontColorContrast(
-                theme.colors[(backgroundColorName as PikasColor) || 'WHITE']
-                  .value,
-                0.7
-              )) ||
-            ''
-    }
+  const getColor = ({
+    colorName,
+    colorHex,
+  }: {
+    colorName?: Config['color']
+    colorHex?: string
+  }): string => {
+    return colorHex || colorName
+      ? `$${colorName}`
+      : undefined ||
+          (theme &&
+            fontColorContrast(
+              theme.colors[(backgroundColorName as PikasColor) || 'WHITE']
+                .value,
+              0.7
+            )) ||
+          ''
+  }
 
-    return (
-      <Container
-        css={{
-          fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
-          opacity: disabled ? 0.5 : 1,
-          cursor: disabled ? 'not-allowed' : undefined,
+  return (
+    <Container
+      css={{
+        fontSize: `$${fontSize}`,
+        width: width,
+        maxWidth: maxWidth,
+        minWidth: minWidth,
+        opacity: disabled ? 0.5 : 1,
+        cursor: disabled ? 'not-allowed' : undefined,
 
-          '& > *': {
-            pointerEvents: disabled ? 'none' : undefined,
-          },
+        '& > *': {
+          pointerEvents: disabled ? 'none' : undefined,
+        },
 
-          ...css?.container,
-        }}
-      >
-        {label ? (
-          <LabelContainer>
-            <Label htmlFor={id} css={css?.label}>
-              {label}
-            </Label>
+        ...css?.container,
+      }}
+    >
+      {label ? (
+        <LabelContainer>
+          <Label<Config> htmlFor={id} css={css?.label}>
+            {label}
+          </Label>
 
-            {required ? <Required css={css?.required}>*</Required> : null}
-            {info ? (
-              <Tooltip content={info} css={css?.infoTooltip}>
-                <IconByName
-                  name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
-                  css={{
-                    container: {
-                      marginLeft: 4,
-                      ...css?.infoIcon?.container,
-                    },
-                    svg: {
-                      ...css?.infoIcon?.svg,
-                    },
-                  }}
-                />
-              </Tooltip>
-            ) : null}
-          </LabelContainer>
-        ) : null}
+          {required ? <Required css={css?.required}>*</Required> : null}
+          {info ? (
+            <Tooltip content={info} css={css?.infoTooltip}>
+              <IconByName<Config>
+                name="bx:info-circle"
+                colorName="BLACK_LIGHT"
+                css={{
+                  container: {
+                    marginLeft: 4,
+                    ...css?.infoIcon?.container,
+                  },
+                  svg: {
+                    ...css?.infoIcon?.svg,
+                  },
+                }}
+              />
+            </Tooltip>
+          ) : null}
+        </LabelContainer>
+      ) : null}
 
-        {description ? (
-          <Description
-            css={{
-              marginBottom: 4,
-              ...css?.description,
-            }}
-          >
-            {description}
-          </Description>
-        ) : null}
-
-        <TextareaContainer
-          padding={padding}
-          focus={outline ? focus : undefined}
+      {description ? (
+        <Description<Config>
           css={{
-            br: borderRadius,
-            borderColor:
-              borderColorHex || borderColorName
-                ? `$${borderColorName}`
-                : undefined,
-            backgroundColor:
-              backgroundColorHex || backgroundColorName
-                ? `$${backgroundColorName}`
-                : undefined,
-            boxShadow: `$${boxShadow}`,
-            borderWidth: borderWidth,
-
-            ...css?.textareaContainer,
+            marginBottom: 4,
+            ...css?.description,
           }}
         >
-          <TextareaStyled
-            ref={ref}
-            id={id}
-            onChange={onChangeTextarea}
-            onFocus={(): void => setFocus(true)}
-            onBlur={(): void => setFocus(false)}
-            required={required}
-            disabled={disabled}
-            css={{
-              resize: resize,
-              height: height,
-              maxHeight: maxHeight,
-              minHeight: minHeight,
-              color: getColor({ colorName: colorName, colorHex: colorHex }),
+          {description}
+        </Description>
+      ) : null}
 
-              '&::placeholder': {
-                color: getColor({
-                  colorName: placeholderColorName,
-                  colorHex: placeholderColorHex,
-                }),
-              },
+      <TextareaContainer
+        padding={padding}
+        focus={outline ? focus : undefined}
+        css={{
+          br: borderRadius,
+          borderColor:
+            borderColorHex || borderColorName
+              ? `$${borderColorName}`
+              : undefined,
+          backgroundColor:
+            backgroundColorHex || backgroundColorName
+              ? `$${backgroundColorName}`
+              : undefined,
+          boxShadow: `$${boxShadow}`,
+          borderWidth: borderWidth,
 
-              ...css?.textarea,
-            }}
-            {...props}
-            {...data}
-          />
-        </TextareaContainer>
+          ...css?.textareaContainer,
+        }}
+      >
+        <TextareaStyled
+          ref={ref}
+          id={id}
+          onChange={onChangeTextarea}
+          onFocus={(): void => setFocus(true)}
+          onBlur={(): void => setFocus(false)}
+          required={required}
+          disabled={disabled}
+          css={{
+            resize: resize,
+            height: height,
+            maxHeight: maxHeight,
+            minHeight: minHeight,
+            color: getColor({ colorName: colorName, colorHex: colorHex }),
 
-        {textError && (
-          <TextError css={{ marginTop: 5, ...css?.textError }}>
-            {textError}
-          </TextError>
-        )}
-      </Container>
-    )
+            '&::placeholder': {
+              color: getColor({
+                colorName: placeholderColorName,
+                colorHex: placeholderColorHex,
+              }),
+            },
+
+            ...css?.textarea,
+          }}
+          {...props}
+          {...data}
+        />
+      </TextareaContainer>
+
+      {textError && (
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
+          {textError}
+        </TextError>
+      )}
+    </Container>
+  )
+}
+
+export const Textarea = forwardRef(TextareaInner) as <
+  Config extends PikasConfig = PikasConfig
+>(
+  props: TextareaProps<Config> & {
+    ref?: React.ForwardedRef<HTMLTextAreaElement>
   }
-)
+) => ReturnType<typeof TextareaInner>

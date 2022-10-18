@@ -1,8 +1,8 @@
-export const BadgePadding = {
+export const badgePadding = {
   xs: true,
   sm: true,
   md: true,
   lg: true,
   xl: true,
-}
-export type BadgePadding = keyof typeof BadgePadding
+} as const
+export type BadgePadding = keyof typeof badgePadding

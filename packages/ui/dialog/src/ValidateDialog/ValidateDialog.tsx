@@ -1,15 +1,16 @@
-import type { PikasColor } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ValidateDialogContent } from './ValidateDialogContent/index.js'
 import { ValidateDialogFooter } from './ValidateDialogFooter/index.js'
 import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 
-export interface ValidateDialogProps extends DialogProps {
+export interface ValidateDialogProps<Config extends PikasConfig>
+  extends DialogProps {
   cancelButtonLabel?: string
   validateButtonLabel?: string
-  cancelButtonColorName?: PikasColor
-  validateButtonColorName?: PikasColor
+  cancelButtonColorName?: Config['color']
+  validateButtonColorName?: Config['color']
   cancelButtonDisabled?: boolean
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean
@@ -20,7 +21,7 @@ export interface ValidateDialogProps extends DialogProps {
   content: React.ReactNode
 }
 
-export const ValidateDialog: React.FC<ValidateDialogProps> = ({
+export const ValidateDialog = <Config extends PikasConfig = PikasConfig>({
   onClose,
   cancelButtonLabel = 'Cancel',
   validateButtonLabel = 'Ok',
@@ -35,7 +36,7 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
   title = 'Are you sure ?',
   content,
   ...props
-}) => {
+}: ValidateDialogProps<Config>): JSX.Element => {
   return (
     <CustomDialog
       onClose={onClose}
@@ -43,7 +44,7 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
       header={<ValidateDialogHeader title={title} />}
       content={<ValidateDialogContent content={content} />}
       footer={
-        <ValidateDialogFooter
+        <ValidateDialogFooter<Config>
           cancelButtonLabel={cancelButtonLabel}
           validateButtonLabel={validateButtonLabel}
           cancelButtonColorName={cancelButtonColorName}

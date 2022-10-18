@@ -5,7 +5,7 @@ export interface IconCSS<Config extends PikasConfig> {
   svg?: Config['css']
 }
 
-export interface IconProps<Config extends PikasConfig> {
+export interface IconProps<Config extends PikasConfig = PikasConfig> {
   className?: string
   size?: number | string
   css?: IconCSS<Config>

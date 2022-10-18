@@ -1,23 +1,23 @@
 import type { IconCSS } from '@pikas-ui/icons'
 import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
 
-export const AlertPadding = {
+export const alertPadding = {
   xs: true,
   sm: true,
   md: true,
   lg: true,
   xl: true,
-}
-export type AlertPadding = keyof typeof AlertPadding
+} as const
+export type AlertPadding = keyof typeof alertPadding
 
-export const AlertGap = {
+export const alertGap = {
   xs: true,
   sm: true,
   md: true,
   lg: true,
   xl: true,
-}
-export type AlertGap = keyof typeof AlertGap
+} as const
+export type AlertGap = keyof typeof alertGap
 
 export interface AlertCSS<Config extends PikasConfig> {
   container?: Config['css']

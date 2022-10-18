@@ -134,11 +134,11 @@ const TdContent = styled('div', {
   },
 })
 
-export const TableVariant = {
+export const tableVariant = {
   default: true,
   light: true,
-}
-export type TableVariant = keyof typeof TableVariant
+} as const
+export type TableVariant = keyof typeof tableVariant
 
 export interface TableCSS<T> {
   container?: PikasCSS

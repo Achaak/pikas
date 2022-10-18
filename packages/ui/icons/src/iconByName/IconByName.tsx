@@ -13,7 +13,7 @@ export const IconByName = <Config extends PikasConfig = PikasConfig>({
   ...props
 }: IconByNameProps<Config>): JSX.Element => {
   return (
-    <CustomIcon {...props}>
+    <CustomIcon<Config> {...props}>
       <Iconify icon={name} />
     </CustomIcon>
   )

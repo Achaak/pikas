@@ -24,7 +24,7 @@ export type PikasFontSizes = typeof pikasFontSizes
 export type PikasFontSize = keyof PikasFontSizes
 
 export type FontSizesRecordValue = string | number
-export type FontSizesRecordKey = string | number
+export type FontSizesRecordKey = string | number | PikasFontSize
 export type FontSizesRecord = Record<FontSizesRecordKey, FontSizesRecordValue>
 
 export type FontSizes<T extends FontSizesRecord> = PikasFontSizes & T

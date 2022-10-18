@@ -7,13 +7,13 @@ import { useTheme } from '@pikas-ui/styles'
 import type { BaseAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
 
-export const AlertVariant = {
+export const alertVariant = {
   info: true,
   success: true,
   warning: true,
   danger: true,
-}
-export type AlertVariant = keyof typeof AlertVariant
+} as const
+export type AlertVariant = keyof typeof alertVariant
 
 export interface AlertProps<Config extends PikasConfig>
   extends BaseAlertProps<Config> {

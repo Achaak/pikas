@@ -18,7 +18,7 @@ export type PikasSizes = typeof pikasSizes
 export type PikasSize = keyof PikasSizes
 
 export type SizesRecordValue = string | number
-export type SizesRecordKey = string | number
+export type SizesRecordKey = string | number | PikasSize
 export type SizesRecord = Record<SizesRecordKey, SizesRecordValue>
 
 export type Sizes<T extends SizesRecord> = PikasSizes & T

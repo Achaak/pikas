@@ -45,7 +45,7 @@ export interface DefaultToastProps<Config extends PikasConfig>
   extends CustomToastProps<Config> {
   title?: string
   description?: string
-  Icon?: React.FC<Config>
+  Icon?: React.FC<IconProps<Config>>
   css?: DefaultToastCSS<Config>
 }
 

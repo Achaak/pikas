@@ -28,7 +28,7 @@ export const IconContainer: React.FC<InfoDialogProps> = ({
         backgroundColor: `$${backgroundColor}`,
       }}
     >
-      <IconByName name={iconName} size={100} color="WHITE" />
+      <IconByName name={iconName} size={100} colorName="WHITE" />
     </Container>
   )
 }

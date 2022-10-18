@@ -1,5 +1,6 @@
+import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
@@ -153,7 +154,13 @@ const Content = styled(DefaultContainer, {
 
 const Footer = styled(DefaultContainer, {})
 
-export type CustomDialogPaddingElement = 'no-padding' | 'sm' | 'md' | 'lg'
+const customDialogPaddingElement = {
+  'no-padding': true,
+  sm: true,
+  md: true,
+  lg: true,
+} as const
+export type CustomDialogPaddingElement = keyof typeof customDialogPaddingElement
 
 export interface CustomDialogPadding {
   container?: CustomDialogPaddingElement
@@ -162,7 +169,13 @@ export interface CustomDialogPadding {
   footer?: CustomDialogPaddingElement
 }
 
-export type CustomDialogGapElement = 'no-gap' | 'sm' | 'md' | 'lg'
+const customDialogGapElement = {
+  'no-gap': true,
+  sm: true,
+  md: true,
+  lg: true,
+} as const
+export type CustomDialogGapElement = keyof typeof customDialogGapElement
 
 export interface CustomDialogGap {
   container?: CustomDialogGapElement
@@ -171,13 +184,13 @@ export interface CustomDialogGap {
   footer?: CustomDialogGapElement
 }
 
-export interface CustomDialogCSS {
-  container?: PikasCSS
-  header?: PikasCSS
-  content?: PikasCSS
-  footer?: PikasCSS
-  closeIcon?: PikasCSS
-  overlay?: PikasCSS
+export interface CustomDialogCSS<Config extends PikasConfig> {
+  container?: Config['css']
+  header?: Config['css']
+  content?: Config['css']
+  footer?: Config['css']
+  closeIcon?: IconCSS<Config>
+  overlay?: Config['css']
 }
 
 export interface DialogProps {
@@ -186,10 +199,11 @@ export interface DialogProps {
   onClose?: () => void
 }
 
-export interface CustomDialogProps extends DialogProps {
+export interface CustomDialogProps<Config extends PikasConfig>
+  extends DialogProps {
   closeIfClickOutside?: boolean
   hasCloseIcon?: boolean
-  css?: CustomDialogCSS
+  css?: CustomDialogCSS<Config>
   width?: string | number
   height?: string | number
   padding?: CustomDialogPadding
@@ -199,7 +213,7 @@ export interface CustomDialogProps extends DialogProps {
   footer?: React.ReactNode
 }
 
-export const CustomDialog: React.FC<CustomDialogProps> = ({
+export const CustomDialog = <Config extends PikasConfig = PikasConfig>({
   visible,
   hasCloseIcon = true,
   onClose,
@@ -213,7 +227,7 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
   footer,
   content,
   gap,
-}) => {
+}: CustomDialogProps<Config>): JSX.Element => {
   const [visibleStyle, setVisibleStyle] = useState(false)
   const [visibleDOM, setVisibleDOM] = useState(false)
   const theme = useTheme()
@@ -280,18 +294,19 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
           }}
         >
           {hasCloseIcon && (
-            <IconByName
+            <IconByName<Config>
               name="bx:x"
               size={32}
-              color="PRIMARY"
+              colorName="PRIMARY"
               onClick={handleClose}
               css={{
+                ...css?.closeIcon,
                 container: {
                   cursor: 'pointer',
                   position: 'absolute',
                   right: 16,
                   top: 16,
-                  ...css?.closeIcon,
+                  ...css?.closeIcon?.container,
                 },
               }}
             />

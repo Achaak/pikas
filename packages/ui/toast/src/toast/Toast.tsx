@@ -1,33 +1,33 @@
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasCSS, PikasColor } from '@pikas-ui/styles'
+import type { PikasColor, PikasConfig } from '@pikas-ui/styles'
 import React, { useCallback } from 'react'
 import type { DefaultToastCSS } from '../defaultToast'
 import { DefaultToast } from '../defaultToast'
 import type { BaseToastProps } from '../types'
 
-export const ToastVariant = {
+export const toastVariant = {
   warning: true,
   danger: true,
   success: true,
   info: true,
 } as const
-export type ToastVariant = keyof typeof ToastVariant
+export type ToastVariant = keyof typeof toastVariant
 
 export interface ToastProps<Config extends PikasConfig>
-  extends BaseToastProps<CSS> {
+  extends BaseToastProps<Config> {
   variant?: ToastVariant
   title?: string
   description?: string
-  css?: DefaultToastCSS<CSS>
+  css?: DefaultToastCSS<Config>
 }
 
 export const Toast = <Config extends PikasConfig = PikasConfig>({
   variant = 'info',
   css,
   ...props
-}: ToastProps<CSS>): JSX.Element => {
-  const Icon: React.FC<IconProps> = (props) => {
+}: ToastProps<Config>): JSX.Element => {
+  const Icon: React.FC<IconProps<Config>> = (props) => {
     switch (variant) {
       case 'success':
         return <IconByName {...props} name="bx:check-circle" />
@@ -60,23 +60,17 @@ export const Toast = <Config extends PikasConfig = PikasConfig>({
   }, [variant])
 
   return (
-    <DefaultToast<CSS>
+    <DefaultToast<Config>
       Icon={Icon}
       css={{
         ...css,
         icon: {
           ...css?.icon,
-          // TODO: fix types
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           svg: {
             color: `$${getColor()}`,
             ...css?.icon?.container,
           },
         },
-        // TODO: fix types
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         timer: {
           backgroundColor: `$${getColor()}`,
           ...css?.timer,

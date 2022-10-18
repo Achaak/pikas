@@ -46,26 +46,26 @@ const TitleStyle = styled('h1', {
   },
 })
 
-export const TitleComponent = {
+export const titleComponent = {
   h1: true,
   h2: true,
   h3: true,
   h4: true,
   h5: true,
   h6: true,
-}
-export type TitleAs = keyof typeof TitleComponent
+} as const
+export type TitleAs = keyof typeof titleComponent
 
-export const TextTransformComponent = {
+export const textTransformComponent = {
   uppercase: true,
   lowercase: true,
   capitalize: true,
   none: true,
-}
-export type TitleTextTransform = keyof typeof TextTransformComponent
+} as const
+export type TitleTextTransform = keyof typeof textTransformComponent
 
-export const TitleVariant = TitleComponent
-export type TitleVariant = keyof typeof TitleVariant
+export const titleVariant = titleComponent
+export type TitleVariant = keyof typeof titleVariant
 
 export interface TitleCSS<Config extends PikasConfig> {
   global?: Config['css']

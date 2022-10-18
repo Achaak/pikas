@@ -12,7 +12,7 @@ export type PikasLetterSpacings = typeof pikasLetterSpacings
 export type PikasLetterSpacing = keyof PikasLetterSpacings
 
 export type LetterSpacingsRecordValue = string | number
-export type LetterSpacingsRecordKey = string | number
+export type LetterSpacingsRecordKey = string | number | PikasLetterSpacing
 export type LetterSpacingsRecord = Record<
   LetterSpacingsRecordKey,
   LetterSpacingsRecordValue

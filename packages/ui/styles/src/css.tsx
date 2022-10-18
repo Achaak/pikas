@@ -1,43 +1,52 @@
 import { createStitches } from '@stitches/react'
 import type {
-  BorderStylesRecord,
+  BorderStylesRecordKey,
   PikasBorderStyle,
 } from './theme/borderStyles.js'
 import { loadBorderStyles } from './theme/borderStyles.js'
 import type {
-  BorderWidthsRecord,
+  BorderWidthsRecordKey,
   PikasBorderWidth,
 } from './theme/borderWidths.js'
 import { loadBorderWidths } from './theme/borderWidths.js'
-import type { ColorsRecord, PikasColor } from './theme/colors.js'
+import type { ColorsRecordKey, PikasColor } from './theme/colors.js'
 import { loadColors } from './theme/colors.js'
-import type { FontSizesRecord, PikasFontSize } from './theme/fontSizes.js'
+import type { FontSizesRecordKey, PikasFontSize } from './theme/fontSizes.js'
 import { loadFontSizes } from './theme/fontSizes.js'
-import type { FontWeightsRecord, PikasFontWeight } from './theme/fontWeights.js'
+import type {
+  FontWeightsRecordKey,
+  PikasFontWeight,
+} from './theme/fontWeights.js'
 import { loadFontWeights } from './theme/fontWeights.js'
 import type {
-  LetterSpacingsRecord,
+  LetterSpacingsRecordKey,
   PikasLetterSpacing,
 } from './theme/letterSpacings.js'
 import { loadLetterSpacings } from './theme/letterSpacings.js'
-import type { LineHeightsRecord, PikasLineHeight } from './theme/lineHeights.js'
+import type {
+  LineHeightsRecordKey,
+  PikasLineHeight,
+} from './theme/lineHeights.js'
 import { loadLineHeights } from './theme/lineHeights.js'
-import type { PikasRadius, RadiiRecord } from './theme/radii.js'
+import type { PikasRadius, RadiiRecordKey } from './theme/radii.js'
 import { loadRadii } from './theme/radii.js'
-import type { PikasShadow, ShadowsRecord } from './theme/shadows.js'
+import type { PikasShadow, ShadowsRecordKey } from './theme/shadows.js'
 import { loadShadows } from './theme/shadows.js'
-import type { PikasSize, SizesRecord } from './theme/sizes.js'
+import type { PikasSize, SizesRecordKey } from './theme/sizes.js'
 import { loadSizes } from './theme/sizes.js'
-import type { PikasSpace, SpacesRecord } from './theme/space.js'
+import type { PikasSpace, SpacesRecordKey } from './theme/space.js'
 import { loadSpaces } from './theme/space.js'
-import type { PikasTransition, TransitionsRecord } from './theme/transitions.js'
+import type {
+  PikasTransition,
+  TransitionsRecordKey,
+} from './theme/transitions.js'
 import { loadTransitions } from './theme/transitions.js'
-import type { PikasZIndex, ZIndicesRecord } from './theme/zIndices.js'
+import type { PikasZIndex, ZIndicesRecordKey } from './theme/zIndices.js'
 import { loadZIndices } from './theme/zIndices.js'
 import type { CSS } from '@stitches/react'
-import type { FontsRecord } from './theme/fonts.js'
+import type { FontsRecordKey } from './theme/fonts.js'
 import { loadFonts } from './theme/fonts.js'
-import type { PikasMedia } from './medias.js'
+import type { MediasRecordKey, PikasMedia } from './medias.js'
 import { loadMedias } from './medias.js'
 import { loadUtils } from './utils/index.js'
 
@@ -100,19 +109,19 @@ export type BasePikasConfig = {
 }
 
 export type PikasConfig = BasePikasConfig & {
-  color: ColorsRecord
-  fontSize: FontSizesRecord
-  fontWeight: FontWeightsRecord
-  letterSpacing: LetterSpacingsRecord
-  lineHeight: LineHeightsRecord
-  size: SizesRecord
-  space: SpacesRecord
-  borderStyle: BorderStylesRecord
-  borderWidth: BorderWidthsRecord
-  radius: RadiiRecord
-  shadow: ShadowsRecord
-  transition: TransitionsRecord
-  zIndex: ZIndicesRecord
-  font: FontsRecord
-  media: MediaRecorder
+  color: ColorsRecordKey
+  fontSize: FontSizesRecordKey
+  fontWeight: FontWeightsRecordKey
+  letterSpacing: LetterSpacingsRecordKey
+  lineHeight: LineHeightsRecordKey
+  size: SizesRecordKey
+  space: SpacesRecordKey
+  borderStyle: BorderStylesRecordKey
+  borderWidth: BorderWidthsRecordKey
+  radius: RadiiRecordKey
+  shadow: ShadowsRecordKey
+  transition: TransitionsRecordKey
+  zIndex: ZIndicesRecordKey
+  font: FontsRecordKey
+  media: MediasRecordKey
 }

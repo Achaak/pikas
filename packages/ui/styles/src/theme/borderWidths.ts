@@ -4,7 +4,7 @@ export type PikasBorderWidths = typeof pikasBorderWidths
 export type PikasBorderWidth = keyof PikasBorderWidths
 
 export type BorderWidthsRecordValue = string | number
-export type BorderWidthsRecordKey = string | number
+export type BorderWidthsRecordKey = string | number | PikasBorderWidth
 export type BorderWidthsRecord = Record<
   BorderWidthsRecordKey,
   BorderWidthsRecordValue

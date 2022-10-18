@@ -1,5 +1,5 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import type { PikasColor } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
@@ -74,34 +74,38 @@ const RightSlot = styled('div', {
   ...RightSlotCSS,
 })
 
-export const DropdownMenuSide = {
+export const dropdownMenuSide = {
   left: true,
   right: true,
   top: true,
   bottom: true,
-}
-export type DropdownMenuSide = keyof typeof DropdownMenuSide
+} as const
+export type DropdownMenuSide = keyof typeof dropdownMenuSide
 
-export const DropdownMenuAlign = {
+export const dropdownMenuAlign = {
   center: true,
   start: true,
   end: true,
-}
-export type DropdownMenu = keyof typeof DropdownMenuAlign
+} as const
+export type DropdownMenu = keyof typeof dropdownMenuAlign
 
-export const DropdownMenuDirection = {
+export const dropdownMenuDirection = {
   ltr: true,
   rtl: true,
-}
-export type DropdownMenuDirection = keyof typeof DropdownMenuDirection
+} as const
+export type DropdownMenuDirection = keyof typeof dropdownMenuDirection
 
-export type DropdownMenuCSS = MenuCSS
-export type DropdownMenuDataItem = MenuDataItem
-export type DropdownMenuDataItemEntry = ItemEntry
-export type DropdownMenuData = MenuDataItem[]
-export interface DropdownMenuProps extends MenuProps {
+export type DropdownMenuCSS<Config extends PikasConfig> = MenuCSS<Config>
+export type DropdownMenuDataItem<Config extends PikasConfig> =
+  MenuDataItem<Config>
+export type DropdownMenuDataItemEntry<Config extends PikasConfig> =
+  ItemEntry<Config>
+export type DropdownMenuData<Config extends PikasConfig> =
+  MenuDataItem<Config>[]
+export interface DropdownMenuProps<Config extends PikasConfig>
+  extends MenuProps<Config> {
   triggerContent?: React.ReactNode
-  iconColorName?: PikasColor
+  iconColorName?: Config['color']
   iconSize?: number
 
   direction?: DropdownMenuDirection
@@ -124,7 +128,7 @@ export interface DropdownMenuProps extends MenuProps {
   collisionPadding?: number
 }
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({
+export const DropdownMenu = <Config extends PikasConfig = PikasConfig>({
   data,
   triggerContent,
   iconColorName,
@@ -147,7 +151,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   alignOffset,
   avoidCollisions = false,
   collisionPadding,
-}) => {
+}: DropdownMenuProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -166,7 +170,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         ) : (
           <DropdownMenuPrimitive.Trigger asChild>
             <IconButton>
-              <IconByName
+              <IconByName<Config>
                 name="bx:dots-vertical-rounded"
                 size={iconSize}
                 colorName={iconColorName || 'BLACK_LIGHT'}
@@ -200,12 +204,15 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   )
 }
 
-interface DropdownMenuDataProps {
-  data: MenuData
-  css?: DropdownMenuCSS
+interface DropdownMenuDataProps<Config extends PikasConfig> {
+  data: MenuData<Config>
+  css?: DropdownMenuCSS<Config>
 }
 
-const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
+const DropdownMenuData = <Config extends PikasConfig = PikasConfig>({
+  data,
+  css,
+}: DropdownMenuDataProps<Config>): JSX.Element => {
   return (
     <>
       {data

@@ -10,7 +10,7 @@ export type PikasMedias = typeof pikasMedias
 export type PikasMedia = keyof PikasMedias
 
 export type MediasRecordValue = string
-export type MediasRecordKey = string | number
+export type MediasRecordKey = string | number | PikasMedia
 export type MediasRecord = Record<MediasRecordKey, MediasRecordValue>
 
 export type Medias<T extends MediasRecord> = PikasMedias & T

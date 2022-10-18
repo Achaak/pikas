@@ -29,7 +29,7 @@ export type PikasShadows = typeof pikasShadows
 export type PikasShadow = keyof PikasShadows
 
 export type ShadowsRecordValue = string
-export type ShadowsRecordKey = string | number
+export type ShadowsRecordKey = string | number | PikasShadow
 export type ShadowsRecord = Record<ShadowsRecordKey, ShadowsRecordValue>
 
 export type Shadows<T extends ShadowsRecord> = PikasShadows & T

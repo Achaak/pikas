@@ -69,27 +69,27 @@ const Trigger = styled(TooltipPrimitive.Trigger, {
 
 const StyledArrow = styled(TooltipPrimitive.Arrow, {})
 
-export const TooltipSide = {
+export const tooltipSide = {
   top: true,
   right: true,
   bottom: true,
   left: true,
-}
-export type TooltipSide = keyof typeof TooltipSide
+} as const
+export type TooltipSide = keyof typeof tooltipSide
 
-export const TooltipAlign = {
+export const tooltipAlign = {
   start: true,
   center: true,
   end: true,
-}
-export type TooltipAlign = keyof typeof TooltipAlign
+} as const
+export type TooltipAlign = keyof typeof tooltipAlign
 
-export const TooltipPadding = {
+export const tooltipPadding = {
   sm: true,
   md: true,
   lg: true,
-}
-export type TooltipPadding = keyof typeof TooltipPadding
+} as const
+export type TooltipPadding = keyof typeof tooltipPadding
 
 export type TooltipCSS<Config extends PikasConfig> = {
   trigger?: Config['css']

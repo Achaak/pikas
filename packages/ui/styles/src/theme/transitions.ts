@@ -4,7 +4,7 @@ export type PikasTransitions = typeof pikasTransitions
 export type PikasTransition = keyof PikasTransitions
 
 export type TransitionsRecordValue = string
-export type TransitionsRecordKey = string | number
+export type TransitionsRecordKey = string | number | PikasTransition
 export type TransitionsRecord = Record<
   TransitionsRecordKey,
   TransitionsRecordValue

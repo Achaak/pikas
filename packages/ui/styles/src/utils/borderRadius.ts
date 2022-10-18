@@ -1,4 +1,4 @@
-export const BorderRadius = {
+export const borderRadius = {
   none: true,
   xs: true,
   sm: true,
@@ -6,11 +6,11 @@ export const BorderRadius = {
   lg: true,
   xl: true,
   round: true,
-}
+} as const
 
-export type BorderRadius = keyof typeof BorderRadius
+export type BorderRadius = keyof typeof borderRadius
 
-export const BR = {
+export const br = {
   br: (value: BorderRadius): Record<string, unknown> => {
     switch (value) {
       case 'none':
@@ -173,4 +173,4 @@ export const BR = {
   },
 }
 
-export type BR = typeof BR
+export type BR = typeof br

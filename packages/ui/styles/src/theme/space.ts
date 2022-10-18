@@ -18,7 +18,7 @@ export type PikasSpaces = typeof pikasSpaces
 export type PikasSpace = keyof PikasSpaces
 
 export type SpacesRecordValue = string | number
-export type SpacesRecordKey = string | number
+export type SpacesRecordKey = string | number | PikasSpace
 export type SpacesRecord = Record<SpacesRecordKey, SpacesRecordValue>
 
 export type Spaces<T extends SpacesRecord> = PikasSpaces & T

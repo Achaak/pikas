@@ -4,7 +4,7 @@ export type PikasRadii = typeof pikasRadii
 export type PikasRadius = keyof PikasRadii
 
 export type RadiiRecordValue = string | number
-export type RadiiRecordKey = string | number
+export type RadiiRecordKey = string | number | PikasRadius
 export type RadiiRecord = Record<RadiiRecordKey, RadiiRecordValue>
 
 export type Radii<T extends RadiiRecord> = PikasRadii & T

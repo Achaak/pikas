@@ -3,7 +3,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
 import { Separator } from '@pikas-ui/separator'
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
@@ -104,8 +104,10 @@ const DirectResultValue = styled('span', {
   color: '$BLACK',
 })
 
-const SearchIcon: React.FC<IconProps> = ({ ...props }) => (
-  <IconByName name="bx:search" {...props} />
+const SearchIcon = <Config extends PikasConfig>({
+  ...props
+}: IconProps<Config>): JSX.Element => (
+  <IconByName<Config> name="bx:search" {...props} />
 )
 
 export const SearchbarDirection = {
@@ -129,17 +131,17 @@ type ResultGroupWithId = {
   items: (ResultItem & { id: number })[]
 }
 
-export type SearchbarCSS = {
-  container?: PikasCSS
-  resultContainer?: PikasCSS
-  noResult?: PikasCSS
-  resultItem?: PikasCSS
-  textfield?: TextfieldCSS
-  resultGroup?: PikasCSS
-  resultGroupTitle?: PikasCSS
+export type SearchbarCSS<Config extends PikasConfig> = {
+  container?: Config['css']
+  resultContainer?: Config['css']
+  noResult?: Config['css']
+  resultItem?: Config['css']
+  textfield?: TextfieldCSS<Config>
+  resultGroup?: Config['css']
+  resultGroupTitle?: Config['css']
 }
 
-export interface SearchbarProps<T> {
+export interface SearchbarProps<T, Config extends PikasConfig> {
   searchFunction: (value: string) => Promise<T>
   onSearch: (value: T) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
@@ -147,8 +149,8 @@ export interface SearchbarProps<T> {
   id?: string
   searchWhenKeyUp?: boolean
   debounceDelay?: number
-  textfield?: TextfieldProps
-  css?: SearchbarCSS
+  textfield?: TextfieldProps<Config>
+  css?: SearchbarCSS<Config>
   noResult?: React.ReactNode
   loading?: React.ReactNode
   direction?: SearchbarDirection
@@ -161,7 +163,7 @@ export interface SearchbarProps<T> {
   }
 }
 
-export const Searchbar = <T,>({
+export const Searchbar = <T, Config extends PikasConfig>({
   onSearch,
   searchFunction,
   searchType = 'button',
@@ -178,7 +180,7 @@ export const Searchbar = <T,>({
   maxWidth = '100%',
   minWidth,
   directResult,
-}: SearchbarProps<T>): JSX.Element => {
+}: SearchbarProps<T, Config>): JSX.Element => {
   const [result, setResult] = useState<ResultGroupWithId[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
   const [nbItems, setNbItems] = useState(0)
@@ -320,7 +322,7 @@ export const Searchbar = <T,>({
       }}
       ref={refContainer}
     >
-      <Textfield
+      <Textfield<Config>
         {...textfield}
         ref={refTextfield}
         autoComplete="off"
@@ -421,7 +423,7 @@ export const Searchbar = <T,>({
         <SearchResultContainer>
           {loading ? (
             <ResultLoading>
-              <ClipLoader size={40} color="PRIMARY" />
+              <ClipLoader size={40} colorName="PRIMARY" />
             </ResultLoading>
           ) : nbItems && result ? (
             result.map((group, groupIndex) => {

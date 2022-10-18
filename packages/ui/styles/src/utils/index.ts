@@ -1,5 +1,6 @@
 import type { ConfigType } from '@stitches/react/types/config.js'
-import { BR } from './borderRadius.js'
+import type { BR } from './borderRadius.js'
+import { br } from './borderRadius.js'
 import type { Gap } from './gap.js'
 import { gap } from './gap.js'
 
@@ -8,6 +9,6 @@ export const loadUtils = <T extends Record<string, string>>(
 ): ConfigType.Utils<T & Gap & BR> =>
   ({
     ...gap,
-    ...BR,
+    ...br,
     ...utils,
   } as ConfigType.Utils<T & Gap & BR>)
