@@ -57,7 +57,7 @@ export const sliderOrientation = {
 } as const
 export type SliderOrientation = keyof typeof sliderOrientation
 
-export interface SliderCSS<Config extends PikasConfig> {
+export interface SliderCSS<Config extends PikasConfig = PikasConfig> {
   container?: Config['css']
   label?: Config['css']
   description?: Config['css']
@@ -69,7 +69,7 @@ export interface SliderCSS<Config extends PikasConfig> {
   thumb?: Config['css']
 }
 
-export interface SliderProps<Config extends PikasConfig> {
+export interface SliderProps<Config extends PikasConfig = PikasConfig> {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
   id?: string
@@ -161,7 +161,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
       }}
     >
       {label ? (
-        <Label
+        <Label<Config>
           htmlFor={id}
           css={{
             marginBottom: 4,
@@ -173,7 +173,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
       ) : null}
 
       {description ? (
-        <Description
+        <Description<Config>
           css={{
             marginBottom: 4,
             ...css?.description,
@@ -274,7 +274,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
       </Item>
 
       {textError ? (
-        <TextError css={{ marginTop: 5, ...css?.textError }}>
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}

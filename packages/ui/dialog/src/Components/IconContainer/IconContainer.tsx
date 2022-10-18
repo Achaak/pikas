@@ -14,18 +14,18 @@ const Container = styled('div', {
 })
 
 interface InfoDialogProps {
-  backgroundColor: PikasColor
+  backgroundColorName: PikasColor
   iconName: string
 }
 
 export const IconContainer: React.FC<InfoDialogProps> = ({
-  backgroundColor,
+  backgroundColorName,
   iconName,
 }) => {
   return (
     <Container
       css={{
-        backgroundColor: `$${backgroundColor}`,
+        backgroundColor: `$${backgroundColorName}`,
       }}
     >
       <IconByName name={iconName} size={100} colorName="WHITE" />

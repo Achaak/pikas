@@ -24,13 +24,13 @@ export const ProgressExample: React.FC = () => {
       <Progress progress={value1} borderRadiusIndicator="round" />
       <Progress
         progress={value2}
-        color="SECONDARY"
+        colorName="SECONDARY"
         content={`${value2}%`}
         height={24}
       />
       <Progress
         progress={value3}
-        color="TERTIARY"
+        colorName="TERTIARY"
         height={32}
         borderRadius="md"
         content={`${value3}/100`}

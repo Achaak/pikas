@@ -10,7 +10,7 @@ const DescriptionStyled = styled('p', {
   color: '$BLACK',
 })
 
-export interface DescriptionProps<Config extends PikasConfig> {
+export interface DescriptionProps<Config extends PikasConfig = PikasConfig> {
   children?: React.ReactNode
   css?: Config['css']
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 const Root = styled(TabsPrimitive.Root, {
@@ -157,14 +157,17 @@ const Content = styled(TabsPrimitive.Content, {
   },
 })
 
-export interface TabsItem<T extends string> {
+export interface TabsItem<
+  T extends string,
+  Config extends PikasConfig = PikasConfig
+> {
   trigger: React.ReactNode
   id: T
   content: React.ReactNode
   disabled?: boolean
   css?: {
-    trigger?: PikasCSS
-    content?: PikasCSS
+    trigger?: Config['css']
+    content?: Config['css']
   }
 }
 
@@ -174,13 +177,13 @@ export type TabsDirection = 'ltr' | 'rtl'
 
 export type TabsActivationMode = 'manual' | 'automatic'
 
-export interface TabsCSS {
-  container?: PikasCSS
-  triggerList?: PikasCSS
-  endTrigger?: PikasCSS
-  startTrigger?: PikasCSS
-  trigger?: PikasCSS
-  content?: PikasCSS
+export interface TabsCSS<Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  triggerList?: Config['css']
+  endTrigger?: Config['css']
+  startTrigger?: Config['css']
+  trigger?: Config['css']
+  content?: Config['css']
 }
 
 export interface TabsPadding {
@@ -190,8 +193,11 @@ export interface TabsPadding {
 
 export type TabsAlignmentTrigger = 'start' | 'center' | 'end' | 'stretch'
 
-export interface TabsProps<T extends string> {
-  items: TabsItem<T>[]
+export interface TabsProps<
+  T extends string,
+  Config extends PikasConfig = PikasConfig
+> {
+  items: TabsItem<T, Config>[]
   defaultValue: T
   value?: string
   onValueChange?: (value: string) => void
@@ -200,14 +206,17 @@ export interface TabsProps<T extends string> {
   direction?: TabsDirection
   activationMode?: TabsActivationMode
   loop?: boolean
-  css?: TabsCSS
+  css?: TabsCSS<Config>
   padding?: TabsPadding
   alignmentTrigger?: TabsAlignmentTrigger
   startTrigger?: React.ReactNode
   endTrigger?: React.ReactNode
 }
 
-export const Tabs = <T extends string>({
+export const Tabs = <
+  T extends string,
+  Config extends PikasConfig = PikasConfig
+>({
   items,
   defaultValue,
   value,
@@ -224,7 +233,7 @@ export const Tabs = <T extends string>({
   alignmentTrigger = 'stretch',
   endTrigger,
   startTrigger,
-}: TabsProps<T>): JSX.Element => {
+}: TabsProps<T, Config>): JSX.Element => {
   return (
     <Root
       defaultValue={defaultValue}

@@ -10,12 +10,12 @@ const IconExample: React.FC<IconProps> = (props) => {
 export const ButtonIconExample: React.FC = () => {
   return (
     <ExampleContainer>
-      <ButtonIcon Icon={IconExample} color="PRIMARY" />
-      <ButtonIcon Icon={IconExample} color="PRIMARY" outlined />
-      <ButtonIcon Icon={IconExample} color="SECONDARY" />
-      <ButtonIcon Icon={IconExample} color="SECONDARY" outlined />
-      <ButtonIcon Icon={IconExample} color="TERTIARY" />
-      <ButtonIcon Icon={IconExample} color="TERTIARY" outlined />
+      <ButtonIcon Icon={IconExample} colorName="PRIMARY" />
+      <ButtonIcon Icon={IconExample} colorName="PRIMARY" outlined />
+      <ButtonIcon Icon={IconExample} colorName="SECONDARY" />
+      <ButtonIcon Icon={IconExample} colorName="SECONDARY" outlined />
+      <ButtonIcon Icon={IconExample} colorName="TERTIARY" />
+      <ButtonIcon Icon={IconExample} colorName="TERTIARY" outlined />
     </ExampleContainer>
   )
 }

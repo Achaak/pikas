@@ -6,7 +6,7 @@ export const TooltipExample: React.FC = () => {
   return (
     <ExampleContainer>
       <Tooltip content="Hello world">
-        <IconByName size={40} name="bx:baguette" color="BLACK" />
+        <IconByName size={40} name="bx:baguette" colorName="BLACK" />
       </Tooltip>
     </ExampleContainer>
   )

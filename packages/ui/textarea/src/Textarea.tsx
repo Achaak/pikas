@@ -80,7 +80,7 @@ export const textareaResize = {
 } as const
 export type TextareaResize = keyof typeof textareaResize
 
-export interface TextareaCSS<Config extends PikasConfig> {
+export interface TextareaCSS<Config extends PikasConfig = PikasConfig> {
   container?: Config['css']
   textareaContainer?: Config['css']
   textarea?: Config['css']
@@ -92,7 +92,7 @@ export interface TextareaCSS<Config extends PikasConfig> {
   required?: Config['css']
 }
 
-export type TextareaProps<Config extends PikasConfig> = {
+export type TextareaProps<Config extends PikasConfig = PikasConfig> = {
   id?: string
   label?: string
   boxShadow?: Config['shadow'] | 'none'

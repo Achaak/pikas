@@ -9,7 +9,6 @@ interface DefaultToastExampleProps {
 export const DefaultToastProvider: React.FC<DefaultToastExampleProps> = ({
   position,
 }) => {
-
   return (
     <ToastProvider position={position}>
       <DefaultToastItem position={position} />

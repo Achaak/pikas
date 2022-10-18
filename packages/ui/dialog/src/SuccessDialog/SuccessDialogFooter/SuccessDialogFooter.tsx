@@ -9,7 +9,9 @@ const Container = styled('div', {
   width: '100%',
 })
 
-export interface SuccessDialogFooterProps<Config extends PikasConfig> {
+export interface SuccessDialogFooterProps<
+  Config extends PikasConfig = PikasConfig
+> {
   validateButtonLabel?: string
   validateButtonColorName?: Config['color']
   validateButtonDisabled?: boolean
@@ -17,7 +19,7 @@ export interface SuccessDialogFooterProps<Config extends PikasConfig> {
   onClose?: () => void
 }
 
-export const SuccessDialogFooter = <Config extends PikasConfig>({
+export const SuccessDialogFooter = <Config extends PikasConfig = PikasConfig>({
   validateButtonLabel,
   validateButtonColorName,
   validateButtonDisabled,
@@ -27,7 +29,7 @@ export const SuccessDialogFooter = <Config extends PikasConfig>({
   return (
     <Container>
       <Button
-        color={validateButtonColorName}
+        colorName={validateButtonColorName}
         onClick={onClose}
         width="auto"
         disabled={validateButtonDisabled}

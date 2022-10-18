@@ -160,12 +160,12 @@ const Children = styled('div', {
   },
 })
 
-export type ButtonCSS<Config extends PikasConfig> = {
+export type ButtonCSS<Config extends PikasConfig = PikasConfig> = {
   button?: Config['css']
   icon?: IconCSS<Config>
 }
 
-export interface ButtonDefaultProps<Config extends PikasConfig> {
+export interface ButtonDefaultProps<Config extends PikasConfig = PikasConfig> {
   children?: React.ReactNode
   css?: ButtonCSS<Config>
   loading?: boolean
@@ -191,23 +191,23 @@ export interface ButtonDefaultProps<Config extends PikasConfig> {
   boxShadow?: Config['shadow'] | 'none'
 }
 
-export interface BaseButtonProps<Config extends PikasConfig>
+export interface BaseButtonProps<Config extends PikasConfig = PikasConfig>
   extends ButtonDefaultProps<Config> {
   onClick?: () => void
   type?: ButtonType
 }
 
-export type ButtonProps<Config extends PikasConfig> =
+export type ButtonProps<Config extends PikasConfig = PikasConfig> =
   ButtonHTMLAttributes<HTMLButtonElement> & BaseButtonProps<Config>
 
-export interface BaseButtonLinkProps<Config extends PikasConfig>
+export interface BaseButtonLinkProps<Config extends PikasConfig = PikasConfig>
   extends ButtonDefaultProps<Config> {
   onClick?: () => void
   href?: string
   target?: ButtonTarget
 }
 
-export type ButtonLinkProps<Config extends PikasConfig> =
+export type ButtonLinkProps<Config extends PikasConfig = PikasConfig> =
   AnchorHTMLAttributes<HTMLAnchorElement> & BaseButtonLinkProps<Config>
 
 const getContent = <Config extends PikasConfig = PikasConfig>({

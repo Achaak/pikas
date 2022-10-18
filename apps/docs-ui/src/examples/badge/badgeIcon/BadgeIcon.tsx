@@ -5,8 +5,8 @@ export const BadgeIconExample: React.FC = () => {
   return (
     <ExampleContainer>
       <BadgeIcon iconName="bx:baguette" />
-      <BadgeIcon iconName="bx:baguette" color="SECONDARY" />
-      <BadgeIcon iconName="bx:baguette" color="TERTIARY" />
+      <BadgeIcon iconName="bx:baguette" colorName="SECONDARY" />
+      <BadgeIcon iconName="bx:baguette" colorName="TERTIARY" />
     </ExampleContainer>
   )
 }

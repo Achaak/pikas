@@ -4,7 +4,7 @@ import { CustomIcon } from '@pikas-ui/icons'
 export const CustomIconExample: React.FC = () => {
   return (
     <ExampleContainer>
-      <CustomIcon size={40} color="PRIMARY">
+      <CustomIcon size={40} colorName="PRIMARY">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={24}

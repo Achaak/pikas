@@ -21,8 +21,8 @@ export const CustomAlertExample: React.FC = () => {
     >
       <CustomAlert
         Icon={IconExample}
-        color="WHITE"
-        backgroundColor="SECONDARY"
+        colorName="WHITE"
+        backgroundColorName="SECONDARY"
         visible={visible}
       >
         This is an danger alert.

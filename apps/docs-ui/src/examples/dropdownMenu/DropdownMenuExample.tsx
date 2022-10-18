@@ -24,7 +24,7 @@ export const DropdownMenuExample: React.FC = () => {
                 checked: true,
                 label: 'Item 1-2',
                 onCheckedChange: console.log,
-                color: 'PRIMARY',
+                colorName: 'PRIMARY',
               },
               {
                 type: 'radio',
@@ -82,7 +82,7 @@ export const DropdownMenuExample: React.FC = () => {
                 checked: true,
                 label: 'Item 1-2',
                 onCheckedChange: console.log,
-                color: 'PRIMARY',
+                colorName: 'PRIMARY',
               },
               {
                 type: 'radio',

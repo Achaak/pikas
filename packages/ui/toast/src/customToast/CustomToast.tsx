@@ -40,14 +40,14 @@ const Timer = styled('div', {
   position: 'relative',
 })
 
-export interface CustomToastCSS<Config extends PikasConfig>
+export interface CustomToastCSS<Config extends PikasConfig = PikasConfig>
   extends ToastCSS<Config> {
   close?: Config['css']
   timer?: Config['css']
   content?: Config['css']
 }
 
-export interface CustomToastProps<Config extends PikasConfig>
+export interface CustomToastProps<Config extends PikasConfig = PikasConfig>
   extends BaseToastProps<Config> {
   css?: CustomToastCSS<Config>
   children?: React.ReactNode

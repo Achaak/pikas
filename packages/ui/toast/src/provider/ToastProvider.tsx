@@ -66,7 +66,7 @@ const Viewport = styled(ToastPrimitive.Viewport, {
   transition: 'transform 0.2s 150ms ease',
 })
 
-export interface ToastProviderProps<Config extends PikasConfig> {
+export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
   children?: React.ReactNode
   duration?: number
   label?: string
@@ -81,7 +81,7 @@ export interface ToastProviderProps<Config extends PikasConfig> {
   }
 }
 
-export interface ToastContextProps<Config extends PikasConfig> {
+export interface ToastContextProps<Config extends PikasConfig = PikasConfig> {
   toasts: React.ReactElement<BaseToastProps<Config>>[]
   publish: (toast: React.ReactElement<BaseToastProps<Config>>) => void
 }

@@ -67,7 +67,6 @@ export const Header: React.FC<CustomProps> = ({
   documentationLink,
   githubLink,
 }) => {
-
   const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode()
   const [switchComponent, setSwitchComponent] =
     useState<React.ReactNode>(undefined)
@@ -108,7 +107,7 @@ export const Header: React.FC<CustomProps> = ({
               <IconByName
                 name="ant-design:github-filled"
                 size={32}
-                color="BLACK"
+                colorName="BLACK"
               />
             </NavItem>
           </Link>

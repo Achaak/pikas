@@ -37,7 +37,7 @@ export const ToastItem: React.FC<ToastExampleProps> = ({ variant }) => {
   return (
     <Button
       onClick={handlePublish}
-      color={getColor()}
+      colorName={getColor()}
       css={{
         button: {
           width: '100%',

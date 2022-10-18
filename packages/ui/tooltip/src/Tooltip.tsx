@@ -91,12 +91,12 @@ export const tooltipPadding = {
 } as const
 export type TooltipPadding = keyof typeof tooltipPadding
 
-export type TooltipCSS<Config extends PikasConfig> = {
+export type TooltipCSS<Config extends PikasConfig = PikasConfig> = {
   trigger?: Config['css']
   content?: Config['css']
 }
 
-export interface TooltipProps<Config extends PikasConfig> {
+export interface TooltipProps<Config extends PikasConfig = PikasConfig> {
   content: string | React.ReactNode
   children?: React.ReactNode
   backgroundColorName?: Config['color']

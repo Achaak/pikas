@@ -11,7 +11,7 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface CustomBadgeProps<Config extends PikasConfig>
+export interface CustomBadgeProps<Config extends PikasConfig = PikasConfig>
   extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   colorName?: Config['color']

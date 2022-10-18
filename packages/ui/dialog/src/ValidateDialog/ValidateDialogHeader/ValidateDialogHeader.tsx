@@ -22,7 +22,7 @@ export const ValidateDialogHeader: React.FC<ValidateDialogHeaderProps> = ({
     <Container>
       <IconContainer
         iconName="ant-design:question-circle-outlined"
-        backgroundColor="WARNING"
+        backgroundColorName="WARNING"
       />
       <Title>{title}</Title>
     </Container>

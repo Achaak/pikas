@@ -20,7 +20,7 @@ export const SuccessDialogHeader: React.FC<SuccessDialogHeaderProps> = ({
 }) => {
   return (
     <Container>
-      <IconContainer iconName="bx:check-circle" backgroundColor="SUCCESS" />
+      <IconContainer iconName="bx:check-circle" backgroundColorName="SUCCESS" />
       <Title>{title}</Title>
     </Container>
   )

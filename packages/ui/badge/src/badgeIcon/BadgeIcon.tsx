@@ -27,7 +27,7 @@ const BadgeStyled = styled(CustomBadge, {
   },
 })
 
-export interface BadgeIconProps<Config extends PikasConfig>
+export interface BadgeIconProps<Config extends PikasConfig = PikasConfig>
   extends CustomBadgeProps<Config> {
   iconName: string
   size?: number | string

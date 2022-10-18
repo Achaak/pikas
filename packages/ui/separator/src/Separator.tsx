@@ -8,7 +8,7 @@ const StyledSeparator = styled(SeparatorPrimitive.Root, {
 
 export type SeparatorOrientation = SeparatorPrimitive.Orientation
 
-export interface SeparatorProps<Config extends PikasConfig> {
+export interface SeparatorProps<Config extends PikasConfig = PikasConfig> {
   orientation?: SeparatorOrientation
   className?: string
   size?: number

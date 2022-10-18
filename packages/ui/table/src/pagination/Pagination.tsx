@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import React from 'react'
-import type { PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { IconByName } from '@pikas-ui/icons'
@@ -55,20 +55,20 @@ const ButtonArrowRight = styled(ButtonArrow, {
   marginLeft: 8,
 })
 
-export interface PaginationCSSProps {
-  container?: PikasCSS
-  leftContainer?: PikasCSS
-  rightContainer?: PikasCSS
-  pageNumber?: PikasCSS
-  pageNumberActive?: PikasCSS
-  select?: SelectCSS
-  buttonChevronsLeft?: PikasCSS
-  buttonChevronsRight?: PikasCSS
-  buttonChevronLeft?: PikasCSS
-  buttonChevronRight?: PikasCSS
+export interface PaginationCSS<Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  leftContainer?: Config['css']
+  rightContainer?: Config['css']
+  pageNumber?: Config['css']
+  pageNumberActive?: Config['css']
+  select?: SelectCSS<Config>
+  buttonChevronsLeft?: Config['css']
+  buttonChevronsRight?: Config['css']
+  buttonChevronLeft?: Config['css']
+  buttonChevronRight?: Config['css']
 }
 
-export interface PaginationProps {
+export interface PaginationProps<Config extends PikasConfig = PikasConfig> {
   previousPage: () => void
   nextPage: () => void
   setPageSize: (pageSize: number) => void
@@ -79,10 +79,10 @@ export interface PaginationProps {
   setPageIndex: (pageIndex: number) => void
   selectValue: number[]
   defaultPageSize: number
-  css?: PaginationCSSProps
+  css?: PaginationCSS<Config>
 }
 
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination = <Config extends PikasConfig = PikasConfig>({
   nextPage,
   previousPage,
   setPageSize,
@@ -94,7 +94,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   defaultPageSize,
   selectValue,
   css,
-}) => {
+}: PaginationProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   const getNumber = (): React.ReactNode => {
@@ -146,7 +146,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <Footer css={css?.container}>
       <Left css={css?.leftContainer}>
-        <Select
+        <Select<Config>
           data={[
             {
               items: selectValue.map((pageSize) => ({

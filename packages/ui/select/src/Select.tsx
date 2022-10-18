@@ -4,7 +4,6 @@ import { styled } from '@pikas-ui/styles'
 import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { Description, Label, TextError } from '@pikas-ui/text'
-import { Select } from '@pikas-ui/Select'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import type { Ref } from 'react'
 import React, {
@@ -16,6 +15,7 @@ import React, {
 } from 'react'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
+import { Textfield } from '@pikas-ui/textfield'
 
 const Container = styled('div', {
   display: 'flex',
@@ -184,7 +184,7 @@ export const selectPadding = {
 } as const
 export type SelectPadding = keyof typeof selectPadding
 
-export type SelectCSS<Config extends PikasConfig> = {
+export type SelectCSS<Config extends PikasConfig = PikasConfig> = {
   container?: Config['css']
   trigger?: Config['css']
   infoTooltip?: TooltipCSS<Config>
@@ -196,7 +196,7 @@ export type SelectCSS<Config extends PikasConfig> = {
   content?: Config['css']
 }
 
-export interface SelectProps<Config extends PikasConfig> {
+export interface SelectProps<Config extends PikasConfig = PikasConfig> {
   css?: SelectCSS<Config>
   hasSearch?: boolean
   searchPlaceholder?: string
@@ -280,22 +280,13 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
           let hidden = item.hidden || false
 
           if (searchValue.length > 0) {
-            if (item.label === 'string') {
-              if (
-                !item.label.toLowerCase().includes(searchValue.toLowerCase())
-              ) {
-                hidden = false
-              }
-            }
-
-            if (item.searchValue) {
-              if (
-                !item.searchValue
-                  .toLowerCase()
-                  .includes(searchValue.toLowerCase())
-              ) {
-                hidden = false
-              }
+            if (
+              item.searchValue &&
+              !item.searchValue
+                .toLowerCase()
+                .includes(searchValue.toLowerCase())
+            ) {
+              hidden = false
             }
           }
 
@@ -369,7 +360,11 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
                     <ItemText>{item.label}</ItemText>
                   </SelectPrimitive.ItemText>
                   <ItemIndicator>
-                    <IconByName name="bx:check" size={20} color="BLACK" />
+                    <IconByName<Config>
+                      name="bx:check"
+                      size={20}
+                      colorName="BLACK"
+                    />
                   </ItemIndicator>
                 </Item>
               ))}
@@ -395,7 +390,7 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
     >
       {label ? (
         <LabelContainer>
-          <Label
+          <Label<Config>
             htmlFor={id}
             css={{
               ...css?.label,
@@ -415,9 +410,9 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
           ) : null}
           {info ? (
             <Tooltip content={info} css={css?.infoTooltip}>
-              <IconByName
+              <IconByName<Config>
                 name="bx:info-circle"
-                color="BLACK_LIGHT"
+                colorName="BLACK_LIGHT"
                 css={{
                   container: {
                     marginLeft: 4,
@@ -434,7 +429,7 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
       ) : null}
 
       {description ? (
-        <Description
+        <Description<Config>
           css={{
             marginBottom: 4,
             ...css?.description,
@@ -472,7 +467,11 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
         >
           <SelectValue />
           <Icon>
-            <IconByName name="bx:chevron-down" size="1em" color="BLACK" />
+            <IconByName<Config>
+              name="bx:chevron-down"
+              size="1em"
+              colorName="BLACK"
+            />
           </Icon>
         </Trigger>
 
@@ -481,7 +480,7 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
             {hasSearch ? (
               <>
                 <SearchContainer>
-                  <Select
+                  <Textfield
                     onChange={(e): void => {
                       setSearchValue(e.target.value)
                     }}
@@ -496,18 +495,26 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
             ) : null}
 
             <ScrollUpButton>
-              <IconByName name="bx:chevron-up" size={20} color="BLACK" />
+              <IconByName<Config>
+                name="bx:chevron-up"
+                size={20}
+                colorName="BLACK"
+              />
             </ScrollUpButton>
             {viewport}
             <ScrollDownButton>
-              <IconByName name="bx:chevron-down" size={20} color="BLACK" />
+              <IconByName<Config>
+                name="bx:chevron-down"
+                size={20}
+                colorName="BLACK"
+              />
             </ScrollDownButton>
           </Content>
         </SelectPrimitive.Portal>
       </SelectContainer>
 
       {textError ? (
-        <TextError css={{ marginTop: 5, ...css?.textError }}>
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}

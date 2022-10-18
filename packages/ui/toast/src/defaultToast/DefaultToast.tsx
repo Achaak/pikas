@@ -34,14 +34,14 @@ const Container = styled('div', {
   alignItems: 'center',
 })
 
-export interface DefaultToastCSS<Config extends PikasConfig>
+export interface DefaultToastCSS<Config extends PikasConfig = PikasConfig>
   extends CustomToastCSS<Config> {
   icon?: IconCSS<Config>
   title?: Config['css']
   description?: Config['css']
 }
 
-export interface DefaultToastProps<Config extends PikasConfig>
+export interface DefaultToastProps<Config extends PikasConfig = PikasConfig>
   extends CustomToastProps<Config> {
   title?: string
   description?: string

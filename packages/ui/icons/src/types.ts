@@ -1,6 +1,6 @@
 import type { PikasConfig } from '@pikas-ui/styles'
 
-export interface IconCSS<Config extends PikasConfig> {
+export interface IconCSS<Config extends PikasConfig = PikasConfig> {
   container?: Config['css']
   svg?: Config['css']
 }

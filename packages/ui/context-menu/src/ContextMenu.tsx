@@ -75,13 +75,15 @@ export const contextMenuDirection = {
 } as const
 export type ContextMenuDirection = keyof typeof contextMenuDirection
 
-export type ContextMenuCSS<Config extends PikasConfig> = MenuCSS<Config>
-export type ContextMenuDataItem<Config extends PikasConfig> =
+export type ContextMenuCSS<Config extends PikasConfig = PikasConfig> =
+  MenuCSS<Config>
+export type ContextMenuDataItem<Config extends PikasConfig = PikasConfig> =
   MenuDataItem<Config>
-export type ContextMenuDataItemEntry<Config extends PikasConfig> =
+export type ContextMenuDataItemEntry<Config extends PikasConfig = PikasConfig> =
   ItemEntry<Config>
-export type ContextMenuData<Config extends PikasConfig> = MenuDataItem<Config>[]
-export interface ContextMenuProps<Config extends PikasConfig>
+export type ContextMenuData<Config extends PikasConfig = PikasConfig> =
+  MenuDataItem<Config>[]
+export interface ContextMenuProps<Config extends PikasConfig = PikasConfig>
   extends MenuProps<Config> {
   children?: React.ReactNode
 
@@ -144,12 +146,12 @@ export const ContextMenu = <Config extends PikasConfig = PikasConfig>({
   )
 }
 
-interface ContextMenuDataProps<Config extends PikasConfig> {
+interface ContextMenuDataProps<Config extends PikasConfig = PikasConfig> {
   data: MenuData<Config>
   css?: ContextMenuCSS<Config>
 }
 
-const ContextMenuData = <Config extends PikasConfig>({
+const ContextMenuData = <Config extends PikasConfig = PikasConfig>({
   data,
   css,
 }: ContextMenuDataProps<Config>): JSX.Element => {

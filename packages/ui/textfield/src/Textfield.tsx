@@ -182,7 +182,7 @@ export const textfieldGap = {
 } as const
 export type TextfieldGap = keyof typeof textfieldGap
 
-export type TextfieldCSS<Config extends PikasConfig> = {
+export type TextfieldCSS<Config extends PikasConfig = PikasConfig> = {
   container?: Config['css']
   inputContainer?: Config['css']
   input?: Config['css']
@@ -198,7 +198,7 @@ export type TextfieldCSS<Config extends PikasConfig> = {
   required?: Config['css']
 }
 
-export type TextfieldProps<Config extends PikasConfig> = {
+export type TextfieldProps<Config extends PikasConfig = PikasConfig> = {
   type?: TextfieldType
   id?: string
   label?: string

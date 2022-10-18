@@ -48,7 +48,7 @@ export const checkboxSide = {
 } as const
 export type CheckboxSide = keyof typeof checkboxSide
 
-export interface CheckboxCSS<Config extends PikasConfig> {
+export interface CheckboxCSS<Config extends PikasConfig = PikasConfig> {
   container?: Config['css']
   label?: Config['css']
   checkboxRoot?: Config['css']
@@ -57,7 +57,7 @@ export interface CheckboxCSS<Config extends PikasConfig> {
   icon?: IconCSS<Config>
 }
 
-export interface CheckboxProps<Config extends PikasConfig> {
+export interface CheckboxProps<Config extends PikasConfig = PikasConfig> {
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
   id?: string

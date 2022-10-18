@@ -5,7 +5,7 @@ import { DefaultDialogContent } from './DefaultDialogContent/index.js'
 import { DefaultDialogFooter } from './DefaultDialogFooter/index.js'
 import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 
-export interface DefaultDialogProps<Config extends PikasConfig>
+export interface DefaultDialogProps<Config extends PikasConfig = PikasConfig>
   extends DialogProps {
   title: string
   content: React.ReactNode

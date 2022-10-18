@@ -33,7 +33,7 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarCSS<Config extends PikasConfig> {
+export interface AvatarCSS<Config extends PikasConfig = PikasConfig> {
   container?: Config['css']
   image?: Config['css']
   fallback?: Config['css']

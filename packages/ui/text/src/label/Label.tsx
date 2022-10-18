@@ -10,7 +10,7 @@ const LabelStyled = styled(LabelPrimitive.Label, {
   color: '$BLACK',
 })
 
-export interface LabelProps<Config extends PikasConfig> {
+export interface LabelProps<Config extends PikasConfig = PikasConfig> {
   children?: React.ReactNode
   css?: Config['css']
   htmlFor?: string

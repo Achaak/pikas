@@ -140,7 +140,7 @@ export const RightSlotCSS: PikasCSS = {
 
 export const SpanCSS: PikasCSS = {}
 
-interface ItemBase<Config extends PikasConfig> {
+interface ItemBase<Config extends PikasConfig = PikasConfig> {
   disabled?: boolean
   rightSlot?: string
   colorName?: Config['color']
@@ -149,7 +149,8 @@ interface ItemBase<Config extends PikasConfig> {
   hide?: boolean
 }
 
-interface DefaultItem<Config extends PikasConfig> extends ItemBase<Config> {
+interface DefaultItem<Config extends PikasConfig = PikasConfig>
+  extends ItemBase<Config> {
   type: 'item'
   Icon?: React.FC<IconProps<Config>>
   iconColorName?: Config['color']
@@ -165,7 +166,8 @@ interface DefaultItem<Config extends PikasConfig> extends ItemBase<Config> {
   }
 }
 
-interface CheckboxItem<Config extends PikasConfig> extends ItemBase<Config> {
+interface CheckboxItem<Config extends PikasConfig = PikasConfig>
+  extends ItemBase<Config> {
   type: 'checkbox'
   checked: boolean
   label: React.ReactNode
@@ -178,7 +180,8 @@ interface CheckboxItem<Config extends PikasConfig> extends ItemBase<Config> {
   }
 }
 
-interface RadioItem<Config extends PikasConfig> extends ItemBase<Config> {
+interface RadioItem<Config extends PikasConfig = PikasConfig>
+  extends ItemBase<Config> {
   type: 'radio'
   onValueChange: (value: string) => void
   value: string
@@ -199,7 +202,8 @@ interface RadioItem<Config extends PikasConfig> extends ItemBase<Config> {
   }
 }
 
-interface MenuItem<Config extends PikasConfig> extends ItemBase<Config> {
+interface MenuItem<Config extends PikasConfig = PikasConfig>
+  extends ItemBase<Config> {
   type: 'menu'
   data: MenuData<Config>
   label: React.ReactNode
@@ -208,26 +212,27 @@ interface MenuItem<Config extends PikasConfig> extends ItemBase<Config> {
   }
 }
 
-export type ItemEntry<Config extends PikasConfig> =
+export type ItemEntry<Config extends PikasConfig = PikasConfig> =
   | DefaultItem<Config>
   | CheckboxItem<Config>
   | RadioItem<Config>
   | MenuItem<Config>
 
-export interface MenuDataItem<Config extends PikasConfig> {
+export interface MenuDataItem<Config extends PikasConfig = PikasConfig> {
   label?: React.ReactNode
   css?: Config['css']
   items: ItemEntry<Config>[]
 }
 
-export type MenuData<Config extends PikasConfig> = MenuDataItem<Config>[]
+export type MenuData<Config extends PikasConfig = PikasConfig> =
+  MenuDataItem<Config>[]
 
-export interface MenuCSS<Config extends PikasConfig> {
+export interface MenuCSS<Config extends PikasConfig = PikasConfig> {
   content?: Config['css']
   separator?: Config['css']
 }
 
-export interface MenuProps<Config extends PikasConfig> {
+export interface MenuProps<Config extends PikasConfig = PikasConfig> {
   data: MenuData<Config>
   css?: MenuCSS<Config>
 }

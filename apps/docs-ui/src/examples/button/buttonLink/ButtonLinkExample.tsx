@@ -4,22 +4,22 @@ import { ExampleContainer } from '@pikas/docs-ui'
 export const ButtonLinkExample: React.FC = () => {
   return (
     <ExampleContainer>
-      <ButtonLink color="PRIMARY" width="auto" href="#">
+      <ButtonLink colorName="PRIMARY" width="auto" href="#">
         Primary
       </ButtonLink>
-      <ButtonLink color="PRIMARY" width="auto" href="#" outlined>
+      <ButtonLink colorName="PRIMARY" width="auto" href="#" outlined>
         ButtonLink
       </ButtonLink>
-      <ButtonLink color="SECONDARY" width="auto" href="#">
+      <ButtonLink colorName="SECONDARY" width="auto" href="#">
         Secondary
       </ButtonLink>
-      <ButtonLink color="SECONDARY" width="auto" href="#" outlined>
+      <ButtonLink colorName="SECONDARY" width="auto" href="#" outlined>
         Secondary
       </ButtonLink>
-      <ButtonLink color="TERTIARY" width="auto" href="#">
+      <ButtonLink colorName="TERTIARY" width="auto" href="#">
         Tertiary
       </ButtonLink>
-      <ButtonLink color="TERTIARY" width="auto" href="#" outlined>
+      <ButtonLink colorName="TERTIARY" width="auto" href="#" outlined>
         Tertiary
       </ButtonLink>
     </ExampleContainer>

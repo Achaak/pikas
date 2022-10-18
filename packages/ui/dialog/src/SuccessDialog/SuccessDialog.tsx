@@ -5,7 +5,7 @@ import { SuccessDialogContent } from './SuccessDialogContent/index.js'
 import { SuccessDialogFooter } from './SuccessDialogFooter/index.js'
 import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
-export interface SuccessDialogProps<Config extends PikasConfig>
+export interface SuccessDialogProps<Config extends PikasConfig = PikasConfig>
   extends DialogProps {
   validateButtonLabel?: string
   validateButtonColorName?: Config['color']

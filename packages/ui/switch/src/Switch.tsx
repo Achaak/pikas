@@ -68,7 +68,7 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSS<Config extends PikasConfig> {
+export interface SwitchCSS<Config extends PikasConfig = PikasConfig> {
   container?: Config['css']
   content?: Config['css']
   infoTooltip?: TooltipCSS<Config>
@@ -78,7 +78,7 @@ export interface SwitchCSS<Config extends PikasConfig> {
   textError?: Config['css']
 }
 
-export interface BasicSwitchProps<Config extends PikasConfig> {
+export interface BasicSwitchProps<Config extends PikasConfig = PikasConfig> {
   label?: string
   name?: string
   fontSize?: Config['fontSize']
@@ -98,7 +98,7 @@ export interface BasicSwitchProps<Config extends PikasConfig> {
   info?: string
 }
 
-export type SwitchProps<Config extends PikasConfig> =
+export type SwitchProps<Config extends PikasConfig = PikasConfig> =
   ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<Config>
 
 export const Switch = <Config extends PikasConfig = PikasConfig>({
@@ -163,7 +163,7 @@ export const Switch = <Config extends PikasConfig = PikasConfig>({
               marginRight: 8,
             }}
           >
-            <Label
+            <Label<Config>
               htmlFor={id}
               css={{
                 ...css?.label,
@@ -183,7 +183,7 @@ export const Switch = <Config extends PikasConfig = PikasConfig>({
             ) : null}
             {info ? (
               <Tooltip content={info} css={css?.infoTooltip}>
-                <IconByName
+                <IconByName<Config>
                   name="bx:info-circle"
                   colorName="BLACK_LIGHT"
                   css={{
@@ -218,7 +218,7 @@ export const Switch = <Config extends PikasConfig = PikasConfig>({
               marginLeft: 8,
             }}
           >
-            <Label
+            <Label<Config>
               htmlFor={id}
               css={{
                 ...css?.label,
@@ -238,7 +238,7 @@ export const Switch = <Config extends PikasConfig = PikasConfig>({
             ) : null}
             {info ? (
               <Tooltip content={info} css={css?.infoTooltip}>
-                <IconByName
+                <IconByName<Config>
                   name="bx:info-circle"
                   colorName="BLACK_LIGHT"
                   css={{
@@ -258,7 +258,7 @@ export const Switch = <Config extends PikasConfig = PikasConfig>({
       </SwitchContainer>
 
       {textError && (
-        <TextError css={{ marginTop: 5, ...css?.textError }}>
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       )}

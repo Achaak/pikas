@@ -104,7 +104,7 @@ const DirectResultValue = styled('span', {
   color: '$BLACK',
 })
 
-const SearchIcon = <Config extends PikasConfig>({
+const SearchIcon = <Config extends PikasConfig = PikasConfig>({
   ...props
 }: IconProps<Config>): JSX.Element => (
   <IconByName<Config> name="bx:search" {...props} />
@@ -131,7 +131,7 @@ type ResultGroupWithId = {
   items: (ResultItem & { id: number })[]
 }
 
-export type SearchbarCSS<Config extends PikasConfig> = {
+export type SearchbarCSS<Config extends PikasConfig = PikasConfig> = {
   container?: Config['css']
   resultContainer?: Config['css']
   noResult?: Config['css']
@@ -141,7 +141,7 @@ export type SearchbarCSS<Config extends PikasConfig> = {
   resultGroupTitle?: Config['css']
 }
 
-export interface SearchbarProps<T, Config extends PikasConfig> {
+export interface SearchbarProps<T, Config extends PikasConfig = PikasConfig> {
   searchFunction: (value: string) => Promise<T>
   onSearch: (value: T) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
@@ -163,7 +163,7 @@ export interface SearchbarProps<T, Config extends PikasConfig> {
   }
 }
 
-export const Searchbar = <T, Config extends PikasConfig>({
+export const Searchbar = <T, Config extends PikasConfig = PikasConfig>({
   onSearch,
   searchFunction,
   searchType = 'button',

@@ -73,7 +73,7 @@ const Child = styled('p', {
   margin: 0,
 })
 
-export interface CustomAlertProps<Config extends PikasConfig>
+export interface CustomAlertProps<Config extends PikasConfig = PikasConfig>
   extends BaseAlertProps<Config> {
   Icon?: React.FC<IconProps<Config>>
   backgroundColorName?: Config['color']
@@ -81,7 +81,7 @@ export interface CustomAlertProps<Config extends PikasConfig>
   colorHex?: string
 }
 
-export const CustomAlert = <Config extends PikasConfig>({
+export const CustomAlert = <Config extends PikasConfig = PikasConfig>({
   children,
   Icon,
   backgroundColorName,

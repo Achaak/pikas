@@ -5,7 +5,7 @@ import { ValidateDialogContent } from './ValidateDialogContent/index.js'
 import { ValidateDialogFooter } from './ValidateDialogFooter/index.js'
 import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 
-export interface ValidateDialogProps<Config extends PikasConfig>
+export interface ValidateDialogProps<Config extends PikasConfig = PikasConfig>
   extends DialogProps {
   cancelButtonLabel?: string
   validateButtonLabel?: string
