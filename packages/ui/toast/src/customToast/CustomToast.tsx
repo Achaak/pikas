@@ -70,6 +70,8 @@ export const CustomToast = <Config extends PikasConfig = PikasConfig>({
   minWidth = 'auto',
   maxWidth = '100%',
   type = 'foreground',
+  onPause,
+  onResume,
 }: CustomToastProps<Config>): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true)
 
@@ -99,6 +101,8 @@ export const CustomToast = <Config extends PikasConfig = PikasConfig>({
         maxWidth: maxWidth,
         ...css?.toast,
       }}
+      onPause={onPause}
+      onResume={onResume}
       onEscapeKeyDown={onEscapeKeyDown}
       onSwipeStart={onSwipeStart}
       onSwipeMove={onSwipeMove}

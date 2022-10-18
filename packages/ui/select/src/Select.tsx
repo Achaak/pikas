@@ -229,6 +229,7 @@ export interface SelectProps<Config extends PikasConfig = PikasConfig> {
   minWidth?: string | number
   info?: React.ReactNode
   required?: boolean
+  disabled?: boolean
 }
 
 export interface SelectRef {
@@ -263,7 +264,8 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
     width = '100%',
     minWidth = '100%',
     info,
-    required,
+    required = false,
+    disabled = false,
   }: SelectProps<Config>,
   ref: Ref<SelectRef>
 ): JSX.Element => {
@@ -385,6 +387,7 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
         width: width,
         maxWidth: maxWidth,
         minWidth: minWidth,
+        opacity: disabled ? 0.5 : 1,
         ...css?.container,
       }}
     >
@@ -449,6 +452,8 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
         css={{
           ...css?.container,
         }}
+        disabled={disabled}
+        required={required}
       >
         <Trigger
           aria-label={ariaLabel}

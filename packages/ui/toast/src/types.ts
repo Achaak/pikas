@@ -26,6 +26,8 @@ export interface BaseToastProps<Config extends PikasConfig = PikasConfig> {
   onSwipeStart?: (event: SwipeEvent) => void
   onSwipeMove?: (event: SwipeEvent) => void
   onSwipeEnd?: (event: SwipeEvent) => void
+  onPause?: () => void
+  onResume?: () => void
   forceMount?: boolean
   hasCloseButton?: boolean
   timer?: boolean

@@ -34,6 +34,7 @@ const Thumb = styled(SliderPrimitive.Thumb, {
   boxShadow: '$ELEVATION_1',
   transition: 'all 0.2s ease-in-out',
   cursor: 'pointer',
+  br: 'round',
 
   '&:focus': { boxShadow: 'ELEVATION_2' },
 })
@@ -106,6 +107,8 @@ export interface SliderProps<Config extends PikasConfig = PikasConfig> {
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadius
   css?: SliderCSS<Config>
+  inverted?: boolean
+  onValueCommit?: (value: number[]) => void
 }
 
 export const Slider = <Config extends PikasConfig = PikasConfig>({
@@ -145,6 +148,8 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
   rangeColorHex,
   sliderBorderRadius,
   css,
+  inverted,
+  onValueCommit,
 }: SliderProps<Config>): JSX.Element => {
   return (
     <Container
@@ -193,6 +198,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
         <SliderStyled
           defaultValue={defaultValue}
           onValueChange={onChange}
+          onValueCommit={onValueCommit}
           value={value}
           disabled={disabled}
           max={max}
@@ -203,6 +209,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
           minStepsBetweenThumbs={minStepsBetweenThumbs}
           dir={direction}
           id={id}
+          inverted={inverted}
           css={{
             '&[data-orientation="horizontal"]': {
               height: thumbSize,

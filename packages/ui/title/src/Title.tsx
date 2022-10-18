@@ -3,6 +3,7 @@ import { styled } from '@pikas-ui/styles'
 import type { HTMLAttributes } from 'react'
 
 const TitleStyle = styled('h1', {
+  all: 'unset',
   whiteSpace: 'pre-line',
   color: '$BLACK',
 
@@ -38,8 +39,8 @@ const TitleStyle = styled('h1', {
         letterSpacing: '$SMALL',
       },
       h6: {
-        fontSize: '$EM-MEDIUM',
-        fontWeight: '$MEDIUM',
+        fontSize: '$EM-SMALL',
+        fontWeight: '$BOLD',
         letterSpacing: '$SMALL',
       },
     },

@@ -1,7 +1,7 @@
 import type { PikasConfig } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import * as ToastPrimitive from '@radix-ui/react-toast'
 import type { ToastPosition, BaseToastProps } from '../types.js'
 
@@ -66,6 +66,11 @@ const Viewport = styled(ToastPrimitive.Viewport, {
   transition: 'transform 0.2s 150ms ease',
 })
 
+export interface ToastProviderViewport {
+  hotkey?: string[]
+  label?: string
+}
+
 export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
   children?: React.ReactNode
   duration?: number
@@ -75,26 +80,20 @@ export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
   width?: number
   position?: ToastPosition
   closeWithSwipe?: boolean
-  viewport?: {
-    hotkey?: string[]
-    label?: string
-  }
+  viewport?: ToastProviderViewport
 }
 
 export interface ToastContextProps<Config extends PikasConfig = PikasConfig> {
   toasts: React.ReactElement<BaseToastProps<Config>>[]
   publish: (toast: React.ReactElement<BaseToastProps<Config>>) => void
 }
-export const createToastContext = <
-  Config extends PikasConfig = PikasConfig
->(): React.Context<ToastContextProps<Config>> => {
-  return React.createContext<ToastContextProps<Config>>({
-    toasts: [],
-    publish: () => {
-      console.log('publish')
-    },
-  })
-}
+
+export const ToastContext = createContext<ToastContextProps<PikasConfig>>({
+  toasts: [],
+  publish: () => {
+    console.log('publish')
+  },
+})
 
 export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
   duration = 5000,
@@ -110,7 +109,6 @@ export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
   },
   children,
 }: ToastProviderProps<Config>): JSX.Element => {
-  const ToastContext = createToastContext<Config>()
   const [toasts, setToasts] = useState<
     React.ReactElement<BaseToastProps<Config>>[]
   >([])
@@ -136,6 +134,8 @@ export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
     <ToastContext.Provider
       value={{
         toasts: toasts,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         publish: (toast) => setToasts((prev) => [...prev, toast]),
       }}
     >
@@ -150,9 +150,6 @@ export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
           return React.cloneElement(toast, {
             key: index,
             css: {
-              // TODO: fix types
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
               toast: {
                 '@media (prefers-reduced-motion: no-preference)': {
                   '&[data-state="open"]': {

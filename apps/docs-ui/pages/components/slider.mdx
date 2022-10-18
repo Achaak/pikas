@@ -63,8 +63,6 @@ const Example: React.FC = () => {
 }
 ```
 
-
-
 #### Props
 
 | Prop                        | Description                                                     | Type                        | Default          |
@@ -105,3 +103,5 @@ const Example: React.FC = () => {
 | `rangeColorHex`             | The color of the range in hexadecimal.                          | `string`                    | -                |
 | `sliderBorderRadius`        | The radius of the slider border.                                | `BorderRadius`              | `"round"`        |
 | `css`                       | The css of the slider.                                          | `SliderCSS`                 | -                |
+| `inverted`                  | If the slider is inverted.                                      | `boolean`                   | -                |
+| `onValueCommit`             | Callback function that is called when the slider value changes. | `(value: number[]) => void` | -                |

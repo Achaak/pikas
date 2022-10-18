@@ -54,7 +54,7 @@
   "devDependencies": {
     "@pikas/config": "1.0.0",
     "@pikas/tsconfig": "1.0.0",
-    "@types/node": "18.11.0",
+    "@types/node": "18.11.2",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "cross-env": "7.0.3",

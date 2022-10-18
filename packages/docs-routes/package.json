@@ -51,7 +51,7 @@
   "devDependencies": {
     "@pikas/config": "1.0.0",
     "@pikas/tsconfig": "1.0.0",
-    "@types/node": "18.11.0",
+    "@types/node": "18.11.2",
     "cross-env": "7.0.3",
     "eslint": "8.25.0",
     "next": "12.3.1",
