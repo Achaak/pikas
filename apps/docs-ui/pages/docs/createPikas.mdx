@@ -4,6 +4,10 @@ import { NextSeo } from 'next-seo'
 
 # createPikas
 
+You can create yout custom configuration for pikas by using the createPikas function.
+
+If you want to create a custom configuration, add this file to your project:
+
 ```ts
 import type { CSS } from '@pikas-ui/styles'
 import {
@@ -26,67 +30,99 @@ import {
   loadUtils,
 } from '@pikas-ui/styles'
 
-export const colors = loadColors({})
+export const colors = loadColors({
+  // your colors
+})
 export type Colors = typeof colors
 export type Color = keyof Colors
 
-export const fontSizes = loadFontSizes({})
+export const fontSizes = loadFontSizes({
+  // your font sizes
+})
 export type FontSizes = typeof fontSizes
 export type FontSize = keyof FontSizes
 
-export const fontWeights = loadFontWeights({})
+export const fontWeights = loadFontWeights({
+  // your font weights
+})
 export type FontWeights = typeof fontWeights
 export type FontWeight = keyof FontWeights
 
-export const letterSpacings = loadLetterSpacings({})
+export const letterSpacings = loadLetterSpacings({
+  // your letter spacings
+})
 export type LetterSpacings = typeof letterSpacings
 export type LetterSpacing = keyof LetterSpacings
 
-export const lineHeights = loadLineHeights({})
+export const lineHeights = loadLineHeights({
+  // your line heights
+})
 export type LineHeights = typeof lineHeights
 export type LineHeight = keyof LineHeights
 
-export const sizes = loadSizes({})
+export const sizes = loadSizes({
+  // your sizes
+})
 export type Sizes = typeof sizes
 export type Size = keyof Sizes
 
-export const spaces = loadSpaces({})
+export const spaces = loadSpaces({
+  // your spaces
+})
 export type Spaces = typeof spaces
 export type Space = keyof Spaces
 
-export const borderStyles = loadBorderStyles({})
+export const borderStyles = loadBorderStyles({
+  // your border styles
+})
 export type BorderStyles = typeof borderStyles
 export type BorderStyle = keyof BorderStyles
 
-export const borderWidths = loadBorderWidths({})
+export const borderWidths = loadBorderWidths({
+  // your border widths
+})
 export type BorderWidths = typeof borderWidths
 export type BorderWidth = keyof BorderWidths
 
-export const radii = loadRadii({})
+export const radii = loadRadii({
+  // your radii
+})
 export type Radii = typeof radii
 export type Radius = keyof Radii
 
-export const shadows = loadShadows({})
+export const shadows = loadShadows({
+  // your shadows
+})
 export type Shadows = typeof shadows
 export type Shadow = keyof Shadows
 
-export const transitions = loadTransitions({})
+export const transitions = loadTransitions({
+  // your transitions
+})
 export type Transitions = typeof transitions
 export type Transition = keyof Transitions
 
-export const zIndices = loadZIndices({})
+export const zIndices = loadZIndices({
+  // your z indices
+})
 export type ZIndices = typeof zIndices
 export type ZIndex = keyof ZIndices
 
-export const fonts = loadFonts({})
+export const fonts = loadFonts({
+  // your fonts
+})
 export type Fonts = typeof fonts
 export type Font = keyof Fonts
 
-export const medias = loadMedias({})
+export const medias = loadMedias({
+  // your medias
+})
 export type Medias = typeof medias
 export type Media = keyof Medias
 
-export const utils = loadUtils({})
+export const utils = loadUtils({
+  // your utils
+})
 
 export const pikasConfig = createPikas({
   theme: {
@@ -135,26 +171,6 @@ export const customGlobalCss = globalCss({
     padding: 0,
     boxSizing: 'border-box',
   },
-  li: {
-    listStyle: 'none',
-  },
-  a: {
-    textDecoration: 'none',
-  },
-
-  '::-webkit-scrollbar': {
-    width: '10px',
-    height: '10px',
-    br: 'md',
-  },
-  '::-webkit-scrollbar-track': {
-    br: 'md',
-    backgroundColor: '$GRAY',
-  },
-  '::-webkit-scrollbar-thumb': {
-    background: '$GRAY_DARK',
-    br: 'md',
-  },
 })
 
 export type CustomPikasConfig = GlobalPikasConfig & {
@@ -173,5 +189,24 @@ export type CustomPikasConfig = GlobalPikasConfig & {
   zIndex: ZIndex
   font: Font
   media: Media
+}
+```
+
+Now you can use your custom configuration in your project.
+
+To apply the custom configuration to your pikas components, you need to pass the config type to the component.
+
+## Example
+
+```tsx
+import { Button } from '@pikas-ui/button'
+import { CustomPikasConfig } from 'YOUR_CUSTOM_CONFIG_FILE'
+
+export const Example: React.FC = () => {
+  return (
+    <Button<CustomPikasConfig> onClick={() => console.log('click')}>
+      Hello World
+    </Button>
+  )
 }
 ```

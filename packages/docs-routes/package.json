@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-utils/router": "1.0.6"
+    "@pikas-utils/router": "workspace:*"
   },
   "devDependencies": {
     "@pikas/config": "1.0.0",
