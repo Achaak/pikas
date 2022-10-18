@@ -1,5 +1,22 @@
 # @pikas-ui/progress
 
+## 1.2.0
+
+### Minor Changes
+
+- d2dfa6f: Rename color to colorName
+
+### Patch Changes
+
+- f0b2365: Upgrade dependencies
+- Updated dependencies [fef68c2]
+- Updated dependencies [70d4156]
+- Updated dependencies [f0b2365]
+- Updated dependencies [87458a0]
+- Updated dependencies [fef68c2]
+  - @pikas-ui/styles@3.4.0
+  - @pikas-ui/skeleton@2.1.9
+
 ## 1.1.8
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "4.1.10",
+  "version": "4.2.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,11 +46,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "workspace:3.1.8",
-    "@pikas-ui/styles": "workspace:3.3.4",
-    "@pikas-ui/text": "4.1.6",
-    "@pikas-ui/textfield": "3.1.8",
-    "@pikas-ui/tooltip": "3.1.8",
+    "@pikas-ui/icons": "3.2.0",
+    "@pikas-ui/styles": "3.4.0",
+    "@pikas-ui/text": "4.1.7",
+    "@pikas-ui/textfield": "3.2.0",
+    "@pikas-ui/tooltip": "3.2.0",
     "@radix-ui/react-select": "1.1.1"
   },
   "peerDependencies": {

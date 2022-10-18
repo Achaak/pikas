@@ -1,5 +1,21 @@
 # @pikas-ui/icons
 
+## 3.2.0
+
+### Minor Changes
+
+- d2dfa6f: Rename color to colorName
+
+### Patch Changes
+
+- dbea248: Add custom type management
+- f0b2365: Upgrade dependencies
+- Updated dependencies [fef68c2]
+- Updated dependencies [f0b2365]
+- Updated dependencies [87458a0]
+- Updated dependencies [fef68c2]
+  - @pikas-ui/styles@3.4.0
+
 ## 3.1.8
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @pikas-utils/router
 
+## 1.0.7
+
+### Patch Changes
+
+- f0b2365: Upgrade dependencies
+
 ## 1.0.6
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/toast",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,9 +46,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "workspace:3.1.8",
-    "@pikas-ui/icons": "workspace:3.1.8",
-    "@pikas-ui/styles": "workspace:3.3.4",
+    "@pikas-ui/button": "3.2.0",
+    "@pikas-ui/icons": "3.2.0",
+    "@pikas-ui/styles": "3.4.0",
     "@radix-ui/react-toast": "1.1.1"
   },
   "peerDependencies": {

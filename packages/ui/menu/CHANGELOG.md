@@ -1,5 +1,19 @@
 # @pikas-ui/menu
 
+## 3.2.9
+
+### Patch Changes
+
+- f0b2365: Upgrade dependencies
+- Updated dependencies [dbea248]
+- Updated dependencies [fef68c2]
+- Updated dependencies [d2dfa6f]
+- Updated dependencies [f0b2365]
+- Updated dependencies [87458a0]
+- Updated dependencies [fef68c2]
+  - @pikas-ui/icons@3.2.0
+  - @pikas-ui/styles@3.4.0
+
 ## 3.2.8
 
 ### Patch Changes
