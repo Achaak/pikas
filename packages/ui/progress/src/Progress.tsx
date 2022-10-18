@@ -1,8 +1,7 @@
-import type { BorderRadius, Colors, Shadows, CSS } from '@pikas-ui/styles'
+import type { BorderRadius, PikasColor, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Skeleton } from '@pikas-ui/skeleton'
-import React from 'react'
 import * as ProgressPrimitive from '@radix-ui/react-progress'
 import fontColorContrast from 'font-color-contrast'
 
@@ -58,43 +57,43 @@ const ContentBack = styled(Content, {})
 
 const ContentFront = styled(Content, {})
 
-export interface ProgressCSS {
-  container?: CSS
-  content?: CSS
-  indicator?: CSS
+export interface ProgressCSS<Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  content?: Config['css']
+  indicator?: Config['css']
 }
 
-export interface ProgressProps {
+export interface ProgressProps<Config extends PikasConfig = PikasConfig> {
   progress: number
   max?: number
   width?: number | string
   height?: number | string
-  color?: Colors
-  backgroundColor?: Colors
+  colorName?: Config['color']
+  backgroundColorName?: Config['color']
   loading?: boolean
-  boxShadow?: Shadows | 'none'
+  boxShadow?: Config['shadow'] | 'none'
   borderRadius?: BorderRadius
   borderRadiusIndicator?: BorderRadius
   getValueLabel?: (value: number, max: number) => string
   content?: string
-  css?: ProgressCSS
+  css?: ProgressCSS<Config>
 }
 
-export const Progress: React.FC<ProgressProps> = ({
-  progress,
-  height,
-  width,
-  backgroundColor,
-  color,
-  max,
-  loading,
-  boxShadow,
-  borderRadius,
-  borderRadiusIndicator,
-  getValueLabel,
+export const Progress = <Config extends PikasConfig = PikasConfig>({
+  progress = 0,
+  height = 16,
+  width = 280,
+  backgroundColorName = 'GRAY' as Config['color'],
+  colorName = 'PRIMARY' as Config['color'],
+  max = 100,
+  loading = false,
+  boxShadow = 'DIMINUTION_1' as Config['shadow'],
+  borderRadius = 'round',
+  borderRadiusIndicator = 'none',
+  getValueLabel = (value, max): string => `${Math.round((value / max) * 100)}%`,
   content,
   css,
-}) => {
+}: ProgressProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -104,7 +103,7 @@ export const Progress: React.FC<ProgressProps> = ({
       css={{
         width,
         height,
-        backgroundColor: `$${backgroundColor}`,
+        backgroundColor: `$${backgroundColorName}`,
         br: borderRadius,
 
         '&:after': {
@@ -129,7 +128,7 @@ export const Progress: React.FC<ProgressProps> = ({
               transform: `translateX(-${
                 100 - Math.round((progress / (max || 100)) * 100)
               }%)`,
-              backgroundColor: `$${color}`,
+              backgroundColor: `$${colorName}`,
               br: borderRadiusIndicator,
 
               ...css?.indicator,
@@ -144,7 +143,10 @@ export const Progress: React.FC<ProgressProps> = ({
             }% 0 0)`,
             color:
               theme &&
-              fontColorContrast(theme.colors[color || 'PRIMARY'].value, 0.7),
+              fontColorContrast(
+                theme.colors[(colorName as PikasColor) || 'PRIMARY'].value,
+                0.7
+              ),
           }}
         >
           {content}
@@ -158,7 +160,8 @@ export const Progress: React.FC<ProgressProps> = ({
             color:
               theme &&
               fontColorContrast(
-                theme.colors[backgroundColor || 'GRAY'].value,
+                theme.colors[(backgroundColorName as PikasColor) || 'GRAY']
+                  .value,
                 0.7
               ),
           }}
@@ -168,18 +171,4 @@ export const Progress: React.FC<ProgressProps> = ({
       </ProgressContent>
     </Root>
   )
-}
-
-Progress.defaultProps = {
-  progress: 0,
-  width: 280,
-  height: 16,
-  color: 'PRIMARY',
-  backgroundColor: 'GRAY',
-  max: 100,
-  loading: false,
-  boxShadow: 'DIMINUTION_1',
-  borderRadius: 'round',
-  borderRadiusIndicator: 'none',
-  getValueLabel: (value, max): string => `${Math.round((value / max) * 100)}%`,
 }

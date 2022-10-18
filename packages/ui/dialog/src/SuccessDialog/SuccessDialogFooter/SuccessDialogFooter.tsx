@@ -1,5 +1,6 @@
 import { Button } from '@pikas-ui/button'
-import { Colors, styled } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
   display: 'flex',
@@ -8,25 +9,27 @@ const Container = styled('div', {
   width: '100%',
 })
 
-export interface SuccessDialogFooterProps {
+export interface SuccessDialogFooterProps<
+  Config extends PikasConfig = PikasConfig
+> {
   validateButtonLabel?: string
-  validateButtonColor?: Colors
+  validateButtonColorName?: Config['color']
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onClose?: () => void
 }
 
-export const SuccessDialogFooter: React.FC<SuccessDialogFooterProps> = ({
+export const SuccessDialogFooter = <Config extends PikasConfig = PikasConfig>({
   validateButtonLabel,
-  validateButtonColor,
+  validateButtonColorName,
   validateButtonDisabled,
   validateButtonLoading,
   onClose,
-}) => {
+}: SuccessDialogFooterProps<Config>): JSX.Element => {
   return (
     <Container>
       <Button
-        color={validateButtonColor}
+        colorName={validateButtonColorName}
         onClick={onClose}
         width="auto"
         disabled={validateButtonDisabled}

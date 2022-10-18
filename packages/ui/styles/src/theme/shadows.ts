@@ -1,4 +1,4 @@
-export const Shadows = {
+export const pikasShadows = {
   ELEVATION_1: '0px 0px 4px rgba(0, 0, 0, 0.20)',
   ELEVATION_2: '0px 0px 8px rgba(0, 0, 0, 0.20)',
   ELEVATION_3: '0px 0px 16px rgba(0, 0, 0, 0.20)',
@@ -25,4 +25,24 @@ export const Shadows = {
   DIMINUTION_5: 'inset 0px 1px 24px rgba(0, 0, 0, 0.20)',
 }
 
-export type Shadows = keyof typeof Shadows
+export type PikasShadows = typeof pikasShadows
+export type PikasShadow = keyof PikasShadows
+
+export type ShadowsRecordValue = string
+export type ShadowsRecordKey = string | number | PikasShadow
+export type ShadowsRecord = Record<ShadowsRecordKey, ShadowsRecordValue>
+
+export type Shadows<T extends ShadowsRecord> = PikasShadows & T
+export type Shadow<T extends ShadowsRecord> = keyof Shadows<T>
+
+export const loadShadows = <T extends ShadowsRecord>(
+  values:
+    | {
+        [key in keyof PikasShadows]?: ShadowsRecordValue
+      }
+    | T
+): PikasShadows & T =>
+  ({
+    ...pikasShadows,
+    ...values,
+  } as PikasShadows & T)

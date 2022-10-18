@@ -88,15 +88,16 @@ const Example: React.FC = () => {
 }
 ```
 
+
 #### Props
 
 | Prop             | Description                             | Type                          | Default  |
 | :--------------- | :-------------------------------------- | :---------------------------- | :------- |
-| `children`       | The children of the component.          | `React.ReactNode`             | -        |
-| `css`            | The css of the component.               | `CSS`                         | -        |
+| `children`       | The children of the component.          | `ReactNode`                   | -        |
+| `css`            | The css of the component.               | `PikasCSS`                    | -        |
 | `type`           | The type of the component.              | `GridType`                    | required |
-| `rowGap`         | The row gap of the component.           | `GridContainerRowGap`         | -        |
-| `columnGap`      | The column gap of the component.        | `GridContainerColumnGap`      | -        |
+| `rowGap`         | The row gap of the component.           | `GridContainerRowGap`         | `"md"`   |
+| `columnGap`      | The column gap of the component.        | `GridContainerColumnGap`      | `"md"`   |
 | `cols`           | The number of columns of the component. | `GridContainerCols`           | required |
 | `direction`      | The direction of the component.         | `GridContainerDirection`      | -        |
 | `justifyContent` | The justify content of the component.   | `GridContainerJustifyContent` | -        |
@@ -118,11 +119,11 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop       | Description                                   | Type              | Default  |
-| :--------- | :-------------------------------------------- | :---------------- | :------- |
-| `children` | The children of the component.                | `React.ReactNode` | -        |
-| `css`      | The css of the component.                     | `CSS`             | -        |
-| `type`     | The type of the component.                    | `GridType`        | required |
-| `cols`     | Number of columns the item should span.       | `GridItemCols`    | -        |
-| `start`    | The start of the column the item should span. | `GridItemStart`   | -        |
-| `end`      | The end of the column the item should span.   | `GridItemEnd`     | -        |
+| Prop       | Description                                   | Type            | Default  |
+| :--------- | :-------------------------------------------- | :-------------- | :------- |
+| `children` | The children of the component.                | `ReactNode`     | -        |
+| `css`      | The css of the component.                     | `PikasCSS`      | -        |
+| `type`     | The type of the component.                    | `GridType`      | required |
+| `cols`     | Number of columns the item should span.       | `GridItemCols`  | -        |
+| `start`    | The start of the column the item should span. | `GridItemStart` | -        |
+| `end`      | The end of the column the item should span.   | `GridItemEnd`   | -        |

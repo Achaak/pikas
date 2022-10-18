@@ -1,12 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type {
-  Shadows,
-  Colors,
-  CSS,
-  FontsSizes,
-  BorderRadius,
-} from '@pikas-ui/styles'
+import type { PikasConfig, PikasColor, BorderRadius } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
@@ -152,7 +146,7 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export const TextfieldType = {
+export const textfieldType = {
   color: true,
   date: true,
   'datetime-local': true,
@@ -167,75 +161,75 @@ export const TextfieldType = {
   time: true,
   url: true,
   week: true,
-}
-export type TextfieldType = keyof typeof TextfieldType
+} as const
+export type TextfieldType = keyof typeof textfieldType
 
-export const TextfieldPadding = {
+export const textfieldPadding = {
   xs: true,
   sm: true,
   md: true,
   lg: true,
   xl: true,
-}
-export type TextfieldPadding = keyof typeof TextfieldPadding
+} as const
+export type TextfieldPadding = keyof typeof textfieldPadding
 
-export const TextfieldGap = {
+export const textfieldGap = {
   xs: true,
   sm: true,
   md: true,
   lg: true,
   xl: true,
-}
-export type TextfieldGap = keyof typeof TextfieldGap
+} as const
+export type TextfieldGap = keyof typeof textfieldGap
 
-export type TextfieldCSS = {
-  container?: CSS
-  inputContainer?: CSS
-  input?: CSS
-  left?: CSS
-  right?: CSS
-  leftIcon?: IconCSS
-  rightIcon?: IconCSS
-  infoTooltip?: TooltipCSS
-  infoIcon?: IconCSS
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  required?: CSS
+export type TextfieldCSS<Config extends PikasConfig = PikasConfig> = {
+  container?: Config['css']
+  inputContainer?: Config['css']
+  input?: Config['css']
+  left?: Config['css']
+  right?: Config['css']
+  leftIcon?: IconCSS<Config>
+  rightIcon?: IconCSS<Config>
+  infoTooltip?: TooltipCSS<Config>
+  infoIcon?: IconCSS<Config>
+  label?: Config['css']
+  description?: Config['css']
+  textError?: Config['css']
+  required?: Config['css']
 }
 
-export type TextfieldProps = {
+export type TextfieldProps<Config extends PikasConfig = PikasConfig> = {
   type?: TextfieldType
   id?: string
   label?: string
-  boxShadow?: Shadows | 'none'
+  boxShadow?: Config['shadow'] | 'none'
   borderRadius?: BorderRadius
   padding?: TextfieldPadding
   gap?: TextfieldGap
-  fontSize?: FontsSizes
-  borderColor?: Colors
+  fontSize?: Config['fontSize']
+  borderColorName?: Config['color']
   borderColorHex?: string
   borderWidth?: number
-  color?: Colors
+  colorName?: Config['color']
   colorHex?: string
-  placeholderColor?: Colors
+  placeholderColorName?: Config['color']
   placeholderColorHex?: string
-  backgroundColor?: Colors
+  backgroundColorName?: Config['color']
   backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
-  LeftIcon?: React.FC<IconProps>
-  RightIcon?: React.FC<IconProps>
-  leftIconColor?: Colors
+  LeftIcon?: React.FC<IconProps<Config>>
+  RightIcon?: React.FC<IconProps<Config>>
+  leftIconColorName?: Config['color']
   leftIconColorHex?: string
-  rightIconColor?: Colors
+  rightIconColorName?: Config['color']
   rightIconColorHex?: string
   leftIconSize?: number
   rightIconSize?: number
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
-  css?: TextfieldCSS
+  css?: TextfieldCSS<Config>
   min?: number
   max?: number
   outline?: boolean
@@ -247,292 +241,283 @@ export type TextfieldProps = {
   data?: DOMStringMap
 } & InputHTMLAttributes<HTMLInputElement>
 
-export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
-  (
-    {
-      id,
-      type,
-      onChange,
-      boxShadow,
-      borderRadius,
-      padding,
-      fontSize,
-      textError,
-      label,
-      css,
-      borderColor,
-      borderWidth,
-      autoComplete,
-      min,
-      max,
-      LeftIcon,
-      RightIcon,
-      leftChildren,
-      rightChildren,
-      backgroundColor,
-      outline,
-      description,
-      gap,
-      width,
-      maxWidth,
-      minWidth,
-      backgroundColorHex,
-      borderColorHex,
-      color,
-      colorHex,
-      placeholderColor,
-      placeholderColorHex,
-      leftIconColor,
-      leftIconColorHex,
-      rightIconColor,
-      rightIconColorHex,
-      leftIconSize,
-      rightIconSize,
-      required,
-      info,
-      disabled,
-      data,
-      ...props
-    },
-    ref
-  ) => {
-    const refInput = useRef<HTMLInputElement>(null)
-    const multiRef = useMergedRef(ref, refInput)
-    const [focus, setFocus] = useState(false)
-    const theme = useTheme()
+const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
+  {
+    id,
+    type = 'text',
+    onChange,
+    boxShadow = 'DIMINUTION_1' as Config['shadow'],
+    borderRadius = 'md',
+    padding = 'md',
+    fontSize = 'EM-MEDIUM' as Config['fontSize'],
+    textError,
+    label,
+    css,
+    borderColorName = 'TRANSPARENT' as Config['color'],
+    borderWidth = 0,
+    autoComplete,
+    min,
+    max,
+    LeftIcon,
+    RightIcon,
+    leftChildren,
+    rightChildren,
+    backgroundColorName = 'GRAY_LIGHTEST_1' as Config['color'],
+    outline = true,
+    description,
+    gap,
+    width = '100%',
+    maxWidth = '100%',
+    minWidth,
+    backgroundColorHex,
+    borderColorHex,
+    colorName,
+    colorHex,
+    placeholderColorName,
+    placeholderColorHex,
+    leftIconColorName,
+    leftIconColorHex,
+    rightIconColorName,
+    rightIconColorHex,
+    leftIconSize,
+    rightIconSize,
+    required,
+    info,
+    disabled = false,
+    data,
+    ...props
+  }: TextfieldProps<Config>,
+  ref: React.Ref<HTMLInputElement>
+): JSX.Element => {
+  const refInput = useRef<HTMLInputElement>(null)
+  const multiRef = useMergedRef(ref, refInput)
+  const [focus, setFocus] = useState(false)
+  const theme = useTheme()
 
-    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-      if (type === 'number' && refInput.current) {
-        const value = parseInt(e.target.value)
+  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    if (type === 'number' && refInput.current) {
+      const value = parseInt(e.target.value)
 
-        if (max !== undefined && value > max) {
-          refInput.current.value = `${max}`
-        } else if (min !== undefined && value < min) {
-          refInput.current.value = `${min}`
-        }
-      }
-
-      if (onChange) {
-        onChange(e)
+      if (max !== undefined && value > max) {
+        refInput.current.value = `${max}`
+      } else if (min !== undefined && value < min) {
+        refInput.current.value = `${min}`
       }
     }
 
-    const getColor = ({
-      color,
-      colorHex,
-    }: {
-      color?: string
-      colorHex?: string
-    }): string => {
-      return (
-        colorHex ||
-        (color ? `$${color}` : undefined) ||
-        (theme
-          ? fontColorContrast(
-              theme.colors[backgroundColor || 'WHITE'].value,
-              0.7
-            )
-          : undefined) ||
-        ''
-      )
+    if (onChange) {
+      onChange(e)
     }
+  }
 
+  const getColor = ({
+    colorName,
+    colorHex,
+  }: {
+    colorName?: Config['color']
+    colorHex?: string
+  }): string => {
     return (
-      <Container
-        css={{
-          fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
-          opacity: disabled ? 0.5 : 1,
-          cursor: disabled ? 'not-allowed' : undefined,
-
-          '& > *': {
-            pointerEvents: disabled ? 'none' : undefined,
-          },
-          ...css?.container,
-        }}
-      >
-        {label ? (
-          <LabelContainer>
-            <Label htmlFor={id} css={css?.label}>
-              {label}
-            </Label>
-
-            {required ? <Required css={css?.required}>*</Required> : null}
-            {info ? (
-              <Tooltip content={info} css={css?.infoTooltip}>
-                <IconByName
-                  name="bx:info-circle"
-                  color="BLACK_LIGHT"
-                  css={{
-                    container: {
-                      marginLeft: 4,
-                      ...css?.infoIcon?.container,
-                    },
-                    svg: {
-                      ...css?.infoIcon?.svg,
-                    },
-                  }}
-                />
-              </Tooltip>
-            ) : null}
-          </LabelContainer>
-        ) : null}
-
-        {description ? (
-          <Description
-            css={{
-              marginBottom: 4,
-              ...css?.description,
-            }}
-          >
-            {description}
-          </Description>
-        ) : null}
-
-        <InputContainer
-          focus={outline ? focus : undefined}
-          gap={gap}
-          css={{
-            br: borderRadius,
-            borderColor:
-              borderColorHex || borderColor ? `$${borderColor}` : undefined,
-            backgroundColor:
-              backgroundColorHex || backgroundColor
-                ? `$${backgroundColor}`
-                : undefined,
-            boxShadow: `$${boxShadow}`,
-            borderWidth: borderWidth,
-
-            ...css?.inputContainer,
-          }}
-        >
-          {leftChildren && (
-            <LeftContainer
-              htmlFor={id}
-              padding={padding}
-              css={{
-                ...(id && {
-                  cursor: 'pointer',
-                }),
-                ...css?.left,
-              }}
-            >
-              {leftChildren}
-            </LeftContainer>
-          )}
-
-          {LeftIcon && (
-            <LeftContainer
-              htmlFor={id}
-              padding={padding}
-              css={{
-                ...(id && {
-                  cursor: 'pointer',
-                }),
-                ...css?.left,
-              }}
-            >
-              <LeftIcon
-                size={leftIconSize || '1em'}
-                colorHex={getColor({
-                  color: leftIconColor || color,
-                  colorHex: leftIconColorHex || colorHex,
-                })}
-                css={css?.leftIcon}
-              />
-            </LeftContainer>
-          )}
-
-          <Input
-            ref={multiRef}
-            id={id}
-            type={type}
-            padding={padding}
-            onChange={onChangeInput}
-            autoComplete={autoComplete}
-            min={min}
-            max={max}
-            onFocus={(): void => setFocus(true)}
-            onBlur={(): void => setFocus(false)}
-            disabled={disabled}
-            required={required}
-            css={{
-              color: getColor({ color, colorHex }),
-
-              '&::placeholder': {
-                color: getColor({
-                  color: placeholderColor,
-                  colorHex: placeholderColorHex,
-                }),
-              },
-
-              ...css?.input,
-            }}
-            {...props}
-            {...data}
-          />
-
-          {RightIcon && (
-            <RightContainer
-              htmlFor={id}
-              padding={padding}
-              css={{
-                ...(id && {
-                  cursor: 'pointer',
-                }),
-                ...css?.right,
-              }}
-            >
-              <RightIcon
-                size={rightIconSize || '1em'}
-                colorHex={getColor({
-                  color: rightIconColor || color,
-                  colorHex: rightIconColorHex || colorHex,
-                })}
-                css={css?.rightIcon}
-              />
-            </RightContainer>
-          )}
-
-          {rightChildren && (
-            <RightContainer
-              htmlFor={id}
-              padding={padding}
-              css={{
-                ...(id && {
-                  cursor: 'pointer',
-                }),
-                ...css?.right,
-              }}
-            >
-              {rightChildren}
-            </RightContainer>
-          )}
-        </InputContainer>
-
-        {textError && (
-          <TextError css={{ marginTop: 5, ...css?.textError }}>
-            {textError}
-          </TextError>
-        )}
-      </Container>
+      colorHex ||
+      (colorName ? `$${colorName}` : undefined) ||
+      (theme
+        ? fontColorContrast(
+            theme.colors[(backgroundColorName as PikasColor) || 'WHITE'].value,
+            0.7
+          )
+        : undefined) ||
+      ''
     )
   }
-)
 
-Textfield.defaultProps = {
-  padding: 'md',
-  borderRadius: 'md',
-  borderColor: 'TRANSPARENT',
-  borderWidth: 0,
-  backgroundColor: 'GRAY_LIGHTEST_1',
-  boxShadow: 'DIMINUTION_1',
-  outline: true,
-  disabled: false,
-  type: 'text',
-  fontSize: 'EM-MEDIUM',
-  width: '100%',
-  maxWidth: '100%',
+  return (
+    <Container
+      css={{
+        fontSize: `$${fontSize}`,
+        width: width,
+        maxWidth: maxWidth,
+        minWidth: minWidth,
+        opacity: disabled ? 0.5 : 1,
+        cursor: disabled ? 'not-allowed' : undefined,
+
+        '& > *': {
+          pointerEvents: disabled ? 'none' : undefined,
+        },
+        ...css?.container,
+      }}
+    >
+      {label ? (
+        <LabelContainer>
+          <Label<Config> htmlFor={id} css={css?.label}>
+            {label}
+          </Label>
+
+          {required ? <Required css={css?.required}>*</Required> : null}
+          {info ? (
+            <Tooltip content={info} css={css?.infoTooltip}>
+              <IconByName<Config>
+                name="bx:info-circle"
+                colorName="BLACK_LIGHT"
+                css={{
+                  container: {
+                    marginLeft: 4,
+                    ...css?.infoIcon?.container,
+                  },
+                  svg: {
+                    ...css?.infoIcon?.svg,
+                  },
+                }}
+              />
+            </Tooltip>
+          ) : null}
+        </LabelContainer>
+      ) : null}
+
+      {description ? (
+        <Description<Config>
+          css={{
+            marginBottom: 4,
+            ...css?.description,
+          }}
+        >
+          {description}
+        </Description>
+      ) : null}
+
+      <InputContainer
+        focus={outline ? focus : undefined}
+        gap={gap}
+        css={{
+          br: borderRadius,
+          borderColor:
+            borderColorHex || borderColorName
+              ? `$${borderColorName}`
+              : undefined,
+          backgroundColor:
+            backgroundColorHex || backgroundColorName
+              ? `$${backgroundColorName}`
+              : undefined,
+          boxShadow: `$${boxShadow}`,
+          borderWidth: borderWidth,
+
+          ...css?.inputContainer,
+        }}
+      >
+        {leftChildren && (
+          <LeftContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+              ...css?.left,
+            }}
+          >
+            {leftChildren}
+          </LeftContainer>
+        )}
+
+        {LeftIcon && (
+          <LeftContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+              ...css?.left,
+            }}
+          >
+            <LeftIcon
+              size={leftIconSize || '1em'}
+              colorHex={getColor({
+                colorName: leftIconColorName || colorName,
+                colorHex: leftIconColorHex || colorHex,
+              })}
+              css={css?.leftIcon}
+            />
+          </LeftContainer>
+        )}
+
+        <Input
+          ref={multiRef}
+          id={id}
+          type={type}
+          padding={padding}
+          onChange={onChangeInput}
+          autoComplete={autoComplete}
+          min={min}
+          max={max}
+          onFocus={(): void => setFocus(true)}
+          onBlur={(): void => setFocus(false)}
+          disabled={disabled}
+          required={required}
+          css={{
+            color: getColor({ colorName, colorHex }),
+
+            '&::placeholder': {
+              color: getColor({
+                colorName: placeholderColorName,
+                colorHex: placeholderColorHex,
+              }),
+            },
+
+            ...css?.input,
+          }}
+          {...props}
+          {...data}
+        />
+
+        {RightIcon && (
+          <RightContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+              ...css?.right,
+            }}
+          >
+            <RightIcon
+              size={rightIconSize || '1em'}
+              colorHex={getColor({
+                colorName: rightIconColorName || colorName,
+                colorHex: rightIconColorHex || colorHex,
+              })}
+              css={css?.rightIcon}
+            />
+          </RightContainer>
+        )}
+
+        {rightChildren && (
+          <RightContainer
+            htmlFor={id}
+            padding={padding}
+            css={{
+              ...(id && {
+                cursor: 'pointer',
+              }),
+              ...css?.right,
+            }}
+          >
+            {rightChildren}
+          </RightContainer>
+        )}
+      </InputContainer>
+
+      {textError && (
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
+          {textError}
+        </TextError>
+      )}
+    </Container>
+  )
 }
+
+export const Textfield = forwardRef(TextfieldInner) as <
+  Config extends PikasConfig = PikasConfig
+>(
+  props: TextfieldProps<Config> & { ref?: React.ForwardedRef<HTMLInputElement> }
+) => ReturnType<typeof TextfieldInner>

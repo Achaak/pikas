@@ -1,10 +1,4 @@
-import type {
-  BorderRadius,
-  Colors,
-  CSS,
-  FontsSizes,
-  Shadows,
-} from '@pikas-ui/styles'
+import type { BorderRadius, PikasConfig, PikasShadow } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconCSS } from '@pikas-ui/icons'
@@ -12,7 +6,7 @@ import { IconByName } from '@pikas-ui/icons'
 import { Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
 import { useEffect } from 'react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import fontColorContrast from 'font-color-contrast'
 
@@ -43,39 +37,39 @@ const CheckboxStyled = styled(CheckboxPrimitive.Root, {
 
 const CheckboxIndicator = styled(CheckboxPrimitive.Indicator, {})
 
-const Element = styled('div', {
+const Item = styled('div', {
   display: 'flex',
   alignItems: 'center',
 })
 
-export const CheckboxSide = {
+export const checkboxSide = {
   left: true,
   right: true,
-}
-export type CheckboxSide = keyof typeof CheckboxSide
+} as const
+export type CheckboxSide = keyof typeof checkboxSide
 
-export interface CheckboxCSS {
-  container?: CSS
-  label?: CSS
-  checkboxRoot?: CSS
-  checkboxIndicator?: CSS
-  textError?: CSS
-  icon?: IconCSS
+export interface CheckboxCSS<Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  label?: Config['css']
+  checkboxRoot?: Config['css']
+  checkboxIndicator?: Config['css']
+  textError?: Config['css']
+  icon?: IconCSS<Config>
 }
 
-export interface CheckboxProps {
+export interface CheckboxProps<Config extends PikasConfig = PikasConfig> {
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
   id?: string
   label?: string | ReactNode
-  bgColor?: Colors
-  bgColorChecked?: Colors
+  bgColorName?: Config['color']
+  bgColorNameChecked?: Config['color']
   textError?: string
-  boxShadow?: Shadows | 'none'
-  borderColor?: Colors
+  boxShadow?: PikasShadow | 'none'
+  borderColorName?: Config['color']
   borderWidth?: number
   borderRadius?: BorderRadius
-  fontSize?: FontsSizes
+  fontSize?: Config['fontSize']
   size?: number
   checked?: boolean
   className?: string
@@ -85,33 +79,33 @@ export interface CheckboxProps {
   side?: CheckboxSide
   outline?: boolean
   indeterminate?: boolean
-  css?: CheckboxCSS
+  css?: CheckboxCSS<Config>
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox = <Config extends PikasConfig = PikasConfig>({
   id,
   label,
   textError,
   fontSize,
   className,
-  defaultChecked,
+  defaultChecked = false,
   checked,
   onChange,
-  disabled,
-  required,
+  disabled = false,
+  required = false,
   name,
-  bgColor,
-  bgColorChecked,
-  borderRadius,
-  boxShadow,
-  borderColor,
-  borderWidth,
-  size,
+  bgColorName = 'WHITE',
+  bgColorNameChecked = 'PRIMARY',
+  borderRadius = 'md',
+  boxShadow = 'DIMINUTION_1',
+  borderColorName,
+  borderWidth = 0,
+  size = 24,
   side,
-  outline,
-  indeterminate,
+  outline = true,
+  indeterminate = false,
   css,
-}) => {
+}: CheckboxProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
@@ -154,9 +148,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         ...css?.container,
       }}
     >
-      <Element>
+      <Item>
         {label && side === 'left' ? (
-          <Label
+          <Label<Config>
             htmlFor={id}
             css={{
               marginRight: 8,
@@ -180,16 +174,16 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           onFocus={(): void => setFocus(true)}
           onBlur={(): void => setFocus(false)}
           css={{
-            backgroundColor: `$${bgColor}`,
+            backgroundColor: `$${bgColorName}`,
             br: borderRadius,
             boxShadow: `$${boxShadow}`,
-            borderColor: `$${borderColor}`,
+            borderColor: `$${borderColorName}`,
             borderWidth: borderWidth,
             width: size,
             height: size,
 
             '&[aria-checked="true"]': {
-              backgroundColor: `$${bgColorChecked}`,
+              backgroundColor: `$${bgColorNameChecked}`,
             },
 
             ...css?.checkboxRoot,
@@ -200,7 +194,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               color:
                 (theme &&
                   fontColorContrast(
-                    theme.colors[bgColorChecked || 'WHITE'].value,
+                    theme.colors[bgColorNameChecked || 'WHITE'].value,
                     0.7
                   )) ||
                 undefined,
@@ -209,43 +203,39 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             }}
           >
             {isChecked === 'indeterminate' && (
-              <IconByName
+              <IconByName<Config>
                 name="bx:minus"
                 colorHex={
                   (theme &&
                     fontColorContrast(
-                      theme.colors[bgColor || 'BLACK'].value,
+                      theme.colors[bgColorName || 'BLACK'].value,
                       0.7
                     )) ||
                   ''
                 }
                 css={{
+                  ...css?.icon,
                   container: {
                     opacity: 0.5,
 
                     ...css?.icon?.container,
-                  },
-                  svg: {
-                    ...css?.icon?.svg,
                   },
                 }}
                 size={size ? size / 1.25 : undefined}
               />
             )}
             {isChecked === true && (
-              <IconByName
+              <IconByName<Config>
                 name="bx:check"
                 size={size ? size / 1.25 : undefined}
-                css={{
-                  ...css?.icon,
-                }}
+                css={css?.icon}
               />
             )}
           </CheckboxIndicator>
         </CheckboxStyled>
 
         {label && side === 'right' ? (
-          <Label
+          <Label<Config>
             htmlFor={id}
             css={{
               marginLeft: 8,
@@ -256,29 +246,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             {label}
           </Label>
         ) : null}
-      </Element>
+      </Item>
 
       {textError ? (
-        <TextError css={{ marginTop: 5, ...css?.textError }}>
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}
     </Container>
   )
-}
-
-Checkbox.defaultProps = {
-  bgColor: 'WHITE',
-  bgColorChecked: 'PRIMARY',
-  boxShadow: 'DIMINUTION_1',
-  borderRadius: 'md',
-  size: 24,
-  side: 'right',
-  borderWidth: 0,
-  outline: true,
-  fontSize: 'EM-MEDIUM',
-  disabled: false,
-  required: false,
-  indeterminate: false,
-  defaultChecked: false,
 }

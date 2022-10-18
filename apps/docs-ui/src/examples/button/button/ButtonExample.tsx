@@ -4,22 +4,22 @@ import { ExampleContainer } from '@pikas/docs-ui'
 export const ButtonExample: React.FC = () => {
   return (
     <ExampleContainer>
-      <Button color="PRIMARY" width="auto">
+      <Button colorName="PRIMARY" width="auto">
         Primary
       </Button>
-      <Button color="PRIMARY" width="auto" outlined>
+      <Button colorName="PRIMARY" width="auto" outlined>
         Button
       </Button>
-      <Button color="SECONDARY" width="auto">
+      <Button colorName="SECONDARY" width="auto">
         Secondary
       </Button>
-      <Button color="SECONDARY" width="auto" outlined>
+      <Button colorName="SECONDARY" width="auto" outlined>
         Secondary
       </Button>
-      <Button color="TERTIARY" width="auto">
+      <Button colorName="TERTIARY" width="auto">
         Tertiary
       </Button>
-      <Button color="TERTIARY" width="auto" outlined>
+      <Button colorName="TERTIARY" width="auto" outlined>
         Tertiary
       </Button>
     </ExampleContainer>

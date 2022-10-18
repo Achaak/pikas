@@ -1,6 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { CSS, FontsSizes } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
@@ -68,56 +68,56 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSS {
-  container?: CSS
-  content?: CSS
-  infoTooltip?: TooltipCSS
-  infoIcon?: IconCSS
-  label?: CSS
-  required?: CSS
-  textError?: CSS
+export interface SwitchCSS<Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  content?: Config['css']
+  infoTooltip?: TooltipCSS<Config>
+  infoIcon?: IconCSS<Config>
+  label?: Config['css']
+  required?: Config['css']
+  textError?: Config['css']
 }
 
-export interface BasicSwitchProps {
+export interface BasicSwitchProps<Config extends PikasConfig = PikasConfig> {
   label?: string
   name?: string
-  fontSize?: FontsSizes
+  fontSize?: Config['fontSize']
   textError?: string
 
   onCheckedChange?: (val: boolean) => void
   defaultChecked?: boolean
-  css?: SwitchCSS
+  css?: SwitchCSS<Config>
   disabled?: boolean
   side?: 'left' | 'right'
   Icons?: {
-    checked: React.FC<IconProps>
-    unchecked: React.FC<IconProps>
+    checked: React.FC<IconProps<Config>>
+    unchecked: React.FC<IconProps<Config>>
   }
   required?: boolean
   checked?: boolean
   info?: string
 }
 
-export type SwitchProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  BasicSwitchProps
+export type SwitchProps<Config extends PikasConfig = PikasConfig> =
+  ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<Config>
 
-export const Switch: React.FC<SwitchProps> = ({
+export const Switch = <Config extends PikasConfig = PikasConfig>({
   id,
   name,
   onCheckedChange,
-  fontSize,
+  fontSize = 'EM-MEDIUM' as Config['fontSize'],
   textError,
   label,
   css,
   defaultChecked,
   Icons,
-  disabled,
-  side,
+  disabled = false,
+  side = 'left',
   info,
   required,
   checked,
   ...props
-}) => {
+}: SwitchProps<Config>): JSX.Element => {
   const [checkedState, setCheckedState] = useState(defaultChecked || checked)
 
   useEffect(() => {
@@ -136,9 +136,9 @@ export const Switch: React.FC<SwitchProps> = ({
     }
 
     if (checkedState) {
-      return <Icons.checked size={14} color="BLACK_FIX" />
+      return <Icons.checked size={14} colorName="BLACK_FIX" />
     } else {
-      return <Icons.unchecked size={14} color="BLACK_FIX" />
+      return <Icons.unchecked size={14} colorName="BLACK_FIX" />
     }
   }
 
@@ -163,7 +163,7 @@ export const Switch: React.FC<SwitchProps> = ({
               marginRight: 8,
             }}
           >
-            <Label
+            <Label<Config>
               htmlFor={id}
               css={{
                 ...css?.label,
@@ -183,9 +183,9 @@ export const Switch: React.FC<SwitchProps> = ({
             ) : null}
             {info ? (
               <Tooltip content={info} css={css?.infoTooltip}>
-                <IconByName
+                <IconByName<Config>
                   name="bx:info-circle"
-                  color="BLACK_LIGHT"
+                  colorName="BLACK_LIGHT"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -218,7 +218,7 @@ export const Switch: React.FC<SwitchProps> = ({
               marginLeft: 8,
             }}
           >
-            <Label
+            <Label<Config>
               htmlFor={id}
               css={{
                 ...css?.label,
@@ -238,9 +238,9 @@ export const Switch: React.FC<SwitchProps> = ({
             ) : null}
             {info ? (
               <Tooltip content={info} css={css?.infoTooltip}>
-                <IconByName
+                <IconByName<Config>
                   name="bx:info-circle"
-                  color="BLACK_LIGHT"
+                  colorName="BLACK_LIGHT"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -258,16 +258,10 @@ export const Switch: React.FC<SwitchProps> = ({
       </SwitchContainer>
 
       {textError && (
-        <TextError css={{ marginTop: 5, ...css?.textError }}>
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       )}
     </Container>
   )
-}
-
-Switch.defaultProps = {
-  fontSize: 'EM-MEDIUM',
-  side: 'left',
-  disabled: false,
 }

@@ -1,7 +1,6 @@
-import type { BorderRadius, Colors, CSS } from '@pikas-ui/styles'
+import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
-import React from 'react'
 
 const StyledSeparator = styled(SeparatorPrimitive.Root, {
   overflow: 'hidden',
@@ -9,29 +8,29 @@ const StyledSeparator = styled(SeparatorPrimitive.Root, {
 
 export type SeparatorOrientation = SeparatorPrimitive.Orientation
 
-export interface SeparatorProps {
+export interface SeparatorProps<Config extends PikasConfig = PikasConfig> {
   orientation?: SeparatorOrientation
   className?: string
   size?: number
-  css?: CSS
-  color?: Colors
+  css?: Config['css']
+  colorName?: Config['color']
   borderRadius?: BorderRadius
 }
 
-export const Separator: React.FC<SeparatorProps> = ({
-  orientation,
+export const Separator = <Config extends PikasConfig = PikasConfig>({
+  orientation = 'horizontal',
   css,
   className,
-  color,
-  size,
+  colorName = 'GRAY_LIGHT' as Config['color'],
+  size = 2,
   borderRadius,
-}) => {
+}: SeparatorProps<Config>): JSX.Element => {
   return (
     <StyledSeparator
       orientation={orientation}
       className={className}
       css={{
-        backgroundColor: `$${color}`,
+        backgroundColor: `$${colorName}`,
         br: borderRadius,
 
         '&[data-orientation=horizontal]': {
@@ -51,10 +50,4 @@ export const Separator: React.FC<SeparatorProps> = ({
       }}
     />
   )
-}
-
-Separator.defaultProps = {
-  orientation: 'horizontal',
-  size: 2,
-  color: 'GRAY_LIGHT',
 }

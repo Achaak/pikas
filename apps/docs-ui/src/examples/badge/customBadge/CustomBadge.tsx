@@ -13,7 +13,7 @@ export const CustomBadgeExample: React.FC = () => {
         Hello world
       </CustomBadge>
       <CustomBadge
-        color="SECONDARY"
+        colorName="SECONDARY"
         css={{
           fontSize: '$EM-SMALL',
           padding: '8px 16px',
@@ -22,7 +22,7 @@ export const CustomBadgeExample: React.FC = () => {
         Hello world
       </CustomBadge>
       <CustomBadge
-        color="TERTIARY"
+        colorName="TERTIARY"
         css={{
           fontSize: '$EM-SMALL',
           padding: '8px 16px',

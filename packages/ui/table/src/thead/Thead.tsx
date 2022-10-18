@@ -1,15 +1,18 @@
 import React from 'react'
 
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 
-interface CustomProps extends React.HTMLAttributes<HTMLTableSectionElement> {
+interface CustomProps<Config extends PikasConfig = PikasConfig>
+  extends React.HTMLAttributes<HTMLTableSectionElement> {
   variant?: 'default' | 'light'
-  css?: CSS
+  css?: Config['css']
 }
 
-export const Thead: React.FC<CustomProps> = (props) => {
+export const Thead = <Config extends PikasConfig = PikasConfig>(
+  props: CustomProps<Config>
+): JSX.Element => {
   const theme = useTheme()
 
   const Thead = styled('thead', {

@@ -1,17 +1,11 @@
-import type {
-  BorderRadius,
-  Colors,
-  CSS,
-  FontsSizes,
-  Shadows,
-} from '@pikas-ui/styles'
+import type { BorderRadius, PikasCSS, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { Description, Label, TextError } from '@pikas-ui/text'
-import { Textfield } from '@pikas-ui/textfield'
 import * as SelectPrimitive from '@radix-ui/react-select'
+import type { Ref } from 'react'
 import React, {
   forwardRef,
   useEffect,
@@ -21,6 +15,7 @@ import React, {
 } from 'react'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
+import { Textfield } from '@pikas-ui/textfield'
 
 const Container = styled('div', {
   display: 'flex',
@@ -87,7 +82,7 @@ const Viewport = styled(SelectPrimitive.Viewport, {
 
 const Group = styled(SelectPrimitive.Group, {})
 
-const scrollButtonCSS: CSS = {
+const scrollButtonCSS: PikasCSS = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -174,43 +169,43 @@ export type SelectItem = {
   hidden?: boolean
 }
 
-export const SelectDirections = {
+export const selectDirections = {
   ltr: true,
   rtl: true,
-}
-export type SelectDirections = keyof typeof SelectDirections
+} as const
+export type SelectDirections = keyof typeof selectDirections
 
-export const SelectPadding = {
+export const selectPadding = {
   none: true,
   xs: true,
   sm: true,
   md: true,
   lg: true,
-}
-export type SelectPadding = keyof typeof SelectPadding
+} as const
+export type SelectPadding = keyof typeof selectPadding
 
-export type SelectCSS = {
-  container?: CSS
-  trigger?: CSS
-  infoTooltip?: TooltipCSS
-  infoIcon?: IconCSS
-  required?: CSS
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  content?: CSS
+export type SelectCSS<Config extends PikasConfig = PikasConfig> = {
+  container?: Config['css']
+  trigger?: Config['css']
+  infoTooltip?: TooltipCSS<Config>
+  infoIcon?: IconCSS<Config>
+  required?: Config['css']
+  label?: Config['css']
+  description?: Config['css']
+  textError?: Config['css']
+  content?: Config['css']
 }
 
-export interface SelectProps {
-  css?: SelectCSS
+export interface SelectProps<Config extends PikasConfig = PikasConfig> {
+  css?: SelectCSS<Config>
   hasSearch?: boolean
   searchPlaceholder?: string
 
   label?: string
   borderRadius?: BorderRadius
   padding?: SelectPadding
-  fontSize?: FontsSizes
-  borderColor?: Colors
+  fontSize?: Config['fontSize']
+  borderColorName?: Config['color']
   borderWidth?: number
   data: {
     name?: string
@@ -225,8 +220,8 @@ export interface SelectProps {
   direction?: SelectDirections
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
-  boxShadow?: Shadows | 'none'
-  backgroundColor?: Colors
+  boxShadow?: Config['shadow'] | 'none'
+  backgroundColorName?: Config['color']
   outline?: boolean
   description?: string
   width?: string | number
@@ -234,303 +229,306 @@ export interface SelectProps {
   minWidth?: string | number
   info?: React.ReactNode
   required?: boolean
+  disabled?: boolean
 }
 
 export interface SelectRef {
   setValue: (value: string) => void
 }
 
-export const Select = forwardRef<SelectRef, SelectProps>(
-  (
-    {
-      data,
-      css,
-      onChange,
-      defaultValue,
-      label,
-      hasSearch,
-      searchPlaceholder,
-      id,
-      ariaLabel,
-      borderRadius,
-      padding,
-      textError,
-      direction,
-      onOpenChange,
-      defaultOpen,
-      borderColor,
-      borderWidth,
-      fontSize,
-      boxShadow,
-      backgroundColor,
-      outline,
-      description,
-      maxWidth,
-      width,
-      minWidth,
-      info,
-      required,
-    },
-    ref
-  ) => {
-    const [searchValue, setSearchValue] = useState('')
-    const [value, setValue] = useState(defaultValue || '')
-    const [formattedData, setFormattedData] = useState(data)
-    const [focus, setFocus] = useState(false)
-    const theme = useTheme()
+const SelectInner = <Config extends PikasConfig = PikasConfig>(
+  {
+    data,
+    css,
+    onChange,
+    defaultValue,
+    label,
+    hasSearch,
+    searchPlaceholder,
+    id,
+    ariaLabel,
+    borderRadius = 'md',
+    padding = 'md',
+    textError,
+    direction,
+    onOpenChange,
+    defaultOpen,
+    borderColorName = 'TRANSPARENT',
+    borderWidth = 0,
+    fontSize = 'EM-MEDIUM',
+    boxShadow = 'DIMINUTION_1',
+    backgroundColorName = 'GRAY_LIGHTEST_1',
+    outline = true,
+    description,
+    maxWidth,
+    width = '100%',
+    minWidth = '100%',
+    info,
+    required = false,
+    disabled = false,
+  }: SelectProps<Config>,
+  ref: Ref<SelectRef>
+): JSX.Element => {
+  const [searchValue, setSearchValue] = useState('')
+  const [value, setValue] = useState(defaultValue || '')
+  const [formattedData, setFormattedData] = useState(data)
+  const [focus, setFocus] = useState(false)
+  const theme = useTheme()
 
-    useEffect(() => {
-      setFormattedData(
-        data.map((group) => {
-          const items = group.items.map((item) => {
-            let hidden = item.hidden || false
+  useEffect(() => {
+    setFormattedData(
+      data.map((group) => {
+        const items = group.items.map((item) => {
+          let hidden = item.hidden || false
 
-            if (searchValue.length > 0) {
-              if (typeof item.label === 'string') {
-                if (
-                  !item.label.toLowerCase().includes(searchValue.toLowerCase())
-                ) {
-                  hidden = false
-                }
-              }
-
-              if (item.searchValue) {
-                if (
-                  !item.searchValue
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase())
-                ) {
-                  hidden = false
-                }
-              }
+          if (searchValue.length > 0) {
+            if (
+              item.searchValue &&
+              !item.searchValue
+                .toLowerCase()
+                .includes(searchValue.toLowerCase())
+            ) {
+              hidden = false
             }
-
-            return {
-              ...item,
-              hidden: hidden,
-            }
-          })
+          }
 
           return {
-            ...group,
-            hidden: !items.some((item) => !item.hidden),
-            items,
+            ...item,
+            hidden: hidden,
           }
         })
-      )
-    }, [data, searchValue])
 
-    const handleChange = (value: string): void => {
-      onChange?.(value)
-      setValue(value)
-    }
-
-    useImperativeHandle(ref, () => ({
-      setValue: (value: string): void => {
-        handleChange(value)
-      },
-    }))
-
-    const handleOpenChange = (open: boolean): void => {
-      onOpenChange?.(open)
-
-      if (!open) {
-        setSearchValue('')
-      }
-    }
-
-    const viewport = useMemo(
-      () => (
-        <Viewport>
-          {formattedData.map((group, groupIndex) => {
-            const res = []
-            const hidden = !group.items.some((item) => !item.hidden)
-
-            if (
-              groupIndex > 0 &&
-              !hidden &&
-              !formattedData[groupIndex - 1]?.hidden
-            ) {
-              res.push(<Separator key={`separator-${groupIndex}`} />)
-            }
-
-            res.push(
-              <Group
-                key={groupIndex}
-                css={{
-                  ...(hidden ? { display: 'none' } : {}),
-                }}
-              >
-                {group.name ? <GroupLabel>{group.name}</GroupLabel> : null}
-                {group.items.map((item, itemIndex) => (
-                  <Item
-                    key={itemIndex}
-                    value={item.value}
-                    disabled={item.disabled}
-                    css={{
-                      ...(item.hidden ? { display: 'none' } : {}),
-                    }}
-                  >
-                    <SelectPrimitive.ItemText>
-                      <ItemText>{item.label}</ItemText>
-                    </SelectPrimitive.ItemText>
-                    <ItemIndicator>
-                      <IconByName name="bx:check" size={20} color="BLACK" />
-                    </ItemIndicator>
-                  </Item>
-                ))}
-              </Group>
-            )
-
-            return res
-          })}
-        </Viewport>
-      ),
-      [formattedData]
+        return {
+          ...group,
+          hidden: !items.some((item) => !item.hidden),
+          items,
+        }
+      })
     )
+  }, [data, searchValue])
 
-    return (
-      <Container
-        css={{
-          fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
-          ...css?.container,
-        }}
-      >
-        {label ? (
-          <LabelContainer>
-            <Label
-              htmlFor={id}
+  const handleChange = (value: string): void => {
+    onChange?.(value)
+    setValue(value)
+  }
+
+  useImperativeHandle(ref, () => ({
+    setValue: (value: string): void => {
+      handleChange(value)
+    },
+  }))
+
+  const handleOpenChange = (open: boolean): void => {
+    onOpenChange?.(open)
+
+    if (!open) {
+      setSearchValue('')
+    }
+  }
+
+  const viewport = useMemo(
+    () => (
+      <Viewport>
+        {formattedData.map((group, groupIndex) => {
+          const res = []
+          const hidden = !group.items.some((item) => !item.hidden)
+
+          if (
+            groupIndex > 0 &&
+            !hidden &&
+            !formattedData[groupIndex - 1]?.hidden
+          ) {
+            res.push(<Separator key={`separator-${groupIndex}`} />)
+          }
+
+          res.push(
+            <Group
+              key={groupIndex}
               css={{
-                ...css?.label,
+                ...(hidden ? { display: 'none' } : {}),
               }}
             >
-              {label}
-            </Label>
-
-            {required ? (
-              <Required
-                css={{
-                  ...css?.required,
-                }}
-              >
-                *
-              </Required>
-            ) : null}
-            {info ? (
-              <Tooltip content={info} css={css?.infoTooltip}>
-                <IconByName
-                  name="bx:info-circle"
-                  color="BLACK_LIGHT"
+              {group.name ? <GroupLabel>{group.name}</GroupLabel> : null}
+              {group.items.map((item, itemIndex) => (
+                <Item
+                  key={itemIndex}
+                  value={item.value}
+                  disabled={item.disabled}
                   css={{
-                    container: {
-                      marginLeft: 4,
-                      ...css?.infoIcon?.container,
-                    },
-                    svg: {
-                      ...css?.infoIcon?.svg,
-                    },
+                    ...(item.hidden ? { display: 'none' } : {}),
                   }}
-                />
-              </Tooltip>
-            ) : null}
-          </LabelContainer>
-        ) : null}
+                >
+                  <SelectPrimitive.ItemText>
+                    <ItemText>{item.label}</ItemText>
+                  </SelectPrimitive.ItemText>
+                  <ItemIndicator>
+                    <IconByName<Config>
+                      name="bx:check"
+                      size={20}
+                      colorName="BLACK"
+                    />
+                  </ItemIndicator>
+                </Item>
+              ))}
+            </Group>
+          )
 
-        {description ? (
-          <Description
+          return res
+        })}
+      </Viewport>
+    ),
+    [formattedData]
+  )
+
+  return (
+    <Container
+      css={{
+        fontSize: `$${fontSize}`,
+        width: width,
+        maxWidth: maxWidth,
+        minWidth: minWidth,
+        opacity: disabled ? 0.5 : 1,
+        ...css?.container,
+      }}
+    >
+      {label ? (
+        <LabelContainer>
+          <Label<Config>
+            htmlFor={id}
             css={{
-              marginBottom: 4,
-              ...css?.description,
+              ...css?.label,
             }}
           >
-            {description}
-          </Description>
-        ) : null}
+            {label}
+          </Label>
 
-        <SelectContainer
-          defaultValue={defaultValue}
-          onValueChange={handleChange}
-          dir={direction}
-          onOpenChange={handleOpenChange}
-          defaultOpen={defaultOpen}
-          value={value}
+          {required ? (
+            <Required
+              css={{
+                ...css?.required,
+              }}
+            >
+              *
+            </Required>
+          ) : null}
+          {info ? (
+            <Tooltip content={info} css={css?.infoTooltip}>
+              <IconByName<Config>
+                name="bx:info-circle"
+                colorName="BLACK_LIGHT"
+                css={{
+                  container: {
+                    marginLeft: 4,
+                    ...css?.infoIcon?.container,
+                  },
+                  svg: {
+                    ...css?.infoIcon?.svg,
+                  },
+                }}
+              />
+            </Tooltip>
+          ) : null}
+        </LabelContainer>
+      ) : null}
+
+      {description ? (
+        <Description<Config>
           css={{
-            ...css?.container,
+            marginBottom: 4,
+            ...css?.description,
           }}
         >
-          <Trigger
-            aria-label={ariaLabel}
-            padding={padding}
-            focus={outline ? focus : undefined}
-            onFocus={(): void => setFocus(true)}
-            onBlur={(): void => setFocus(false)}
-            css={{
-              br: borderRadius,
-              borderColor: `$${borderColor}`,
-              borderWidth: borderWidth,
-              boxShadow: `$${boxShadow}`,
-              backgroundColor: `$${backgroundColor}`,
-              ...css?.trigger,
-            }}
-          >
-            <SelectValue />
-            <Icon>
-              <IconByName name="bx:chevron-down" size="1em" color="BLACK" />
-            </Icon>
-          </Trigger>
+          {description}
+        </Description>
+      ) : null}
 
-          <SelectPrimitive.Portal>
-            <Content css={css?.content} className={theme}>
-              {hasSearch ? (
-                <>
-                  <SearchContainer>
-                    <Textfield
-                      onChange={(e): void => {
-                        setSearchValue(e.target.value)
-                      }}
-                      placeholder={searchPlaceholder}
-                      borderRadius="round"
-                      padding="sm"
-                      fontSize="EM-SMALL"
-                    />
-                  </SearchContainer>
-                  <Separator />
-                </>
-              ) : null}
+      <SelectContainer
+        defaultValue={defaultValue}
+        onValueChange={handleChange}
+        dir={direction}
+        onOpenChange={handleOpenChange}
+        defaultOpen={defaultOpen}
+        value={value}
+        css={{
+          ...css?.container,
+        }}
+        disabled={disabled}
+        required={required}
+      >
+        <Trigger
+          aria-label={ariaLabel}
+          padding={padding}
+          focus={outline ? focus : undefined}
+          onFocus={(): void => setFocus(true)}
+          onBlur={(): void => setFocus(false)}
+          css={{
+            br: borderRadius,
+            borderColor: `$${borderColorName}`,
+            borderWidth: borderWidth,
+            boxShadow: `$${boxShadow}`,
+            backgroundColor: `$${backgroundColorName}`,
+            ...css?.trigger,
+          }}
+        >
+          <SelectValue />
+          <Icon>
+            <IconByName<Config>
+              name="bx:chevron-down"
+              size="1em"
+              colorName="BLACK"
+            />
+          </Icon>
+        </Trigger>
 
-              <ScrollUpButton>
-                <IconByName name="bx:chevron-up" size={20} color="BLACK" />
-              </ScrollUpButton>
-              {viewport}
-              <ScrollDownButton>
-                <IconByName name="bx:chevron-down" size={20} color="BLACK" />
-              </ScrollDownButton>
-            </Content>
-          </SelectPrimitive.Portal>
-        </SelectContainer>
+        <SelectPrimitive.Portal>
+          <Content css={css?.content} className={theme}>
+            {hasSearch ? (
+              <>
+                <SearchContainer>
+                  <Textfield
+                    onChange={(e): void => {
+                      setSearchValue(e.target.value)
+                    }}
+                    placeholder={searchPlaceholder}
+                    borderRadius="round"
+                    padding="sm"
+                    fontSize="EM-SMALL"
+                  />
+                </SearchContainer>
+                <Separator />
+              </>
+            ) : null}
 
-        {textError ? (
-          <TextError css={{ marginTop: 5, ...css?.textError }}>
-            {textError}
-          </TextError>
-        ) : null}
-      </Container>
-    )
-  }
-)
+            <ScrollUpButton>
+              <IconByName<Config>
+                name="bx:chevron-up"
+                size={20}
+                colorName="BLACK"
+              />
+            </ScrollUpButton>
+            {viewport}
+            <ScrollDownButton>
+              <IconByName<Config>
+                name="bx:chevron-down"
+                size={20}
+                colorName="BLACK"
+              />
+            </ScrollDownButton>
+          </Content>
+        </SelectPrimitive.Portal>
+      </SelectContainer>
 
-Select.defaultProps = {
-  fontSize: 'EM-MEDIUM',
-  padding: 'md',
-  borderColor: 'TRANSPARENT',
-  borderWidth: 0,
-  borderRadius: 'md',
-  boxShadow: 'DIMINUTION_1',
-  backgroundColor: 'GRAY_LIGHTEST_1',
-  outline: true,
-  width: '100%',
-  maxWidth: '100%',
+      {textError ? (
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
+          {textError}
+        </TextError>
+      ) : null}
+    </Container>
+  )
 }
+
+export const Select = forwardRef(SelectInner) as <
+  Config extends PikasConfig = PikasConfig
+>(
+  props: SelectProps<Config> & { ref?: React.ForwardedRef<SelectRef> }
+) => ReturnType<typeof SelectInner>

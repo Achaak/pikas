@@ -1,32 +1,33 @@
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor, PikasConfig } from '@pikas-ui/styles'
 import React, { useCallback } from 'react'
 import type { DefaultToastCSS } from '../defaultToast'
 import { DefaultToast } from '../defaultToast'
-import type { ToastProps } from '../types'
+import type { BaseToastProps } from '../types'
 
-export const ToastVariant = {
+export const toastVariant = {
   warning: true,
   danger: true,
   success: true,
   info: true,
 } as const
-export type ToastVariant = keyof typeof ToastVariant
+export type ToastVariant = keyof typeof toastVariant
 
-interface CustomToastProps extends ToastProps {
+export interface ToastProps<Config extends PikasConfig = PikasConfig>
+  extends BaseToastProps<Config> {
   variant?: ToastVariant
   title?: string
   description?: string
-  css?: DefaultToastCSS
+  css?: DefaultToastCSS<Config>
 }
 
-export const Toast: React.FC<CustomToastProps> = ({
-  variant,
+export const Toast = <Config extends PikasConfig = PikasConfig>({
+  variant = 'info',
   css,
   ...props
-}) => {
-  const Icon: React.FC<IconProps> = (props) => {
+}: ToastProps<Config>): JSX.Element => {
+  const Icon: React.FC<IconProps<Config>> = (props) => {
     switch (variant) {
       case 'success':
         return <IconByName {...props} name="bx:check-circle" />
@@ -41,7 +42,7 @@ export const Toast: React.FC<CustomToastProps> = ({
     }
   }
 
-  const getColor = useCallback((): Colors => {
+  const getColor = useCallback((): PikasColor => {
     {
       switch (variant) {
         case 'success':
@@ -59,7 +60,7 @@ export const Toast: React.FC<CustomToastProps> = ({
   }, [variant])
 
   return (
-    <DefaultToast
+    <DefaultToast<Config>
       Icon={Icon}
       css={{
         ...css,
@@ -72,13 +73,10 @@ export const Toast: React.FC<CustomToastProps> = ({
         },
         timer: {
           backgroundColor: `$${getColor()}`,
+          ...css?.timer,
         },
       }}
       {...props}
     />
   )
-}
-
-Toast.defaultProps = {
-  variant: 'info',
 }

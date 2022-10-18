@@ -1,4 +1,5 @@
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 import { ClipLoader } from '@pikas-ui/loader'
@@ -68,17 +69,22 @@ const Span = styled('span', {
   ...SpanCSS,
 })
 
-export const ContextMenuDirection = {
+export const contextMenuDirection = {
   ltr: true,
   rtl: true,
-}
-export type ContextMenuDirection = keyof typeof ContextMenuDirection
+} as const
+export type ContextMenuDirection = keyof typeof contextMenuDirection
 
-export type ContextMenuCSS = MenuCSS
-export type ContextMenuDataItem = MenuDataItem
-export type ContextMenuDataItemEntry = ItemEntry
-export type ContextMenuData = MenuDataItem[]
-export interface ContextMenuProps extends MenuProps {
+export type ContextMenuCSS<Config extends PikasConfig = PikasConfig> =
+  MenuCSS<Config>
+export type ContextMenuDataItem<Config extends PikasConfig = PikasConfig> =
+  MenuDataItem<Config>
+export type ContextMenuDataItemEntry<Config extends PikasConfig = PikasConfig> =
+  ItemEntry<Config>
+export type ContextMenuData<Config extends PikasConfig = PikasConfig> =
+  MenuDataItem<Config>[]
+export interface ContextMenuProps<Config extends PikasConfig = PikasConfig>
+  extends MenuProps<Config> {
   children?: React.ReactNode
 
   onOpenChange?: (open: boolean) => void
@@ -96,13 +102,13 @@ export interface ContextMenuProps extends MenuProps {
   collisionPadding?: number
 }
 
-export const ContextMenu: React.FC<ContextMenuProps> = ({
+export const ContextMenu = <Config extends PikasConfig = PikasConfig>({
   data,
   children,
   css,
   onOpenChange,
-  modal,
-  loop,
+  modal = true,
+  loop = false,
   direction,
   onCloseAutoFocus,
   onEscapeKeyDown,
@@ -110,9 +116,9 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   onFocusOutside,
   onInteractOutside,
   alignOffset,
-  avoidCollisions,
+  avoidCollisions = true,
   collisionPadding,
-}) => {
+}: ContextMenuProps<Config>): JSX.Element => {
   return (
     <ContextMenuPrimitive.Root
       onOpenChange={onOpenChange}
@@ -140,12 +146,15 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   )
 }
 
-interface ContextMenuDataProps {
-  data: MenuData
-  css?: ContextMenuCSS
+interface ContextMenuDataProps<Config extends PikasConfig = PikasConfig> {
+  data: MenuData<Config>
+  css?: ContextMenuCSS<Config>
 }
 
-const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
+const ContextMenuData = <Config extends PikasConfig = PikasConfig>({
+  data,
+  css,
+}: ContextMenuDataProps<Config>): JSX.Element => {
   return (
     <>
       {data
@@ -181,7 +190,8 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                   disabled={item?.disabled}
                   onClick={item.onClick}
                   css={{
-                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    color:
+                      item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
                     ...item?.css?.container,
                   }}
                 >
@@ -189,7 +199,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                     <ItemIndicator forceMount css={item?.css?.indicator}>
                       <ClipLoader
                         size={16}
-                        color={item.iconColor || item.color}
+                        colorName={item.iconColorName || item.colorName}
                         colorHex={
                           item.iconColorHex || item.colorHex || 'GRAY_DARKER'
                         }
@@ -200,7 +210,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                       <ItemIndicator forceMount css={item?.css?.indicator}>
                         <item.Icon
                           size={16}
-                          color={item.iconColor || item.color}
+                          colorName={item.iconColorName || item.colorName}
                           colorHex={
                             item.iconColorHex || item.colorHex || 'GRAY_DARKER'
                           }
@@ -228,7 +238,8 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                   checked={item.checked}
                   onCheckedChange={item.onCheckedChange}
                   css={{
-                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    color:
+                      item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
                     ...item?.css?.container,
                   }}
                 >
@@ -236,7 +247,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                     <IconByName
                       name="bx:check"
                       size={16}
-                      color={item.color}
+                      colorName={item.colorName}
                       colorHex={item.colorHex || 'GRAY_DARKER'}
                     />
                   </ItemIndicator>
@@ -255,7 +266,8 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                   value={item.value}
                   onValueChange={item.onValueChange}
                   css={{
-                    color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                    color:
+                      item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
                     ...item?.css?.container,
                   }}
                 >
@@ -270,7 +282,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                         <IconByName
                           name="bxs:circle"
                           size={8}
-                          color={item.color}
+                          colorName={item.colorName}
                           colorHex={item.colorHex || 'GRAY_DARKER'}
                         />
                       </ItemIndicator>
@@ -289,7 +301,8 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                 <ContextMenuPrimitive.Sub key={`menu-${dataIndex}-${i}`}>
                   <SubTrigger
                     css={{
-                      color: item.colorHex || `$${item.color}` || 'GRAY_DARKER',
+                      color:
+                        item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
                       ...item?.css?.container,
                     }}
                   >
@@ -297,7 +310,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                     <RightSlot>
                       <IconByName
                         name="bxs:chevron-right"
-                        color={item.color}
+                        colorName={item.colorName}
                         colorHex={item.colorHex || 'GRAY_DARKER'}
                         size={20}
                       />
@@ -315,10 +328,4 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
         })}
     </>
   )
-}
-
-ContextMenu.defaultProps = {
-  modal: true,
-  loop: false,
-  avoidCollisions: true,
 }

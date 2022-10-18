@@ -1,28 +1,36 @@
 import { ScaleLoader as ScaleLoaderDefault } from 'react-spinners'
-import type { Colors } from '@pikas-ui/styles'
-import React from 'react'
+import type {
+  ColorsRecord,
+  Color as ColorByPikas,
+  PikasColor,
+} from '@pikas-ui/styles'
+import { useTheme } from '@pikas-ui/styles'
 
-export interface ScaleLoaderProps {
+export interface ScaleLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   height?: number
   width?: number
   radius?: number
   margin?: number
-  color?: Colors
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
+export const ScaleLoader = <
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
+>({
   height,
   width,
   radius,
-  color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
-  loading,
+  loading = true,
   margin,
   speedMultiplier,
-}) => {
+}: ScaleLoaderProps<Color>): JSX.Element => {
+  const theme = useTheme()
+
   return (
     <ScaleLoaderDefault
       height={height}
@@ -30,13 +38,11 @@ export const ScaleLoader: React.FC<ScaleLoaderProps> = ({
       radius={radius}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
+      color={
+        colorHex ||
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+      }
       loading={loading}
     />
   )
-}
-
-ScaleLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

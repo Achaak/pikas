@@ -1,36 +1,64 @@
 import { PacmanLoader as PacmanLoaderDefault } from 'react-spinners'
-import type { Colors } from '@pikas-ui/styles'
-import React from 'react'
+import type {
+  ColorsRecord,
+  Color as ColorByPikas,
+  PikasColor,
+} from '@pikas-ui/styles'
+import { useTheme } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles'
 
-export interface PacmanLoaderProps {
+const PacmanLoaderStyled = styled(PacmanLoaderDefault, {
+  display: 'flex',
+})
+
+export interface PacmanLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number
   margin?: number
-  color?: Colors
+  colorName?: Color
   colorHex?: string
+  colorBubble?: PikasColor
+  colorBubbleHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const PacmanLoader: React.FC<PacmanLoaderProps> = ({
+export const PacmanLoader = <
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
+>({
   size,
-  color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
+  colorBubble,
+  colorBubbleHex,
   margin,
-  loading,
+  loading = true,
   speedMultiplier,
-}) => {
+}: PacmanLoaderProps<Color>): JSX.Element => {
+  const theme = useTheme()
+
   return (
-    <PacmanLoaderDefault
+    <PacmanLoaderStyled
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
+      color={
+        colorHex ||
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+      }
       loading={loading}
+      css={{
+        '& span:nth-child(3), & span:nth-child(4), & span:nth-child(5), & span:nth-child(6)':
+          {
+            backgroundColor:
+              colorBubbleHex || colorBubble
+                ? `${
+                    colorBubbleHex ||
+                    (colorBubble ? `var(--colors-${colorBubble})` : undefined)
+                  } !important`
+                : undefined,
+            zIndex: -1,
+          },
+      }}
     />
   )
-}
-
-PacmanLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

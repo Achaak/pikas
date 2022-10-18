@@ -20,7 +20,7 @@ export const InfoDialogHeader: React.FC<InfoDialogHeaderProps> = ({
 }) => {
   return (
     <Container>
-      <IconContainer iconName="bx:info-circle" backgroundColor="PRIMARY" />
+      <IconContainer iconName="bx:info-circle" backgroundColorName="PRIMARY" />
       <Title>{title}</Title>
     </Container>
   )

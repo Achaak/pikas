@@ -2,31 +2,32 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useCallback } from 'react'
 import { CustomAlert } from '../customAlert/index.js'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
-import type { DefaultAlertProps } from '../types.js'
+import type { BaseAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
 
-export const AlertVariant = {
+export const alertVariant = {
   info: true,
   success: true,
   warning: true,
   danger: true,
-}
-export type AlertVariant = keyof typeof AlertVariant
+} as const
+export type AlertVariant = keyof typeof alertVariant
 
-export interface AlertProps extends DefaultAlertProps {
+export interface AlertProps<Config extends PikasConfig = PikasConfig>
+  extends BaseAlertProps<Config> {
   variant?: AlertVariant
 }
 
-export const Alert: React.FC<AlertProps> = ({
-  variant,
+export const Alert = <Config extends PikasConfig = PikasConfig>({
+  variant = 'info',
   children,
   ...props
-}) => {
+}: AlertProps<Config>): JSX.Element => {
   const theme = useTheme()
 
-  const Icon: React.FC<IconProps> = (props) => {
+  const Icon: React.FC<IconProps<Config>> = (props) => {
     switch (variant) {
       case 'success':
         return <IconByName {...props} name="bx:check-circle" />
@@ -41,19 +42,19 @@ export const Alert: React.FC<AlertProps> = ({
     }
   }
 
-  const getBackgroundColor = useCallback((): Colors => {
+  const getBackgroundColor = useCallback((): Config['color'] => {
     {
       switch (variant) {
         case 'success':
-          return 'SUCCESS'
+          return 'SUCCESS' as Config['color']
         case 'warning':
-          return 'WARNING'
+          return 'WARNING' as Config['color']
         case 'danger':
-          return 'DANGER'
+          return 'DANGER' as Config['color']
         case 'info':
-          return 'PRIMARY'
+          return 'PRIMARY' as Config['color']
         default:
-          return 'PRIMARY'
+          return 'PRIMARY' as Config['color']
       }
     }
   }, [variant])
@@ -61,19 +62,17 @@ export const Alert: React.FC<AlertProps> = ({
   return (
     <CustomAlert
       Icon={Icon}
-      backgroundColor={getBackgroundColor()}
+      backgroundColorName={getBackgroundColor()}
       colorHex={
         theme &&
-        fontColorContrast(theme.colors[getBackgroundColor()].value, 0.7)
+        fontColorContrast(
+          theme.colors[getBackgroundColor() as PikasColor].value,
+          0.7
+        )
       }
       {...props}
     >
       {children}
     </CustomAlert>
   )
-}
-
-Alert.defaultProps = {
-  ...CustomAlert.defaultProps,
-  variant: 'info',
 }

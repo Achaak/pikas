@@ -1,8 +1,8 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
-import type { DefaultAlertProps } from '../types.js'
+import type { BaseAlertProps } from '../types.js'
 
 const Container = styled('div', {
   display: 'flex',
@@ -73,36 +73,37 @@ const Child = styled('p', {
   margin: 0,
 })
 
-export interface CustomAlertProps extends DefaultAlertProps {
-  Icon?: React.FC<IconProps>
-  backgroundColor?: Colors
-  color?: Colors
+export interface CustomAlertProps<Config extends PikasConfig = PikasConfig>
+  extends BaseAlertProps<Config> {
+  Icon?: React.FC<IconProps<Config>>
+  backgroundColorName?: Config['color']
+  colorName?: Config['color']
   colorHex?: string
 }
 
-export const CustomAlert: React.FC<CustomAlertProps> = ({
+export const CustomAlert = <Config extends PikasConfig = PikasConfig>({
   children,
   Icon,
-  backgroundColor,
-  color,
+  backgroundColorName,
+  colorName,
   colorHex,
-  fontSize,
-  borderRadius,
-  iconSize,
-  fontWeight,
-  gap,
-  padding,
-  visible,
+  fontSize = 'EM-SMALL' as Config['fontSize'],
+  borderRadius = 'md',
+  iconSize = 24,
+  fontWeight = 'NORMAL' as Config['fontWeight'],
+  gap = 'sm',
+  padding = 'md',
+  visible = true,
   css,
-}) => {
+}: CustomAlertProps<Config>): JSX.Element => {
   return (
     <Container visible={visible} css={css?.container}>
       <Content
         gap={gap}
         padding={padding}
         css={{
-          backgroundColor: `$${backgroundColor}`,
-          color: colorHex || `$${color}`,
+          backgroundColor: `$${backgroundColorName}`,
+          color: colorHex || `$${colorName}`,
           fontSize: `$${fontSize}`,
           fontWeight: `$${fontWeight}`,
           br: borderRadius,
@@ -120,14 +121,4 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
       </Content>
     </Container>
   )
-}
-
-CustomAlert.defaultProps = {
-  fontSize: 'EM-SMALL',
-  borderRadius: 'md',
-  iconSize: 24,
-  fontWeight: 'NORMAL',
-  padding: 'md',
-  gap: 'sm',
-  visible: true,
 }

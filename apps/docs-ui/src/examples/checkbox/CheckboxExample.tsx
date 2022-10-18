@@ -19,7 +19,7 @@ export const CheckboxExample: React.FC = () => {
         indeterminate={false}
         label={checked ? 'Checked' : 'Unchecked'}
         onChange={setChecked}
-        bgColorChecked="SECONDARY"
+        bgColorNameChecked="SECONDARY"
         disabled
         id="checkbox-disabled"
       />

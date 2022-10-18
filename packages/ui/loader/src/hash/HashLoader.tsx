@@ -1,33 +1,39 @@
 import { HashLoader as HashLoaderDefault } from 'react-spinners'
-import type { Colors } from '@pikas-ui/styles'
-import React from 'react'
+import type {
+  ColorsRecord,
+  Color as ColorByPikas,
+  PikasColor,
+} from '@pikas-ui/styles'
+import { useTheme } from '@pikas-ui/styles'
 
-export interface HashLoaderProps {
+export interface HashLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
   size?: number
-  color?: Colors
+  colorName?: Color
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const HashLoader: React.FC<HashLoaderProps> = ({
+export const HashLoader = <
+  Color extends ColorByPikas<ColorsRecord> = PikasColor
+>({
   size,
-  color,
+  colorName = 'PRIMARY' as Color,
   colorHex,
-  loading,
+  loading = true,
   speedMultiplier,
-}) => {
+}: HashLoaderProps<Color>): JSX.Element => {
+  const theme = useTheme()
+
   return (
     <HashLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={colorHex || (color ? `var(--colors-${color})` : undefined)}
+      color={
+        colorHex ||
+        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+      }
       loading={loading}
     />
   )
-}
-
-HashLoader.defaultProps = {
-  loading: true,
-  color: 'PRIMARY',
 }

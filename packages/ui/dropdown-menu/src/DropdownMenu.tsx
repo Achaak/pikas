@@ -1,5 +1,5 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
@@ -74,34 +74,40 @@ const RightSlot = styled('div', {
   ...RightSlotCSS,
 })
 
-export const DropdownMenuSide = {
+export const dropdownMenuSide = {
   left: true,
   right: true,
   top: true,
   bottom: true,
-}
-export type DropdownMenuSide = keyof typeof DropdownMenuSide
+} as const
+export type DropdownMenuSide = keyof typeof dropdownMenuSide
 
-export const DropdownMenuAlign = {
+export const dropdownMenuAlign = {
   center: true,
   start: true,
   end: true,
-}
-export type DropdownMenu = keyof typeof DropdownMenuAlign
+} as const
+export type DropdownMenu = keyof typeof dropdownMenuAlign
 
-export const DropdownMenuDirection = {
+export const dropdownMenuDirection = {
   ltr: true,
   rtl: true,
-}
-export type DropdownMenuDirection = keyof typeof DropdownMenuDirection
+} as const
+export type DropdownMenuDirection = keyof typeof dropdownMenuDirection
 
-export type DropdownMenuCSS = MenuCSS
-export type DropdownMenuDataItem = MenuDataItem
-export type DropdownMenuDataItemEntry = ItemEntry
-export type DropdownMenuData = MenuDataItem[]
-export interface DropdownMenuProps extends MenuProps {
+export type DropdownMenuCSS<Config extends PikasConfig = PikasConfig> =
+  MenuCSS<Config>
+export type DropdownMenuDataItem<Config extends PikasConfig = PikasConfig> =
+  MenuDataItem<Config>
+export type DropdownMenuDataItemEntry<
+  Config extends PikasConfig = PikasConfig
+> = ItemEntry<Config>
+export type DropdownMenuData<Config extends PikasConfig = PikasConfig> =
+  MenuDataItem<Config>[]
+export interface DropdownMenuProps<Config extends PikasConfig = PikasConfig>
+  extends MenuProps<Config> {
   triggerContent?: React.ReactNode
-  iconColor?: Colors
+  iconColorName?: Config['color']
   iconSize?: number
 
   direction?: DropdownMenuDirection
@@ -124,18 +130,18 @@ export interface DropdownMenuProps extends MenuProps {
   collisionPadding?: number
 }
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({
+export const DropdownMenu = <Config extends PikasConfig = PikasConfig>({
   data,
   triggerContent,
-  iconColor,
+  iconColorName,
   onOpenChange,
   css,
-  modal,
-  iconSize,
+  modal = false,
+  iconSize = 24,
   open,
   direction,
-  defaultOpen,
-  loop,
+  defaultOpen = false,
+  loop = false,
   onCloseAutoFocus,
   onEscapeKeyDown,
   onPointerDownOutside,
@@ -145,9 +151,9 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   sideOffset,
   align,
   alignOffset,
-  avoidCollisions,
+  avoidCollisions = false,
   collisionPadding,
-}) => {
+}: DropdownMenuProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -166,10 +172,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         ) : (
           <DropdownMenuPrimitive.Trigger asChild>
             <IconButton>
-              <IconByName
+              <IconByName<Config>
                 name="bx:dots-vertical-rounded"
                 size={iconSize}
-                color={iconColor || 'BLACK_LIGHT'}
+                colorName={iconColorName || 'BLACK_LIGHT'}
               />
             </IconButton>
           </DropdownMenuPrimitive.Trigger>
@@ -200,12 +206,15 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   )
 }
 
-interface DropdownMenuDataProps {
-  data: MenuData
-  css?: DropdownMenuCSS
+interface DropdownMenuDataProps<Config extends PikasConfig = PikasConfig> {
+  data: MenuData<Config>
+  css?: DropdownMenuCSS<Config>
 }
 
-const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
+const DropdownMenuData = <Config extends PikasConfig = PikasConfig>({
+  data,
+  css,
+}: DropdownMenuDataProps<Config>): JSX.Element => {
   return (
     <>
       {data
@@ -243,7 +252,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   css={{
                     color:
                       item.colorHex ||
-                      (item.color && `$${item.color}`) ||
+                      (item.colorName && `$${item.colorName}`) ||
                       '$GRAY_DARKER',
                     ...item?.css?.container,
                   }}
@@ -252,7 +261,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     <ItemIndicator forceMount css={item?.css?.indicator}>
                       <ClipLoader
                         size={16}
-                        color={item.iconColor || item.color}
+                        colorName={item.iconColorName || item.colorName}
                         colorHex={
                           item.iconColorHex || item.colorHex || 'GRAY_DARKER'
                         }
@@ -263,9 +272,9 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                       <ItemIndicator forceMount css={item?.css?.indicator}>
                         <item.Icon
                           size={16}
-                          color={item.iconColor || item.color}
+                          colorName={item.iconColorName || item.colorName}
                           colorHex={
-                            item.iconColorHex || item.colorHex || 'GRAY_DARKER'
+                            item.iconColorHex || item.colorName || 'GRAY_DARKER'
                           }
                         />
                       </ItemIndicator>
@@ -293,7 +302,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   css={{
                     color:
                       item.colorHex ||
-                      (item.color && `$${item.color}`) ||
+                      (item.colorName && `$${item.colorName}`) ||
                       '$GRAY_DARKER',
                     ...item?.css?.container,
                   }}
@@ -302,7 +311,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     <IconByName
                       name="bx:check"
                       size={16}
-                      color={item.color}
+                      colorName={item.colorName}
                       colorHex={item.colorHex || 'GRAY_DARKER'}
                     />
                   </ItemIndicator>
@@ -322,7 +331,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                   css={{
                     color:
                       item.colorHex ||
-                      (item.color && `$${item.color}`) ||
+                      (item.colorName && `$${item.colorName}`) ||
                       '$GRAY_DARKER',
                     ...item?.css?.container,
                   }}
@@ -338,7 +347,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                         <IconByName
                           name="bxs:circle"
                           size={8}
-                          color={item.color}
+                          colorName={item.colorName}
                           colorHex={item.colorHex || 'GRAY_DARKER'}
                         />
                       </ItemIndicator>
@@ -359,7 +368,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     css={{
                       color:
                         item.colorHex ||
-                        (item.color && `$${item.color}`) ||
+                        (item.colorName && `$${item.colorName}`) ||
                         '$GRAY_DARKER',
                       ...item?.css?.container,
                     }}
@@ -368,7 +377,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     <RightSlot>
                       <IconByName
                         name="bxs:chevron-right"
-                        color={item.color}
+                        colorName={item.colorName}
                         colorHex={item.colorHex || 'GRAY_DARKER'}
                         size={20}
                       />
@@ -386,12 +395,4 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
         })}
     </>
   )
-}
-
-DropdownMenu.defaultProps = {
-  iconSize: 24,
-  modal: false,
-  defaultOpen: false,
-  loop: false,
-  avoidCollisions: false,
 }

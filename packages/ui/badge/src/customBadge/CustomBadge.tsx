@@ -1,4 +1,4 @@
-import type { BorderRadius, Colors, CSS, Shadows } from '@pikas-ui/styles'
+import type { BorderRadius, PikasColor, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
@@ -11,36 +11,38 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface CustomBadgeProps extends HTMLAttributes<HTMLDivElement> {
+export interface CustomBadgeProps<Config extends PikasConfig = PikasConfig>
+  extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
-  color?: Colors
+  colorName?: Config['color']
   colorHex?: string
-  boxShadow?: Shadows | 'none'
+  boxShadow?: Config['shadow'] | 'none'
   borderRadius?: BorderRadius
-  css?: CSS
+  css?: Config['css']
 }
 
-export const CustomBadge: React.FC<CustomBadgeProps> = ({
-  color,
+export const CustomBadge = <Config extends PikasConfig = PikasConfig>({
+  colorName = 'PRIMARY' as Config['color'],
   colorHex,
   children,
-  boxShadow,
-  borderRadius,
+  boxShadow = 'ELEVATION_BOTTOM_1' as Config['shadow'],
+  borderRadius = 'round',
   css,
   ...props
-}) => {
+}: CustomBadgeProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
     <Container
       css={{
-        backgroundColor: `$${color}`,
+        backgroundColor: `$${colorName}`,
         boxShadow: `$${boxShadow}`,
         br: borderRadius,
         color:
           theme &&
           fontColorContrast(
-            colorHex || theme.colors[color || 'PRIMARY'].value,
+            colorHex ||
+              theme.colors[(colorName as PikasColor) || 'PRIMARY'].value,
             0.7
           ),
         ...css,
@@ -50,10 +52,4 @@ export const CustomBadge: React.FC<CustomBadgeProps> = ({
       {children}
     </Container>
   )
-}
-
-CustomBadge.defaultProps = {
-  color: 'PRIMARY',
-  boxShadow: 'ELEVATION_BOTTOM_1',
-  borderRadius: 'round',
 }

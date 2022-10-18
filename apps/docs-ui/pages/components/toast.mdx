@@ -47,6 +47,24 @@ pnpm add @pikas-ui/toast
 
 ## Usage
 
+### ToastProvider
+
+#### Props
+
+| Prop             | Description                           | Type                    | Default                                                 |
+| :--------------- | :------------------------------------ | :---------------------- | :------------------------------------------------------ |
+| `children`       | The content of the component.         | `ReactNode`             | -                                                       |
+| `duration`       | The duration of the toast.            | `number`                | `5000`                                                  |
+| `label`          | The label of the toast provider.      | `string`                | `'Notification'`                                        |
+| `css`            | The css of the toast provider.        | `PikasCSS`              | -                                                       |
+| `swipeThreshold` | The swipe threshold of the toast.     | `number`                | -                                                       |
+| `width`          | The width of the toast.               | `number`                | `400`                                                   |
+| `position`       | The position of the toast.            | `ToastPosition`         | `'top'`                                                 |
+| `closeWithSwipe` | Enable or disable the swipe to close. | `boolean`               | `true`                                                  |
+| `viewport`       | The viewport of the toast provider.   | `ToastProviderViewport` | `{ hotkey: ['F8'], label: 'Notifications ({hotkey})' }` |
+
+---
+
 ### Toast
 
 <ToastExample />
@@ -88,7 +106,7 @@ const Parent: React.FC = () => {
 | Prop              | Description                                       | Type                             | Default        |
 | :---------------- | :------------------------------------------------ | :------------------------------- | :------------- |
 | `css`             | Custom css of the custom toast                    | `DefaultToastCSS`                | -              |
-| `children`        | Children of the custom toast                      | `React.ReactNode`                | -              |
+| `children`        | Children of the custom toast                      | `ReactNode`                      | -              |
 | `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
 | `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
 | `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
@@ -97,6 +115,8 @@ const Parent: React.FC = () => {
 | `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeEnd`      | Callback when the custom toast is swipe end       | `(event: SwipeEvent) => void`    | -              |
+| `onPause`         | Callback when the custom toast is pause           | `() => void`                     | -              |
+| `onResume`        | Callback when the custom toast is resume          | `() => void`                     | -              |
 | `forceMount`      | Force mount the custom toast                      | `boolean`                        | -              |
 | `hasCloseButton`  | Has close button the custom toast                 | `boolean`                        | -              |
 | `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |
@@ -156,7 +176,7 @@ const Parent: React.FC = () => {
 | Prop              | Description                                       | Type                             | Default        |
 | :---------------- | :------------------------------------------------ | :------------------------------- | :------------- |
 | `css`             | Custom css of the custom toast                    | `DefaultToastCSS`                | -              |
-| `children`        | Children of the custom toast                      | `React.ReactNode`                | -              |
+| `children`        | Children of the custom toast                      | `ReactNode`                      | -              |
 | `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
 | `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
 | `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
@@ -165,12 +185,14 @@ const Parent: React.FC = () => {
 | `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeEnd`      | Callback when the custom toast is swipe end       | `(event: SwipeEvent) => void`    | -              |
+| `onPause`         | Callback when the custom toast is pause           | `() => void`                     | -              |
+| `onResume`        | Callback when the custom toast is resume          | `() => void`                     | -              |
 | `forceMount`      | Force mount the custom toast                      | `boolean`                        | -              |
 | `hasCloseButton`  | Has close button the custom toast                 | `boolean`                        | -              |
 | `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |
 | `title`           | Title of the custom toast                         | `string`                         | -              |
 | `description`     | Description of the custom toast                   | `string`                         | -              |
-| `Icon`            | Icon of the custom toast                          | `React.FC<IconProps>`            | -              |
+| `Icon`            | Icon of the custom toast                          | `FC<IconProps>`                  | -              |
 | `width`           | Width of the custom toast                         | `number or string`               | `"auto"`       |
 | `maxWidth`        | Max width of the custom toast                     | `number or string`               | `"100%"`       |
 | `height`          | Height of the custom toast                        | `number or string`               | `"auto"`       |
@@ -216,7 +238,7 @@ const Parent: React.FC = () => {
 | Prop              | Description                                       | Type                             | Default        |
 | :---------------- | :------------------------------------------------ | :------------------------------- | :------------- |
 | `css`             | Custom css of the custom toast                    | `CustomToastCSS`                 | -              |
-| `children`        | Children of the custom toast                      | `React.ReactNode`                | -              |
+| `children`        | Children of the custom toast                      | `ReactNode`                      | -              |
 | `duration`        | Duration of the custom toast                      | `number`                         | `5000`         |
 | `onOpenChange`    | Callback when the custom toast is open or close   | `(open: boolean) => void`        | -              |
 | `action`          | Action of the custom toast                        | `ToastAction`                    | -              |
@@ -225,6 +247,8 @@ const Parent: React.FC = () => {
 | `onSwipeStart`    | Callback when the custom toast is swipe start     | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeMove`     | Callback when the custom toast is swipe move      | `(event: SwipeEvent) => void`    | -              |
 | `onSwipeEnd`      | Callback when the custom toast is swipe end       | `(event: SwipeEvent) => void`    | -              |
+| `onPause`         | Callback when the custom toast is pause           | `() => void`                     | -              |
+| `onResume`        | Callback when the custom toast is resume          | `() => void`                     | -              |
 | `forceMount`      | Force mount the custom toast                      | `boolean`                        | -              |
 | `hasCloseButton`  | Has close button the custom toast                 | `boolean`                        | -              |
 | `timer`           | Has timer the custom toast                        | `boolean`                        | `true`         |

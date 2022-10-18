@@ -1,4 +1,4 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
@@ -10,11 +10,14 @@ const Container = styled(DialogPrimitive.Title, {
   width: '100%',
 })
 
-interface InfoDialogProps {
+interface InfoDialogProps<Config extends PikasConfig = PikasConfig> {
   children?: React.ReactNode
-  css?: CSS
+  css?: Config['css']
 }
 
-export const Title: React.FC<InfoDialogProps> = ({ children, css }) => {
+export const Title = <Config extends PikasConfig = PikasConfig>({
+  children,
+  css,
+}: InfoDialogProps<Config>): JSX.Element => {
   return <Container css={css}>{children}</Container>
 }

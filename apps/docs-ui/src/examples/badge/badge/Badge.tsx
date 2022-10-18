@@ -5,10 +5,10 @@ export const BadgeExample: React.FC = () => {
   return (
     <ExampleContainer>
       <Badge leftIconName="bx:baguette">Bread</Badge>
-      <Badge leftIconName="bx:baguette" color="SECONDARY">
+      <Badge leftIconName="bx:baguette" colorName="SECONDARY">
         Bread
       </Badge>
-      <Badge leftIconName="bx:baguette" color="TERTIARY">
+      <Badge leftIconName="bx:baguette" colorName="TERTIARY">
         Bread
       </Badge>
     </ExampleContainer>

@@ -4,6 +4,8 @@ export const docsUIRoutes = routes({
   origin: 'https://pikas-ui.vercel.app',
   links: {
     introduction: '/',
+    gettingStarted: '/docs/getting-started',
+    createPikas: '/docs/createPikas',
     alert: '/components/alert',
     avatar: '/components/avatar',
     button: '/components/button',

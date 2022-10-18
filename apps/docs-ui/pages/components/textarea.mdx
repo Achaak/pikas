@@ -62,6 +62,8 @@ const Example: React.FC = () => {
 }
 ```
 
+
+
 #### Props
 
 Props extends `TextareaHTMLAttributes<HTMLTextAreaElement>`
@@ -69,15 +71,15 @@ Props extends `TextareaHTMLAttributes<HTMLTextAreaElement>`
 | Prop                  | Description                                | Type               | Default          |
 | :-------------------- | :----------------------------------------- | :----------------- | :--------------- |
 | `label`               | The label of the textarea.                 | `string`           | -                |
-| `boxShadow`           | The box shadow of the textarea.            | `Shadows`          | `"DIMINUTION_1"` |
+| `boxShadow`           | The box shadow of the textarea.            | `PikasShadow`      | `"DIMINUTION_1"` |
 | `borderRadius`        | The border radius of the textarea.         | `BorderRadius`     | `"md"`           |
 | `padding`             | The padding of the textarea.               | `TextareaPadding`  | `"md"`           |
-| `fontSize`            | The font size of the textarea.             | `FontsSizes`       | `"EM-MEDIUM"`    |
-| `color`               | The color of the textarea.                 | `Colors`           | -                |
+| `fontSize`            | The font size of the textarea.             | `PikasFontSize`    | `"EM-MEDIUM"`    |
+| `colorName`               | The color of the textarea.                 | `Colors`           | -                |
 | `colorHex`            | The color hex of the textarea.             | `string`           | -                |
-| `placeholderColor`    | The placeholder color of the textarea.     | `Colors`           | -                |
+| `placeholderColorName`    | The placeholder color of the textarea.     | `Colors`           | -                |
 | `placeholderColorHex` | The placeholder color hex of the textarea. | `string`           | -                |
-| `borderColor`         | The border color of the textarea.          | `Colors`           | `"TRANSPARENT"`  |
+| `borderColorName`         | The border color of the textarea.          | `Colors`           | `"TRANSPARENT"`  |
 | `borderColorHex`      | The border color hex of the textarea.      | `string`           | -                |
 | `borderWidth`         | The border width of the textarea.          | `number`           | `0`              |
 | `textError`           | The error text of the textarea.            | `string`           | -                |

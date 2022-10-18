@@ -1,5 +1,17 @@
 # @pikas-ui/styles
 
+## 3.4.0
+
+### Minor Changes
+
+- fef68c2: Rename theme types and add more
+- 87458a0: Rename CSS to PikasCSS
+- fef68c2: Add createPikas
+
+### Patch Changes
+
+- f0b2365: Upgrade dependencies
+
 ## 3.3.4
 
 ### Patch Changes

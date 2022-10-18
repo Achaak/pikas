@@ -15,9 +15,9 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
 } from '@tanstack/react-table'
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { PaginationCSSProps } from './pagination/index.js'
+import type { PaginationCSS } from './pagination/index.js'
 import { Pagination } from './pagination/index.js'
 import { IconByName } from '@pikas-ui/icons'
 import { Checkbox } from '@pikas-ui/checkbox'
@@ -134,34 +134,34 @@ const TdContent = styled('div', {
   },
 })
 
-export const TableVariant = {
+export const tableVariant = {
   default: true,
   light: true,
-}
-export type TableVariant = keyof typeof TableVariant
+} as const
+export type TableVariant = keyof typeof tableVariant
 
-export interface TableCSS<T> {
-  container?: CSS
-  table?: CSS
-  thead?: CSS
-  tbody?: CSS
-  tfoot?: CSS
-  tr?: CSS
-  th?: CSS
-  thSpan?: CSS
-  td?: CSS
-  tdContent?: CSS
-  tdEmptyMessage?: CSS
-  tdContentEmptyMessage?: CSS
-  pagination?: PaginationCSSProps
+export interface TableCSS<T, Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  table?: Config['css']
+  thead?: Config['css']
+  tbody?: Config['css']
+  tfoot?: Config['css']
+  tr?: Config['css']
+  th?: Config['css']
+  thSpan?: Config['css']
+  td?: Config['css']
+  tdContent?: Config['css']
+  tdEmptyMessage?: Config['css']
+  tdContentEmptyMessage?: Config['css']
+  pagination?: PaginationCSS<Config>
   column?: Partial<
     Record<
       keyof T,
       {
-        th?: CSS
-        td?: CSS
-        thSpan?: CSS
-        tdContent?: CSS
+        th?: Config['css']
+        td?: Config['css']
+        thSpan?: Config['css']
+        tdContent?: Config['css']
       }
     >
   >
@@ -191,7 +191,10 @@ export interface TablePadding {
   td?: 'sm' | 'md' | 'lg'
 }
 
-export interface TableProps<T extends Record<string, unknown>> {
+export interface TableProps<
+  T extends Record<string, unknown>,
+  Config extends PikasConfig
+> {
   variant?: TableVariant
   data: T[]
   emptyMessage?: React.ReactNode
@@ -200,24 +203,30 @@ export interface TableProps<T extends Record<string, unknown>> {
   selection?: TableSelection
   sorting?: TableSorting
   columns: ColumnDef<T>[]
-  css?: TableCSS<T>
+  css?: TableCSS<T, Config>
   padding?: TablePadding
   hoverEffect?: boolean
 }
 
-export const Table = <T extends Record<string, unknown>>({
+export const Table = <
+  T extends Record<string, unknown>,
+  Config extends PikasConfig = PikasConfig
+>({
   data,
   hasTfoot,
   pagination,
   columns,
   selection,
   sorting,
-  variant,
+  variant = 'default',
   css,
-  padding,
+  padding = {
+    th: 'md',
+    td: 'md',
+  },
   emptyMessage,
-  hoverEffect,
-}: TableProps<T>): JSX.Element => {
+  hoverEffect = true,
+}: TableProps<T, Config>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
     selection?.defaultState || {}
   )
@@ -308,17 +317,17 @@ export const Table = <T extends Record<string, unknown>>({
           onRowSelectionChange: handleRowSelectionChange,
         }
       : {}),
-    ...(sorting?.active
-      ? {
-          onPaginationChange: pagination?.onPaginationChange,
-        }
-      : {}),
     ...(selection?.active && selection?.onRowSelectionChange
       ? {
           onRowSelectionChange: setSelectionState,
         }
       : {}),
-    ...(sorting?.active && sorting?.onSortingChange
+    ...(sorting?.active
+      ? {
+          onPaginationChange: pagination?.onPaginationChange,
+        }
+      : {}),
+    ...(sorting?.active
       ? {
           onSortingChange: setSortingState,
         }
@@ -345,7 +354,7 @@ export const Table = <T extends Record<string, unknown>>({
 
   useEffect(() => {
     if (!sorting) return
-    if (!sorting.active) return
+    if (!sorting?.active) return
     setSortingState(sorting.state || [])
   }, [sorting?.state])
 
@@ -580,14 +589,4 @@ export const Table = <T extends Record<string, unknown>>({
       ) : null}
     </Container>
   )
-}
-
-Table.defaultProps = {
-  variant: 'default',
-  padding: {
-    th: 'md',
-    td: 'md',
-  },
-  pagination: false,
-  hoverEffect: true,
 }

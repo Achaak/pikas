@@ -1,9 +1,9 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { keyframes, styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useState } from 'react'
 import * as ToastPrimitive from '@radix-ui/react-toast'
-import type { ToastCSS, ToastProps } from '../types.js'
+import type { ToastCSS, BaseToastProps } from '../types.js'
 
 const timerWidth = keyframes({
   '0%': { width: '100%' },
@@ -40,19 +40,21 @@ const Timer = styled('div', {
   position: 'relative',
 })
 
-export interface CustomToastCSS extends ToastCSS {
-  close?: CSS
-  timer?: CSS
-  content?: CSS
+export interface CustomToastCSS<Config extends PikasConfig = PikasConfig>
+  extends ToastCSS<Config> {
+  close?: Config['css']
+  timer?: Config['css']
+  content?: Config['css']
 }
 
-export interface CustomToastProps extends ToastProps {
-  css?: CustomToastCSS
+export interface CustomToastProps<Config extends PikasConfig = PikasConfig>
+  extends BaseToastProps<Config> {
+  css?: CustomToastCSS<Config>
   children?: React.ReactNode
 }
 
-export const CustomToast: React.FC<CustomToastProps> = ({
-  duration,
+export const CustomToast = <Config extends PikasConfig = PikasConfig>({
+  duration = 5000,
   onOpenChange,
   css,
   onEscapeKeyDown,
@@ -62,12 +64,15 @@ export const CustomToast: React.FC<CustomToastProps> = ({
   forceMount,
   action,
   hasCloseButton,
-  timer,
+  timer = true,
   children,
-  width,
-  minWidth,
-  maxWidth,
-}) => {
+  width = 'auto',
+  minWidth = 'auto',
+  maxWidth = '100%',
+  type = 'foreground',
+  onPause,
+  onResume,
+}: CustomToastProps<Config>): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true)
 
   const handleOpen = (): void => {
@@ -96,11 +101,14 @@ export const CustomToast: React.FC<CustomToastProps> = ({
         maxWidth: maxWidth,
         ...css?.toast,
       }}
+      onPause={onPause}
+      onResume={onResume}
       onEscapeKeyDown={onEscapeKeyDown}
       onSwipeStart={onSwipeStart}
       onSwipeMove={onSwipeMove}
       onSwipeEnd={onSwipeEnd}
       forceMount={forceMount || undefined}
+      type={type}
     >
       <Content css={css?.content}>
         {children}
@@ -125,13 +133,4 @@ export const CustomToast: React.FC<CustomToastProps> = ({
       )}
     </Toast>
   )
-}
-
-CustomToast.defaultProps = {
-  duration: 5000,
-  type: 'foreground',
-  timer: true,
-  width: 'auto',
-  minWidth: 'auto',
-  maxWidth: '100%',
 }

@@ -55,7 +55,7 @@ import { CustomIcon } from `@pikas-ui/icons`;
 
 const Example: React.FC = () => {
   return (
-    <CustomIcon size={40} color="PRIMARY">
+    <CustomIcon size={40} colorName="PRIMARY">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={24}
@@ -74,13 +74,13 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop        | Description                            | Type                                            | Default |
-| :---------- | :------------------------------------- | :---------------------------------------------- | :------ |
-| `className` | The class name of the icon.            | `string`                                        | -       |
-| `size`      | The size of the icon.                  | `number`                                        | -       |
-| `color`     | The color of the icon.                 | `Colors`                                        | -       |
-| `colorHex`  | The color of the icon.                 | `string`                                        | -       |
-| `onClick`   | The callback when the icon is clicked. | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |
+| Prop        | Description                            | Type                                      | Default |
+| :---------- | :------------------------------------- | :---------------------------------------- | :------ |
+| `className` | The class name of the icon.            | `string`                                  | -       |
+| `size`      | The size of the icon.                  | `number`                                  | -       |
+| `colorName` | The color of the icon.                 | `Colors`                                  | -       |
+| `colorHex`  | The color of the icon.                 | `string`                                  | -       |
+| `onClick`   | The callback when the icon is clicked. | `(e: MouseEvent<HTMLDivElement>) => void` | -       |
 
 ---
 
@@ -92,17 +92,17 @@ const Example: React.FC = () => {
 import { IconByName } from `@pikas-ui/icons`;
 
 const Example: React.FC = () => {
-  return <IconByName size={40} name="bx:baguette" color="PRIMARY" />
+  return <IconByName size={40} name="bx:baguette" colorName="PRIMARY" />
 }
 ```
 
 #### Props
 
-| Prop        | Description                            | Type                                            | Default |
-| :---------- | :------------------------------------- | :---------------------------------------------- | :------ |
-| `name`      | The name of the icon.                  | `string`                                        | -       |
-| `className` | The class name of the icon.            | `string`                                        | -       |
-| `size`      | The size of the icon.                  | `number`                                        | -       |
-| `color`     | The color of the icon.                 | `Colors`                                        | -       |
-| `colorHex`  | The color of the icon.                 | `string`                                        | -       |
-| `onClick`   | The callback when the icon is clicked. | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |
+| Prop        | Description                            | Type                                      | Default |
+| :---------- | :------------------------------------- | :---------------------------------------- | :------ |
+| `name`      | The name of the icon.                  | `string`                                  | -       |
+| `className` | The class name of the icon.            | `string`                                  | -       |
+| `size`      | The size of the icon.                  | `number`                                  | -       |
+| `colorName` | The color of the icon.                 | `Colors`                                  | -       |
+| `colorHex`  | The color of the icon.                 | `string`                                  | -       |
+| `onClick`   | The callback when the icon is clicked. | `(e: MouseEvent<HTMLDivElement>) => void` | -       |

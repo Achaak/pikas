@@ -1,5 +1,5 @@
 import { IconByName } from '@pikas-ui/icons'
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
@@ -14,21 +14,21 @@ const Container = styled('div', {
 })
 
 interface InfoDialogProps {
-  backgroundColor: Colors
+  backgroundColorName: PikasColor
   iconName: string
 }
 
 export const IconContainer: React.FC<InfoDialogProps> = ({
-  backgroundColor,
+  backgroundColorName,
   iconName,
 }) => {
   return (
     <Container
       css={{
-        backgroundColor: `$${backgroundColor}`,
+        backgroundColor: `$${backgroundColorName}`,
       }}
     >
-      <IconByName name={iconName} size={100} color="WHITE" />
+      <IconByName name={iconName} size={100} colorName="WHITE" />
     </Container>
   )
 }

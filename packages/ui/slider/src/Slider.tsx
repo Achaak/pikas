@@ -1,8 +1,7 @@
-import type { BorderRadius, Colors, CSS, FontsSizes } from '@pikas-ui/styles'
+import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
-import React from 'react'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 const Container = styled('div', {
@@ -35,48 +34,49 @@ const Thumb = styled(SliderPrimitive.Thumb, {
   boxShadow: '$ELEVATION_1',
   transition: 'all 0.2s ease-in-out',
   cursor: 'pointer',
+  br: 'round',
 
   '&:focus': { boxShadow: 'ELEVATION_2' },
 })
 
-const Element = styled('div', {
+const Item = styled('div', {
   display: 'flex',
   alignItems: 'center',
   paddingTop: 8,
   paddingBottom: 8,
 })
 
-export const SliderDirection = {
+export const sliderDirection = {
   ltr: true,
   rtl: true,
-}
-export type SliderDirection = keyof typeof SliderDirection
+} as const
+export type SliderDirection = keyof typeof sliderDirection
 
-export const SliderOrientation = {
+export const sliderOrientation = {
   horizontal: true,
   vertical: true,
-}
-export type SliderOrientation = keyof typeof SliderOrientation
+} as const
+export type SliderOrientation = keyof typeof sliderOrientation
 
-export interface SliderCSS {
-  container?: CSS
-  label?: CSS
-  description?: CSS
-  textError?: CSS
-  element?: CSS
-  slider?: CSS
-  track?: CSS
-  range?: CSS
-  thumb?: CSS
+export interface SliderCSS<Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  label?: Config['css']
+  description?: Config['css']
+  textError?: Config['css']
+  element?: Config['css']
+  slider?: Config['css']
+  track?: Config['css']
+  range?: Config['css']
+  thumb?: Config['css']
 }
 
-export interface SliderProps {
+export interface SliderProps<Config extends PikasConfig = PikasConfig> {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
   id?: string
   label?: string | ReactNode
   textError?: string
-  fontSize?: FontsSizes
+  fontSize?: Config['fontSize']
   className?: string
   description?: string
   value?: number[]
@@ -93,60 +93,64 @@ export interface SliderProps {
   minSize?: string | number
   weight?: number
   thumbSize?: number
-  thumbColor?: Colors
+  thumbColorName?: Config['color']
   thumbColorHex?: string
-  thumbBorderColor?: Colors
+  thumbBorderColorName?: Config['color']
   thumbBorderColorHex?: string
-  thumbBorderColorHover?: Colors
+  thumbBorderColorNameHover?: Config['color']
   thumbBorderColorHoverHex?: string
   thumbBorderWidth?: number
   thumbBorderRadius?: BorderRadius
-  trackColor?: Colors
+  trackColorName?: Config['color']
   trackColorHex?: string
-  rangeColor?: Colors
+  rangeColorName?: Config['color']
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadius
-  css?: SliderCSS
+  css?: SliderCSS<Config>
+  inverted?: boolean
+  onValueCommit?: (value: number[]) => void
 }
 
-export const Slider: React.FC<SliderProps> = ({
+export const Slider = <Config extends PikasConfig = PikasConfig>({
   id,
   label,
   textError,
-  fontSize,
+  fontSize = 'EM-MEDIUM' as Config['fontSize'],
   className,
   description,
   defaultValue,
   onChange,
   value,
-  direction,
-  disabled,
-  max,
-  min,
-  minStepsBetweenThumbs,
+  direction = 'ltr',
+  disabled = false,
+  max = 100,
+  min = 0,
+  minStepsBetweenThumbs = 1,
   name,
-  orientation,
-  step,
-  weight,
-  maxSize,
+  orientation = 'horizontal',
+  step = 1,
+  weight = 4,
+  maxSize = '100%',
   minSize,
-  size,
-  thumbSize,
-  thumbColor,
+  size = '100%',
+  thumbSize = 16,
+  thumbColorName = 'WHITE_FIX' as Config['color'],
   thumbColorHex,
-  thumbBorderColor,
+  thumbBorderColorName,
   thumbBorderColorHex,
-  thumbBorderColorHover,
+  thumbBorderColorNameHover = 'GRAY_LIGHTER' as Config['color'],
   thumbBorderColorHoverHex,
   thumbBorderWidth,
   thumbBorderRadius,
-  trackColor,
+  trackColorName = 'GRAY_LIGHTER' as Config['color'],
   trackColorHex,
-  rangeColor,
+  rangeColorName = 'PRIMARY' as Config['color'],
   rangeColorHex,
   sliderBorderRadius,
   css,
-}) => {
+  inverted,
+  onValueCommit,
+}: SliderProps<Config>): JSX.Element => {
   return (
     <Container
       className={className}
@@ -162,7 +166,7 @@ export const Slider: React.FC<SliderProps> = ({
       }}
     >
       {label ? (
-        <Label
+        <Label<Config>
           htmlFor={id}
           css={{
             marginBottom: 4,
@@ -174,7 +178,7 @@ export const Slider: React.FC<SliderProps> = ({
       ) : null}
 
       {description ? (
-        <Description
+        <Description<Config>
           css={{
             marginBottom: 4,
             ...css?.description,
@@ -184,7 +188,7 @@ export const Slider: React.FC<SliderProps> = ({
         </Description>
       ) : null}
 
-      <Element
+      <Item
         css={{
           height: orientation === 'vertical' ? '100%' : undefined,
           width: orientation === 'horizontal' ? '100%' : undefined,
@@ -194,6 +198,7 @@ export const Slider: React.FC<SliderProps> = ({
         <SliderStyled
           defaultValue={defaultValue}
           onValueChange={onChange}
+          onValueCommit={onValueCommit}
           value={value}
           disabled={disabled}
           max={max}
@@ -204,6 +209,7 @@ export const Slider: React.FC<SliderProps> = ({
           minStepsBetweenThumbs={minStepsBetweenThumbs}
           dir={direction}
           id={id}
+          inverted={inverted}
           css={{
             '&[data-orientation="horizontal"]': {
               height: thumbSize,
@@ -223,7 +229,9 @@ export const Slider: React.FC<SliderProps> = ({
             css={{
               br: sliderBorderRadius,
               backgroundColor:
-                trackColorHex || trackColor ? `$${trackColor}` : undefined,
+                trackColorHex || trackColorName
+                  ? `$${trackColorName}`
+                  : undefined,
 
               '&[data-orientation="horizontal"]': { height: weight },
               '&[data-orientation="vertical"]': { width: weight },
@@ -235,7 +243,9 @@ export const Slider: React.FC<SliderProps> = ({
               css={{
                 br: sliderBorderRadius,
                 backgroundColor:
-                  rangeColorHex || rangeColor ? `$${rangeColor}` : undefined,
+                  rangeColorHex || rangeColorName
+                    ? `$${rangeColorName}`
+                    : undefined,
 
                 ...css?.range,
               }}
@@ -247,18 +257,20 @@ export const Slider: React.FC<SliderProps> = ({
               width: thumbSize,
               height: thumbSize,
               backgroundColor:
-                thumbColorHex || thumbColor ? `$${thumbColor}` : undefined,
+                thumbColorHex || thumbColorName
+                  ? `$${thumbColorName}`
+                  : undefined,
               borderColor:
-                thumbBorderColorHex || thumbBorderColor
-                  ? `$${thumbBorderColor}`
+                thumbBorderColorHex || thumbBorderColorName
+                  ? `$${thumbBorderColorName}`
                   : undefined,
               borderWidth: thumbBorderWidth,
               borderRadius: thumbBorderRadius,
 
               '&:hover': {
                 backgroundColor:
-                  thumbBorderColorHoverHex || thumbBorderColorHover
-                    ? `$${thumbBorderColorHover}`
+                  thumbBorderColorHoverHex || thumbBorderColorNameHover
+                    ? `$${thumbBorderColorNameHover}`
                     : undefined,
               },
 
@@ -266,34 +278,13 @@ export const Slider: React.FC<SliderProps> = ({
             }}
           />
         </SliderStyled>
-      </Element>
+      </Item>
 
       {textError ? (
-        <TextError css={{ marginTop: 5, ...css?.textError }}>
+        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}
     </Container>
   )
-}
-
-Slider.defaultProps = {
-  fontSize: 'EM-MEDIUM',
-  direction: 'ltr',
-  orientation: 'horizontal',
-  step: 1,
-  minStepsBetweenThumbs: 1,
-  min: 0,
-  max: 100,
-  disabled: false,
-  size: '100%',
-  maxSize: '100%',
-  weight: 4,
-  thumbSize: 16,
-  thumbBorderRadius: 'round',
-  sliderBorderRadius: 'round',
-  trackColor: 'GRAY_LIGHTER',
-  rangeColor: 'PRIMARY',
-  thumbColor: 'WHITE_FIX',
-  thumbBorderColorHover: 'GRAY_LIGHTER',
 }

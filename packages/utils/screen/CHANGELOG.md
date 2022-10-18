@@ -1,5 +1,11 @@
 # @pikas-utils/screen
 
+## 1.0.8
+
+### Patch Changes
+
+- f0b2365: Upgrade dependencies
+
 ## 1.0.7
 
 ### Patch Changes

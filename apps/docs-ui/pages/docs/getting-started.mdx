@@ -95,12 +95,14 @@ const App: React.FC = () => {
 
 ### Styling
 
+For styling your components you can use the `styled` function.
+
 ```ts
 import { styled } from '@pikas-ui/styles'
 
 const Button = styled('button', {
   background: '$PRIMARY',
-  color: 'white',
+  color: 'WHITE',
   border: 'none',
   padding: '0.5rem',
   br: 'sm',
@@ -118,6 +120,8 @@ const Button = styled('button', {
 
 ## Themes
 
+If you want to create a theme you can use the `createTheme` function.
+
 ```tsx
 import { createTheme } from '@pikas-ui/styles'
 
@@ -132,4 +136,18 @@ const themeDark = createTheme({
     PRIMARY_LIGHTEST_1: '#F3F4F6',
   },
 })
+```
+
+To use the theme you can use the `PikasUIProvider` component.
+
+```tsx
+import { PikasUIProvider } from '@pikas-ui/styles'
+
+const App: React.FC = () => {
+  return (
+    <PikasUIProvider darkTheme={themeDark}>
+      <h1>Hello World</h1>
+    </PikasUIProvider>
+  )
+}
 ```

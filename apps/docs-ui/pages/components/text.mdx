@@ -47,6 +47,8 @@ pnpm add @pikas-ui/text
 
 ### Label
 
+With the `Label` component you can create a label for a form field.
+
 <LabelExample />
 
 ```tsx
@@ -57,17 +59,20 @@ const Example: React.FC = () => {
 }
 ```
 
+
 #### Props
 
-| Prop       | Description            | Type              | Default |
-| :--------- | :--------------------- | :---------------- | :------ |
-| `htmlFor`  | The id of the label.   | `string`          | -       |
-| `css`      | The css of the label.  | `CSS`             | -       |
-| `children` | The text of the label. | `React.ReactNode` | -       |
+| Prop       | Description            | Type        | Default |
+| :--------- | :--------------------- | :---------- | :------ |
+| `htmlFor`  | The id of the label.   | `string`    | -       |
+| `css`      | The css of the label.  | `PikasCSS`  | -       |
+| `children` | The text of the label. | `ReactNode` | -       |
 
 ---
 
 ### Description
+
+With the `Description` component you can add a description.
 
 <DescriptionExample />
 
@@ -81,14 +86,16 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop       | Description                  | Type              | Default |
-| :--------- | :--------------------------- | :---------------- | :------ |
-| `css`      | The css of the description.  | `CSS`             | -       |
-| `children` | The text of the description. | `React.ReactNode` | -       |
+| Prop       | Description                  | Type        | Default |
+| :--------- | :--------------------------- | :---------- | :------ |
+| `css`      | The css of the description.  | `PikasCSS`  | -       |
+| `children` | The text of the description. | `ReactNode` | -       |
 
 ---
 
 ### TextError
+
+With the `TextError` component you can display an error message.
 
 <TextErrorExample />
 
@@ -100,9 +107,11 @@ const Example: React.FC = () => {
 }
 ```
 
+
+
 #### Props
 
-| Prop       | Description                 | Type              | Default |
-| :--------- | :-------------------------- | :---------------- | :------ |
-| `css`      | The css of the text error.  | `CSS`             | -       |
-| `children` | The text of the text error. | `React.ReactNode` | -       |
+| Prop       | Description                 | Type        | Default |
+| :--------- | :-------------------------- | :---------- | :------ |
+| `css`      | The css of the text error.  | `PikasCSS`  | -       |
+| `children` | The text of the text error. | `ReactNode` | -       |

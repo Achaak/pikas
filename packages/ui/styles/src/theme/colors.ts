@@ -1,4 +1,4 @@
-export const Colors = {
+export const pikasColors = {
   PRIMARY_DARKER: '#295180',
   PRIMARY_DARK: '#3D79BF',
   PRIMARY: '#52A2FF',
@@ -94,4 +94,24 @@ export const Colors = {
   BACKGROUND: '#EDF6FF',
 }
 
-export type Colors = keyof typeof Colors
+export type PikasColors = typeof pikasColors
+export type PikasColor = keyof PikasColors
+
+export type ColorsRecordValue = string
+export type ColorsRecordKey = string | number | PikasColor
+export type ColorsRecord = Record<ColorsRecordKey, ColorsRecordValue>
+
+export type Colors<T extends ColorsRecord> = PikasColors & T
+export type Color<T extends ColorsRecord> = keyof Colors<T>
+
+export const loadColors = <T extends ColorsRecord>(
+  values:
+    | {
+        [key in keyof PikasColors]?: ColorsRecordValue
+      }
+    | T
+): PikasColors & T =>
+  ({
+    ...pikasColors,
+    ...values,
+  } as PikasColors & T)

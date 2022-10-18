@@ -1,6 +1,5 @@
-import React from 'react'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import type { BorderRadius, Colors, CSS } from '@pikas-ui/styles'
+import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
 import { Skeleton } from '@pikas-ui/skeleton'
@@ -34,39 +33,39 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarCSS {
-  container?: CSS
-  image?: CSS
-  fallback?: CSS
+export interface AvatarCSS<Config extends PikasConfig = PikasConfig> {
+  container?: Config['css']
+  image?: Config['css']
+  fallback?: Config['css']
 }
 
-export interface AvatarProps {
+export interface AvatarProps<Config extends PikasConfig = PikasConfig> {
   alt?: string
   src?: string
   onLoadingStatusChange?: (status: ImageLoadingStatus) => void
   delayMs?: number
   fallback?: string
-  fallbackColor?: Colors
-  fallbackBackgroundColor?: Colors
-  css?: AvatarCSS
+  fallbackColorName?: Config['color']
+  fallbackBackgroundColorName?: Config['color']
+  css?: AvatarCSS<Config>
   size?: number
   borderRadius?: BorderRadius
   loading?: boolean
 }
 
-export const Avatar: React.FC<AvatarProps> = ({
+export const Avatar = <Config extends PikasConfig = PikasConfig>({
   alt,
   src,
   onLoadingStatusChange,
   delayMs,
   fallback,
-  fallbackBackgroundColor,
-  fallbackColor,
+  fallbackBackgroundColorName = 'PRIMARY_LIGHTEST_2' as Config['color'],
+  fallbackColorName = 'PRIMARY' as Config['color'],
   css,
-  size,
-  borderRadius,
-  loading,
-}) => {
+  size = 80,
+  borderRadius = 'round',
+  loading = false,
+}: AvatarProps<Config>): JSX.Element => {
   return (
     <Root
       css={{
@@ -102,8 +101,8 @@ export const Avatar: React.FC<AvatarProps> = ({
         delayMs={delayMs}
         css={{
           fontSize: size ? size / 2.5 : undefined,
-          color: `$${fallbackColor}`,
-          backgroundColor: `$${fallbackBackgroundColor}`,
+          color: `$${fallbackColorName}`,
+          backgroundColor: `$${fallbackBackgroundColorName}`,
           ...css?.fallback,
         }}
       >
@@ -111,12 +110,4 @@ export const Avatar: React.FC<AvatarProps> = ({
       </Fallback>
     </Root>
   )
-}
-
-Avatar.defaultProps = {
-  size: 80,
-  fallbackColor: 'PRIMARY',
-  fallbackBackgroundColor: 'PRIMARY_LIGHTEST_2',
-  borderRadius: 'round',
-  loading: false,
 }

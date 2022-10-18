@@ -1,13 +1,14 @@
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ErrorDialogContent } from './ErrorDialogContent/index.js'
 import { ErrorDialogFooter } from './ErrorDialogFooter/index.js'
 import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
-export interface ErrorDialogProps extends DialogProps {
+export interface ErrorDialogProps<Config extends PikasConfig = PikasConfig>
+  extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColor?: Colors
+  validateButtonColorName?: Config['color']
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -15,17 +16,17 @@ export interface ErrorDialogProps extends DialogProps {
   content: React.ReactNode
 }
 
-export const ErrorDialog: React.FC<ErrorDialogProps> = ({
-  validateButtonLabel,
-  validateButtonColor,
+export const ErrorDialog = <Config extends PikasConfig = PikasConfig>({
+  validateButtonLabel = 'Ok',
+  validateButtonColorName = 'DANGER',
   validateButtonDisabled,
   validateButtonLoading,
-  title,
+  title = 'Oops ! A error occurred...',
   onClose,
   content,
   onValidated,
   ...props
-}) => {
+}: ErrorDialogProps<Config>): JSX.Element => {
   return (
     <CustomDialog
       onClose={onClose}
@@ -33,9 +34,9 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
       header={<ErrorDialogHeader title={title} />}
       content={<ErrorDialogContent content={content} />}
       footer={
-        <ErrorDialogFooter
+        <ErrorDialogFooter<Config>
           validateButtonLabel={validateButtonLabel}
-          validateButtonColor={validateButtonColor}
+          validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
           onValidated={onValidated}
@@ -57,10 +58,4 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
       {...props}
     />
   )
-}
-
-ErrorDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  title: 'Oops ! A error occurred...',
-  validateButtonColor: 'DANGER',
 }

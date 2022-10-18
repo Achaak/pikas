@@ -1,11 +1,4 @@
-import type {
-  BorderRadius,
-  Colors,
-  CSS,
-  FontsSizes,
-  FontsWeights,
-  Shadows,
-} from '@pikas-ui/styles'
+import type { BorderRadius, PikasColor, PikasConfig } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { keyframes, styled, useTheme } from '@pikas-ui/styles'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
@@ -76,37 +69,37 @@ const Trigger = styled(TooltipPrimitive.Trigger, {
 
 const StyledArrow = styled(TooltipPrimitive.Arrow, {})
 
-export const TooltipSide = {
+export const tooltipSide = {
   top: true,
   right: true,
   bottom: true,
   left: true,
-}
-export type TooltipSide = keyof typeof TooltipSide
+} as const
+export type TooltipSide = keyof typeof tooltipSide
 
-export const TooltipAlign = {
+export const tooltipAlign = {
   start: true,
   center: true,
   end: true,
-}
-export type TooltipAlign = keyof typeof TooltipAlign
+} as const
+export type TooltipAlign = keyof typeof tooltipAlign
 
-export const TooltipPadding = {
+export const tooltipPadding = {
   sm: true,
   md: true,
   lg: true,
-}
-export type TooltipPadding = keyof typeof TooltipPadding
+} as const
+export type TooltipPadding = keyof typeof tooltipPadding
 
-export type TooltipCSS = {
-  trigger?: CSS
-  content?: CSS
+export type TooltipCSS<Config extends PikasConfig = PikasConfig> = {
+  trigger?: Config['css']
+  content?: Config['css']
 }
 
-export interface TooltipProps {
+export interface TooltipProps<Config extends PikasConfig = PikasConfig> {
   content: string | React.ReactNode
   children?: React.ReactNode
-  backgroundColor?: Colors
+  backgroundColorName?: Config['color']
   open?: boolean
   defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void
@@ -122,38 +115,38 @@ export interface TooltipProps {
   avoidCollisions?: boolean
   collisionPadding?: number
   borderRadius?: BorderRadius
-  fontSize?: FontsSizes
-  fontWeight?: FontsWeights
-  boxShadow?: Shadows
+  fontSize?: Config['fontSize']
+  fontWeight?: Config['fontWeight']
+  boxShadow?: Config['shadow']
   padding?: TooltipPadding
-  css?: TooltipCSS
+  css?: TooltipCSS<Config>
 }
 
-export const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip = <Config extends PikasConfig = PikasConfig>({
   content,
   children,
-  backgroundColor,
+  backgroundColorName = 'WHITE' as Config['color'],
   open,
   onOpenChange,
   delayDuration,
   skipDelayDuration,
   defaultOpen,
-  arrowSize,
-  arrowOffset,
+  arrowSize = 10,
+  arrowOffset = 8,
   side,
   align,
   alignOffset,
   sideOffset,
   avoidCollisions,
   collisionPadding,
-  borderRadius,
-  fontSize,
+  borderRadius = 'md' as BorderRadius,
+  fontSize = 'EM-SMALL' as Config['fontSize'],
   fontWeight,
-  boxShadow,
-  hasArrow,
-  padding,
+  boxShadow = 'ELEVATION_2' as Config['shadow'],
+  hasArrow = true,
+  padding = 'md' as TooltipPadding,
   css,
-}) => {
+}: TooltipProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -183,14 +176,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
             padding={padding}
             css={{
               br: borderRadius,
-              backgroundColor: `$${backgroundColor}`,
+              backgroundColor: `$${backgroundColorName}`,
               fontSize: `$${fontSize}`,
               fontWeight: `$${fontWeight}`,
               boxShadow: `$${boxShadow}`,
               color:
                 (theme &&
                   fontColorContrast(
-                    theme.colors[backgroundColor || 'BLACK'].value,
+                    theme.colors[(backgroundColorName as PikasColor) || 'BLACK']
+                      .value,
                     0.7
                   )) ||
                 undefined,
@@ -205,7 +199,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
                 width={arrowSize}
                 height={arrowSize ? arrowSize / 2 : undefined}
                 css={{
-                  fill: `$${backgroundColor}`,
+                  fill: `$${backgroundColorName}`,
                 }}
               />
             )}
@@ -214,15 +208,4 @@ export const Tooltip: React.FC<TooltipProps> = ({
       </TooltipPrimitive.Root>
     </TooltipPrimitive.Provider>
   )
-}
-
-Tooltip.defaultProps = {
-  backgroundColor: 'WHITE',
-  arrowOffset: 8,
-  borderRadius: 'md',
-  fontSize: 'EM-SMALL',
-  boxShadow: 'ELEVATION_2',
-  hasArrow: true,
-  padding: 'md',
-  arrowSize: 10,
 }

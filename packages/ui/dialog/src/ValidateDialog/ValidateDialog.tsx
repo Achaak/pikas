@@ -1,15 +1,16 @@
-import { Colors } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ValidateDialogContent } from './ValidateDialogContent/index.js'
 import { ValidateDialogFooter } from './ValidateDialogFooter/index.js'
 import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 
-export interface ValidateDialogProps extends DialogProps {
+export interface ValidateDialogProps<Config extends PikasConfig = PikasConfig>
+  extends DialogProps {
   cancelButtonLabel?: string
   validateButtonLabel?: string
-  cancelButtonColor?: Colors
-  validateButtonColor?: Colors
+  cancelButtonColorName?: Config['color']
+  validateButtonColorName?: Config['color']
   cancelButtonDisabled?: boolean
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean
@@ -20,22 +21,22 @@ export interface ValidateDialogProps extends DialogProps {
   content: React.ReactNode
 }
 
-export const ValidateDialog: React.FC<ValidateDialogProps> = ({
+export const ValidateDialog = <Config extends PikasConfig = PikasConfig>({
   onClose,
-  cancelButtonLabel,
-  validateButtonLabel,
-  cancelButtonColor,
-  validateButtonColor,
+  cancelButtonLabel = 'Cancel',
+  validateButtonLabel = 'Ok',
+  cancelButtonColorName = 'DANGER',
+  validateButtonColorName = 'SUCCESS',
   cancelButtonDisabled,
   validateButtonDisabled,
   cancelButtonLoading,
   validateButtonLoading,
   onCanceled,
   onValidated,
-  title,
+  title = 'Are you sure ?',
   content,
   ...props
-}) => {
+}: ValidateDialogProps<Config>): JSX.Element => {
   return (
     <CustomDialog
       onClose={onClose}
@@ -43,11 +44,11 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
       header={<ValidateDialogHeader title={title} />}
       content={<ValidateDialogContent content={content} />}
       footer={
-        <ValidateDialogFooter
+        <ValidateDialogFooter<Config>
           cancelButtonLabel={cancelButtonLabel}
           validateButtonLabel={validateButtonLabel}
-          cancelButtonColor={cancelButtonColor}
-          validateButtonColor={validateButtonColor}
+          cancelButtonColorName={cancelButtonColorName}
+          validateButtonColorName={validateButtonColorName}
           cancelButtonDisabled={cancelButtonDisabled}
           validateButtonDisabled={validateButtonDisabled}
           cancelButtonLoading={cancelButtonLoading}
@@ -72,12 +73,4 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
       {...props}
     />
   )
-}
-
-ValidateDialog.defaultProps = {
-  cancelButtonLabel: 'Cancel',
-  validateButtonLabel: 'Ok',
-  title: 'Are you sure ?',
-  cancelButtonColor: 'DANGER',
-  validateButtonColor: 'SUCCESS',
 }

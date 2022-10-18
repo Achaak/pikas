@@ -1,5 +1,18 @@
 # @pikas-ui/title
 
+## 1.1.9
+
+### Patch Changes
+
+- 36c40b9: Add h6
+- 70d4156: Add custom type management
+- f0b2365: Upgrade dependencies
+- Updated dependencies [fef68c2]
+- Updated dependencies [f0b2365]
+- Updated dependencies [87458a0]
+- Updated dependencies [fef68c2]
+  - @pikas-ui/styles@3.4.0
+
 ## 1.1.8
 
 ### Patch Changes

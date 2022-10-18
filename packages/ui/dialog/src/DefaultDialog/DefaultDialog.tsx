@@ -1,42 +1,43 @@
-import type { Colors } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { DefaultDialogContent } from './DefaultDialogContent/index.js'
 import { DefaultDialogFooter } from './DefaultDialogFooter/index.js'
 import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 
-export interface DefaultDialogProps extends DialogProps {
+export interface DefaultDialogProps<Config extends PikasConfig = PikasConfig>
+  extends DialogProps {
   title: string
   content: React.ReactNode
   validateButtonLabel?: string
-  validateButtonColor?: Colors
+  validateButtonColorName?: Config['color']
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
 }
 
-export const DefaultDialog: React.FC<DefaultDialogProps> = ({
+export const DefaultDialog = <Config extends PikasConfig = PikasConfig>({
   title,
   content,
   onClose,
   onValidated,
-  validateButtonLabel,
-  validateButtonColor,
+  validateButtonLabel = 'Ok',
+  validateButtonColorName = 'PRIMARY',
   validateButtonDisabled,
   validateButtonLoading,
   ...props
-}) => {
+}: DefaultDialogProps<Config>): JSX.Element => {
   return (
     <CustomDialog
       onClose={onClose}
       header={<DefaultDialogHeader title={title} />}
       content={<DefaultDialogContent content={content} />}
       footer={
-        <DefaultDialogFooter
+        <DefaultDialogFooter<Config>
           onClose={onClose}
           onValidated={onValidated}
           validateButtonLabel={validateButtonLabel}
-          validateButtonColor={validateButtonColor}
+          validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
         />
@@ -66,9 +67,4 @@ export const DefaultDialog: React.FC<DefaultDialogProps> = ({
       {...props}
     />
   )
-}
-
-DefaultDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  validateButtonColor: 'PRIMARY',
 }

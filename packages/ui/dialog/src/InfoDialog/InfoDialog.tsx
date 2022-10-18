@@ -1,13 +1,14 @@
-import { Colors } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { InfoDialogContent } from './InfoDialogContent/index.js'
 import { InfoDialogFooter } from './InfoDialogFooter/index.js'
 import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
-export interface InfoDialogProps extends DialogProps {
+export interface InfoDialogProps<Config extends PikasConfig = PikasConfig>
+  extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColor?: Colors
+  validateButtonColorName?: Config['color']
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -15,17 +16,17 @@ export interface InfoDialogProps extends DialogProps {
   content: React.ReactNode
 }
 
-export const InfoDialog: React.FC<InfoDialogProps> = ({
+export const InfoDialog = <Config extends PikasConfig = PikasConfig>({
   onClose,
-  validateButtonLabel,
-  validateButtonColor,
+  validateButtonLabel = 'Ok',
+  validateButtonColorName = 'PRIMARY',
   validateButtonDisabled,
   validateButtonLoading,
   onValidated,
-  title,
+  title = 'We have a information for you !',
   content,
   ...props
-}) => {
+}: InfoDialogProps<Config>): JSX.Element => {
   return (
     <CustomDialog
       onClose={onClose}
@@ -33,9 +34,9 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
       header={<InfoDialogHeader title={title} />}
       content={<InfoDialogContent content={content} />}
       footer={
-        <InfoDialogFooter
+        <InfoDialogFooter<Config>
           validateButtonLabel={validateButtonLabel}
-          validateButtonColor={validateButtonColor}
+          validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
           onValidated={onValidated}
@@ -57,10 +58,4 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
       {...props}
     />
   )
-}
-
-InfoDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  title: 'We have a information for you !',
-  validateButtonColor: 'PRIMARY',
 }

@@ -1,9 +1,9 @@
-import type { CSS } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import * as ToastPrimitive from '@radix-ui/react-toast'
-import type { ToastPosition, ToastProps } from '../types.js'
+import type { ToastPosition, BaseToastProps } from '../types.js'
 
 const VIEWPORT_PADDING = 25
 
@@ -66,45 +66,52 @@ const Viewport = styled(ToastPrimitive.Viewport, {
   transition: 'transform 0.2s 150ms ease',
 })
 
-export interface ToastProviderProps {
+export interface ToastProviderViewport {
+  hotkey?: string[]
+  label?: string
+}
+
+export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
   children?: React.ReactNode
   duration?: number
   label?: string
-  css?: CSS
+  css?: Config['css']
   swipeThreshold?: number
-  type?: 'foreground' | 'foreground'
   width?: number
   position?: ToastPosition
   closeWithSwipe?: boolean
-  viewport?: {
-    hotkey?: string[]
-    label?: string
-  }
+  viewport?: ToastProviderViewport
 }
 
-export interface ToastContextProps {
-  toasts: React.ReactElement<ToastProps>[]
-  publish: (toast: React.ReactElement<ToastProps>) => void
+export interface ToastContextProps<Config extends PikasConfig = PikasConfig> {
+  toasts: React.ReactElement<BaseToastProps<Config>>[]
+  publish: (toast: React.ReactElement<BaseToastProps<Config>>) => void
 }
-export const ToastContext = React.createContext<ToastContextProps>({
+
+export const ToastContext = createContext<ToastContextProps<PikasConfig>>({
   toasts: [],
   publish: () => {
     console.log('publish')
   },
 })
 
-export const ToastProvider: React.FC<ToastProviderProps> = ({
-  duration,
-  label,
+export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
+  duration = 5000,
+  label = 'Notification',
   css,
   swipeThreshold,
-  width,
-  position,
-  closeWithSwipe,
-  viewport,
+  width = 400,
+  position = 'top',
+  closeWithSwipe = true,
+  viewport = {
+    hotkey: ['F8'],
+    label: 'Notifications ({hotkey})',
+  },
   children,
-}) => {
-  const [toasts, setToasts] = useState<React.ReactElement<ToastProps>[]>([])
+}: ToastProviderProps<Config>): JSX.Element => {
+  const [toasts, setToasts] = useState<
+    React.ReactElement<BaseToastProps<Config>>[]
+  >([])
 
   const getSwipeDirection = (): ToastPrimitive.SwipeDirection => {
     switch (position) {
@@ -127,6 +134,8 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
     <ToastContext.Provider
       value={{
         toasts: toasts,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         publish: (toast) => setToasts((prev) => [...prev, toast]),
       }}
     >
@@ -231,17 +240,4 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
       </ToastPrimitive.Provider>
     </ToastContext.Provider>
   )
-}
-
-ToastProvider.defaultProps = {
-  duration: 5000,
-  label: 'Notification',
-  viewport: {
-    hotkey: ['F8'],
-    label: 'Notifications ({hotkey})',
-  },
-  type: 'foreground',
-  width: 400,
-  position: 'top',
-  closeWithSwipe: true,
 }

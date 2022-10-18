@@ -107,7 +107,7 @@ export const Header: React.FC<CustomProps> = ({
               <IconByName
                 name="ant-design:github-filled"
                 size={32}
-                color="BLACK"
+                colorName="BLACK"
               />
             </NavItem>
           </Link>

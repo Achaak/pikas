@@ -1,13 +1,14 @@
-import { Colors } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { SuccessDialogContent } from './SuccessDialogContent/index.js'
 import { SuccessDialogFooter } from './SuccessDialogFooter/index.js'
 import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
-export interface SuccessDialogProps extends DialogProps {
+export interface SuccessDialogProps<Config extends PikasConfig = PikasConfig>
+  extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColor?: Colors
+  validateButtonColorName?: Config['color']
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -15,16 +16,16 @@ export interface SuccessDialogProps extends DialogProps {
   content: React.ReactNode
 }
 
-export const SuccessDialog: React.FC<SuccessDialogProps> = ({
-  validateButtonLabel,
-  validateButtonColor,
+export const SuccessDialog = <Config extends PikasConfig = PikasConfig>({
+  validateButtonLabel = 'Ok',
+  validateButtonColorName = 'SUCCESS',
   validateButtonDisabled,
   validateButtonLoading,
   onClose,
-  title,
+  title = 'Yeah ! You did it !',
   content,
   ...props
-}) => {
+}: SuccessDialogProps<Config>): JSX.Element => {
   return (
     <CustomDialog
       onClose={onClose}
@@ -32,9 +33,9 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
       header={<SuccessDialogHeader title={title} />}
       content={<SuccessDialogContent content={content} />}
       footer={
-        <SuccessDialogFooter
+        <SuccessDialogFooter<Config>
           validateButtonLabel={validateButtonLabel}
-          validateButtonColor={validateButtonColor}
+          validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
           onClose={onClose}
@@ -55,10 +56,4 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
       {...props}
     />
   )
-}
-
-SuccessDialog.defaultProps = {
-  validateButtonLabel: 'Ok',
-  title: 'Yeah ! You did it !',
-  validateButtonColor: 'SUCCESS',
 }
