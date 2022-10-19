@@ -1,14 +1,14 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { ErrorDialogContent } from './ErrorDialogContent/index.js'
 import { ErrorDialogFooter } from './ErrorDialogFooter/index.js'
 import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
-export interface ErrorDialogProps<Config extends PikasConfig = PikasConfig>
+export interface ErrorDialogProps<Config extends PikasConfigRecord = any>
   extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColorName?: Config['color']
+  validateButtonColorName?: keyof Config['theme']['colors']
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -16,7 +16,7 @@ export interface ErrorDialogProps<Config extends PikasConfig = PikasConfig>
   content: React.ReactNode
 }
 
-export const ErrorDialog = <Config extends PikasConfig = PikasConfig>({
+export const ErrorDialog = <Config extends PikasConfigRecord>({
   validateButtonLabel = 'Ok',
   validateButtonColorName = 'DANGER',
   validateButtonDisabled,

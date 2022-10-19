@@ -1,5 +1,5 @@
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 import { ClipLoader } from '@pikas-ui/loader'
@@ -75,15 +75,15 @@ export const contextMenuDirection = {
 } as const
 export type ContextMenuDirection = keyof typeof contextMenuDirection
 
-export type ContextMenuCSS<Config extends PikasConfig = PikasConfig> =
+export type ContextMenuCSS<Config extends PikasConfigRecord = any> =
   MenuCSS<Config>
-export type ContextMenuDataItem<Config extends PikasConfig = PikasConfig> =
+export type ContextMenuDataItem<Config extends PikasConfigRecord = any> =
   MenuDataItem<Config>
-export type ContextMenuDataItemEntry<Config extends PikasConfig = PikasConfig> =
+export type ContextMenuDataItemEntry<Config extends PikasConfigRecord = any> =
   ItemEntry<Config>
-export type ContextMenuData<Config extends PikasConfig = PikasConfig> =
+export type ContextMenuData<Config extends PikasConfigRecord = any> =
   MenuDataItem<Config>[]
-export interface ContextMenuProps<Config extends PikasConfig = PikasConfig>
+export interface ContextMenuProps<Config extends PikasConfigRecord = any>
   extends MenuProps<Config> {
   children?: React.ReactNode
 
@@ -102,7 +102,7 @@ export interface ContextMenuProps<Config extends PikasConfig = PikasConfig>
   collisionPadding?: number
 }
 
-export const ContextMenu = <Config extends PikasConfig = PikasConfig>({
+export const ContextMenu = <Config extends PikasConfigRecord>({
   data,
   children,
   css,
@@ -146,12 +146,12 @@ export const ContextMenu = <Config extends PikasConfig = PikasConfig>({
   )
 }
 
-interface ContextMenuDataProps<Config extends PikasConfig = PikasConfig> {
+interface ContextMenuDataProps<Config extends PikasConfigRecord = any> {
   data: MenuData<Config>
   css?: ContextMenuCSS<Config>
 }
 
-const ContextMenuData = <Config extends PikasConfig = PikasConfig>({
+const ContextMenuData = <Config extends PikasConfigRecord>({
   data,
   css,
 }: ContextMenuDataProps<Config>): JSX.Element => {

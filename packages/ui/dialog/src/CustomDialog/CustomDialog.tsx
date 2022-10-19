@@ -1,6 +1,6 @@
 import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
@@ -184,13 +184,13 @@ export interface CustomDialogGap {
   footer?: CustomDialogGapElement
 }
 
-export interface CustomDialogCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  header?: Config['css']
-  content?: Config['css']
-  footer?: Config['css']
+export interface CustomDialogCSS<Config extends PikasConfigRecord = any> {
+  container?: Config['CSS']
+  header?: Config['CSS']
+  content?: Config['CSS']
+  footer?: Config['CSS']
   closeIcon?: IconCSS<Config>
-  overlay?: Config['css']
+  overlay?: Config['CSS']
 }
 
 export interface DialogProps {
@@ -199,7 +199,7 @@ export interface DialogProps {
   onClose?: () => void
 }
 
-export interface CustomDialogProps<Config extends PikasConfig = PikasConfig>
+export interface CustomDialogProps<Config extends PikasConfigRecord = any>
   extends DialogProps {
   closeIfClickOutside?: boolean
   hasCloseIcon?: boolean
@@ -213,7 +213,7 @@ export interface CustomDialogProps<Config extends PikasConfig = PikasConfig>
   footer?: React.ReactNode
 }
 
-export const CustomDialog = <Config extends PikasConfig = PikasConfig>({
+export const CustomDialog = <Config extends PikasConfigRecord>({
   visible,
   hasCloseIcon = true,
   onClose,
@@ -230,7 +230,7 @@ export const CustomDialog = <Config extends PikasConfig = PikasConfig>({
 }: CustomDialogProps<Config>): JSX.Element => {
   const [visibleStyle, setVisibleStyle] = useState(false)
   const [visibleDOM, setVisibleDOM] = useState(false)
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   useEffect(() => {
     if (visible) {

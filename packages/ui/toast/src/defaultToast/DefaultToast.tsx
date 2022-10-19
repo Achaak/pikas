@@ -1,4 +1,4 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconCSS, IconProps } from '@pikas-ui/icons'
 import React from 'react'
@@ -34,14 +34,14 @@ const Container = styled('div', {
   alignItems: 'center',
 })
 
-export interface DefaultToastCSS<Config extends PikasConfig = PikasConfig>
+export interface DefaultToastCSS<Config extends PikasConfigRecord = any>
   extends CustomToastCSS<Config> {
   icon?: IconCSS<Config>
-  title?: Config['css']
-  description?: Config['css']
+  title?: Config['CSS']
+  description?: Config['CSS']
 }
 
-export interface DefaultToastProps<Config extends PikasConfig = PikasConfig>
+export interface DefaultToastProps<Config extends PikasConfigRecord = any>
   extends CustomToastProps<Config> {
   title?: string
   description?: string
@@ -49,7 +49,7 @@ export interface DefaultToastProps<Config extends PikasConfig = PikasConfig>
   css?: DefaultToastCSS<Config>
 }
 
-export const DefaultToast = <Config extends PikasConfig = PikasConfig>({
+export const DefaultToast = <Config extends PikasConfigRecord>({
   description,
   title,
   Icon,

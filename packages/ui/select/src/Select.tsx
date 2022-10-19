@@ -1,4 +1,8 @@
-import type { BorderRadius, PikasCSS, PikasConfig } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  PikasCSS,
+  PikasConfigRecord,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconCSS } from '@pikas-ui/icons'
@@ -184,19 +188,19 @@ export const selectPadding = {
 } as const
 export type SelectPadding = keyof typeof selectPadding
 
-export type SelectCSS<Config extends PikasConfig = PikasConfig> = {
-  container?: Config['css']
-  trigger?: Config['css']
+export type SelectCSS<Config extends PikasConfigRecord = any> = {
+  container?: Config['CSS']
+  trigger?: Config['CSS']
   infoTooltip?: TooltipCSS<Config>
   infoIcon?: IconCSS<Config>
-  required?: Config['css']
-  label?: Config['css']
-  description?: Config['css']
-  textError?: Config['css']
-  content?: Config['css']
+  required?: Config['CSS']
+  label?: Config['CSS']
+  description?: Config['CSS']
+  textError?: Config['CSS']
+  content?: Config['CSS']
 }
 
-export interface SelectProps<Config extends PikasConfig = PikasConfig> {
+export interface SelectProps<Config extends PikasConfigRecord = any> {
   css?: SelectCSS<Config>
   hasSearch?: boolean
   searchPlaceholder?: string
@@ -204,8 +208,8 @@ export interface SelectProps<Config extends PikasConfig = PikasConfig> {
   label?: string
   borderRadius?: BorderRadius
   padding?: SelectPadding
-  fontSize?: Config['fontSize']
-  borderColorName?: Config['color']
+  fontSize?: Config['theme']['fontSize']
+  borderColorName?: keyof Config['theme']['colors']
   borderWidth?: number
   data: {
     name?: string
@@ -220,8 +224,8 @@ export interface SelectProps<Config extends PikasConfig = PikasConfig> {
   direction?: SelectDirections
   onOpenChange?: (open: boolean) => void
   defaultOpen?: boolean
-  boxShadow?: Config['shadow'] | 'none'
-  backgroundColorName?: Config['color']
+  boxShadow?: Config['theme']['shadow'] | 'none'
+  backgroundColorName?: keyof Config['theme']['colors']
   outline?: boolean
   description?: string
   width?: string | number
@@ -236,7 +240,7 @@ export interface SelectRef {
   setValue: (value: string) => void
 }
 
-const SelectInner = <Config extends PikasConfig = PikasConfig>(
+const SelectInner = <Config extends PikasConfigRecord>(
   {
     data,
     css,
@@ -273,7 +277,7 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
   const [value, setValue] = useState(defaultValue || '')
   const [formattedData, setFormattedData] = useState(data)
   const [focus, setFocus] = useState(false)
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   useEffect(() => {
     setFormattedData(
@@ -528,7 +532,7 @@ const SelectInner = <Config extends PikasConfig = PikasConfig>(
 }
 
 export const Select = forwardRef(SelectInner) as <
-  Config extends PikasConfig = PikasConfig
+  Config extends PikasConfigRecord = any
 >(
   props: SelectProps<Config> & { ref?: React.ForwardedRef<SelectRef> }
 ) => ReturnType<typeof SelectInner>

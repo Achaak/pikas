@@ -1,22 +1,22 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { DefaultDialogContent } from './DefaultDialogContent/index.js'
 import { DefaultDialogFooter } from './DefaultDialogFooter/index.js'
 import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 
-export interface DefaultDialogProps<Config extends PikasConfig = PikasConfig>
+export interface DefaultDialogProps<Config extends PikasConfigRecord = any>
   extends DialogProps {
   title: string
   content: React.ReactNode
   validateButtonLabel?: string
-  validateButtonColorName?: Config['color']
+  validateButtonColorName?: keyof Config['theme']['colors']
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
 }
 
-export const DefaultDialog = <Config extends PikasConfig = PikasConfig>({
+export const DefaultDialog = <Config extends PikasConfigRecord>({
   title,
   content,
   onClose,

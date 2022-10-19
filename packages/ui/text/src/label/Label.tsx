@@ -1,4 +1,4 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import React from 'react'
@@ -10,13 +10,13 @@ const LabelStyled = styled(LabelPrimitive.Label, {
   color: '$BLACK',
 })
 
-export interface LabelProps<Config extends PikasConfig = PikasConfig> {
+export interface LabelProps<Config extends PikasConfigRecord = any> {
   children?: React.ReactNode
-  css?: Config['css']
+  css?: Config['CSS']
   htmlFor?: string
 }
 
-export const Label = <Config extends PikasConfig = PikasConfig>({
+export const Label = <Config extends PikasConfigRecord>({
   children,
   css,
   htmlFor,

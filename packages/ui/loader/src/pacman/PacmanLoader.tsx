@@ -1,5 +1,5 @@
 import { PacmanLoader as PacmanLoaderDefault } from 'react-spinners'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
@@ -7,20 +7,20 @@ const PacmanLoaderStyled = styled(PacmanLoaderDefault, {
   display: 'flex',
 })
 
-export interface PacmanLoaderProps<Config extends PikasConfig = PikasConfig> {
+export interface PacmanLoaderProps<Config extends PikasConfigRecord = any> {
   size?: number
   margin?: number
-  colorName?: Config['color']
+  colorName?: keyof Config['theme']['colors']
   colorHex?: string
-  colorBubble?: Config['color']
+  colorBubble?: keyof Config['theme']['colors']
   colorBubbleHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const PacmanLoader = <Config extends PikasConfig = PikasConfig>({
+export const PacmanLoader = <Config extends PikasConfigRecord>({
   size,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY' as keyof Config['theme']['colors'],
   colorHex,
   colorBubble,
   colorBubbleHex,
@@ -28,7 +28,7 @@ export const PacmanLoader = <Config extends PikasConfig = PikasConfig>({
   loading = true,
   speedMultiplier,
 }: PacmanLoaderProps<Config>): JSX.Element => {
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   return (
     <PacmanLoaderStyled

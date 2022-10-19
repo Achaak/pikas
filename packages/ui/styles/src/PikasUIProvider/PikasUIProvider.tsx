@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
-import type { createTheme } from '../css.js'
 import { styled, theme as themeDefault } from '../css.js'
+import type { PikasConfigRecord } from '../type.js'
 import merge from 'lodash.merge'
 import cloneDeep from 'lodash.clonedeep'
 import * as usehooks from 'usehooks-ts'
@@ -14,22 +14,23 @@ const ContainerStyled = styled('div', {
   height: 'fit-content',
 })
 
-export interface PikasUIProviderProps {
+export interface PikasUIProviderProps<Config extends PikasConfigRecord = any> {
   children?: React.ReactNode
-  lightTheme?: ReturnType<typeof createTheme>
-  darkTheme?: ReturnType<typeof createTheme>
+  lightTheme?: Config['theme']
+  darkTheme?: Config['theme']
 }
 
-export type PikasUIContext = typeof themeDefault | undefined
+export type PikasUIContextProps = PikasConfigRecord['theme']
+export type PikasUIContextProps2 = typeof themeDefault.colors
 
-export const PikasUIContext = createContext<PikasUIContext>(undefined)
+export const PikasUIContext = createContext<PikasUIContextProps>(themeDefault)
 
-export const PikasUIProvider: React.FC<PikasUIProviderProps> = ({
+export const PikasUIProvider = <Config extends PikasConfigRecord>({
   lightTheme,
   darkTheme,
   children,
-}) => {
-  const [theme, setTheme] = useState<PikasUIContext>(
+}: PikasUIProviderProps<Config>): JSX.Element => {
+  const [theme, setTheme] = useState<PikasUIContextProps>(
     merge(cloneDeep(themeDefault), lightTheme)
   )
   const { isDarkMode } = useTernaryDarkMode()
@@ -46,5 +47,13 @@ export const PikasUIProvider: React.FC<PikasUIProviderProps> = ({
     <PikasUIContext.Provider value={theme}>
       <ContainerStyled className={theme}>{children}</ContainerStyled>
     </PikasUIContext.Provider>
+  )
+}
+
+const Test: React.FC = () => {
+  return (
+    <PikasUIProvider lightTheme={themeDefault}>
+      <button>Toggle dark mode</button>
+    </PikasUIProvider>
   )
 }

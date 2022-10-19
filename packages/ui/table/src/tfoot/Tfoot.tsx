@@ -1,19 +1,19 @@
 import React from 'react'
 
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 
-interface CustomProps<Config extends PikasConfig = PikasConfig>
+interface CustomProps<Config extends PikasConfigRecord = any>
   extends React.HTMLAttributes<HTMLTableSectionElement> {
   variant?: 'default' | 'light'
-  css?: Config['css']
+  css?: Config['CSS']
 }
 
-export const Tfoot = <Config extends PikasConfig = PikasConfig>(
+export const Tfoot = <Config extends PikasConfigRecord>(
   props: CustomProps<Config>
 ): JSX.Element => {
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   const Tfoot = styled('tfoot', {
     variants: {

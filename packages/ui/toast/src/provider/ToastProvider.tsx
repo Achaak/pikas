@@ -1,4 +1,4 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React, { createContext, useState } from 'react'
@@ -71,11 +71,11 @@ export interface ToastProviderViewport {
   label?: string
 }
 
-export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
+export interface ToastProviderProps<Config extends PikasConfigRecord = any> {
   children?: React.ReactNode
   duration?: number
   label?: string
-  css?: Config['css']
+  css?: Config['CSS']
   swipeThreshold?: number
   width?: number
   position?: ToastPosition
@@ -83,7 +83,7 @@ export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
   viewport?: ToastProviderViewport
 }
 
-export interface ToastContextProps<Config extends PikasConfig = PikasConfig> {
+export interface ToastContextProps<Config extends PikasConfigRecord = any> {
   toasts: React.ReactElement<BaseToastProps<Config>>[]
   publish: (toast: React.ReactElement<BaseToastProps<Config>>) => void
 }
@@ -95,7 +95,7 @@ export const ToastContext = createContext<ToastContextProps<PikasConfig>>({
   },
 })
 
-export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
+export const ToastProvider = <Config extends PikasConfigRecord>({
   duration = 5000,
   label = 'Notification',
   css,

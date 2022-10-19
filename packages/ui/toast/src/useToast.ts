@@ -1,10 +1,10 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useContext } from 'react'
 import type { ToastContextProps } from './provider/index.js'
 import { ToastContext } from './provider/index.js'
 
 export const useToast = <
-  Config extends PikasConfig = PikasConfig
+  Config extends PikasConfigRecord = any
 >(): ToastContextProps<Config> => {
   const context = useContext(ToastContext)
 

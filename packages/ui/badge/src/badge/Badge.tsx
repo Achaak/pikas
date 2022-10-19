@@ -1,5 +1,5 @@
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { CustomBadgeProps } from '../customBadge/index.js'
 import { CustomBadge } from '../customBadge/index.js'
@@ -53,18 +53,18 @@ export const gapPadding = {
 } as const
 export type BadgeGap = keyof typeof gapPadding
 
-export interface BadgeProps<Config extends PikasConfig = PikasConfig>
+export interface BadgeProps<Config extends PikasConfigRecord = any>
   extends CustomBadgeProps<Config> {
-  fontSize?: Config['fontSize']
+  fontSize?: Config['theme']['fontSize']
   leftIconName?: string
   rightIconName?: string
   gap?: BadgeGap
   padding?: BadgePadding
 }
 
-export const Badge = <Config extends PikasConfig = PikasConfig>({
+export const Badge = <Config extends PikasConfigRecord>({
   children,
-  fontSize = 'EM-MEDIUM' as Config['fontSize'],
+  fontSize = 'EM-MEDIUM' as Config['theme']['fontSize'],
   leftIconName,
   rightIconName,
   padding = 'md',

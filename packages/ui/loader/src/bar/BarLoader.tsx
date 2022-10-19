@@ -1,25 +1,25 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { BarLoader as BarLoaderDefault } from 'react-spinners'
 
-export interface BarLoaderProps<Config extends PikasConfig = PikasConfig> {
+export interface BarLoaderProps<Config extends PikasConfigRecord = any> {
   width?: number
   height?: number
-  colorName?: Config['color']
+  colorName?: keyof Config['theme']['colors']
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const BarLoader = <Config extends PikasConfig = PikasConfig>({
+export const BarLoader = <Config extends PikasConfigRecord>({
   width,
   height,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY' as keyof Config['theme']['colors'],
   colorHex,
   loading = true,
   speedMultiplier,
 }: BarLoaderProps<Config>): JSX.Element => {
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   return (
     <BarLoaderDefault

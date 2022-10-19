@@ -1,6 +1,6 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import type { TooltipCSS } from '@pikas-ui/tooltip'
 import { Tooltip } from '@pikas-ui/tooltip'
 import { styled } from '@pikas-ui/styles'
@@ -68,20 +68,20 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  content?: Config['css']
+export interface SwitchCSS<Config extends PikasConfigRecord = any> {
+  container?: Config['CSS']
+  content?: Config['CSS']
   infoTooltip?: TooltipCSS<Config>
   infoIcon?: IconCSS<Config>
-  label?: Config['css']
-  required?: Config['css']
-  textError?: Config['css']
+  label?: Config['CSS']
+  required?: Config['CSS']
+  textError?: Config['CSS']
 }
 
-export interface BasicSwitchProps<Config extends PikasConfig = PikasConfig> {
+export interface BasicSwitchProps<Config extends PikasConfigRecord = any> {
   label?: string
   name?: string
-  fontSize?: Config['fontSize']
+  fontSize?: Config['theme']['fontSize']
   textError?: string
 
   onCheckedChange?: (val: boolean) => void
@@ -98,14 +98,14 @@ export interface BasicSwitchProps<Config extends PikasConfig = PikasConfig> {
   info?: string
 }
 
-export type SwitchProps<Config extends PikasConfig = PikasConfig> =
+export type SwitchProps<Config extends PikasConfigRecord = any> =
   ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<Config>
 
-export const Switch = <Config extends PikasConfig = PikasConfig>({
+export const Switch = <Config extends PikasConfigRecord>({
   id,
   name,
   onCheckedChange,
-  fontSize = 'EM-MEDIUM' as Config['fontSize'],
+  fontSize = 'EM-MEDIUM' as Config['theme']['fontSize'],
   textError,
   label,
   css,

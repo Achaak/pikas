@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import React from 'react'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { IconByName } from '@pikas-ui/icons'
@@ -55,20 +55,20 @@ const ButtonArrowRight = styled(ButtonArrow, {
   marginLeft: 8,
 })
 
-export interface PaginationCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  leftContainer?: Config['css']
-  rightContainer?: Config['css']
-  pageNumber?: Config['css']
-  pageNumberActive?: Config['css']
+export interface PaginationCSS<Config extends PikasConfigRecord = any> {
+  container?: Config['CSS']
+  leftContainer?: Config['CSS']
+  rightContainer?: Config['CSS']
+  pageNumber?: Config['CSS']
+  pageNumberActive?: Config['CSS']
   select?: SelectCSS<Config>
-  buttonChevronsLeft?: Config['css']
-  buttonChevronsRight?: Config['css']
-  buttonChevronLeft?: Config['css']
-  buttonChevronRight?: Config['css']
+  buttonChevronsLeft?: Config['CSS']
+  buttonChevronsRight?: Config['CSS']
+  buttonChevronLeft?: Config['CSS']
+  buttonChevronRight?: Config['CSS']
 }
 
-export interface PaginationProps<Config extends PikasConfig = PikasConfig> {
+export interface PaginationProps<Config extends PikasConfigRecord = any> {
   previousPage: () => void
   nextPage: () => void
   setPageSize: (pageSize: number) => void
@@ -82,7 +82,7 @@ export interface PaginationProps<Config extends PikasConfig = PikasConfig> {
   css?: PaginationCSS<Config>
 }
 
-export const Pagination = <Config extends PikasConfig = PikasConfig>({
+export const Pagination = <Config extends PikasConfigRecord>({
   nextPage,
   previousPage,
   setPageSize,
@@ -95,7 +95,7 @@ export const Pagination = <Config extends PikasConfig = PikasConfig>({
   selectValue,
   css,
 }: PaginationProps<Config>): JSX.Element => {
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   const getNumber = (): React.ReactNode => {
     const pagesBtn: Array<ReactElement> = []

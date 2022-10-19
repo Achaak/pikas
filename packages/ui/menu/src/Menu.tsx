@@ -1,5 +1,5 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type { PikasConfig, PikasCSS } from '@pikas-ui/styles'
+import type { PikasConfigRecord, PikasCSS } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import 'react'
 
@@ -140,47 +140,47 @@ export const RightSlotCSS: PikasCSS = {
 
 export const SpanCSS: PikasCSS = {}
 
-interface ItemBase<Config extends PikasConfig = PikasConfig> {
+interface ItemBase<Config extends PikasConfigRecord = any> {
   disabled?: boolean
   rightSlot?: string
-  colorName?: Config['color']
+  colorName?: keyof Config['theme']['colors']
   colorHex?: string
   type: 'item' | 'checkbox' | 'radio' | 'menu'
   hide?: boolean
 }
 
-interface DefaultItem<Config extends PikasConfig = PikasConfig>
+interface DefaultItem<Config extends PikasConfigRecord = any>
   extends ItemBase<Config> {
   type: 'item'
   Icon?: React.FC<IconProps<Config>>
-  iconColorName?: Config['color']
+  iconColorName?: keyof Config['theme']['colors']
   iconColorHex?: string
   loading?: boolean
   label: React.ReactNode
   onClick?: () => void
   css?: {
-    container?: Config['css']
-    indicator?: Config['css']
-    label?: Config['css']
-    rightSlot?: Config['css']
+    container?: Config['CSS']
+    indicator?: Config['CSS']
+    label?: Config['CSS']
+    rightSlot?: Config['CSS']
   }
 }
 
-interface CheckboxItem<Config extends PikasConfig = PikasConfig>
+interface CheckboxItem<Config extends PikasConfigRecord = any>
   extends ItemBase<Config> {
   type: 'checkbox'
   checked: boolean
   label: React.ReactNode
   onCheckedChange: (checked: boolean | 'indeterminate') => void
   css?: {
-    container?: Config['css']
-    indicator?: Config['css']
-    label?: Config['css']
-    rightSlot?: Config['css']
+    container?: Config['CSS']
+    indicator?: Config['CSS']
+    label?: Config['CSS']
+    rightSlot?: Config['CSS']
   }
 }
 
-interface RadioItem<Config extends PikasConfig = PikasConfig>
+interface RadioItem<Config extends PikasConfigRecord = any>
   extends ItemBase<Config> {
   type: 'radio'
   onValueChange: (value: string) => void
@@ -191,48 +191,48 @@ interface RadioItem<Config extends PikasConfig = PikasConfig>
     disabled?: boolean
     rightSlot?: string
     css?: {
-      container?: Config['css']
-      indicator?: Config['css']
-      label?: Config['css']
-      rightSlot?: Config['css']
+      container?: Config['CSS']
+      indicator?: Config['CSS']
+      label?: Config['CSS']
+      rightSlot?: Config['CSS']
     }
   }[]
   css?: {
-    container?: Config['css']
+    container?: Config['CSS']
   }
 }
 
-interface MenuItem<Config extends PikasConfig = PikasConfig>
+interface MenuItem<Config extends PikasConfigRecord = any>
   extends ItemBase<Config> {
   type: 'menu'
   data: MenuData<Config>
   label: React.ReactNode
   css?: {
-    container?: Config['css']
+    container?: Config['CSS']
   }
 }
 
-export type ItemEntry<Config extends PikasConfig = PikasConfig> =
+export type ItemEntry<Config extends PikasConfigRecord = any> =
   | DefaultItem<Config>
   | CheckboxItem<Config>
   | RadioItem<Config>
   | MenuItem<Config>
 
-export interface MenuDataItem<Config extends PikasConfig = PikasConfig> {
+export interface MenuDataItem<Config extends PikasConfigRecord = any> {
   label?: React.ReactNode
-  css?: Config['css']
+  css?: Config['CSS']
   items: ItemEntry<Config>[]
 }
 
-export type MenuData<Config extends PikasConfig = PikasConfig> =
+export type MenuData<Config extends PikasConfigRecord = any> =
   MenuDataItem<Config>[]
 
-export interface MenuCSS<Config extends PikasConfig = PikasConfig> {
-  content?: Config['css']
-  separator?: Config['css']
+export interface MenuCSS<Config extends PikasConfigRecord = any> {
+  content?: Config['CSS']
+  separator?: Config['CSS']
 }
 
-export interface MenuProps<Config extends PikasConfig = PikasConfig> {
+export interface MenuProps<Config extends PikasConfigRecord = any> {
   data: MenuData<Config>
   css?: MenuCSS<Config>
 }

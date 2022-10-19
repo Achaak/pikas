@@ -1,6 +1,6 @@
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasColor, PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor, PikasConfigRecord } from '@pikas-ui/styles'
 import React, { useCallback } from 'react'
 import type { DefaultToastCSS } from '../defaultToast'
 import { DefaultToast } from '../defaultToast'
@@ -14,7 +14,7 @@ export const toastVariant = {
 } as const
 export type ToastVariant = keyof typeof toastVariant
 
-export interface ToastProps<Config extends PikasConfig = PikasConfig>
+export interface ToastProps<Config extends PikasConfigRecord = any>
   extends BaseToastProps<Config> {
   variant?: ToastVariant
   title?: string
@@ -22,7 +22,7 @@ export interface ToastProps<Config extends PikasConfig = PikasConfig>
   css?: DefaultToastCSS<Config>
 }
 
-export const Toast = <Config extends PikasConfig = PikasConfig>({
+export const Toast = <Config extends PikasConfigRecord>({
   variant = 'info',
   css,
   ...props

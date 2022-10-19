@@ -15,7 +15,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
 } from '@tanstack/react-table'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { PaginationCSS } from './pagination/index.js'
 import { Pagination } from './pagination/index.js'
@@ -140,28 +140,28 @@ export const tableVariant = {
 } as const
 export type TableVariant = keyof typeof tableVariant
 
-export interface TableCSS<T, Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  table?: Config['css']
-  thead?: Config['css']
-  tbody?: Config['css']
-  tfoot?: Config['css']
-  tr?: Config['css']
-  th?: Config['css']
-  thSpan?: Config['css']
-  td?: Config['css']
-  tdContent?: Config['css']
-  tdEmptyMessage?: Config['css']
-  tdContentEmptyMessage?: Config['css']
+export interface TableCSS<T, Config extends PikasConfigRecord = any> {
+  container?: Config['CSS']
+  table?: Config['CSS']
+  thead?: Config['CSS']
+  tbody?: Config['CSS']
+  tfoot?: Config['CSS']
+  tr?: Config['CSS']
+  th?: Config['CSS']
+  thSpan?: Config['CSS']
+  td?: Config['CSS']
+  tdContent?: Config['CSS']
+  tdEmptyMessage?: Config['CSS']
+  tdContentEmptyMessage?: Config['CSS']
   pagination?: PaginationCSS<Config>
   column?: Partial<
     Record<
       keyof T,
       {
-        th?: Config['css']
-        td?: Config['css']
-        thSpan?: Config['css']
-        tdContent?: Config['css']
+        th?: Config['CSS']
+        td?: Config['CSS']
+        thSpan?: Config['CSS']
+        tdContent?: Config['CSS']
       }
     >
   >
@@ -210,7 +210,7 @@ export interface TableProps<
 
 export const Table = <
   T extends Record<string, unknown>,
-  Config extends PikasConfig = PikasConfig
+  Config extends PikasConfigRecord = any
 >({
   data,
   hasTfoot,

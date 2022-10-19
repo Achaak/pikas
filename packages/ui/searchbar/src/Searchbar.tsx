@@ -3,7 +3,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
 import { Separator } from '@pikas-ui/separator'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
@@ -104,7 +104,7 @@ const DirectResultValue = styled('span', {
   color: '$BLACK',
 })
 
-const SearchIcon = <Config extends PikasConfig = PikasConfig>({
+const SearchIcon = <Config extends PikasConfigRecord>({
   ...props
 }: IconProps<Config>): JSX.Element => (
   <IconByName<Config> name="bx:search" {...props} />
@@ -131,17 +131,17 @@ type ResultGroupWithId = {
   items: (ResultItem & { id: number })[]
 }
 
-export type SearchbarCSS<Config extends PikasConfig = PikasConfig> = {
-  container?: Config['css']
-  resultContainer?: Config['css']
-  noResult?: Config['css']
-  resultItem?: Config['css']
+export type SearchbarCSS<Config extends PikasConfigRecord = any> = {
+  container?: Config['CSS']
+  resultContainer?: Config['CSS']
+  noResult?: Config['CSS']
+  resultItem?: Config['CSS']
   textfield?: TextfieldCSS<Config>
-  resultGroup?: Config['css']
-  resultGroupTitle?: Config['css']
+  resultGroup?: Config['CSS']
+  resultGroupTitle?: Config['CSS']
 }
 
-export interface SearchbarProps<T, Config extends PikasConfig = PikasConfig> {
+export interface SearchbarProps<T, Config extends PikasConfigRecord = any> {
   searchFunction: (value: string) => Promise<T>
   onSearch: (value: T) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
@@ -163,7 +163,7 @@ export interface SearchbarProps<T, Config extends PikasConfig = PikasConfig> {
   }
 }
 
-export const Searchbar = <T, Config extends PikasConfig = PikasConfig>({
+export const Searchbar = <T, Config extends PikasConfigRecord = any>({
   onSearch,
   searchFunction,
   searchType = 'button',

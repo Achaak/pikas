@@ -1,4 +1,8 @@
-import type { PikasColor, BorderRadius, PikasConfig } from '@pikas-ui/styles'
+import type {
+  PikasColor,
+  BorderRadius,
+  PikasConfigRecord,
+} from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Label, TextError, Description } from '@pikas-ui/text'
 import fontColorContrast from 'font-color-contrast'
@@ -80,25 +84,25 @@ export const textareaResize = {
 } as const
 export type TextareaResize = keyof typeof textareaResize
 
-export interface TextareaCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  textareaContainer?: Config['css']
-  textarea?: Config['css']
+export interface TextareaCSS<Config extends PikasConfigRecord = any> {
+  container?: Config['CSS']
+  textareaContainer?: Config['CSS']
+  textarea?: Config['CSS']
   infoTooltip?: TooltipCSS<Config>
   infoIcon?: IconCSS<Config>
-  label?: Config['css']
-  description?: Config['css']
-  textError?: Config['css']
-  required?: Config['css']
+  label?: Config['CSS']
+  description?: Config['CSS']
+  textError?: Config['CSS']
+  required?: Config['CSS']
 }
 
-export type TextareaProps<Config extends PikasConfig = PikasConfig> = {
+export type TextareaProps<Config extends PikasConfigRecord = any> = {
   id?: string
   label?: string
-  boxShadow?: Config['shadow'] | 'none'
+  boxShadow?: Config['theme']['shadow'] | 'none'
   borderRadius?: BorderRadius
   padding?: TextareaPadding
-  fontSize?: Config['fontSize']
+  fontSize?: Config['theme']['fontSize']
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   css?: TextareaCSS<Config>
@@ -111,33 +115,33 @@ export type TextareaProps<Config extends PikasConfig = PikasConfig> = {
   maxHeight?: string | number
   minHeight?: string | number
   minWidth?: string | number
-  borderColorName?: Config['color']
+  borderColorName?: keyof Config['theme']['colors']
   borderColorHex?: string
   borderWidth?: number
-  colorName?: Config['color']
+  colorName?: keyof Config['theme']['colors']
   colorHex?: string
-  placeholderColorName?: Config['color']
+  placeholderColorName?: keyof Config['theme']['colors']
   placeholderColorHex?: string
-  backgroundColorName?: Config['color']
+  backgroundColorName?: keyof Config['theme']['colors']
   backgroundColorHex?: string
   info?: React.ReactNode
   data?: DOMStringMap
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
-const TextareaInner = <Config extends PikasConfig = PikasConfig>(
+const TextareaInner = <Config extends PikasConfigRecord>(
   {
     id,
     onChange,
-    boxShadow = 'DIMINUTION_1' as Config['shadow'],
+    boxShadow = 'DIMINUTION_1' as Config['theme']['shadow'],
     borderRadius = 'md',
     padding = 'md',
-    fontSize = 'EM-MEDIUM' as Config['fontSize'],
+    fontSize = 'EM-MEDIUM' as Config['theme']['fontSize'],
     textError,
     label,
     css,
-    borderColorName = 'TRANSPARENT' as Config['color'],
+    borderColorName = 'TRANSPARENT' as keyof Config['theme']['colors'],
     borderWidth = 0,
-    backgroundColorName = 'GRAY_LIGHTEST_1' as Config['color'],
+    backgroundColorName = 'GRAY_LIGHTEST_1' as keyof Config['theme']['colors'],
     outline = true,
     resize,
     description,
@@ -162,7 +166,7 @@ const TextareaInner = <Config extends PikasConfig = PikasConfig>(
   ref: React.ForwardedRef<HTMLTextAreaElement>
 ): JSX.Element => {
   const [focus, setFocus] = useState(false)
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   const onChangeTextarea = (
     e: React.ChangeEvent<HTMLTextAreaElement>
@@ -176,7 +180,7 @@ const TextareaInner = <Config extends PikasConfig = PikasConfig>(
     colorName,
     colorHex,
   }: {
-    colorName?: Config['color']
+    colorName?: keyof Config['theme']['colors']
     colorHex?: string
   }): string => {
     return colorHex || colorName
@@ -184,8 +188,7 @@ const TextareaInner = <Config extends PikasConfig = PikasConfig>(
       : undefined ||
           (theme &&
             fontColorContrast(
-              theme.colors[(backgroundColorName as PikasColor) || 'WHITE']
-                .value,
+              theme.colors[backgroundColorName || 'WHITE'].value,
               0.7
             )) ||
           ''
@@ -304,7 +307,7 @@ const TextareaInner = <Config extends PikasConfig = PikasConfig>(
 }
 
 export const Textarea = forwardRef(TextareaInner) as <
-  Config extends PikasConfig = PikasConfig
+  Config extends PikasConfigRecord = any
 >(
   props: TextareaProps<Config> & {
     ref?: React.ForwardedRef<HTMLTextAreaElement>

@@ -1,4 +1,4 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { keyframes, styled } from '@pikas-ui/styles'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useState } from 'react'
@@ -40,20 +40,20 @@ const Timer = styled('div', {
   position: 'relative',
 })
 
-export interface CustomToastCSS<Config extends PikasConfig = PikasConfig>
+export interface CustomToastCSS<Config extends PikasConfigRecord = any>
   extends ToastCSS<Config> {
-  close?: Config['css']
-  timer?: Config['css']
-  content?: Config['css']
+  close?: Config['CSS']
+  timer?: Config['CSS']
+  content?: Config['CSS']
 }
 
-export interface CustomToastProps<Config extends PikasConfig = PikasConfig>
+export interface CustomToastProps<Config extends PikasConfigRecord = any>
   extends BaseToastProps<Config> {
   css?: CustomToastCSS<Config>
   children?: React.ReactNode
 }
 
-export const CustomToast = <Config extends PikasConfig = PikasConfig>({
+export const CustomToast = <Config extends PikasConfigRecord>({
   duration = 5000,
   onOpenChange,
   css,

@@ -4,9 +4,15 @@ import { br } from './borderRadius.js'
 import type { Gap } from './gap.js'
 import { gap } from './gap.js'
 
-export const loadUtils = <T extends Record<string, string>>(
-  utils: T
-): ConfigType.Utils<T & Gap & BR> =>
+export type UtilsRecordValue = any
+export type UtilsRecordKey = any
+export type UtilsRecord = Record<UtilsRecordKey, UtilsRecordValue>
+
+export type Utils<T extends UtilsRecord = UtilsRecord> = ConfigType.Utils<
+  T & Gap & BR
+>
+
+export const loadUtils = <T extends UtilsRecord>(utils: T): Utils<T> =>
   ({
     ...gap,
     ...br,

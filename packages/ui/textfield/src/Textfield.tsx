@@ -1,6 +1,10 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasConfig, PikasColor, BorderRadius } from '@pikas-ui/styles'
+import type {
+  PikasConfigRecord,
+  PikasColor,
+  BorderRadius,
+} from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
@@ -182,48 +186,48 @@ export const textfieldGap = {
 } as const
 export type TextfieldGap = keyof typeof textfieldGap
 
-export type TextfieldCSS<Config extends PikasConfig = PikasConfig> = {
-  container?: Config['css']
-  inputContainer?: Config['css']
-  input?: Config['css']
-  left?: Config['css']
-  right?: Config['css']
+export type TextfieldCSS<Config extends PikasConfigRecord = any> = {
+  container?: Config['CSS']
+  inputContainer?: Config['CSS']
+  input?: Config['CSS']
+  left?: Config['CSS']
+  right?: Config['CSS']
   leftIcon?: IconCSS<Config>
   rightIcon?: IconCSS<Config>
   infoTooltip?: TooltipCSS<Config>
   infoIcon?: IconCSS<Config>
-  label?: Config['css']
-  description?: Config['css']
-  textError?: Config['css']
-  required?: Config['css']
+  label?: Config['CSS']
+  description?: Config['CSS']
+  textError?: Config['CSS']
+  required?: Config['CSS']
 }
 
-export type TextfieldProps<Config extends PikasConfig = PikasConfig> = {
+export type TextfieldProps<Config extends PikasConfigRecord = any> = {
   type?: TextfieldType
   id?: string
   label?: string
-  boxShadow?: Config['shadow'] | 'none'
+  boxShadow?: Config['theme']['shadow'] | 'none'
   borderRadius?: BorderRadius
   padding?: TextfieldPadding
   gap?: TextfieldGap
-  fontSize?: Config['fontSize']
-  borderColorName?: Config['color']
+  fontSize?: Config['theme']['fontSize']
+  borderColorName?: keyof Config['theme']['colors']
   borderColorHex?: string
   borderWidth?: number
-  colorName?: Config['color']
+  colorName?: keyof Config['theme']['colors']
   colorHex?: string
-  placeholderColorName?: Config['color']
+  placeholderColorName?: keyof Config['theme']['colors']
   placeholderColorHex?: string
-  backgroundColorName?: Config['color']
+  backgroundColorName?: keyof Config['theme']['colors']
   backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
   LeftIcon?: React.FC<IconProps<Config>>
   RightIcon?: React.FC<IconProps<Config>>
-  leftIconColorName?: Config['color']
+  leftIconColorName?: keyof Config['theme']['colors']
   leftIconColorHex?: string
-  rightIconColorName?: Config['color']
+  rightIconColorName?: keyof Config['theme']['colors']
   rightIconColorHex?: string
   leftIconSize?: number
   rightIconSize?: number
@@ -241,19 +245,19 @@ export type TextfieldProps<Config extends PikasConfig = PikasConfig> = {
   data?: DOMStringMap
 } & InputHTMLAttributes<HTMLInputElement>
 
-const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
+const TextfieldInner = <Config extends PikasConfigRecord>(
   {
     id,
     type = 'text',
     onChange,
-    boxShadow = 'DIMINUTION_1' as Config['shadow'],
+    boxShadow = 'DIMINUTION_1' as Config['theme']['shadow'],
     borderRadius = 'md',
     padding = 'md',
-    fontSize = 'EM-MEDIUM' as Config['fontSize'],
+    fontSize = 'EM-MEDIUM' as Config['theme']['fontSize'],
     textError,
     label,
     css,
-    borderColorName = 'TRANSPARENT' as Config['color'],
+    borderColorName = 'TRANSPARENT' as keyof Config['theme']['colors'],
     borderWidth = 0,
     autoComplete,
     min,
@@ -262,7 +266,7 @@ const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
     RightIcon,
     leftChildren,
     rightChildren,
-    backgroundColorName = 'GRAY_LIGHTEST_1' as Config['color'],
+    backgroundColorName = 'GRAY_LIGHTEST_1' as keyof Config['theme']['colors'],
     outline = true,
     description,
     gap,
@@ -292,7 +296,7 @@ const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
   const refInput = useRef<HTMLInputElement>(null)
   const multiRef = useMergedRef(ref, refInput)
   const [focus, setFocus] = useState(false)
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (type === 'number' && refInput.current) {
@@ -314,7 +318,7 @@ const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
     colorName,
     colorHex,
   }: {
-    colorName?: Config['color']
+    colorName?: keyof Config['theme']['colors']
     colorHex?: string
   }): string => {
     return (
@@ -322,7 +326,7 @@ const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
       (colorName ? `$${colorName}` : undefined) ||
       (theme
         ? fontColorContrast(
-            theme.colors[(backgroundColorName as PikasColor) || 'WHITE'].value,
+            theme.colors[backgroundColorName || 'WHITE'].value,
             0.7
           )
         : undefined) ||
@@ -517,7 +521,7 @@ const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
 }
 
 export const Textfield = forwardRef(TextfieldInner) as <
-  Config extends PikasConfig = PikasConfig
+  Config extends PikasConfigRecord = any
 >(
   props: TextfieldProps<Config> & { ref?: React.ForwardedRef<HTMLInputElement> }
 ) => ReturnType<typeof TextfieldInner>

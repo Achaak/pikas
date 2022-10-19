@@ -1,7 +1,7 @@
 import { IconByName } from '@pikas-ui/icons'
 import type { CustomBadgeProps } from '../customBadge/index.js'
 import { CustomBadge } from '../customBadge/index.js'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { BadgePadding } from '../types.js'
 
@@ -27,14 +27,14 @@ const BadgeStyled = styled(CustomBadge, {
   },
 })
 
-export interface BadgeIconProps<Config extends PikasConfig = PikasConfig>
+export interface BadgeIconProps<Config extends PikasConfigRecord = any>
   extends CustomBadgeProps<Config> {
   iconName: string
   size?: number | string
   padding?: BadgePadding
 }
 
-export const BadgeIcon = <Config extends PikasConfig = PikasConfig>({
+export const BadgeIcon = <Config extends PikasConfigRecord>({
   iconName,
   size = 24,
   padding = 'md',

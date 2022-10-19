@@ -1,4 +1,4 @@
-import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
+import type { BorderRadius, PikasConfigRecord } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
@@ -58,25 +58,25 @@ export const sliderOrientation = {
 } as const
 export type SliderOrientation = keyof typeof sliderOrientation
 
-export interface SliderCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  label?: Config['css']
-  description?: Config['css']
-  textError?: Config['css']
-  element?: Config['css']
-  slider?: Config['css']
-  track?: Config['css']
-  range?: Config['css']
-  thumb?: Config['css']
+export interface SliderCSS<Config extends PikasConfigRecord = any> {
+  container?: Config['CSS']
+  label?: Config['CSS']
+  description?: Config['CSS']
+  textError?: Config['CSS']
+  element?: Config['CSS']
+  slider?: Config['CSS']
+  track?: Config['CSS']
+  range?: Config['CSS']
+  thumb?: Config['CSS']
 }
 
-export interface SliderProps<Config extends PikasConfig = PikasConfig> {
+export interface SliderProps<Config extends PikasConfigRecord = any> {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
   id?: string
   label?: string | ReactNode
   textError?: string
-  fontSize?: Config['fontSize']
+  fontSize?: Config['theme']['fontSize']
   className?: string
   description?: string
   value?: number[]
@@ -93,17 +93,17 @@ export interface SliderProps<Config extends PikasConfig = PikasConfig> {
   minSize?: string | number
   weight?: number
   thumbSize?: number
-  thumbColorName?: Config['color']
+  thumbColorName?: keyof Config['theme']['colors']
   thumbColorHex?: string
-  thumbBorderColorName?: Config['color']
+  thumbBorderColorName?: keyof Config['theme']['colors']
   thumbBorderColorHex?: string
-  thumbBorderColorNameHover?: Config['color']
+  thumbBorderColorNameHover?: keyof Config['theme']['colors']
   thumbBorderColorHoverHex?: string
   thumbBorderWidth?: number
   thumbBorderRadius?: BorderRadius
-  trackColorName?: Config['color']
+  trackColorName?: keyof Config['theme']['colors']
   trackColorHex?: string
-  rangeColorName?: Config['color']
+  rangeColorName?: keyof Config['theme']['colors']
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadius
   css?: SliderCSS<Config>
@@ -111,11 +111,11 @@ export interface SliderProps<Config extends PikasConfig = PikasConfig> {
   onValueCommit?: (value: number[]) => void
 }
 
-export const Slider = <Config extends PikasConfig = PikasConfig>({
+export const Slider = <Config extends PikasConfigRecord>({
   id,
   label,
   textError,
-  fontSize = 'EM-MEDIUM' as Config['fontSize'],
+  fontSize = 'EM-MEDIUM' as Config['theme']['fontSize'],
   className,
   description,
   defaultValue,
@@ -134,17 +134,17 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
   minSize,
   size = '100%',
   thumbSize = 16,
-  thumbColorName = 'WHITE_FIX' as Config['color'],
+  thumbColorName = 'WHITE_FIX' as keyof Config['theme']['colors'],
   thumbColorHex,
   thumbBorderColorName,
   thumbBorderColorHex,
-  thumbBorderColorNameHover = 'GRAY_LIGHTER' as Config['color'],
+  thumbBorderColorNameHover = 'GRAY_LIGHTER' as keyof Config['theme']['colors'],
   thumbBorderColorHoverHex,
   thumbBorderWidth,
   thumbBorderRadius,
-  trackColorName = 'GRAY_LIGHTER' as Config['color'],
+  trackColorName = 'GRAY_LIGHTER' as keyof Config['theme']['colors'],
   trackColorHex,
-  rangeColorName = 'PRIMARY' as Config['color'],
+  rangeColorName = 'PRIMARY' as keyof Config['theme']['colors'],
   rangeColorHex,
   sliderBorderRadius,
   css,

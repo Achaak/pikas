@@ -1,4 +1,8 @@
-import type { BorderRadius, PikasConfig, PikasShadow } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  PikasConfigRecord,
+  PikasShadow,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { IconCSS } from '@pikas-ui/icons'
@@ -48,28 +52,28 @@ export const checkboxSide = {
 } as const
 export type CheckboxSide = keyof typeof checkboxSide
 
-export interface CheckboxCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  label?: Config['css']
-  checkboxRoot?: Config['css']
-  checkboxIndicator?: Config['css']
-  textError?: Config['css']
+export interface CheckboxCSS<Config extends PikasConfigRecord = any> {
+  container?: Config['CSS']
+  label?: Config['CSS']
+  checkboxRoot?: Config['CSS']
+  checkboxIndicator?: Config['CSS']
+  textError?: Config['CSS']
   icon?: IconCSS<Config>
 }
 
-export interface CheckboxProps<Config extends PikasConfig = PikasConfig> {
+export interface CheckboxProps<Config extends PikasConfigRecord = any> {
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
   id?: string
   label?: string | ReactNode
-  bgColorName?: Config['color']
-  bgColorNameChecked?: Config['color']
+  bgColorName?: keyof Config['theme']['colors']
+  bgColorNameChecked?: keyof Config['theme']['colors']
   textError?: string
   boxShadow?: PikasShadow | 'none'
-  borderColorName?: Config['color']
+  borderColorName?: keyof Config['theme']['colors']
   borderWidth?: number
   borderRadius?: BorderRadius
-  fontSize?: Config['fontSize']
+  fontSize?: Config['theme']['fontSize']
   size?: number
   checked?: boolean
   className?: string
@@ -82,7 +86,7 @@ export interface CheckboxProps<Config extends PikasConfig = PikasConfig> {
   css?: CheckboxCSS<Config>
 }
 
-export const Checkbox = <Config extends PikasConfig = PikasConfig>({
+export const Checkbox = <Config extends PikasConfigRecord>({
   id,
   label,
   textError,
@@ -106,7 +110,7 @@ export const Checkbox = <Config extends PikasConfig = PikasConfig>({
   indeterminate = false,
   css,
 }: CheckboxProps<Config>): JSX.Element => {
-  const theme = useTheme()
+  const theme = useTheme<Config>()
 
   const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
     indeterminate ? 'indeterminate' : defaultChecked || 'indeterminate'
