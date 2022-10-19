@@ -1,5 +1,12 @@
 # @pikas-ui/searchbar
 
+## 3.1.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/separator@3.2.2
+
 ## 3.1.11
 
 ### Patch Changes

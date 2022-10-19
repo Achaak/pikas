@@ -17,14 +17,14 @@ export interface SeparatorProps<Config extends PikasConfig = PikasConfig> {
   borderRadius?: BorderRadius
 }
 
-export const Separator = <Config extends PikasConfig = PikasConfig>({
+export const Separator = function <Config extends PikasConfig = PikasConfig>({
   orientation = 'horizontal',
   css,
   className,
   colorName = 'GRAY_LIGHT' as Config['color'],
   size = 2,
   borderRadius,
-}: SeparatorProps<Config>): JSX.Element => {
+}: SeparatorProps<Config>): JSX.Element {
   return (
     <StyledSeparator
       orientation={orientation}
