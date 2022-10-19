@@ -1,5 +1,11 @@
 # @pikas-ui/separator
 
+## 3.2.3
+
+### Patch Changes
+
+- Text fix
+
 ## 3.2.2
 
 ### Patch Changes
