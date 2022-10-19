@@ -10,9 +10,6 @@ export type TransitionsRecord = Record<
   TransitionsRecordValue
 >
 
-export type Transitions<T extends TransitionsRecord> = PikasTransitions & T
-export type Transition<T extends TransitionsRecord> = keyof Transitions<T>
-
 export const loadTransitions = <T extends TransitionsRecord>(
   values:
     | {

@@ -1,4 +1,4 @@
-import type { BorderRadius, PikasColor, PikasConfig } from '@pikas-ui/styles'
+import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
@@ -41,8 +41,7 @@ export const CustomBadge = <Config extends PikasConfig = PikasConfig>({
         color:
           theme &&
           fontColorContrast(
-            colorHex ||
-              theme.colors[(colorName as PikasColor) || 'PRIMARY'].value,
+            colorHex || theme.colors[colorName || 'PRIMARY'].value,
             0.7
           ),
         ...css,

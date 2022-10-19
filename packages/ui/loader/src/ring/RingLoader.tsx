@@ -1,28 +1,22 @@
-import type {
-  ColorsRecord,
-  Color as ColorByPikas,
-  PikasColor,
-} from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { RingLoader as RingLoaderDefault } from 'react-spinners'
 
-export interface RingLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
+export interface RingLoaderProps<Config extends PikasConfig = PikasConfig> {
   size?: number | string
-  colorName?: Color
+  colorName?: Config['color']
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const RingLoader = <
-  Color extends ColorByPikas<ColorsRecord> = PikasColor
->({
+export const RingLoader = <Config extends PikasConfig = PikasConfig>({
   size,
-  colorName = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Config['color'],
   colorHex,
   loading = true,
   speedMultiplier,
-}: RingLoaderProps<Color>): JSX.Element => {
+}: RingLoaderProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -30,8 +24,7 @@ export const RingLoader = <
       size={size}
       speedMultiplier={speedMultiplier}
       color={
-        colorHex ||
-        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
       }
       loading={loading}
     />

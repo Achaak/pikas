@@ -101,9 +101,6 @@ export type ColorsRecordValue = string
 export type ColorsRecordKey = string | number | PikasColor
 export type ColorsRecord = Record<ColorsRecordKey, ColorsRecordValue>
 
-export type Colors<T extends ColorsRecord> = PikasColors & T
-export type Color<T extends ColorsRecord> = keyof Colors<T>
-
 export const loadColors = <T extends ColorsRecord>(
   values:
     | {

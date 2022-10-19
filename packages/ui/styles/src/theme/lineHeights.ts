@@ -30,9 +30,6 @@ export type LineHeightsRecord = Record<
   LineHeightsRecordValue
 >
 
-export type LineHeights<T extends LineHeightsRecord> = PikasLineHeights & T
-export type LineHeight<T extends LineHeightsRecord> = keyof LineHeights<T>
-
 export const loadLineHeights = <T extends LineHeightsRecord>(
   values:
     | {

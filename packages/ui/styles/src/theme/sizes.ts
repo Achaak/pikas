@@ -21,9 +21,6 @@ export type SizesRecordValue = string | number
 export type SizesRecordKey = string | number | PikasSize
 export type SizesRecord = Record<SizesRecordKey, SizesRecordValue>
 
-export type Sizes<T extends SizesRecord> = PikasSizes & T
-export type Size<T extends SizesRecord> = keyof Sizes<T>
-
 export const loadSizes = <T extends SizesRecord>(
   values:
     | {

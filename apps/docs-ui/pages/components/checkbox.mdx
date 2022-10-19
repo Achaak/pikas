@@ -57,7 +57,6 @@ const Example: React.FC = () => (
 )
 ```
 
-
 #### Props
 
 | Prop                 | Description                                        | Type                         | Default          |
@@ -66,11 +65,11 @@ const Example: React.FC = () => (
 | `onChange`           | The callback when the checkbox is changed.         | `(checked: boolean) => void` | -                |
 | `id`                 | The id of the checkbox.                            | `string`                     | -                |
 | `label`              | The label of the checkbox.                         | `string` or `ReactNode`      | -                |
-| `bgColorName`        | The background color of the checkbox.              | `Colors`                     | `"WHITE"`        |
-| `bgColorNameChecked` | The background color of the checkbox when checked. | `Colors`                     | `"PRIMARY"`      |
+| `bgColorName`        | The background color of the checkbox.              | `PikasColors`                | `"WHITE"`        |
+| `bgColorNameChecked` | The background color of the checkbox when checked. | `PikasColors`                | `"PRIMARY"`      |
 | `textError`          | The error text of the checkbox.                    | `string`                     | -                |
 | `boxShadow`          | The box shadow of the checkbox.                    | `PikasShadow` or `"none"`    | `"DIMINUTION_1"` |
-| `borderColorName`    | The border color of the checkbox.                  | `Colors`                     | -                |
+| `borderColorName`    | The border color of the checkbox.                  | `PikasColors`                | -                |
 | `borderWidth`        | The border width of the checkbox.                  | `number`                     | `0`              |
 | `borderRadius`       | The border radius of the checkbox.                 | `BorderRadius`               | `"md"`           |
 | `fontSize`           | The font size of the checkbox.                     | `PikasFontSize`              | `"EM-MEDIUM"`    |
@@ -83,4 +82,4 @@ const Example: React.FC = () => (
 | `side`               | The side of the checkbox.                          | `"left"` or `"right"`        | `"right"`        |
 | `outline`            | The outline of the checkbox.                       | `boolean`                    | `true`           |
 | `indeterminate`      | The indeterminate of the checkbox.                 | `boolean`                    | `false`          |
-| `css                 | The css of the checkbox.                           | `CheckboxCSS`                | -                |
+| `css`                | The css of the checkbox.                           | `CheckboxCSS`                | -                |

@@ -32,9 +32,6 @@ export type ShadowsRecordValue = string
 export type ShadowsRecordKey = string | number | PikasShadow
 export type ShadowsRecord = Record<ShadowsRecordKey, ShadowsRecordValue>
 
-export type Shadows<T extends ShadowsRecord> = PikasShadows & T
-export type Shadow<T extends ShadowsRecord> = keyof Shadows<T>
-
 export const loadShadows = <T extends ShadowsRecord>(
   values:
     | {

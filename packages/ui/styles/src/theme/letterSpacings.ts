@@ -18,11 +18,6 @@ export type LetterSpacingsRecord = Record<
   LetterSpacingsRecordValue
 >
 
-export type LetterSpacings<T extends LetterSpacingsRecord> =
-  PikasLetterSpacings & T
-export type LetterSpacing<T extends LetterSpacingsRecord> =
-  keyof LetterSpacings<T>
-
 export const loadLetterSpacings = <T extends LetterSpacingsRecord>(
   values:
     | {

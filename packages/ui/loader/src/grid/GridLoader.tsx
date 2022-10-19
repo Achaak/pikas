@@ -1,30 +1,24 @@
 import { GridLoader as GridLoaderDefault } from 'react-spinners'
-import type {
-  ColorsRecord,
-  Color as ColorByPikas,
-  PikasColor,
-} from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface GridLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
+export interface GridLoaderProps<Config extends PikasConfig = PikasConfig> {
   size?: number
   margin?: number
-  colorName?: Color
+  colorName?: Config['color']
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const GridLoader = <
-  Color extends ColorByPikas<ColorsRecord> = PikasColor
->({
+export const GridLoader = <Config extends PikasConfig = PikasConfig>({
   size,
   margin,
-  colorName = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Config['color'],
   colorHex,
   loading = true,
   speedMultiplier,
-}: GridLoaderProps<Color>): JSX.Element => {
+}: GridLoaderProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -33,8 +27,7 @@ export const GridLoader = <
       speedMultiplier={speedMultiplier}
       margin={margin}
       color={
-        colorHex ||
-        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
       }
       loading={loading}
     />

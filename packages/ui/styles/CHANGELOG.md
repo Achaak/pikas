@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.4.1
+
+### Patch Changes
+
+- Clean types
+
 ## 3.4.0
 
 ### Minor Changes

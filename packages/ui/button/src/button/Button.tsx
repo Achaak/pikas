@@ -302,8 +302,7 @@ const ButtonInner = <Config extends PikasConfig = PikasConfig>(
 
   if (!theme) return <></>
 
-  const colorHexFinal =
-    colorHex || (colorName && theme.colors[colorName as PikasColor].value)
+  const colorHexFinal = colorHex || (colorName && theme.colors[colorName].value)
   const contentColorHexFinal =
     contentColorHex ||
     (contentColorName && theme.colors[contentColorName as PikasColor].value)

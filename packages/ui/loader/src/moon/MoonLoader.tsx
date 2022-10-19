@@ -1,28 +1,22 @@
-import type {
-  ColorsRecord,
-  Color as ColorByPikas,
-  PikasColor,
-} from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { MoonLoader as MoonLoaderDefault } from 'react-spinners'
 
-export interface MoonLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
+export interface MoonLoaderProps<Config extends PikasConfig = PikasConfig> {
   size?: number | string
-  colorName?: Color
+  colorName?: Config['color']
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const MoonLoader = <
-  Color extends ColorByPikas<ColorsRecord> = PikasColor
->({
+export const MoonLoader = <Config extends PikasConfig = PikasConfig>({
   size,
-  colorName = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Config['color'],
   colorHex,
   loading = true,
   speedMultiplier,
-}: MoonLoaderProps<Color>): JSX.Element => {
+}: MoonLoaderProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -30,8 +24,7 @@ export const MoonLoader = <
       size={size}
       speedMultiplier={speedMultiplier}
       color={
-        colorHex ||
-        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
       }
       loading={loading}
     />

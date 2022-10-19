@@ -9,9 +9,6 @@ export type FontsRecordValue = string
 export type FontsRecordKey = string | number | PikasFont
 export type FontsRecord = Record<FontsRecordKey, FontsRecordValue>
 
-export type Fonts<T extends FontsRecord> = PikasFonts & T
-export type Font<T extends FontsRecord> = keyof Fonts<T>
-
 export const loadFonts = <T extends FontsRecord>(
   values:
     | {

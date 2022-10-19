@@ -19,9 +19,6 @@ export type ZIndicesRecordValue = string | number
 export type ZIndicesRecordKey = string | number | PikasZIndex
 export type ZIndicesRecord = Record<ZIndicesRecordKey, ZIndicesRecordValue>
 
-export type ZIndices<T extends ZIndicesRecord> = PikasZIndices & T
-export type ZIndex<T extends ZIndicesRecord> = keyof ZIndices<T>
-
 export const loadZIndices = <T extends ZIndicesRecord>(
   values:
     | {

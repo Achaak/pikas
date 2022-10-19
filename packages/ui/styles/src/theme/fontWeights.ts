@@ -20,9 +20,6 @@ export type FontWeightsRecord = Record<
   FontWeightsRecordValue
 >
 
-export type FontWeights<T extends FontWeightsRecord> = PikasFontWeights & T
-export type FontWeight<T extends FontWeightsRecord> = keyof FontWeights<T>
-
 export const loadFontWeights = <T extends FontWeightsRecord>(
   values:
     | {

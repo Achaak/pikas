@@ -1,5 +1,14 @@
 # @pikas-ui/alert
 
+## 3.3.1
+
+### Patch Changes
+
+- Clean types
+- Updated dependencies
+  - @pikas-ui/styles@3.4.1
+  - @pikas-ui/icons@3.2.1
+
 ## 3.3.0
 
 ### Minor Changes

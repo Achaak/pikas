@@ -21,9 +21,6 @@ export type SpacesRecordValue = string | number
 export type SpacesRecordKey = string | number | PikasSpace
 export type SpacesRecord = Record<SpacesRecordKey, SpacesRecordValue>
 
-export type Spaces<T extends SpacesRecord> = PikasSpaces & T
-export type Space<T extends SpacesRecord> = keyof Spaces<T>
-
 export const loadSpaces = <T extends SpacesRecord>(
   values:
     | {

@@ -10,9 +10,6 @@ export type BorderWidthsRecord = Record<
   BorderWidthsRecordValue
 >
 
-export type BorderWidths<T extends BorderWidthsRecord> = PikasBorderWidths & T
-export type BorderWidth<T extends BorderWidthsRecord> = keyof BorderWidths<T>
-
 export const loadBorderWidths = <T extends BorderWidthsRecord>(
   values:
     | {

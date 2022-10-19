@@ -2,7 +2,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useCallback } from 'react'
 import { CustomAlert } from '../customAlert/index.js'
-import type { PikasColor, PikasConfig } from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import type { BaseAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
@@ -46,15 +46,15 @@ export const Alert = <Config extends PikasConfig = PikasConfig>({
     {
       switch (variant) {
         case 'success':
-          return 'SUCCESS' as Config['color']
+          return 'SUCCESS'
         case 'warning':
-          return 'WARNING' as Config['color']
+          return 'WARNING'
         case 'danger':
-          return 'DANGER' as Config['color']
+          return 'DANGER'
         case 'info':
-          return 'PRIMARY' as Config['color']
+          return 'PRIMARY'
         default:
-          return 'PRIMARY' as Config['color']
+          return 'PRIMARY'
       }
     }
   }, [variant])
@@ -65,10 +65,7 @@ export const Alert = <Config extends PikasConfig = PikasConfig>({
       backgroundColorName={getBackgroundColor()}
       colorHex={
         theme &&
-        fontColorContrast(
-          theme.colors[getBackgroundColor() as PikasColor].value,
-          0.7
-        )
+        fontColorContrast(theme.colors[getBackgroundColor()].value, 0.7)
       }
       {...props}
     >

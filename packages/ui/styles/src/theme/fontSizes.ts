@@ -27,9 +27,6 @@ export type FontSizesRecordValue = string | number
 export type FontSizesRecordKey = string | number | PikasFontSize
 export type FontSizesRecord = Record<FontSizesRecordKey, FontSizesRecordValue>
 
-export type FontSizes<T extends FontSizesRecord> = PikasFontSizes & T
-export type FontSize<T extends FontSizesRecord> = keyof FontSizes<T>
-
 export const loadFontSizes = <T extends FontSizesRecord>(
   values:
     | {

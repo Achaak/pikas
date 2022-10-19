@@ -1,30 +1,24 @@
 import { SyncLoader as SyncLoaderDefault } from 'react-spinners'
-import type {
-  ColorsRecord,
-  Color as ColorByPikas,
-  PikasColor,
-} from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface SyncLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
+export interface SyncLoaderProps<Config extends PikasConfig = PikasConfig> {
   size?: number
   margin?: number
-  colorName?: Color
+  colorName?: Config['color']
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const SyncLoader = <
-  Color extends ColorByPikas<ColorsRecord> = PikasColor
->({
+export const SyncLoader = <Config extends PikasConfig = PikasConfig>({
   size,
-  colorName = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Config['color'],
   colorHex,
   loading = true,
   margin,
   speedMultiplier,
-}: SyncLoaderProps<Color>): JSX.Element => {
+}: SyncLoaderProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -33,8 +27,7 @@ export const SyncLoader = <
       margin={margin}
       speedMultiplier={speedMultiplier}
       color={
-        colorHex ||
-        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
       }
       loading={loading}
     />

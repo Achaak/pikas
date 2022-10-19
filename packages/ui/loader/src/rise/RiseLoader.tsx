@@ -1,30 +1,24 @@
 import { RiseLoader as RiseLoaderDefault } from 'react-spinners'
-import type {
-  ColorsRecord,
-  Color as ColorByPikas,
-  PikasColor,
-} from '@pikas-ui/styles'
+import type { PikasConfig } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface RiseLoaderProps<Color extends ColorByPikas<ColorsRecord>> {
+export interface RiseLoaderProps<Config extends PikasConfig = PikasConfig> {
   size?: number
   margin?: number
-  colorName?: Color
+  colorName?: Config['color']
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const RiseLoader = <
-  Color extends ColorByPikas<ColorsRecord> = PikasColor
->({
+export const RiseLoader = <Config extends PikasConfig = PikasConfig>({
   size,
-  colorName = 'PRIMARY' as Color,
+  colorName = 'PRIMARY' as Config['color'],
   colorHex,
   loading = true,
   margin,
   speedMultiplier,
-}: RiseLoaderProps<Color>): JSX.Element => {
+}: RiseLoaderProps<Config>): JSX.Element => {
   const theme = useTheme()
 
   return (
@@ -33,8 +27,7 @@ export const RiseLoader = <
       margin={margin}
       speedMultiplier={speedMultiplier}
       color={
-        colorHex ||
-        (colorName ? theme?.colors[colorName as PikasColor].value : undefined)
+        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
       }
       loading={loading}
     />
