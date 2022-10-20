@@ -1,5 +1,15 @@
 # @pikas-ui/dialog
 
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.1
+  - @pikas-ui/button@3.3.1
+  - @pikas-ui/icons@3.3.1
+  - @pikas-ui/title@1.2.1
+
 ## 2.4.0
 
 ### Minor Changes
