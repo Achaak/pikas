@@ -46,11 +46,11 @@ import { loadZIndices } from './theme/zIndices.js'
 import type { CSS } from '@stitches/react'
 import type { FontsRecordKey } from './theme/fonts.js'
 import { loadFonts } from './theme/fonts.js'
-import type { MediasRecordKey, PikasMedia } from './medias.js'
+import type { PikasMedia } from './medias.js'
 import { loadMedias } from './medias.js'
 import { loadUtils } from './utils/index.js'
 
-// export type { CSS } from '@stitches/react'
+export type { CSS } from '@stitches/react'
 export const createPikas = createStitches
 
 const colors = loadColors({})
@@ -104,10 +104,10 @@ export const {
   theme,
 } = pikasConfig
 
-export type PikasCSS = CSS<typeof config>
+export type PikasConfig = typeof config
+export type PikasCSS = CSS<PikasConfig>
 
-export type BasePikasConfig = {
-  css: PikasCSS
+export type BasePikasTheme = {
   color: PikasColor
   fontSize: PikasFontSize
   fontWeight: PikasFontWeight
@@ -125,7 +125,7 @@ export type BasePikasConfig = {
   media: PikasMedia
 }
 
-export type PikasConfig = BasePikasConfig & {
+export type PikasTheme = BasePikasTheme & {
   color: ColorsRecordKey
   fontSize: FontSizesRecordKey
   fontWeight: FontWeightsRecordKey
@@ -140,5 +140,4 @@ export type PikasConfig = BasePikasConfig & {
   transition: TransitionsRecordKey
   zIndex: ZIndicesRecordKey
   font: FontsRecordKey
-  media: MediasRecordKey
 }
