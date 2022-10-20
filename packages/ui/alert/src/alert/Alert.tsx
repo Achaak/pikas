@@ -15,8 +15,9 @@ export const alertVariant = {
 } as const
 export type AlertVariant = keyof typeof alertVariant
 
-export interface AlertProps<Config extends PikasConfigRecord = any>
-  extends BaseAlertProps<Config> {
+export interface AlertProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends BaseAlertProps<Config> {
   variant?: AlertVariant
 }
 

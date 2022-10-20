@@ -159,7 +159,7 @@ const Content = styled(TabsPrimitive.Content, {
 
 export interface TabsItem<
   T extends string,
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 > {
   trigger: React.ReactNode
   id: T
@@ -177,7 +177,7 @@ export type TabsDirection = 'ltr' | 'rtl'
 
 export type TabsActivationMode = 'manual' | 'automatic'
 
-export interface TabsCSS<Config extends PikasConfigRecord = any> {
+export interface TabsCSS<Config extends PikasConfigRecord = PikasConfigRecord> {
   container?: Config['CSS']
   triggerList?: Config['CSS']
   endTrigger?: Config['CSS']
@@ -195,7 +195,7 @@ export type TabsAlignmentTrigger = 'start' | 'center' | 'end' | 'stretch'
 
 export interface TabsProps<
   T extends string,
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 > {
   items: TabsItem<T, Config>[]
   defaultValue: T
@@ -213,7 +213,10 @@ export interface TabsProps<
   endTrigger?: React.ReactNode
 }
 
-export const Tabs = <T extends string, Config extends PikasConfigRecord = any>({
+export const Tabs = <
+  T extends string,
+  Config extends PikasConfigRecord = PikasConfigRecord
+>({
   items,
   defaultValue,
   value,

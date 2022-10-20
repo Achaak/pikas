@@ -2,7 +2,9 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { ClipLoader as ClipLoaderDefault } from 'react-spinners'
 
-export interface ClipLoaderProps<Config extends PikasConfigRecord = any> {
+export interface ClipLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number | string
   colorName?: keyof Config['theme']['colors']
   colorHex?: string

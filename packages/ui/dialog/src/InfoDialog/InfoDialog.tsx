@@ -5,8 +5,9 @@ import { InfoDialogContent } from './InfoDialogContent/index.js'
 import { InfoDialogFooter } from './InfoDialogFooter/index.js'
 import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
-export interface InfoDialogProps<Config extends PikasConfigRecord = any>
-  extends DialogProps {
+export interface InfoDialogProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends DialogProps {
   validateButtonLabel?: string
   validateButtonColorName?: keyof Config['theme']['colors']
   validateButtonDisabled?: boolean

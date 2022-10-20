@@ -2,7 +2,9 @@ import { RotateLoader as RotateLoaderDefault } from 'react-spinners'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface RotateLoaderProps<Config extends PikasConfigRecord = any> {
+export interface RotateLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number
   margin?: number
   colorName?: keyof Config['theme']['colors']

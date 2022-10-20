@@ -5,8 +5,9 @@ import { ValidateDialogContent } from './ValidateDialogContent/index.js'
 import { ValidateDialogFooter } from './ValidateDialogFooter/index.js'
 import { ValidateDialogHeader } from './ValidateDialogHeader/index.js'
 
-export interface ValidateDialogProps<Config extends PikasConfigRecord = any>
-  extends DialogProps {
+export interface ValidateDialogProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends DialogProps {
   cancelButtonLabel?: string
   validateButtonLabel?: string
   cancelButtonColorName?: keyof Config['theme']['colors']

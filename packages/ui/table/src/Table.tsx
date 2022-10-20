@@ -140,7 +140,10 @@ export const tableVariant = {
 } as const
 export type TableVariant = keyof typeof tableVariant
 
-export interface TableCSS<T, Config extends PikasConfigRecord = any> {
+export interface TableCSS<
+  T,
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   table?: Config['CSS']
   thead?: Config['CSS']
@@ -210,7 +213,7 @@ export interface TableProps<
 
 export const Table = <
   T extends Record<string, unknown>,
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 >({
   data,
   hasTfoot,

@@ -131,17 +131,21 @@ type ResultGroupWithId = {
   items: (ResultItem & { id: number })[]
 }
 
-export type SearchbarCSS<Config extends PikasConfigRecord = any> = {
-  container?: Config['CSS']
-  resultContainer?: Config['CSS']
-  noResult?: Config['CSS']
-  resultItem?: Config['CSS']
-  textfield?: TextfieldCSS<Config>
-  resultGroup?: Config['CSS']
-  resultGroupTitle?: Config['CSS']
-}
+export type SearchbarCSS<Config extends PikasConfigRecord = PikasConfigRecord> =
+  {
+    container?: Config['CSS']
+    resultContainer?: Config['CSS']
+    noResult?: Config['CSS']
+    resultItem?: Config['CSS']
+    textfield?: TextfieldCSS<Config>
+    resultGroup?: Config['CSS']
+    resultGroupTitle?: Config['CSS']
+  }
 
-export interface SearchbarProps<T, Config extends PikasConfigRecord = any> {
+export interface SearchbarProps<
+  T,
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   searchFunction: (value: string) => Promise<T>
   onSearch: (value: T) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
@@ -163,7 +167,10 @@ export interface SearchbarProps<T, Config extends PikasConfigRecord = any> {
   }
 }
 
-export const Searchbar = <T, Config extends PikasConfigRecord = any>({
+export const Searchbar = <
+  T,
+  Config extends PikasConfigRecord = PikasConfigRecord
+>({
   onSearch,
   searchFunction,
   searchType = 'button',

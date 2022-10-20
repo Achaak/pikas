@@ -5,8 +5,9 @@ import { ErrorDialogContent } from './ErrorDialogContent/index.js'
 import { ErrorDialogFooter } from './ErrorDialogFooter/index.js'
 import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
 
-export interface ErrorDialogProps<Config extends PikasConfigRecord = any>
-  extends DialogProps {
+export interface ErrorDialogProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends DialogProps {
   validateButtonLabel?: string
   validateButtonColorName?: keyof Config['theme']['colors']
   validateButtonDisabled?: boolean

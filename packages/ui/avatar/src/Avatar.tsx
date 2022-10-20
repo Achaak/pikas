@@ -33,13 +33,17 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarCSS<Config extends PikasConfigRecord = any> {
+export interface AvatarCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   image?: Config['CSS']
   fallback?: Config['CSS']
 }
 
-export interface AvatarProps<Config extends PikasConfigRecord = any> {
+export interface AvatarProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   alt?: string
   src?: string
   onLoadingStatusChange?: (status: ImageLoadingStatus) => void

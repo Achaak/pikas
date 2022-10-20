@@ -73,8 +73,9 @@ const Child = styled('p', {
   margin: 0,
 })
 
-export interface CustomAlertProps<Config extends PikasConfigRecord = any>
-  extends BaseAlertProps<Config> {
+export interface CustomAlertProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends BaseAlertProps<Config> {
   Icon?: React.FC<IconProps<Config>>
   backgroundColorName?: keyof Config['theme']['colors']
   colorName?: keyof Config['theme']['colors']

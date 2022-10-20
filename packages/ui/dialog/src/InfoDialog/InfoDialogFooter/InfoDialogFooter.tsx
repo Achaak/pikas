@@ -9,7 +9,9 @@ const Container = styled('div', {
   width: '100%',
 })
 
-export interface InfoDialogFooterProps<Config extends PikasConfigRecord = any> {
+export interface InfoDialogFooterProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   onClose?: () => void
   validateButtonLabel?: string
   validateButtonColorName?: keyof Config['theme']['colors']

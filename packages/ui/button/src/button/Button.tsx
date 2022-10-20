@@ -164,12 +164,14 @@ const Children = styled('div', {
   },
 })
 
-export type ButtonCSS<Config extends PikasConfigRecord = any> = {
+export type ButtonCSS<Config extends PikasConfigRecord = PikasConfigRecord> = {
   button?: Config['CSS']
   icon?: IconCSS<Config>
 }
 
-export interface ButtonDefaultProps<Config extends PikasConfigRecord = any> {
+export interface ButtonDefaultProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   children?: React.ReactNode
   css?: ButtonCSS<Config>
   loading?: boolean
@@ -195,24 +197,27 @@ export interface ButtonDefaultProps<Config extends PikasConfigRecord = any> {
   boxShadow?: Config['theme']['shadow'] | 'none'
 }
 
-export interface BaseButtonProps<Config extends PikasConfigRecord = any>
-  extends ButtonDefaultProps<Config> {
+export interface BaseButtonProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends ButtonDefaultProps<Config> {
   onClick?: () => void
   type?: ButtonType
 }
 
-export type ButtonProps<Config extends PikasConfigRecord = any> =
+export type ButtonProps<Config extends PikasConfigRecord = PikasConfigRecord> =
   ButtonHTMLAttributes<HTMLButtonElement> & BaseButtonProps<Config>
 
-export interface BaseButtonLinkProps<Config extends PikasConfigRecord = any>
-  extends ButtonDefaultProps<Config> {
+export interface BaseButtonLinkProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends ButtonDefaultProps<Config> {
   onClick?: () => void
   href?: string
   target?: ButtonTarget
 }
 
-export type ButtonLinkProps<Config extends PikasConfigRecord = any> =
-  AnchorHTMLAttributes<HTMLAnchorElement> & BaseButtonLinkProps<Config>
+export type ButtonLinkProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = AnchorHTMLAttributes<HTMLAnchorElement> & BaseButtonLinkProps<Config>
 
 const getContent = <Config extends PikasConfigRecord>({
   LeftIcon,
@@ -357,7 +362,7 @@ const ButtonInner = <Config extends PikasConfigRecord>(
 }
 
 export const Button = forwardRef(ButtonInner) as <
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 >(
   props: ButtonProps<Config> & {
     ref?: React.ForwardedRef<HTMLAnchorElement>
@@ -457,7 +462,7 @@ const ButtonLinkInner = <Config extends PikasConfigRecord>(
 }
 
 export const ButtonLink = forwardRef(ButtonLinkInner) as <
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 >(
   props: ButtonLinkProps<Config> & {
     ref?: React.ForwardedRef<HTMLAnchorElement>

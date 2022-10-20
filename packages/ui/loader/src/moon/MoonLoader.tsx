@@ -2,7 +2,9 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { MoonLoader as MoonLoaderDefault } from 'react-spinners'
 
-export interface MoonLoaderProps<Config extends PikasConfigRecord = any> {
+export interface MoonLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number | string
   colorName?: keyof Config['theme']['colors']
   colorHex?: string

@@ -95,16 +95,21 @@ export const dropdownMenuDirection = {
 } as const
 export type DropdownMenuDirection = keyof typeof dropdownMenuDirection
 
-export type DropdownMenuCSS<Config extends PikasConfigRecord = any> =
-  MenuCSS<Config>
-export type DropdownMenuDataItem<Config extends PikasConfigRecord = any> =
-  MenuDataItem<Config>
-export type DropdownMenuDataItemEntry<Config extends PikasConfigRecord = any> =
-  ItemEntry<Config>
-export type DropdownMenuData<Config extends PikasConfigRecord = any> =
-  MenuDataItem<Config>[]
-export interface DropdownMenuProps<Config extends PikasConfigRecord = any>
-  extends MenuProps<Config> {
+export type DropdownMenuCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = MenuCSS<Config>
+export type DropdownMenuDataItem<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = MenuDataItem<Config>
+export type DropdownMenuDataItemEntry<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = ItemEntry<Config>
+export type DropdownMenuData<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = MenuDataItem<Config>[]
+export interface DropdownMenuProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends MenuProps<Config> {
   triggerContent?: React.ReactNode
   iconColorName?: keyof Config['theme']['colors']
   iconSize?: number
@@ -205,7 +210,9 @@ export const DropdownMenu = <Config extends PikasConfigRecord>({
   )
 }
 
-interface DropdownMenuDataProps<Config extends PikasConfigRecord = any> {
+interface DropdownMenuDataProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   data: MenuData<Config>
   css?: DropdownMenuCSS<Config>
 }

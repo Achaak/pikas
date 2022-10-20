@@ -2,7 +2,9 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { PulseLoader as PulseLoaderDefault } from 'react-spinners'
 
-export interface PulseLoaderProps<Config extends PikasConfigRecord = any> {
+export interface PulseLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number | string
   colorName?: keyof Config['theme']['colors']
   colorHex?: string

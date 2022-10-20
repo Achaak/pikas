@@ -53,8 +53,9 @@ export const gapPadding = {
 } as const
 export type BadgeGap = keyof typeof gapPadding
 
-export interface BadgeProps<Config extends PikasConfigRecord = any>
-  extends CustomBadgeProps<Config> {
+export interface BadgeProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends CustomBadgeProps<Config> {
   fontSize?: Config['theme']['fontSize']
   leftIconName?: string
   rightIconName?: string

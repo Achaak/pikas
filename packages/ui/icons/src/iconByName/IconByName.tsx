@@ -3,8 +3,9 @@ import { CustomIcon } from '../customIcon'
 import type { IconProps } from '../types'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 
-export interface IconByNameProps<Config extends PikasConfigRecord = any>
-  extends IconProps<Config> {
+export interface IconByNameProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends IconProps<Config> {
   name: string
 }
 

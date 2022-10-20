@@ -2,7 +2,9 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { RingLoader as RingLoaderDefault } from 'react-spinners'
 
-export interface RingLoaderProps<Config extends PikasConfigRecord = any> {
+export interface RingLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number | string
   colorName?: keyof Config['theme']['colors']
   colorHex?: string

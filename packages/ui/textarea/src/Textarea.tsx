@@ -84,7 +84,9 @@ export const textareaResize = {
 } as const
 export type TextareaResize = keyof typeof textareaResize
 
-export interface TextareaCSS<Config extends PikasConfigRecord = any> {
+export interface TextareaCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   textareaContainer?: Config['CSS']
   textarea?: Config['CSS']
@@ -96,7 +98,9 @@ export interface TextareaCSS<Config extends PikasConfigRecord = any> {
   required?: Config['CSS']
 }
 
-export type TextareaProps<Config extends PikasConfigRecord = any> = {
+export type TextareaProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = {
   id?: string
   label?: string
   boxShadow?: Config['theme']['shadow'] | 'none'
@@ -307,7 +311,7 @@ const TextareaInner = <Config extends PikasConfigRecord>(
 }
 
 export const Textarea = forwardRef(TextareaInner) as <
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 >(
   props: TextareaProps<Config> & {
     ref?: React.ForwardedRef<HTMLTextAreaElement>

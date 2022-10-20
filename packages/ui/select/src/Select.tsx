@@ -188,7 +188,7 @@ export const selectPadding = {
 } as const
 export type SelectPadding = keyof typeof selectPadding
 
-export type SelectCSS<Config extends PikasConfigRecord = any> = {
+export type SelectCSS<Config extends PikasConfigRecord = PikasConfigRecord> = {
   container?: Config['CSS']
   trigger?: Config['CSS']
   infoTooltip?: TooltipCSS<Config>
@@ -200,7 +200,9 @@ export type SelectCSS<Config extends PikasConfigRecord = any> = {
   content?: Config['CSS']
 }
 
-export interface SelectProps<Config extends PikasConfigRecord = any> {
+export interface SelectProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   css?: SelectCSS<Config>
   hasSearch?: boolean
   searchPlaceholder?: string
@@ -532,7 +534,7 @@ const SelectInner = <Config extends PikasConfigRecord>(
 }
 
 export const Select = forwardRef(SelectInner) as <
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 >(
   props: SelectProps<Config> & { ref?: React.ForwardedRef<SelectRef> }
 ) => ReturnType<typeof SelectInner>

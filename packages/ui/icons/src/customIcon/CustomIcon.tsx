@@ -9,8 +9,9 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface CustomIconProps<Config extends PikasConfigRecord = any>
-  extends IconProps<Config> {
+export interface CustomIconProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends IconProps<Config> {
   children?: React.ReactNode
 }
 

@@ -2,7 +2,9 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { BarLoader as BarLoaderDefault } from 'react-spinners'
 
-export interface BarLoaderProps<Config extends PikasConfigRecord = any> {
+export interface BarLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   width?: number
   height?: number
   colorName?: keyof Config['theme']['colors']

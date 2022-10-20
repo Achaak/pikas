@@ -2,7 +2,9 @@ import { RiseLoader as RiseLoaderDefault } from 'react-spinners'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface RiseLoaderProps<Config extends PikasConfigRecord = any> {
+export interface RiseLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number
   margin?: number
   colorName?: keyof Config['theme']['colors']

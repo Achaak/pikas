@@ -95,7 +95,9 @@ const Container = styled('div', {
 
 export type SkeletonAnimation = 'pulse' | 'wave' | false
 
-export interface SkeletonProps<Config extends PikasConfigRecord = any> {
+export interface SkeletonProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   animation?: SkeletonAnimation
   width?: string | number
   height?: string | number

@@ -2,7 +2,9 @@ import { GridLoader as GridLoaderDefault } from 'react-spinners'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface GridLoaderProps<Config extends PikasConfigRecord = any> {
+export interface GridLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number
   margin?: number
   colorName?: keyof Config['theme']['colors']

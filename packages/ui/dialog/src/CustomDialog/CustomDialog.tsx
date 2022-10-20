@@ -184,7 +184,9 @@ export interface CustomDialogGap {
   footer?: CustomDialogGapElement
 }
 
-export interface CustomDialogCSS<Config extends PikasConfigRecord = any> {
+export interface CustomDialogCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   header?: Config['CSS']
   content?: Config['CSS']
@@ -199,8 +201,9 @@ export interface DialogProps {
   onClose?: () => void
 }
 
-export interface CustomDialogProps<Config extends PikasConfigRecord = any>
-  extends DialogProps {
+export interface CustomDialogProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends DialogProps {
   closeIfClickOutside?: boolean
   hasCloseIcon?: boolean
   css?: CustomDialogCSS<Config>

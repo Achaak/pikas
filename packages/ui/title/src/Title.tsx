@@ -68,7 +68,9 @@ export type TitleTextTransform = keyof typeof textTransformComponent
 export const titleVariant = titleComponent
 export type TitleVariant = keyof typeof titleVariant
 
-export interface TitleCSS<Config extends PikasConfigRecord = any> {
+export interface TitleCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   global?: Config['CSS']
   h1?: Config['CSS']
   h2?: Config['CSS']
@@ -78,8 +80,9 @@ export interface TitleCSS<Config extends PikasConfigRecord = any> {
   h6?: Config['CSS']
 }
 
-export interface TitleProps<Config extends PikasConfigRecord = any>
-  extends HTMLAttributes<HTMLHeadingElement> {
+export interface TitleProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends HTMLAttributes<HTMLHeadingElement> {
   as: TitleAs
   variant?: TitleVariant
   textTransform?: TitleTextTransform

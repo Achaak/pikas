@@ -11,7 +11,7 @@ const Container = styled('div', {
 })
 
 export interface ValidateDialogFooterProps<
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 > {
   onClose?: () => void
   validateButtonLabel?: string

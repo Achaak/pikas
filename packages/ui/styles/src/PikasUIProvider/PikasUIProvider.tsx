@@ -14,7 +14,9 @@ const ContainerStyled = styled('div', {
   height: 'fit-content',
 })
 
-export interface PikasUIProviderProps<Config extends PikasConfigRecord = any> {
+export interface PikasUIProviderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   children?: React.ReactNode
   lightTheme?: Config['theme']
   darkTheme?: Config['theme']
@@ -47,13 +49,5 @@ export const PikasUIProvider = <Config extends PikasConfigRecord>({
     <PikasUIContext.Provider value={theme}>
       <ContainerStyled className={theme}>{children}</ContainerStyled>
     </PikasUIContext.Provider>
-  )
-}
-
-const Test: React.FC = () => {
-  return (
-    <PikasUIProvider lightTheme={themeDefault}>
-      <button>Toggle dark mode</button>
-    </PikasUIProvider>
   )
 }

@@ -71,7 +71,9 @@ export interface ToastProviderViewport {
   label?: string
 }
 
-export interface ToastProviderProps<Config extends PikasConfigRecord = any> {
+export interface ToastProviderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   children?: React.ReactNode
   duration?: number
   label?: string
@@ -83,7 +85,9 @@ export interface ToastProviderProps<Config extends PikasConfigRecord = any> {
   viewport?: ToastProviderViewport
 }
 
-export interface ToastContextProps<Config extends PikasConfigRecord = any> {
+export interface ToastContextProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   toasts: React.ReactElement<BaseToastProps<Config>>[]
   publish: (toast: React.ReactElement<BaseToastProps<Config>>) => void
 }

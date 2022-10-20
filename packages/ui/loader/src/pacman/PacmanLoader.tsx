@@ -7,7 +7,9 @@ const PacmanLoaderStyled = styled(PacmanLoaderDefault, {
   display: 'flex',
 })
 
-export interface PacmanLoaderProps<Config extends PikasConfigRecord = any> {
+export interface PacmanLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number
   margin?: number
   colorName?: keyof Config['theme']['colors']

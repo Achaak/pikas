@@ -4,7 +4,7 @@ import type { ToastContextProps } from './provider/index.js'
 import { ToastContext } from './provider/index.js'
 
 export const useToast = <
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 >(): ToastContextProps<Config> => {
   const context = useContext(ToastContext)
 

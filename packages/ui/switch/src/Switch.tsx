@@ -68,7 +68,9 @@ const Required = styled('div', {
   marginLeft: 4,
 })
 
-export interface SwitchCSS<Config extends PikasConfigRecord = any> {
+export interface SwitchCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   content?: Config['CSS']
   infoTooltip?: TooltipCSS<Config>
@@ -78,7 +80,9 @@ export interface SwitchCSS<Config extends PikasConfigRecord = any> {
   textError?: Config['CSS']
 }
 
-export interface BasicSwitchProps<Config extends PikasConfigRecord = any> {
+export interface BasicSwitchProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   label?: string
   name?: string
   fontSize?: Config['theme']['fontSize']
@@ -98,7 +102,7 @@ export interface BasicSwitchProps<Config extends PikasConfigRecord = any> {
   info?: string
 }
 
-export type SwitchProps<Config extends PikasConfigRecord = any> =
+export type SwitchProps<Config extends PikasConfigRecord = PikasConfigRecord> =
   ButtonHTMLAttributes<HTMLButtonElement> & BasicSwitchProps<Config>
 
 export const Switch = <Config extends PikasConfigRecord>({

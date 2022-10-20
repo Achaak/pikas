@@ -75,16 +75,21 @@ export const contextMenuDirection = {
 } as const
 export type ContextMenuDirection = keyof typeof contextMenuDirection
 
-export type ContextMenuCSS<Config extends PikasConfigRecord = any> =
-  MenuCSS<Config>
-export type ContextMenuDataItem<Config extends PikasConfigRecord = any> =
-  MenuDataItem<Config>
-export type ContextMenuDataItemEntry<Config extends PikasConfigRecord = any> =
-  ItemEntry<Config>
-export type ContextMenuData<Config extends PikasConfigRecord = any> =
-  MenuDataItem<Config>[]
-export interface ContextMenuProps<Config extends PikasConfigRecord = any>
-  extends MenuProps<Config> {
+export type ContextMenuCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = MenuCSS<Config>
+export type ContextMenuDataItem<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = MenuDataItem<Config>
+export type ContextMenuDataItemEntry<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = ItemEntry<Config>
+export type ContextMenuData<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = MenuDataItem<Config>[]
+export interface ContextMenuProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends MenuProps<Config> {
   children?: React.ReactNode
 
   onOpenChange?: (open: boolean) => void
@@ -146,7 +151,9 @@ export const ContextMenu = <Config extends PikasConfigRecord>({
   )
 }
 
-interface ContextMenuDataProps<Config extends PikasConfigRecord = any> {
+interface ContextMenuDataProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   data: MenuData<Config>
   css?: ContextMenuCSS<Config>
 }

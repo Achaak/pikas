@@ -2,7 +2,9 @@ import { SkewLoader as SkewLoaderDefault } from 'react-spinners'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface SkewLoaderProps<Config extends PikasConfigRecord = any> {
+export interface SkewLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number
   colorName?: keyof Config['theme']['colors']
   colorHex?: string

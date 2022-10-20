@@ -3,7 +3,7 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
 export interface ClimbingBoxLoaderProps<
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 > {
   size?: number
   colorName?: keyof Config['theme']['colors']

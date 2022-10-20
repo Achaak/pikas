@@ -2,7 +2,9 @@ import { SyncLoader as SyncLoaderDefault } from 'react-spinners'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface SyncLoaderProps<Config extends PikasConfigRecord = any> {
+export interface SyncLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number
   margin?: number
   colorName?: keyof Config['theme']['colors']

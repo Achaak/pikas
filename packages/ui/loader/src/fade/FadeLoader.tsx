@@ -2,7 +2,9 @@ import { FadeLoader as FadeLoaderDefault } from 'react-spinners'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface FadeLoaderProps<Config extends PikasConfigRecord = any> {
+export interface FadeLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   height?: number
   width?: number
   radius?: number

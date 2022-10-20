@@ -7,7 +7,9 @@ const TextErrorStyled = styled('p', {
   fontSize: '$EM-X-SMALL',
 })
 
-export interface TextErrorProps<Config extends PikasConfigRecord = any> {
+export interface TextErrorProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   children?: React.ReactNode
   css?: Config['CSS']
 }

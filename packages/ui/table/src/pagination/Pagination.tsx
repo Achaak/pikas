@@ -55,7 +55,9 @@ const ButtonArrowRight = styled(ButtonArrow, {
   marginLeft: 8,
 })
 
-export interface PaginationCSS<Config extends PikasConfigRecord = any> {
+export interface PaginationCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   leftContainer?: Config['CSS']
   rightContainer?: Config['CSS']
@@ -68,7 +70,9 @@ export interface PaginationCSS<Config extends PikasConfigRecord = any> {
   buttonChevronRight?: Config['CSS']
 }
 
-export interface PaginationProps<Config extends PikasConfigRecord = any> {
+export interface PaginationProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   previousPage: () => void
   nextPage: () => void
   setPageSize: (pageSize: number) => void

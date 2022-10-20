@@ -10,7 +10,7 @@ const Container = styled('div', {
 })
 
 export interface SuccessDialogFooterProps<
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 > {
   validateButtonLabel?: string
   validateButtonColorName?: keyof Config['theme']['colors']

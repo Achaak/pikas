@@ -10,7 +10,9 @@ const Container = styled(DialogPrimitive.Title, {
   width: '100%',
 })
 
-interface InfoDialogProps<Config extends PikasConfigRecord = any> {
+interface InfoDialogProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   children?: React.ReactNode
   css?: Config['CSS']
 }

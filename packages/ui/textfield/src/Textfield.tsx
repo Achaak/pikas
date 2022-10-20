@@ -186,23 +186,26 @@ export const textfieldGap = {
 } as const
 export type TextfieldGap = keyof typeof textfieldGap
 
-export type TextfieldCSS<Config extends PikasConfigRecord = any> = {
-  container?: Config['CSS']
-  inputContainer?: Config['CSS']
-  input?: Config['CSS']
-  left?: Config['CSS']
-  right?: Config['CSS']
-  leftIcon?: IconCSS<Config>
-  rightIcon?: IconCSS<Config>
-  infoTooltip?: TooltipCSS<Config>
-  infoIcon?: IconCSS<Config>
-  label?: Config['CSS']
-  description?: Config['CSS']
-  textError?: Config['CSS']
-  required?: Config['CSS']
-}
+export type TextfieldCSS<Config extends PikasConfigRecord = PikasConfigRecord> =
+  {
+    container?: Config['CSS']
+    inputContainer?: Config['CSS']
+    input?: Config['CSS']
+    left?: Config['CSS']
+    right?: Config['CSS']
+    leftIcon?: IconCSS<Config>
+    rightIcon?: IconCSS<Config>
+    infoTooltip?: TooltipCSS<Config>
+    infoIcon?: IconCSS<Config>
+    label?: Config['CSS']
+    description?: Config['CSS']
+    textError?: Config['CSS']
+    required?: Config['CSS']
+  }
 
-export type TextfieldProps<Config extends PikasConfigRecord = any> = {
+export type TextfieldProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> = {
   type?: TextfieldType
   id?: string
   label?: string
@@ -521,7 +524,7 @@ const TextfieldInner = <Config extends PikasConfigRecord>(
 }
 
 export const Textfield = forwardRef(TextfieldInner) as <
-  Config extends PikasConfigRecord = any
+  Config extends PikasConfigRecord = PikasConfigRecord
 >(
   props: TextfieldProps<Config> & { ref?: React.ForwardedRef<HTMLInputElement> }
 ) => ReturnType<typeof TextfieldInner>

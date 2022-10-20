@@ -5,8 +5,9 @@ import { DefaultDialogContent } from './DefaultDialogContent/index.js'
 import { DefaultDialogFooter } from './DefaultDialogFooter/index.js'
 import { DefaultDialogHeader } from './DefaultDialogHeader/index.js'
 
-export interface DefaultDialogProps<Config extends PikasConfigRecord = any>
-  extends DialogProps {
+export interface DefaultDialogProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> extends DialogProps {
   title: string
   content: React.ReactNode
   validateButtonLabel?: string

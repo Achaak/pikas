@@ -4,7 +4,7 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 
-interface CustomProps<Config extends PikasConfigRecord = any>
+interface CustomProps<Config extends PikasConfigRecord = PikasConfigRecord>
   extends React.HTMLAttributes<HTMLTableSectionElement> {
   variant?: 'default' | 'light'
   css?: Config['CSS']

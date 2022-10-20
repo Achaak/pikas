@@ -19,14 +19,18 @@ export const alertGap = {
 } as const
 export type AlertGap = keyof typeof alertGap
 
-export interface AlertCSS<Config extends PikasConfigRecord = any> {
+export interface AlertCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   content?: Config['CSS']
   icon?: IconCSS<Config>
   child?: Config['CSS']
 }
 
-export interface BaseAlertProps<Config extends PikasConfigRecord = any> {
+export interface BaseAlertProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   children?: React.ReactNode
   fontSize?: Config['theme']['fontSize']
   fontWeight?: Config['theme']['fontWeight']

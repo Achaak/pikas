@@ -61,13 +61,17 @@ const ContentBack = styled(Content, {})
 
 const ContentFront = styled(Content, {})
 
-export interface ProgressCSS<Config extends PikasConfigRecord = any> {
+export interface ProgressCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   content?: Config['CSS']
   indicator?: Config['CSS']
 }
 
-export interface ProgressProps<Config extends PikasConfigRecord = any> {
+export interface ProgressProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   progress: number
   max?: number
   width?: number | string

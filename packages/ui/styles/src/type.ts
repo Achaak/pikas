@@ -86,13 +86,14 @@ export type PikasConfigRecord<
   ConfigType.ThemeMap<DefaultThemeMap>,
   ConfigType.Utils<Utils<CustomUtils>>
 > & {
-  CSS: CSS<
-    Stitches<
-      ConfigType.Prefix<''>,
-      ConfigType.Media<CustomMedia>,
-      ConfigType.Theme<CustomTheme>,
-      ConfigType.ThemeMap<DefaultThemeMap>,
-      ConfigType.Utils<Utils<CustomUtils>>
-    >['config']
-  >
+  CSS: any
+  // CSS: CSS<
+  //   Stitches<
+  //     ConfigType.Prefix<''>,
+  //     ConfigType.Media<CustomMedia>,
+  //     ConfigType.Theme<CustomTheme>,
+  //     ConfigType.ThemeMap<DefaultThemeMap>,
+  //     ConfigType.Utils<Utils<CustomUtils>>
+  //   >['config']
+  // >
 }

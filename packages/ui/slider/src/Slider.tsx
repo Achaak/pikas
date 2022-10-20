@@ -58,7 +58,9 @@ export const sliderOrientation = {
 } as const
 export type SliderOrientation = keyof typeof sliderOrientation
 
-export interface SliderCSS<Config extends PikasConfigRecord = any> {
+export interface SliderCSS<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   container?: Config['CSS']
   label?: Config['CSS']
   description?: Config['CSS']
@@ -70,7 +72,9 @@ export interface SliderCSS<Config extends PikasConfigRecord = any> {
   thumb?: Config['CSS']
 }
 
-export interface SliderProps<Config extends PikasConfigRecord = any> {
+export interface SliderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
   id?: string

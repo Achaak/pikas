@@ -2,7 +2,9 @@ import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { BeatLoader as BeatLoaderDefault } from 'react-spinners'
 
-export interface BeatLoaderProps<Config extends PikasConfigRecord = any> {
+export interface BeatLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number | string
   margin?: number
   colorName?: keyof Config['theme']['colors']

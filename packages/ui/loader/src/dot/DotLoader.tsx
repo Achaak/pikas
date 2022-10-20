@@ -2,7 +2,9 @@ import { DotLoader as DotLoaderDefault } from 'react-spinners'
 import type { PikasConfigRecord } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface DotLoaderProps<Config extends PikasConfigRecord = any> {
+export interface DotLoaderProps<
+  Config extends PikasConfigRecord = PikasConfigRecord
+> {
   size?: number
   colorName?: keyof Config['theme']['colors']
   colorHex?: string
