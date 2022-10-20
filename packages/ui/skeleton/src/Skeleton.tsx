@@ -1,4 +1,4 @@
-import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
+import type { BorderRadius, PikasCSS } from '@pikas-ui/styles'
 import { styled, keyframes } from '@pikas-ui/styles'
 
 const wave = keyframes({
@@ -95,21 +95,21 @@ const Container = styled('div', {
 
 export type SkeletonAnimation = 'pulse' | 'wave' | false
 
-export interface SkeletonProps<Config extends PikasConfig = PikasConfig> {
+export interface SkeletonProps {
   animation?: SkeletonAnimation
   width?: string | number
   height?: string | number
   borderRadius?: BorderRadius
-  css?: Config['css']
+  css?: PikasCSS
 }
 
-export const Skeleton = <Config extends PikasConfig = PikasConfig>({
+export const Skeleton: React.FC<SkeletonProps> = ({
   animation = 'pulse',
   borderRadius = 'sm',
   height,
   width,
   css,
-}: SkeletonProps<Config>): JSX.Element => {
+}) => {
   return (
     <Container
       css={{

@@ -1,14 +1,13 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { InfoDialogContent } from './InfoDialogContent/index.js'
 import { InfoDialogFooter } from './InfoDialogFooter/index.js'
 import { InfoDialogHeader } from './InfoDialogHeader/index.js'
 
-export interface InfoDialogProps<Config extends PikasConfig = PikasConfig>
-  extends DialogProps {
+export interface InfoDialogProps extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColorName?: Config['color']
+  validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -16,7 +15,7 @@ export interface InfoDialogProps<Config extends PikasConfig = PikasConfig>
   content: React.ReactNode
 }
 
-export const InfoDialog = <Config extends PikasConfig = PikasConfig>({
+export const InfoDialog: React.FC<InfoDialogProps> = ({
   onClose,
   validateButtonLabel = 'Ok',
   validateButtonColorName = 'PRIMARY',
@@ -26,7 +25,7 @@ export const InfoDialog = <Config extends PikasConfig = PikasConfig>({
   title = 'We have a information for you !',
   content,
   ...props
-}: InfoDialogProps<Config>): JSX.Element => {
+}) => {
   return (
     <CustomDialog
       onClose={onClose}
@@ -34,7 +33,7 @@ export const InfoDialog = <Config extends PikasConfig = PikasConfig>({
       header={<InfoDialogHeader title={title} />}
       content={<InfoDialogContent content={content} />}
       footer={
-        <InfoDialogFooter<Config>
+        <InfoDialogFooter
           validateButtonLabel={validateButtonLabel}
           validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}

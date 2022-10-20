@@ -1,6 +1,6 @@
 import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasColor, PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import React, { useCallback } from 'react'
 import type { DefaultToastCSS } from '../defaultToast'
 import { DefaultToast } from '../defaultToast'
@@ -14,20 +14,19 @@ export const toastVariant = {
 } as const
 export type ToastVariant = keyof typeof toastVariant
 
-export interface ToastProps<Config extends PikasConfig = PikasConfig>
-  extends BaseToastProps<Config> {
+export interface ToastProps extends BaseToastProps {
   variant?: ToastVariant
   title?: string
   description?: string
-  css?: DefaultToastCSS<Config>
+  css?: DefaultToastCSS
 }
 
-export const Toast = <Config extends PikasConfig = PikasConfig>({
+export const Toast: React.FC<ToastProps> = ({
   variant = 'info',
   css,
   ...props
-}: ToastProps<Config>): JSX.Element => {
-  const Icon: React.FC<IconProps<Config>> = (props) => {
+}) => {
+  const Icon: React.FC<IconProps> = (props) => {
     switch (variant) {
       case 'success':
         return <IconByName {...props} name="bx:check-circle" />
@@ -60,7 +59,7 @@ export const Toast = <Config extends PikasConfig = PikasConfig>({
   }, [variant])
 
   return (
-    <DefaultToast<Config>
+    <DefaultToast
       Icon={Icon}
       css={{
         ...css,

@@ -1,4 +1,4 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 
@@ -10,14 +10,11 @@ const DescriptionStyled = styled('p', {
   color: '$BLACK',
 })
 
-export interface DescriptionProps<Config extends PikasConfig = PikasConfig> {
+export interface DescriptionProps {
   children?: React.ReactNode
-  css?: Config['css']
+  css?: PikasCSS
 }
 
-export const Description = <Config extends PikasConfig = PikasConfig>({
-  children,
-  css,
-}: DescriptionProps<Config>): JSX.Element => {
+export const Description: React.FC<DescriptionProps> = ({ children, css }) => {
   return <DescriptionStyled css={css}>{children}</DescriptionStyled>
 }

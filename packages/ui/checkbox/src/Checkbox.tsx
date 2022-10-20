@@ -1,9 +1,9 @@
 import type {
   BorderRadius,
-  PikasTheme,
-  PikasShadow,
+  PikasColor,
   PikasCSS,
-  BasePikasTheme,
+  PikasFontSize,
+  PikasShadow,
 } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
@@ -54,34 +54,28 @@ export const checkboxSide = {
 } as const
 export type CheckboxSide = keyof typeof checkboxSide
 
-export interface CheckboxCSS<
-  CSS extends PikasCSS = PikasCSS
-  // Theme extends PikasTheme = PikasTheme
-> {
-  container?: CSS
-  label?: CSS
-  checkboxRoot?: CSS
-  checkboxIndicator?: CSS
-  textError?: CSS
-  icon?: IconCSS //TODO
+export interface CheckboxCSS {
+  container?: PikasCSS
+  label?: PikasCSS
+  checkboxRoot?: PikasCSS
+  checkboxIndicator?: PikasCSS
+  textError?: PikasCSS
+  icon?: IconCSS
 }
 
-export interface CheckboxProps<
-  CSS extends PikasCSS = PikasCSS,
-  Theme extends PikasTheme = PikasTheme
-> {
+export interface CheckboxProps {
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
   id?: string
   label?: string | ReactNode
-  bgColorName?: Theme['color']
-  bgColorNameChecked?: Theme['color']
+  bgColorName?: PikasColor
+  bgColorNameChecked?: PikasColor
   textError?: string
   boxShadow?: PikasShadow | 'none'
-  borderColorName?: Theme['color']
+  borderColorName?: PikasColor
   borderWidth?: number
   borderRadius?: BorderRadius
-  fontSize?: Theme['fontSize']
+  fontSize?: PikasFontSize
   size?: number
   checked?: boolean
   className?: string
@@ -91,13 +85,10 @@ export interface CheckboxProps<
   side?: CheckboxSide
   outline?: boolean
   indeterminate?: boolean
-  css?: CheckboxCSS<CSS>
+  css?: CheckboxCSS
 }
 
-export const Checkbox = <
-  CSS extends PikasCSS = PikasCSS,
-  Theme extends PikasTheme = BasePikasTheme
->({
+export const Checkbox: React.FC<CheckboxProps> = ({
   id,
   label,
   textError,
@@ -120,7 +111,7 @@ export const Checkbox = <
   outline = true,
   indeterminate = false,
   css,
-}: CheckboxProps<CSS, Theme>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
@@ -233,9 +224,6 @@ export const Checkbox = <
                   container: {
                     opacity: 0.5,
 
-                    // TODO
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
                     ...css?.icon?.container,
                   },
                 }}
@@ -272,23 +260,5 @@ export const Checkbox = <
         </TextError>
       ) : null}
     </Container>
-  )
-}
-
-const Test: React.FC = () => {
-  const [checked, setChecked] = useState(false)
-
-  return (
-    <Checkbox
-      label="Checkbox"
-      onChange={(checked): void => setChecked(checked)}
-      checked={checked}
-      borderColorName="PRIMARY"
-      css={{
-        container: {
-          color: '',
-        },
-      }}
-    />
   )
 }

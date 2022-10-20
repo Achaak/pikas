@@ -1,22 +1,22 @@
 import { ClockLoader as ClockLoaderDefault } from 'react-spinners'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface ClockLoaderProps<Config extends PikasConfig = PikasConfig> {
+export interface ClockLoaderProps {
   size?: number
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const ClockLoader = <Config extends PikasConfig = PikasConfig>({
+export const ClockLoader: React.FC<ClockLoaderProps> = ({
   size,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY',
   colorHex,
   loading = true,
   speedMultiplier,
-}: ClockLoaderProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   return (

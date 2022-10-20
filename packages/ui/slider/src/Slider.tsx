@@ -1,4 +1,9 @@
-import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  PikasColor,
+  PikasCSS,
+  PikasFontSize,
+} from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import type { ReactNode } from 'react'
@@ -58,25 +63,25 @@ export const sliderOrientation = {
 } as const
 export type SliderOrientation = keyof typeof sliderOrientation
 
-export interface SliderCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  label?: Config['css']
-  description?: Config['css']
-  textError?: Config['css']
-  element?: Config['css']
-  slider?: Config['css']
-  track?: Config['css']
-  range?: Config['css']
-  thumb?: Config['css']
+export interface SliderCSS {
+  container?: PikasCSS
+  label?: PikasCSS
+  description?: PikasCSS
+  textError?: PikasCSS
+  element?: PikasCSS
+  slider?: PikasCSS
+  track?: PikasCSS
+  range?: PikasCSS
+  thumb?: PikasCSS
 }
 
-export interface SliderProps<Config extends PikasConfig = PikasConfig> {
+export interface SliderProps {
   defaultValue?: number[]
   onChange?: (value: number[]) => void
   id?: string
   label?: string | ReactNode
   textError?: string
-  fontSize?: Config['fontSize']
+  fontSize?: PikasFontSize
   className?: string
   description?: string
   value?: number[]
@@ -93,29 +98,29 @@ export interface SliderProps<Config extends PikasConfig = PikasConfig> {
   minSize?: string | number
   weight?: number
   thumbSize?: number
-  thumbColorName?: Config['color']
+  thumbColorName?: PikasColor
   thumbColorHex?: string
-  thumbBorderColorName?: Config['color']
+  thumbBorderColorName?: PikasColor
   thumbBorderColorHex?: string
-  thumbBorderColorNameHover?: Config['color']
+  thumbBorderColorNameHover?: PikasColor
   thumbBorderColorHoverHex?: string
   thumbBorderWidth?: number
   thumbBorderRadius?: BorderRadius
-  trackColorName?: Config['color']
+  trackColorName?: PikasColor
   trackColorHex?: string
-  rangeColorName?: Config['color']
+  rangeColorName?: PikasColor
   rangeColorHex?: string
   sliderBorderRadius?: BorderRadius
-  css?: SliderCSS<Config>
+  css?: SliderCSS
   inverted?: boolean
   onValueCommit?: (value: number[]) => void
 }
 
-export const Slider = <Config extends PikasConfig = PikasConfig>({
+export const Slider: React.FC<SliderProps> = ({
   id,
   label,
   textError,
-  fontSize = 'EM-MEDIUM' as Config['fontSize'],
+  fontSize = 'EM-MEDIUM',
   className,
   description,
   defaultValue,
@@ -134,23 +139,23 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
   minSize,
   size = '100%',
   thumbSize = 16,
-  thumbColorName = 'WHITE_FIX' as Config['color'],
+  thumbColorName = 'WHITE_FIX',
   thumbColorHex,
   thumbBorderColorName,
   thumbBorderColorHex,
-  thumbBorderColorNameHover = 'GRAY_LIGHTER' as Config['color'],
+  thumbBorderColorNameHover = 'GRAY_LIGHTER',
   thumbBorderColorHoverHex,
   thumbBorderWidth,
   thumbBorderRadius,
-  trackColorName = 'GRAY_LIGHTER' as Config['color'],
+  trackColorName = 'GRAY_LIGHTER',
   trackColorHex,
-  rangeColorName = 'PRIMARY' as Config['color'],
+  rangeColorName = 'PRIMARY',
   rangeColorHex,
   sliderBorderRadius,
   css,
   inverted,
   onValueCommit,
-}: SliderProps<Config>): JSX.Element => {
+}) => {
   return (
     <Container
       className={className}
@@ -166,7 +171,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
       }}
     >
       {label ? (
-        <Label<Config>
+        <Label
           htmlFor={id}
           css={{
             marginBottom: 4,
@@ -178,7 +183,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
       ) : null}
 
       {description ? (
-        <Description<Config>
+        <Description
           css={{
             marginBottom: 4,
             ...css?.description,
@@ -281,7 +286,7 @@ export const Slider = <Config extends PikasConfig = PikasConfig>({
       </Item>
 
       {textError ? (
-        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
+        <TextError css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}

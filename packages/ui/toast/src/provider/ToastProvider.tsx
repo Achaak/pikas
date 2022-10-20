@@ -1,4 +1,4 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { keyframes } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React, { createContext, useState } from 'react'
@@ -71,11 +71,11 @@ export interface ToastProviderViewport {
   label?: string
 }
 
-export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
+export interface ToastProviderProps {
   children?: React.ReactNode
   duration?: number
   label?: string
-  css?: Config['css']
+  css?: PikasCSS
   swipeThreshold?: number
   width?: number
   position?: ToastPosition
@@ -83,19 +83,19 @@ export interface ToastProviderProps<Config extends PikasConfig = PikasConfig> {
   viewport?: ToastProviderViewport
 }
 
-export interface ToastContextProps<Config extends PikasConfig = PikasConfig> {
-  toasts: React.ReactElement<BaseToastProps<Config>>[]
-  publish: (toast: React.ReactElement<BaseToastProps<Config>>) => void
+export interface ToastContextProps {
+  toasts: React.ReactElement<BaseToastProps>[]
+  publish: (toast: React.ReactElement<BaseToastProps>) => void
 }
 
-export const ToastContext = createContext<ToastContextProps<PikasConfig>>({
+export const ToastContext = createContext<ToastContextProps>({
   toasts: [],
   publish: () => {
     console.log('publish')
   },
 })
 
-export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
+export const ToastProvider: React.FC<ToastProviderProps> = ({
   duration = 5000,
   label = 'Notification',
   css,
@@ -108,10 +108,8 @@ export const ToastProvider = <Config extends PikasConfig = PikasConfig>({
     label: 'Notifications ({hotkey})',
   },
   children,
-}: ToastProviderProps<Config>): JSX.Element => {
-  const [toasts, setToasts] = useState<
-    React.ReactElement<BaseToastProps<Config>>[]
-  >([])
+}) => {
+  const [toasts, setToasts] = useState<React.ReactElement<BaseToastProps>[]>([])
 
   const getSwipeDirection = (): ToastPrimitive.SwipeDirection => {
     switch (position) {

@@ -1,5 +1,5 @@
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import type { BorderRadius, PikasConfig } from '@pikas-ui/styles'
+import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
 import { Skeleton } from '@pikas-ui/skeleton'
@@ -33,39 +33,39 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 })
 
-export interface AvatarCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  image?: Config['css']
-  fallback?: Config['css']
+export interface AvatarCSS {
+  container?: PikasCSS
+  image?: PikasCSS
+  fallback?: PikasCSS
 }
 
-export interface AvatarProps<Config extends PikasConfig = PikasConfig> {
+export interface AvatarProps {
   alt?: string
   src?: string
   onLoadingStatusChange?: (status: ImageLoadingStatus) => void
   delayMs?: number
   fallback?: string
-  fallbackColorName?: Config['color']
-  fallbackBackgroundColorName?: Config['color']
-  css?: AvatarCSS<Config>
+  fallbackColorName?: PikasColor
+  fallbackBackgroundColorName?: PikasColor
+  css?: AvatarCSS
   size?: number
   borderRadius?: BorderRadius
   loading?: boolean
 }
 
-export const Avatar = <Config extends PikasConfig = PikasConfig>({
+export const Avatar: React.FC<AvatarProps> = ({
   alt,
   src,
   onLoadingStatusChange,
   delayMs,
   fallback,
-  fallbackBackgroundColorName = 'PRIMARY_LIGHTEST_2' as Config['color'],
-  fallbackColorName = 'PRIMARY' as Config['color'],
+  fallbackBackgroundColorName = 'PRIMARY_LIGHTEST_2',
+  fallbackColorName = 'PRIMARY',
   css,
   size = 80,
   borderRadius = 'round',
   loading = false,
-}: AvatarProps<Config>): JSX.Element => {
+}) => {
   return (
     <Root
       css={{

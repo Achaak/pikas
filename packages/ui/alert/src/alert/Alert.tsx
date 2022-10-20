@@ -2,7 +2,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import React, { useCallback } from 'react'
 import { CustomAlert } from '../customAlert/index.js'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import type { BaseAlertProps } from '../types.js'
 import fontColorContrast from 'font-color-contrast'
@@ -15,19 +15,18 @@ export const alertVariant = {
 } as const
 export type AlertVariant = keyof typeof alertVariant
 
-export interface AlertProps<Config extends PikasConfig = PikasConfig>
-  extends BaseAlertProps<Config> {
+export interface AlertProps extends BaseAlertProps {
   variant?: AlertVariant
 }
 
-export const Alert = <Config extends PikasConfig = PikasConfig>({
+export const Alert: React.FC<AlertProps> = ({
   variant = 'info',
   children,
   ...props
-}: AlertProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
-  const Icon: React.FC<IconProps<Config>> = (props) => {
+  const Icon: React.FC<IconProps> = (props) => {
     switch (variant) {
       case 'success':
         return <IconByName {...props} name="bx:check-circle" />
@@ -42,7 +41,7 @@ export const Alert = <Config extends PikasConfig = PikasConfig>({
     }
   }
 
-  const getBackgroundColor = useCallback((): Config['color'] => {
+  const getBackgroundColor = useCallback((): PikasColor => {
     {
       switch (variant) {
         case 'success':

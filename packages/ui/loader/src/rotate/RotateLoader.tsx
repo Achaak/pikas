@@ -1,24 +1,24 @@
 import { RotateLoader as RotateLoaderDefault } from 'react-spinners'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface RotateLoaderProps<Config extends PikasConfig = PikasConfig> {
+export interface RotateLoaderProps {
   size?: number
   margin?: number
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const RotateLoader = <Config extends PikasConfig = PikasConfig>({
+export const RotateLoader: React.FC<RotateLoaderProps> = ({
   size,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY',
   colorHex,
   loading = true,
   margin,
   speedMultiplier,
-}: RotateLoaderProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   return (

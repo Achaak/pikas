@@ -1,8 +1,8 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import type { SwipeEvent } from '@radix-ui/react-toast'
 
-export interface ToastCSS<Config extends PikasConfig = PikasConfig> {
-  toast?: Config['css']
+export interface ToastCSS {
+  toast?: PikasCSS
 }
 
 export interface ToastAction {
@@ -16,8 +16,8 @@ export const toastType = {
 } as const
 export type ToastType = keyof typeof toastType
 
-export interface BaseToastProps<Config extends PikasConfig = PikasConfig> {
-  css?: ToastCSS<Config>
+export interface BaseToastProps {
+  css?: ToastCSS
   duration?: number
   onOpenChange?: (open: boolean) => void
   action?: ToastAction

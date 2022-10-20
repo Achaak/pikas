@@ -5,7 +5,7 @@ import { Searchbar } from '@pikas-ui/searchbar'
 type SearchbarData = {
   firstName: string
   lastName: string
-}[]
+}
 
 export const SearchbarExample: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ export const SearchbarExample: React.FC = () => {
             },
           ]
         }}
-        searchFunction={async (): Promise<SearchbarData> => {
+        searchFunction={async (): Promise<SearchbarData[]> => {
           return new Promise((resolve) => {
             setTimeout(() => {
               resolve([

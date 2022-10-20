@@ -1,7 +1,5 @@
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
-import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-
 import { ClipLoader } from '@pikas-ui/loader'
 import type {
   MenuData,
@@ -75,16 +73,11 @@ export const contextMenuDirection = {
 } as const
 export type ContextMenuDirection = keyof typeof contextMenuDirection
 
-export type ContextMenuCSS<Config extends PikasConfig = PikasConfig> =
-  MenuCSS<Config>
-export type ContextMenuDataItem<Config extends PikasConfig = PikasConfig> =
-  MenuDataItem<Config>
-export type ContextMenuDataItemEntry<Config extends PikasConfig = PikasConfig> =
-  ItemEntry<Config>
-export type ContextMenuData<Config extends PikasConfig = PikasConfig> =
-  MenuDataItem<Config>[]
-export interface ContextMenuProps<Config extends PikasConfig = PikasConfig>
-  extends MenuProps<Config> {
+export type ContextMenuCSS = MenuCSS
+export type ContextMenuDataItem = MenuDataItem
+export type ContextMenuDataItemEntry = ItemEntry
+export type ContextMenuData = MenuDataItem[]
+export interface ContextMenuProps extends MenuProps {
   children?: React.ReactNode
 
   onOpenChange?: (open: boolean) => void
@@ -102,7 +95,7 @@ export interface ContextMenuProps<Config extends PikasConfig = PikasConfig>
   collisionPadding?: number
 }
 
-export const ContextMenu = <Config extends PikasConfig = PikasConfig>({
+export const ContextMenu: React.FC<ContextMenuProps> = ({
   data,
   children,
   css,
@@ -118,7 +111,7 @@ export const ContextMenu = <Config extends PikasConfig = PikasConfig>({
   alignOffset,
   avoidCollisions = true,
   collisionPadding,
-}: ContextMenuProps<Config>): JSX.Element => {
+}) => {
   return (
     <ContextMenuPrimitive.Root
       onOpenChange={onOpenChange}
@@ -146,15 +139,12 @@ export const ContextMenu = <Config extends PikasConfig = PikasConfig>({
   )
 }
 
-interface ContextMenuDataProps<Config extends PikasConfig = PikasConfig> {
-  data: MenuData<Config>
-  css?: ContextMenuCSS<Config>
+interface ContextMenuDataProps {
+  data: MenuData
+  css?: ContextMenuCSS
 }
 
-const ContextMenuData = <Config extends PikasConfig = PikasConfig>({
-  data,
-  css,
-}: ContextMenuDataProps<Config>): JSX.Element => {
+const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
   return (
     <>
       {data

@@ -1,4 +1,11 @@
-import type { BorderRadius, PikasColor, PikasConfig } from '@pikas-ui/styles'
+import type {
+  BorderRadius,
+  PikasColor,
+  PikasCSS,
+  PikasFontSize,
+  PikasFontWeight,
+  PikasShadow,
+} from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { keyframes, styled, useTheme } from '@pikas-ui/styles'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
@@ -91,15 +98,15 @@ export const tooltipPadding = {
 } as const
 export type TooltipPadding = keyof typeof tooltipPadding
 
-export type TooltipCSS<Config extends PikasConfig = PikasConfig> = {
-  trigger?: Config['css']
-  content?: Config['css']
+export type TooltipCSS = {
+  trigger?: PikasCSS
+  content?: PikasCSS
 }
 
-export interface TooltipProps<Config extends PikasConfig = PikasConfig> {
+export interface TooltipProps {
   content: string | React.ReactNode
   children?: React.ReactNode
-  backgroundColorName?: Config['color']
+  backgroundColorName?: PikasColor
   open?: boolean
   defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void
@@ -115,17 +122,17 @@ export interface TooltipProps<Config extends PikasConfig = PikasConfig> {
   avoidCollisions?: boolean
   collisionPadding?: number
   borderRadius?: BorderRadius
-  fontSize?: Config['fontSize']
-  fontWeight?: Config['fontWeight']
-  boxShadow?: Config['shadow']
+  fontSize?: PikasFontSize
+  fontWeight?: PikasFontWeight
+  boxShadow?: PikasShadow
   padding?: TooltipPadding
-  css?: TooltipCSS<Config>
+  css?: TooltipCSS
 }
 
-export const Tooltip = <Config extends PikasConfig = PikasConfig>({
+export const Tooltip: React.FC<TooltipProps> = ({
   content,
   children,
-  backgroundColorName = 'WHITE' as Config['color'],
+  backgroundColorName = 'WHITE',
   open,
   onOpenChange,
   delayDuration,
@@ -140,13 +147,13 @@ export const Tooltip = <Config extends PikasConfig = PikasConfig>({
   avoidCollisions,
   collisionPadding,
   borderRadius = 'md' as BorderRadius,
-  fontSize = 'EM-SMALL' as Config['fontSize'],
+  fontSize = 'EM-SMALL',
   fontWeight,
-  boxShadow = 'ELEVATION_2' as Config['shadow'],
+  boxShadow = 'ELEVATION_2',
   hasArrow = true,
   padding = 'md' as TooltipPadding,
   css,
-}: TooltipProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   return (
@@ -183,8 +190,7 @@ export const Tooltip = <Config extends PikasConfig = PikasConfig>({
               color:
                 (theme &&
                   fontColorContrast(
-                    theme.colors[(backgroundColorName as PikasColor) || 'BLACK']
-                      .value,
+                    theme.colors[backgroundColorName || 'BLACK'].value,
                     0.7
                   )) ||
                 undefined,

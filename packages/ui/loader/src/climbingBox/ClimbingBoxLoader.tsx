@@ -1,24 +1,22 @@
 import { ClimbingBoxLoader as ClimbingBoxLoaderDefault } from 'react-spinners'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface ClimbingBoxLoaderProps<
-  Config extends PikasConfig = PikasConfig
-> {
+export interface ClimbingBoxLoaderProps {
   size?: number
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const ClimbingBoxLoader = <Config extends PikasConfig = PikasConfig>({
+export const ClimbingBoxLoader: React.FC<ClimbingBoxLoaderProps> = ({
   size,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY',
   colorHex,
   loading = true,
   speedMultiplier,
-}: ClimbingBoxLoaderProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   return (

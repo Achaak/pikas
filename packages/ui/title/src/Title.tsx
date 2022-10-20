@@ -1,4 +1,4 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { HTMLAttributes } from 'react'
 
@@ -68,32 +68,31 @@ export type TitleTextTransform = keyof typeof textTransformComponent
 export const titleVariant = titleComponent
 export type TitleVariant = keyof typeof titleVariant
 
-export interface TitleCSS<Config extends PikasConfig = PikasConfig> {
-  global?: Config['css']
-  h1?: Config['css']
-  h2?: Config['css']
-  h3?: Config['css']
-  h4?: Config['css']
-  h5?: Config['css']
-  h6?: Config['css']
+export interface TitleCSS {
+  global?: PikasCSS
+  h1?: PikasCSS
+  h2?: PikasCSS
+  h3?: PikasCSS
+  h4?: PikasCSS
+  h5?: PikasCSS
+  h6?: PikasCSS
 }
 
-export interface TitleProps<Config extends PikasConfig = PikasConfig>
-  extends HTMLAttributes<HTMLHeadingElement> {
+export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
   as: TitleAs
   variant?: TitleVariant
   textTransform?: TitleTextTransform
-  css?: TitleCSS<Config>
+  css?: TitleCSS
   children?: React.ReactNode
 }
 
-export const Title = <Config extends PikasConfig = PikasConfig>({
+export const Title: React.FC<TitleProps> = ({
   children,
   as,
   variant,
   textTransform,
   css,
-}: TitleProps<Config>): JSX.Element => {
+}) => {
   return (
     <TitleStyle
       as={as}

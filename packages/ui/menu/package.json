@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/menu",
-  "version": "3.2.10",
+  "version": "3.3.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -45,8 +45,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.2.1",
-    "@pikas-ui/styles": "3.4.1"
+    "@pikas-ui/icons": "3.3.0",
+    "@pikas-ui/styles": "3.5.0"
   },
   "peerDependencies": {
     "react": "18.2.0",

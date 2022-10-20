@@ -1,4 +1,11 @@
-import type { PikasColor, BorderRadius, PikasConfig } from '@pikas-ui/styles'
+import type {
+  PikasColor,
+  BorderRadius,
+  PikasCSS,
+  PikasFontSize,
+  PikasFontWeight,
+  PikasShadow,
+} from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
@@ -160,57 +167,55 @@ const Children = styled('div', {
   },
 })
 
-export type ButtonCSS<Config extends PikasConfig = PikasConfig> = {
-  button?: Config['css']
-  icon?: IconCSS<Config>
+export type ButtonCSS = {
+  button?: PikasCSS
+  icon?: IconCSS
 }
 
-export interface ButtonDefaultProps<Config extends PikasConfig = PikasConfig> {
+export interface ButtonDefaultProps {
   children?: React.ReactNode
-  css?: ButtonCSS<Config>
+  css?: ButtonCSS
   loading?: boolean
   padding?: ButtonPadding
-  fontSize?: Config['fontSize']
+  fontSize?: PikasFontSize
   gap?: ButtonGap
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
-  contentColorName?: Config['color']
+  contentColorName?: PikasColor
   contentColorHex?: string
   textTransform?: ButtonTextTransform
-  fontWeight?: Config['fontWeight']
+  fontWeight?: PikasFontWeight
   outlined?: boolean
   effect?: ButtonEffect
-  LeftIcon?: React.FC<IconProps<Config>>
-  RightIcon?: React.FC<IconProps<Config>>
+  LeftIcon?: React.FC<IconProps>
+  RightIcon?: React.FC<IconProps>
   disabled?: boolean
   width?: string | number
   maxWidth?: string | number
   minWidth?: string | number
   borderRadius?: BorderRadius
   borderWidth?: number
-  boxShadow?: Config['shadow'] | 'none'
+  boxShadow?: PikasShadow | 'none'
 }
 
-export interface BaseButtonProps<Config extends PikasConfig = PikasConfig>
-  extends ButtonDefaultProps<Config> {
+export interface BaseButtonProps extends ButtonDefaultProps {
   onClick?: () => void
   type?: ButtonType
 }
 
-export type ButtonProps<Config extends PikasConfig = PikasConfig> =
-  ButtonHTMLAttributes<HTMLButtonElement> & BaseButtonProps<Config>
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  BaseButtonProps
 
-export interface BaseButtonLinkProps<Config extends PikasConfig = PikasConfig>
-  extends ButtonDefaultProps<Config> {
+export interface BaseButtonLinkProps extends ButtonDefaultProps {
   onClick?: () => void
   href?: string
   target?: ButtonTarget
 }
 
-export type ButtonLinkProps<Config extends PikasConfig = PikasConfig> =
-  AnchorHTMLAttributes<HTMLAnchorElement> & BaseButtonLinkProps<Config>
+export type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
+  BaseButtonLinkProps
 
-const getContent = <Config extends PikasConfig = PikasConfig>({
+const getContent = ({
   LeftIcon,
   RightIcon,
   loading,
@@ -220,11 +225,11 @@ const getContent = <Config extends PikasConfig = PikasConfig>({
   textTransform,
   gap,
 }: {
-  LeftIcon?: React.FC<IconProps<Config>>
-  RightIcon?: React.FC<IconProps<Config>>
+  LeftIcon?: React.FC<IconProps>
+  RightIcon?: React.FC<IconProps>
   loading?: boolean
   children?: React.ReactNode
-  css?: ButtonCSS<Config>
+  css?: ButtonCSS
   contentColor?: string
   textTransform?: ButtonTextTransform
   gap?: ButtonGap
@@ -260,203 +265,192 @@ const getContent = <Config extends PikasConfig = PikasConfig>({
   )
 }
 
-const ButtonInner = <Config extends PikasConfig = PikasConfig>(
-  {
-    colorName = 'PRIMARY' as Config['color'],
-    colorHex,
-    css,
-    loading = false,
-    disabled = false,
-    effect = 'opacity',
-    onClick,
-    children,
-    gap = 'md',
-    LeftIcon,
-    RightIcon,
-    outlined = false,
-    width = '100%',
-    maxWidth = '100%',
-    minWidth,
-    fontSize = 'EM-MEDIUM' as Config['fontSize'],
-    textTransform = 'default',
-    fontWeight = 'NORMAL' as Config['fontWeight'],
-    borderRadius = 'md',
-    borderWidth = 2,
-    boxShadow = 'ELEVATION_BOTTOM_1' as Config['shadow'],
-    contentColorName,
-    contentColorHex,
-    padding = 'md',
-    ...props
-  }: ButtonProps<Config>,
-  ref: React.ForwardedRef<HTMLButtonElement>
-): JSX.Element => {
-  const theme = useTheme()
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      colorName = 'PRIMARY',
+      colorHex,
+      css,
+      loading = false,
+      disabled = false,
+      effect = 'opacity',
+      onClick,
+      children,
+      gap = 'md',
+      LeftIcon,
+      RightIcon,
+      outlined = false,
+      width = '100%',
+      maxWidth = '100%',
+      minWidth,
+      fontSize = 'EM-MEDIUM',
+      textTransform = 'default',
+      fontWeight = 'NORMAL',
+      borderRadius = 'md',
+      borderWidth = 2,
+      boxShadow = 'ELEVATION_BOTTOM_1',
+      contentColorName,
+      contentColorHex,
+      padding = 'md',
+      ...props
+    },
+    ref
+  ) => {
+    const theme = useTheme()
 
-  const handleClick = useCallback((): void => {
-    if (disabled || loading) {
-      return
-    }
+    const handleClick = useCallback((): void => {
+      if (disabled || loading) {
+        return
+      }
 
-    onClick?.()
-  }, [disabled, onClick, loading])
+      onClick?.()
+    }, [disabled, onClick, loading])
 
-  if (!theme) return <></>
+    if (!theme) return <></>
 
-  const colorHexFinal = colorHex || (colorName && theme.colors[colorName].value)
-  const contentColorHexFinal =
-    contentColorHex ||
-    (contentColorName && theme.colors[contentColorName as PikasColor].value)
+    const colorHexFinal =
+      colorHex || (colorName && theme.colors[colorName].value)
+    const contentColorHexFinal =
+      contentColorHex ||
+      (contentColorName && theme.colors[contentColorName].value)
 
-  return (
-    <ButtonDOM
-      ref={ref}
-      onClick={handleClick}
-      disabled={loading || disabled}
-      effect={disabled ? undefined : effect}
-      padding={padding}
-      css={{
-        br: borderRadius,
-        fontWeight: `$${fontWeight}`,
-        borderWidth: borderWidth,
-        fontSize: `$${fontSize}`,
-        width: width,
-        maxWidth: maxWidth,
-        minWidth: minWidth,
-        boxShadow: `$${boxShadow}`,
+    return (
+      <ButtonDOM
+        ref={ref}
+        onClick={handleClick}
+        disabled={loading || disabled}
+        effect={disabled ? undefined : effect}
+        padding={padding}
+        css={{
+          br: borderRadius,
+          fontWeight: `$${fontWeight}`,
+          borderWidth: borderWidth,
+          fontSize: `$${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
+          boxShadow: `$${boxShadow}`,
 
-        ...getColors({
-          outlined,
-          colorHex: colorHexFinal,
-          contentColorHex: contentColorHexFinal,
-        }),
+          ...getColors({
+            outlined,
+            colorHex: colorHexFinal,
+            contentColorHex: contentColorHexFinal,
+          }),
 
-        ...css?.button,
-      }}
-      {...props}
-    >
-      {getContent<Config>({
-        LeftIcon,
-        RightIcon,
-        children,
-        gap,
-        loading,
-        css,
-        textTransform,
-        contentColor: getContentColor({
-          outlined,
-          contentColorHex: contentColorHex,
-          colorHex: colorHex,
-        }),
-      })}
-    </ButtonDOM>
-  )
-}
-
-export const Button = forwardRef(ButtonInner) as <
-  Config extends PikasConfig = PikasConfig
->(
-  props: ButtonProps<Config> & {
-    ref?: React.ForwardedRef<HTMLAnchorElement>
+          ...css?.button,
+        }}
+        {...props}
+      >
+        {getContent({
+          LeftIcon,
+          RightIcon,
+          children,
+          gap,
+          loading,
+          css,
+          textTransform,
+          contentColor: getContentColor({
+            outlined,
+            contentColorHex: contentColorHex,
+            colorHex: colorHex,
+          }),
+        })}
+      </ButtonDOM>
+    )
   }
-) => ReturnType<typeof ButtonInner>
+)
 
-const ButtonLinkInner = <Config extends PikasConfig = PikasConfig>(
-  {
-    colorName = 'PRIMARY' as Config['color'],
-    colorHex,
-    css,
-    loading = false,
-    disabled = false,
-    fontSize = 'EM-MEDIUM' as Config['fontSize'],
-    effect = 'opacity',
-    onClick,
-    children,
-    gap = 'md',
-    LeftIcon,
-    RightIcon,
-    outlined = false,
-    width = '100%',
-    maxWidth = '100%',
-    minWidth,
-    textTransform = 'default',
-    fontWeight = 'NORMAL' as Config['fontWeight'],
-    borderRadius = 'md',
-    borderWidth = 2,
-    boxShadow = 'ELEVATION_BOTTOM_1' as Config['shadow'],
-    contentColorName,
-    contentColorHex,
-    padding = 'md',
-    ...props
-  }: ButtonLinkProps<Config>,
-  ref: React.ForwardedRef<HTMLAnchorElement>
-): JSX.Element => {
-  const theme = useTheme()
+export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+  (
+    {
+      colorName = 'PRIMARY',
+      colorHex,
+      css,
+      loading = false,
+      disabled = false,
+      fontSize = 'EM-MEDIUM',
+      effect = 'opacity',
+      onClick,
+      children,
+      gap = 'md',
+      LeftIcon,
+      RightIcon,
+      outlined = false,
+      width = '100%',
+      maxWidth = '100%',
+      minWidth,
+      textTransform = 'default',
+      fontWeight = 'NORMAL',
+      borderRadius = 'md',
+      borderWidth = 2,
+      boxShadow = 'ELEVATION_BOTTOM_1',
+      contentColorName,
+      contentColorHex,
+      padding = 'md',
+      ...props
+    },
+    ref
+  ) => {
+    const theme = useTheme()
 
-  const handleClick = useCallback((): void => {
-    if (disabled || loading) {
-      return
-    }
+    const handleClick = useCallback((): void => {
+      if (disabled || loading) {
+        return
+      }
 
-    onClick?.()
-  }, [disabled, onClick, loading])
+      onClick?.()
+    }, [disabled, onClick, loading])
 
-  if (!theme) return <></>
+    if (!theme) return <></>
 
-  const colorHexFinal =
-    colorHex || (colorName && theme.colors[colorName as PikasColor].value)
-  const contentColorHexFinal =
-    contentColorHex ||
-    (contentColorName && theme.colors[contentColorName as PikasColor].value)
+    const colorHexFinal =
+      colorHex || (colorName && theme.colors[colorName].value)
+    const contentColorHexFinal =
+      contentColorHex ||
+      (contentColorName && theme.colors[contentColorName].value)
 
-  return (
-    <ButtonDOM
-      as="a"
-      ref={ref}
-      onClick={handleClick}
-      disabled={loading || disabled}
-      effect={disabled ? undefined : effect}
-      padding={padding}
-      css={{
-        br: borderRadius,
-        fontWeight: `$${fontWeight}`,
-        borderWidth: borderWidth,
-        fontSize: `$${fontSize}`,
-        width: width,
-        maxWidth: maxWidth,
-        minWidth: minWidth,
-        boxShadow: `$${boxShadow}`,
+    return (
+      <ButtonDOM
+        as="a"
+        ref={ref}
+        onClick={handleClick}
+        disabled={loading || disabled}
+        effect={disabled ? undefined : effect}
+        padding={padding}
+        css={{
+          br: borderRadius,
+          fontWeight: `$${fontWeight}`,
+          borderWidth: borderWidth,
+          fontSize: `$${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
+          boxShadow: `$${boxShadow}`,
 
-        ...getColors({
-          outlined,
-          colorHex: colorHexFinal,
-          contentColorHex: contentColorHexFinal,
-        }),
-        ...css?.button,
-      }}
-      {...props}
-    >
-      {getContent<Config>({
-        LeftIcon,
-        RightIcon,
-        children,
-        gap,
-        loading,
-        css,
-        textTransform,
-        contentColor: getContentColor({
-          outlined,
-          contentColorHex: contentColorHex,
-          colorHex: colorHex,
-        }),
-      })}
-    </ButtonDOM>
-  )
-}
-
-export const ButtonLink = forwardRef(ButtonLinkInner) as <
-  Config extends PikasConfig = PikasConfig
->(
-  props: ButtonLinkProps<Config> & {
-    ref?: React.ForwardedRef<HTMLAnchorElement>
+          ...getColors({
+            outlined,
+            colorHex: colorHexFinal,
+            contentColorHex: contentColorHexFinal,
+          }),
+          ...css?.button,
+        }}
+        {...props}
+      >
+        {getContent({
+          LeftIcon,
+          RightIcon,
+          children,
+          gap,
+          loading,
+          css,
+          textTransform,
+          contentColor: getContentColor({
+            outlined,
+            contentColorHex: contentColorHex,
+            colorHex: colorHex,
+          }),
+        })}
+      </ButtonDOM>
+    )
   }
-) => ReturnType<typeof ButtonLinkInner>
+)

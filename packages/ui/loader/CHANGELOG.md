@@ -1,5 +1,16 @@
 # @pikas-ui/loader
 
+## 3.3.0
+
+### Minor Changes
+
+- Remove generic
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.0
+
 ## 3.2.1
 
 ### Patch Changes

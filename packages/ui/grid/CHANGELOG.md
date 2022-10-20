@@ -1,5 +1,16 @@
 # @pikas-ui/grid
 
+## 1.1.0
+
+### Minor Changes
+
+- Remove generic
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.0
+
 ## 1.0.13
 
 ### Patch Changes

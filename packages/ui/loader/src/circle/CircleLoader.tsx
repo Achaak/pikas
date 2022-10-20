@@ -1,22 +1,22 @@
 import { CircleLoader as CircleLoaderDefault } from 'react-spinners'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 
-export interface CircleLoaderProps<Config extends PikasConfig = PikasConfig> {
+export interface CircleLoaderProps {
   size?: number
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const CircleLoader = <Config extends PikasConfig = PikasConfig>({
+export const CircleLoader: React.FC<CircleLoaderProps> = ({
   size,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY',
   colorHex,
   loading = true,
   speedMultiplier,
-}: CircleLoaderProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   return (

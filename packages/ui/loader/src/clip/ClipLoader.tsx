@@ -1,22 +1,22 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { ClipLoader as ClipLoaderDefault } from 'react-spinners'
 
-export interface ClipLoaderProps<Config extends PikasConfig = PikasConfig> {
+export interface ClipLoaderProps {
   size?: number | string
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const ClipLoader = <Config extends PikasConfig = PikasConfig>({
+export const ClipLoader: React.FC<ClipLoaderProps> = ({
   size,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY',
   colorHex,
   loading = true,
   speedMultiplier,
-}: ClipLoaderProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   return (

@@ -3,7 +3,7 @@ import type { IconProps } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
 import { ClipLoader } from '@pikas-ui/loader'
 import { Separator } from '@pikas-ui/separator'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield'
 import { Textfield } from '@pikas-ui/textfield'
@@ -104,10 +104,8 @@ const DirectResultValue = styled('span', {
   color: '$BLACK',
 })
 
-const SearchIcon = <Config extends PikasConfig = PikasConfig>({
-  ...props
-}: IconProps<Config>): JSX.Element => (
-  <IconByName<Config> name="bx:search" {...props} />
+const SearchIcon: React.FC<IconProps> = ({ ...props }) => (
+  <IconByName name="bx:search" {...props} />
 )
 
 export const SearchbarDirection = {
@@ -131,26 +129,26 @@ type ResultGroupWithId = {
   items: (ResultItem & { id: number })[]
 }
 
-export type SearchbarCSS<Config extends PikasConfig = PikasConfig> = {
-  container?: Config['css']
-  resultContainer?: Config['css']
-  noResult?: Config['css']
-  resultItem?: Config['css']
-  textfield?: TextfieldCSS<Config>
-  resultGroup?: Config['css']
-  resultGroupTitle?: Config['css']
+export type SearchbarCSS = {
+  container?: PikasCSS
+  resultContainer?: PikasCSS
+  noResult?: PikasCSS
+  resultItem?: PikasCSS
+  textfield?: TextfieldCSS
+  resultGroup?: PikasCSS
+  resultGroupTitle?: PikasCSS
 }
 
-export interface SearchbarProps<T, Config extends PikasConfig = PikasConfig> {
-  searchFunction: (value: string) => Promise<T>
-  onSearch: (value: T) => ResultGroup[] | null
+export interface SearchbarProps<T extends Record<string, unknown>> {
+  searchFunction: (value: string) => Promise<Array<T>>
+  onSearch: (value: Array<T>) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
   isOpen?: boolean
   id?: string
   searchWhenKeyUp?: boolean
   debounceDelay?: number
-  textfield?: TextfieldProps<Config>
-  css?: SearchbarCSS<Config>
+  textfield?: TextfieldProps
+  css?: SearchbarCSS
   noResult?: React.ReactNode
   loading?: React.ReactNode
   direction?: SearchbarDirection
@@ -163,7 +161,7 @@ export interface SearchbarProps<T, Config extends PikasConfig = PikasConfig> {
   }
 }
 
-export const Searchbar = <T, Config extends PikasConfig = PikasConfig>({
+export const Searchbar = <T extends Record<string, unknown>>({
   onSearch,
   searchFunction,
   searchType = 'button',
@@ -180,7 +178,7 @@ export const Searchbar = <T, Config extends PikasConfig = PikasConfig>({
   maxWidth = '100%',
   minWidth,
   directResult,
-}: SearchbarProps<T, Config>): JSX.Element => {
+}: SearchbarProps<T>): JSX.Element => {
   const [result, setResult] = useState<ResultGroupWithId[]>()
   const [textfieldValue, setTextfieldValue] = useState<string>()
   const [nbItems, setNbItems] = useState(0)
@@ -322,7 +320,7 @@ export const Searchbar = <T, Config extends PikasConfig = PikasConfig>({
       }}
       ref={refContainer}
     >
-      <Textfield<Config>
+      <Textfield
         {...textfield}
         ref={refTextfield}
         autoComplete="off"

@@ -1,5 +1,5 @@
 import type { IconProps } from '@pikas-ui/icons'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { BaseAlertProps } from '../types.js'
@@ -73,29 +73,28 @@ const Child = styled('p', {
   margin: 0,
 })
 
-export interface CustomAlertProps<Config extends PikasConfig = PikasConfig>
-  extends BaseAlertProps<Config> {
-  Icon?: React.FC<IconProps<Config>>
-  backgroundColorName?: Config['color']
-  colorName?: Config['color']
+export interface CustomAlertProps extends BaseAlertProps {
+  Icon?: React.FC<IconProps>
+  backgroundColorName?: PikasColor
+  colorName?: PikasColor
   colorHex?: string
 }
 
-export const CustomAlert = <Config extends PikasConfig = PikasConfig>({
+export const CustomAlert: React.FC<CustomAlertProps> = ({
   children,
   Icon,
   backgroundColorName,
   colorName,
   colorHex,
-  fontSize = 'EM-SMALL' as Config['fontSize'],
+  fontSize = 'EM-SMALL',
   borderRadius = 'md',
   iconSize = 24,
-  fontWeight = 'NORMAL' as Config['fontWeight'],
+  fontWeight = 'NORMAL',
   gap = 'sm',
   padding = 'md',
   visible = true,
   css,
-}: CustomAlertProps<Config>): JSX.Element => {
+}) => {
   return (
     <Container visible={visible} css={css?.container}>
       <Content

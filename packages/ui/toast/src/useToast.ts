@@ -1,11 +1,8 @@
-import type { PikasConfig } from '@pikas-ui/styles'
 import { useContext } from 'react'
 import type { ToastContextProps } from './provider/index.js'
 import { ToastContext } from './provider/index.js'
 
-export const useToast = <
-  Config extends PikasConfig = PikasConfig
->(): ToastContextProps<Config> => {
+export const useToast = (): ToastContextProps => {
   const context = useContext(ToastContext)
 
   if (context === undefined) {
@@ -13,7 +10,7 @@ export const useToast = <
   }
 
   return {
-    publish: context.publish as ToastContextProps<Config>['publish'],
-    toasts: context.toasts as ToastContextProps<Config>['toasts'],
+    publish: context.publish as ToastContextProps['publish'],
+    toasts: context.toasts as ToastContextProps['toasts'],
   }
 }

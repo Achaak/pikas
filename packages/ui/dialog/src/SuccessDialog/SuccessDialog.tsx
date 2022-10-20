@@ -1,14 +1,13 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import type { DialogProps } from '../CustomDialog/index.js'
 import { CustomDialog } from '../CustomDialog/index.js'
 import { SuccessDialogContent } from './SuccessDialogContent/index.js'
 import { SuccessDialogFooter } from './SuccessDialogFooter/index.js'
 import { SuccessDialogHeader } from './SuccessDialogHeader/index.js'
 
-export interface SuccessDialogProps<Config extends PikasConfig = PikasConfig>
-  extends DialogProps {
+export interface SuccessDialogProps extends DialogProps {
   validateButtonLabel?: string
-  validateButtonColorName?: Config['color']
+  validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
   onValidated?: () => void
@@ -16,7 +15,7 @@ export interface SuccessDialogProps<Config extends PikasConfig = PikasConfig>
   content: React.ReactNode
 }
 
-export const SuccessDialog = <Config extends PikasConfig = PikasConfig>({
+export const SuccessDialog: React.FC<SuccessDialogProps> = ({
   validateButtonLabel = 'Ok',
   validateButtonColorName = 'SUCCESS',
   validateButtonDisabled,
@@ -25,7 +24,7 @@ export const SuccessDialog = <Config extends PikasConfig = PikasConfig>({
   title = 'Yeah ! You did it !',
   content,
   ...props
-}: SuccessDialogProps<Config>): JSX.Element => {
+}) => {
   return (
     <CustomDialog
       onClose={onClose}
@@ -33,7 +32,7 @@ export const SuccessDialog = <Config extends PikasConfig = PikasConfig>({
       header={<SuccessDialogHeader title={title} />}
       content={<SuccessDialogContent content={content} />}
       footer={
-        <SuccessDialogFooter<Config>
+        <SuccessDialogFooter
           validateButtonLabel={validateButtonLabel}
           validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}

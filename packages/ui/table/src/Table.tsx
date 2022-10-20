@@ -15,7 +15,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
 } from '@tanstack/react-table'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import type { PaginationCSS } from './pagination/index.js'
 import { Pagination } from './pagination/index.js'
@@ -140,28 +140,28 @@ export const tableVariant = {
 } as const
 export type TableVariant = keyof typeof tableVariant
 
-export interface TableCSS<T, Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  table?: Config['css']
-  thead?: Config['css']
-  tbody?: Config['css']
-  tfoot?: Config['css']
-  tr?: Config['css']
-  th?: Config['css']
-  thSpan?: Config['css']
-  td?: Config['css']
-  tdContent?: Config['css']
-  tdEmptyMessage?: Config['css']
-  tdContentEmptyMessage?: Config['css']
-  pagination?: PaginationCSS<Config>
+export interface TableCSS<T> {
+  container?: PikasCSS
+  table?: PikasCSS
+  thead?: PikasCSS
+  tbody?: PikasCSS
+  tfoot?: PikasCSS
+  tr?: PikasCSS
+  th?: PikasCSS
+  thSpan?: PikasCSS
+  td?: PikasCSS
+  tdContent?: PikasCSS
+  tdEmptyMessage?: PikasCSS
+  tdContentEmptyMessage?: PikasCSS
+  pagination?: PaginationCSS
   column?: Partial<
     Record<
       keyof T,
       {
-        th?: Config['css']
-        td?: Config['css']
-        thSpan?: Config['css']
-        tdContent?: Config['css']
+        th?: PikasCSS
+        td?: PikasCSS
+        thSpan?: PikasCSS
+        tdContent?: PikasCSS
       }
     >
   >
@@ -191,10 +191,7 @@ export interface TablePadding {
   td?: 'sm' | 'md' | 'lg'
 }
 
-export interface TableProps<
-  T extends Record<string, unknown>,
-  Config extends PikasConfig
-> {
+export interface TableProps<T extends Record<string, unknown>> {
   variant?: TableVariant
   data: T[]
   emptyMessage?: React.ReactNode
@@ -203,15 +200,12 @@ export interface TableProps<
   selection?: TableSelection
   sorting?: TableSorting
   columns: ColumnDef<T>[]
-  css?: TableCSS<T, Config>
+  css?: TableCSS<T>
   padding?: TablePadding
   hoverEffect?: boolean
 }
 
-export const Table = <
-  T extends Record<string, unknown>,
-  Config extends PikasConfig = PikasConfig
->({
+export const Table = <T extends Record<string, unknown>>({
   data,
   hasTfoot,
   pagination,
@@ -226,7 +220,7 @@ export const Table = <
   },
   emptyMessage,
   hoverEffect = true,
-}: TableProps<T, Config>): JSX.Element => {
+}: TableProps<T>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
     selection?.defaultState || {}
   )

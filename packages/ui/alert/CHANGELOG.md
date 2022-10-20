@@ -1,5 +1,17 @@
 # @pikas-ui/alert
 
+## 3.4.0
+
+### Minor Changes
+
+- Remove generic
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/icons@3.3.0
+  - @pikas-ui/styles@3.5.0
+
 ## 3.3.1
 
 ### Patch Changes

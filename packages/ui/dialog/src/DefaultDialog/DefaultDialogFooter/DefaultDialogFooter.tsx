@@ -1,5 +1,5 @@
 import { Button } from '@pikas-ui/button'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
@@ -9,25 +9,23 @@ const Container = styled('div', {
   width: '100%',
 })
 
-export interface DefaultDialogFooterProps<
-  Config extends PikasConfig = PikasConfig
-> {
+export interface DefaultDialogFooterProps {
   onClose?: () => void
   validateButtonLabel?: string
-  validateButtonColorName?: Config['color']
+  validateButtonColorName?: PikasColor
   onValidated?: () => void
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
 }
 
-export const DefaultDialogFooter = <Config extends PikasConfig = PikasConfig>({
+export const DefaultDialogFooter: React.FC<DefaultDialogFooterProps> = ({
   onClose,
   onValidated,
   validateButtonLabel,
   validateButtonColorName,
   validateButtonDisabled,
   validateButtonLoading,
-}: DefaultDialogFooterProps<Config>): JSX.Element => {
+}) => {
   return (
     <Container>
       <Button

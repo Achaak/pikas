@@ -1,22 +1,22 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { PulseLoader as PulseLoaderDefault } from 'react-spinners'
 
-export interface PulseLoaderProps<Config extends PikasConfig = PikasConfig> {
+export interface PulseLoaderProps {
   size?: number | string
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
   loading?: boolean
   speedMultiplier?: number
 }
 
-export const PulseLoader = <Config extends PikasConfig = PikasConfig>({
+export const PulseLoader: React.FC<PulseLoaderProps> = ({
   size,
-  colorName = 'PRIMARY' as Config['color'],
+  colorName = 'PRIMARY',
   colorHex,
   loading = true,
   speedMultiplier,
-}: PulseLoaderProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   return (

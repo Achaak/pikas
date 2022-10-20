@@ -1,15 +1,15 @@
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasColor, PikasCSS } from '@pikas-ui/styles'
 
-export interface IconCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  svg?: Config['css']
+export interface IconCSS {
+  container?: PikasCSS
+  svg?: PikasCSS
 }
 
-export interface IconProps<Config extends PikasConfig = PikasConfig> {
+export interface IconProps {
   className?: string
   size?: number | string
-  css?: IconCSS<Config>
-  colorName?: Config['color']
+  css?: IconCSS
+  colorName?: PikasColor
   colorHex?: string
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 }

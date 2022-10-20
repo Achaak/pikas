@@ -1,6 +1,12 @@
 import type { IconProps, IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasConfig, PikasColor, BorderRadius } from '@pikas-ui/styles'
+import type {
+  PikasColor,
+  BorderRadius,
+  PikasCSS,
+  PikasShadow,
+  PikasFontSize,
+} from '@pikas-ui/styles'
 import { styled, useTheme } from '@pikas-ui/styles'
 import { Description, Label, TextError } from '@pikas-ui/text'
 import * as LabelPrimitive from '@radix-ui/react-label'
@@ -182,54 +188,54 @@ export const textfieldGap = {
 } as const
 export type TextfieldGap = keyof typeof textfieldGap
 
-export type TextfieldCSS<Config extends PikasConfig = PikasConfig> = {
-  container?: Config['css']
-  inputContainer?: Config['css']
-  input?: Config['css']
-  left?: Config['css']
-  right?: Config['css']
-  leftIcon?: IconCSS<Config>
-  rightIcon?: IconCSS<Config>
-  infoTooltip?: TooltipCSS<Config>
-  infoIcon?: IconCSS<Config>
-  label?: Config['css']
-  description?: Config['css']
-  textError?: Config['css']
-  required?: Config['css']
+export type TextfieldCSS = {
+  container?: PikasCSS
+  inputContainer?: PikasCSS
+  input?: PikasCSS
+  left?: PikasCSS
+  right?: PikasCSS
+  leftIcon?: IconCSS
+  rightIcon?: IconCSS
+  infoTooltip?: TooltipCSS
+  infoIcon?: IconCSS
+  label?: PikasCSS
+  description?: PikasCSS
+  textError?: PikasCSS
+  required?: PikasCSS
 }
 
-export type TextfieldProps<Config extends PikasConfig = PikasConfig> = {
+export type TextfieldProps = {
   type?: TextfieldType
   id?: string
   label?: string
-  boxShadow?: Config['shadow'] | 'none'
+  boxShadow?: PikasShadow | 'none'
   borderRadius?: BorderRadius
   padding?: TextfieldPadding
   gap?: TextfieldGap
-  fontSize?: Config['fontSize']
-  borderColorName?: Config['color']
+  fontSize?: PikasFontSize
+  borderColorName?: PikasColor
   borderColorHex?: string
   borderWidth?: number
-  colorName?: Config['color']
+  colorName?: PikasColor
   colorHex?: string
-  placeholderColorName?: Config['color']
+  placeholderColorName?: PikasColor
   placeholderColorHex?: string
-  backgroundColorName?: Config['color']
+  backgroundColorName?: PikasColor
   backgroundColorHex?: string
   textError?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   autoComplete?: string
-  LeftIcon?: React.FC<IconProps<Config>>
-  RightIcon?: React.FC<IconProps<Config>>
-  leftIconColorName?: Config['color']
+  LeftIcon?: React.FC<IconProps>
+  RightIcon?: React.FC<IconProps>
+  leftIconColorName?: PikasColor
   leftIconColorHex?: string
-  rightIconColorName?: Config['color']
+  rightIconColorName?: PikasColor
   rightIconColorHex?: string
   leftIconSize?: number
   rightIconSize?: number
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
-  css?: TextfieldCSS<Config>
+  css?: TextfieldCSS
   min?: number
   max?: number
   outline?: boolean
@@ -241,283 +247,279 @@ export type TextfieldProps<Config extends PikasConfig = PikasConfig> = {
   data?: DOMStringMap
 } & InputHTMLAttributes<HTMLInputElement>
 
-const TextfieldInner = <Config extends PikasConfig = PikasConfig>(
-  {
-    id,
-    type = 'text',
-    onChange,
-    boxShadow = 'DIMINUTION_1' as Config['shadow'],
-    borderRadius = 'md',
-    padding = 'md',
-    fontSize = 'EM-MEDIUM' as Config['fontSize'],
-    textError,
-    label,
-    css,
-    borderColorName = 'TRANSPARENT' as Config['color'],
-    borderWidth = 0,
-    autoComplete,
-    min,
-    max,
-    LeftIcon,
-    RightIcon,
-    leftChildren,
-    rightChildren,
-    backgroundColorName = 'GRAY_LIGHTEST_1' as Config['color'],
-    outline = true,
-    description,
-    gap,
-    width = '100%',
-    maxWidth = '100%',
-    minWidth,
-    backgroundColorHex,
-    borderColorHex,
-    colorName,
-    colorHex,
-    placeholderColorName,
-    placeholderColorHex,
-    leftIconColorName,
-    leftIconColorHex,
-    rightIconColorName,
-    rightIconColorHex,
-    leftIconSize,
-    rightIconSize,
-    required,
-    info,
-    disabled = false,
-    data,
-    ...props
-  }: TextfieldProps<Config>,
-  ref: React.Ref<HTMLInputElement>
-): JSX.Element => {
-  const refInput = useRef<HTMLInputElement>(null)
-  const multiRef = useMergedRef(ref, refInput)
-  const [focus, setFocus] = useState(false)
-  const theme = useTheme()
+export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
+  (
+    {
+      id,
+      type = 'text',
+      onChange,
+      boxShadow = 'DIMINUTION_1',
+      borderRadius = 'md',
+      padding = 'md',
+      fontSize = 'EM-MEDIUM',
+      textError,
+      label,
+      css,
+      borderColorName = 'TRANSPARENT',
+      borderWidth = 0,
+      autoComplete,
+      min,
+      max,
+      LeftIcon,
+      RightIcon,
+      leftChildren,
+      rightChildren,
+      backgroundColorName = 'GRAY_LIGHTEST_1',
+      outline = true,
+      description,
+      gap,
+      width = '100%',
+      maxWidth = '100%',
+      minWidth,
+      backgroundColorHex,
+      borderColorHex,
+      colorName,
+      colorHex,
+      placeholderColorName,
+      placeholderColorHex,
+      leftIconColorName,
+      leftIconColorHex,
+      rightIconColorName,
+      rightIconColorHex,
+      leftIconSize,
+      rightIconSize,
+      required,
+      info,
+      disabled = false,
+      data,
+      ...props
+    },
+    ref
+  ) => {
+    const refInput = useRef<HTMLInputElement>(null)
+    const multiRef = useMergedRef(ref, refInput)
+    const [focus, setFocus] = useState(false)
+    const theme = useTheme()
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    if (type === 'number' && refInput.current) {
-      const value = parseInt(e.target.value)
+    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+      if (type === 'number' && refInput.current) {
+        const value = parseInt(e.target.value)
 
-      if (max !== undefined && value > max) {
-        refInput.current.value = `${max}`
-      } else if (min !== undefined && value < min) {
-        refInput.current.value = `${min}`
+        if (max !== undefined && value > max) {
+          refInput.current.value = `${max}`
+        } else if (min !== undefined && value < min) {
+          refInput.current.value = `${min}`
+        }
+      }
+
+      if (onChange) {
+        onChange(e)
       }
     }
 
-    if (onChange) {
-      onChange(e)
+    const getColor = ({
+      colorName,
+      colorHex,
+    }: {
+      colorName?: PikasColor
+      colorHex?: string
+    }): string => {
+      return (
+        colorHex ||
+        (colorName ? `$${colorName}` : undefined) ||
+        (theme
+          ? fontColorContrast(
+              theme.colors[backgroundColorName || 'WHITE'].value,
+              0.7
+            )
+          : undefined) ||
+        ''
+      )
     }
-  }
 
-  const getColor = ({
-    colorName,
-    colorHex,
-  }: {
-    colorName?: Config['color']
-    colorHex?: string
-  }): string => {
     return (
-      colorHex ||
-      (colorName ? `$${colorName}` : undefined) ||
-      (theme
-        ? fontColorContrast(
-            theme.colors[(backgroundColorName as PikasColor) || 'WHITE'].value,
-            0.7
-          )
-        : undefined) ||
-      ''
-    )
-  }
-
-  return (
-    <Container
-      css={{
-        fontSize: `$${fontSize}`,
-        width: width,
-        maxWidth: maxWidth,
-        minWidth: minWidth,
-        opacity: disabled ? 0.5 : 1,
-        cursor: disabled ? 'not-allowed' : undefined,
-
-        '& > *': {
-          pointerEvents: disabled ? 'none' : undefined,
-        },
-        ...css?.container,
-      }}
-    >
-      {label ? (
-        <LabelContainer>
-          <Label<Config> htmlFor={id} css={css?.label}>
-            {label}
-          </Label>
-
-          {required ? <Required css={css?.required}>*</Required> : null}
-          {info ? (
-            <Tooltip content={info} css={css?.infoTooltip}>
-              <IconByName<Config>
-                name="bx:info-circle"
-                colorName="BLACK_LIGHT"
-                css={{
-                  container: {
-                    marginLeft: 4,
-                    ...css?.infoIcon?.container,
-                  },
-                  svg: {
-                    ...css?.infoIcon?.svg,
-                  },
-                }}
-              />
-            </Tooltip>
-          ) : null}
-        </LabelContainer>
-      ) : null}
-
-      {description ? (
-        <Description<Config>
-          css={{
-            marginBottom: 4,
-            ...css?.description,
-          }}
-        >
-          {description}
-        </Description>
-      ) : null}
-
-      <InputContainer
-        focus={outline ? focus : undefined}
-        gap={gap}
+      <Container
         css={{
-          br: borderRadius,
-          borderColor:
-            borderColorHex || borderColorName
-              ? `$${borderColorName}`
-              : undefined,
-          backgroundColor:
-            backgroundColorHex || backgroundColorName
-              ? `$${backgroundColorName}`
-              : undefined,
-          boxShadow: `$${boxShadow}`,
-          borderWidth: borderWidth,
+          fontSize: `$${fontSize}`,
+          width: width,
+          maxWidth: maxWidth,
+          minWidth: minWidth,
+          opacity: disabled ? 0.5 : 1,
+          cursor: disabled ? 'not-allowed' : undefined,
 
-          ...css?.inputContainer,
+          '& > *': {
+            pointerEvents: disabled ? 'none' : undefined,
+          },
+          ...css?.container,
         }}
       >
-        {leftChildren && (
-          <LeftContainer
-            htmlFor={id}
-            padding={padding}
+        {label ? (
+          <LabelContainer>
+            <Label htmlFor={id} css={css?.label}>
+              {label}
+            </Label>
+
+            {required ? <Required css={css?.required}>*</Required> : null}
+            {info ? (
+              <Tooltip content={info} css={css?.infoTooltip}>
+                <IconByName
+                  name="bx:info-circle"
+                  colorName="BLACK_LIGHT"
+                  css={{
+                    container: {
+                      marginLeft: 4,
+                      ...css?.infoIcon?.container,
+                    },
+                    svg: {
+                      ...css?.infoIcon?.svg,
+                    },
+                  }}
+                />
+              </Tooltip>
+            ) : null}
+          </LabelContainer>
+        ) : null}
+
+        {description ? (
+          <Description
             css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
-              ...css?.left,
+              marginBottom: 4,
+              ...css?.description,
             }}
           >
-            {leftChildren}
-          </LeftContainer>
-        )}
+            {description}
+          </Description>
+        ) : null}
 
-        {LeftIcon && (
-          <LeftContainer
-            htmlFor={id}
-            padding={padding}
-            css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
-              ...css?.left,
-            }}
-          >
-            <LeftIcon
-              size={leftIconSize || '1em'}
-              colorHex={getColor({
-                colorName: leftIconColorName || colorName,
-                colorHex: leftIconColorHex || colorHex,
-              })}
-              css={css?.leftIcon}
-            />
-          </LeftContainer>
-        )}
-
-        <Input
-          ref={multiRef}
-          id={id}
-          type={type}
-          padding={padding}
-          onChange={onChangeInput}
-          autoComplete={autoComplete}
-          min={min}
-          max={max}
-          onFocus={(): void => setFocus(true)}
-          onBlur={(): void => setFocus(false)}
-          disabled={disabled}
-          required={required}
+        <InputContainer
+          focus={outline ? focus : undefined}
+          gap={gap}
           css={{
-            color: getColor({ colorName, colorHex }),
+            br: borderRadius,
+            borderColor:
+              borderColorHex || borderColorName
+                ? `$${borderColorName}`
+                : undefined,
+            backgroundColor:
+              backgroundColorHex || backgroundColorName
+                ? `$${backgroundColorName}`
+                : undefined,
+            boxShadow: `$${boxShadow}`,
+            borderWidth: borderWidth,
 
-            '&::placeholder': {
-              color: getColor({
-                colorName: placeholderColorName,
-                colorHex: placeholderColorHex,
-              }),
-            },
-
-            ...css?.input,
+            ...css?.inputContainer,
           }}
-          {...props}
-          {...data}
-        />
+        >
+          {leftChildren && (
+            <LeftContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...css?.left,
+              }}
+            >
+              {leftChildren}
+            </LeftContainer>
+          )}
 
-        {RightIcon && (
-          <RightContainer
-            htmlFor={id}
+          {LeftIcon && (
+            <LeftContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...css?.left,
+              }}
+            >
+              <LeftIcon
+                size={leftIconSize || '1em'}
+                colorHex={getColor({
+                  colorName: leftIconColorName || colorName,
+                  colorHex: leftIconColorHex || colorHex,
+                })}
+                css={css?.leftIcon}
+              />
+            </LeftContainer>
+          )}
+
+          <Input
+            ref={multiRef}
+            id={id}
+            type={type}
             padding={padding}
+            onChange={onChangeInput}
+            autoComplete={autoComplete}
+            min={min}
+            max={max}
+            onFocus={(): void => setFocus(true)}
+            onBlur={(): void => setFocus(false)}
+            disabled={disabled}
+            required={required}
             css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
-              ...css?.right,
+              color: getColor({ colorName, colorHex }),
+
+              '&::placeholder': {
+                color: getColor({
+                  colorName: placeholderColorName,
+                  colorHex: placeholderColorHex,
+                }),
+              },
+
+              ...css?.input,
             }}
-          >
-            <RightIcon
-              size={rightIconSize || '1em'}
-              colorHex={getColor({
-                colorName: rightIconColorName || colorName,
-                colorHex: rightIconColorHex || colorHex,
-              })}
-              css={css?.rightIcon}
-            />
-          </RightContainer>
+            {...props}
+            {...data}
+          />
+
+          {RightIcon && (
+            <RightContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...css?.right,
+              }}
+            >
+              <RightIcon
+                size={rightIconSize || '1em'}
+                colorHex={getColor({
+                  colorName: rightIconColorName || colorName,
+                  colorHex: rightIconColorHex || colorHex,
+                })}
+                css={css?.rightIcon}
+              />
+            </RightContainer>
+          )}
+
+          {rightChildren && (
+            <RightContainer
+              htmlFor={id}
+              padding={padding}
+              css={{
+                ...(id && {
+                  cursor: 'pointer',
+                }),
+                ...css?.right,
+              }}
+            >
+              {rightChildren}
+            </RightContainer>
+          )}
+        </InputContainer>
+
+        {textError && (
+          <TextError css={{ marginTop: 5, ...css?.textError }}>
+            {textError}
+          </TextError>
         )}
-
-        {rightChildren && (
-          <RightContainer
-            htmlFor={id}
-            padding={padding}
-            css={{
-              ...(id && {
-                cursor: 'pointer',
-              }),
-              ...css?.right,
-            }}
-          >
-            {rightChildren}
-          </RightContainer>
-        )}
-      </InputContainer>
-
-      {textError && (
-        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
-          {textError}
-        </TextError>
-      )}
-    </Container>
-  )
-}
-
-export const Textfield = forwardRef(TextfieldInner) as <
-  Config extends PikasConfig = PikasConfig
->(
-  props: TextfieldProps<Config> & { ref?: React.ForwardedRef<HTMLInputElement> }
-) => ReturnType<typeof TextfieldInner>
+      </Container>
+    )
+  }
+)

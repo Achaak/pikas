@@ -1,4 +1,3 @@
-import type { PikasConfig } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import React from 'react'
 import type { IconProps } from '../types'
@@ -9,12 +8,11 @@ const Container = styled('div', {
   justifyContent: 'center',
 })
 
-export interface CustomIconProps<Config extends PikasConfig = PikasConfig>
-  extends IconProps<Config> {
+export interface CustomIconProps extends IconProps {
   children?: React.ReactNode
 }
 
-export const CustomIcon = <Config extends PikasConfig = PikasConfig>({
+export const CustomIcon: React.FC<CustomIconProps> = ({
   children,
   className,
   colorName,
@@ -22,7 +20,7 @@ export const CustomIcon = <Config extends PikasConfig = PikasConfig>({
   onClick,
   size,
   css,
-}: CustomIconProps<Config>): JSX.Element => {
+}) => {
   return (
     <Container
       onClick={onClick}

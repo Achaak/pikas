@@ -1,6 +1,6 @@
 import type { IconCSS } from '@pikas-ui/icons'
 import { IconByName } from '@pikas-ui/icons'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { useTheme } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
@@ -184,13 +184,13 @@ export interface CustomDialogGap {
   footer?: CustomDialogGapElement
 }
 
-export interface CustomDialogCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  header?: Config['css']
-  content?: Config['css']
-  footer?: Config['css']
-  closeIcon?: IconCSS<Config>
-  overlay?: Config['css']
+export interface CustomDialogCSS {
+  container?: PikasCSS
+  header?: PikasCSS
+  content?: PikasCSS
+  footer?: PikasCSS
+  closeIcon?: IconCSS
+  overlay?: PikasCSS
 }
 
 export interface DialogProps {
@@ -199,11 +199,10 @@ export interface DialogProps {
   onClose?: () => void
 }
 
-export interface CustomDialogProps<Config extends PikasConfig = PikasConfig>
-  extends DialogProps {
+export interface CustomDialogProps extends DialogProps {
   closeIfClickOutside?: boolean
   hasCloseIcon?: boolean
-  css?: CustomDialogCSS<Config>
+  css?: CustomDialogCSS
   width?: string | number
   height?: string | number
   padding?: CustomDialogPadding
@@ -213,7 +212,7 @@ export interface CustomDialogProps<Config extends PikasConfig = PikasConfig>
   footer?: React.ReactNode
 }
 
-export const CustomDialog = <Config extends PikasConfig = PikasConfig>({
+export const CustomDialog: React.FC<CustomDialogProps> = ({
   visible,
   hasCloseIcon = true,
   onClose,
@@ -227,7 +226,7 @@ export const CustomDialog = <Config extends PikasConfig = PikasConfig>({
   footer,
   content,
   gap,
-}: CustomDialogProps<Config>): JSX.Element => {
+}) => {
   const [visibleStyle, setVisibleStyle] = useState(false)
   const [visibleDOM, setVisibleDOM] = useState(false)
   const theme = useTheme()
@@ -294,7 +293,7 @@ export const CustomDialog = <Config extends PikasConfig = PikasConfig>({
           }}
         >
           {hasCloseIcon && (
-            <IconByName<Config>
+            <IconByName
               name="bx:x"
               size={32}
               colorName="PRIMARY"

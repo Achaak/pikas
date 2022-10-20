@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import React from 'react'
-import type { PikasConfig } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles'
 import { useTheme, styled } from '@pikas-ui/styles'
 import fontColorContrast from 'font-color-contrast'
 import { IconByName } from '@pikas-ui/icons'
@@ -55,20 +55,20 @@ const ButtonArrowRight = styled(ButtonArrow, {
   marginLeft: 8,
 })
 
-export interface PaginationCSS<Config extends PikasConfig = PikasConfig> {
-  container?: Config['css']
-  leftContainer?: Config['css']
-  rightContainer?: Config['css']
-  pageNumber?: Config['css']
-  pageNumberActive?: Config['css']
-  select?: SelectCSS<Config>
-  buttonChevronsLeft?: Config['css']
-  buttonChevronsRight?: Config['css']
-  buttonChevronLeft?: Config['css']
-  buttonChevronRight?: Config['css']
+export interface PaginationCSS {
+  container?: PikasCSS
+  leftContainer?: PikasCSS
+  rightContainer?: PikasCSS
+  pageNumber?: PikasCSS
+  pageNumberActive?: PikasCSS
+  select?: SelectCSS
+  buttonChevronsLeft?: PikasCSS
+  buttonChevronsRight?: PikasCSS
+  buttonChevronLeft?: PikasCSS
+  buttonChevronRight?: PikasCSS
 }
 
-export interface PaginationProps<Config extends PikasConfig = PikasConfig> {
+export interface PaginationProps {
   previousPage: () => void
   nextPage: () => void
   setPageSize: (pageSize: number) => void
@@ -79,10 +79,10 @@ export interface PaginationProps<Config extends PikasConfig = PikasConfig> {
   setPageIndex: (pageIndex: number) => void
   selectValue: number[]
   defaultPageSize: number
-  css?: PaginationCSS<Config>
+  css?: PaginationCSS
 }
 
-export const Pagination = <Config extends PikasConfig = PikasConfig>({
+export const Pagination: React.FC<PaginationProps> = ({
   nextPage,
   previousPage,
   setPageSize,
@@ -94,7 +94,7 @@ export const Pagination = <Config extends PikasConfig = PikasConfig>({
   defaultPageSize,
   selectValue,
   css,
-}: PaginationProps<Config>): JSX.Element => {
+}) => {
   const theme = useTheme()
 
   const getNumber = (): React.ReactNode => {
@@ -146,7 +146,7 @@ export const Pagination = <Config extends PikasConfig = PikasConfig>({
   return (
     <Footer css={css?.container}>
       <Left css={css?.leftContainer}>
-        <Select<Config>
+        <Select
           data={[
             {
               items: selectValue.map((pageSize) => ({
