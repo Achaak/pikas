@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/switch",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,10 +46,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.3",
-    "@pikas-ui/styles": "3.5.3",
-    "@pikas-ui/text": "4.2.3",
-    "@pikas-ui/tooltip": "3.3.3",
+    "@pikas-ui/icons": "3.3.4",
+    "@pikas-ui/styles": "3.5.4",
+    "@pikas-ui/text": "4.2.4",
+    "@pikas-ui/tooltip": "3.3.4",
     "@radix-ui/react-switch": "1.0.1"
   },
   "peerDependencies": {

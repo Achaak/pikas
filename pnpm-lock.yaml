@@ -287,8 +287,8 @@ importers:
 
   packages/ui/alert:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -316,8 +316,8 @@ importers:
 
   packages/ui/avatar:
     specifiers:
-      '@pikas-ui/skeleton': 2.2.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/skeleton': 2.2.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-avatar': 1.0.1
@@ -345,8 +345,8 @@ importers:
 
   packages/ui/badge:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -374,9 +374,9 @@ importers:
 
   packages/ui/button:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/loader': 3.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -405,9 +405,9 @@ importers:
 
   packages/ui/checkbox:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/text': 4.2.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/text': 4.2.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-checkbox': 1.0.1
@@ -438,10 +438,10 @@ importers:
 
   packages/ui/context-menu:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/loader': 3.3.3
-      '@pikas-ui/menu': 3.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/menu': 3.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-context-menu': 2.0.1
@@ -471,10 +471,10 @@ importers:
 
   packages/ui/dialog:
     specifiers:
-      '@pikas-ui/button': 3.3.3
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/title': 1.2.3
+      '@pikas-ui/button': 3.3.4
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/title': 1.2.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-dialog': 1.0.2
@@ -504,10 +504,10 @@ importers:
 
   packages/ui/dropdown-menu:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/loader': 3.3.3
-      '@pikas-ui/menu': 3.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/menu': 3.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-dropdown-menu': 2.0.1
@@ -537,7 +537,7 @@ importers:
 
   packages/ui/grid:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -563,7 +563,7 @@ importers:
   packages/ui/icons:
     specifiers:
       '@iconify/react': 4.0.0
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -591,7 +591,7 @@ importers:
 
   packages/ui/loader:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -618,8 +618,8 @@ importers:
 
   packages/ui/menu:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -645,8 +645,8 @@ importers:
 
   packages/ui/progress:
     specifiers:
-      '@pikas-ui/skeleton': 2.2.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/skeleton': 2.2.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-progress': 1.0.1
@@ -676,12 +676,12 @@ importers:
 
   packages/ui/searchbar:
     specifiers:
-      '@pikas-ui/button': 3.3.3
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/loader': 3.3.3
-      '@pikas-ui/separator': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/textfield': 3.3.3
+      '@pikas-ui/button': 3.3.4
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/separator': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/textfield': 3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -713,11 +713,11 @@ importers:
 
   packages/ui/select:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/text': 4.2.3
-      '@pikas-ui/textfield': 3.3.3
-      '@pikas-ui/tooltip': 3.3.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/text': 4.2.4
+      '@pikas-ui/textfield': 3.3.4
+      '@pikas-ui/tooltip': 3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-select': 1.1.1
@@ -748,7 +748,7 @@ importers:
 
   packages/ui/separator:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-separator': 1.0.1
@@ -775,7 +775,7 @@ importers:
 
   packages/ui/skeleton:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -800,9 +800,9 @@ importers:
 
   packages/ui/slider:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/text': 4.2.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/text': 4.2.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-slider': 1.1.0
@@ -868,10 +868,10 @@ importers:
 
   packages/ui/switch:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/text': 4.2.3
-      '@pikas-ui/tooltip': 3.3.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/text': 4.2.4
+      '@pikas-ui/tooltip': 3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-switch': 1.0.1
@@ -901,11 +901,11 @@ importers:
 
   packages/ui/table:
     specifiers:
-      '@pikas-ui/checkbox': 3.3.3
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/loader': 3.3.3
-      '@pikas-ui/select': 4.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/checkbox': 3.3.4
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/select': 4.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@tanstack/react-table': 8.5.15
@@ -938,7 +938,7 @@ importers:
 
   packages/ui/tabs:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-tabs': 1.0.1
@@ -965,7 +965,7 @@ importers:
 
   packages/ui/text:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-label': 2.0.0
@@ -992,11 +992,11 @@ importers:
 
   packages/ui/textarea:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/loader': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/text': 4.2.3
-      '@pikas-ui/tooltip': 3.3.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/text': 4.2.4
+      '@pikas-ui/tooltip': 3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -1027,11 +1027,11 @@ importers:
 
   packages/ui/textfield:
     specifiers:
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/loader': 3.3.3
-      '@pikas-ui/styles': 3.5.3
-      '@pikas-ui/text': 4.2.3
-      '@pikas-ui/tooltip': 3.3.3
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas-ui/text': 4.2.4
+      '@pikas-ui/tooltip': 3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-label': 2.0.0
@@ -1066,7 +1066,7 @@ importers:
 
   packages/ui/title:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -1091,9 +1091,9 @@ importers:
 
   packages/ui/toast:
     specifiers:
-      '@pikas-ui/button': 3.3.3
-      '@pikas-ui/icons': 3.3.3
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/button': 3.3.4
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-toast': 1.1.1
@@ -1122,7 +1122,7 @@ importers:
 
   packages/ui/tooltip:
     specifiers:
-      '@pikas-ui/styles': 3.5.3
+      '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-tooltip': 1.0.2

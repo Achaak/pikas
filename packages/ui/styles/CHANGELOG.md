@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.5.4
+
+### Patch Changes
+
+- Add background color
+
 ## 3.5.3
 
 ### Patch Changes

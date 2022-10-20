@@ -91,7 +91,13 @@ export const pikasColors = {
 
   TRANSPARENT: 'rgba(0, 0, 0, 0)',
 
+  BACKGROUND_DARKER: '#777b80',
+  BACKGROUND_DARK: '#b2b8bf',
   BACKGROUND: '#EDF6FF',
+  BACKGROUND_LIGHT: '#f6faff',
+  BACKGROUND_LIGHTER: '#fafdff',
+  BACKGROUND_LIGHTEST_2: '#fdfeff',
+  BACKGROUND_LIGHTEST_1: '#feffff',
 }
 
 export type PikasColors = typeof pikasColors

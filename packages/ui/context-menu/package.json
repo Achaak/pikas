@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/context-menu",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,10 +46,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.3",
-    "@pikas-ui/loader": "3.3.3",
-    "@pikas-ui/menu": "3.3.3",
-    "@pikas-ui/styles": "3.5.3",
+    "@pikas-ui/icons": "3.3.4",
+    "@pikas-ui/loader": "3.3.4",
+    "@pikas-ui/menu": "3.3.4",
+    "@pikas-ui/styles": "3.5.4",
     "@radix-ui/react-context-menu": "2.0.1"
   },
   "peerDependencies": {

@@ -82,6 +82,12 @@ export const darkTheme = createTheme('dark-theme', {
 
     TRANSPARENT: 'rgba(0, 0, 0, 0)',
 
+    BACKGROUND_DARKER: '#919191',
+    BACKGROUND_DARK: '#5b5b5b',
     BACKGROUND: '#242424',
+    BACKGROUND_LIGHT: '#121212',
+    BACKGROUND_LIGHTER: '#090909',
+    BACKGROUND_LIGHTEST_2: '#040404',
+    BACKGROUND_LIGHTEST_1: '#020202',
   },
 })
