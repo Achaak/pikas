@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 3.2.4
+
+### Patch Changes
+
+- fix type
+
 ## 3.2.3
 
 ### Patch Changes

@@ -140,8 +140,8 @@ export type SearchbarCSS = {
 }
 
 export interface SearchbarProps<T> {
-  searchFunction: (value: string) => Promise<Array<T>>
-  onSearch: (value: Array<T>) => ResultGroup[] | null
+  searchFunction: (value: string) => Promise<T>
+  onSearch: (value: T) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
   isOpen?: boolean
   id?: string

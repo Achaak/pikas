@@ -10,7 +10,7 @@ type SearchbarData = {
 export const SearchbarExample: React.FC = () => {
   return (
     <ExampleContainer>
-      <Searchbar<SearchbarData>
+      <Searchbar<SearchbarData[]>
         searchWhenKeyUp={true}
         onSearch={(value): ResultGroup[] | null => {
           return [
