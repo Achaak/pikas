@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import type { createTheme } from '../css.js'
 import { styled, theme as themeDefault } from '../css.js'
 import merge from 'lodash.merge'
 import cloneDeep from 'lodash.clonedeep'
@@ -15,8 +16,8 @@ const ContainerStyled = styled('div', {
 
 export interface PikasUIProviderProps {
   children?: React.ReactNode
-  lightTheme?: typeof themeDefault
-  darkTheme?: typeof themeDefault
+  lightTheme?: ReturnType<typeof createTheme>
+  darkTheme?: ReturnType<typeof createTheme>
 }
 
 export type PikasUIContextProps = typeof themeDefault | undefined
