@@ -139,7 +139,7 @@ export type SearchbarCSS = {
   resultGroupTitle?: PikasCSS
 }
 
-export interface SearchbarProps<T extends Record<string, unknown>> {
+export interface SearchbarProps<T extends Record<string, any>> {
   searchFunction: (value: string) => Promise<Array<T>>
   onSearch: (value: Array<T>) => ResultGroup[] | null
   searchType?: 'button' | 'textfield'
@@ -161,7 +161,7 @@ export interface SearchbarProps<T extends Record<string, unknown>> {
   }
 }
 
-export const Searchbar = <T extends Record<string, unknown>>({
+export const Searchbar = <T extends Record<string, any>>({
   onSearch,
   searchFunction,
   searchType = 'button',
