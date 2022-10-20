@@ -14,10 +14,10 @@ export const menu: LayoutMenu = [
         label: 'Getting Started',
         href: getLink('gettingStarted'),
       },
-      {
-        label: 'Custom config',
-        href: getLink('createPikas'),
-      },
+      // {
+      //   label: 'Custom config',
+      //   href: getLink('createPikas'),
+      // },
     ],
   },
   {

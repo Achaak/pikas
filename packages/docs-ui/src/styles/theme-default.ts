@@ -1,4 +1,4 @@
-import { createTheme } from './globalCss.js'
+import { createTheme } from '@pikas-ui/styles'
 
 // TODO: Remove the workaround whenever MS fixes the issue
 // https://github.com/microsoft/TypeScript/issues/48212

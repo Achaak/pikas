@@ -1,4 +1,4 @@
-import { createTheme } from './globalCss.js'
+import { createTheme } from '@pikas-ui/styles'
 
 export const themeDark = createTheme({
   colors: {

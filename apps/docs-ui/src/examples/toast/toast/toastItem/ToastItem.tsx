@@ -2,7 +2,7 @@ import type { ToastVariant } from '@pikas-ui/toast'
 import { Toast as ToastPikasUI } from '@pikas-ui/toast'
 import { useToast } from '@pikas-ui/toast'
 import { Button } from '@pikas-ui/button'
-import type { Color } from '@pikas/docs-ui'
+import type { PikasColor } from '@pikas/docs-ui'
 
 interface ToastExampleProps {
   variant: ToastVariant
@@ -21,7 +21,7 @@ export const ToastItem: React.FC<ToastExampleProps> = ({ variant }) => {
     )
   }
 
-  const getColor = (): Color => {
+  const getColor = (): PikasColor => {
     switch (variant) {
       case 'success':
         return 'SUCCESS'
