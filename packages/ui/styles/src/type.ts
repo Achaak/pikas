@@ -33,7 +33,6 @@ import type { FontsRecord, PikasFonts } from './theme/fonts.js'
 import type { MediasRecord, PikasMedias } from './medias.js'
 import type { Utils, UtilsRecord } from './utils/index.js'
 import type Stitches from '@stitches/react/types/stitches.js'
-import type { CSS } from '@stitches/react'
 import type {
   ConfigType,
   DefaultThemeMap,
@@ -86,14 +85,13 @@ export type PikasConfigRecord<
   ConfigType.ThemeMap<DefaultThemeMap>,
   ConfigType.Utils<Utils<CustomUtils>>
 > & {
-  CSS: any
-  // CSS: CSS<
-  //   Stitches<
-  //     ConfigType.Prefix<''>,
-  //     ConfigType.Media<CustomMedia>,
-  //     ConfigType.Theme<CustomTheme>,
-  //     ConfigType.ThemeMap<DefaultThemeMap>,
-  //     ConfigType.Utils<Utils<CustomUtils>>
-  //   >['config']
-  // >
+  CSS: CSS<
+    Stitches<
+      ConfigType.Prefix<''>,
+      ConfigType.Media<CustomMedia>,
+      ConfigType.Theme<CustomTheme>,
+      ConfigType.ThemeMap<DefaultThemeMap>,
+      ConfigType.Utils<Utils<CustomUtils>>
+    >['config']
+  >
 }
