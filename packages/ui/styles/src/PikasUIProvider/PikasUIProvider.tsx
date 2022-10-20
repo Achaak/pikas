@@ -15,11 +15,11 @@ const ContainerStyled = styled('div', {
 
 export interface PikasUIProviderProps {
   children?: React.ReactNode
-  lightTheme?: any
-  darkTheme?: any
+  lightTheme?: typeof themeDefault
+  darkTheme?: typeof themeDefault
 }
 
-export type PikasUIContextProps = any
+export type PikasUIContextProps = typeof themeDefault | undefined
 
 export const PikasUIContext = createContext<PikasUIContextProps>(undefined)
 

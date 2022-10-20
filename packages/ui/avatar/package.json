@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/avatar",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,8 +46,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/skeleton": "2.2.1",
-    "@pikas-ui/styles": "3.5.1",
+    "@pikas-ui/skeleton": "2.2.2",
+    "@pikas-ui/styles": "3.5.2",
     "@radix-ui/react-avatar": "1.0.1"
   },
   "peerDependencies": {

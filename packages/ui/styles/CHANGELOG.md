@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.5.2
+
+### Patch Changes
+
+- Fix type
+
 ## 3.5.1
 
 ### Patch Changes

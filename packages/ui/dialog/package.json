@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,10 +46,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.3.1",
-    "@pikas-ui/icons": "3.3.1",
-    "@pikas-ui/styles": "3.5.1",
-    "@pikas-ui/title": "1.2.1",
+    "@pikas-ui/button": "3.3.2",
+    "@pikas-ui/icons": "3.3.2",
+    "@pikas-ui/styles": "3.5.2",
+    "@pikas-ui/title": "1.2.2",
     "@radix-ui/react-dialog": "1.0.2"
   },
   "peerDependencies": {
