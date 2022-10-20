@@ -50,28 +50,45 @@ import type { MediasRecordKey, PikasMedia } from './medias.js'
 import { loadMedias } from './medias.js'
 import { loadUtils } from './utils/index.js'
 
-export type { CSS }
+// export type { CSS } from '@stitches/react'
 export const createPikas = createStitches
+
+const colors = loadColors({})
+const fontSizes = loadFontSizes({})
+const fontWeights = loadFontWeights({})
+const letterSpacings = loadLetterSpacings({})
+const lineHeights = loadLineHeights({})
+const sizes = loadSizes({})
+const spaces = loadSpaces({})
+const borderStyles = loadBorderStyles({})
+const borderWidths = loadBorderWidths({})
+const radii = loadRadii({})
+const shadows = loadShadows({})
+const transitions = loadTransitions({})
+const zIndices = loadZIndices({})
+const fonts = loadFonts({})
+const medias = loadMedias({})
+const utils = loadUtils({})
 
 export const pikasConfig = createPikas({
   theme: {
-    colors: loadColors({}),
-    fonts: loadFonts({}),
-    shadows: loadShadows({}),
-    fontSizes: loadFontSizes({}),
-    space: loadSpaces({}),
-    sizes: loadSizes({}),
-    fontWeights: loadFontWeights({}),
-    lineHeights: loadLineHeights({}),
-    letterSpacings: loadLetterSpacings({}),
-    borderWidths: loadBorderWidths({}),
-    borderStyles: loadBorderStyles({}),
-    radii: loadRadii({}),
-    zIndices: loadZIndices({}),
-    transitions: loadTransitions({}),
+    colors: colors,
+    fonts: fonts,
+    shadows: shadows,
+    fontSizes: fontSizes,
+    space: spaces,
+    sizes: sizes,
+    fontWeights: fontWeights,
+    lineHeights: lineHeights,
+    letterSpacings: letterSpacings,
+    borderWidths: borderWidths,
+    borderStyles: borderStyles,
+    radii: radii,
+    zIndices: zIndices,
+    transitions: transitions,
   },
-  media: loadMedias({}),
-  utils: loadUtils({}),
+  media: medias,
+  utils: utils,
 })
 
 export const {

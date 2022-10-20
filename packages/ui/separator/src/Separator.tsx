@@ -17,7 +17,7 @@ export interface SeparatorProps<Config extends PikasConfig = PikasConfig> {
   borderRadius?: BorderRadius
 }
 
-export const Separator = <Config extends PikasConfig>({
+export const Separator = <Config extends PikasConfig = PikasConfig>({
   orientation = 'horizontal',
   css,
   className,

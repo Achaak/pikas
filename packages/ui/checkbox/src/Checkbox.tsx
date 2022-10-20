@@ -150,7 +150,7 @@ export const Checkbox = <Config extends PikasConfig = PikasConfig>({
     >
       <Item>
         {label && side === 'left' ? (
-          <Label<Config>
+          <Label
             htmlFor={id}
             css={{
               marginRight: 8,
@@ -203,7 +203,7 @@ export const Checkbox = <Config extends PikasConfig = PikasConfig>({
             }}
           >
             {isChecked === 'indeterminate' && (
-              <IconByName<Config>
+              <IconByName
                 name="bx:minus"
                 colorHex={
                   (theme &&
@@ -235,7 +235,7 @@ export const Checkbox = <Config extends PikasConfig = PikasConfig>({
         </CheckboxStyled>
 
         {label && side === 'right' ? (
-          <Label<Config>
+          <Label
             htmlFor={id}
             css={{
               marginLeft: 8,
@@ -249,7 +249,7 @@ export const Checkbox = <Config extends PikasConfig = PikasConfig>({
       </Item>
 
       {textError ? (
-        <TextError<Config> css={{ marginTop: 5, ...css?.textError }}>
+        <TextError css={{ marginTop: 5, ...css?.textError }}>
           {textError}
         </TextError>
       ) : null}
