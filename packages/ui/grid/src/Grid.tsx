@@ -318,6 +318,8 @@ export const Grid: React.FC<GridProps> = (
               gridColumnEnd: props.end.xs,
             }),
           }),
+
+          ...css?.['@xs'],
         },
         '@sm': {
           // CONTAINER
@@ -347,6 +349,8 @@ export const Grid: React.FC<GridProps> = (
               gridColumnEnd: props.end.sm,
             }),
           }),
+
+          ...css?.['@sm'],
         },
         '@md': {
           // CONTAINER
@@ -376,6 +380,8 @@ export const Grid: React.FC<GridProps> = (
               gridColumnEnd: props.end.md,
             }),
           }),
+
+          ...css?.['@md'],
         },
         '@lg': {
           // CONTAINER
@@ -405,6 +411,8 @@ export const Grid: React.FC<GridProps> = (
               gridColumnEnd: props.end.lg,
             }),
           }),
+
+          ...css?.['@lg'],
         },
         '@xl': {
           // CONTAINER
@@ -434,6 +442,8 @@ export const Grid: React.FC<GridProps> = (
               gridColumnEnd: props.end.xl,
             }),
           }),
+
+          ...css?.['@xl'],
         },
 
         ...css,
