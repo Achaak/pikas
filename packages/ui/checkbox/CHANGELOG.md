@@ -1,5 +1,11 @@
 # @pikas-ui/checkbox
 
+## 3.3.6
+
+### Patch Changes
+
+- Fix defaultChecked props
+
 ## 3.3.5
 
 ### Patch Changes

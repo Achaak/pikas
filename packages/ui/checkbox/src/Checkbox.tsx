@@ -115,7 +115,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   const theme = useTheme()
 
   const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
-    indeterminate ? 'indeterminate' : defaultChecked || 'indeterminate'
+    indeterminate ? 'indeterminate' : defaultChecked
   )
   const [focus, setFocus] = useState(false)
 

@@ -1,5 +1,12 @@
 # @pikas-ui/table
 
+## 3.2.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/checkbox@3.3.6
+
 ## 3.2.6
 
 ### Patch Changes
