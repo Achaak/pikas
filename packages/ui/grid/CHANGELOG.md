@@ -1,5 +1,11 @@
 # @pikas-ui/grid
 
+## 1.1.6
+
+### Patch Changes
+
+- Fix CSS
+
 ## 1.1.5
 
 ### Patch Changes

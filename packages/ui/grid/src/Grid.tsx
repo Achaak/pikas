@@ -290,6 +290,8 @@ export const Grid: React.FC<GridProps> = (
             gridColumnEnd: props.end.default,
           }),
 
+        ...css,
+
         '@xs': {
           // CONTAINER
           ...(type === 'container' &&
@@ -445,8 +447,6 @@ export const Grid: React.FC<GridProps> = (
 
           ...css?.['@xl'],
         },
-
-        ...css,
       }}
     >
       {children}
