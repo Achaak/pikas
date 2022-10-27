@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 4.3.5
+
+### Patch Changes
+
+- Fix minWidth default props
+
 ## 4.3.4
 
 ### Patch Changes
