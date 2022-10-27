@@ -1,5 +1,11 @@
 # @pikas-ui/grid
 
+## 1.1.7
+
+### Patch Changes
+
+- Add order props
+
 ## 1.1.6
 
 ### Patch Changes

@@ -221,11 +221,21 @@ export type GridItemEnd = {
   xl?: number
 }
 
+export type GridItemOrder = {
+  default: number
+  xs?: number
+  sm?: number
+  md?: number
+  lg?: number
+  xl?: number
+}
+
 export interface GridItemProps extends GridBaseProps {
   type: 'item'
   cols?: GridItemCols
   start?: GridItemStart
   end?: GridItemEnd
+  order?: GridItemOrder
 }
 
 export type GridProps = GridContainerProps | GridItemProps
@@ -289,6 +299,10 @@ export const Grid: React.FC<GridProps> = (
           props.end?.default && {
             gridColumnEnd: props.end.default,
           }),
+        ...(type === 'item' &&
+          props.order?.default && {
+            order: props.order.default,
+          }),
 
         ...css,
 
@@ -318,6 +332,9 @@ export const Grid: React.FC<GridProps> = (
             }),
             ...(props.end?.xs && {
               gridColumnEnd: props.end.xs,
+            }),
+            ...(props.order?.xs && {
+              order: props.order.xs,
             }),
           }),
 
@@ -350,6 +367,9 @@ export const Grid: React.FC<GridProps> = (
             ...(props.end?.sm && {
               gridColumnEnd: props.end.sm,
             }),
+            ...(props.order?.sm && {
+              order: props.order.sm,
+            }),
           }),
 
           ...css?.['@sm'],
@@ -380,6 +400,9 @@ export const Grid: React.FC<GridProps> = (
             }),
             ...(props.end?.md && {
               gridColumnEnd: props.end.md,
+            }),
+            ...(props.order?.md && {
+              order: props.order.md,
             }),
           }),
 
@@ -412,6 +435,9 @@ export const Grid: React.FC<GridProps> = (
             ...(props.end?.lg && {
               gridColumnEnd: props.end.lg,
             }),
+            ...(props.order?.lg && {
+              order: props.order.lg,
+            }),
           }),
 
           ...css?.['@lg'],
@@ -442,6 +468,9 @@ export const Grid: React.FC<GridProps> = (
             }),
             ...(props.end?.xl && {
               gridColumnEnd: props.end.xl,
+            }),
+            ...(props.order?.xl && {
+              order: props.order.xl,
             }),
           }),
 
