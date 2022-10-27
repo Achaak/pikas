@@ -107,7 +107,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   borderColorName,
   borderWidth = 0,
   size = 24,
-  side,
+  side = 'right',
   outline = true,
   indeterminate = false,
   css,
