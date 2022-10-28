@@ -474,7 +474,7 @@ importers:
       '@pikas-ui/button': 3.3.4
       '@pikas-ui/icons': 3.3.4
       '@pikas-ui/styles': 3.5.4
-      '@pikas-ui/title': 1.2.4
+      '@pikas-ui/title': 1.2.5
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@radix-ui/react-dialog': 1.0.2

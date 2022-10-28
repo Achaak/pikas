@@ -1,5 +1,11 @@
 # @pikas-ui/title
 
+## 1.2.5
+
+### Patch Changes
+
+- Fix css variant
+
 ## 1.2.4
 
 ### Patch Changes

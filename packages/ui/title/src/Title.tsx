@@ -100,7 +100,7 @@ export const Title: React.FC<TitleProps> = ({
       css={{
         textTransform,
         ...css?.global,
-        ...css?.[as],
+        ...css?.[variant || as],
       }}
     >
       {children}
