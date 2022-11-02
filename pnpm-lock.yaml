@@ -718,7 +718,7 @@ importers:
       '@pikas-ui/loader': 3.3.4
       '@pikas-ui/separator': 3.3.4
       '@pikas-ui/styles': 3.5.4
-      '@pikas-ui/textfield': 3.3.4
+      '@pikas-ui/textfield': 3.3.5
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.2
@@ -753,7 +753,7 @@ importers:
       '@pikas-ui/icons': 3.3.4
       '@pikas-ui/styles': 3.5.4
       '@pikas-ui/text': 4.2.4
-      '@pikas-ui/textfield': 3.3.4
+      '@pikas-ui/textfield': 3.3.5
       '@pikas-ui/tooltip': 3.3.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
@@ -941,7 +941,7 @@ importers:
       '@pikas-ui/checkbox': 3.3.6
       '@pikas-ui/icons': 3.3.4
       '@pikas-ui/loader': 3.3.4
-      '@pikas-ui/select': 4.3.5
+      '@pikas-ui/select': 4.3.6
       '@pikas-ui/styles': 3.5.4
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0

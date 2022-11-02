@@ -10,6 +10,7 @@ export const TextareaExample: React.FC = () => {
         required
         height={200}
         id="textarea"
+        placeholder="Placeholder"
       />
     </ExampleContainer>
   )

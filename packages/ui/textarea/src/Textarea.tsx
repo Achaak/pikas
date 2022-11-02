@@ -158,7 +158,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       borderColorHex,
       colorName,
       colorHex,
-      placeholderColorName,
+      placeholderColorName = 'BLACK_LIGHT',
       placeholderColorHex,
       info,
       required,

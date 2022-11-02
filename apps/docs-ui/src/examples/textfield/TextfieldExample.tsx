@@ -9,6 +9,7 @@ export const TextfieldExample: React.FC = () => {
         description="Eu est labore ea laborum laborum mollit non minim eu commodo."
         required
         id="textfield"
+        placeholder="Placeholder"
       />
     </ExampleContainer>
   )
