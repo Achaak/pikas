@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.4.6
+
+### Patch Changes
+
+- 679cbfa: Add SelectImageDialog component
+
 ## 2.4.5
 
 ### Patch Changes

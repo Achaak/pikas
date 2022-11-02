@@ -1,5 +1,11 @@
 # @pikas-ui/checkbox
 
+## 3.3.7
+
+### Patch Changes
+
+- 679cbfa: Update props name
+
 ## 3.3.6
 
 ### Patch Changes

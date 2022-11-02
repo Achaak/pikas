@@ -942,7 +942,7 @@ importers:
 
   packages/ui/table:
     specifiers:
-      '@pikas-ui/checkbox': 3.3.6
+      '@pikas-ui/checkbox': 3.3.7
       '@pikas-ui/icons': 3.3.4
       '@pikas-ui/loader': 3.3.4
       '@pikas-ui/select': 4.3.6

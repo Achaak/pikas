@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "3.2.8",
+  "version": "3.2.9",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "3.3.6",
+    "@pikas-ui/checkbox": "3.3.7",
     "@pikas-ui/icons": "3.3.4",
     "@pikas-ui/loader": "3.3.4",
     "@pikas-ui/select": "4.3.6",

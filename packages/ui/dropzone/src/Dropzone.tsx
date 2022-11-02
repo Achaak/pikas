@@ -1,5 +1,6 @@
+import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { Accept } from 'react-dropzone'
+import type { DropzoneOptions } from 'react-dropzone'
 import { useDropzone } from 'react-dropzone'
 import { IconByName } from '@pikas-ui/icons'
 
@@ -142,20 +143,30 @@ const SubDescription = styled('span', {
   },
 })
 
-export interface DropzoneProps {
-  maxFiles?: number
-  accept?: Accept
-  maxSize?: number
-  minSize?: number
-  disabled?: boolean
-  multiple?: boolean
-  width?: number
-  height?: number
-  noClick?: boolean
-  noKeyboard?: boolean
-  autoFocus?: boolean
+export type {
+  Accept,
+  DropEvent,
+  DropzoneInputProps,
+  DropzoneOptions,
+  DropzoneRef,
+  DropzoneRootProps,
+  DropzoneState,
+  ErrorCode,
+  FileError,
+  FileRejection,
+  FileWithPath,
+} from 'react-dropzone'
+
+export interface DropzoneCSS {
+  container?: PikasCSS
+}
+
+export interface DropzoneProps extends DropzoneOptions {
+  height?: number | string
+  width?: number | string
   description?: string
   subDescription?: string
+  css?: DropzoneCSS
 }
 
 export const Dropzone: React.FC<DropzoneProps> = ({
@@ -163,15 +174,31 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   accept,
   maxSize,
   minSize,
-  disabled,
+  disabled = false,
   multiple = true,
   height = 200,
   width = '100%',
-  noClick,
-  noKeyboard,
-  autoFocus,
+  noClick = false,
+  noKeyboard = false,
+  autoFocus = false,
   description,
   subDescription,
+  getFilesFromEvent,
+  noDragEventsBubbling = false,
+  onDrop,
+  onDropAccepted,
+  onDropRejected,
+  onDragEnter,
+  onDragLeave,
+  onDragOver,
+  noDrag = false,
+  onError,
+  onFileDialogCancel,
+  onFileDialogOpen,
+  preventDropOnDocument = true,
+  useFsAccessApi = true,
+  validator,
+  css,
 }) => {
   const {
     acceptedFiles,
@@ -189,6 +216,21 @@ export const Dropzone: React.FC<DropzoneProps> = ({
     noClick,
     noKeyboard,
     autoFocus,
+    getFilesFromEvent,
+    noDragEventsBubbling,
+    onDrop,
+    onDropAccepted,
+    onDropRejected,
+    onDragEnter,
+    onDragLeave,
+    onDragOver,
+    noDrag,
+    onError,
+    onFileDialogCancel,
+    onFileDialogOpen,
+    preventDropOnDocument,
+    useFsAccessApi,
+    validator,
   })
 
   const acceptedFileItems = acceptedFiles.map((file, index) => (
@@ -219,7 +261,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   })
 
   return (
-    <Container isDisabled={disabled}>
+    <Container isDisabled={disabled} css={css?.container}>
       <DropzoneStyled
         {...getRootProps({ className: 'dropzone' })}
         isFocused={isDragActive}

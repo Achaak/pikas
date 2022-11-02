@@ -61,5 +61,34 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+| Prop                    | Description                               | Type               | Default  |
+| :---------------------- | :---------------------------------------- | :----------------- | :------- |
+| `height`                | The height of the dropzone                | `number or string` | `200`    |
+| `width`                 | The width of the dropzone                 | `number or string` | `"100%"` |
+| `description`           | The description of the dropzone           | `string`           | -        |
+| `subDescription`        | The sub description of the dropzone       | `string`           | -        |
+| `css`                   | The css of the dropzone                   | `DropzoneCSS`      | -        |
+| `maxFiles`              | The max files of the dropzone             | `number`           | `2`      |
+| `accept`                | Set the accepted file types               | `string`           | -        |
+| `maxSize`               | Set the max size of the file              | `number`           | -        |
+| `minSize`               | Set the min size of the file              | `number`           | -        |
+| `disabled`              | Disable the dropzone                      | `boolean`          | `false`  |
+| `multiple`              | Allow multiple files                      | `boolean`          | `true`   |
+| `noClick`               | Disable click to open file dialog         | `boolean`          | `false`  |
+| `noKeyboard`            | Disable keyboard navigation               | `boolean`          | `false`  |
+| `autoFocus`             | Set focus on the dropzone                 | `boolean`          | `false`  |
+| `getFilesFromEvent`     | Get files from event                      | `Function`         | -        |
+| `noDragEventsBubbling`  | Stop drag events from bubbling            | `boolean`          | `false`  |
+| `onDrop`                | Callback when a file is dropped           | `Function`         | -        |
+| `onDropAccepted`        | Callback when a file is accepted          | `Function`         | -        |
+| `onDropRejected`        | Callback when a file is rejected          | `Function`         | -        |
+| `onDragEnter`           | Callback when the dragenter event occurs  | `Function`         | -        |
+| `onDragLeave`           | Callback when the dragleave event occurs  | `Function`         | -        |
+| `onDragOver`            | Callback when the dragover event occurs   | `Function`         | -        |
+| `noDrag`                | Disable drag and drop                     | `boolean`          | `false`  |
+| `onError`               | Callback when an error occurs             | `Function`         | -        |
+| `onFileDialogCancel`    | Callback when the file dialog is canceled | `Function`         | -        |
+| `onFileDialogOpen`      | Callback when the file dialog is opened   | `Function`         | -        |
+| `preventDropOnDocument` | Prevent drop on document                  | `boolean`          | `false`  |
+| `useFsAccessApi`        | Use the file system access api            | `boolean`          | `false`  |
+| `validator`             | Validator function                        | `Function`         | -        |
