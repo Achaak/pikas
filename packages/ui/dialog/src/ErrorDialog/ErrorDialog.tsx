@@ -10,7 +10,7 @@ export interface ErrorDialogProps extends DialogProps {
   validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
-  onValidated?: () => void
+  onValidate?: () => Promise<void>
   title?: string
   content: React.ReactNode
 }
@@ -23,7 +23,7 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
   title = 'Oops ! A error occurred...',
   onClose,
   content,
-  onValidated,
+  onValidate,
   ...props
 }) => {
   return (
@@ -38,7 +38,7 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
           validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
-          onValidated={onValidated}
+          onValidate={onValidate}
           onClose={onClose}
         />
       }

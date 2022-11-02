@@ -10,7 +10,7 @@ export interface InfoDialogProps extends DialogProps {
   validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
-  onValidated?: () => void
+  onValidate?: () => Promise<void>
   title?: string
   content: React.ReactNode
 }
@@ -21,7 +21,7 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
   validateButtonColorName = 'PRIMARY',
   validateButtonDisabled,
   validateButtonLoading,
-  onValidated,
+  onValidate,
   title = 'We have a information for you !',
   content,
   ...props
@@ -38,7 +38,7 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
           validateButtonColorName={validateButtonColorName}
           validateButtonDisabled={validateButtonDisabled}
           validateButtonLoading={validateButtonLoading}
-          onValidated={onValidated}
+          onValidate={onValidate}
           onClose={onClose}
         />
       }

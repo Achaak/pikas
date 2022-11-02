@@ -14,8 +14,8 @@ export interface ValidateDialogProps extends DialogProps {
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean
   validateButtonLoading?: boolean
-  onCanceled?: () => void
-  onValidated?: () => void
+  onCancel?: () => Promise<void>
+  onValidate?: () => Promise<void>
   title?: string
   content: React.ReactNode
 }
@@ -30,8 +30,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
   validateButtonDisabled,
   cancelButtonLoading,
   validateButtonLoading,
-  onCanceled,
-  onValidated,
+  onCancel,
+  onValidate,
   title = 'Are you sure ?',
   content,
   ...props
@@ -52,8 +52,8 @@ export const ValidateDialog: React.FC<ValidateDialogProps> = ({
           validateButtonDisabled={validateButtonDisabled}
           cancelButtonLoading={cancelButtonLoading}
           validateButtonLoading={validateButtonLoading}
-          onCanceled={onCanceled}
-          onValidated={onValidated}
+          onCancel={onCancel}
+          onValidate={onValidate}
           onClose={onClose}
         />
       }

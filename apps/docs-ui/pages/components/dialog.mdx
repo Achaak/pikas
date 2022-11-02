@@ -4,6 +4,7 @@ import { SuccessDialogExample } from './../../src/examples/dialog/successDialog'
 import { ValidateDialogExample } from './../../src/examples/dialog/validateDialog'
 import { InfoDialogExample } from './../../src/examples/dialog/infoDialog'
 import { CustomDialogExample } from './../../src/examples/dialog/customDialog'
+import { SelectImageDialogExample } from './../../src/examples/dialog/selectImageDialog'
 import { docsUIRoutes } from '@pikas/docs-routes'
 export const { getLink } = docsUIRoutes
 import { NextSeo } from 'next-seo'
@@ -83,18 +84,18 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                      | Description                                    | Type         | Default     |
-| :------------------------ | :--------------------------------------------- | :----------- | :---------- |
-| `visible`                 | Sets the visibility of the dialog              | `boolean`    | required    |
-| `onOpen`                  | Callback when the dialog is opened             | `function`   | -           |
-| `onClose`                 | Callback when the dialog is closed             | `function`   | -           |
-| `title`                   | Sets the title of the dialog                   | `string`     | -           |
-| `content`                 | Sets the content of the dialog                 | `ReactNode`  | -           |
-| `validateButtonLabel`     | Sets the label of the validate button          | `string`     | `"Ok"`      |
-| `onValidated`             | Callback when the dialog is validated          | `() => void` | -           |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors`     | `"PRIMARY"` |
-| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`    | -           |
-| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`    | -           |
+| Prop                      | Description                                    | Type          | Default     |
+| :------------------------ | :--------------------------------------------- | :------------ | :---------- |
+| `visible`                 | Sets the visibility of the dialog              | `boolean`     | required    |
+| `onOpen`                  | Callback when the dialog is opened             | `function`    | -           |
+| `onClose`                 | Callback when the dialog is closed             | `function`    | -           |
+| `title`                   | Sets the title of the dialog                   | `string`      | -           |
+| `content`                 | Sets the content of the dialog                 | `ReactNode`   | -           |
+| `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`      |
+| `onValidate`              | Callback when the dialog is validated          | `() => void`  | -           |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"PRIMARY"` |
+| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -           |
+| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -           |
 
 ---
 
@@ -130,18 +131,18 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                      | Description                                    | Type         | Default                 |
-| :------------------------ | :--------------------------------------------- | :----------- | :---------------------- |
-| `visible`                 | Sets the visibility of the dialog              | `boolean`    | required                |
-| `onOpen`                  | Callback when the dialog is opened             | `function`   | -                       |
-| `onClose`                 | Callback when the dialog is closed             | `function`   | -                       |
-| `title`                   | Sets the title of the dialog                   | `string`     | `"Yeah ! You did it !"` |
-| `content`                 | Sets the content of the dialog                 | `ReactNode`  | required                |
-| `validateButtonLabel`     | Sets the label of the validate button          | `string`     | `"Ok"`                  |
-| `onValidated`             | Callback when the dialog is validated          | `() => void` | -                       |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors`     | `"PRIMARY"`             |
-| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`    | -                       |
-| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`    | -                       |
+| Prop                      | Description                                    | Type          | Default                 |
+| :------------------------ | :--------------------------------------------- | :------------ | :---------------------- |
+| `visible`                 | Sets the visibility of the dialog              | `boolean`     | required                |
+| `onOpen`                  | Callback when the dialog is opened             | `function`    | -                       |
+| `onClose`                 | Callback when the dialog is closed             | `function`    | -                       |
+| `title`                   | Sets the title of the dialog                   | `string`      | `"Yeah ! You did it !"` |
+| `content`                 | Sets the content of the dialog                 | `ReactNode`   | required                |
+| `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`                  |
+| `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                       |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"PRIMARY"`             |
+| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                       |
+| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                       |
 
 ---
 
@@ -177,23 +178,23 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                      | Description                                    | Type         | Default            |
-| :------------------------ | :--------------------------------------------- | :----------- | :----------------- |
-| `visible`                 | Sets the visibility of the dialog              | `boolean`    | required           |
-| `onOpen`                  | Callback when the dialog is opened             | `function`   | -                  |
-| `onClose`                 | Callback when the dialog is closed             | `function`   | -                  |
-| `title`                   | Sets the title of the dialog                   | `string`     | `"Are you sure ?"` |
-| `content`                 | Sets the content of the dialog                 | `ReactNode`  | required           |
-| `validateButtonLabel`     | Sets the label of the validate button          | `string`     | `"Ok"`             |
-| `onValidated`             | Callback when the dialog is validated          | `() => void` | -                  |
-| `cancelButtonLabel`       | Sets the label of the cancel button            | `string`     | `"Cancel"`         |
-| `onCanceled`              | Callback when the dialog is canceled           | `() => void` | -                  |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors`     | `"SUCCESS"`        |
-| `cancelButtonColorName`   | Sets the color of the cancel button            | `PikasColors`     | `"DANGER"`         |
-| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`    | -                  |
-| `cancelButtonDisabled`    | Sets the disabled state of the cancel button   | `boolean`    | -                  |
-| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`    | -                  |
-| `cancelButtonLoading`     | Sets the loading state of the cancel button    | `boolean`    | -                  |
+| Prop                      | Description                                    | Type          | Default            |
+| :------------------------ | :--------------------------------------------- | :------------ | :----------------- |
+| `visible`                 | Sets the visibility of the dialog              | `boolean`     | required           |
+| `onOpen`                  | Callback when the dialog is opened             | `function`    | -                  |
+| `onClose`                 | Callback when the dialog is closed             | `function`    | -                  |
+| `title`                   | Sets the title of the dialog                   | `string`      | `"Are you sure ?"` |
+| `content`                 | Sets the content of the dialog                 | `ReactNode`   | required           |
+| `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`             |
+| `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                  |
+| `cancelButtonLabel`       | Sets the label of the cancel button            | `string`      | `"Cancel"`         |
+| `onCancel`                | Callback when the dialog is canceled           | `() => void`  | -                  |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"SUCCESS"`        |
+| `cancelButtonColorName`   | Sets the color of the cancel button            | `PikasColors` | `"DANGER"`         |
+| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                  |
+| `cancelButtonDisabled`    | Sets the disabled state of the cancel button   | `boolean`     | -                  |
+| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                  |
+| `cancelButtonLoading`     | Sets the loading state of the cancel button    | `boolean`     | -                  |
 
 ---
 
@@ -229,18 +230,18 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                      | Description                                    | Type         | Default                        |
-| :------------------------ | :--------------------------------------------- | :----------- | :----------------------------- |
-| `visible`                 | Sets the visibility of the dialog              | `boolean`    | required                       |
-| `onOpen`                  | Callback when the dialog is opened             | `function`   | -                              |
-| `onClose`                 | Callback when the dialog is closed             | `function`   | -                              |
-| `title`                   | Sets the title of the dialog                   | `string`     | `"Oops ! A error occurred..."` |
-| `content`                 | Sets the content of the dialog                 | `ReactNode`  | required                       |
-| `validateButtonLabel`     | Sets the label of the validate button          | `string`     | `"Ok"`                         |
-| `onValidated`             | Callback when the dialog is validated          | `() => void` | -                              |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors`     | `"DANGER"`                     |
-| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`    | -                              |
-| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`    | -                              |
+| Prop                      | Description                                    | Type          | Default                        |
+| :------------------------ | :--------------------------------------------- | :------------ | :----------------------------- |
+| `visible`                 | Sets the visibility of the dialog              | `boolean`     | required                       |
+| `onOpen`                  | Callback when the dialog is opened             | `function`    | -                              |
+| `onClose`                 | Callback when the dialog is closed             | `function`    | -                              |
+| `title`                   | Sets the title of the dialog                   | `string`      | `"Oops ! A error occurred..."` |
+| `content`                 | Sets the content of the dialog                 | `ReactNode`   | required                       |
+| `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`                         |
+| `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                              |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"DANGER"`                     |
+| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                              |
+| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                              |
 
 ---
 
@@ -276,18 +277,18 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                      | Description                                    | Type         | Default                             |
-| :------------------------ | :--------------------------------------------- | :----------- | :---------------------------------- |
-| `visible`                 | Sets the visibility of the dialog              | `boolean`    | required                            |
-| `onOpen`                  | Callback when the dialog is opened             | `function`   | -                                   |
-| `onClose`                 | Callback when the dialog is closed             | `function`   | -                                   |
-| `title`                   | Sets the title of the dialog                   | `string`     | `"We have a information for you !"` |
-| `content`                 | Sets the content of the dialog                 | `ReactNode`  | required                            |
-| `validateButtonLabel`     | Sets the label of the validate button          | `string`     | `"Ok"`                              |
-| `onValidated`             | Callback when the dialog is validated          | `() => void` | -                                   |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors`     | `"PRIMARY"`                         |
-| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`    | -                                   |
-| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`    | -                                   |
+| Prop                      | Description                                    | Type          | Default                             |
+| :------------------------ | :--------------------------------------------- | :------------ | :---------------------------------- |
+| `visible`                 | Sets the visibility of the dialog              | `boolean`     | required                            |
+| `onOpen`                  | Callback when the dialog is opened             | `function`    | -                                   |
+| `onClose`                 | Callback when the dialog is closed             | `function`    | -                                   |
+| `title`                   | Sets the title of the dialog                   | `string`      | `"We have a information for you !"` |
+| `content`                 | Sets the content of the dialog                 | `ReactNode`   | required                            |
+| `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`                              |
+| `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                                   |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"PRIMARY"`                         |
+| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                                   |
+| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                                   |
 
 ---
 
@@ -350,3 +351,52 @@ const Example: React.FC = () => {
 | `header`              | Sets the header of the dialog                      | `ReactNode`           | -        |
 | `content`             | Sets the content of the dialog                     | `ReactNode`           | -        |
 | `footer`              | Sets the footer of the dialog                      | `ReactNode`           | -        |
+
+### SelectImageDialog
+
+<SelectImageDialogExample />
+
+```tsx
+import { SelectImageDialog } from `@pikas-ui/dialog`;
+
+const Example: React.FC = () => {
+  const [visible, setVisible] = useState(false)
+
+  return (
+    <>
+      <SelectImageDialog
+        visible={visible}
+        onClose={(): void => setVisible(false)}
+      />
+
+      <Button
+        onClick={(): void => setVisible((lastState) => !lastState)}
+      >
+        {visible ? 'Hide' : 'Show'}
+      </Button>
+    </>
+  )
+}
+```
+
+#### Props
+
+| Prop                      | Description                                    | Type          | Default             |
+| :------------------------ | :--------------------------------------------- | :------------ | :------------------ |
+| `visible`                 | Sets the visibility of the dialog              | `boolean`     | required            |
+| `onOpen`                  | Callback when the dialog is opened             | `function`    | -                   |
+| `onClose`                 | Callback when the dialog is closed             | `function`    | -                   |
+| `title`                   | Sets the title of the dialog                   | `string`      | `"Image selection"` |
+| `selectImageLabel`        | Sets the label of the select image button      | `string`      | `"Select an image"` |
+| `defaultImage`            | Sets the default image                         | `string`      | -                   |
+| `defaultImageFull`        | Sets the default image (full)                  | `string`      | -                   |
+| `cancelButtonLabel`       | Sets the label of the cancel button            | `string`      | `"Cancel"`          |
+| `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Validate"`        |
+| `cancelButtonColorName`   | Sets the color of the cancel button            | `PikasColors` | `"DANGER"`          |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"SUCCESS"`         |
+| `cancelButtonDisabled`    | Sets the disabled state of the cancel button   | `boolean`     | -                   |
+| `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                   |
+| `cancelButtonLoading`     | Sets the loading state of the cancel button    | `boolean`     | -                   |
+| `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                   |
+| `onCancel`                | Callback when the cancel button is clicked     | `function`    | -                   |
+| `onValidate`              | Callback when the validate button is clicked   | `function`    | -                   |

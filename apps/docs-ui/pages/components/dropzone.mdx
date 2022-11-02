@@ -1,0 +1,65 @@
+import { DropzoneExample } from './../../src/examples/dropzone'
+import { docsUIRoutes } from '@pikas/docs-routes'
+export const { getLink } = docsUIRoutes
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Dropzone" />
+
+# @pikas-ui/dropzone
+
+This package contains a dropzone component.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/dropzone/CHANGELOG.md">
+  Change Log
+</a>
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/dropzone
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/dropzone
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/dropzone
+```
+
+---
+
+## Usage
+
+### Dropzone
+
+<DropzoneExample />
+
+```tsx
+import { Dropzone } from `@pikas-ui/dropzone`;
+
+const Example: React.FC = () => {
+  return (
+    <Dropzone />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
