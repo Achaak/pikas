@@ -280,7 +280,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       borderColorHex,
       colorName,
       colorHex,
-      placeholderColorName,
+      placeholderColorName = 'BLACK_LIGHT',
       placeholderColorHex,
       leftIconColorName,
       leftIconColorHex,

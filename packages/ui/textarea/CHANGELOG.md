@@ -1,5 +1,11 @@
 # @pikas-ui/textarea
 
+## 3.3.5
+
+### Patch Changes
+
+- Add placeholder default color
+
 ## 3.3.4
 
 ### Patch Changes
