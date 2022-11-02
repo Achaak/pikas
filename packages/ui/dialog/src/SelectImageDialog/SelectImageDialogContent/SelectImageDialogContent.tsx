@@ -55,6 +55,12 @@ export interface SelectImageDialogContentProps {
   setRotation: (rotate: number) => void
   rotation: number
   setCroppedAreaPixels: (area: Area) => void
+  maxZoom: number
+  minZoom: number
+  defaultZoom: number
+  aspect: number
+  cropShape: 'rect' | 'round'
+  cropSize?: { width: number; height: number }
 }
 
 export const SelectImageDialogContent: React.FC<
@@ -68,10 +74,16 @@ export const SelectImageDialogContent: React.FC<
   setRotation,
   selectImageLabel,
   rotation,
+  maxZoom,
+  minZoom,
+  defaultZoom,
+  aspect,
+  cropShape,
+  cropSize,
 }) => {
   const inputImage = useRef<HTMLInputElement>(null)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(1)
+  const [zoom, setZoom] = useState(defaultZoom | minZoom)
   const [loadingImage, setLoadingImage] = useState(false)
 
   const onCropComplete = useCallback(
@@ -139,12 +151,15 @@ export const SelectImageDialogContent: React.FC<
             crop={crop}
             rotation={rotation}
             zoom={zoom}
-            maxZoom={5}
-            aspect={1 / 1}
+            maxZoom={maxZoom}
+            aspect={aspect}
             onCropChange={setCrop}
             onRotationChange={setRotation}
             onCropComplete={onCropComplete}
             onZoomChange={setZoom}
+            cropShape={cropShape}
+            cropSize={cropSize}
+            minZoom={minZoom}
           />
         ) : (
           <ImageEmpty>

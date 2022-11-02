@@ -46,7 +46,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.4"
+    "@pikas-ui/icons": "3.3.4",
+    "@pikas-ui/styles": "3.5.4",
+    "react-dropzone": "^14.2.3"
   },
   "peerDependencies": {
     "react": "18.2.0",

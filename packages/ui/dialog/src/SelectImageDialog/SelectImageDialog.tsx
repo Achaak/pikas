@@ -23,6 +23,12 @@ export interface SelectImageDialogProps extends DialogProps {
   defaultImage?: string
   defaultImageFull?: string
   selectImageLabel?: string
+  maxZoom?: number
+  minZoom?: number
+  defaultZoom?: number
+  aspect?: number
+  cropShape?: 'rect' | 'round'
+  cropSize?: { width: number; height: number }
 }
 
 export const SelectImageDialog: React.FC<SelectImageDialogProps> = ({
@@ -41,6 +47,12 @@ export const SelectImageDialog: React.FC<SelectImageDialogProps> = ({
   onValidate,
   defaultImage,
   defaultImageFull,
+  maxZoom = 5,
+  minZoom = 1,
+  defaultZoom = 1,
+  aspect = 1 / 1,
+  cropShape = 'rect',
+  cropSize,
   ...props
 }) => {
   const [image, setImage] = useState<string | undefined>(defaultImage)
@@ -102,6 +114,12 @@ export const SelectImageDialog: React.FC<SelectImageDialogProps> = ({
           setCroppedAreaPixels={setCroppedAreaPixels}
           setRotation={setRotation}
           rotation={rotation}
+          aspect={aspect}
+          cropShape={cropShape}
+          cropSize={cropSize}
+          maxZoom={maxZoom}
+          minZoom={minZoom}
+          defaultZoom={defaultZoom}
         />
       }
       footer={
