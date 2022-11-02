@@ -1,8 +1,9 @@
 import type { PikasCSS } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
-import type { DropzoneOptions } from 'react-dropzone'
+import type { DropzoneOptions, FileRejection } from 'react-dropzone'
 import { useDropzone } from 'react-dropzone'
 import { IconByName } from '@pikas-ui/icons'
+import { fromEvent } from 'file-selector'
 
 const Container = styled('div', {
   display: 'flex',
@@ -81,16 +82,19 @@ const FileListName = styled('span', {
   marginLeft: 4,
   fontSize: '$EM-MEDIUM',
   lineHeight: '$EM-MEDIUM',
+  color: '$BLACK',
 })
 
 const FileListSize = styled('span', {
   marginLeft: 4,
   fontSize: '$EM-X-SMALL',
+  color: '$BLACK',
 })
 
 const FileListItem = styled('li', {
   display: 'flex',
   flexDirection: 'column',
+  color: '$BLACK',
 })
 
 const ErrorList = styled('ul', {
@@ -108,6 +112,7 @@ const ErrorListItem = styled('li', {
 const FilesTitle = styled('span', {
   fontSize: '$EM-SMALL',
   fontWeight: '$BOLD',
+  color: '$BLACK',
 })
 
 const AcceptedFilesTitle = styled(FilesTitle, {})
@@ -159,6 +164,9 @@ export type {
 
 export interface DropzoneCSS {
   container?: PikasCSS
+  dropzone?: PikasCSS
+  description?: PikasCSS
+  subDescription?: PikasCSS
 }
 
 export interface DropzoneProps extends DropzoneOptions {
@@ -167,13 +175,21 @@ export interface DropzoneProps extends DropzoneOptions {
   description?: string
   subDescription?: string
   css?: DropzoneCSS
+  showFilesResult?: boolean
+  renderResult?: ({
+    acceptedFiles,
+    fileRejections,
+  }: {
+    acceptedFiles: File[]
+    fileRejections: FileRejection[]
+  }) => React.ReactNode
 }
 
 export const Dropzone: React.FC<DropzoneProps> = ({
-  maxFiles = 2,
+  maxFiles = 0,
   accept,
-  maxSize,
-  minSize,
+  maxSize = Infinity,
+  minSize = 0,
   disabled = false,
   multiple = true,
   height = 200,
@@ -183,7 +199,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   autoFocus = false,
   description,
   subDescription,
-  getFilesFromEvent,
+  getFilesFromEvent = fromEvent,
   noDragEventsBubbling = false,
   onDrop,
   onDropAccepted,
@@ -198,6 +214,8 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   preventDropOnDocument = true,
   useFsAccessApi = true,
   validator,
+  showFilesResult = true,
+  renderResult,
   css,
 }) => {
   const {
@@ -269,36 +287,43 @@ export const Dropzone: React.FC<DropzoneProps> = ({
           width,
           height,
           cursor: noClick ? 'default' : 'pointer',
+          ...css?.dropzone,
         }}
       >
         <input {...getInputProps()} />
-        <Description isFocused={isDragActive}>
+        <Description isFocused={isDragActive} css={css?.description}>
           {description ||
             "Drag 'n' drop some files here, or click to select files"}
         </Description>
-        <SubDescription isFocused={isDragActive}>
+        <SubDescription isFocused={isDragActive} css={css?.subDescription}>
           {subDescription ||
             `(${maxFiles} ${maxFiles > 1 ? 'files are' : 'file is'} the maximum
           number of files you can drop here)`}
         </SubDescription>
       </DropzoneStyled>
-      {acceptedFiles.length > 0 || fileRejections.length > 0 ? (
-        <FilesResult>
-          {acceptedFiles.length > 0 && (
-            <AcceptedFiles>
-              <AcceptedFilesTitle>Accepted files</AcceptedFilesTitle>
-              <FileList>{acceptedFileItems}</FileList>
-            </AcceptedFiles>
-          )}
+      {(acceptedFiles.length > 0 || fileRejections.length > 0) &&
+      showFilesResult
+        ? renderResult?.({
+            acceptedFiles,
+            fileRejections,
+          }) || (
+            <FilesResult>
+              {acceptedFiles.length > 0 && (
+                <AcceptedFiles>
+                  <AcceptedFilesTitle>Accepted files</AcceptedFilesTitle>
+                  <FileList>{acceptedFileItems}</FileList>
+                </AcceptedFiles>
+              )}
 
-          {fileRejections.length > 0 && (
-            <RejectedFiles>
-              <RejectedFilesTitle>Rejected files</RejectedFilesTitle>
-              <FileList>{fileRejectionItems}</FileList>
-            </RejectedFiles>
-          )}
-        </FilesResult>
-      ) : null}
+              {fileRejections.length > 0 && (
+                <RejectedFiles>
+                  <RejectedFilesTitle>Rejected files</RejectedFilesTitle>
+                  <FileList>{fileRejectionItems}</FileList>
+                </RejectedFiles>
+              )}
+            </FilesResult>
+          )
+        : null}
     </Container>
   )
 }

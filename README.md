@@ -16,7 +16,7 @@ Pikas is an open source project that aims to provide a simple and easy to use to
 
 ## Pikas UI
 
-Pikas Ui is an open source UI library for building many types of user interfaces in a simple way and to keep a good user experience.
+Pikas UI is an open source UI library for building many types of user interfaces in a simple way and to keep a good user experience.
 
 The library is based on the [React](https://reactjs.org/) framework and is written in [TypeScript](https://www.typescriptlang.org/).
 
