@@ -68,8 +68,8 @@ export interface CheckboxProps {
   onChange?: (checked: boolean) => void
   id?: string
   label?: string | ReactNode
-  bgColorName?: PikasColor
-  bgColorNameChecked?: PikasColor
+  backgroundColorName?: PikasColor
+  backgroundColorNameChecked?: PikasColor
   textError?: string
   boxShadow?: PikasShadow | 'none'
   borderColorName?: PikasColor
@@ -100,8 +100,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   disabled = false,
   required = false,
   name,
-  bgColorName = 'WHITE',
-  bgColorNameChecked = 'PRIMARY',
+  backgroundColorName = 'WHITE',
+  backgroundColorNameChecked = 'PRIMARY',
   borderRadius = 'md',
   boxShadow = 'DIMINUTION_1',
   borderColorName,
@@ -180,7 +180,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           onFocus={(): void => setFocus(true)}
           onBlur={(): void => setFocus(false)}
           css={{
-            backgroundColor: `$${bgColorName}`,
+            backgroundColor: `$${backgroundColorName}`,
             br: borderRadius,
             boxShadow: `$${boxShadow}`,
             borderColor: `$${borderColorName}`,
@@ -189,7 +189,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             height: size,
 
             '&[aria-checked="true"]': {
-              backgroundColor: `$${bgColorNameChecked}`,
+              backgroundColor: `$${backgroundColorNameChecked}`,
             },
 
             ...css?.checkboxRoot,
@@ -200,7 +200,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               color:
                 (theme &&
                   fontColorContrast(
-                    theme.colors[bgColorNameChecked || 'WHITE'].value,
+                    theme.colors[backgroundColorNameChecked || 'WHITE'].value,
                     0.7
                   )) ||
                 undefined,
@@ -214,7 +214,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                 colorHex={
                   (theme &&
                     fontColorContrast(
-                      theme.colors[bgColorName || 'BLACK'].value,
+                      theme.colors[backgroundColorName || 'BLACK'].value,
                       0.7
                     )) ||
                   ''

@@ -56,13 +56,12 @@ export const menu: LayoutMenu = [
         href: getLink('dropdownMenu'),
       },
       {
-        label: 'Grid',
-        href: getLink('grid'),
+        label: 'Dropzone',
+        href: getLink('dropzone'),
       },
       {
-        label: 'File Input (Coming soon)',
-        href: getLink('fileInput'),
-        disabled: true,
+        label: 'Grid',
+        href: getLink('grid'),
       },
       {
         label: 'Icons',

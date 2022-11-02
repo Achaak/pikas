@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,9 +48,14 @@
   "dependencies": {
     "@pikas-ui/button": "3.3.4",
     "@pikas-ui/icons": "3.3.4",
+    "@pikas-ui/loader": "3.3.4",
+    "@pikas-ui/slider": "3.3.4",
     "@pikas-ui/styles": "3.5.4",
     "@pikas-ui/title": "1.2.5",
-    "@radix-ui/react-dialog": "1.0.2"
+    "@radix-ui/react-dialog": "1.0.2",
+    "compressorjs": "1.1.1",
+    "get-orientation": "1.1.2",
+    "react-easy-crop": "4.6.1"
   },
   "peerDependencies": {
     "react": "18.2.0",

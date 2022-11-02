@@ -28,6 +28,7 @@ importers:
       '@pikas-ui/context-menu': workspace:*
       '@pikas-ui/dialog': workspace:*
       '@pikas-ui/dropdown-menu': workspace:*
+      '@pikas-ui/dropzone': workspace:*
       '@pikas-ui/grid': workspace:*
       '@pikas-ui/icons': workspace:*
       '@pikas-ui/loader': workspace:*
@@ -82,6 +83,7 @@ importers:
       '@pikas-ui/context-menu': link:../../packages/ui/context-menu
       '@pikas-ui/dialog': link:../../packages/ui/dialog
       '@pikas-ui/dropdown-menu': link:../../packages/ui/dropdown-menu
+      '@pikas-ui/dropzone': link:../../packages/ui/dropzone
       '@pikas-ui/grid': link:../../packages/ui/grid
       '@pikas-ui/icons': link:../../packages/ui/icons
       '@pikas-ui/loader': link:../../packages/ui/loader
@@ -473,6 +475,8 @@ importers:
     specifiers:
       '@pikas-ui/button': 3.3.4
       '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/loader': 3.3.4
+      '@pikas-ui/slider': 3.3.4
       '@pikas-ui/styles': 3.5.4
       '@pikas-ui/title': 1.2.5
       '@pikas/config': 1.0.0
@@ -481,16 +485,24 @@ importers:
       '@types/node': 18.11.2
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
+      compressorjs: 1.1.1
       cross-env: 7.0.3
       eslint: 8.25.0
+      get-orientation: 1.1.2
+      react-easy-crop: 4.6.1
       tsup: 6.3.0
       typescript: 4.8.4
     dependencies:
       '@pikas-ui/button': link:../button
       '@pikas-ui/icons': link:../icons
+      '@pikas-ui/loader': link:../loader
+      '@pikas-ui/slider': link:../slider
       '@pikas-ui/styles': link:../styles
       '@pikas-ui/title': link:../title
       '@radix-ui/react-dialog': 1.0.2_@types+react@18.0.21
+      compressorjs: 1.1.1
+      get-orientation: 1.1.2
+      react-easy-crop: 4.6.1
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
@@ -524,6 +536,35 @@ importers:
       '@pikas-ui/menu': link:../menu
       '@pikas-ui/styles': link:../styles
       '@radix-ui/react-dropdown-menu': 2.0.1_@types+react@18.0.21
+    devDependencies:
+      '@pikas/config': link:../../config
+      '@pikas/tsconfig': link:../../tsconfig
+      '@types/node': 18.11.2
+      '@types/react': 18.0.21
+      '@types/react-dom': 18.0.6
+      cross-env: 7.0.3
+      eslint: 8.25.0
+      tsup: 6.3.0_typescript@4.8.4
+      typescript: 4.8.4
+
+  packages/ui/dropzone:
+    specifiers:
+      '@pikas-ui/icons': 3.3.4
+      '@pikas-ui/styles': 3.5.4
+      '@pikas/config': 1.0.0
+      '@pikas/tsconfig': 1.0.0
+      '@types/node': 18.11.2
+      '@types/react': 18.0.21
+      '@types/react-dom': 18.0.6
+      cross-env: 7.0.3
+      eslint: 8.25.0
+      react-dropzone: ^14.2.3
+      tsup: 6.3.0
+      typescript: 4.8.4
+    dependencies:
+      '@pikas-ui/icons': link:../icons
+      '@pikas-ui/styles': link:../styles
+      react-dropzone: 14.2.3
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
@@ -901,7 +942,7 @@ importers:
 
   packages/ui/table:
     specifiers:
-      '@pikas-ui/checkbox': 3.3.6
+      '@pikas-ui/checkbox': 3.3.7
       '@pikas-ui/icons': 3.3.4
       '@pikas-ui/loader': 3.3.4
       '@pikas-ui/select': 4.3.6
@@ -2793,6 +2834,11 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
+  /attr-accept/2.2.2:
+    resolution: {integrity: sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==}
+    engines: {node: '>=4'}
+    dev: false
+
   /axe-core/4.4.3:
     resolution: {integrity: sha512-32+ub6kkdhhWick/UjvEwRchgoetXqTK14INLqbGm5U2TzBkBNF3nQtLYm8ovxSkQWArjEQvftCKryjZaATu3w==}
     engines: {node: '>=4'}
@@ -2836,6 +2882,10 @@ packages:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
     dev: true
+
+  /blueimp-canvas-to-blob/3.29.0:
+    resolution: {integrity: sha512-0pcSSGxC0QxT+yVkivxIqW0Y4VlO2XSDPofBAqoJ1qJxgH9eiUDLv50Rixij2cDuEfx4M6DpD9UGZpRhT5Q8qg==}
+    dev: false
 
   /brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -3017,6 +3067,13 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
     dev: true
+
+  /compressorjs/1.1.1:
+    resolution: {integrity: sha512-SysRuUPfmUNoq+RviE0iMFVUmoX2q/x+7PkEPUmk6NGkd85hDrmvujx0Qtp8UCGA6KMe5kuodsylPQcNaLf60w==}
+    dependencies:
+      blueimp-canvas-to-blob: 3.29.0
+      is-blob: 2.1.0
+    dev: false
 
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -3968,6 +4025,13 @@ packages:
     dependencies:
       flat-cache: 3.0.4
 
+  /file-selector/0.6.0:
+    resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}
+    engines: {node: '>= 12'}
+    dependencies:
+      tslib: 2.4.0
+    dev: false
+
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -4078,6 +4142,14 @@ packages:
   /get-nonce/1.0.1:
     resolution: {integrity: sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q==}
     engines: {node: '>=6'}
+    dev: false
+
+  /get-orientation/1.1.2:
+    resolution: {integrity: sha512-/pViTfifW+gBbh/RnlFYHINvELT9Znt+SYyDKAUL6uV6By019AK/s+i9XP4jSwq7lwP38Fd8HVeTxym3+hkwmQ==}
+    dependencies:
+      stream-parser: 0.3.1
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /get-stream/6.0.1:
@@ -4353,6 +4425,11 @@ packages:
     dependencies:
       binary-extensions: 2.2.0
     dev: true
+
+  /is-blob/2.1.0:
+    resolution: {integrity: sha512-SZ/fTft5eUhQM6oF/ZaASFDEdbFVe89Imltn9uZr03wdKMcWNVYSMjQPFtg05QuNkt5l5c135ElvXEQG0rk4tw==}
+    engines: {node: '>=6'}
+    dev: false
 
   /is-boolean-object/1.1.2:
     resolution: {integrity: sha512-gDYaKHJmnj4aWxyj6YHyXVpdQawtVLHU5cb+eztPGczf6cjuTdwve5ZIEfgXqH4e57An1D1AKf8CZ3kYrQRqYA==}
@@ -5468,6 +5545,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /normalize-wheel/1.0.1:
+    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
+    dev: false
+
   /npm-run-path/4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
@@ -5812,6 +5893,27 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-dropzone/14.2.3:
+    resolution: {integrity: sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==}
+    engines: {node: '>= 10.13'}
+    peerDependencies:
+      react: '>= 16.8 || 18.0.0'
+    dependencies:
+      attr-accept: 2.2.2
+      file-selector: 0.6.0
+      prop-types: 15.8.1
+    dev: false
+
+  /react-easy-crop/4.6.1:
+    resolution: {integrity: sha512-/3Y7fScuNosFyKGVEotI6Jef1s4nSZLeeeMM38ubexWHRhyvZJAsmqoXoEj5WPvmM6/Ugy32SymJQwVa4t3S9w==}
+    peerDependencies:
+      react: '>=16.4.0'
+      react-dom: '>=16.4.0'
+    dependencies:
+      normalize-wheel: 1.0.1
+      tslib: 2.0.1
     dev: false
 
   /react-is/16.13.1:
@@ -6222,6 +6324,14 @@ packages:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: true
 
+  /stream-parser/0.3.1:
+    resolution: {integrity: sha512-bJ/HgKq41nlKvlhccD5kaCr/P+Hu0wPNKPJOH7en+YrJu/9EgqUF+88w5Jb6KNcjOFMhfX4B2asfeAtIGuHObQ==}
+    dependencies:
+      debug: 2.6.9
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /stream-transform/2.1.3:
     resolution: {integrity: sha512-9GHUiM5hMiCi6Y03jD2ARC1ettBXkQBoQAe7nJsPknnI0ow10aXjTnew8QtYQmLjzn974BnmWEAJgCY6ZP1DeQ==}
     dependencies:
@@ -6464,6 +6574,10 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+
+  /tslib/2.0.1:
+    resolution: {integrity: sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==}
+    dev: false
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}

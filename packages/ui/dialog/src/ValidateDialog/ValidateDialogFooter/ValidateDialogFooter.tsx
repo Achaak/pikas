@@ -1,6 +1,7 @@
 import { Button } from '@pikas-ui/button'
 import type { PikasColor } from '@pikas-ui/styles'
 import { styled } from '@pikas-ui/styles'
+import { useState } from 'react'
 
 const Container = styled('div', {
   display: 'flex',
@@ -20,15 +21,15 @@ export interface ValidateDialogFooterProps {
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean
   validateButtonLoading?: boolean
-  onCanceled?: () => void
-  onValidated?: () => void
+  onCancel?: () => Promise<void>
+  onValidate?: () => Promise<void>
 }
 
 export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
   cancelButtonLabel,
   validateButtonLabel,
-  onCanceled,
-  onValidated,
+  onCancel,
+  onValidate,
   onClose,
   cancelButtonColorName,
   validateButtonColorName,
@@ -37,29 +38,40 @@ export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
   cancelButtonLoading,
   validateButtonLoading,
 }) => {
+  const [validateLoading, setValidateLoading] = useState(false)
+  const [cancelLoading, setCancelLoading] = useState(false)
+
+  const handleValidate = async (): Promise<void> => {
+    setValidateLoading(true)
+    await onValidate?.()
+    setValidateLoading(false)
+    onClose?.()
+  }
+
+  const handleCancel = async (): Promise<void> => {
+    setCancelLoading(true)
+    await onCancel?.()
+    setCancelLoading(false)
+    onClose?.()
+  }
+
   return (
     <Container>
       <Button
         colorName={cancelButtonColorName}
-        onClick={(): void => {
-          onCanceled?.()
-          onClose?.()
-        }}
+        onClick={handleCancel}
         width="auto"
         disabled={cancelButtonDisabled || validateButtonLoading}
-        loading={cancelButtonLoading}
+        loading={cancelButtonLoading || cancelLoading}
       >
         {cancelButtonLabel}
       </Button>
       <Button
         colorName={validateButtonColorName}
-        onClick={(): void => {
-          onValidated?.()
-          onClose?.()
-        }}
+        onClick={handleValidate}
         width="auto"
         disabled={validateButtonDisabled || cancelButtonLoading}
-        loading={validateButtonLoading}
+        loading={validateButtonLoading || validateLoading}
       >
         {validateButtonLabel}
       </Button>

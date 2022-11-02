@@ -23,6 +23,7 @@
     "@pikas-ui/context-menu": "workspace:*",
     "@pikas-ui/dialog": "workspace:*",
     "@pikas-ui/dropdown-menu": "workspace:*",
+    "@pikas-ui/dropzone": "workspace:*",
     "@pikas-ui/grid": "workspace:*",
     "@pikas-ui/icons": "workspace:*",
     "@pikas-ui/loader": "workspace:*",
