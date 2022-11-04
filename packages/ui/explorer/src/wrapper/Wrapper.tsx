@@ -1,37 +1,26 @@
-import { styled } from '@pikas-ui/styles'
-import { useContext } from 'react'
-import { ExplorerContext, ExplorerItemType } from '../Explorer.js'
-import { WrapperDraggable } from '../wrapperDraggable/index.js'
-import { WrapperDroppable } from '../wrapperDroppable/index.js'
-
-const Container = styled('div', {})
+import { ExplorerItem } from '../Explorer.js'
+import { WrapperDraggable } from './wrapperDraggable/index.js'
+import { WrapperDroppable } from './wrapperDroppable/index.js'
+import { WrapperContextMenu } from './wrapperContextMenu/WrapperContextMenu.js'
 
 export interface WrapperProps {
-  id: string
-  type: ExplorerItemType
+  item: ExplorerItem
   children?: React.ReactNode
 }
 
-export const Wrapper: React.FC<WrapperProps> = ({ type, children, id }) => {
-  const { onClickItem } = useContext(ExplorerContext)
-
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation()
-    onClickItem({ id })
-  }
-
-  if (type === 'file') {
+export const Wrapper: React.FC<WrapperProps> = ({ item, children }) => {
+  if (item.type === 'file') {
     return (
-      <WrapperDraggable id={id}>
-        <Container onClick={handleClick}>{children}</Container>
+      <WrapperDraggable id={item.id}>
+        <WrapperContextMenu>{children}</WrapperContextMenu>
       </WrapperDraggable>
     )
   }
 
   return (
-    <WrapperDroppable id={id}>
-      <WrapperDraggable id={id}>
-        <Container onClick={handleClick}>{children}</Container>
+    <WrapperDroppable id={item.id}>
+      <WrapperDraggable id={item.id}>
+        <WrapperContextMenu>{children}</WrapperContextMenu>
       </WrapperDraggable>
     </WrapperDroppable>
   )

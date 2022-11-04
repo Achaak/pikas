@@ -53,9 +53,12 @@
     "@pikas-ui/dropdown-menu": "3.4.5",
     "@pikas-ui/grid": "1.1.8",
     "@pikas-ui/icons": "3.3.5",
+    "@pikas-ui/loader": "3.3.5",
+    "@pikas-ui/menu": "3.3.5",
     "@pikas-ui/styles": "3.5.4",
     "@pikas-utils/keyboard": "1.0.0",
     "@pikas-utils/screen": "1.0.9",
+    "font-color-contrast": "11.1.0",
     "usehooks-ts": "2.9.1"
   },
   "peerDependencies": {

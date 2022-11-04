@@ -1,6 +1,6 @@
 import { Grid } from '@pikas-ui/grid'
 import { useContext } from 'react'
-import { ExplorerContext } from '../Explorer.js'
+import { ExplorerContext } from '../../Explorer.js'
 import { GridItem } from '../gridItem/index.js'
 
 export interface GridContainerProps {}

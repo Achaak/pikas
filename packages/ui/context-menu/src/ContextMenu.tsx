@@ -55,10 +55,6 @@ const ItemIndicator = styled(ContextMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
 })
 
-const Arrow = styled(ContextMenuPrimitive.Arrow, {
-  ...MenuItemIndicatorCSS,
-})
-
 const RightSlot = styled('div', {
   ...RightSlotCSS,
 })
@@ -133,7 +129,6 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
         collisionPadding={collisionPadding}
       >
         <ContextMenuData data={data} css={css} />
-        <Arrow />
       </Content>
     </ContextMenuPrimitive.Root>
   )

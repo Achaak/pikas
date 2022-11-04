@@ -33,6 +33,7 @@ importers:
       '@pikas-ui/grid': workspace:*
       '@pikas-ui/icons': workspace:*
       '@pikas-ui/loader': workspace:*
+      '@pikas-ui/menu': workspace:3.3.5
       '@pikas-ui/progress': workspace:*
       '@pikas-ui/searchbar': workspace:*
       '@pikas-ui/select': workspace:*
@@ -89,6 +90,7 @@ importers:
       '@pikas-ui/grid': link:../../packages/ui/grid
       '@pikas-ui/icons': link:../../packages/ui/icons
       '@pikas-ui/loader': link:../../packages/ui/loader
+      '@pikas-ui/menu': link:../../packages/ui/menu
       '@pikas-ui/progress': link:../../packages/ui/progress
       '@pikas-ui/searchbar': link:../../packages/ui/searchbar
       '@pikas-ui/select': link:../../packages/ui/select
@@ -589,6 +591,8 @@ importers:
       '@pikas-ui/dropdown-menu': 3.4.5
       '@pikas-ui/grid': 1.1.8
       '@pikas-ui/icons': 3.3.5
+      '@pikas-ui/loader': 3.3.5
+      '@pikas-ui/menu': 3.3.5
       '@pikas-ui/styles': 3.5.4
       '@pikas-utils/keyboard': 1.0.0
       '@pikas-utils/screen': 1.0.9
@@ -599,6 +603,7 @@ importers:
       '@types/react-dom': 18.0.6
       cross-env: 7.0.3
       eslint: 8.25.0
+      font-color-contrast: 11.1.0
       tsup: 6.3.0
       typescript: 4.8.4
       usehooks-ts: 2.9.1
@@ -610,9 +615,12 @@ importers:
       '@pikas-ui/dropdown-menu': link:../dropdown-menu
       '@pikas-ui/grid': link:../grid
       '@pikas-ui/icons': link:../icons
+      '@pikas-ui/loader': link:../loader
+      '@pikas-ui/menu': link:../menu
       '@pikas-ui/styles': 3.5.4
       '@pikas-utils/keyboard': link:../../utils/keyboard
       '@pikas-utils/screen': link:../../utils/screen
+      font-color-contrast: 11.1.0
       usehooks-ts: 2.9.1
     devDependencies:
       '@pikas/config': link:../../config
@@ -1241,6 +1249,7 @@ importers:
 
   packages/utils/keyboard:
     specifiers:
+      '@pikas-ui/menu': workspace:3.3.5
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.9
@@ -1250,6 +1259,8 @@ importers:
       eslint: 8.26.0
       tsup: 6.3.0
       typescript: 4.8.4
+    dependencies:
+      '@pikas-ui/menu': link:../../ui/menu
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
@@ -1263,6 +1274,7 @@ importers:
 
   packages/utils/router:
     specifiers:
+      '@pikas-ui/menu': workspace:3.3.5
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.9
@@ -1270,6 +1282,8 @@ importers:
       eslint: 8.26.0
       tsup: 6.3.0
       typescript: 4.8.4
+    dependencies:
+      '@pikas-ui/menu': link:../../ui/menu
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig
