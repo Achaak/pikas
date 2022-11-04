@@ -45,7 +45,7 @@ const Nav = styled('nav', {
   },
 })
 
-const NavItem = styled('a', {
+const NavItem = styled('span', {
   display: 'flex',
   color: '$BLACK',
 })
@@ -99,10 +99,10 @@ export const Header: React.FC<CustomProps> = ({
       </Left>
       <Right>
         <Nav>
-          <Link href={documentationLink} passHref>
+          <Link href={documentationLink}>
             <NavItem>Documentation</NavItem>
           </Link>
-          <Link href={githubLink} passHref>
+          <Link href={githubLink}>
             <NavItem>
               <IconByName
                 name="ant-design:github-filled"

@@ -60,6 +60,10 @@ export const menu: LayoutMenu = [
         href: getLink('dropzone'),
       },
       {
+        label: 'Explorer',
+        href: getLink('explorer'),
+      },
+      {
         label: 'Grid',
         href: getLink('grid'),
       },

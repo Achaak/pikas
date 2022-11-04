@@ -33,6 +33,7 @@ export const docsUIRoutes = routes({
     toast: '/components/toast',
     grid: '/components/grid',
     dropzone: '/components/dropzone',
+    explorer: '/components/explorer',
     textfieldMultiple: '/components/textfield-multiple',
     badge: '/components/badge',
     styles: '/utilities/styles',

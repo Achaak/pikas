@@ -157,9 +157,7 @@ export const Menu: React.FC<CustomProps> = ({ menu }) => {
                 onClick={(): void => setIsOpen(false)}
                 disabled={item.disabled || false}
               >
-                <Link href={item.href} passHref>
-                  <a>{item.label}</a>
-                </Link>
+                <Link href={item.href}>{item.label}</Link>
               </Item>
             ))}
           </Group>

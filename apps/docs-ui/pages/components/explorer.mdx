@@ -1,0 +1,65 @@
+import { ExplorerExample } from './../../src/examples/explorer'
+import { docsUIRoutes } from '@pikas/docs-routes'
+export const { getLink } = docsUIRoutes
+import { NextSeo } from 'next-seo'
+
+export const stylesLink = getLink('styles')
+
+<NextSeo title="Explorer" />
+
+# @pikas-ui/explorer
+
+This package contains a explorer component.
+
+This library is based on [dndkit](https://dndkit.com).
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/explorer/CHANGELOG.md">
+  Change Log
+</a>
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/explorer
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/explorer
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/explorer
+```
+
+---
+
+## Usage
+
+### Explorer
+
+<ExplorerExample />
+
+```tsx
+import { Explorer } from `@pikas-ui/explorer`;
+
+const Example: React.FC = () => {
+  return (
+    <Explorer />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
