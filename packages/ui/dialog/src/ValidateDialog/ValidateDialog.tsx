@@ -14,8 +14,8 @@ export interface ValidateDialogProps extends DialogProps {
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean
   validateButtonLoading?: boolean
-  onCancel?: () => Promise<void>
-  onValidate?: () => Promise<void>
+  onCancel?: () => Promise<void> | void
+  onValidate?: () => Promise<void> | void
   title?: string
   content: React.ReactNode
 }

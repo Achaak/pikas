@@ -16,7 +16,7 @@ export interface ErrorDialogFooterProps {
   validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
-  onValidate?: () => Promise<void>
+  onValidate?: () => Promise<void> | void
 }
 
 export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({

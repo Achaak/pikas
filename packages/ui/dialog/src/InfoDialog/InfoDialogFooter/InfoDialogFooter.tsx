@@ -16,7 +16,7 @@ export interface InfoDialogFooterProps {
   validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
-  onValidate?: () => Promise<void>
+  onValidate?: () => Promise<void> | void
 }
 
 export const InfoDialogFooter: React.FC<InfoDialogFooterProps> = ({

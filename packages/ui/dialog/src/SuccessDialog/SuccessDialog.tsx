@@ -10,7 +10,7 @@ export interface SuccessDialogProps extends DialogProps {
   validateButtonColorName?: PikasColor
   validateButtonDisabled?: boolean
   validateButtonLoading?: boolean
-  onValidate?: () => Promise<void>
+  onValidate?: () => Promise<void> | void
   title?: string
   content: React.ReactNode
 }

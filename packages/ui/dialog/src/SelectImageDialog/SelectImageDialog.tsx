@@ -17,7 +17,7 @@ export interface SelectImageDialogProps extends DialogProps {
   validateButtonDisabled?: boolean
   cancelButtonLoading?: boolean
   validateButtonLoading?: boolean
-  onCancel?: () => Promise<void>
+  onCancel?: () => Promise<void> | void
   title?: string
   onValidate?: (b64: string, b64Full: string) => Promise<void>
   defaultImage?: string
