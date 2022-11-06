@@ -8,6 +8,9 @@ const Container = styled('div', {
   display: 'none',
   customColumnGap: 4,
   flex: 1,
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  marginBottom: 16,
 })
 
 const TooManyItems = styled('div', {
@@ -19,31 +22,22 @@ const TooManyItems = styled('div', {
   justifyContent: 'center',
 })
 
-export interface BreadcrumbProps {}
-
-export const Breadcrumb: React.FC<BreadcrumbProps> = () => {
+export const Breadcrumb: React.FC = () => {
   const { breadcrumb, showBreadcrumb } = useContext(ExplorerContext)
+
+  if (!showBreadcrumb) {
+    return null
+  }
 
   return (
     <Container
       css={{
-        display: showBreadcrumb?.default ? 'flex' : 'none',
-
-        '@xs': {
-          display: showBreadcrumb?.xs ? 'flex' : 'none',
-        },
-        '@sm': {
-          display: showBreadcrumb?.sm ? 'flex' : 'none',
-        },
-        '@md': {
-          display: showBreadcrumb?.md ? 'flex' : 'none',
-        },
-        '@lg': {
-          display: showBreadcrumb?.lg ? 'flex' : 'none',
-        },
-        '@xl': {
-          display: showBreadcrumb?.xl ? 'flex' : 'none',
-        },
+        ...(showBreadcrumb?.default && { '@xs': { display: 'flex' } }),
+        ...(showBreadcrumb?.xs && { '@xs': { display: 'flex' } }),
+        ...(showBreadcrumb?.sm && { '@sm': { display: 'flex' } }),
+        ...(showBreadcrumb?.md && { '@md': { display: 'flex' } }),
+        ...(showBreadcrumb?.lg && { '@lg': { display: 'flex' } }),
+        ...(showBreadcrumb?.xl && { '@xl': { display: 'flex' } }),
       }}
     >
       {breadcrumb?.map((breadcrumbItem, index) => {
@@ -64,6 +58,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = () => {
               key={`${index}-next`}
               size={16}
               colorName="GRAY_DARKER"
+              onClick={(event): void => {
+                event.stopPropagation()
+              }}
             />
           )
         }

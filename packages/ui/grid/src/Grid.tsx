@@ -284,20 +284,20 @@ export const Grid: React.FC<GridProps> = (
         ...(type === 'item' && {
           // Default to 1 column
           gridRowStart: 'auto',
-          gridColumn: 'span 1',
+          gridCols: 'span 1',
           gridRow: `span 1`,
         }),
         ...(type === 'item' &&
           props.cols?.default && {
-            gridColumn: `span ${props.cols.default} / span ${props.cols.default}`,
+            gridCols: `span ${props.cols.default} / span ${props.cols.default}`,
           }),
         ...(type === 'item' &&
           props.start?.default && {
-            gridColumnStart: props.start.default,
+            gridColsStart: props.start.default,
           }),
         ...(type === 'item' &&
           props.end?.default && {
-            gridColumnEnd: props.end.default,
+            gridColsEnd: props.end.default,
           }),
         ...(type === 'item' &&
           props.order?.default && {
@@ -325,13 +325,13 @@ export const Grid: React.FC<GridProps> = (
           // ITEM
           ...(type === 'item' && {
             ...(props.cols?.xs && {
-              gridColumn: `span ${props.cols.xs} / span ${props.cols.xs}`,
+              gridCols: `span ${props.cols.xs} / span ${props.cols.xs}`,
             }),
             ...(props.start?.xs && {
-              gridColumnStart: props.start.xs,
+              gridColsStart: props.start.xs,
             }),
             ...(props.end?.xs && {
-              gridColumnEnd: props.end.xs,
+              gridColsEnd: props.end.xs,
             }),
             ...(props.order?.xs && {
               order: props.order.xs,
@@ -359,13 +359,13 @@ export const Grid: React.FC<GridProps> = (
           // ITEM
           ...(type === 'item' && {
             ...(props.cols?.sm && {
-              gridColumn: `span ${props.cols.sm} / span ${props.cols.sm}`,
+              gridCols: `span ${props.cols.sm} / span ${props.cols.sm}`,
             }),
             ...(props.start?.sm && {
-              gridColumnStart: props.start.sm,
+              gridColsStart: props.start.sm,
             }),
             ...(props.end?.sm && {
-              gridColumnEnd: props.end.sm,
+              gridColsEnd: props.end.sm,
             }),
             ...(props.order?.sm && {
               order: props.order.sm,
@@ -393,13 +393,13 @@ export const Grid: React.FC<GridProps> = (
           // ITEM
           ...(type === 'item' && {
             ...(props.cols?.md && {
-              gridColumn: `span ${props.cols.md} / span ${props.cols.md}`,
+              gridCols: `span ${props.cols.md} / span ${props.cols.md}`,
             }),
             ...(props.start?.md && {
-              gridColumnStart: props.start.md,
+              gridColsStart: props.start.md,
             }),
             ...(props.end?.md && {
-              gridColumnEnd: props.end.md,
+              gridColsEnd: props.end.md,
             }),
             ...(props.order?.md && {
               order: props.order.md,
@@ -427,13 +427,13 @@ export const Grid: React.FC<GridProps> = (
           // ITEM
           ...(type === 'item' && {
             ...(props.cols?.lg && {
-              gridColumn: `span ${props.cols.lg} / span ${props.cols.lg}`,
+              gridCols: `span ${props.cols.lg} / span ${props.cols.lg}`,
             }),
             ...(props.start?.lg && {
-              gridColumnStart: props.start.lg,
+              gridColsStart: props.start.lg,
             }),
             ...(props.end?.lg && {
-              gridColumnEnd: props.end.lg,
+              gridColsEnd: props.end.lg,
             }),
             ...(props.order?.lg && {
               order: props.order.lg,
@@ -461,13 +461,13 @@ export const Grid: React.FC<GridProps> = (
           // ITEM
           ...(type === 'item' && {
             ...(props.cols?.xl && {
-              gridColumn: `span ${props.cols.xl} / span ${props.cols.xl}`,
+              gridCols: `span ${props.cols.xl} / span ${props.cols.xl}`,
             }),
             ...(props.start?.xl && {
-              gridColumnStart: props.start.xl,
+              gridColsStart: props.start.xl,
             }),
             ...(props.end?.xl && {
-              gridColumnEnd: props.end.xl,
+              gridColsEnd: props.end.xl,
             }),
             ...(props.order?.xl && {
               order: props.order.xl,

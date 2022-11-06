@@ -26,14 +26,16 @@ const Content = styled('div', {
   width: '100%',
 })
 
-const HeadItem = styled('div', {
+const HeadItem = styled('span', {
   padding: 4,
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  flex: 1,
 })
 
-export interface ListContainerProps {}
-
-export const ListContainer: React.FC<ListContainerProps> = () => {
-  const { items, itemMenuData, showFavorite } = useContext(ExplorerContext)
+export const ListContainer: React.FC = () => {
+  const { items, showDropdownMenu, showFavorite } = useContext(ExplorerContext)
 
   return (
     <Container>
@@ -49,7 +51,7 @@ export const ListContainer: React.FC<ListContainerProps> = () => {
         <ListItemColumn flex={1}>
           <HeadItem>Created at</HeadItem>
         </ListItemColumn>
-        {itemMenuData && <ListItemColumn width={40}></ListItemColumn>}
+        {showDropdownMenu && <ListItemColumn width={40}></ListItemColumn>}
       </Head>
       <Content>
         {items.map((item) => (

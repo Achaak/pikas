@@ -1,6 +1,8 @@
 import { styled } from '@pikas-ui/styles'
-import { HTMLAttributes, useContext } from 'react'
-import { ExplorerContext, ExplorerItem } from '../../Explorer.js'
+import type { HTMLAttributes } from 'react'
+import { useContext } from 'react'
+import type { ExplorerItem } from '../../Explorer.js'
+import { ExplorerContext } from '../../Explorer.js'
 
 const Container = styled('div', {
   display: 'flex',
@@ -19,13 +21,13 @@ export const WrapperClick: React.FC<WrapperClickProps> = ({
 }) => {
   const { onClickItem, onOpenItem } = useContext(ExplorerContext)
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
 
     onClickItem({ id: item.id })
   }
 
-  const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
     onOpenItem?.({
       id: item.id,
@@ -33,7 +35,7 @@ export const WrapperClick: React.FC<WrapperClickProps> = ({
     })
   }
 
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>): void => {
     e.stopPropagation()
     onOpenItem?.({
       id: item.id,

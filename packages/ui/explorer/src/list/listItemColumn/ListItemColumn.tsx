@@ -2,6 +2,7 @@ import { styled } from '@pikas-ui/styles'
 
 const Container = styled('div', {
   display: 'flex',
+  minWidth: 100,
 })
 
 export interface ListItemColumnProps {

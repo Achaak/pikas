@@ -1,4 +1,4 @@
-import { ExplorerItem } from '../Explorer.js'
+import type { ExplorerItem } from '../Explorer.js'
 import { WrapperDraggable } from './wrapperDraggable/index.js'
 import { WrapperDroppable } from './wrapperDroppable/index.js'
 import { WrapperContextMenu } from './wrapperContextMenu/WrapperContextMenu.js'
@@ -12,7 +12,7 @@ export const Wrapper: React.FC<WrapperProps> = ({ item, children }) => {
   if (item.type === 'file') {
     return (
       <WrapperDraggable id={item.id}>
-        <WrapperContextMenu>{children}</WrapperContextMenu>
+        <WrapperContextMenu item={item}>{children}</WrapperContextMenu>
       </WrapperDraggable>
     )
   }
@@ -20,7 +20,7 @@ export const Wrapper: React.FC<WrapperProps> = ({ item, children }) => {
   return (
     <WrapperDroppable id={item.id}>
       <WrapperDraggable id={item.id}>
-        <WrapperContextMenu>{children}</WrapperContextMenu>
+        <WrapperContextMenu item={item}>{children}</WrapperContextMenu>
       </WrapperDraggable>
     </WrapperDroppable>
   )

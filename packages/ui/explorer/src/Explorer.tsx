@@ -1,8 +1,7 @@
+import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core'
 import {
   DndContext,
-  DragEndEvent,
   DragOverlay,
-  DragStartEvent,
   MouseSensor,
   pointerWithin,
   TouchSensor,
@@ -10,6 +9,7 @@ import {
   useSensors,
 } from '@dnd-kit/core'
 import { styled, useTheme } from '@pikas-ui/styles'
+import type { FC } from 'react'
 import { createContext, useEffect, useRef, useState } from 'react'
 import { GridContainer } from './grid/gridContainer/index.js'
 import { ListContainer } from './list/listContainer/index.js'
@@ -18,7 +18,13 @@ import { useOnClickOutside } from 'usehooks-ts'
 import { useKeyPress } from '@pikas-utils/keyboard'
 import { SettingsBar } from './settingsBar/SettingsBar.js'
 import fontColorContrast from 'font-color-contrast'
-import { MenuDataItem } from '@pikas-ui/menu'
+import type { MenuDataItem } from '@pikas-ui/menu'
+import type { IconProps } from '@pikas-ui/icons'
+import type {
+  GridContainerCols,
+  GridContainerColumnGap,
+  GridContainerRowGap,
+} from '@pikas-ui/grid'
 
 const Container = styled('div', {
   width: '100%',
@@ -63,11 +69,12 @@ export type ExplorerItemType = 'file' | 'folder'
 export interface ExplorerItem {
   id: string
   name: string
-  size: number
+  size: string
   type: ExplorerItemType
   createdAt: string
   updatedAt: string
   isFavorite?: boolean
+  menu?: MenuDataItem[]
 }
 export interface ExplorerItemFile extends ExplorerItem {
   type: 'file'
@@ -102,16 +109,33 @@ export type OnFavoriteItem = (values: {
   isFavorite: boolean
 }) => Promise<void> | void
 
-export type ShowBreadcrumb = {
-  default: boolean
-  xs?: boolean
-  sm?: boolean
-  md?: boolean
-  lg?: boolean
-  xl?: boolean
-}
+export type ShowBreadcrumb =
+  | {
+      default: boolean
+      xs?: boolean
+      sm?: boolean
+      md?: boolean
+      lg?: boolean
+      xl?: boolean
+    }
+  | false
 
-export type ItemMenuData = (MenuDataItem & { onClick?: (id: string) => void })[]
+export type ShowActions =
+  | {
+      default: boolean
+      xs?: boolean
+      sm?: boolean
+      md?: boolean
+      lg?: boolean
+      xl?: boolean
+    }
+  | false
+
+export interface Action {
+  Icon: FC<IconProps>
+  onClick: (ids: string[]) => Promise<void> | void
+  accessType: Array<ExplorerItemType>
+}
 
 export const ExplorerContext = createContext<{
   items: ExplorerItem[]
@@ -120,14 +144,25 @@ export const ExplorerContext = createContext<{
   breadcrumb?: BreadcrumbItem[]
   onOpenItem?: OnOpenItem
   onDropItems?: OnDropItems
-  itemMenuData?: ItemMenuData
   showFavorite?: boolean
   onFavoriteItem?: OnFavoriteItem
   showBreadcrumb?: ShowBreadcrumb
+  showContextMenu?: boolean
+  showDropdownMenu?: boolean
+  showActions?: ShowActions
+  actions?: Action[]
+  gridCols: GridContainerCols
+  gridRowGap: GridContainerRowGap
+  gridColumnGap: GridContainerColumnGap
 }>({
   items: [],
-  onClickItem: () => {},
+  onClickItem: () => {
+    console.log('onClickItem')
+  },
   itemsSelected: [],
+  gridCols: { default: 1 },
+  gridRowGap: { default: 16 },
+  gridColumnGap: { default: 16 },
 })
 
 export interface ExplorerProps {
@@ -138,9 +173,15 @@ export interface ExplorerProps {
   onOpenItem?: OnOpenItem
   onDropItems?: OnDropItems
   onFavoriteItem?: OnFavoriteItem
-  itemMenuData?: ItemMenuData
   showFavorite?: boolean
   showBreadcrumb?: ShowBreadcrumb
+  showContextMenu?: boolean
+  showDropdownMenu?: boolean
+  showActions?: ShowActions
+  actions?: Action[]
+  gridCols?: GridContainerCols
+  gridRowGap?: GridContainerRowGap
+  gridColumnGap?: GridContainerColumnGap
 }
 
 export const Explorer: React.FC<ExplorerProps> = ({
@@ -150,10 +191,16 @@ export const Explorer: React.FC<ExplorerProps> = ({
   breadcrumb,
   onOpenItem,
   onDropItems,
-  itemMenuData,
   showFavorite,
   onFavoriteItem,
   showBreadcrumb = { default: true },
+  showContextMenu = true,
+  showDropdownMenu = true,
+  showActions = { default: true },
+  actions,
+  gridCols = { default: 1, sm: 2, md: 3, lg: 4, xl: 5 },
+  gridRowGap = { default: 16 },
+  gridColumnGap = { default: 16 },
 }) => {
   const [isDragging, setIsDragging] = useState(false)
   const [itemsSelected, setItemsSelected] = useState<ExplorerItem[]>([])
@@ -184,7 +231,7 @@ export const Explorer: React.FC<ExplorerProps> = ({
     setItemsFiltered(sortItems(items))
   }, [items])
 
-  const handleDragStart = (event: DragStartEvent) => {
+  const handleDragStart = (event: DragStartEvent): void => {
     setIsDragging(true)
     if (!itemsSelected.some((item) => item.id === event.active.id)) {
       const newItem = items.find((item) => item.id === event.active.id)
@@ -195,7 +242,7 @@ export const Explorer: React.FC<ExplorerProps> = ({
     }
   }
 
-  const handleDragEnd = (event: DragEndEvent) => {
+  const handleDragEnd = (event: DragEndEvent): void => {
     setIsDragging(false)
 
     if (!event.over?.id) {
@@ -249,7 +296,7 @@ export const Explorer: React.FC<ExplorerProps> = ({
     }
   }
 
-  const handleResetItemsSelected = () => {
+  const handleResetItemsSelected = (): void => {
     setItemsSelected([])
   }
 
@@ -263,10 +310,16 @@ export const Explorer: React.FC<ExplorerProps> = ({
         itemsSelected: itemsSelected,
         breadcrumb: breadcrumb,
         onOpenItem: onOpenItem,
-        itemMenuData: itemMenuData,
         showFavorite: showFavorite,
         onFavoriteItem: onFavoriteItem,
         showBreadcrumb: showBreadcrumb,
+        showContextMenu: showContextMenu,
+        showDropdownMenu: showDropdownMenu,
+        showActions: showActions,
+        actions: actions,
+        gridCols: gridCols,
+        gridRowGap: gridRowGap,
+        gridColumnGap: gridColumnGap,
       }}
     >
       <Container onClick={handleResetItemsSelected} ref={containerRef}>
@@ -306,7 +359,7 @@ export const Explorer: React.FC<ExplorerProps> = ({
   )
 }
 
-const sortItems = (items: ExplorerItem[]) => {
+const sortItems = (items: ExplorerItem[]): ExplorerItem[] => {
   return items
     .sort((a, b) => a.name.localeCompare(b.name))
     .sort((a, b) => {

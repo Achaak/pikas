@@ -21,6 +21,5 @@ export const ExampleContainer: React.FC<ExampleContainerProps> = ({
   children,
   css,
 }) => {
-
   return <Container css={css}>{children}</Container>
 }

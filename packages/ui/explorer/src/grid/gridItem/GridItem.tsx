@@ -3,10 +3,12 @@ import { IconByName } from '@pikas-ui/icons'
 import { styled } from '@pikas-ui/styles'
 import { useWindowSize } from '@pikas-utils/screen'
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
-import { ExplorerContext, ExplorerItem } from '../../Explorer.js'
+import type { ExplorerItem } from '../../Explorer.js'
+import { ExplorerContext } from '../../Explorer.js'
 import { Wrapper } from '../../wrapper/index.js'
 import { WrapperClick as WrapperClickBase } from '../../wrapper/wrapperClick/WrapperClick.js'
 import { ClipLoader } from '@pikas-ui/loader'
+import { getColorByExtension } from '@pikas-utils/file'
 
 const Container = styled('div', {
   borderColor: '$GRAY',
@@ -61,9 +63,10 @@ export const GridItem: React.FC<GridItemProps> = ({ item }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const windowSize = useWindowSize()
   const [height, setHeight] = useState<number | undefined>(undefined)
-  const { itemsSelected, itemMenuData, showFavorite, onFavoriteItem } =
+  const { itemsSelected, showDropdownMenu, showFavorite, onFavoriteItem } =
     useContext(ExplorerContext)
   const [favoriteLoading, setFavoriteLoading] = useState(false)
+  const extension = item.name.split('.').pop()
 
   const handleResize = useCallback(() => {
     if (containerRef.current) {
@@ -80,11 +83,18 @@ export const GridItem: React.FC<GridItemProps> = ({ item }) => {
       return <IconByName name="bx:folder" size={64} colorName="BLACK" />
     }
     if (item?.type === 'file') {
-      return <IconByName name="bx:file" size={64} colorName="BLACK" />
+      return (
+        <IconByName
+          name="bx:file"
+          size={64}
+          colorHex={extension ? getColorByExtension(extension) : undefined}
+          colorName={extension ? undefined : 'BLACK'}
+        />
+      )
     }
   }, [item])
 
-  const handleFavoriteClick = async () => {
+  const handleFavoriteClick = async (): Promise<void> => {
     setFavoriteLoading(true)
 
     await onFavoriteItem?.({
@@ -109,10 +119,10 @@ export const GridItem: React.FC<GridItemProps> = ({ item }) => {
           <Name>{item?.name}</Name>
         </WrapperClick>
 
-        {itemMenuData && (
+        {showDropdownMenu && item.menu && (
           <DropdownMenuContainer>
             <DropdownMenu
-              data={itemMenuData}
+              data={item.menu}
               triggerContent={
                 <IconByName
                   name="bx:dots-horizontal-rounded"

@@ -594,6 +594,7 @@ importers:
       '@pikas-ui/loader': 3.3.5
       '@pikas-ui/menu': 3.3.5
       '@pikas-ui/styles': 3.5.4
+      '@pikas-utils/file': 1.0.0
       '@pikas-utils/keyboard': 1.0.0
       '@pikas-utils/screen': 1.0.9
       '@pikas/config': 1.0.0
@@ -618,6 +619,7 @@ importers:
       '@pikas-ui/loader': link:../loader
       '@pikas-ui/menu': link:../menu
       '@pikas-ui/styles': 3.5.4
+      '@pikas-utils/file': link:../../utils/file
       '@pikas-utils/keyboard': link:../../utils/keyboard
       '@pikas-utils/screen': link:../../utils/screen
       font-color-contrast: 11.1.0
@@ -1247,9 +1249,8 @@ importers:
       tsup: 6.3.0_typescript@4.8.4
       typescript: 4.8.4
 
-  packages/utils/keyboard:
+  packages/utils/file:
     specifiers:
-      '@pikas-ui/menu': workspace:3.3.5
       '@pikas/config': 1.0.0
       '@pikas/tsconfig': 1.0.0
       '@types/node': 18.11.9
@@ -1259,8 +1260,28 @@ importers:
       eslint: 8.26.0
       tsup: 6.3.0
       typescript: 4.8.4
-    dependencies:
-      '@pikas-ui/menu': link:../../ui/menu
+    devDependencies:
+      '@pikas/config': link:../../config
+      '@pikas/tsconfig': link:../../tsconfig
+      '@types/node': 18.11.9
+      '@types/react': 18.0.24
+      '@types/react-dom': 18.0.8
+      cross-env: 7.0.3
+      eslint: 8.26.0
+      tsup: 6.3.0_typescript@4.8.4
+      typescript: 4.8.4
+
+  packages/utils/keyboard:
+    specifiers:
+      '@pikas/config': 1.0.0
+      '@pikas/tsconfig': 1.0.0
+      '@types/node': 18.11.9
+      '@types/react': 18.0.24
+      '@types/react-dom': 18.0.8
+      cross-env: 7.0.3
+      eslint: 8.26.0
+      tsup: 6.3.0
+      typescript: 4.8.4
     devDependencies:
       '@pikas/config': link:../../config
       '@pikas/tsconfig': link:../../tsconfig

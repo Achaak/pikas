@@ -1,7 +1,9 @@
-import { Explorer, ExplorerShowType } from '@pikas-ui/explorer'
-import { IconByName, IconProps } from '@pikas-ui/icons'
+import type { ExplorerItem, ExplorerShowType } from '@pikas-ui/explorer'
+import { Explorer } from '@pikas-ui/explorer'
+import type { IconProps } from '@pikas-ui/icons'
+import { IconByName } from '@pikas-ui/icons'
 import { ExampleContainer } from '@pikas/docs-ui'
-import { FC } from 'react'
+import type { FC } from 'react'
 
 interface ExplorerExampleProps {
   showType: ExplorerShowType
@@ -11,6 +13,72 @@ const TrashIcon: FC<IconProps> = (props) => (
   <IconByName {...props} name="bx:trash" />
 )
 
+const data: ExplorerItem[] = [
+  {
+    id: '1',
+    name: 'Folder 1',
+    type: 'folder',
+    size: '1.2 MB',
+    createdAt: '2021-01-01',
+    updatedAt: '2021-01-01',
+    isFavorite: true,
+  },
+  {
+    id: '2',
+    name: 'Folder 2',
+    type: 'folder',
+    size: '12.3 MB',
+    createdAt: '2021-08-01',
+    updatedAt: '2021-08-01',
+    isFavorite: false,
+  },
+  {
+    id: '3',
+    name: 'Folder 3',
+    type: 'folder',
+    size: '123.4 MB',
+    createdAt: '2021-08-01',
+    updatedAt: '2021-08-01',
+    isFavorite: false,
+  },
+  {
+    id: '4',
+    name: 'my-file-1.txt',
+    type: 'file',
+    size: '42.3 KB',
+    createdAt: '2020-03-01',
+    updatedAt: '2020-03-01',
+    isFavorite: false,
+  },
+  {
+    id: '5',
+    name: 'my-file-2.pdf',
+    type: 'file',
+    size: '123.4 KB',
+    createdAt: '2020-03-01',
+    updatedAt: '2020-03-01',
+    isFavorite: true,
+  },
+  {
+    id: '6',
+    name: 'my-file-3.doc',
+    type: 'file',
+    size: '1.2 MB',
+    createdAt: '2020-03-01',
+    updatedAt: '2020-03-01',
+    isFavorite: false,
+  },
+  {
+    id: '7',
+    name: 'my-file-4.png',
+    type: 'file',
+    size: '987.6 KB',
+    createdAt: '2020-03-01',
+    updatedAt: '2020-03-01',
+    isFavorite: false,
+  },
+]
+
 export const ExplorerExample: React.FC<ExplorerExampleProps> = ({
   showType,
 }) => {
@@ -19,110 +87,49 @@ export const ExplorerExample: React.FC<ExplorerExampleProps> = ({
       <Explorer
         showType={showType}
         showFavorite={true}
-        items={[
-          {
-            id: '1',
-            name: 'z Item 1',
-            type: 'folder',
-            size: 0,
-            createdAt: '2021-01-01',
-            updatedAt: '2021-01-01',
-            isFavorite: true,
-          },
-          {
-            id: '2',
-            name: 'r Item 2',
-            type: 'file',
-            size: 0,
-            createdAt: '2021-01-01',
-            updatedAt: '2021-01-01',
-            isFavorite: false,
-          },
-          {
-            id: '3',
-            name: 'b Item 3',
-            type: 'folder',
-            size: 0,
-            createdAt: '2021-01-01',
-            updatedAt: '2021-01-01',
-          },
-          {
-            id: '4',
-            name: 'Item 4',
-            type: 'file',
-            size: 0,
-            createdAt: '2021-01-01',
-            updatedAt: '2021-01-01',
-          },
-          {
-            id: '5',
-            name: 'Item 5',
-            type: 'folder',
-            size: 0,
-            createdAt: '2021-01-01',
-            updatedAt: '2021-01-01',
-          },
-          {
-            id: '6',
-            name: 'Item 6',
-            type: 'file',
-            size: 0,
-            createdAt: '2021-01-01',
-            updatedAt: '2021-01-01',
-          },
-        ]}
+        items={data.map((item) => ({
+          ...item,
+          menu: [
+            {
+              items: [
+                {
+                  type: 'item',
+                  label: 'Delete',
+                  onClick: (): void => {
+                    alert('Delete item id: ' + item.id)
+                  },
+                  colorName: 'DANGER',
+                  Icon: TrashIcon,
+                },
+              ],
+            },
+          ],
+        }))}
         breadcrumb={[
           {
-            id: '1-1',
-            name: 'Item 1',
+            id: '100',
+            name: 'Root',
           },
           {
-            id: '1-2',
-            name: 'Item 2',
+            id: '101',
+            name: 'Folder after root',
           },
           {
-            id: '1-3',
-            name: 'Item 3',
-          },
-          {
-            id: '1-4',
-            name: 'Item 4',
-          },
-          {
-            id: '1-5',
-            name: 'Item 5',
-          },
-          {
-            id: '1-6',
-            name: 'Item 6',
+            id: '102',
+            name: 'Folder test',
           },
         ]}
-        onOpenItem={(item) => {
+        onOpenItem={(item): void => {
           alert(`Open item id: ${item.id}`)
         }}
-        onDropItems={({ folderId, item }) => {
+        onDropItems={({ folderId, item }): void => {
           alert(
             `Drop item id: ${item.map(
               (item) => item.id
             )} to folder id: ${folderId}`
           )
         }}
-        itemMenuData={[
-          {
-            items: [
-              {
-                type: 'item',
-                label: 'Delete',
-                onClick: (id) => {
-                  alert('Delete item id: ' + id)
-                },
-                colorName: 'DANGER',
-                Icon: TrashIcon,
-              },
-            ],
-          },
-        ]}
-        onFavoriteItem={async (item) => {
+        onFavoriteItem={async (item): Promise<void> => {
           await new Promise((resolve) => setTimeout(resolve, 1000))
           alert(`Favorite item id: ${item.id}`)
         }}
@@ -134,6 +141,15 @@ export const ExplorerExample: React.FC<ExplorerExampleProps> = ({
           lg: true,
           xl: true,
         }}
+        actions={[
+          {
+            accessType: ['folder'],
+            onClick: (ids): void => {
+              alert('Delete items id: ' + ids)
+            },
+            Icon: TrashIcon,
+          },
+        ]}
       />
     </ExampleContainer>
   )

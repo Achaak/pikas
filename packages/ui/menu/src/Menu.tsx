@@ -140,7 +140,7 @@ export const RightSlotCSS: PikasCSS = {
 
 export const SpanCSS: PikasCSS = {}
 
-interface ItemBase {
+export interface ItemBase {
   disabled?: boolean
   rightSlot?: string
   colorName?: PikasColor
@@ -149,7 +149,7 @@ interface ItemBase {
   hide?: boolean
 }
 
-interface DefaultItem extends ItemBase {
+export interface DefaultItem extends ItemBase {
   type: 'item'
   Icon?: React.FC<IconProps>
   iconColorName?: PikasColor
@@ -165,7 +165,7 @@ interface DefaultItem extends ItemBase {
   }
 }
 
-interface CheckboxItem extends ItemBase {
+export interface CheckboxItem extends ItemBase {
   type: 'checkbox'
   checked: boolean
   label: React.ReactNode
@@ -178,7 +178,7 @@ interface CheckboxItem extends ItemBase {
   }
 }
 
-interface RadioItem extends ItemBase {
+export interface RadioItem extends ItemBase {
   type: 'radio'
   onValueChange: (value: string) => void
   value: string
@@ -199,7 +199,7 @@ interface RadioItem extends ItemBase {
   }
 }
 
-interface MenuItem extends ItemBase {
+export interface MenuItem extends ItemBase {
   type: 'menu'
   data: MenuData
   label: React.ReactNode

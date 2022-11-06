@@ -1,10 +1,8 @@
 import { useDroppable } from '@dnd-kit/core'
 import { styled } from '@pikas-ui/styles'
 import { useContext } from 'react'
-import {
-  BreadcrumbItem as BreadcrumbItemType,
-  ExplorerContext,
-} from '../../../Explorer.js'
+import type { BreadcrumbItem as BreadcrumbItemType } from '../../../Explorer.js'
+import { ExplorerContext } from '../../../Explorer.js'
 
 const Container = styled('span', {
   padding: '4px 8px',
@@ -18,6 +16,12 @@ const Container = styled('span', {
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   color: '$BLACK',
+  cursor: 'pointer',
+  transition: 'background-color 0.2s ease-in-out',
+
+  '&:hover': {
+    backgroundColor: '$PRIMARY_LIGHTER',
+  },
 })
 
 export interface BreadcrumbItemProps {
@@ -32,7 +36,7 @@ export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
     id: breadcrumb.id,
   })
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     onOpenItem?.({
       id: breadcrumb.id,
       type: 'folder',
