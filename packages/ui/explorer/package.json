@@ -55,7 +55,7 @@
     "@pikas-ui/icons": "3.3.5",
     "@pikas-ui/loader": "3.3.5",
     "@pikas-ui/menu": "3.3.5",
-    "@pikas-ui/styles": "3.5.4",
+    "@pikas-ui/styles": "workspace:3.5.5",
     "@pikas-utils/file": "1.0.0",
     "@pikas-utils/keyboard": "1.0.0",
     "@pikas-utils/screen": "1.0.9",
@@ -69,12 +69,12 @@
   "devDependencies": {
     "@pikas/config": "1.0.0",
     "@pikas/tsconfig": "1.0.0",
-    "@types/node": "18.11.2",
-    "@types/react": "18.0.21",
-    "@types/react-dom": "18.0.6",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.8",
     "cross-env": "7.0.3",
-    "eslint": "8.25.0",
-    "tsup": "6.3.0",
+    "eslint": "8.27.0",
+    "tsup": "6.4.0",
     "typescript": "4.8.4"
   },
   "node": "12.20.0 || 14.13.1 || >=16.0.0"
