@@ -1,34 +1,34 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import fontColorContrast from 'font-color-contrast'
+import type { PikasCSS } from '@pikas-ui/styles';
+import fontColorContrast from 'font-color-contrast';
 
 export const getContentColor = ({
   contentColorHex,
   colorHex,
   outlined,
 }: {
-  contentColorHex?: string
-  colorHex?: string
-  outlined?: boolean
+  contentColorHex?: string;
+  colorHex?: string;
+  outlined?: boolean;
 }): string | undefined => {
   if (contentColorHex) {
-    return contentColorHex
+    return contentColorHex;
   }
 
   if (!outlined) {
-    return fontColorContrast(colorHex || '', 0.7)
+    return fontColorContrast(colorHex || '', 0.7);
   } else {
-    return colorHex
+    return colorHex;
   }
-}
+};
 
 export const getColors = ({
   colorHex,
   outlined,
   contentColorHex,
 }: {
-  outlined?: boolean
-  colorHex?: string
-  contentColorHex?: string
+  outlined?: boolean;
+  colorHex?: string;
+  contentColorHex?: string;
 }): PikasCSS => {
   if (!outlined) {
     const colors: PikasCSS = {
@@ -39,9 +39,9 @@ export const getColors = ({
         colorHex,
         outlined,
       }),
-    }
+    };
 
-    return colors
+    return colors;
   } else {
     const colors: PikasCSS = {
       backgroundColor: '$TRANSPARENT',
@@ -51,8 +51,8 @@ export const getColors = ({
         colorHex,
         outlined,
       }),
-    }
+    };
 
-    return colors
+    return colors;
   }
-}
+};

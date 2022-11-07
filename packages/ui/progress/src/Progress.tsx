@@ -3,12 +3,13 @@ import type {
   PikasColor,
   PikasCSS,
   PikasShadow,
-} from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import { Skeleton } from '@pikas-ui/skeleton'
-import * as ProgressPrimitive from '@radix-ui/react-progress'
-import fontColorContrast from 'font-color-contrast'
+} from '@pikas-ui/styles';
+import { useTheme } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { Skeleton } from '@pikas-ui/skeleton';
+import * as ProgressPrimitive from '@radix-ui/react-progress';
+import fontColorContrast from 'font-color-contrast';
+import { FC } from 'react';
 
 const Root = styled(ProgressPrimitive.Root, {
   position: 'relative',
@@ -28,7 +29,7 @@ const Root = styled(ProgressPrimitive.Root, {
     bottom: 0,
     pointerEvents: 'none',
   },
-})
+});
 
 const ProgressContent = styled('div', {
   position: 'absolute',
@@ -37,13 +38,13 @@ const ProgressContent = styled('div', {
   top: 0,
   bottom: 0,
   overflow: 'hidden',
-})
+});
 
 const ProgressIndicator = styled(ProgressPrimitive.Indicator, {
   width: '100%',
   height: '100%',
   transition: 'transform 660ms cubic-bezier(0.65, 0, 0.35, 1)',
-})
+});
 
 const Content = styled('span', {
   position: 'absolute',
@@ -56,35 +57,35 @@ const Content = styled('span', {
   justifyContent: 'center',
   color: '$WHITE',
   transition: '660ms cubic-bezier(0.65, 0, 0.35, 1)',
-})
+});
 
-const ContentBack = styled(Content, {})
+const ContentBack = styled(Content, {});
 
-const ContentFront = styled(Content, {})
+const ContentFront = styled(Content, {});
 
 export interface ProgressCSS {
-  container?: PikasCSS
-  content?: PikasCSS
-  indicator?: PikasCSS
+  container?: PikasCSS;
+  content?: PikasCSS;
+  indicator?: PikasCSS;
 }
 
 export interface ProgressProps {
-  progress: number
-  max?: number
-  width?: number | string
-  height?: number | string
-  colorName?: PikasColor
-  backgroundColorName?: PikasColor
-  loading?: boolean
-  boxShadow?: PikasShadow | 'none'
-  borderRadius?: BorderRadius
-  borderRadiusIndicator?: BorderRadius
-  getValueLabel?: (value: number, max: number) => string
-  content?: string
-  css?: ProgressCSS
+  progress: number;
+  max?: number;
+  width?: number | string;
+  height?: number | string;
+  colorName?: PikasColor;
+  backgroundColorName?: PikasColor;
+  loading?: boolean;
+  boxShadow?: PikasShadow | 'none';
+  borderRadius?: BorderRadius;
+  borderRadiusIndicator?: BorderRadius;
+  getValueLabel?: (value: number, max: number) => string;
+  content?: string;
+  css?: ProgressCSS;
 }
 
-export const Progress: React.FC<ProgressProps> = ({
+export const Progress: FC<ProgressProps> = ({
   progress = 0,
   height = 16,
   width = 280,
@@ -99,7 +100,7 @@ export const Progress: React.FC<ProgressProps> = ({
   content,
   css,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <Root
@@ -174,5 +175,5 @@ export const Progress: React.FC<ProgressProps> = ({
         </ContentFront>
       </ProgressContent>
     </Root>
-  )
-}
+  );
+};

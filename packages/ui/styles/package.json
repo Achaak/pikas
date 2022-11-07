@@ -56,8 +56,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@pikas/config": "1.0.0",
-    "@pikas/tsconfig": "1.0.0",
+    "@pikas/prettier": "workspace:*",
+    "eslint-config-custom": "workspace:*",
+    "@pikas/tsconfig": "workspace:*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "@types/lodash.clonedeep": "4.5.7",
     "@types/lodash.merge": "4.6.7",
     "@types/node": "18.11.9",

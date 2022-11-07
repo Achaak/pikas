@@ -1,1 +1,1 @@
-export * from './RotateLoader.js'
+export * from './RotateLoader.js';

@@ -1,1 +1,1 @@
-export * from './SettingsBar.js'
+export * from './SettingsBar.js';

@@ -1,10 +1,11 @@
-import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import type { ImageLoadingStatus } from '@radix-ui/react-avatar'
-import { Skeleton } from '@pikas-ui/skeleton'
+import * as AvatarPrimitive from '@radix-ui/react-avatar';
+import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import type { ImageLoadingStatus } from '@radix-ui/react-avatar';
+import { Skeleton } from '@pikas-ui/skeleton';
+import { FC } from 'react';
 
-export type { ImageLoadingStatus } from '@radix-ui/react-avatar'
+export type { ImageLoadingStatus } from '@radix-ui/react-avatar';
 
 const Root = styled(AvatarPrimitive.Root, {
   display: 'inline-flex',
@@ -14,14 +15,14 @@ const Root = styled(AvatarPrimitive.Root, {
   overflow: 'hidden',
   userSelect: 'none',
   position: 'relative',
-})
+});
 
 const Image = styled(AvatarPrimitive.Image, {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
   borderRadius: 'inherit',
-})
+});
 
 const Fallback = styled(AvatarPrimitive.Fallback, {
   width: '100%',
@@ -31,29 +32,29 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   justifyContent: 'center',
   lineHeight: 1,
   fontWeight: '$BOLD',
-})
+});
 
 export interface AvatarCSS {
-  container?: PikasCSS
-  image?: PikasCSS
-  fallback?: PikasCSS
+  container?: PikasCSS;
+  image?: PikasCSS;
+  fallback?: PikasCSS;
 }
 
 export interface AvatarProps {
-  alt?: string
-  src?: string
-  onLoadingStatusChange?: (status: ImageLoadingStatus) => void
-  delayMs?: number
-  fallback?: string
-  fallbackColorName?: PikasColor
-  fallbackBackgroundColorName?: PikasColor
-  css?: AvatarCSS
-  size?: number
-  borderRadius?: BorderRadius
-  loading?: boolean
+  alt?: string;
+  src?: string;
+  onLoadingStatusChange?: (status: ImageLoadingStatus) => void;
+  delayMs?: number;
+  fallback?: string;
+  fallbackColorName?: PikasColor;
+  fallbackBackgroundColorName?: PikasColor;
+  css?: AvatarCSS;
+  size?: number;
+  borderRadius?: BorderRadius;
+  loading?: boolean;
 }
 
-export const Avatar: React.FC<AvatarProps> = ({
+export const Avatar: FC<AvatarProps> = ({
   alt,
   src,
   onLoadingStatusChange,
@@ -109,5 +110,5 @@ export const Avatar: React.FC<AvatarProps> = ({
         {fallback}
       </Fallback>
     </Root>
-  )
-}
+  );
+};

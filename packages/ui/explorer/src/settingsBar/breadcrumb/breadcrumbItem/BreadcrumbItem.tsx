@@ -1,8 +1,9 @@
-import { useDroppable } from '@dnd-kit/core'
-import { styled } from '@pikas-ui/styles'
-import { useContext } from 'react'
-import type { BreadcrumbItem as BreadcrumbItemType } from '../../../Explorer.js'
-import { ExplorerContext } from '../../../Explorer.js'
+import { useDroppable } from '@dnd-kit/core';
+import { styled } from '@pikas-ui/styles';
+import { useContext } from 'react';
+import type { BreadcrumbItem as BreadcrumbItemType } from '../../../Explorer.js';
+import { ExplorerContext } from '../../../Explorer.js';
+import { FC } from 'react';
 
 const Container = styled('span', {
   padding: '4px 8px',
@@ -22,26 +23,26 @@ const Container = styled('span', {
   '&:hover': {
     backgroundColor: '$PRIMARY_LIGHTER',
   },
-})
+});
 
 export interface BreadcrumbItemProps {
-  breadcrumb: BreadcrumbItemType
+  breadcrumb: BreadcrumbItemType;
 }
 
-export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
+export const BreadcrumbItem: FC<BreadcrumbItemProps> = ({
   breadcrumb,
 }) => {
-  const { onOpenItem } = useContext(ExplorerContext)
+  const { onOpenItem } = useContext(ExplorerContext);
   const { isOver, setNodeRef } = useDroppable({
     id: breadcrumb.id,
-  })
+  });
 
   const handleClick = (): void => {
     onOpenItem?.({
       id: breadcrumb.id,
       type: 'folder',
-    })
-  }
+    });
+  };
 
   return (
     <Container
@@ -53,5 +54,5 @@ export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
     >
       {breadcrumb.name}
     </Container>
-  )
-}
+  );
+};

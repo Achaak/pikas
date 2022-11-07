@@ -1,7 +1,8 @@
-import { Avatar } from '@pikas-ui/avatar'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { Avatar } from '@pikas-ui/avatar';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-export const AvatarExample: React.FC = () => {
+export const AvatarExample: FC = () => {
   return (
     <ExampleContainer>
       <Avatar alt="John Doe" fallback="JD" />
@@ -12,5 +13,5 @@ export const AvatarExample: React.FC = () => {
       />
       <Avatar alt="Paul Doe" fallback="PD" loading={true} />
     </ExampleContainer>
-  )
-}
+  );
+};

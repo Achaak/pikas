@@ -1,21 +1,22 @@
-import type { PikasColor } from '@pikas-ui/styles'
-import type { DialogProps } from '../CustomDialog/index.js'
-import { CustomDialog } from '../CustomDialog/index.js'
-import { InfoDialogContent } from './InfoDialogContent/index.js'
-import { InfoDialogFooter } from './InfoDialogFooter/index.js'
-import { InfoDialogHeader } from './InfoDialogHeader/index.js'
+import type { PikasColor } from '@pikas-ui/styles';
+import type { DialogProps } from '../CustomDialog/index.js';
+import { CustomDialog } from '../CustomDialog/index.js';
+import { InfoDialogContent } from './InfoDialogContent/index.js';
+import { InfoDialogFooter } from './InfoDialogFooter/index.js';
+import { InfoDialogHeader } from './InfoDialogHeader/index.js';
+import { ReactNode, FC } from 'react';
 
 export interface InfoDialogProps extends DialogProps {
-  validateButtonLabel?: string
-  validateButtonColorName?: PikasColor
-  validateButtonDisabled?: boolean
-  validateButtonLoading?: boolean
-  onValidate?: () => Promise<void>
-  title?: string
-  content: React.ReactNode
+  validateButtonLabel?: string;
+  validateButtonColorName?: PikasColor;
+  validateButtonDisabled?: boolean;
+  validateButtonLoading?: boolean;
+  onValidate?: () => Promise<void>;
+  title?: string;
+  content: ReactNode;
 }
 
-export const InfoDialog: React.FC<InfoDialogProps> = ({
+export const InfoDialog: FC<InfoDialogProps> = ({
   onClose,
   validateButtonLabel = 'Ok',
   validateButtonColorName = 'PRIMARY',
@@ -56,5 +57,5 @@ export const InfoDialog: React.FC<InfoDialogProps> = ({
       }}
       {...props}
     />
-  )
-}
+  );
+};

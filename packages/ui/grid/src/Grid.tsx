@@ -1,6 +1,6 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import React from 'react'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -117,14 +117,14 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
-export type GridType = 'container' | 'item'
+export type GridType = 'container' | 'item';
 
 export interface GridBaseProps {
-  children?: React.ReactNode
-  css?: PikasCSS
-  type: GridType
+  children?: ReactNode;
+  css?: PikasCSS;
+  type: GridType;
 }
 
 export type GridContainerRowGap =
@@ -135,13 +135,13 @@ export type GridContainerRowGap =
   | 'lg'
   | 'xl'
   | {
-      default: string | number
-      xs?: string | number
-      sm?: string | number
-      md?: string | number
-      lg?: string | number
-      xl?: string | number
-    }
+      default: string | number;
+      xs?: string | number;
+      sm?: string | number;
+      md?: string | number;
+      lg?: string | number;
+      xl?: string | number;
+    };
 
 export type GridContainerColumnGap =
   | 'none'
@@ -151,96 +151,96 @@ export type GridContainerColumnGap =
   | 'lg'
   | 'xl'
   | {
-      default: string | number
-      xs?: string | number
-      sm?: string | number
-      md?: string | number
-      lg?: string | number
-      xl?: string | number
-    }
+      default: string | number;
+      xs?: string | number;
+      sm?: string | number;
+      md?: string | number;
+      lg?: string | number;
+      xl?: string | number;
+    };
 
 export type GridContainerCols = {
-  default: number
-  xs?: number
-  sm?: number
-  md?: number
-  lg?: number
-  xl?: number
-}
+  default: number;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+};
 
 export type GridContainerDirection =
   | 'row'
   | 'column'
   | 'dense'
   | 'row dense'
-  | 'column dense'
+  | 'column dense';
 
 export type GridContainerJustifyContent =
   | 'start'
   | 'center'
   | 'end'
   | 'space-between'
-  | 'space-around'
+  | 'space-around';
 
-export type GridContainerAlignItems = 'start' | 'center' | 'end' | 'stretch'
+export type GridContainerAlignItems = 'start' | 'center' | 'end' | 'stretch';
 
 export interface GridContainerProps extends GridBaseProps {
-  type: 'container'
-  rowGap?: GridContainerRowGap
-  columnGap?: GridContainerColumnGap
-  cols: GridContainerCols
-  direction?: GridContainerDirection
-  justifyContent?: GridContainerJustifyContent
-  alignItems?: GridContainerAlignItems
+  type: 'container';
+  rowGap?: GridContainerRowGap;
+  columnGap?: GridContainerColumnGap;
+  cols: GridContainerCols;
+  direction?: GridContainerDirection;
+  justifyContent?: GridContainerJustifyContent;
+  alignItems?: GridContainerAlignItems;
 }
 
 export type GridItemCols = {
-  default: number
-  xs?: number
-  sm?: number
-  md?: number
-  lg?: number
-  xl?: number
-}
+  default: number;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+};
 
 export type GridItemStart = {
-  default: number
-  xs?: number
-  sm?: number
-  md?: number
-  lg?: number
-  xl?: number
-}
+  default: number;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+};
 
 export type GridItemEnd = {
-  default: number
-  xs?: number
-  sm?: number
-  md?: number
-  lg?: number
-  xl?: number
-}
+  default: number;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+};
 
 export type GridItemOrder = {
-  default: number
-  xs?: number
-  sm?: number
-  md?: number
-  lg?: number
-  xl?: number
-}
+  default: number;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+};
 
 export interface GridItemProps extends GridBaseProps {
-  type: 'item'
-  cols?: GridItemCols
-  start?: GridItemStart
-  end?: GridItemEnd
-  order?: GridItemOrder
+  type: 'item';
+  cols?: GridItemCols;
+  start?: GridItemStart;
+  end?: GridItemEnd;
+  order?: GridItemOrder;
 }
 
-export type GridProps = GridContainerProps | GridItemProps
+export type GridProps = GridContainerProps | GridItemProps;
 
-export const Grid: React.FC<GridProps> = (
+export const Grid: FC<GridProps> = (
   props: GridProps = {
     type: 'container',
     rowGap: 'md',
@@ -248,7 +248,7 @@ export const Grid: React.FC<GridProps> = (
     cols: { default: 12 },
   }
 ) => {
-  const { children, css, type } = props
+  const { children, css, type } = props;
 
   return (
     <Container
@@ -480,5 +480,5 @@ export const Grid: React.FC<GridProps> = (
     >
       {children}
     </Container>
-  )
-}
+  );
+};

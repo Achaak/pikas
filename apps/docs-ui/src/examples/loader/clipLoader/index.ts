@@ -1,1 +1,1 @@
-export * from './ClipLoaderExample'
+export * from './ClipLoaderExample';

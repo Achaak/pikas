@@ -1,14 +1,15 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { keyframes, styled } from '@pikas-ui/styles'
-import { IconByName } from '@pikas-ui/icons'
-import React, { useState } from 'react'
-import * as ToastPrimitive from '@radix-ui/react-toast'
-import type { ToastCSS, BaseToastProps } from '../types.js'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { keyframes, styled } from '@pikas-ui/styles';
+import { IconByName } from '@pikas-ui/icons';
+import { useState } from 'react';
+import * as ToastPrimitive from '@radix-ui/react-toast';
+import type { ToastCSS, BaseToastProps } from '../types.js';
+import { ReactNode, FC } from 'react';
 
 const timerWidth = keyframes({
   '0%': { width: '100%' },
   '100%': { width: 0 },
-})
+});
 
 const Toast = styled(ToastPrimitive.Root, {
   display: 'flex',
@@ -17,41 +18,41 @@ const Toast = styled(ToastPrimitive.Root, {
   br: 'md',
   boxShadow: '$ELEVATION_3',
   overflow: 'hidden',
-})
+});
 
-const Action = styled(ToastPrimitive.Action, {})
+const Action = styled(ToastPrimitive.Action, {});
 
 const Close = styled(ToastPrimitive.Close, {
   all: 'unset',
   cursor: 'pointer',
-})
+});
 
 const Content = styled('div', {
   display: 'flex',
   customColumnGap: 16,
   alignItems: 'center',
   padding: 16,
-})
+});
 
 const Timer = styled('div', {
   height: 4,
   backgroundColor: '$PRIMARY',
   width: '100%',
   position: 'relative',
-})
+});
 
 export interface CustomToastCSS extends ToastCSS {
-  close?: PikasCSS
-  timer?: PikasCSS
-  content?: PikasCSS
+  close?: PikasCSS;
+  timer?: PikasCSS;
+  content?: PikasCSS;
 }
 
 export interface CustomToastProps extends BaseToastProps {
-  css?: CustomToastCSS
-  children?: React.ReactNode
+  css?: CustomToastCSS;
+  children?: ReactNode;
 }
 
-export const CustomToast: React.FC<CustomToastProps> = ({
+export const CustomToast: FC<CustomToastProps> = ({
   duration = 5000,
   onOpenChange,
   css,
@@ -71,26 +72,26 @@ export const CustomToast: React.FC<CustomToastProps> = ({
   onPause,
   onResume,
 }) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleOpen = (): void => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const handleClose = (): void => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Toast
       open={isOpen}
       onOpenChange={(bool): void => {
-        onOpenChange?.(bool)
+        onOpenChange?.(bool);
 
         if (bool) {
-          handleOpen()
+          handleOpen();
         } else {
-          handleClose()
+          handleClose();
         }
       }}
       css={{
@@ -130,5 +131,5 @@ export const CustomToast: React.FC<CustomToastProps> = ({
         />
       )}
     </Toast>
-  )
-}
+  );
+};

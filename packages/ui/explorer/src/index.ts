@@ -1,1 +1,1 @@
-export * from './Explorer.js'
+export * from './Explorer.js';

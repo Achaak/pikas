@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { RiseLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { RiseLoader } from '@pikas-ui/loader';
 
-export const RiseLoaderExample: React.FC = () => {
+export const RiseLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const RiseLoaderExample: React.FC = () => {
     >
       <RiseLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

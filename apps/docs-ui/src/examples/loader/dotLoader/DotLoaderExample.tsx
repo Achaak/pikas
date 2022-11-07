@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { DotLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { DotLoader } from '@pikas-ui/loader';
 
-export const DotLoaderExample: React.FC = () => {
+export const DotLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const DotLoaderExample: React.FC = () => {
     >
       <DotLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,1 +1,1 @@
-export * from './BeatLoader.js'
+export * from './BeatLoader.js';

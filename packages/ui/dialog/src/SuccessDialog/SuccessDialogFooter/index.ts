@@ -1,1 +1,1 @@
-export * from './SuccessDialogFooter.js'
+export * from './SuccessDialogFooter.js';

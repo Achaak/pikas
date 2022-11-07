@@ -1,5 +1,6 @@
-import type { BorderRadius, PikasCSS } from '@pikas-ui/styles'
-import { styled, keyframes } from '@pikas-ui/styles'
+import type { BorderRadius, PikasCSS } from '@pikas-ui/styles';
+import { styled, keyframes } from '@pikas-ui/styles';
+import { FC } from 'react';
 
 const wave = keyframes({
   '0%': {
@@ -11,7 +12,7 @@ const wave = keyframes({
   '100%': {
     transform: 'translateX(100%)',
   },
-})
+});
 
 const pulse = keyframes({
   '0%': {
@@ -23,7 +24,7 @@ const pulse = keyframes({
   '100%': {
     opacity: 1,
   },
-})
+});
 
 const Container = styled('div', {
   display: 'block',
@@ -91,19 +92,19 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
-export type SkeletonAnimation = 'pulse' | 'wave' | false
+export type SkeletonAnimation = 'pulse' | 'wave' | false;
 
 export interface SkeletonProps {
-  animation?: SkeletonAnimation
-  width?: string | number
-  height?: string | number
-  borderRadius?: BorderRadius
-  css?: PikasCSS
+  animation?: SkeletonAnimation;
+  width?: string | number;
+  height?: string | number;
+  borderRadius?: BorderRadius;
+  css?: PikasCSS;
 }
 
-export const Skeleton: React.FC<SkeletonProps> = ({
+export const Skeleton: FC<SkeletonProps> = ({
   animation = 'pulse',
   borderRadius = 'sm',
   height,
@@ -121,5 +122,5 @@ export const Skeleton: React.FC<SkeletonProps> = ({
       }}
       animation={animation}
     ></Container>
-  )
-}
+  );
+};

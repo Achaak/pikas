@@ -23,23 +23,23 @@ export const pikasShadows = {
   DIMINUTION_3: 'inset 0px 1px 8px rgba(0, 0, 0, 0.20)',
   DIMINUTION_4: 'inset 0px 1px 16px rgba(0, 0, 0, 0.20)',
   DIMINUTION_5: 'inset 0px 1px 24px rgba(0, 0, 0, 0.20)',
-}
+};
 
-export type PikasShadows = typeof pikasShadows
-export type PikasShadow = keyof PikasShadows
+export type PikasShadows = typeof pikasShadows;
+export type PikasShadow = keyof PikasShadows;
 
-export type ShadowsRecordValue = string
-export type ShadowsRecordKey = string | number | PikasShadow
-export type ShadowsRecord = Record<ShadowsRecordKey, ShadowsRecordValue>
+export type ShadowsRecordValue = string;
+export type ShadowsRecordKey = string | number | PikasShadow;
+export type ShadowsRecord = Record<ShadowsRecordKey, ShadowsRecordValue>;
 
 export const loadShadows = <T extends ShadowsRecord>(
   values:
     | {
-        [key in keyof PikasShadows]?: ShadowsRecordValue
+        [key in keyof PikasShadows]?: ShadowsRecordValue;
       }
     | T
 ): PikasShadows & T =>
   ({
     ...pikasShadows,
     ...values,
-  } as PikasShadows & T)
+  } as PikasShadows & T);

@@ -1,1 +1,1 @@
-export * from './CustomDialog.js'
+export * from './CustomDialog.js';

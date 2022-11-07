@@ -1,9 +1,10 @@
-import type { ToastPosition } from '@pikas-ui/toast'
-import { ExampleContainer } from '@pikas/docs-ui'
-import { DefaultToastProvider } from './defaultToastProvider'
-import { toastPosition } from '../utils'
+import type { ToastPosition } from '@pikas-ui/toast';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { DefaultToastProvider } from './defaultToastProvider';
+import { toastPosition } from '../utils';
 
-export const DefaultToastExample: React.FC = () => {
+export const DefaultToastExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -18,5 +19,5 @@ export const DefaultToastExample: React.FC = () => {
         />
       ))}
     </ExampleContainer>
-  )
-}
+  );
+};

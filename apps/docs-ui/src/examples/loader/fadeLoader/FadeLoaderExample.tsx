@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { FadeLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { FadeLoader } from '@pikas-ui/loader';
 
-export const FadeLoaderExample: React.FC = () => {
+export const FadeLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const FadeLoaderExample: React.FC = () => {
     >
       <FadeLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

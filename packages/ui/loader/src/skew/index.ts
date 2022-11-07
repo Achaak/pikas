@@ -1,1 +1,1 @@
-export * from './SkewLoader.js'
+export * from './SkewLoader.js';

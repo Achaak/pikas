@@ -1,1 +1,1 @@
-export * from './PulseLoaderExample'
+export * from './PulseLoaderExample';

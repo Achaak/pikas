@@ -1,1 +1,1 @@
-export * from './PuffLoader.js'
+export * from './PuffLoader.js';

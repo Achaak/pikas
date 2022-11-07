@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { GridLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { GridLoader } from '@pikas-ui/loader';
 
-export const GridLoaderExample: React.FC = () => {
+export const GridLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const GridLoaderExample: React.FC = () => {
     >
       <GridLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,16 +1,15 @@
-import { darkTheme, theme, PikasUIProvider } from '@pikas-ui/styles'
-import type { AppProps } from 'next/app'
-import { menu } from './../src/configs/menu'
-import { Layout, customGlobalCss } from '@pikas/docs-ui'
-import { DefaultSeo } from 'next-seo'
-import SEO from './../next-seo.config'
-import './../src/css/prism-vsc-dark-plus.css'
-import React from 'react'
-import { docsUIRoutes } from '@pikas/docs-routes'
-const { getLink } = docsUIRoutes
+import { darkTheme, theme, PikasUIProvider } from '@pikas-ui/styles';
+import type { AppProps } from 'next/app';
+import { menu } from './../src/configs/menu';
+import { Layout, customGlobalCss } from '@pikas/docs-ui';
+import { DefaultSeo } from 'next-seo';
+import SEO from './../next-seo.config';
+import './../src/css/prism-vsc-dark-plus.css';
+import { docsUIRoutes } from '@pikas/docs-routes';
+const { getLink } = docsUIRoutes;
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-  customGlobalCss()
+  customGlobalCss();
 
   return (
     <>
@@ -26,7 +25,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         </Layout>
       </PikasUIProvider>
     </>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;

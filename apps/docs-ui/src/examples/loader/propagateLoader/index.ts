@@ -1,1 +1,1 @@
-export * from './PropagateLoaderExample'
+export * from './PropagateLoaderExample';

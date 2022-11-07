@@ -1,1 +1,1 @@
-export * from './RotateLoaderExample'
+export * from './RotateLoaderExample';

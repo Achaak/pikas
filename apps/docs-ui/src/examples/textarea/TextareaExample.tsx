@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Textarea } from '@pikas-ui/textarea'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Textarea } from '@pikas-ui/textarea';
 
-export const TextareaExample: React.FC = () => {
+export const TextareaExample: FC = () => {
   return (
     <ExampleContainer>
       <Textarea
@@ -13,5 +14,5 @@ export const TextareaExample: React.FC = () => {
         placeholder="Placeholder"
       />
     </ExampleContainer>
-  )
-}
+  );
+};

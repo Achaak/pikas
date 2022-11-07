@@ -1,17 +1,18 @@
-import type { ExplorerItem, ExplorerShowType } from '@pikas-ui/explorer'
-import { Explorer } from '@pikas-ui/explorer'
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import { ExampleContainer } from '@pikas/docs-ui'
-import type { FC } from 'react'
+import type { ExplorerItem, ExplorerShowType } from '@pikas-ui/explorer';
+import { Explorer } from '@pikas-ui/explorer';
+import type { IconProps } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import type { FC } from 'react';
 
 interface ExplorerExampleProps {
-  showType: ExplorerShowType
+  showType: ExplorerShowType;
 }
 
 const TrashIcon: FC<IconProps> = (props) => (
   <IconByName {...props} name="bx:trash" />
-)
+);
 
 const data: ExplorerItem[] = [
   {
@@ -77,11 +78,9 @@ const data: ExplorerItem[] = [
     updatedAt: '2020-03-01',
     isFavorite: false,
   },
-]
+];
 
-export const ExplorerExample: React.FC<ExplorerExampleProps> = ({
-  showType,
-}) => {
+export const ExplorerExample: FC<ExplorerExampleProps> = ({ showType }) => {
   return (
     <ExampleContainer>
       <Explorer
@@ -96,7 +95,7 @@ export const ExplorerExample: React.FC<ExplorerExampleProps> = ({
                   type: 'item',
                   label: 'Delete',
                   onClick: (): void => {
-                    alert('Delete item id: ' + item.id)
+                    alert('Delete item id: ' + item.id);
                   },
                   colorName: 'DANGER',
                   Icon: TrashIcon,
@@ -120,18 +119,18 @@ export const ExplorerExample: React.FC<ExplorerExampleProps> = ({
           },
         ]}
         onOpenItem={(item): void => {
-          alert(`Open item id: ${item.id}`)
+          alert(`Open item id: ${item.id}`);
         }}
         onDropItems={({ folderId, item }): void => {
           alert(
             `Drop item id: ${item.map(
               (item) => item.id
             )} to folder id: ${folderId}`
-          )
+          );
         }}
         onFavoriteItem={async (item): Promise<void> => {
-          await new Promise((resolve) => setTimeout(resolve, 1000))
-          alert(`Favorite item id: ${item.id}`)
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          alert(`Favorite item id: ${item.id}`);
         }}
         showBreadcrumb={{
           default: false,
@@ -145,12 +144,12 @@ export const ExplorerExample: React.FC<ExplorerExampleProps> = ({
           {
             accessType: ['folder'],
             onClick: (ids): void => {
-              alert('Delete items id: ' + ids)
+              alert('Delete items id: ' + ids);
             },
             Icon: TrashIcon,
           },
         ]}
       />
     </ExampleContainer>
-  )
-}
+  );
+};

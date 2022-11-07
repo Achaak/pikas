@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { ClimbingBoxLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { ClimbingBoxLoader } from '@pikas-ui/loader';
 
-export const ClimbingBoxLoaderExample: React.FC = () => {
+export const ClimbingBoxLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const ClimbingBoxLoaderExample: React.FC = () => {
     >
       <ClimbingBoxLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,11 +1,11 @@
-import { styled } from '@pikas-ui/styles'
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import type { LayoutMenu } from '../Layout.js'
+import { styled } from '@pikas-ui/styles';
+import { FC, useState } from 'react';
+import { Button } from '@pikas-ui/button';
+import type { IconProps } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import type { LayoutMenu } from '../Layout.js';
 
 const Container = styled('div', {
   display: 'flex',
@@ -42,7 +42,7 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const List = styled('nav', {
   display: 'flex',
@@ -61,9 +61,9 @@ const List = styled('nav', {
       },
     },
   },
-})
+});
 
-const Group = styled('ul', {})
+const Group = styled('ul', {});
 
 const Item = styled('li', {
   display: 'flex',
@@ -101,26 +101,26 @@ const Item = styled('li', {
       },
     },
   },
-})
+});
 
 const H3 = styled('h3', {
   fontSize: '$EM-LARGE',
   padding: '8px 16px',
   color: '$BLACK',
   fontWeight: '$BOLD',
-})
+});
 
-const MenuIcon: React.FC<IconProps> = (props) => {
-  return <IconByName name="bx:menu" {...props} />
-}
+const MenuIcon: FC<IconProps> = (props) => {
+  return <IconByName name="bx:menu" {...props} />;
+};
 
 interface CustomProps {
-  menu: LayoutMenu
+  menu: LayoutMenu;
 }
 
-export const Menu: React.FC<CustomProps> = ({ menu }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const { pathname } = useRouter()
+export const Menu: FC<CustomProps> = ({ menu }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useRouter();
 
   return (
     <Container isOpen={isOpen}>
@@ -164,5 +164,5 @@ export const Menu: React.FC<CustomProps> = ({ menu }) => {
         ))}
       </List>
     </Container>
-  )
-}
+  );
+};

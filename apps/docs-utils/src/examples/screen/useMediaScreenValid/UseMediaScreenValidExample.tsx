@@ -1,8 +1,9 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { useMediaScreenValid } from '@pikas-utils/screen'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { useMediaScreenValid } from '@pikas-utils/screen';
+import { FC } from 'react';
 
-export const UseMediaScreenValidExample: React.FC = () => {
-  const mediaValid = useMediaScreenValid({ media: 'md', operator: '>' })
+export const UseMediaScreenValidExample: FC = () => {
+  const mediaValid = useMediaScreenValid({ media: 'md', operator: '>' });
 
-  return <ExampleContainer>{mediaValid ? 'true' : 'false'}</ExampleContainer>
-}
+  return <ExampleContainer>{mediaValid ? 'true' : 'false'}</ExampleContainer>;
+};

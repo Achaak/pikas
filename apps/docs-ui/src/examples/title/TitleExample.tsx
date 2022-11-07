@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Title } from '@pikas-ui/title'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Title } from '@pikas-ui/title';
 
-export const TitleExample: React.FC = () => {
+export const TitleExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -15,5 +16,5 @@ export const TitleExample: React.FC = () => {
       <Title as="h5">Title H5</Title>
       <Title as="h6">Title H6</Title>
     </ExampleContainer>
-  )
-}
+  );
+};

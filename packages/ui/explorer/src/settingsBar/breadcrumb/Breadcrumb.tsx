@@ -1,8 +1,9 @@
-import { IconByName } from '@pikas-ui/icons'
-import { styled } from '@pikas-ui/styles'
-import { useContext } from 'react'
-import { ExplorerContext } from '../../Explorer.js'
-import { BreadcrumbItem } from './breadcrumbItem/BreadcrumbItem.js'
+import { IconByName } from '@pikas-ui/icons';
+import { styled } from '@pikas-ui/styles';
+import { useContext } from 'react';
+import { ExplorerContext } from '../../Explorer.js';
+import { BreadcrumbItem } from './breadcrumbItem/BreadcrumbItem.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'none',
@@ -11,7 +12,7 @@ const Container = styled('div', {
   alignItems: 'center',
   justifyContent: 'flex-start',
   marginBottom: 16,
-})
+});
 
 const TooManyItems = styled('div', {
   fontWeight: '$MEDIUM',
@@ -20,13 +21,13 @@ const TooManyItems = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-})
+});
 
-export const Breadcrumb: React.FC = () => {
-  const { breadcrumb, showBreadcrumb } = useContext(ExplorerContext)
+export const Breadcrumb: FC = () => {
+  const { breadcrumb, showBreadcrumb } = useContext(ExplorerContext);
 
   if (!showBreadcrumb) {
-    return null
+    return null;
   }
 
   return (
@@ -46,10 +47,10 @@ export const Breadcrumb: React.FC = () => {
           breadcrumb.length - index > 4 &&
           index !== 0
         ) {
-          return null
+          return null;
         }
 
-        const result = []
+        const result = [];
 
         if (index && !(breadcrumb.length > 5 && index === 2)) {
           result.push(
@@ -59,20 +60,20 @@ export const Breadcrumb: React.FC = () => {
               size={16}
               colorName="GRAY_DARKER"
               onClick={(event): void => {
-                event.stopPropagation()
+                event.stopPropagation();
               }}
             />
-          )
+          );
         }
 
-        result.push(<BreadcrumbItem breadcrumb={breadcrumbItem} key={index} />)
+        result.push(<BreadcrumbItem breadcrumb={breadcrumbItem} key={index} />);
 
         if (breadcrumb.length > 5 && index === 0) {
-          result.push(<TooManyItems key={index + 1}>···</TooManyItems>)
+          result.push(<TooManyItems key={index + 1}>···</TooManyItems>);
         }
 
-        return result
+        return result;
       })}
     </Container>
-  )
-}
+  );
+};

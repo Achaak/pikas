@@ -1,55 +1,55 @@
 type GetLink<T extends Record<string, string>> = (
   key: keyof T,
   config?: {
-    withOrigin?: boolean
-    queries?: Record<string, string | number>
-    hash?: string
-    lang?: string
+    withOrigin?: boolean;
+    queries?: Record<string, string | number>;
+    hash?: string;
+    lang?: string;
   }
-) => string
+) => string;
 
 export const routes = <T extends Record<string, string>>({
   origin,
   links,
 }: {
-  origin: string
-  links: T
+  origin: string;
+  links: T;
 }): {
-  getLink: GetLink<T>
+  getLink: GetLink<T>;
 } => {
   const getLink: GetLink<T> = (key, configs = {}) => {
-    let link: string = links[key]
+    let link: string = links[key];
 
-    let queriesFormatted = ''
+    let queriesFormatted = '';
     if (configs?.queries) {
       for (const [key, value] of Object.entries(configs.queries)) {
         if (link.includes(`:${key}`)) {
-          link = link.replace(`:${key}`, value.toString())
+          link = link.replace(`:${key}`, value.toString());
         } else {
-          queriesFormatted += `${queriesFormatted ? '&' : '?'}${key}=${value}`
+          queriesFormatted += `${queriesFormatted ? '&' : '?'}${key}=${value}`;
         }
       }
     }
 
-    let url = ''
+    let url = '';
     if (configs?.withOrigin) {
-      url += origin
+      url += origin;
     }
     if (configs?.lang) {
-      url += `/${configs?.lang}`
+      url += `/${configs?.lang}`;
     }
-    url += link
-    url += queriesFormatted
+    url += link;
+    url += queriesFormatted;
     if (configs?.hash) {
-      url += `#${configs?.hash}`
+      url += `#${configs?.hash}`;
     }
-    return url
-  }
+    return url;
+  };
 
   return {
     getLink,
-  }
-}
+  };
+};
 
 // const { getLink } = routes({
 //   origin: 'https://www.google.com',

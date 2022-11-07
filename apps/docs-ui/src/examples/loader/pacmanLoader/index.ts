@@ -1,1 +1,1 @@
-export * from './PacmanLoaderExample'
+export * from './PacmanLoaderExample';

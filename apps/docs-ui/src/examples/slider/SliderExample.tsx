@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Slider } from '@pikas-ui/slider'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Slider } from '@pikas-ui/slider';
 
-export const SliderExample: React.FC = () => {
+export const SliderExample: FC = () => {
   return (
     <ExampleContainer>
       <Slider
@@ -10,5 +11,5 @@ export const SliderExample: React.FC = () => {
         description="Eu est labore ea laborum laborum mollit non minim eu commodo."
       />
     </ExampleContainer>
-  )
-}
+  );
+};

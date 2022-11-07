@@ -1,1 +1,1 @@
-export * from './ClimbingBoxLoader.js'
+export * from './ClimbingBoxLoader.js';

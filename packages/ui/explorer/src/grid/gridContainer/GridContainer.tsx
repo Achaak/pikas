@@ -1,11 +1,12 @@
-import { Grid } from '@pikas-ui/grid'
-import { useContext } from 'react'
-import { ExplorerContext } from '../../Explorer.js'
-import { GridItem } from '../gridItem/index.js'
+import { Grid } from '@pikas-ui/grid';
+import { useContext } from 'react';
+import { ExplorerContext } from '../../Explorer.js';
+import { GridItem } from '../gridItem/index.js';
+import { FC } from 'react';
 
-export const GridContainer: React.FC = () => {
+export const GridContainer: FC = () => {
   const { items, gridCols, gridRowGap, gridColumnGap } =
-    useContext(ExplorerContext)
+    useContext(ExplorerContext);
 
   return (
     <Grid
@@ -18,5 +19,5 @@ export const GridContainer: React.FC = () => {
         <GridItem key={item.id} item={item} />
       ))}
     </Grid>
-  )
-}
+  );
+};

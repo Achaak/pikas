@@ -1,7 +1,8 @@
-import { Button } from '@pikas-ui/button'
-import type { PikasColor } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import { useState } from 'react'
+import { Button } from '@pikas-ui/button';
+import type { PikasColor } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { useState } from 'react';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -9,23 +10,23 @@ const Container = styled('div', {
   alignItems: 'center',
   customColumnGap: 16,
   width: '100%',
-})
+});
 
 export interface ValidateDialogFooterProps {
-  onClose?: () => void
-  validateButtonLabel?: string
-  cancelButtonLabel?: string
-  cancelButtonColorName?: PikasColor
-  validateButtonColorName?: PikasColor
-  cancelButtonDisabled?: boolean
-  validateButtonDisabled?: boolean
-  cancelButtonLoading?: boolean
-  validateButtonLoading?: boolean
-  onCancel?: () => Promise<void>
-  onValidate?: () => Promise<void>
+  onClose?: () => void;
+  validateButtonLabel?: string;
+  cancelButtonLabel?: string;
+  cancelButtonColorName?: PikasColor;
+  validateButtonColorName?: PikasColor;
+  cancelButtonDisabled?: boolean;
+  validateButtonDisabled?: boolean;
+  cancelButtonLoading?: boolean;
+  validateButtonLoading?: boolean;
+  onCancel?: () => Promise<void>;
+  onValidate?: () => Promise<void>;
 }
 
-export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
+export const ValidateDialogFooter: FC<ValidateDialogFooterProps> = ({
   cancelButtonLabel,
   validateButtonLabel,
   onCancel,
@@ -38,22 +39,22 @@ export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
   cancelButtonLoading,
   validateButtonLoading,
 }) => {
-  const [validateLoading, setValidateLoading] = useState(false)
-  const [cancelLoading, setCancelLoading] = useState(false)
+  const [validateLoading, setValidateLoading] = useState(false);
+  const [cancelLoading, setCancelLoading] = useState(false);
 
   const handleValidate = async (): Promise<void> => {
-    setValidateLoading(true)
-    await onValidate?.()
-    setValidateLoading(false)
-    onClose?.()
-  }
+    setValidateLoading(true);
+    await onValidate?.();
+    setValidateLoading(false);
+    onClose?.();
+  };
 
   const handleCancel = async (): Promise<void> => {
-    setCancelLoading(true)
-    await onCancel?.()
-    setCancelLoading(false)
-    onClose?.()
-  }
+    setCancelLoading(true);
+    await onCancel?.();
+    setCancelLoading(false);
+    onClose?.();
+  };
 
   return (
     <Container>
@@ -76,5 +77,5 @@ export const ValidateDialogFooter: React.FC<ValidateDialogFooterProps> = ({
         {validateButtonLabel}
       </Button>
     </Container>
-  )
-}
+  );
+};

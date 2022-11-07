@@ -45,8 +45,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas-utils#readme",
   "devDependencies": {
-    "@pikas/config": "1.0.0",
-    "@pikas/tsconfig": "1.0.0",
+    "@pikas/prettier": "workspace:*",
+    "eslint-config-custom": "workspace:*",
+    "@pikas/tsconfig": "workspace:*",
     "@types/node": "18.11.9",
     "cross-env": "7.0.3",
     "eslint": "8.27.0",

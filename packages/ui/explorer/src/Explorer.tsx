@@ -1,4 +1,4 @@
-import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core'
+import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
 import {
   DndContext,
   DragOverlay,
@@ -7,29 +7,30 @@ import {
   TouchSensor,
   useSensor,
   useSensors,
-} from '@dnd-kit/core'
-import { styled, useTheme } from '@pikas-ui/styles'
-import type { FC } from 'react'
-import { createContext, useEffect, useRef, useState } from 'react'
-import { GridContainer } from './grid/gridContainer/index.js'
-import { ListContainer } from './list/listContainer/index.js'
-import { snapCenterToCursor } from '@dnd-kit/modifiers'
-import { useOnClickOutside } from 'usehooks-ts'
-import { useKeyPress } from '@pikas-utils/keyboard'
-import { SettingsBar } from './settingsBar/SettingsBar.js'
-import fontColorContrast from 'font-color-contrast'
-import type { MenuDataItem } from '@pikas-ui/menu'
-import type { IconProps } from '@pikas-ui/icons'
+} from '@dnd-kit/core';
+import { styled, useTheme } from '@pikas-ui/styles';
+import type { FC } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
+import { GridContainer } from './grid/gridContainer/index.js';
+import { ListContainer } from './list/listContainer/index.js';
+import { snapCenterToCursor } from '@dnd-kit/modifiers';
+import { useOnClickOutside } from 'usehooks-ts';
+import { useKeyPress } from '@pikas-utils/keyboard';
+import { SettingsBar } from './settingsBar/SettingsBar.js';
+import fontColorContrast from 'font-color-contrast';
+import type { MenuDataItem } from '@pikas-ui/menu';
+import type { IconProps } from '@pikas-ui/icons';
 import type {
   GridContainerCols,
   GridContainerColumnGap,
   GridContainerRowGap,
-} from '@pikas-ui/grid'
+} from '@pikas-ui/grid';
+import { FC } from 'react';
 
 const Container = styled('div', {
   width: '100%',
   userSelect: 'none',
-})
+});
 
 const DragOverlayStyled = styled('div', {
   padding: '8px 16px',
@@ -47,7 +48,7 @@ const DragOverlayStyled = styled('div', {
       },
     },
   },
-})
+});
 
 const DragOverlayNumber = styled('span', {
   fontSize: '$EM-SMALL',
@@ -63,128 +64,128 @@ const DragOverlayNumber = styled('span', {
   top: 0,
   right: 0,
   transform: 'translate(40%, -40%)',
-})
+});
 
-export type ExplorerItemType = 'file' | 'folder'
+export type ExplorerItemType = 'file' | 'folder';
 export interface ExplorerItem {
-  id: string
-  name: string
-  size: string
-  type: ExplorerItemType
-  createdAt: string
-  updatedAt: string
-  isFavorite?: boolean
-  menu?: MenuDataItem[]
+  id: string;
+  name: string;
+  size: string;
+  type: ExplorerItemType;
+  createdAt: string;
+  updatedAt: string;
+  isFavorite?: boolean;
+  menu?: MenuDataItem[];
 }
 export interface ExplorerItemFile extends ExplorerItem {
-  type: 'file'
+  type: 'file';
 }
 export interface ExplorerItemFolder extends ExplorerItem {
-  type: 'folder'
+  type: 'folder';
 }
-export type ExplorerShowType = 'list' | 'grid'
+export type ExplorerShowType = 'list' | 'grid';
 
 export type OnClickItem = {
-  id: string
-}
+  id: string;
+};
 
 export type BreadcrumbItem = {
-  id: string
-  name: string
-}
+  id: string;
+  name: string;
+};
 
 export type OnOpenItem = (values: {
-  id: string
-  type: ExplorerItemType
-}) => void
+  id: string;
+  type: ExplorerItemType;
+}) => void;
 export type OnDropItems = (values: {
   item: {
-    id: string
-    type: ExplorerItemType
-  }[]
-  folderId: string
-}) => void
+    id: string;
+    type: ExplorerItemType;
+  }[];
+  folderId: string;
+}) => void;
 export type OnFavoriteItem = (values: {
-  id: string
-  isFavorite: boolean
-}) => Promise<void> | void
+  id: string;
+  isFavorite: boolean;
+}) => Promise<void> | void;
 
 export type ShowBreadcrumb =
   | {
-      default: boolean
-      xs?: boolean
-      sm?: boolean
-      md?: boolean
-      lg?: boolean
-      xl?: boolean
+      default: boolean;
+      xs?: boolean;
+      sm?: boolean;
+      md?: boolean;
+      lg?: boolean;
+      xl?: boolean;
     }
-  | false
+  | false;
 
 export type ShowActions =
   | {
-      default: boolean
-      xs?: boolean
-      sm?: boolean
-      md?: boolean
-      lg?: boolean
-      xl?: boolean
+      default: boolean;
+      xs?: boolean;
+      sm?: boolean;
+      md?: boolean;
+      lg?: boolean;
+      xl?: boolean;
     }
-  | false
+  | false;
 
 export interface Action {
-  Icon: FC<IconProps>
-  onClick: (ids: string[]) => Promise<void> | void
-  accessType: Array<ExplorerItemType>
+  Icon: FC<IconProps>;
+  onClick: (ids: string[]) => Promise<void> | void;
+  accessType: Array<ExplorerItemType>;
 }
 
 export const ExplorerContext = createContext<{
-  items: ExplorerItem[]
-  onClickItem: (handleClick: OnClickItem) => void
-  itemsSelected: ExplorerItem[]
-  breadcrumb?: BreadcrumbItem[]
-  onOpenItem?: OnOpenItem
-  onDropItems?: OnDropItems
-  showFavorite?: boolean
-  onFavoriteItem?: OnFavoriteItem
-  showBreadcrumb?: ShowBreadcrumb
-  showContextMenu?: boolean
-  showDropdownMenu?: boolean
-  showActions?: ShowActions
-  actions?: Action[]
-  gridCols: GridContainerCols
-  gridRowGap: GridContainerRowGap
-  gridColumnGap: GridContainerColumnGap
+  items: ExplorerItem[];
+  onClickItem: (handleClick: OnClickItem) => void;
+  itemsSelected: ExplorerItem[];
+  breadcrumb?: BreadcrumbItem[];
+  onOpenItem?: OnOpenItem;
+  onDropItems?: OnDropItems;
+  showFavorite?: boolean;
+  onFavoriteItem?: OnFavoriteItem;
+  showBreadcrumb?: ShowBreadcrumb;
+  showContextMenu?: boolean;
+  showDropdownMenu?: boolean;
+  showActions?: ShowActions;
+  actions?: Action[];
+  gridCols: GridContainerCols;
+  gridRowGap: GridContainerRowGap;
+  gridColumnGap: GridContainerColumnGap;
 }>({
   items: [],
   onClickItem: () => {
-    console.log('onClickItem')
+    console.log('onClickItem');
   },
   itemsSelected: [],
   gridCols: { default: 1 },
   gridRowGap: { default: 16 },
   gridColumnGap: { default: 16 },
-})
+});
 
 export interface ExplorerProps {
-  showType?: ExplorerShowType
-  items: ExplorerItem[]
-  multiSelectable?: boolean
-  breadcrumb?: BreadcrumbItem[]
-  onOpenItem?: OnOpenItem
-  onDropItems?: OnDropItems
-  onFavoriteItem?: OnFavoriteItem
-  showFavorite?: boolean
-  showBreadcrumb?: ShowBreadcrumb
-  showContextMenu?: boolean
-  showDropdownMenu?: boolean
-  showActions?: ShowActions
-  actions?: Action[]
-  gridCols?: GridContainerCols
-  gridRowGap?: GridContainerRowGap
-  gridColumnGap?: GridContainerColumnGap
+  showType?: ExplorerShowType;
+  items: ExplorerItem[];
+  multiSelectable?: boolean;
+  breadcrumb?: BreadcrumbItem[];
+  onOpenItem?: OnOpenItem;
+  onDropItems?: OnDropItems;
+  onFavoriteItem?: OnFavoriteItem;
+  showFavorite?: boolean;
+  showBreadcrumb?: ShowBreadcrumb;
+  showContextMenu?: boolean;
+  showDropdownMenu?: boolean;
+  showActions?: ShowActions;
+  actions?: Action[];
+  gridCols?: GridContainerCols;
+  gridRowGap?: GridContainerRowGap;
+  gridColumnGap?: GridContainerColumnGap;
 }
 
-export const Explorer: React.FC<ExplorerProps> = ({
+export const Explorer: FC<ExplorerProps> = ({
   showType = 'grid',
   items,
   multiSelectable = true,
@@ -202,51 +203,51 @@ export const Explorer: React.FC<ExplorerProps> = ({
   gridRowGap = { default: 16 },
   gridColumnGap = { default: 16 },
 }) => {
-  const [isDragging, setIsDragging] = useState(false)
-  const [itemsSelected, setItemsSelected] = useState<ExplorerItem[]>([])
-  const [itemsFiltered, setItemsFiltered] = useState<ExplorerItem[]>([])
+  const [isDragging, setIsDragging] = useState(false);
+  const [itemsSelected, setItemsSelected] = useState<ExplorerItem[]>([]);
+  const [itemsFiltered, setItemsFiltered] = useState<ExplorerItem[]>([]);
   const [lastItemClicked, setLastItemClicked] = useState<ExplorerItem | null>(
     null
-  )
-  const containerRef = useRef<HTMLDivElement>(null)
-  const ctrlPressed = useKeyPress('Control')
-  const shiftPressed = useKeyPress('Shift')
-  const theme = useTheme()
+  );
+  const containerRef = useRef<HTMLDivElement>(null);
+  const ctrlPressed = useKeyPress('Control');
+  const shiftPressed = useKeyPress('Shift');
+  const theme = useTheme();
 
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,
     },
-  })
+  });
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
       delay: 50,
       tolerance: 5,
     },
-  })
+  });
 
-  const sensors = useSensors(mouseSensor, touchSensor)
+  const sensors = useSensors(mouseSensor, touchSensor);
 
   useEffect(() => {
-    setItemsFiltered(sortItems(items))
-  }, [items])
+    setItemsFiltered(sortItems(items));
+  }, [items]);
 
   const handleDragStart = (event: DragStartEvent): void => {
-    setIsDragging(true)
+    setIsDragging(true);
     if (!itemsSelected.some((item) => item.id === event.active.id)) {
-      const newItem = items.find((item) => item.id === event.active.id)
+      const newItem = items.find((item) => item.id === event.active.id);
       if (newItem) {
-        setItemsSelected([newItem])
-        setLastItemClicked(newItem)
+        setItemsSelected([newItem]);
+        setLastItemClicked(newItem);
       }
     }
-  }
+  };
 
   const handleDragEnd = (event: DragEndEvent): void => {
-    setIsDragging(false)
+    setIsDragging(false);
 
     if (!event.over?.id) {
-      return
+      return;
     }
 
     onDropItems?.({
@@ -255,52 +256,52 @@ export const Explorer: React.FC<ExplorerProps> = ({
         type: item.type,
       })),
       folderId: event.over.id.toString(),
-    })
-  }
+    });
+  };
 
   const handleClickItem = ({ id }: OnClickItem): void => {
-    const item = itemsFiltered.find((item) => item.id === id)
+    const item = itemsFiltered.find((item) => item.id === id);
 
     if (!item) {
-      return
+      return;
     }
 
     if (multiSelectable && ctrlPressed) {
       if (itemsSelected.includes(item)) {
         setItemsSelected((itemsSelected) =>
           itemsSelected.filter((itemSelected) => itemSelected.id !== item.id)
-        )
+        );
       } else {
-        setItemsSelected((itemsSelected) => [...itemsSelected, item])
+        setItemsSelected((itemsSelected) => [...itemsSelected, item]);
       }
-      setLastItemClicked(item)
+      setLastItemClicked(item);
     } else if (multiSelectable && shiftPressed) {
       if (!lastItemClicked) {
-        setItemsSelected([item])
+        setItemsSelected([item]);
       } else {
         const indexItem = itemsFiltered.findIndex(
           (itemFiltered) => itemFiltered.id === item.id
-        )
+        );
         const indexLastItemClicked = itemsFiltered.findIndex(
           (itemFiltered) => itemFiltered.id === lastItemClicked.id
-        )
-        const firstIndex = Math.min(indexItem, indexLastItemClicked)
-        const lastIndex = Math.max(indexItem, indexLastItemClicked)
-        const itemShifted = itemsFiltered.slice(firstIndex, lastIndex + 1)
+        );
+        const firstIndex = Math.min(indexItem, indexLastItemClicked);
+        const lastIndex = Math.max(indexItem, indexLastItemClicked);
+        const itemShifted = itemsFiltered.slice(firstIndex, lastIndex + 1);
 
-        setItemsSelected(itemShifted)
+        setItemsSelected(itemShifted);
       }
     } else {
-      setItemsSelected([item])
-      setLastItemClicked(item)
+      setItemsSelected([item]);
+      setLastItemClicked(item);
     }
-  }
+  };
 
   const handleResetItemsSelected = (): void => {
-    setItemsSelected([])
-  }
+    setItemsSelected([]);
+  };
 
-  useOnClickOutside(containerRef, handleResetItemsSelected)
+  useOnClickOutside(containerRef, handleResetItemsSelected);
 
   return (
     <ExplorerContext.Provider
@@ -356,19 +357,19 @@ export const Explorer: React.FC<ExplorerProps> = ({
         </DndContext>
       </Container>
     </ExplorerContext.Provider>
-  )
-}
+  );
+};
 
 const sortItems = (items: ExplorerItem[]): ExplorerItem[] => {
   return items
     .sort((a, b) => a.name.localeCompare(b.name))
     .sort((a, b) => {
       if (a.type === 'folder' && b.type === 'file') {
-        return -1
+        return -1;
       }
       if (a.type === 'file' && b.type === 'folder') {
-        return 1
+        return 1;
       }
-      return 0
-    })
-}
+      return 0;
+    });
+};

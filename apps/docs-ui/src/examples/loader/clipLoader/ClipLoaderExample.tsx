@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { ClipLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { ClipLoader } from '@pikas-ui/loader';
 
-export const ClipLoaderExample: React.FC = () => {
+export const ClipLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const ClipLoaderExample: React.FC = () => {
     >
       <ClipLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

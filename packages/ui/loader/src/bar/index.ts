@@ -1,1 +1,1 @@
-export * from './BarLoader.js'
+export * from './BarLoader.js';

@@ -1,1 +1,1 @@
-export * from './WrapperDraggable.js'
+export * from './WrapperDraggable.js';

@@ -1,17 +1,18 @@
-import { styled } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles';
+import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
   minWidth: 100,
-})
+});
 
 export interface ListItemColumnProps {
-  children?: React.ReactNode
-  flex?: number
-  width?: number
+  children?: ReactNode;
+  flex?: number;
+  width?: number;
 }
 
-export const ListItemColumn: React.FC<ListItemColumnProps> = ({
+export const ListItemColumn: FC<ListItemColumnProps> = ({
   children,
   flex,
   width,
@@ -26,5 +27,5 @@ export const ListItemColumn: React.FC<ListItemColumnProps> = ({
     >
       {children}
     </Container>
-  )
-}
+  );
+};

@@ -1,10 +1,11 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Label } from '@pikas-ui/text'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Label } from '@pikas-ui/text';
 
-export const LabelExample: React.FC = () => {
+export const LabelExample: FC = () => {
   return (
     <ExampleContainer>
       <Label>Label</Label>
     </ExampleContainer>
-  )
-}
+  );
+};

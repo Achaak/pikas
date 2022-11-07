@@ -1,23 +1,24 @@
-import type { PikasColor } from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
-import { RingLoader as RingLoaderDefault } from 'react-spinners'
+import type { PikasColor } from '@pikas-ui/styles';
+import { useTheme } from '@pikas-ui/styles';
+import { FC } from 'react';
+import { RingLoader as RingLoaderDefault } from 'react-spinners';
 
 export interface RingLoaderProps {
-  size?: number | string
-  colorName?: PikasColor
-  colorHex?: string
-  loading?: boolean
-  speedMultiplier?: number
+  size?: number | string;
+  colorName?: PikasColor;
+  colorHex?: string;
+  loading?: boolean;
+  speedMultiplier?: number;
 }
 
-export const RingLoader: React.FC<RingLoaderProps> = ({
+export const RingLoader: FC<RingLoaderProps> = ({
   size,
   colorName = 'PRIMARY',
   colorHex,
   loading = true,
   speedMultiplier,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <RingLoaderDefault
@@ -28,5 +29,5 @@ export const RingLoader: React.FC<RingLoaderProps> = ({
       }
       loading={loading}
     />
-  )
-}
+  );
+};

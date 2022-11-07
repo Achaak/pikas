@@ -1,10 +1,11 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { IconByName } from '@pikas-ui/icons'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { IconByName } from '@pikas-ui/icons';
 
-export const IconByNameExample: React.FC = () => {
+export const IconByNameExample: FC = () => {
   return (
     <ExampleContainer>
       <IconByName size={40} name="bx:baguette" colorName="PRIMARY" />
     </ExampleContainer>
-  )
-}
+  );
+};

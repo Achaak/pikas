@@ -1,1 +1,1 @@
-export * from './DefaultTableExample'
+export * from './DefaultTableExample';

@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { MoonLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { MoonLoader } from '@pikas-ui/loader';
 
-export const MoonLoaderExample: React.FC = () => {
+export const MoonLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const MoonLoaderExample: React.FC = () => {
     >
       <MoonLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,1 +1,1 @@
-export * from './HashLoader.js'
+export * from './HashLoader.js';

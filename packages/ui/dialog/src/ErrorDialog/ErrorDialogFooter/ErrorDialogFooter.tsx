@@ -1,25 +1,26 @@
-import { Button } from '@pikas-ui/button'
-import type { PikasColor } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import { useState } from 'react'
+import { Button } from '@pikas-ui/button';
+import type { PikasColor } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { useState } from 'react';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-})
+});
 
 export interface ErrorDialogFooterProps {
-  onClose?: () => void
-  validateButtonLabel?: string
-  validateButtonColorName?: PikasColor
-  validateButtonDisabled?: boolean
-  validateButtonLoading?: boolean
-  onValidate?: () => Promise<void>
+  onClose?: () => void;
+  validateButtonLabel?: string;
+  validateButtonColorName?: PikasColor;
+  validateButtonDisabled?: boolean;
+  validateButtonLoading?: boolean;
+  onValidate?: () => Promise<void>;
 }
 
-export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({
+export const ErrorDialogFooter: FC<ErrorDialogFooterProps> = ({
   onClose,
   validateButtonLabel,
   validateButtonColorName,
@@ -27,14 +28,14 @@ export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({
   validateButtonLoading,
   onValidate,
 }) => {
-  const [validateLoading, setValidateLoading] = useState(false)
+  const [validateLoading, setValidateLoading] = useState(false);
 
   const handleValidate = async (): Promise<void> => {
-    setValidateLoading(true)
-    await onValidate?.()
-    setValidateLoading(false)
-    onClose?.()
-  }
+    setValidateLoading(true);
+    await onValidate?.();
+    setValidateLoading(false);
+    onClose?.();
+  };
 
   return (
     <Container>
@@ -48,5 +49,5 @@ export const ErrorDialogFooter: React.FC<ErrorDialogFooterProps> = ({
         {validateButtonLabel}
       </Button>
     </Container>
-  )
-}
+  );
+};

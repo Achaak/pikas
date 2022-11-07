@@ -1,1 +1,1 @@
-export * from './Menu.js'
+export * from './Menu.js';

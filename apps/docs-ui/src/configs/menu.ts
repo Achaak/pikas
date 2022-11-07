@@ -1,6 +1,6 @@
-import type { LayoutMenu } from '@pikas/docs-ui'
-import { docsUIRoutes } from '@pikas/docs-routes'
-const { getLink } = docsUIRoutes
+import type { LayoutMenu } from '@pikas/docs-ui';
+import { docsUIRoutes } from '@pikas/docs-routes';
+const { getLink } = docsUIRoutes;
 
 export const menu: LayoutMenu = [
   {
@@ -163,4 +163,4 @@ export const menu: LayoutMenu = [
       },
     ],
   },
-]
+];

@@ -1,1 +1,1 @@
-export * from './RiseLoaderExample'
+export * from './RiseLoaderExample';

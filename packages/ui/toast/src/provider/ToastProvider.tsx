@@ -1,56 +1,57 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { keyframes } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import React, { createContext, useState } from 'react'
-import * as ToastPrimitive from '@radix-ui/react-toast'
-import type { ToastPosition, BaseToastProps } from '../types.js'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { keyframes } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { createContext, ReactElement, useState } from 'react';
+import * as ToastPrimitive from '@radix-ui/react-toast';
+import type { ToastPosition, BaseToastProps } from '../types.js';
+import { ReactNode, FC, Children, CloneElement } from 'react';
 
-const VIEWPORT_PADDING = 25
+const VIEWPORT_PADDING = 25;
 
 const hide = keyframes({
   '0%': { opacity: 1 },
   '100%': { opacity: 0 },
-})
+});
 
 const slideInRightLeft = keyframes({
   from: { transform: `translateX(calc(100% + ${VIEWPORT_PADDING}px))` },
   to: { transform: 'translateX(0)' },
-})
+});
 
 const slideInLeftRight = keyframes({
   from: { transform: `translateX(calc(-100% - ${VIEWPORT_PADDING}px))` },
   to: { transform: 'translateX(0)' },
-})
+});
 
 const slideInBottomTop = keyframes({
   from: { transform: `translateY(calc(100% + ${VIEWPORT_PADDING}px))` },
   to: { transform: 'translateY(0)' },
-})
+});
 
 const slideInTopBottom = keyframes({
   from: { transform: `translateY(calc(-100% - ${VIEWPORT_PADDING}px))` },
   to: { transform: 'translateY(0)' },
-})
+});
 
 const swipeOutLeftRight = keyframes({
   from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
   to: { transform: `translateX(calc(100% + ${VIEWPORT_PADDING}px))` },
-})
+});
 
 const swipeOutRightLeft = keyframes({
   from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
   to: { transform: `translateX(calc(-100% - ${VIEWPORT_PADDING}px))` },
-})
+});
 
 const swipeOutTopBottom = keyframes({
   from: { transform: 'translateY(var(--radix-toast-swipe-end-y))' },
   to: { transform: `translateY(calc(-100% - ${VIEWPORT_PADDING}px))` },
-})
+});
 
 const swipeOutBottomTop = keyframes({
   from: { transform: 'translateY(var(--radix-toast-swipe-end-y))' },
   to: { transform: `translateY(calc(100% + ${VIEWPORT_PADDING}px))` },
-})
+});
 
 const Viewport = styled(ToastPrimitive.Viewport, {
   position: 'fixed',
@@ -64,38 +65,38 @@ const Viewport = styled(ToastPrimitive.Viewport, {
   zIndex: '$MAX',
   outline: 'none',
   transition: 'transform 0.2s 150ms ease',
-})
+});
 
 export interface ToastProviderViewport {
-  hotkey?: string[]
-  label?: string
+  hotkey?: string[];
+  label?: string;
 }
 
 export interface ToastProviderProps {
-  children?: React.ReactNode
-  duration?: number
-  label?: string
-  css?: PikasCSS
-  swipeThreshold?: number
-  width?: number
-  position?: ToastPosition
-  closeWithSwipe?: boolean
-  viewport?: ToastProviderViewport
+  children?: ReactNode;
+  duration?: number;
+  label?: string;
+  css?: PikasCSS;
+  swipeThreshold?: number;
+  width?: number;
+  position?: ToastPosition;
+  closeWithSwipe?: boolean;
+  viewport?: ToastProviderViewport;
 }
 
 export interface ToastContextProps {
-  toasts: React.ReactElement<BaseToastProps>[]
-  publish: (toast: React.ReactElement<BaseToastProps>) => void
+  toasts: ReactElement<BaseToastProps>[];
+  publish: (toast: ReactElement<BaseToastProps>) => void;
 }
 
 export const ToastContext = createContext<ToastContextProps>({
   toasts: [],
   publish: () => {
-    console.log('publish')
+    console.log('publish');
   },
-})
+});
 
-export const ToastProvider: React.FC<ToastProviderProps> = ({
+export const ToastProvider: FC<ToastProviderProps> = ({
   duration = 5000,
   label = 'Notification',
   css,
@@ -109,24 +110,24 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
   },
   children,
 }) => {
-  const [toasts, setToasts] = useState<React.ReactElement<BaseToastProps>[]>([])
+  const [toasts, setToasts] = useState<ReactElement<BaseToastProps>[]>([]);
 
   const getSwipeDirection = (): ToastPrimitive.SwipeDirection => {
     switch (position) {
       case 'top-left':
       case 'bottom-left':
-        return 'left'
+        return 'left';
       case 'top-right':
       case 'bottom-right':
-        return 'right'
+        return 'right';
       case 'top':
-        return 'up'
+        return 'up';
       case 'bottom':
-        return 'down'
+        return 'down';
       default:
-        return 'up'
+        return 'up';
     }
-  }
+  };
 
   return (
     <ToastContext.Provider
@@ -144,8 +145,8 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
         duration={duration}
         label={label}
       >
-        {React.Children.map(toasts, (toast, index) => {
-          return React.cloneElement(toast, {
+        {Children.map(toasts, (toast, index) => {
+          return cloneElement(toast, {
             key: index,
             css: {
               toast: {
@@ -197,7 +198,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
                 },
               },
             },
-          })
+          });
         })}
         <Viewport
           hotkey={viewport?.hotkey}
@@ -237,5 +238,5 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
         />
       </ToastPrimitive.Provider>
     </ToastContext.Provider>
-  )
-}
+  );
+};

@@ -1,7 +1,7 @@
-import React from 'react'
-import * as TabsPrimitive from '@radix-ui/react-tabs'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
+import * as TabsPrimitive from '@radix-ui/react-tabs';
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { ReactNode } from 'react';
 
 const Root = styled(TabsPrimitive.Root, {
   display: 'flex',
@@ -13,7 +13,7 @@ const Root = styled(TabsPrimitive.Root, {
   '&[data-orientation="vertical"]': {
     flexDirection: 'column',
   },
-})
+});
 
 const List = styled(TabsPrimitive.List, {
   display: 'flex',
@@ -46,7 +46,7 @@ const List = styled(TabsPrimitive.List, {
       },
     },
   },
-})
+});
 
 const Trigger = styled(TabsPrimitive.Trigger, {
   all: 'unset',
@@ -88,7 +88,7 @@ const Trigger = styled(TabsPrimitive.Trigger, {
       },
     },
   },
-})
+});
 
 const TriggerExtremities = styled('div', {
   display: 'flex',
@@ -116,11 +116,11 @@ const TriggerExtremities = styled('div', {
       },
     },
   },
-})
+});
 
-const StartTrigger = styled(TriggerExtremities, {})
+const StartTrigger = styled(TriggerExtremities, {});
 
-const EndTrigger = styled(TriggerExtremities, {})
+const EndTrigger = styled(TriggerExtremities, {});
 
 const Content = styled(TabsPrimitive.Content, {
   flexGrow: 1,
@@ -155,56 +155,56 @@ const Content = styled(TabsPrimitive.Content, {
       },
     },
   },
-})
+});
 
 export interface TabsItem<T extends string> {
-  trigger: React.ReactNode
-  id: T
-  content: React.ReactNode
-  disabled?: boolean
+  trigger: ReactNode;
+  id: T;
+  content: ReactNode;
+  disabled?: boolean;
   css?: {
-    trigger?: PikasCSS
-    content?: PikasCSS
-  }
+    trigger?: PikasCSS;
+    content?: PikasCSS;
+  };
 }
 
-export type TabsOrientation = 'horizontal' | 'vertical'
+export type TabsOrientation = 'horizontal' | 'vertical';
 
-export type TabsDirection = 'ltr' | 'rtl'
+export type TabsDirection = 'ltr' | 'rtl';
 
-export type TabsActivationMode = 'manual' | 'automatic'
+export type TabsActivationMode = 'manual' | 'automatic';
 
 export interface TabsCSS {
-  container?: PikasCSS
-  triggerList?: PikasCSS
-  endTrigger?: PikasCSS
-  startTrigger?: PikasCSS
-  trigger?: PikasCSS
-  content?: PikasCSS
+  container?: PikasCSS;
+  triggerList?: PikasCSS;
+  endTrigger?: PikasCSS;
+  startTrigger?: PikasCSS;
+  trigger?: PikasCSS;
+  content?: PikasCSS;
 }
 
 export interface TabsPadding {
-  trigger?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
-  content?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
+  trigger?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none';
+  content?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
-export type TabsAlignmentTrigger = 'start' | 'center' | 'end' | 'stretch'
+export type TabsAlignmentTrigger = 'start' | 'center' | 'end' | 'stretch';
 
 export interface TabsProps<T extends string> {
-  items: TabsItem<T>[]
-  defaultValue: T
-  value?: string
-  onValueChange?: (value: string) => void
-  orientation?: TabsOrientation
+  items: TabsItem<T>[];
+  defaultValue: T;
+  value?: string;
+  onValueChange?: (value: string) => void;
+  orientation?: TabsOrientation;
 
-  direction?: TabsDirection
-  activationMode?: TabsActivationMode
-  loop?: boolean
-  css?: TabsCSS
-  padding?: TabsPadding
-  alignmentTrigger?: TabsAlignmentTrigger
-  startTrigger?: React.ReactNode
-  endTrigger?: React.ReactNode
+  direction?: TabsDirection;
+  activationMode?: TabsActivationMode;
+  loop?: boolean;
+  css?: TabsCSS;
+  padding?: TabsPadding;
+  alignmentTrigger?: TabsAlignmentTrigger;
+  startTrigger?: ReactNode;
+  endTrigger?: ReactNode;
 }
 
 export const Tabs = <T extends string>({
@@ -255,7 +255,7 @@ export const Tabs = <T extends string>({
             >
               {item.trigger}
             </Trigger>
-          )
+          );
         })}
         {endTrigger && (
           <EndTrigger padding={padding?.trigger} css={css?.endTrigger}>
@@ -276,8 +276,8 @@ export const Tabs = <T extends string>({
           >
             {item.content}
           </Content>
-        )
+        );
       })}
     </Root>
-  )
-}
+  );
+};

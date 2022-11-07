@@ -1,7 +1,3 @@
-stories
-.storybook
-**/*.scss
 node_modules
-.vscode
-.yarn
-lib
+dist
+.eslintrc.cjs

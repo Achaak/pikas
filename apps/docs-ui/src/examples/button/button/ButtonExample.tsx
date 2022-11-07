@@ -1,7 +1,8 @@
-import { Button } from '@pikas-ui/button'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { Button } from '@pikas-ui/button';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-export const ButtonExample: React.FC = () => {
+export const ButtonExample: FC = () => {
   return (
     <ExampleContainer>
       <Button colorName="PRIMARY" width="auto">
@@ -23,5 +24,5 @@ export const ButtonExample: React.FC = () => {
         Tertiary
       </Button>
     </ExampleContainer>
-  )
-}
+  );
+};

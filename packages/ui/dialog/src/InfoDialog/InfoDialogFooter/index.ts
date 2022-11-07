@@ -1,1 +1,1 @@
-export * from './InfoDialogFooter.js'
+export * from './InfoDialogFooter.js';

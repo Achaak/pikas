@@ -1,1 +1,1 @@
-export * from './LabelExample'
+export * from './LabelExample';

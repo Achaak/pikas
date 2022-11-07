@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { HashLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { HashLoader } from '@pikas-ui/loader';
 
-export const HashLoaderExample: React.FC = () => {
+export const HashLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const HashLoaderExample: React.FC = () => {
     >
       <HashLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

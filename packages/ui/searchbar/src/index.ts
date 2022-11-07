@@ -1,1 +1,1 @@
-export * from './Searchbar.js'
+export * from './Searchbar.js';

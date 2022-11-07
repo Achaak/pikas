@@ -1,4 +1,5 @@
-import { styled } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles';
+import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -6,14 +7,12 @@ const Container = styled('div', {
   alignItems: 'center',
   width: '100%',
   color: '$BLACK',
-})
+});
 
 export interface InfoDialogContentProps {
-  content: React.ReactNode
+  content: ReactNode;
 }
 
-export const InfoDialogContent: React.FC<InfoDialogContentProps> = ({
-  content,
-}) => {
-  return <Container>{content}</Container>
-}
+export const InfoDialogContent: FC<InfoDialogContentProps> = ({ content }) => {
+  return <Container>{content}</Container>;
+};

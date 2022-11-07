@@ -1,15 +1,16 @@
-import { styled } from '@pikas-ui/styles'
-import { useContext } from 'react'
-import { ExplorerContext } from '../../Explorer.js'
-import { ListItem } from '../listItem/ListItem.js'
-import { ListItemColumn } from '../listItemColumn/ListItemColumn.js'
+import { styled } from '@pikas-ui/styles';
+import { useContext } from 'react';
+import { ExplorerContext } from '../../Explorer.js';
+import { ListItem } from '../listItem/ListItem.js';
+import { ListItemColumn } from '../listItemColumn/ListItemColumn.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   // display: 'flex',
   // flexDirection: 'column',
   overflow: 'auto',
   width: '100%',
-})
+});
 
 const Head = styled('div', {
   display: 'flex',
@@ -18,13 +19,13 @@ const Head = styled('div', {
   borderBottomWidth: 2,
   fontWeight: '$MEDIUM',
   width: '100%',
-})
+});
 
 const Content = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
-})
+});
 
 const HeadItem = styled('span', {
   padding: 4,
@@ -32,10 +33,10 @@ const HeadItem = styled('span', {
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   flex: 1,
-})
+});
 
-export const ListContainer: React.FC = () => {
-  const { items, showDropdownMenu, showFavorite } = useContext(ExplorerContext)
+export const ListContainer: FC = () => {
+  const { items, showDropdownMenu, showFavorite } = useContext(ExplorerContext);
 
   return (
     <Container>
@@ -59,5 +60,5 @@ export const ListContainer: React.FC = () => {
         ))}
       </Content>
     </Container>
-  )
-}
+  );
+};

@@ -1,24 +1,25 @@
-import { PacmanLoader as PacmanLoaderDefault } from 'react-spinners'
-import type { PikasColor } from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
+import { PacmanLoader as PacmanLoaderDefault } from 'react-spinners';
+import type { PikasColor } from '@pikas-ui/styles';
+import { useTheme } from '@pikas-ui/styles';
+import { FC } from 'react';
+import { styled } from '@pikas-ui/styles';
 
 const PacmanLoaderStyled = styled(PacmanLoaderDefault, {
   display: 'flex',
-})
+});
 
 export interface PacmanLoaderProps {
-  size?: number
-  margin?: number
-  colorName?: PikasColor
-  colorHex?: string
-  colorBubble?: PikasColor
-  colorBubbleHex?: string
-  loading?: boolean
-  speedMultiplier?: number
+  size?: number;
+  margin?: number;
+  colorName?: PikasColor;
+  colorHex?: string;
+  colorBubble?: PikasColor;
+  colorBubbleHex?: string;
+  loading?: boolean;
+  speedMultiplier?: number;
 }
 
-export const PacmanLoader: React.FC<PacmanLoaderProps> = ({
+export const PacmanLoader: FC<PacmanLoaderProps> = ({
   size,
   colorName = 'PRIMARY',
   colorHex,
@@ -28,7 +29,7 @@ export const PacmanLoader: React.FC<PacmanLoaderProps> = ({
   loading = true,
   speedMultiplier,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <PacmanLoaderStyled
@@ -53,5 +54,5 @@ export const PacmanLoader: React.FC<PacmanLoaderProps> = ({
           },
       }}
     />
-  )
-}
+  );
+};

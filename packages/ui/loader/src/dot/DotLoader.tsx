@@ -1,23 +1,24 @@
-import { DotLoader as DotLoaderDefault } from 'react-spinners'
-import type { PikasColor } from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
+import { DotLoader as DotLoaderDefault } from 'react-spinners';
+import type { PikasColor } from '@pikas-ui/styles';
+import { useTheme } from '@pikas-ui/styles';
+import { FC } from 'react';
 
 export interface DotLoaderProps {
-  size?: number
-  colorName?: PikasColor
-  colorHex?: string
-  loading?: boolean
-  speedMultiplier?: number
+  size?: number;
+  colorName?: PikasColor;
+  colorHex?: string;
+  loading?: boolean;
+  speedMultiplier?: number;
 }
 
-export const DotLoader: React.FC<DotLoaderProps> = ({
+export const DotLoader: FC<DotLoaderProps> = ({
   size,
   colorName = 'PRIMARY',
   colorHex,
   loading = true,
   speedMultiplier,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <DotLoaderDefault
@@ -28,5 +29,5 @@ export const DotLoader: React.FC<DotLoaderProps> = ({
       }
       loading={loading}
     />
-  )
-}
+  );
+};

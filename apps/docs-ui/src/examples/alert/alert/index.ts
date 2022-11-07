@@ -1,1 +1,1 @@
-export * from './AlertExample'
+export * from './AlertExample';

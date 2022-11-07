@@ -1,6 +1,7 @@
-import { styled } from '@pikas-ui/styles'
-import { IconContainer } from '../../Components/IconContainer/index.js'
-import { Title } from '../../Components/Title/index.js'
+import { styled } from '@pikas-ui/styles';
+import { IconContainer } from '../../Components/IconContainer/index.js';
+import { Title } from '../../Components/Title/index.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -9,13 +10,13 @@ const Container = styled('div', {
   flexDirection: 'column',
   width: '100%',
   marginBottom: 8,
-})
+});
 
 export interface ErrorDialogHeaderProps {
-  title?: string
+  title?: string;
 }
 
-export const ErrorDialogHeader: React.FC<ErrorDialogHeaderProps> = ({
+export const ErrorDialogHeader: FC<ErrorDialogHeaderProps> = ({
   title,
 }) => {
   return (
@@ -23,5 +24,5 @@ export const ErrorDialogHeader: React.FC<ErrorDialogHeaderProps> = ({
       <IconContainer iconName="bx:x-circle" backgroundColorName="DANGER" />
       <Title>{title}</Title>
     </Container>
-  )
-}
+  );
+};

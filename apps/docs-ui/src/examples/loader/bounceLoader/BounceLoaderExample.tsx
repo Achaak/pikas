@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { BounceLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { BounceLoader } from '@pikas-ui/loader';
 
-export const BounceLoaderExample: React.FC = () => {
+export const BounceLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const BounceLoaderExample: React.FC = () => {
     >
       <BounceLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,1 +1,1 @@
-export * from './MoonLoader.js'
+export * from './MoonLoader.js';

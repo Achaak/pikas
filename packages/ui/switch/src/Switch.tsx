@@ -1,25 +1,26 @@
-import type { IconProps, IconCSS } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import type { TooltipCSS } from '@pikas-ui/tooltip'
-import { Tooltip } from '@pikas-ui/tooltip'
-import type { PikasCSS, PikasFontSize } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import { Label, TextError } from '@pikas-ui/text'
-import * as SwitchPrimitive from '@radix-ui/react-switch'
-import type { ButtonHTMLAttributes } from 'react'
-import React, { useEffect, useState } from 'react'
+import type { IconProps, IconCSS } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import type { TooltipCSS } from '@pikas-ui/tooltip';
+import { Tooltip } from '@pikas-ui/tooltip';
+import type { PikasCSS, PikasFontSize } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { Label, TextError } from '@pikas-ui/text';
+import * as SwitchPrimitive from '@radix-ui/react-switch';
+import type { ButtonHTMLAttributes } from 'react';
+import { useEffect, useState } from 'react';
+import { FC, ReactNode } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-})
+});
 
 const SwitchContainer = styled('div', {
   width: '100%',
   br: 'lg',
   display: 'flex',
   alignItems: 'center',
-})
+});
 
 const SwitchStyle = styled(SwitchPrimitive.Root, {
   all: 'unset',
@@ -38,7 +39,7 @@ const SwitchStyle = styled(SwitchPrimitive.Root, {
   '&[data-state="checked"]': {
     backgroundColor: '$PRIMARY',
   },
-})
+});
 
 const SwitchThumb = styled(SwitchPrimitive.Thumb, {
   display: 'flex',
@@ -57,51 +58,51 @@ const SwitchThumb = styled(SwitchPrimitive.Thumb, {
     backgroundColor: '$WHITE_FIX',
     transform: 'translateX(26px)',
   },
-})
+});
 
 const LabelContainer = styled('div', {
   display: 'flex',
-})
+});
 
 const Required = styled('div', {
   color: '$WARNING',
   marginLeft: 4,
-})
+});
 
 export interface SwitchCSS {
-  container?: PikasCSS
-  content?: PikasCSS
-  infoTooltip?: TooltipCSS
-  infoIcon?: IconCSS
-  label?: PikasCSS
-  required?: PikasCSS
-  textError?: PikasCSS
+  container?: PikasCSS;
+  content?: PikasCSS;
+  infoTooltip?: TooltipCSS;
+  infoIcon?: IconCSS;
+  label?: PikasCSS;
+  required?: PikasCSS;
+  textError?: PikasCSS;
 }
 
 export interface BasicSwitchProps {
-  label?: string
-  name?: string
-  fontSize?: PikasFontSize
-  textError?: string
+  label?: string;
+  name?: string;
+  fontSize?: PikasFontSize;
+  textError?: string;
 
-  onCheckedChange?: (val: boolean) => void
-  defaultChecked?: boolean
-  css?: SwitchCSS
-  disabled?: boolean
-  side?: 'left' | 'right'
+  onCheckedChange?: (val: boolean) => void;
+  defaultChecked?: boolean;
+  css?: SwitchCSS;
+  disabled?: boolean;
+  side?: 'left' | 'right';
   Icons?: {
-    checked: React.FC<IconProps>
-    unchecked: React.FC<IconProps>
-  }
-  required?: boolean
-  checked?: boolean
-  info?: string
+    checked: FC<IconProps>;
+    unchecked: FC<IconProps>;
+  };
+  required?: boolean;
+  checked?: boolean;
+  info?: string;
 }
 
 export type SwitchProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  BasicSwitchProps
+  BasicSwitchProps;
 
-export const Switch: React.FC<SwitchProps> = ({
+export const Switch: FC<SwitchProps> = ({
   id,
   name,
   onCheckedChange,
@@ -118,29 +119,29 @@ export const Switch: React.FC<SwitchProps> = ({
   checked,
   ...props
 }) => {
-  const [checkedState, setCheckedState] = useState(defaultChecked || checked)
+  const [checkedState, setCheckedState] = useState(defaultChecked || checked);
 
   useEffect(() => {
-    setCheckedState(checked)
-  }, [checked])
+    setCheckedState(checked);
+  }, [checked]);
 
   const onChangeInput = (val: boolean): void => {
-    onCheckedChange?.(val)
+    onCheckedChange?.(val);
 
-    setCheckedState(val)
-  }
+    setCheckedState(val);
+  };
 
-  const getIcon = (): React.ReactNode => {
+  const getIcon = (): ReactNode => {
     if (!Icons) {
-      return
+      return;
     }
 
     if (checkedState) {
-      return <Icons.checked size={14} colorName="BLACK_FIX" />
+      return <Icons.checked size={14} colorName="BLACK_FIX" />;
     } else {
-      return <Icons.unchecked size={14} colorName="BLACK_FIX" />
+      return <Icons.unchecked size={14} colorName="BLACK_FIX" />;
     }
-  }
+  };
 
   return (
     <Container
@@ -263,5 +264,5 @@ export const Switch: React.FC<SwitchProps> = ({
         </TextError>
       )}
     </Container>
-  )
-}
+  );
+};

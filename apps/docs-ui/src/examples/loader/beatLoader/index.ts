@@ -1,1 +1,1 @@
-export * from './BeatLoaderExample'
+export * from './BeatLoaderExample';

@@ -1,1 +1,1 @@
-export * from './SelectImageDialogHeader.js'
+export * from './SelectImageDialogHeader.js';

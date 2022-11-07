@@ -1,9 +1,10 @@
-import { Checkbox } from '@pikas-ui/checkbox'
-import { ExampleContainer } from '@pikas/docs-ui'
-import { useState } from 'react'
+import { Checkbox } from '@pikas-ui/checkbox';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { useState } from 'react';
 
-export const CheckboxExample: React.FC = () => {
-  const [checked, setChecked] = useState(true)
+export const CheckboxExample: FC = () => {
+  const [checked, setChecked] = useState(true);
 
   return (
     <ExampleContainer>
@@ -24,5 +25,5 @@ export const CheckboxExample: React.FC = () => {
         id="checkbox-disabled"
       />
     </ExampleContainer>
-  )
-}
+  );
+};

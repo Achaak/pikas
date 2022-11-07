@@ -1,10 +1,11 @@
-import type { ToastVariant } from '@pikas-ui/toast'
-import { toastVariant } from '@pikas-ui/toast'
-import { ToastProvider } from '@pikas-ui/toast'
-import { ExampleContainer } from '@pikas/docs-ui'
-import { ToastItem } from './toastItem'
+import type { ToastVariant } from '@pikas-ui/toast';
+import { toastVariant } from '@pikas-ui/toast';
+import { ToastProvider } from '@pikas-ui/toast';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { ToastItem } from './toastItem';
 
-export const ToastExample: React.FC = () => {
+export const ToastExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -18,5 +19,5 @@ export const ToastExample: React.FC = () => {
         ))}
       </ToastProvider>
     </ExampleContainer>
-  )
-}
+  );
+};

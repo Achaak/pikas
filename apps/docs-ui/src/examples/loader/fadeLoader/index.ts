@@ -1,1 +1,1 @@
-export * from './FadeLoaderExample'
+export * from './FadeLoaderExample';

@@ -1,1 +1,1 @@
-export * from './BounceLoader.js'
+export * from './BounceLoader.js';

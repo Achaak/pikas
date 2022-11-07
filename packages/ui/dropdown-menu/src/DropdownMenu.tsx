@@ -1,16 +1,15 @@
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import type { PikasColor } from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import React from 'react'
-import { ClipLoader } from '@pikas-ui/loader'
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import type { PikasColor } from '@pikas-ui/styles';
+import { useTheme } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { ClipLoader } from '@pikas-ui/loader';
 import type {
   MenuData,
   MenuDataItem,
   MenuProps,
   MenuCSS,
   ItemEntry,
-} from '@pikas-ui/menu'
+} from '@pikas-ui/menu';
 import {
   MenuContentCSS,
   MenuCheckboxItemCSS,
@@ -21,41 +20,42 @@ import {
   MenuItemCSS,
   RightSlotCSS,
   SpanCSS,
-} from '@pikas-ui/menu'
-import { IconByName } from '@pikas-ui/icons'
+} from '@pikas-ui/menu';
+import { IconByName } from '@pikas-ui/icons';
+import { ReactNode, FC } from 'react';
 
 const Content = styled(DropdownMenuPrimitive.Content, {
   ...MenuContentCSS,
-})
+});
 
 const Item = styled(DropdownMenuPrimitive.Item, {
   ...MenuItemCSS,
-})
+});
 const CheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem, {
   ...MenuCheckboxItemCSS,
-})
-const RadioGroup = styled(DropdownMenuPrimitive.RadioGroup)
+});
+const RadioGroup = styled(DropdownMenuPrimitive.RadioGroup);
 const RadioItem = styled(DropdownMenuPrimitive.RadioItem, {
   ...MenuRadioItemCSS,
-})
+});
 const SubTrigger = styled(DropdownMenuPrimitive.SubTrigger, {
   ...MenuItemCSS,
-})
+});
 const SubContent = styled(DropdownMenuPrimitive.SubContent, {
   ...MenuContentCSS,
-})
+});
 
 const Label = styled(DropdownMenuPrimitive.Label, {
   ...MenuLabelCSS,
-})
+});
 
 const Separator = styled(DropdownMenuPrimitive.Separator, {
   ...MenuSeparatorCSS,
-})
+});
 
 const ItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
-})
+});
 
 const IconButton = styled('div', {
   all: 'unset',
@@ -63,67 +63,67 @@ const IconButton = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-})
+});
 
 const Span = styled('span', {
   ...SpanCSS,
-})
+});
 
 const RightSlot = styled('div', {
   ...RightSlotCSS,
-})
+});
 
 export const dropdownMenuSide = {
   left: true,
   right: true,
   top: true,
   bottom: true,
-} as const
-export type DropdownMenuSide = keyof typeof dropdownMenuSide
+} as const;
+export type DropdownMenuSide = keyof typeof dropdownMenuSide;
 
 export const dropdownMenuAlign = {
   center: true,
   start: true,
   end: true,
-} as const
-export type DropdownMenu = keyof typeof dropdownMenuAlign
+} as const;
+export type DropdownMenu = keyof typeof dropdownMenuAlign;
 
 export const dropdownMenuDirection = {
   ltr: true,
   rtl: true,
-} as const
-export type DropdownMenuDirection = keyof typeof dropdownMenuDirection
+} as const;
+export type DropdownMenuDirection = keyof typeof dropdownMenuDirection;
 
-export type DropdownMenuCSS = MenuCSS
-export type DropdownMenuDataItem = MenuDataItem
-export type DropdownMenuDataItemEntry = ItemEntry
-export type DropdownMenuData = MenuDataItem[]
+export type DropdownMenuCSS = MenuCSS;
+export type DropdownMenuDataItem = MenuDataItem;
+export type DropdownMenuDataItemEntry = ItemEntry;
+export type DropdownMenuData = MenuDataItem[];
 export interface DropdownMenuProps extends MenuProps {
-  triggerContent?: React.ReactNode
-  iconColorName?: PikasColor
-  iconSize?: number
+  triggerContent?: ReactNode;
+  iconColorName?: PikasColor;
+  iconSize?: number;
 
-  direction?: DropdownMenuDirection
-  modal?: boolean
-  defaultOpen?: boolean
-  open?: boolean
-  onOpenChange?: (open: boolean) => void
+  direction?: DropdownMenuDirection;
+  modal?: boolean;
+  defaultOpen?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 
-  loop?: boolean
-  onCloseAutoFocus?: (event: Event) => void
-  onEscapeKeyDown?: (event: KeyboardEvent) => void
-  onPointerDownOutside?: () => void
-  onFocusOutside?: () => void
-  onInteractOutside?: () => void
-  side?: DropdownMenuSide
-  sideOffset?: number
-  align?: DropdownMenu
-  alignOffset?: number
-  avoidCollisions?: boolean
-  collisionPadding?: number
+  loop?: boolean;
+  onCloseAutoFocus?: (event: Event) => void;
+  onEscapeKeyDown?: (event: KeyboardEvent) => void;
+  onPointerDownOutside?: () => void;
+  onFocusOutside?: () => void;
+  onInteractOutside?: () => void;
+  side?: DropdownMenuSide;
+  sideOffset?: number;
+  align?: DropdownMenu;
+  alignOffset?: number;
+  avoidCollisions?: boolean;
+  collisionPadding?: number;
 }
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({
+export const DropdownMenu: FC<DropdownMenuProps> = ({
   data,
   triggerContent,
   iconColorName,
@@ -147,7 +147,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   avoidCollisions = false,
   collisionPadding,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <>
@@ -196,15 +196,15 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         </DropdownMenuPrimitive.Portal>
       </DropdownMenuPrimitive.Root>
     </>
-  )
-}
+  );
+};
 
 interface DropdownMenuDataProps {
-  data: MenuData
-  css?: DropdownMenuCSS
+  data: MenuData;
+  css?: DropdownMenuCSS;
 }
 
-const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
+const DropdownMenuData: FC<DropdownMenuDataProps> = ({ data, css }) => {
   return (
     <>
       {data
@@ -214,12 +214,12 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
         }))
         .filter((data) => data.items.length > 0)
         .map((data, dataIndex) => {
-          const res: React.ReactNode[] = []
+          const res: ReactNode[] = [];
 
           if (dataIndex > 0) {
             res.push(
               <Separator key={`separator-${dataIndex}`} css={css?.separator} />
-            )
+            );
           }
 
           if (data.label) {
@@ -227,11 +227,11 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
               <Label key={`label-${dataIndex}`} css={data?.css}>
                 {data.label}
               </Label>
-            )
+            );
           }
 
           for (let i = 0; i < data.items.length; i++) {
-            const item = data.items[i]
+            const item = data.items[i];
 
             if (item.type === 'item') {
               res.push(
@@ -279,7 +279,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     {item.rightSlot}
                   </RightSlot>
                 </Item>
-              )
+              );
             }
 
             if (item.type === 'checkbox') {
@@ -310,7 +310,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     {item.rightSlot}
                   </RightSlot>
                 </CheckboxItem>
-              )
+              );
             }
 
             if (item.type === 'radio') {
@@ -348,7 +348,7 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     </RadioItem>
                   ))}
                 </RadioGroup>
-              )
+              );
             }
 
             if (item.type === 'menu') {
@@ -377,12 +377,12 @@ const DropdownMenuData: React.FC<DropdownMenuDataProps> = ({ data, css }) => {
                     {<DropdownMenuData data={item.data} css={css} />}
                   </SubContent>
                 </DropdownMenuPrimitive.Sub>
-              )
+              );
             }
           }
 
-          return res
+          return res;
         })}
     </>
-  )
-}
+  );
+};

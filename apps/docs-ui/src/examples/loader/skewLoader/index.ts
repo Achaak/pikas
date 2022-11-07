@@ -1,1 +1,1 @@
-export * from './SkewLoaderExample'
+export * from './SkewLoaderExample';

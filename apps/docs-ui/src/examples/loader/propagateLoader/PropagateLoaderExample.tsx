@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { PropagateLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { PropagateLoader } from '@pikas-ui/loader';
 
-export const PropagateLoaderExample: React.FC = () => {
+export const PropagateLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const PropagateLoaderExample: React.FC = () => {
     >
       <PropagateLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

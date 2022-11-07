@@ -1,7 +1,8 @@
-import { Tabs } from '@pikas-ui/tabs'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { Tabs } from '@pikas-ui/tabs';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-export const TabsExample: React.FC = () => {
+export const TabsExample: FC = () => {
   return (
     <ExampleContainer>
       <Tabs
@@ -26,5 +27,5 @@ export const TabsExample: React.FC = () => {
         defaultValue="tab1"
       />
     </ExampleContainer>
-  )
-}
+  );
+};

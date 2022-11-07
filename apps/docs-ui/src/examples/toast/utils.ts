@@ -1,4 +1,4 @@
-import type { ToastPosition } from '@pikas-ui/toast'
+import type { ToastPosition } from '@pikas-ui/toast';
 
 export const toastPosition: ToastPosition[] = [
   'top-left',
@@ -7,4 +7,4 @@ export const toastPosition: ToastPosition[] = [
   'bottom-left',
   'bottom',
   'bottom-right',
-]
+];

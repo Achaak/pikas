@@ -1,1 +1,1 @@
-export * from './ContextMenuExample'
+export * from './ContextMenuExample';

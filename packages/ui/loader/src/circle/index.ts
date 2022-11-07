@@ -1,1 +1,1 @@
-export * from './CircleLoader.js'
+export * from './CircleLoader.js';

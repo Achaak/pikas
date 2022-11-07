@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react';
 import type {
   ColumnDef,
   OnChangeFn,
@@ -6,30 +6,30 @@ import type {
   RowSelectionState,
   SortingState,
   Updater,
-} from '@tanstack/react-table'
-import { flexRender } from '@tanstack/react-table'
-import { useReactTable } from '@tanstack/react-table'
+} from '@tanstack/react-table';
+import { flexRender } from '@tanstack/react-table';
+import { useReactTable } from '@tanstack/react-table';
 import {
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-} from '@tanstack/react-table'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import type { PaginationCSS } from './pagination/index.js'
-import { Pagination } from './pagination/index.js'
-import { IconByName } from '@pikas-ui/icons'
-import { Checkbox } from '@pikas-ui/checkbox'
-import { Thead } from './thead/index.js'
-import { Tfoot } from './tfoot/index.js'
+} from '@tanstack/react-table';
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import type { PaginationCSS } from './pagination/index.js';
+import { Pagination } from './pagination/index.js';
+import { IconByName } from '@pikas-ui/icons';
+import { Checkbox } from '@pikas-ui/checkbox';
+import { Thead } from './thead/index.js';
+import { Tfoot } from './tfoot/index.js';
 
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
   overflow: 'auto',
-})
+});
 
 const TableStyled = styled('table', {
   borderCollapse: 'collapse',
@@ -42,7 +42,7 @@ const TableStyled = styled('table', {
       light: {},
     },
   },
-})
+});
 
 const Tbody = styled('tbody', {
   variants: {
@@ -55,7 +55,7 @@ const Tbody = styled('tbody', {
       light: {},
     },
   },
-})
+});
 
 const Tr = styled('tr', {
   variants: {
@@ -64,7 +64,7 @@ const Tr = styled('tr', {
       light: {},
     },
   },
-})
+});
 
 const Th = styled('th', {
   variants: {
@@ -90,7 +90,7 @@ const Th = styled('th', {
       },
     },
   },
-})
+});
 
 const ThSpan = styled('span', {
   display: 'flex',
@@ -101,7 +101,7 @@ const ThSpan = styled('span', {
       light: {},
     },
   },
-})
+});
 
 const Td = styled('td', {
   variants: {
@@ -121,7 +121,7 @@ const Td = styled('td', {
       },
     },
   },
-})
+});
 
 const TdContent = styled('div', {
   display: 'flex',
@@ -132,77 +132,77 @@ const TdContent = styled('div', {
       light: {},
     },
   },
-})
+});
 
 export const tableVariant = {
   default: true,
   light: true,
-} as const
-export type TableVariant = keyof typeof tableVariant
+} as const;
+export type TableVariant = keyof typeof tableVariant;
 
 export interface TableCSS<T> {
-  container?: PikasCSS
-  table?: PikasCSS
-  thead?: PikasCSS
-  tbody?: PikasCSS
-  tfoot?: PikasCSS
-  tr?: PikasCSS
-  th?: PikasCSS
-  thSpan?: PikasCSS
-  td?: PikasCSS
-  tdContent?: PikasCSS
-  tdEmptyMessage?: PikasCSS
-  tdContentEmptyMessage?: PikasCSS
-  pagination?: PaginationCSS
+  container?: PikasCSS;
+  table?: PikasCSS;
+  thead?: PikasCSS;
+  tbody?: PikasCSS;
+  tfoot?: PikasCSS;
+  tr?: PikasCSS;
+  th?: PikasCSS;
+  thSpan?: PikasCSS;
+  td?: PikasCSS;
+  tdContent?: PikasCSS;
+  tdEmptyMessage?: PikasCSS;
+  tdContentEmptyMessage?: PikasCSS;
+  pagination?: PaginationCSS;
   column?: Partial<
     Record<
       keyof T,
       {
-        th?: PikasCSS
-        td?: PikasCSS
-        thSpan?: PikasCSS
-        tdContent?: PikasCSS
+        th?: PikasCSS;
+        td?: PikasCSS;
+        thSpan?: PikasCSS;
+        tdContent?: PikasCSS;
       }
     >
-  >
+  >;
 }
 
 export interface TablePaginationProps {
-  active: boolean
-  state?: PaginationState
-  onPaginationChange?: OnChangeFn<PaginationState>
-  selectValue?: number[]
+  active: boolean;
+  state?: PaginationState;
+  onPaginationChange?: OnChangeFn<PaginationState>;
+  selectValue?: number[];
 }
 
 export interface TableSelection {
-  active: boolean
-  defaultState?: RowSelectionState
-  onRowSelectionChange?: OnChangeFn<RowSelectionState>
+  active: boolean;
+  defaultState?: RowSelectionState;
+  onRowSelectionChange?: OnChangeFn<RowSelectionState>;
 }
 
 export interface TableSorting {
-  active: boolean
-  state?: SortingState
-  onSortingChange?: OnChangeFn<SortingState>
+  active: boolean;
+  state?: SortingState;
+  onSortingChange?: OnChangeFn<SortingState>;
 }
 
 export interface TablePadding {
-  th?: 'sm' | 'md' | 'lg'
-  td?: 'sm' | 'md' | 'lg'
+  th?: 'sm' | 'md' | 'lg';
+  td?: 'sm' | 'md' | 'lg';
 }
 
 export interface TableProps<T extends Record<string, unknown>> {
-  variant?: TableVariant
-  data: T[]
-  emptyMessage?: React.ReactNode
-  hasTfoot?: boolean
-  pagination?: TablePaginationProps
-  selection?: TableSelection
-  sorting?: TableSorting
-  columns: ColumnDef<T>[]
-  css?: TableCSS<T>
-  padding?: TablePadding
-  hoverEffect?: boolean
+  variant?: TableVariant;
+  data: T[];
+  emptyMessage?: React.ReactNode;
+  hasTfoot?: boolean;
+  pagination?: TablePaginationProps;
+  selection?: TableSelection;
+  sorting?: TableSorting;
+  columns: ColumnDef<T>[];
+  css?: TableCSS<T>;
+  padding?: TablePadding;
+  hoverEffect?: boolean;
 }
 
 export const Table = <T extends Record<string, unknown>>({
@@ -223,8 +223,8 @@ export const Table = <T extends Record<string, unknown>>({
 }: TableProps<T>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
     selection?.defaultState || {}
-  )
-  const [sortingState, setSortingState] = useState<SortingState>([])
+  );
+  const [sortingState, setSortingState] = useState<SortingState>([]);
 
   /* Pagination */
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>(
@@ -232,7 +232,7 @@ export const Table = <T extends Record<string, unknown>>({
       pageIndex: 0,
       pageSize: 5,
     }
-  )
+  );
 
   const paginationMemo = useMemo(
     () => ({
@@ -240,25 +240,25 @@ export const Table = <T extends Record<string, unknown>>({
       pageSize,
     }),
     [pageIndex, pageSize]
-  )
+  );
 
   useEffect(() => {
     if (pagination?.state) {
-      setPagination(pagination.state)
+      setPagination(pagination.state);
     }
-  }, [pagination?.state])
+  }, [pagination?.state]);
 
   const handlePaginationChange = (state: Updater<PaginationState>): void => {
-    pagination?.onPaginationChange?.(state)
-    setPagination(state)
-  }
+    pagination?.onPaginationChange?.(state);
+    setPagination(state);
+  };
   /* Pagination */
 
   /* Selection */
   const handleRowSelectionChange = (): void => {
-    selection?.onRowSelectionChange?.(selectionState)
-    setSelectionState(selectionState)
-  }
+    selection?.onRowSelectionChange?.(selectionState);
+    setSelectionState(selectionState);
+  };
   /* Selection */
 
   const columnsMemo = React.useMemo<ColumnDef<T>[]>(
@@ -291,7 +291,7 @@ export const Table = <T extends Record<string, unknown>>({
       ...columns,
     ],
     []
-  )
+  );
 
   const table = useReactTable({
     data,
@@ -332,31 +332,31 @@ export const Table = <T extends Record<string, unknown>>({
       ? getPaginationRowModel()
       : undefined,
     getSortedRowModel: sorting?.active ? getSortedRowModel() : undefined,
-  })
+  });
 
   useEffect(() => {
     if (selection?.active && selection?.onRowSelectionChange) {
-      selection?.onRowSelectionChange(selectionState)
+      selection?.onRowSelectionChange(selectionState);
     }
-  }, [selectionState])
+  }, [selectionState]);
 
   useEffect(() => {
     if (sorting?.active && sorting?.onSortingChange) {
-      sorting?.onSortingChange(sortingState)
+      sorting?.onSortingChange(sortingState);
     }
-  }, [sortingState])
+  }, [sortingState]);
 
   useEffect(() => {
-    if (!sorting) return
-    if (!sorting?.active) return
-    setSortingState(sorting.state || [])
-  }, [sorting?.state])
+    if (!sorting) return;
+    if (!sorting?.active) return;
+    setSortingState(sorting.state || []);
+  }, [sorting?.state]);
 
   useEffect(() => {
-    if (!selection) return
-    if (!selection.active) return
-    setSelectionState(selection.defaultState || {})
-  }, [selection?.defaultState])
+    if (!selection) return;
+    if (!selection.active) return;
+    setSelectionState(selection.defaultState || {});
+  }, [selection?.defaultState]);
 
   return (
     <Container css={css?.container}>
@@ -469,10 +469,10 @@ export const Table = <T extends Record<string, unknown>>({
                         )}
                       </TdContent>
                     </Td>
-                  )
+                  );
                 })}
               </Tr>
-            )
+            );
           })}
 
           {!table.getRowModel().rows.length && emptyMessage ? (
@@ -582,5 +582,5 @@ export const Table = <T extends Record<string, unknown>>({
         />
       ) : null}
     </Container>
-  )
-}
+  );
+};

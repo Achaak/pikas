@@ -2,7 +2,7 @@ export const gap = {
   customGap: (value: number): Record<string, unknown> => {
     const supported = {
       gap: value,
-    }
+    };
 
     const notSupported = {
       gap: 0,
@@ -10,7 +10,7 @@ export const gap = {
       '& > *': {
         margin: value / 2,
       },
-    }
+    };
 
     return {
       ...supported,
@@ -18,12 +18,12 @@ export const gap = {
       '@supports (-webkit-appearance:none) and (stroke-color:transparent)': {
         ...notSupported,
       },
-    }
+    };
   },
   customColumnGap: (value: number): Record<string, unknown> => {
     const supported = {
       columnGap: `${value}px`,
-    }
+    };
 
     const notSupported = {
       columnGap: 0,
@@ -38,7 +38,7 @@ export const gap = {
       '& > *:last-child': {
         marginLeft: value / 2,
       },
-    }
+    };
 
     return {
       ...supported,
@@ -46,12 +46,12 @@ export const gap = {
       '@supports (-webkit-appearance:none) and (stroke-color:transparent)': {
         ...notSupported,
       },
-    }
+    };
   },
   customRowGap: (value: number): Record<string, unknown> => {
     const supported = {
       rowGap: `${value}px`,
-    }
+    };
 
     const notSupported = {
       rowGap: 0,
@@ -66,7 +66,7 @@ export const gap = {
       '& > *:last-child': {
         marginTop: value / 2,
       },
-    }
+    };
 
     return {
       ...supported,
@@ -74,8 +74,8 @@ export const gap = {
       '@supports (-webkit-appearance:none) and (stroke-color:transparent)': {
         ...notSupported,
       },
-    }
+    };
   },
-}
+};
 
-export type Gap = typeof gap
+export type Gap = typeof gap;

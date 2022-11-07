@@ -2,4 +2,5 @@ stories
 .storybook
 **/*.scss
 node_modules
-lib
+dist
+.eslintrc.cjs

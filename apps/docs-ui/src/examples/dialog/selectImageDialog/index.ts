@@ -1,1 +1,1 @@
-export * from './SelectImageDialog'
+export * from './SelectImageDialog';

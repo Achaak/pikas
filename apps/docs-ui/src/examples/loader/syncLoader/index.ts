@@ -1,1 +1,1 @@
-export * from './SyncLoaderExample'
+export * from './SyncLoaderExample';

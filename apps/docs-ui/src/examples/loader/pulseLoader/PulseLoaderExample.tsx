@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { PulseLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { PulseLoader } from '@pikas-ui/loader';
 
-export const PulseLoaderExample: React.FC = () => {
+export const PulseLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const PulseLoaderExample: React.FC = () => {
     >
       <PulseLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,13 +1,13 @@
-import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
-import { styled } from '@pikas-ui/styles'
-import { ClipLoader } from '@pikas-ui/loader'
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
+import { styled } from '@pikas-ui/styles';
+import { ClipLoader } from '@pikas-ui/loader';
 import type {
   MenuData,
   MenuDataItem,
   MenuProps,
   MenuCSS,
   ItemEntry,
-} from '@pikas-ui/menu'
+} from '@pikas-ui/menu';
 import {
   MenuContentCSS,
   MenuCheckboxItemCSS,
@@ -18,80 +18,80 @@ import {
   MenuItemCSS,
   RightSlotCSS,
   SpanCSS,
-} from '@pikas-ui/menu'
-import { IconByName } from '@pikas-ui/icons'
-import React from 'react'
+} from '@pikas-ui/menu';
+import { IconByName } from '@pikas-ui/icons';
+import { FC, ReactNode } from 'react';
 
 const Content = styled(ContextMenuPrimitive.Content, {
   ...MenuContentCSS,
-})
+});
 
 const Item = styled(ContextMenuPrimitive.Item, {
   ...MenuItemCSS,
-})
+});
 const CheckboxItem = styled(ContextMenuPrimitive.CheckboxItem, {
   ...MenuCheckboxItemCSS,
-})
-const RadioGroup = styled(ContextMenuPrimitive.RadioGroup)
+});
+const RadioGroup = styled(ContextMenuPrimitive.RadioGroup);
 const RadioItem = styled(ContextMenuPrimitive.RadioItem, {
   ...MenuRadioItemCSS,
-})
+});
 const SubTrigger = styled(ContextMenuPrimitive.SubTrigger, {
   ...MenuItemCSS,
-})
+});
 const SubContent = styled(ContextMenuPrimitive.SubContent, {
   ...MenuContentCSS,
-})
+});
 
 const Label = styled(ContextMenuPrimitive.Label, {
   ...MenuLabelCSS,
-})
+});
 
 const Separator = styled(ContextMenuPrimitive.Separator, {
   ...MenuSeparatorCSS,
-})
+});
 
 const ItemIndicator = styled(ContextMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
-})
+});
 
 const RightSlot = styled('div', {
   ...RightSlotCSS,
-})
+});
 
 const Span = styled('span', {
   ...SpanCSS,
-})
+});
 
 export const contextMenuDirection = {
   ltr: true,
   rtl: true,
-} as const
-export type ContextMenuDirection = keyof typeof contextMenuDirection
+} as const;
+export type ContextMenuDirection = keyof typeof contextMenuDirection;
 
-export type ContextMenuCSS = MenuCSS
-export type ContextMenuDataItem = MenuDataItem
-export type ContextMenuDataItemEntry = ItemEntry
-export type ContextMenuData = MenuDataItem[]
+export type ContextMenuCSS = MenuCSS;
+export type ContextMenuDataItem = MenuDataItem;
+export type ContextMenuDataItemEntry = ItemEntry;
+export type ContextMenuData = MenuDataItem[];
 export interface ContextMenuProps extends MenuProps {
-  children?: React.ReactNode
+  children?: ReactNode;
 
-  onOpenChange?: (open: boolean) => void
-  modal?: boolean
+  onOpenChange?: (open: boolean) => void;
+  modal?: boolean;
 
-  loop?: boolean
-  direction?: ContextMenuDirection
-  onCloseAutoFocus?: (event: Event) => void
-  onEscapeKeyDown?: (event: KeyboardEvent) => void
-  onPointerDownOutside?: () => void
-  onFocusOutside?: () => void
-  onInteractOutside?: () => void
-  alignOffset?: number
-  avoidCollisions?: boolean
-  collisionPadding?: number
+  loop?: boolean;
+  direction?: ContextMenuDirection;
+  onCloseAutoFocus?: (event: Event) => void;
+  onEscapeKeyDown?: (event: KeyboardEvent) => void;
+  onPointerDownOutside?: () => void;
+  onFocusOutside?: () => void;
+  onInteractOutside?: () => void;
+  alignOffset?: number;
+  avoidCollisions?: boolean;
+  collisionPadding?: number;
 }
 
-export const ContextMenu: React.FC<ContextMenuProps> = ({
+export const ContextMenu: FC<ContextMenuProps> = ({
   data,
   children,
   css,
@@ -131,15 +131,15 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
         <ContextMenuData data={data} css={css} />
       </Content>
     </ContextMenuPrimitive.Root>
-  )
-}
+  );
+};
 
 interface ContextMenuDataProps {
-  data: MenuData
-  css?: ContextMenuCSS
+  data: MenuData;
+  css?: ContextMenuCSS;
 }
 
-const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
+const ContextMenuData: FC<ContextMenuDataProps> = ({ data, css }) => {
   return (
     <>
       {data
@@ -149,12 +149,12 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
         }))
         .filter((data) => data.items.length > 0)
         .map((data, dataIndex) => {
-          const res: React.ReactNode[] = []
+          const res: ReactNode[] = [];
 
           if (dataIndex > 0) {
             res.push(
               <Separator key={`separator-${dataIndex}`} css={css?.content} />
-            )
+            );
           }
 
           if (data.label) {
@@ -162,11 +162,11 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
               <Label key={`label-${dataIndex}`} css={data?.css}>
                 {data.label}
               </Label>
-            )
+            );
           }
 
           for (let i = 0; i < data.items.length; i++) {
-            const item = data.items[i]
+            const item = data.items[i];
 
             if (item.type === 'item') {
               res.push(
@@ -212,7 +212,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                     {item.rightSlot}
                   </RightSlot>
                 </Item>
-              )
+              );
             }
 
             if (item.type === 'checkbox') {
@@ -241,7 +241,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                     {item.rightSlot}
                   </RightSlot>
                 </CheckboxItem>
-              )
+              );
             }
 
             if (item.type === 'radio') {
@@ -278,7 +278,7 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                     </RadioItem>
                   ))}
                 </RadioGroup>
-              )
+              );
             }
 
             if (item.type === 'menu') {
@@ -305,12 +305,12 @@ const ContextMenuData: React.FC<ContextMenuDataProps> = ({ data, css }) => {
                     {<ContextMenuData data={item.data} css={css} />}
                   </SubContent>
                 </ContextMenuPrimitive.Sub>
-              )
+              );
             }
           }
 
-          return res
+          return res;
         })}
     </>
-  )
-}
+  );
+};

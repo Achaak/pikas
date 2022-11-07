@@ -1,1 +1,1 @@
-export * from './SuccessDialogContent.js'
+export * from './SuccessDialogContent.js';

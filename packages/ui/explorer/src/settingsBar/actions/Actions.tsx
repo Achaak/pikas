@@ -1,6 +1,7 @@
-import { styled } from '@pikas-ui/styles'
-import { useContext } from 'react'
-import { ExplorerContext } from '../../Explorer.js'
+import { styled } from '@pikas-ui/styles';
+import { useContext } from 'react';
+import { ExplorerContext } from '../../Explorer.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'none',
@@ -9,7 +10,7 @@ const Container = styled('div', {
   alignItems: 'center',
   justifyContent: 'flex-end',
   marginBottom: 16,
-})
+});
 
 const Icon = styled('div', {
   padding: 4,
@@ -26,17 +27,19 @@ const Icon = styled('div', {
   '&:hover': {
     backgroundColor: '$PRIMARY_LIGHTER',
   },
-})
+});
 
-export const Actions: React.FC = () => {
-  const { showActions, actions, itemsSelected } = useContext(ExplorerContext)
+export const Actions: FC = () => {
+  const { showActions, actions, itemsSelected } = useContext(ExplorerContext);
 
   if (!showActions) {
-    return null
+    return null;
   }
 
-  const hasFolderSelected = itemsSelected.some((item) => item.type === 'folder')
-  const hasFileSelected = itemsSelected.some((item) => item.type === 'file')
+  const hasFolderSelected = itemsSelected.some(
+    (item) => item.type === 'folder'
+  );
+  const hasFileSelected = itemsSelected.some((item) => item.type === 'file');
 
   return (
     <Container
@@ -52,13 +55,13 @@ export const Actions: React.FC = () => {
       {actions
         ?.filter((action) => {
           if (action.accessType.includes('folder') && hasFolderSelected) {
-            return true
+            return true;
           }
           if (action.accessType.includes('file') && hasFileSelected) {
-            return true
+            return true;
           }
 
-          return false
+          return false;
         })
         .map((action, index) => (
           <Icon>
@@ -66,12 +69,12 @@ export const Actions: React.FC = () => {
               size={16}
               key={index}
               onClick={(event): void => {
-                event.stopPropagation()
-                action.onClick(itemsSelected.map((item) => item.id))
+                event.stopPropagation();
+                action.onClick(itemsSelected.map((item) => item.id));
               }}
             />
           </Icon>
         ))}
     </Container>
-  )
-}
+  );
+};

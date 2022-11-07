@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { PacmanLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { PacmanLoader } from '@pikas-ui/loader';
 
-export const PacmanLoaderExample: React.FC = () => {
+export const PacmanLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const PacmanLoaderExample: React.FC = () => {
     >
       <PacmanLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

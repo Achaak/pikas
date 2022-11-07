@@ -1,4 +1,5 @@
-import { styled } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles';
+import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -6,14 +7,14 @@ const Container = styled('div', {
   alignItems: 'center',
   width: '100%',
   color: '$BLACK',
-})
+});
 
 export interface ErrorDialogContentProps {
-  content: React.ReactNode
+  content: ReactNode;
 }
 
-export const ErrorDialogContent: React.FC<ErrorDialogContentProps> = ({
+export const ErrorDialogContent: FC<ErrorDialogContentProps> = ({
   content,
 }) => {
-  return <Container>{content}</Container>
-}
+  return <Container>{content}</Container>;
+};

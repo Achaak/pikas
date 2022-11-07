@@ -1,1 +1,1 @@
-export * from './DefaultDialog.js'
+export * from './DefaultDialog.js';

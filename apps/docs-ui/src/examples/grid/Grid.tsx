@@ -1,5 +1,5 @@
-import { Grid } from '@pikas-ui/grid'
-import { ExampleContainer, styled } from '@pikas/docs-ui'
+import { Grid } from '@pikas-ui/grid';
+import { ExampleContainer, styled } from '@pikas/docs-ui';
 
 const Block = styled('div', {
   backgroundColor: '$PRIMARY',
@@ -9,9 +9,9 @@ const Block = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   color: '$WHITE_FIX',
-})
+});
 
-export const GridExample: React.FC = () => {
+export const GridExample: FC = () => {
   return (
     <ExampleContainer>
       <Grid type="container" cols={{ default: 12 }}>
@@ -33,5 +33,5 @@ export const GridExample: React.FC = () => {
         </Grid>
       </Grid>
     </ExampleContainer>
-  )
-}
+  );
+};

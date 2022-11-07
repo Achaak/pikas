@@ -1,1 +1,1 @@
-export * from './DefaultDialogHeader.js'
+export * from './DefaultDialogHeader.js';

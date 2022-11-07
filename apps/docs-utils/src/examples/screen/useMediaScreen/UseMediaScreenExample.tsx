@@ -1,8 +1,9 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { useMediaScreen } from '@pikas-utils/screen'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { useMediaScreen } from '@pikas-utils/screen';
+import { FC } from 'react';
 
-export const UseMediaScreenExample: React.FC = () => {
-  const media = useMediaScreen()
+export const UseMediaScreenExample: FC = () => {
+  const media = useMediaScreen();
 
-  return <ExampleContainer>{media}</ExampleContainer>
-}
+  return <ExampleContainer>{media}</ExampleContainer>;
+};

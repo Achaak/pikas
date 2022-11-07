@@ -1,18 +1,19 @@
-import { FadeLoader as FadeLoaderDefault } from 'react-spinners'
-import type { PikasColor } from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
+import { FadeLoader as FadeLoaderDefault } from 'react-spinners';
+import type { PikasColor } from '@pikas-ui/styles';
+import { useTheme } from '@pikas-ui/styles';
+import { FC } from 'react';
 
 export interface FadeLoaderProps {
-  height?: number
-  width?: number
-  radius?: number
-  margin?: number
-  colorName?: PikasColor
-  colorHex?: string
-  loading?: boolean
+  height?: number;
+  width?: number;
+  radius?: number;
+  margin?: number;
+  colorName?: PikasColor;
+  colorHex?: string;
+  loading?: boolean;
 }
 
-export const FadeLoader: React.FC<FadeLoaderProps> = ({
+export const FadeLoader: FC<FadeLoaderProps> = ({
   height,
   width,
   radius,
@@ -21,7 +22,7 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
   colorHex,
   loading = true,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <FadeLoaderDefault
@@ -34,5 +35,5 @@ export const FadeLoader: React.FC<FadeLoaderProps> = ({
       }
       loading={loading}
     />
-  )
-}
+  );
+};

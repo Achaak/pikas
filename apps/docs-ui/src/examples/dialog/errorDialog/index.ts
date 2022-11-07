@@ -1,1 +1,1 @@
-export * from './ErrorDialogExample'
+export * from './ErrorDialogExample';

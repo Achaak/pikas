@@ -1,8 +1,9 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Table } from '@pikas-ui/table'
-import { dataTable } from '../data'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Table } from '@pikas-ui/table';
+import { dataTable } from '../data';
 
-export const LightTableExample: React.FC = () => {
+export const LightTableExample: FC = () => {
   return (
     <ExampleContainer>
       <Table
@@ -47,5 +48,5 @@ export const LightTableExample: React.FC = () => {
         }}
       />
     </ExampleContainer>
-  )
-}
+  );
+};

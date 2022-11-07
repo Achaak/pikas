@@ -1,1 +1,1 @@
-export * from './BounceLoaderExample'
+export * from './BounceLoaderExample';

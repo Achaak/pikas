@@ -1,22 +1,22 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import * as LabelPrimitive from '@radix-ui/react-label'
-import React from 'react'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import * as LabelPrimitive from '@radix-ui/react-label';
+import { ReactNode, FC } from 'react';
 
 const LabelStyled = styled(LabelPrimitive.Label, {
   fontSize: '$EM-SMALL',
   fontWeight: '$BOLD',
   display: 'block',
   color: '$BLACK',
-})
+});
 
 export interface LabelProps {
-  children?: React.ReactNode
-  css?: PikasCSS
-  htmlFor?: string
+  children?: ReactNode;
+  css?: PikasCSS;
+  htmlFor?: string;
 }
 
-export const Label: React.FC<LabelProps> = ({ children, css, htmlFor }) => {
+export const Label: FC<LabelProps> = ({ children, css, htmlFor }) => {
   return (
     <LabelStyled
       css={{
@@ -29,5 +29,5 @@ export const Label: React.FC<LabelProps> = ({ children, css, htmlFor }) => {
     >
       {children}
     </LabelStyled>
-  )
-}
+  );
+};

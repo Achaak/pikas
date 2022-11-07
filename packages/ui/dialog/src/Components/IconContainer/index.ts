@@ -1,1 +1,1 @@
-export * from './IconContainer.js'
+export * from './IconContainer.js';

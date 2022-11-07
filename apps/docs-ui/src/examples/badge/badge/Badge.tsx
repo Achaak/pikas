@@ -1,7 +1,8 @@
-import { Badge } from '@pikas-ui/badge'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { Badge } from '@pikas-ui/badge';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-export const BadgeExample: React.FC = () => {
+export const BadgeExample: FC = () => {
   return (
     <ExampleContainer>
       <Badge leftIconName="bx:baguette">Bread</Badge>
@@ -12,5 +13,5 @@ export const BadgeExample: React.FC = () => {
         Bread
       </Badge>
     </ExampleContainer>
-  )
-}
+  );
+};

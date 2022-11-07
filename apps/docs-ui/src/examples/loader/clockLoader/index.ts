@@ -1,1 +1,1 @@
-export * from './ClockLoaderExample'
+export * from './ClockLoaderExample';

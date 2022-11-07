@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { CircleLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { CircleLoader } from '@pikas-ui/loader';
 
-export const CircleLoaderExample: React.FC = () => {
+export const CircleLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const CircleLoaderExample: React.FC = () => {
     >
       <CircleLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

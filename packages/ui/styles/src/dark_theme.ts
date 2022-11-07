@@ -1,4 +1,4 @@
-import { createTheme } from './css.js'
+import { createTheme } from './css.js';
 
 export const darkTheme = createTheme('dark-theme', {
   colors: {
@@ -90,4 +90,4 @@ export const darkTheme = createTheme('dark-theme', {
     BACKGROUND_LIGHTEST_2: '#040404',
     BACKGROUND_LIGHTEST_1: '#020202',
   },
-})
+});

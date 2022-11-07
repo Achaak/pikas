@@ -1,37 +1,38 @@
-import type { PikasColor } from '@pikas-ui/styles'
-import { useCallback, useEffect, useState } from 'react'
-import type { DialogProps } from '../CustomDialog/index.js'
-import { CustomDialog } from '../CustomDialog/index.js'
-import { SelectImageDialogContent } from './SelectImageDialogContent/index.js'
-import { SelectImageDialogFooter } from './SelectImageDialogFooter/index.js'
-import { SelectImageDialogHeader } from './SelectImageDialogHeader/index.js'
-import type { CroppedImageType } from './types.js'
-import { getCroppedImg } from './utils.js'
+import type { PikasColor } from '@pikas-ui/styles';
+import { useCallback, useEffect, useState } from 'react';
+import type { DialogProps } from '../CustomDialog/index.js';
+import { CustomDialog } from '../CustomDialog/index.js';
+import { SelectImageDialogContent } from './SelectImageDialogContent/index.js';
+import { SelectImageDialogFooter } from './SelectImageDialogFooter/index.js';
+import { SelectImageDialogHeader } from './SelectImageDialogHeader/index.js';
+import type { CroppedImageType } from './types.js';
+import { getCroppedImg } from './utils.js';
+import { FC } from 'react';
 
 export interface SelectImageDialogProps extends DialogProps {
-  cancelButtonLabel?: string
-  validateButtonLabel?: string
-  cancelButtonColorName?: PikasColor
-  validateButtonColorName?: PikasColor
-  cancelButtonDisabled?: boolean
-  validateButtonDisabled?: boolean
-  cancelButtonLoading?: boolean
-  validateButtonLoading?: boolean
-  onCancel?: () => Promise<void>
-  title?: string
-  onValidate?: (b64: string, b64Full: string) => Promise<void>
-  defaultImage?: string
-  defaultImageFull?: string
-  selectImageLabel?: string
-  maxZoom?: number
-  minZoom?: number
-  defaultZoom?: number
-  aspect?: number
-  cropShape?: 'rect' | 'round'
-  cropSize?: { width: number; height: number }
+  cancelButtonLabel?: string;
+  validateButtonLabel?: string;
+  cancelButtonColorName?: PikasColor;
+  validateButtonColorName?: PikasColor;
+  cancelButtonDisabled?: boolean;
+  validateButtonDisabled?: boolean;
+  cancelButtonLoading?: boolean;
+  validateButtonLoading?: boolean;
+  onCancel?: () => Promise<void>;
+  title?: string;
+  onValidate?: (b64: string, b64Full: string) => Promise<void>;
+  defaultImage?: string;
+  defaultImageFull?: string;
+  selectImageLabel?: string;
+  maxZoom?: number;
+  minZoom?: number;
+  defaultZoom?: number;
+  aspect?: number;
+  cropShape?: 'rect' | 'round';
+  cropSize?: { width: number; height: number };
 }
 
-export const SelectImageDialog: React.FC<SelectImageDialogProps> = ({
+export const SelectImageDialog: FC<SelectImageDialogProps> = ({
   onClose,
   cancelButtonLabel = 'Cancel',
   validateButtonLabel = 'Validate',
@@ -55,31 +56,31 @@ export const SelectImageDialog: React.FC<SelectImageDialogProps> = ({
   cropSize,
   ...props
 }) => {
-  const [image, setImage] = useState<string | undefined>(defaultImage)
+  const [image, setImage] = useState<string | undefined>(defaultImage);
   const [imageFull, setImageFull] = useState<string | undefined>(
     defaultImageFull
-  )
-  const [rotation, setRotation] = useState(0)
+  );
+  const [rotation, setRotation] = useState(0);
   const [croppedAreaPixels, setCroppedAreaPixels] =
-    useState<CroppedImageType | null>(null)
+    useState<CroppedImageType | null>(null);
 
   useEffect(() => {
-    setImage(defaultImage)
-  }, [defaultImage])
+    setImage(defaultImage);
+  }, [defaultImage]);
 
   useEffect(() => {
-    setImageFull(defaultImageFull)
-  }, [defaultImageFull])
+    setImageFull(defaultImageFull);
+  }, [defaultImageFull]);
 
   const validateCroppedImage = useCallback(async () => {
     if (!croppedAreaPixels) {
-      return
+      return;
     }
     if (!image) {
-      return
+      return;
     }
     if (!imageFull) {
-      return
+      return;
     }
 
     try {
@@ -88,16 +89,16 @@ export const SelectImageDialog: React.FC<SelectImageDialogProps> = ({
         pixelCrop: croppedAreaPixels,
         rotation,
         flip: { horizontal: false, vertical: false },
-      })
+      });
 
       if (croppedImage) {
-        onValidate?.(croppedImage, imageFull)
+        onValidate?.(croppedImage, imageFull);
       }
     } catch (e) {
       // eslint-disable-next-line no-console
-      console.error(e)
+      console.error(e);
     }
-  }, [image, croppedAreaPixels, rotation])
+  }, [image, croppedAreaPixels, rotation]);
 
   return (
     <CustomDialog
@@ -151,5 +152,5 @@ export const SelectImageDialog: React.FC<SelectImageDialogProps> = ({
       }}
       {...props}
     />
-  )
-}
+  );
+};

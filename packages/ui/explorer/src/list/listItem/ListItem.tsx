@@ -1,14 +1,15 @@
-import { IconByName } from '@pikas-ui/icons'
-import { styled } from '@pikas-ui/styles'
-import { useCallback, useContext, useState } from 'react'
-import type { ExplorerItem } from '../../Explorer.js'
-import { ExplorerContext } from '../../Explorer.js'
-import { ListItemColumn } from '../listItemColumn/ListItemColumn.js'
-import { Wrapper } from '../../wrapper/index.js'
-import { DropdownMenu } from '@pikas-ui/dropdown-menu'
-import { WrapperClick as WrapperClickBase } from '../../wrapper/wrapperClick/WrapperClick.js'
-import { ClipLoader } from '@pikas-ui/loader'
-import { getColorByExtension } from '@pikas-utils/file'
+import { IconByName } from '@pikas-ui/icons';
+import { styled } from '@pikas-ui/styles';
+import { useCallback, useContext, useState } from 'react';
+import type { ExplorerItem } from '../../Explorer.js';
+import { ExplorerContext } from '../../Explorer.js';
+import { ListItemColumn } from '../listItemColumn/ListItemColumn.js';
+import { Wrapper } from '../../wrapper/index.js';
+import { DropdownMenu } from '@pikas-ui/dropdown-menu';
+import { WrapperClick as WrapperClickBase } from '../../wrapper/wrapperClick/WrapperClick.js';
+import { ClipLoader } from '@pikas-ui/loader';
+import { getColorByExtension } from '@pikas-utils/file';
+import { FC } from 'react';
 
 const Container = styled('div', {
   borderBottomColor: '$GRAY',
@@ -26,7 +27,7 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const TextElement = styled('span', {
   fontSize: '$SMALL',
@@ -35,27 +36,27 @@ const TextElement = styled('span', {
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   flex: 1,
-})
+});
 
-const Name = styled(TextElement, {})
+const Name = styled(TextElement, {});
 
-const Size = styled(TextElement, {})
+const Size = styled(TextElement, {});
 
-const CreatedAt = styled(TextElement, {})
+const CreatedAt = styled(TextElement, {});
 
 const Favorite = styled('div', {
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-})
+});
 
 const DropdownMenuContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
-})
+});
 
 const WrapperClick = styled(WrapperClickBase, {
   flex: 1,
@@ -63,21 +64,21 @@ const WrapperClick = styled(WrapperClickBase, {
   alignItems: 'center',
   padding: 4,
   width: '100%',
-})
+});
 
 export interface ListItemProps {
-  item: ExplorerItem
+  item: ExplorerItem;
 }
 
-export const ListItem: React.FC<ListItemProps> = ({ item }) => {
+export const ListItem: FC<ListItemProps> = ({ item }) => {
   const { itemsSelected, showDropdownMenu, showFavorite, onFavoriteItem } =
-    useContext(ExplorerContext)
-  const [favoriteLoading, setFavoriteLoading] = useState(false)
-  const extension = item.name.split('.').pop()
+    useContext(ExplorerContext);
+  const [favoriteLoading, setFavoriteLoading] = useState(false);
+  const extension = item.name.split('.').pop();
 
   const getIcon = useCallback(() => {
     if (item?.type === 'folder') {
-      return <IconByName name="bx:folder" size={32} colorName="BLACK" />
+      return <IconByName name="bx:folder" size={32} colorName="BLACK" />;
     }
     if (item?.type === 'file') {
       return (
@@ -87,20 +88,20 @@ export const ListItem: React.FC<ListItemProps> = ({ item }) => {
           colorHex={extension ? getColorByExtension(extension) : undefined}
           colorName={extension ? undefined : 'BLACK'}
         />
-      )
+      );
     }
-  }, [item])
+  }, [item]);
 
   const handleFavoriteClick = async (): Promise<void> => {
-    setFavoriteLoading(true)
+    setFavoriteLoading(true);
 
     await onFavoriteItem?.({
       id: item.id,
       isFavorite: !item.isFavorite,
-    })
+    });
 
-    setFavoriteLoading(false)
-  }
+    setFavoriteLoading(false);
+  };
 
   return (
     <Wrapper item={item}>
@@ -155,5 +156,5 @@ export const ListItem: React.FC<ListItemProps> = ({ item }) => {
         )}
       </Container>
     </Wrapper>
-  )
-}
+  );
+};

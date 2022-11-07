@@ -1,4 +1,5 @@
-import { styled } from '@pikas-ui/styles'
+import { styled } from '@pikas-ui/styles';
+import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -6,14 +7,14 @@ const Container = styled('div', {
   alignItems: 'center',
   width: '100%',
   color: '$BLACK',
-})
+});
 
 export interface ValidateDialogContentProps {
-  content: React.ReactNode
+  content: ReactNode;
 }
 
-export const ValidateDialogContent: React.FC<ValidateDialogContentProps> = ({
+export const ValidateDialogContent: FC<ValidateDialogContentProps> = ({
   content,
 }) => {
-  return <Container>{content}</Container>
-}
+  return <Container>{content}</Container>;
+};

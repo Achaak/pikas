@@ -1,1 +1,1 @@
-export * from './Thead.js'
+export * from './Thead.js';

@@ -1,1 +1,1 @@
-export * from './UseMediaScreenExample'
+export * from './UseMediaScreenExample';

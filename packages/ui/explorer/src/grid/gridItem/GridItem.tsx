@@ -1,14 +1,15 @@
-import { DropdownMenu } from '@pikas-ui/dropdown-menu'
-import { IconByName } from '@pikas-ui/icons'
-import { styled } from '@pikas-ui/styles'
-import { useWindowSize } from '@pikas-utils/screen'
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
-import type { ExplorerItem } from '../../Explorer.js'
-import { ExplorerContext } from '../../Explorer.js'
-import { Wrapper } from '../../wrapper/index.js'
-import { WrapperClick as WrapperClickBase } from '../../wrapper/wrapperClick/WrapperClick.js'
-import { ClipLoader } from '@pikas-ui/loader'
-import { getColorByExtension } from '@pikas-utils/file'
+import { DropdownMenu } from '@pikas-ui/dropdown-menu';
+import { IconByName } from '@pikas-ui/icons';
+import { styled } from '@pikas-ui/styles';
+import { useWindowSize } from '@pikas-utils/screen';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import type { ExplorerItem } from '../../Explorer.js';
+import { ExplorerContext } from '../../Explorer.js';
+import { Wrapper } from '../../wrapper/index.js';
+import { WrapperClick as WrapperClickBase } from '../../wrapper/wrapperClick/WrapperClick.js';
+import { ClipLoader } from '@pikas-ui/loader';
+import { getColorByExtension } from '@pikas-utils/file';
+import { FC } from 'react';
 
 const Container = styled('div', {
   borderColor: '$GRAY',
@@ -26,7 +27,7 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const WrapperClick = styled(WrapperClickBase, {
   flex: 1,
@@ -34,53 +35,53 @@ const WrapperClick = styled(WrapperClickBase, {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
-})
+});
 
 const Name = styled('span', {
   color: '$BLACK',
   fontSize: '$SMALL',
   marginTop: 8,
-})
+});
 
 const DropdownMenuContainer = styled('div', {
   position: 'absolute',
   top: 8,
   right: 8,
-})
+});
 
 const FavoriteContainer = styled('div', {
   position: 'absolute',
   top: 8,
   left: 8,
   cursor: 'pointer',
-})
+});
 
 export interface GridItemProps {
-  item: ExplorerItem
+  item: ExplorerItem;
 }
 
-export const GridItem: React.FC<GridItemProps> = ({ item }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const windowSize = useWindowSize()
-  const [height, setHeight] = useState<number | undefined>(undefined)
+export const GridItem: FC<GridItemProps> = ({ item }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const windowSize = useWindowSize();
+  const [height, setHeight] = useState<number | undefined>(undefined);
   const { itemsSelected, showDropdownMenu, showFavorite, onFavoriteItem } =
-    useContext(ExplorerContext)
-  const [favoriteLoading, setFavoriteLoading] = useState(false)
-  const extension = item.name.split('.').pop()
+    useContext(ExplorerContext);
+  const [favoriteLoading, setFavoriteLoading] = useState(false);
+  const extension = item.name.split('.').pop();
 
   const handleResize = useCallback(() => {
     if (containerRef.current) {
-      setHeight(containerRef.current.offsetWidth)
+      setHeight(containerRef.current.offsetWidth);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    handleResize()
-  }, [windowSize, handleResize, containerRef])
+    handleResize();
+  }, [windowSize, handleResize, containerRef]);
 
   const getIcon = useCallback(() => {
     if (item?.type === 'folder') {
-      return <IconByName name="bx:folder" size={64} colorName="BLACK" />
+      return <IconByName name="bx:folder" size={64} colorName="BLACK" />;
     }
     if (item?.type === 'file') {
       return (
@@ -90,20 +91,20 @@ export const GridItem: React.FC<GridItemProps> = ({ item }) => {
           colorHex={extension ? getColorByExtension(extension) : undefined}
           colorName={extension ? undefined : 'BLACK'}
         />
-      )
+      );
     }
-  }, [item])
+  }, [item]);
 
   const handleFavoriteClick = async (): Promise<void> => {
-    setFavoriteLoading(true)
+    setFavoriteLoading(true);
 
     await onFavoriteItem?.({
       id: item.id,
       isFavorite: !item.isFavorite,
-    })
+    });
 
-    setFavoriteLoading(false)
-  }
+    setFavoriteLoading(false);
+  };
 
   return (
     <Wrapper item={item}>
@@ -155,5 +156,5 @@ export const GridItem: React.FC<GridItemProps> = ({ item }) => {
         )}
       </Container>
     </Wrapper>
-  )
-}
+  );
+};

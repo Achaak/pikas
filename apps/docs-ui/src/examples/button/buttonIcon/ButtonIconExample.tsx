@@ -1,13 +1,14 @@
-import { ButtonIcon } from '@pikas-ui/button'
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { ButtonIcon } from '@pikas-ui/button';
+import type { IconProps } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
+const IconExample: FC<IconProps> = (props) => {
+  return <IconByName {...props} name="bx:baguette" />;
+};
 
-export const ButtonIconExample: React.FC = () => {
+export const ButtonIconExample: FC = () => {
   return (
     <ExampleContainer>
       <ButtonIcon Icon={IconExample} colorName="PRIMARY" />
@@ -17,5 +18,5 @@ export const ButtonIconExample: React.FC = () => {
       <ButtonIcon Icon={IconExample} colorName="TERTIARY" />
       <ButtonIcon Icon={IconExample} colorName="TERTIARY" outlined />
     </ExampleContainer>
-  )
-}
+  );
+};

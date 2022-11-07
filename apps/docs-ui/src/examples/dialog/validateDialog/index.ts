@@ -1,1 +1,1 @@
-export * from './ValidateDialogExample'
+export * from './ValidateDialogExample';

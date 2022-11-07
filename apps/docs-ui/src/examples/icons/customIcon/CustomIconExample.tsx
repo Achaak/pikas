@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { CustomIcon } from '@pikas-ui/icons'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { CustomIcon } from '@pikas-ui/icons';
 
-export const CustomIconExample: React.FC = () => {
+export const CustomIconExample: FC = () => {
   return (
     <ExampleContainer>
       <CustomIcon size={40} colorName="PRIMARY">
@@ -21,5 +22,5 @@ export const CustomIconExample: React.FC = () => {
         </svg>
       </CustomIcon>
     </ExampleContainer>
-  )
-}
+  );
+};

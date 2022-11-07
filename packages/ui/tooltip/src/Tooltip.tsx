@@ -5,31 +5,31 @@ import type {
   PikasFontSize,
   PikasFontWeight,
   PikasShadow,
-} from '@pikas-ui/styles'
-import fontColorContrast from 'font-color-contrast'
-import { keyframes, styled, useTheme } from '@pikas-ui/styles'
-import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-import React from 'react'
+} from '@pikas-ui/styles';
+import fontColorContrast from 'font-color-contrast';
+import { keyframes, styled, useTheme } from '@pikas-ui/styles';
+import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import { ReactNode, FC } from 'react';
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(8px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-})
+});
 
 const slideRightAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateX(-8px)' },
   '100%': { opacity: 1, transform: 'translateX(0)' },
-})
+});
 
 const slideDownAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(-8px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-})
+});
 
 const slideLeftAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateX(8px)' },
   '100%': { opacity: 1, transform: 'translateX(0)' },
-})
+});
 
 const StyledContent = styled(TooltipPrimitive.Content, {
   color: '$BLACK',
@@ -68,68 +68,68 @@ const StyledContent = styled(TooltipPrimitive.Content, {
       },
     },
   },
-})
+});
 
 const Trigger = styled(TooltipPrimitive.Trigger, {
   all: 'unset',
-})
+});
 
-const StyledArrow = styled(TooltipPrimitive.Arrow, {})
+const StyledArrow = styled(TooltipPrimitive.Arrow, {});
 
 export const tooltipSide = {
   top: true,
   right: true,
   bottom: true,
   left: true,
-} as const
-export type TooltipSide = keyof typeof tooltipSide
+} as const;
+export type TooltipSide = keyof typeof tooltipSide;
 
 export const tooltipAlign = {
   start: true,
   center: true,
   end: true,
-} as const
-export type TooltipAlign = keyof typeof tooltipAlign
+} as const;
+export type TooltipAlign = keyof typeof tooltipAlign;
 
 export const tooltipPadding = {
   sm: true,
   md: true,
   lg: true,
-} as const
-export type TooltipPadding = keyof typeof tooltipPadding
+} as const;
+export type TooltipPadding = keyof typeof tooltipPadding;
 
 export type TooltipCSS = {
-  trigger?: PikasCSS
-  content?: PikasCSS
-}
+  trigger?: PikasCSS;
+  content?: PikasCSS;
+};
 
 export interface TooltipProps {
-  content: string | React.ReactNode
-  children?: React.ReactNode
-  backgroundColorName?: PikasColor
-  open?: boolean
-  defaultOpen?: boolean
-  onOpenChange?: (open: boolean) => void
-  delayDuration?: number
-  skipDelayDuration?: number
-  hasArrow?: boolean
-  arrowSize?: number
-  arrowOffset?: number
-  side?: TooltipSide
-  sideOffset?: number
-  align?: TooltipAlign
-  alignOffset?: number
-  avoidCollisions?: boolean
-  collisionPadding?: number
-  borderRadius?: BorderRadius
-  fontSize?: PikasFontSize
-  fontWeight?: PikasFontWeight
-  boxShadow?: PikasShadow
-  padding?: TooltipPadding
-  css?: TooltipCSS
+  content: string | ReactNode;
+  children?: ReactNode;
+  backgroundColorName?: PikasColor;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  delayDuration?: number;
+  skipDelayDuration?: number;
+  hasArrow?: boolean;
+  arrowSize?: number;
+  arrowOffset?: number;
+  side?: TooltipSide;
+  sideOffset?: number;
+  align?: TooltipAlign;
+  alignOffset?: number;
+  avoidCollisions?: boolean;
+  collisionPadding?: number;
+  borderRadius?: BorderRadius;
+  fontSize?: PikasFontSize;
+  fontWeight?: PikasFontWeight;
+  boxShadow?: PikasShadow;
+  padding?: TooltipPadding;
+  css?: TooltipCSS;
 }
 
-export const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip: FC<TooltipProps> = ({
   content,
   children,
   backgroundColorName = 'WHITE',
@@ -154,7 +154,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   padding = 'md' as TooltipPadding,
   css,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <TooltipPrimitive.Provider
@@ -213,5 +213,5 @@ export const Tooltip: React.FC<TooltipProps> = ({
         </TooltipPrimitive.Portal>
       </TooltipPrimitive.Root>
     </TooltipPrimitive.Provider>
-  )
-}
+  );
+};

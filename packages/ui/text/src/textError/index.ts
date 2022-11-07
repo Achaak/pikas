@@ -1,1 +1,1 @@
-export * from './TextError.js'
+export * from './TextError.js';

@@ -1,10 +1,11 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Description } from '@pikas-ui/text'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Description } from '@pikas-ui/text';
 
-export const DescriptionExample: React.FC = () => {
+export const DescriptionExample: FC = () => {
   return (
     <ExampleContainer>
       <Description>Description</Description>
     </ExampleContainer>
-  )
-}
+  );
+};

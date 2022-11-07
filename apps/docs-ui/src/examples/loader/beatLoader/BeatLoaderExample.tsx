@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { BeatLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { BeatLoader } from '@pikas-ui/loader';
 
-export const BeatLoaderExample: React.FC = () => {
+export const BeatLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const BeatLoaderExample: React.FC = () => {
     >
       <BeatLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

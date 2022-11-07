@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { SquareLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { SquareLoader } from '@pikas-ui/loader';
 
-export const SquareLoaderExample: React.FC = () => {
+export const SquareLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const SquareLoaderExample: React.FC = () => {
     >
       <SquareLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

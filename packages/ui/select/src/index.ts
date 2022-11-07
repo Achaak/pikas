@@ -1,1 +1,1 @@
-export * from './Select.js'
+export * from './Select.js';

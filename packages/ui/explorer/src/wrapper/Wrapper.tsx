@@ -1,20 +1,21 @@
-import type { ExplorerItem } from '../Explorer.js'
-import { WrapperDraggable } from './wrapperDraggable/index.js'
-import { WrapperDroppable } from './wrapperDroppable/index.js'
-import { WrapperContextMenu } from './wrapperContextMenu/WrapperContextMenu.js'
+import type { ExplorerItem } from '../Explorer.js';
+import { WrapperDraggable } from './wrapperDraggable/index.js';
+import { WrapperDroppable } from './wrapperDroppable/index.js';
+import { WrapperContextMenu } from './wrapperContextMenu/WrapperContextMenu.js';
+import { ReactNode, FC } from 'react';
 
 export interface WrapperProps {
-  item: ExplorerItem
-  children?: React.ReactNode
+  item: ExplorerItem;
+  children?: ReactNode;
 }
 
-export const Wrapper: React.FC<WrapperProps> = ({ item, children }) => {
+export const Wrapper: FC<WrapperProps> = ({ item, children }) => {
   if (item.type === 'file') {
     return (
       <WrapperDraggable id={item.id}>
         <WrapperContextMenu item={item}>{children}</WrapperContextMenu>
       </WrapperDraggable>
-    )
+    );
   }
 
   return (
@@ -23,5 +24,5 @@ export const Wrapper: React.FC<WrapperProps> = ({ item, children }) => {
         <WrapperContextMenu item={item}>{children}</WrapperContextMenu>
       </WrapperDraggable>
     </WrapperDroppable>
-  )
-}
+  );
+};

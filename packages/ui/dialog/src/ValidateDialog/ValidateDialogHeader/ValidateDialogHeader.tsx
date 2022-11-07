@@ -1,6 +1,7 @@
-import { styled } from '@pikas-ui/styles'
-import { IconContainer } from '../../Components/IconContainer/index.js'
-import { Title } from '../../Components/Title/Title.js'
+import { styled } from '@pikas-ui/styles';
+import { IconContainer } from '../../Components/IconContainer/index.js';
+import { Title } from '../../Components/Title/Title.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -9,13 +10,13 @@ const Container = styled('div', {
   flexDirection: 'column',
   width: '100%',
   marginBottom: 8,
-})
+});
 
 export interface ValidateDialogHeaderProps {
-  title?: string
+  title?: string;
 }
 
-export const ValidateDialogHeader: React.FC<ValidateDialogHeaderProps> = ({
+export const ValidateDialogHeader: FC<ValidateDialogHeaderProps> = ({
   title,
 }) => {
   return (
@@ -26,5 +27,5 @@ export const ValidateDialogHeader: React.FC<ValidateDialogHeaderProps> = ({
       />
       <Title>{title}</Title>
     </Container>
-  )
-}
+  );
+};

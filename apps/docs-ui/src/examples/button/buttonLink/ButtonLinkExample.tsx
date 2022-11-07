@@ -1,7 +1,8 @@
-import { ButtonLink } from '@pikas-ui/button'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { ButtonLink } from '@pikas-ui/button';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-export const ButtonLinkExample: React.FC = () => {
+export const ButtonLinkExample: FC = () => {
   return (
     <ExampleContainer>
       <ButtonLink colorName="PRIMARY" width="auto" href="#">
@@ -23,5 +24,5 @@ export const ButtonLinkExample: React.FC = () => {
         Tertiary
       </ButtonLink>
     </ExampleContainer>
-  )
-}
+  );
+};

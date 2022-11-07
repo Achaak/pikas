@@ -1,9 +1,9 @@
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import { styled, useTernaryDarkMode } from '@pikas-ui/styles'
-import { Switch } from '@pikas-ui/switch'
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import type { IconProps } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import { styled, useTernaryDarkMode } from '@pikas-ui/styles';
+import { Switch } from '@pikas-ui/switch';
+import Link from 'next/link';
+import { FC, ReactNode, useEffect, useState } from 'react';
 
 const Container = styled('header', {
   position: 'fixed',
@@ -16,11 +16,11 @@ const Container = styled('header', {
   backgroundColor: '$WHITE',
   zIndex: '$X-HIGH',
   height: '$10',
-})
+});
 
 const Left = styled('div', {
   display: 'flex',
-})
+});
 
 const Right = styled('div', {
   display: 'flex',
@@ -28,12 +28,12 @@ const Right = styled('div', {
   customColumnGap: 16,
   flex: 1,
   justifyContent: 'flex-end',
-})
+});
 
 const H1 = styled('h1', {
   fontSize: '$EM-XX-LARGE',
   color: '$BLACK',
-})
+});
 
 const Nav = styled('nav', {
   display: 'none',
@@ -43,33 +43,29 @@ const Nav = styled('nav', {
   '@sm': {
     display: 'flex',
   },
-})
+});
 
 const NavItem = styled('span', {
   display: 'flex',
   color: '$BLACK',
-})
+});
 
-const BxsSun: React.FC<IconProps> = (props) => (
+const BxsSun: FC<IconProps> = (props) => (
   <IconByName name="bxs:sun" {...props} />
-)
+);
 
-const BxsMoon: React.FC<IconProps> = (props) => (
+const BxsMoon: FC<IconProps> = (props) => (
   <IconByName name="bxs:moon" {...props} />
-)
+);
 
 interface CustomProps {
-  documentationLink: string
-  githubLink: string
+  documentationLink: string;
+  githubLink: string;
 }
 
-export const Header: React.FC<CustomProps> = ({
-  documentationLink,
-  githubLink,
-}) => {
-  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode()
-  const [switchComponent, setSwitchComponent] =
-    useState<React.ReactNode>(undefined)
+export const Header: FC<CustomProps> = ({ documentationLink, githubLink }) => {
+  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode();
+  const [switchComponent, setSwitchComponent] = useState<ReactNode>(undefined);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -86,9 +82,9 @@ export const Header: React.FC<CustomProps> = ({
           aria-label={isDarkMode ? 'dark mode' : 'light mode'}
           id="dark-mode-switch"
         />
-      )
+      );
     }
-  }, [isDarkMode])
+  }, [isDarkMode]);
 
   return (
     <Container>
@@ -115,5 +111,5 @@ export const Header: React.FC<CustomProps> = ({
         {switchComponent}
       </Right>
     </Container>
-  )
-}
+  );
+};

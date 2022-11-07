@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { RotateLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { RotateLoader } from '@pikas-ui/loader';
 
-export const RotateLoaderExample: React.FC = () => {
+export const RotateLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const RotateLoaderExample: React.FC = () => {
     >
       <RotateLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

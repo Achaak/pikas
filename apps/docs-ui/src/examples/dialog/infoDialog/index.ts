@@ -1,1 +1,1 @@
-export * from './InfoDialogExample'
+export * from './InfoDialogExample';

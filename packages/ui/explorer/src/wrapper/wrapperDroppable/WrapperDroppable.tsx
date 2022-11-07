@@ -1,25 +1,26 @@
-import { useDroppable } from '@dnd-kit/core'
-import { styled } from '@pikas-ui/styles'
-import { useContext } from 'react'
-import { ExplorerContext } from '../../Explorer.js'
+import { useDroppable } from '@dnd-kit/core';
+import { styled } from '@pikas-ui/styles';
+import { useContext } from 'react';
+import { ExplorerContext } from '../../Explorer.js';
+import { ReactNode, FC } from 'react';
 
-const Container = styled('div', {})
+const Container = styled('div', {});
 
 export interface WrapperDroppableProps {
-  children?: React.ReactNode
-  id: string
+  children?: ReactNode;
+  id: string;
 }
 
-export const WrapperDroppable: React.FC<WrapperDroppableProps> = ({
+export const WrapperDroppable: FC<WrapperDroppableProps> = ({
   children,
   id,
 }) => {
-  const { itemsSelected } = useContext(ExplorerContext)
+  const { itemsSelected } = useContext(ExplorerContext);
 
   const { isOver, setNodeRef } = useDroppable({
     id: id,
     disabled: itemsSelected.some((item) => item.id === id),
-  })
+  });
 
   return (
     <Container
@@ -30,5 +31,5 @@ export const WrapperDroppable: React.FC<WrapperDroppableProps> = ({
     >
       {children}
     </Container>
-  )
-}
+  );
+};

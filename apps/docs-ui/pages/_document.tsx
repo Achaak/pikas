@@ -1,6 +1,5 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document'
-import React from 'react'
-import { getCssText } from '@pikas-ui/styles'
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { getCssText } from '@pikas-ui/styles';
 
 class MyDocument extends Document {
   render(): JSX.Element {
@@ -27,8 +26,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

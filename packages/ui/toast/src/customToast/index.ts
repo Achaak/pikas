@@ -1,1 +1,1 @@
-export * from './CustomToast.js'
+export * from './CustomToast.js';

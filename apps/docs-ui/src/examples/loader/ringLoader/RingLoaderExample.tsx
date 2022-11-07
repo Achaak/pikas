@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { RingLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { RingLoader } from '@pikas-ui/loader';
 
-export const RingLoaderExample: React.FC = () => {
+export const RingLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const RingLoaderExample: React.FC = () => {
     >
       <RingLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Textfield } from '@pikas-ui/textfield'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Textfield } from '@pikas-ui/textfield';
 
-export const TextfieldExample: React.FC = () => {
+export const TextfieldExample: FC = () => {
   return (
     <ExampleContainer>
       <Textfield
@@ -12,5 +13,5 @@ export const TextfieldExample: React.FC = () => {
         placeholder="Placeholder"
       />
     </ExampleContainer>
-  )
-}
+  );
+};

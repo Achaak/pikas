@@ -1,1 +1,1 @@
-export * from './ScaleLoader.js'
+export * from './ScaleLoader.js';

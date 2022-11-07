@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { SyncLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { SyncLoader } from '@pikas-ui/loader';
 
-export const SyncLoaderExample: React.FC = () => {
+export const SyncLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const SyncLoaderExample: React.FC = () => {
     >
       <SyncLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

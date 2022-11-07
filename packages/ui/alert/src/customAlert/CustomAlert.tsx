@@ -1,8 +1,8 @@
-import type { IconProps } from '@pikas-ui/icons'
-import type { PikasColor } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import React from 'react'
-import type { BaseAlertProps } from '../types.js'
+import type { IconProps } from '@pikas-ui/icons';
+import type { PikasColor } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import type { BaseAlertProps } from '../types.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -24,7 +24,7 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const Content = styled('div', {
   display: 'flex',
@@ -67,20 +67,20 @@ const Content = styled('div', {
       },
     },
   },
-})
+});
 
 const Child = styled('p', {
   margin: 0,
-})
+});
 
 export interface CustomAlertProps extends BaseAlertProps {
-  Icon?: React.FC<IconProps>
-  backgroundColorName?: PikasColor
-  colorName?: PikasColor
-  colorHex?: string
+  Icon?: FC<IconProps>;
+  backgroundColorName?: PikasColor;
+  colorName?: PikasColor;
+  colorHex?: string;
 }
 
-export const CustomAlert: React.FC<CustomAlertProps> = ({
+export const CustomAlert: FC<CustomAlertProps> = ({
   children,
   Icon,
   backgroundColorName,
@@ -119,5 +119,5 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
         </Child>
       </Content>
     </Container>
-  )
-}
+  );
+};

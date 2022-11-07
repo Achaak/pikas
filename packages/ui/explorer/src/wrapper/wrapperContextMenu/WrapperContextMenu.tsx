@@ -1,22 +1,23 @@
-import { ContextMenu } from '@pikas-ui/context-menu'
-import { useContext } from 'react'
-import type { ExplorerItem } from '../../Explorer.js'
-import { ExplorerContext } from '../../Explorer.js'
+import { ContextMenu } from '@pikas-ui/context-menu';
+import { useContext } from 'react';
+import type { ExplorerItem } from '../../Explorer.js';
+import { ExplorerContext } from '../../Explorer.js';
+import { ReactNode, FC } from 'react';
 
 export interface WrapperContextMenuProps {
-  children?: React.ReactNode
-  item: ExplorerItem
+  children?: ReactNode;
+  item: ExplorerItem;
 }
 
-export const WrapperContextMenu: React.FC<WrapperContextMenuProps> = ({
+export const WrapperContextMenu: FC<WrapperContextMenuProps> = ({
   children,
   item,
 }) => {
-  const { showContextMenu } = useContext(ExplorerContext)
+  const { showContextMenu } = useContext(ExplorerContext);
 
   if (!showContextMenu || !item.menu) {
-    return <>{children}</>
+    return <>{children}</>;
   }
 
-  return <ContextMenu data={item.menu}>{children}</ContextMenu>
-}
+  return <ContextMenu data={item.menu}>{children}</ContextMenu>;
+};

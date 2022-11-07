@@ -1,1 +1,1 @@
-export * from './GridLoader.js'
+export * from './GridLoader.js';

@@ -1,1 +1,1 @@
-export * from './WrapperContextMenu.js'
+export * from './WrapperContextMenu.js';

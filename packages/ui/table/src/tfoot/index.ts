@@ -1,1 +1,1 @@
-export * from './Tfoot.js'
+export * from './Tfoot.js';

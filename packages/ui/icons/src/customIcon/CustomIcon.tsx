@@ -1,18 +1,18 @@
-import { styled } from '@pikas-ui/styles'
-import React from 'react'
-import type { IconProps } from '../types'
+import { styled } from '@pikas-ui/styles';
+import type { IconProps } from '../types';
+import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-})
+});
 
 export interface CustomIconProps extends IconProps {
-  children?: React.ReactNode
+  children?: ReactNode;
 }
 
-export const CustomIcon: React.FC<CustomIconProps> = ({
+export const CustomIcon: FC<CustomIconProps> = ({
   children,
   className,
   colorName,
@@ -37,5 +37,5 @@ export const CustomIcon: React.FC<CustomIconProps> = ({
     >
       {children}
     </Container>
-  )
-}
+  );
+};

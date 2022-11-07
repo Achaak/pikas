@@ -1,1 +1,1 @@
-export * from './SyncLoader.js'
+export * from './SyncLoader.js';

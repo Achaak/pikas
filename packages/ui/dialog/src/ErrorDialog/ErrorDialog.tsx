@@ -1,21 +1,22 @@
-import type { PikasColor } from '@pikas-ui/styles'
-import type { DialogProps } from '../CustomDialog/index.js'
-import { CustomDialog } from '../CustomDialog/index.js'
-import { ErrorDialogContent } from './ErrorDialogContent/index.js'
-import { ErrorDialogFooter } from './ErrorDialogFooter/index.js'
-import { ErrorDialogHeader } from './ErrorDialogHeader/index.js'
+import type { PikasColor } from '@pikas-ui/styles';
+import type { DialogProps } from '../CustomDialog/index.js';
+import { CustomDialog } from '../CustomDialog/index.js';
+import { ErrorDialogContent } from './ErrorDialogContent/index.js';
+import { ErrorDialogFooter } from './ErrorDialogFooter/index.js';
+import { ErrorDialogHeader } from './ErrorDialogHeader/index.js';
+import { ReactNode, FC } from 'react';
 
 export interface ErrorDialogProps extends DialogProps {
-  validateButtonLabel?: string
-  validateButtonColorName?: PikasColor
-  validateButtonDisabled?: boolean
-  validateButtonLoading?: boolean
-  onValidate?: () => Promise<void>
-  title?: string
-  content: React.ReactNode
+  validateButtonLabel?: string;
+  validateButtonColorName?: PikasColor;
+  validateButtonDisabled?: boolean;
+  validateButtonLoading?: boolean;
+  onValidate?: () => Promise<void>;
+  title?: string;
+  content: ReactNode;
 }
 
-export const ErrorDialog: React.FC<ErrorDialogProps> = ({
+export const ErrorDialog: FC<ErrorDialogProps> = ({
   validateButtonLabel = 'Ok',
   validateButtonColorName = 'DANGER',
   validateButtonDisabled,
@@ -56,5 +57,5 @@ export const ErrorDialog: React.FC<ErrorDialogProps> = ({
       }}
       {...props}
     />
-  )
-}
+  );
+};

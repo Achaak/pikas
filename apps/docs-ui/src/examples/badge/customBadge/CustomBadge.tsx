@@ -1,7 +1,8 @@
-import { CustomBadge } from '@pikas-ui/badge'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { CustomBadge } from '@pikas-ui/badge';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-export const CustomBadgeExample: React.FC = () => {
+export const CustomBadgeExample: FC = () => {
   return (
     <ExampleContainer>
       <CustomBadge
@@ -31,5 +32,5 @@ export const CustomBadgeExample: React.FC = () => {
         Hello world
       </CustomBadge>
     </ExampleContainer>
-  )
-}
+  );
+};

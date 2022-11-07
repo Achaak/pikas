@@ -1,8 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Select } from '@pikas-ui/select'
-import React from 'react'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Select } from '@pikas-ui/select';
 
-export const SelectExample: React.FC = () => {
+export const SelectExample: FC = () => {
   return (
     <ExampleContainer>
       <Select
@@ -56,5 +56,5 @@ export const SelectExample: React.FC = () => {
         ]}
       />
     </ExampleContainer>
-  )
-}
+  );
+};

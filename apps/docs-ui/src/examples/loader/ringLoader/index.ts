@@ -1,1 +1,1 @@
-export * from './RingLoaderExample'
+export * from './RingLoaderExample';

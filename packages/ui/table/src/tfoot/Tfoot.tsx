@@ -1,15 +1,14 @@
-import React from 'react'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled, useTheme } from '@pikas-ui/styles'
-import fontColorContrast from 'font-color-contrast'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled, useTheme } from '@pikas-ui/styles';
+import fontColorContrast from 'font-color-contrast';
 
 interface CustomProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-  variant?: 'default' | 'light'
-  css?: PikasCSS
+  variant?: 'default' | 'light';
+  css?: PikasCSS;
 }
 
 export const Tfoot: React.FC<CustomProps> = (props) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   const Tfoot = styled('tfoot', {
     variants: {
@@ -52,7 +51,7 @@ export const Tfoot: React.FC<CustomProps> = (props) => {
         },
       },
     },
-  })
+  });
 
-  return <Tfoot {...props} />
-}
+  return <Tfoot {...props} />;
+};

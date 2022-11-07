@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { PuffLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { PuffLoader } from '@pikas-ui/loader';
 
-export const PuffLoaderExample: React.FC = () => {
+export const PuffLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const PuffLoaderExample: React.FC = () => {
     >
       <PuffLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

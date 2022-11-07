@@ -1,8 +1,9 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Table } from '@pikas-ui/table'
-import { dataTable } from '../data'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Table } from '@pikas-ui/table';
+import { dataTable } from '../data';
 
-export const DefaultTableExample: React.FC = () => {
+export const DefaultTableExample: FC = () => {
   return (
     <ExampleContainer>
       <Table
@@ -43,5 +44,5 @@ export const DefaultTableExample: React.FC = () => {
         ]}
       />
     </ExampleContainer>
-  )
-}
+  );
+};

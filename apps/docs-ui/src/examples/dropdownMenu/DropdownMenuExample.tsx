@@ -1,8 +1,9 @@
-import { DropdownMenu } from '@pikas-ui/dropdown-menu'
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Button } from '@pikas-ui/button'
+import { DropdownMenu } from '@pikas-ui/dropdown-menu';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Button } from '@pikas-ui/button';
 
-export const DropdownMenuExample: React.FC = () => {
+export const DropdownMenuExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -120,5 +121,5 @@ export const DropdownMenuExample: React.FC = () => {
         ]}
       />
     </ExampleContainer>
-  )
-}
+  );
+};

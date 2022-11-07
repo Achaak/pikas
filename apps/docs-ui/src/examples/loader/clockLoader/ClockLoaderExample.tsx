@@ -1,7 +1,8 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { ClockLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { ClockLoader } from '@pikas-ui/loader';
 
-export const ClockLoaderExample: React.FC = () => {
+export const ClockLoaderExample: FC = () => {
   return (
     <ExampleContainer
       css={{
@@ -13,5 +14,5 @@ export const ClockLoaderExample: React.FC = () => {
     >
       <ClockLoader />
     </ExampleContainer>
-  )
-}
+  );
+};

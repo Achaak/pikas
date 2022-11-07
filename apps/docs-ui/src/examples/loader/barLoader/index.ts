@@ -1,1 +1,1 @@
-export * from './BarLoaderExample'
+export * from './BarLoaderExample';

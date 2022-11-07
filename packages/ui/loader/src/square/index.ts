@@ -1,1 +1,1 @@
-export * from './SquareLoader.js'
+export * from './SquareLoader.js';

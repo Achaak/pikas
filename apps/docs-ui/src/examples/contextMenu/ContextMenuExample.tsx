@@ -1,7 +1,8 @@
-import { ContextMenu } from '@pikas-ui/context-menu'
-import { ExampleContainer } from '@pikas/docs-ui'
+import { ContextMenu } from '@pikas-ui/context-menu';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
 
-export const ContextMenuExample: React.FC = () => {
+export const ContextMenuExample: FC = () => {
   return (
     <ContextMenu
       data={[
@@ -67,5 +68,5 @@ export const ContextMenuExample: React.FC = () => {
         Right click here
       </ExampleContainer>
     </ContextMenu>
-  )
-}
+  );
+};
