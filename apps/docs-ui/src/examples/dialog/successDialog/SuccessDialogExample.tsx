@@ -1,6 +1,5 @@
 import { ExampleContainer } from '@pikas/docs-ui';
-import { FC } from 'react';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Button } from '@pikas-ui/button';
 import { SuccessDialog } from '@pikas-ui/dialog';
 

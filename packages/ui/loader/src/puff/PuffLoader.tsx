@@ -3,13 +3,13 @@ import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 
-export interface PuffLoaderProps {
+export type PuffLoaderProps = {
   size?: number;
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
   speedMultiplier?: number;
-}
+};
 
 export const PuffLoader: FC<PuffLoaderProps> = ({
   size,
@@ -24,9 +24,7 @@ export const PuffLoader: FC<PuffLoaderProps> = ({
     <PuffLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
     />
   );

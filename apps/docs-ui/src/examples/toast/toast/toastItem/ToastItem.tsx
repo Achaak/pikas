@@ -1,12 +1,11 @@
 import type { ToastVariant } from '@pikas-ui/toast';
-import { Toast as ToastPikasUI } from '@pikas-ui/toast';
-import { useToast } from '@pikas-ui/toast';
+import { Toast as ToastPikasUI, useToast } from '@pikas-ui/toast';
 import { Button } from '@pikas-ui/button';
 import type { PikasColor } from '@pikas/docs-ui';
 
-interface ToastExampleProps {
+type ToastExampleProps = {
   variant: ToastVariant;
-}
+};
 
 export const ToastItem: FC<ToastExampleProps> = ({ variant }) => {
   const { publish } = useToast();

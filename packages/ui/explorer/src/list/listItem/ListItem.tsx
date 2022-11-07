@@ -1,6 +1,6 @@
 import { IconByName } from '@pikas-ui/icons';
 import { styled } from '@pikas-ui/styles';
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext, useState, FC } from 'react';
 import type { ExplorerItem } from '../../Explorer.js';
 import { ExplorerContext } from '../../Explorer.js';
 import { ListItemColumn } from '../listItemColumn/ListItemColumn.js';
@@ -9,7 +9,6 @@ import { DropdownMenu } from '@pikas-ui/dropdown-menu';
 import { WrapperClick as WrapperClickBase } from '../../wrapper/wrapperClick/WrapperClick.js';
 import { ClipLoader } from '@pikas-ui/loader';
 import { getColorByExtension } from '@pikas-utils/file';
-import { FC } from 'react';
 
 const Container = styled('div', {
   borderBottomColor: '$GRAY',
@@ -66,9 +65,9 @@ const WrapperClick = styled(WrapperClickBase, {
   width: '100%',
 });
 
-export interface ListItemProps {
+export type ListItemProps = {
   item: ExplorerItem;
-}
+};
 
 export const ListItem: FC<ListItemProps> = ({ item }) => {
   const { itemsSelected, showDropdownMenu, showFavorite, onFavoriteItem } =
@@ -77,10 +76,10 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
   const extension = item.name.split('.').pop();
 
   const getIcon = useCallback(() => {
-    if (item?.type === 'folder') {
+    if (item.type === 'folder') {
       return <IconByName name="bx:folder" size={32} colorName="BLACK" />;
     }
-    if (item?.type === 'file') {
+    if (item.type === 'file') {
       return (
         <IconByName
           name="bx:file"
@@ -107,23 +106,19 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
     <Wrapper item={item}>
       <Container selected={itemsSelected.some((i) => i.id === item.id)}>
         <ListItemColumn width={32}>
-          {showFavorite &&
-            item.isFavorite === true &&
-            favoriteLoading === false && (
-              <Favorite onClick={handleFavoriteClick}>
-                <IconByName name="bxs:star" size={24} colorName="WARNING" />
-              </Favorite>
-            )}
+          {showFavorite && item.isFavorite === true && !favoriteLoading && (
+            <Favorite onClick={handleFavoriteClick}>
+              <IconByName name="bxs:star" size={24} colorName="WARNING" />
+            </Favorite>
+          )}
 
-          {showFavorite &&
-            item.isFavorite === false &&
-            favoriteLoading === false && (
-              <Favorite onClick={handleFavoriteClick}>
-                <IconByName name="bx:star" size={24} colorName="WARNING" />
-              </Favorite>
-            )}
+          {showFavorite && item.isFavorite === false && !favoriteLoading && (
+            <Favorite onClick={handleFavoriteClick}>
+              <IconByName name="bx:star" size={24} colorName="WARNING" />
+            </Favorite>
+          )}
 
-          {showFavorite && favoriteLoading === true && (
+          {showFavorite && favoriteLoading && (
             <Favorite>
               <ClipLoader size={24} colorName="WARNING" />
             </Favorite>

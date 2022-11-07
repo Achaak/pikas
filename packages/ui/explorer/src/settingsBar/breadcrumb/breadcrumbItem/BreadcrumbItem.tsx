@@ -1,9 +1,8 @@
 import { useDroppable } from '@dnd-kit/core';
 import { styled } from '@pikas-ui/styles';
-import { useContext } from 'react';
+import { useContext, FC } from 'react';
 import type { BreadcrumbItem as BreadcrumbItemType } from '../../../Explorer.js';
 import { ExplorerContext } from '../../../Explorer.js';
-import { FC } from 'react';
 
 const Container = styled('span', {
   padding: '4px 8px',
@@ -25,13 +24,11 @@ const Container = styled('span', {
   },
 });
 
-export interface BreadcrumbItemProps {
+export type BreadcrumbItemProps = {
   breadcrumb: BreadcrumbItemType;
-}
+};
 
-export const BreadcrumbItem: FC<BreadcrumbItemProps> = ({
-  breadcrumb,
-}) => {
+export const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ breadcrumb }) => {
   const { onOpenItem } = useContext(ExplorerContext);
   const { isOver, setNodeRef } = useDroppable({
     id: breadcrumb.id,

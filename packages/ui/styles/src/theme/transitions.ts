@@ -4,7 +4,7 @@ export type PikasTransitions = typeof pikasTransitions;
 export type PikasTransition = keyof PikasTransitions;
 
 export type TransitionsRecordValue = string;
-export type TransitionsRecordKey = string | number | PikasTransition;
+export type TransitionsRecordKey = PikasTransition | number | string;
 export type TransitionsRecord = Record<
   TransitionsRecordKey,
   TransitionsRecordValue
@@ -12,10 +12,10 @@ export type TransitionsRecord = Record<
 
 export const loadTransitions = <T extends TransitionsRecord>(
   values:
+    | T
     | {
         [key in keyof PikasTransitions]?: TransitionsRecordValue;
       }
-    | T
 ): PikasTransitions & T =>
   ({
     ...pikasTransitions,

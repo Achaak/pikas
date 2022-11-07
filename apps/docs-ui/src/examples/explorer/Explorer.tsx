@@ -3,12 +3,11 @@ import { Explorer } from '@pikas-ui/explorer';
 import type { IconProps } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import { ExampleContainer } from '@pikas/docs-ui';
-import { FC } from 'react';
 import type { FC } from 'react';
 
-interface ExplorerExampleProps {
+type ExplorerExampleProps = {
   showType: ExplorerShowType;
-}
+};
 
 const TrashIcon: FC<IconProps> = (props) => (
   <IconByName {...props} name="bx:trash" />
@@ -80,76 +79,72 @@ const data: ExplorerItem[] = [
   },
 ];
 
-export const ExplorerExample: FC<ExplorerExampleProps> = ({ showType }) => {
-  return (
-    <ExampleContainer>
-      <Explorer
-        showType={showType}
-        showFavorite={true}
-        items={data.map((item) => ({
-          ...item,
-          menu: [
-            {
-              items: [
-                {
-                  type: 'item',
-                  label: 'Delete',
-                  onClick: (): void => {
-                    alert('Delete item id: ' + item.id);
-                  },
-                  colorName: 'DANGER',
-                  Icon: TrashIcon,
+export const ExplorerExample: FC<ExplorerExampleProps> = ({ showType }) => (
+  <ExampleContainer>
+    <Explorer
+      showType={showType}
+      showFavorite={true}
+      items={data.map((item) => ({
+        ...item,
+        menu: [
+          {
+            items: [
+              {
+                type: 'item',
+                label: 'Delete',
+                onClick: (): void => {
+                  alert(`Delete item id: ${item.id}`);
                 },
-              ],
-            },
-          ],
-        }))}
-        breadcrumb={[
-          {
-            id: '100',
-            name: 'Root',
+                colorName: 'DANGER',
+                Icon: TrashIcon,
+              },
+            ],
           },
-          {
-            id: '101',
-            name: 'Folder after root',
+        ],
+      }))}
+      breadcrumb={[
+        {
+          id: '100',
+          name: 'Root',
+        },
+        {
+          id: '101',
+          name: 'Folder after root',
+        },
+        {
+          id: '102',
+          name: 'Folder test',
+        },
+      ]}
+      onOpenItem={(item): void => {
+        alert(`Open item id: ${item.id}`);
+      }}
+      onDropItems={({ folderId, item }): void => {
+        alert(
+          `Drop item id: ${item.map((i) => i.id)} to folder id: ${folderId}`
+        );
+      }}
+      onFavoriteItem={async (item): Promise<void> => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        alert(`Favorite item id: ${item.id}`);
+      }}
+      showBreadcrumb={{
+        default: false,
+        xs: false,
+        sm: false,
+        md: true,
+        lg: true,
+        xl: true,
+      }}
+      actions={[
+        {
+          accessType: ['folder'],
+          onClick: (ids): void => {
+            alert(`Delete items id: ${ids}`);
           },
-          {
-            id: '102',
-            name: 'Folder test',
-          },
-        ]}
-        onOpenItem={(item): void => {
-          alert(`Open item id: ${item.id}`);
-        }}
-        onDropItems={({ folderId, item }): void => {
-          alert(
-            `Drop item id: ${item.map(
-              (item) => item.id
-            )} to folder id: ${folderId}`
-          );
-        }}
-        onFavoriteItem={async (item): Promise<void> => {
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-          alert(`Favorite item id: ${item.id}`);
-        }}
-        showBreadcrumb={{
-          default: false,
-          xs: false,
-          sm: false,
-          md: true,
-          lg: true,
-          xl: true,
-        }}
-        actions={[
-          {
-            accessType: ['folder'],
-            onClick: (ids): void => {
-              alert('Delete items id: ' + ids);
-            },
-            Icon: TrashIcon,
-          },
-        ]}
-      />
-    </ExampleContainer>
-  );
-};
+          Icon: TrashIcon,
+        },
+      ]}
+    />
+  </ExampleContainer>
+);

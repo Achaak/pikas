@@ -2,16 +2,14 @@ import type { ToastPosition } from '@pikas-ui/toast';
 import { ToastProvider } from '@pikas-ui/toast';
 import { CustomToastItem } from './customToastItem';
 
-interface CustomToastExampleProps {
+type CustomToastExampleProps = {
   position: ToastPosition;
-}
+};
 
 export const CustomToastProvider: FC<CustomToastExampleProps> = ({
   position,
-}) => {
-  return (
-    <ToastProvider position={position}>
-      <CustomToastItem position={position} />
-    </ToastProvider>
-  );
-};
+}) => (
+  <ToastProvider position={position}>
+    <CustomToastItem position={position} />
+  </ToastProvider>
+);

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+// eslint-disable-next-line import/no-namespace
 import * as usehook from 'usehooks-ts';
 
 const { useWindowSize } = usehook;
 
 export { useWindowSize };
 
-export type Medias = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type Medias = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
 export const getMediaByScreenSize = (screenSize: number): Medias => {
   if (screenSize < 480) {
@@ -33,6 +34,8 @@ export const getScreenSizeByMedia = (media: Medias): number => {
       return 1024;
     case 'xl':
       return 1280;
+    default:
+      return 0;
   }
 };
 
@@ -52,7 +55,7 @@ export const useMediaScreenValid = ({
   operator,
 }: {
   media: Medias;
-  operator?: '>' | '<' | '>=' | '<=' | '=';
+  operator?: '<' | '<=' | '=' | '>' | '>=';
 }): boolean | undefined => {
   const { width } = useWindowSize();
   const [valid, setValid] = useState<boolean | undefined>(

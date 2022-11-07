@@ -2,14 +2,20 @@ import { DropdownMenu } from '@pikas-ui/dropdown-menu';
 import { IconByName } from '@pikas-ui/icons';
 import { styled } from '@pikas-ui/styles';
 import { useWindowSize } from '@pikas-utils/screen';
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  FC,
+} from 'react';
 import type { ExplorerItem } from '../../Explorer.js';
 import { ExplorerContext } from '../../Explorer.js';
 import { Wrapper } from '../../wrapper/index.js';
 import { WrapperClick as WrapperClickBase } from '../../wrapper/wrapperClick/WrapperClick.js';
 import { ClipLoader } from '@pikas-ui/loader';
 import { getColorByExtension } from '@pikas-utils/file';
-import { FC } from 'react';
 
 const Container = styled('div', {
   borderColor: '$GRAY',
@@ -56,9 +62,9 @@ const FavoriteContainer = styled('div', {
   cursor: 'pointer',
 });
 
-export interface GridItemProps {
+export type GridItemProps = {
   item: ExplorerItem;
-}
+};
 
 export const GridItem: FC<GridItemProps> = ({ item }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -80,10 +86,10 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
   }, [windowSize, handleResize, containerRef]);
 
   const getIcon = useCallback(() => {
-    if (item?.type === 'folder') {
+    if (item.type === 'folder') {
       return <IconByName name="bx:folder" size={64} colorName="BLACK" />;
     }
-    if (item?.type === 'file') {
+    if (item.type === 'file') {
       return (
         <IconByName
           name="bx:file"
@@ -112,12 +118,12 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
         ref={containerRef}
         selected={itemsSelected.some((i) => i.id === item.id)}
         css={{
-          height: height,
+          height,
         }}
       >
         <WrapperClick item={item}>
           {getIcon()}
-          <Name>{item?.name}</Name>
+          <Name>{item.name}</Name>
         </WrapperClick>
 
         {showDropdownMenu && item.menu && (
@@ -135,21 +141,19 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
           </DropdownMenuContainer>
         )}
 
-        {showFavorite && item.isFavorite === true && favoriteLoading === false && (
+        {showFavorite && item.isFavorite === true && !favoriteLoading && (
           <FavoriteContainer onClick={handleFavoriteClick}>
             <IconByName name="bxs:star" size={24} colorName="WARNING" />
           </FavoriteContainer>
         )}
 
-        {showFavorite &&
-          item.isFavorite === false &&
-          favoriteLoading === false && (
-            <FavoriteContainer onClick={handleFavoriteClick}>
-              <IconByName name="bx:star" size={24} colorName="WARNING" />
-            </FavoriteContainer>
-          )}
+        {showFavorite && item.isFavorite === false && !favoriteLoading && (
+          <FavoriteContainer onClick={handleFavoriteClick}>
+            <IconByName name="bx:star" size={24} colorName="WARNING" />
+          </FavoriteContainer>
+        )}
 
-        {showFavorite && favoriteLoading === true && (
+        {showFavorite && favoriteLoading && (
           <FavoriteContainer>
             <ClipLoader size={24} colorName="WARNING" />
           </FavoriteContainer>

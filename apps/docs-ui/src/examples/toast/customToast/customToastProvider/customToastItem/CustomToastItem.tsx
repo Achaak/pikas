@@ -1,6 +1,5 @@
 import type { ToastPosition } from '@pikas-ui/toast';
-import { CustomToast as CustomToastPikasUI } from '@pikas-ui/toast';
-import { useToast } from '@pikas-ui/toast';
+import { CustomToast as CustomToastPikasUI, useToast } from '@pikas-ui/toast';
 import { Button } from '@pikas-ui/button';
 import { styled } from '@pikas/docs-ui';
 
@@ -8,9 +7,9 @@ const Span = styled('span', {
   color: '$BLACK',
 });
 
-interface CustomToastExampleProps {
+type CustomToastExampleProps = {
   position: ToastPosition;
-}
+};
 
 export const CustomToastItem: FC<CustomToastExampleProps> = ({ position }) => {
   const { publish } = useToast();

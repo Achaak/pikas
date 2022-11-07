@@ -1,10 +1,10 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState, ReactNode, FC } from 'react';
 import type { createTheme } from '../css.js';
 import { styled, theme as themeDefault } from '../css.js';
 import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
+// eslint-disable-next-line import/no-namespace
 import * as usehooks from 'usehooks-ts';
-import { ReactNode, FC } from 'react';
 
 const { useTernaryDarkMode } = usehooks;
 
@@ -15,11 +15,11 @@ const ContainerStyled = styled('div', {
   height: 'fit-content',
 });
 
-export interface PikasUIProviderProps {
+export type PikasUIProviderProps = {
   children?: ReactNode;
   lightTheme?: ReturnType<typeof createTheme>;
   darkTheme?: ReturnType<typeof createTheme>;
-}
+};
 
 export type PikasUIContextProps = typeof themeDefault | undefined;
 
@@ -36,7 +36,7 @@ export const PikasUIProvider: FC<PikasUIProviderProps> = ({
   const { isDarkMode } = useTernaryDarkMode();
 
   useEffect(() => {
-    const newDarkTheme = darkTheme || lightTheme;
+    const newDarkTheme = darkTheme ?? lightTheme;
 
     setTheme(
       merge(cloneDeep(themeDefault), isDarkMode ? newDarkTheme : lightTheme)

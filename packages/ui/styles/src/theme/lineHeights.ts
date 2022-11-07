@@ -23,8 +23,8 @@ export const pikasLineHeights = {
 export type PikasLineHeights = typeof pikasLineHeights;
 export type PikasLineHeight = keyof PikasLineHeights;
 
-export type LineHeightsRecordValue = string | number;
-export type LineHeightsRecordKey = string | number | PikasLineHeight;
+export type LineHeightsRecordValue = number | string;
+export type LineHeightsRecordKey = PikasLineHeight | number | string;
 export type LineHeightsRecord = Record<
   LineHeightsRecordKey,
   LineHeightsRecordValue
@@ -32,10 +32,10 @@ export type LineHeightsRecord = Record<
 
 export const loadLineHeights = <T extends LineHeightsRecord>(
   values:
+    | T
     | {
         [key in keyof PikasLineHeights]?: LineHeightsRecordValue;
       }
-    | T
 ): PikasLineHeights & T =>
   ({
     ...pikasLineHeights,

@@ -73,12 +73,12 @@ const Child = styled('p', {
   margin: 0,
 });
 
-export interface CustomAlertProps extends BaseAlertProps {
+export type CustomAlertProps = BaseAlertProps & {
   Icon?: FC<IconProps>;
   backgroundColorName?: PikasColor;
   colorName?: PikasColor;
   colorHex?: string;
-}
+};
 
 export const CustomAlert: FC<CustomAlertProps> = ({
   children,
@@ -94,30 +94,30 @@ export const CustomAlert: FC<CustomAlertProps> = ({
   padding = 'md',
   visible = true,
   css,
-}) => {
-  return (
-    <Container visible={visible} css={css?.container}>
-      <Content
-        gap={gap}
-        padding={padding}
+}) => (
+  <Container visible={visible} css={css?.container}>
+    <Content
+      gap={gap}
+      padding={padding}
+      css={{
+        backgroundColor: backgroundColorName
+          ? `$${backgroundColorName}`
+          : undefined,
+        color: colorHex ?? (colorName ? `$${colorName}` : undefined),
+        fontSize: `$${fontSize}`,
+        fontWeight: `$${fontWeight}`,
+        br: borderRadius,
+        ...css?.content,
+      }}
+    >
+      {Icon ? <Icon size={iconSize} css={css?.icon} /> : null}
+      <Child
         css={{
-          backgroundColor: `$${backgroundColorName}`,
-          color: colorHex || `$${colorName}`,
-          fontSize: `$${fontSize}`,
-          fontWeight: `$${fontWeight}`,
-          br: borderRadius,
-          ...css?.content,
+          ...css?.child,
         }}
       >
-        {Icon ? <Icon size={iconSize} css={css?.icon} /> : null}
-        <Child
-          css={{
-            ...css?.child,
-          }}
-        >
-          {children}
-        </Child>
-      </Content>
-    </Container>
-  );
-};
+        {children}
+      </Child>
+    </Content>
+  </Container>
+);

@@ -4,10 +4,10 @@ import { WrapperDroppable } from './wrapperDroppable/index.js';
 import { WrapperContextMenu } from './wrapperContextMenu/WrapperContextMenu.js';
 import { ReactNode, FC } from 'react';
 
-export interface WrapperProps {
+export type WrapperProps = {
   item: ExplorerItem;
   children?: ReactNode;
-}
+};
 
 export const Wrapper: FC<WrapperProps> = ({ item, children }) => {
   if (item.type === 'file') {

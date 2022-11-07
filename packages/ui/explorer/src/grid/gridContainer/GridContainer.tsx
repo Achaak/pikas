@@ -1,8 +1,7 @@
 import { Grid } from '@pikas-ui/grid';
-import { useContext } from 'react';
+import { useContext, FC } from 'react';
 import { ExplorerContext } from '../../Explorer.js';
 import { GridItem } from '../gridItem/index.js';
-import { FC } from 'react';
 
 export const GridContainer: FC = () => {
   const { items, gridCols, gridRowGap, gridColumnGap } =

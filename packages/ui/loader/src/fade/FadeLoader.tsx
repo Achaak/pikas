@@ -3,7 +3,7 @@ import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 
-export interface FadeLoaderProps {
+export type FadeLoaderProps = {
   height?: number;
   width?: number;
   radius?: number;
@@ -11,7 +11,7 @@ export interface FadeLoaderProps {
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
-}
+};
 
 export const FadeLoader: FC<FadeLoaderProps> = ({
   height,
@@ -30,9 +30,7 @@ export const FadeLoader: FC<FadeLoaderProps> = ({
       width={width}
       radius={radius}
       margin={margin}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
     />
   );

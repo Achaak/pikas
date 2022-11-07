@@ -1,8 +1,7 @@
 import { ExampleContainer } from '@pikas/docs-ui';
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import type { SelectRef } from '@pikas-ui/select';
 import { Select } from '@pikas-ui/select';
-import { useRef } from 'react';
 import { Button } from '@pikas-ui/button';
 
 export const SelectRefExample: FC = () => {

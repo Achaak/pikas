@@ -7,9 +7,9 @@ import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield';
 import { Textfield } from '@pikas-ui/textfield';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, ReactNode, FC } from 'react';
+// eslint-disable-next-line import/no-namespace
 import * as usehook from 'usehooks-ts';
-import { ReactNode, FC } from 'react';
 
 const { useDebounce, useOnClickOutside, useWindowSize } = usehook;
 
@@ -140,7 +140,7 @@ export type SearchbarCSS = {
   resultGroupTitle?: PikasCSS;
 };
 
-export interface SearchbarProps<T> {
+export type SearchbarProps<T> = {
   searchFunction: (value: string) => Promise<T>;
   onSearch: (value: T) => ResultGroup[] | null;
   searchType?: 'button' | 'textfield';
@@ -153,14 +153,14 @@ export interface SearchbarProps<T> {
   noResult?: ReactNode;
   loading?: ReactNode;
   direction?: SearchbarDirection;
-  width?: string | number;
-  maxWidth?: string | number;
-  minWidth?: string | number;
+  width?: number | string;
+  maxWidth?: number | string;
+  minWidth?: number | string;
   directResult?: {
     enabled: boolean;
     onClick?: (value?: string) => void;
   };
-}
+};
 
 export const Searchbar = <T,>({
   onSearch,
@@ -206,7 +206,9 @@ export const Searchbar = <T,>({
   const getResultFormat = (
     result: ResultGroup[] | null
   ): ResultGroupWithId[] => {
-    if (!result) return [];
+    if (!result) {
+      return [];
+    }
 
     let i = directResult?.enabled ? 1 : 0;
     const resultFormat: ResultGroupWithId[] = [];
@@ -232,7 +234,9 @@ export const Searchbar = <T,>({
   };
 
   const handleSearch = async (): Promise<void> => {
-    if (!textfieldValue) return;
+    if (!textfieldValue) {
+      return;
+    }
 
     refItem.current = [];
     const res = await searchFunction(textfieldValue);
@@ -264,7 +268,7 @@ export const Searchbar = <T,>({
       const currentItemArray = Object.values(refItem.current);
       const newId = Math.min(
         ls + 1,
-        currentItemArray?.length ? currentItemArray?.length - 1 : 0
+        currentItemArray.length ? currentItemArray.length - 1 : 0
       );
       const currentItem = currentItemArray[newId];
       const currentResult = refResult.current;
@@ -314,9 +318,9 @@ export const Searchbar = <T,>({
         handleSearch();
       }}
       css={{
-        width: width,
-        maxWidth: maxWidth,
-        minWidth: minWidth,
+        width,
+        maxWidth,
+        minWidth,
         ...css?.container,
       }}
       ref={refContainer}
@@ -351,12 +355,16 @@ export const Searchbar = <T,>({
         RightIcon={searchType !== 'button' ? SearchIcon : undefined}
         onFocus={(e): void => {
           textfield?.onFocus?.(e);
-          if (!textfieldValue) return;
+          if (!textfieldValue) {
+            return;
+          }
           setIsOpen(true);
         }}
         onKeyDown={(e): void => {
           textfield?.onKeyDown?.(e);
-          if (loading && !directResult?.enabled) return;
+          if (loading && !directResult?.enabled) {
+            return;
+          }
 
           switch (e.key) {
             case 'Enter':
@@ -409,7 +417,7 @@ export const Searchbar = <T,>({
               refItem.current[0] = ref;
             }}
             onClick={(): void => {
-              directResult?.onClick?.(textfieldValue);
+              directResult.onClick?.(textfieldValue);
               setIsOpen(false);
             }}
             selected={selectionId === 0}

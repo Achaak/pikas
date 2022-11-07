@@ -1,9 +1,8 @@
 import { styled } from '@pikas-ui/styles';
-import { useContext } from 'react';
+import { useContext, FC } from 'react';
 import { ExplorerContext } from '../../Explorer.js';
 import { ListItem } from '../listItem/ListItem.js';
 import { ListItemColumn } from '../listItemColumn/ListItemColumn.js';
-import { FC } from 'react';
 
 const Container = styled('div', {
   // display: 'flex',

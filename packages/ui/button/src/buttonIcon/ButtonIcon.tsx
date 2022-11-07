@@ -7,7 +7,7 @@ import type {
 } from '@pikas-ui/styles';
 import { styled, useTheme } from '@pikas-ui/styles';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { forwardRef, useCallback } from 'react';
+import { forwardRef, useCallback, ReactNode, FC } from 'react';
 import type {
   ButtonType,
   ButtonEffect,
@@ -17,7 +17,6 @@ import type {
 import type { IconProps, IconCSS } from '@pikas-ui/icons';
 import { ClipLoader } from '@pikas-ui/loader';
 import { getColors, getContentColor } from '../utils.js';
-import { ReactNode, FC } from 'react';
 
 const ButtonIconDOM = styled('button', {
   all: 'unset',
@@ -138,7 +137,7 @@ export type ButtonIconCSS = {
   icon?: IconCSS;
 };
 
-export interface ButtonIconDefaultProps {
+export type ButtonIconDefaultProps = {
   Icon: FC<IconProps>;
   css?: ButtonIconCSS;
   loading?: boolean;
@@ -154,21 +153,21 @@ export interface ButtonIconDefaultProps {
   borderRadius?: BorderRadius;
   borderWidth?: number;
   boxShadow?: PikasShadow | 'none';
-}
+};
 
-export interface BaseButtonIconProps extends ButtonIconDefaultProps {
+export type BaseButtonIconProps = ButtonIconDefaultProps & {
   onClick?: () => void;
   type?: ButtonType;
-}
+};
 
-export type ButtonIconProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  BaseButtonIconProps;
+export type ButtonIconProps = BaseButtonIconProps &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
-export interface BaseButtonIconLinkProps extends ButtonIconDefaultProps {
+export type BaseButtonIconLinkProps = ButtonIconDefaultProps & {
   onClick?: () => void;
   href?: string;
   target?: ButtonTarget;
-}
+};
 
 export type ButtonIconLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
   BaseButtonIconLinkProps;
@@ -195,7 +194,7 @@ const getContent = ({
     <>
       <LoadingContainer>
         <ClipLoader
-          size={theme.sizes[size || 6].value}
+          size={theme.sizes[size ?? 6].value}
           colorHex={contentColor}
           loading={loading}
         />
@@ -207,7 +206,7 @@ const getContent = ({
         }}
       >
         <Icon
-          size={theme.sizes[size || 6].value}
+          size={theme.sizes[size ?? 6].value}
           colorHex={contentColor}
           css={css?.icon}
         />
@@ -216,7 +215,7 @@ const getContent = ({
   );
 };
 
-export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
+const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   (
     {
       colorName = 'PRIMARY',
@@ -249,10 +248,11 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       onClick?.();
     }, [disabled, onClick, loading]);
 
-    if (!theme) return <></>;
+    if (!theme) {
+      return <></>;
+    }
 
-    const colorHexFinal =
-      colorHex || (colorName && theme.colors[colorName].value);
+    const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
       contentColorHex ||
       (contentColorName && theme.colors[contentColorName].value);
@@ -266,7 +266,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         padding={padding}
         css={{
           br: borderRadius,
-          borderWidth: borderWidth,
+          borderWidth,
           boxShadow: `$${boxShadow}`,
 
           ...getColors({
@@ -282,8 +282,8 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         {getContent({
           contentColor: getContentColor({
             outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
+            contentColorHex,
+            colorHex,
           }),
           loading,
           size,
@@ -294,6 +294,10 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
     );
   }
 );
+
+ButtonIcon.displayName = 'Button';
+
+export { ButtonIcon };
 
 export const ButtonIconLink = forwardRef<
   HTMLAnchorElement,
@@ -331,10 +335,11 @@ export const ButtonIconLink = forwardRef<
       onClick?.();
     }, [disabled, onClick, loading]);
 
-    if (!theme) return <></>;
+    if (!theme) {
+      return <></>;
+    }
 
-    const colorHexFinal =
-      colorHex || (colorName && theme.colors[colorName].value);
+    const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
       contentColorHex ||
       (contentColorName && theme.colors[contentColorName].value);
@@ -349,7 +354,7 @@ export const ButtonIconLink = forwardRef<
         padding={padding}
         css={{
           br: borderRadius,
-          borderWidth: borderWidth,
+          borderWidth,
           boxShadow: `$${boxShadow}`,
 
           ...getColors({
@@ -365,8 +370,8 @@ export const ButtonIconLink = forwardRef<
         {getContent({
           contentColor: getContentColor({
             outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
+            contentColorHex,
+            colorHex,
           }),
           loading,
           size,
@@ -377,3 +382,7 @@ export const ButtonIconLink = forwardRef<
     );
   }
 );
+
+ButtonIconLink.displayName = 'ButtonIconLink';
+
+export default ButtonIcon;

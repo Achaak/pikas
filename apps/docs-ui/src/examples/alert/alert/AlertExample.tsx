@@ -1,8 +1,7 @@
 import { Alert } from '@pikas-ui/alert';
 import { Button } from '@pikas-ui/button';
 import { ExampleContainer } from '@pikas/docs-ui';
-import { FC } from 'react';
-import { FC, useState } from 'react';
+import { FC, FC, useState } from 'react';
 
 export const AlertExample: FC = () => {
   const [visible, setVisible] = useState(true);

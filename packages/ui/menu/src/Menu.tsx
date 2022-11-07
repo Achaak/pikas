@@ -1,7 +1,6 @@
 import type { IconProps } from '@pikas-ui/icons';
 import type { PikasColor, PikasCSS } from '@pikas-ui/styles';
 import { keyframes } from '@pikas-ui/styles';
-import 'react';
 import { ReactNode, FC } from 'react';
 
 const slideUpAndFade = keyframes({
@@ -141,16 +140,16 @@ export const RightSlotCSS: PikasCSS = {
 
 export const SpanCSS: PikasCSS = {};
 
-export interface ItemBase {
+export type ItemBase = {
   disabled?: boolean;
   rightSlot?: string;
   colorName?: PikasColor;
   colorHex?: string;
-  type: 'item' | 'checkbox' | 'radio' | 'menu';
+  type: 'checkbox' | 'item' | 'menu' | 'radio';
   hide?: boolean;
-}
+};
 
-export interface DefaultItem extends ItemBase {
+export type DefaultItem = ItemBase & {
   type: 'item';
   Icon?: FC<IconProps>;
   iconColorName?: PikasColor;
@@ -164,9 +163,9 @@ export interface DefaultItem extends ItemBase {
     label?: PikasCSS;
     rightSlot?: PikasCSS;
   };
-}
+};
 
-export interface CheckboxItem extends ItemBase {
+export type CheckboxItem = ItemBase & {
   type: 'checkbox';
   checked: boolean;
   label: ReactNode;
@@ -177,9 +176,9 @@ export interface CheckboxItem extends ItemBase {
     label?: PikasCSS;
     rightSlot?: PikasCSS;
   };
-}
+};
 
-export interface RadioItem extends ItemBase {
+export type RadioItem = ItemBase & {
   type: 'radio';
   onValueChange: (value: string) => void;
   value: string;
@@ -198,33 +197,33 @@ export interface RadioItem extends ItemBase {
   css?: {
     container?: PikasCSS;
   };
-}
+};
 
-export interface MenuItem extends ItemBase {
+export type MenuItem = ItemBase & {
   type: 'menu';
   data: MenuData;
   label: ReactNode;
   css?: {
     container?: PikasCSS;
   };
-}
+};
 
-export type ItemEntry = DefaultItem | CheckboxItem | RadioItem | MenuItem;
+export type ItemEntry = CheckboxItem | DefaultItem | MenuItem | RadioItem;
 
-export interface MenuDataItem {
+export type MenuDataItem = {
   label?: ReactNode;
   css?: PikasCSS;
   items: ItemEntry[];
-}
+};
 
 export type MenuData = MenuDataItem[];
 
-export interface MenuCSS {
+export type MenuCSS = {
   content?: PikasCSS;
   separator?: PikasCSS;
-}
+};
 
-export interface MenuProps {
+export type MenuProps = {
   data: MenuData;
   css?: MenuCSS;
-}
+};

@@ -1,10 +1,16 @@
 import type { PikasCSS } from '@pikas-ui/styles';
-import { keyframes } from '@pikas-ui/styles';
-import { styled } from '@pikas-ui/styles';
-import { createContext, ReactElement, useState } from 'react';
-import * as ToastPrimitive from '@radix-ui/react-toast';
+import { keyframes, styled } from '@pikas-ui/styles';
+import {
+  createContext,
+  ReactElement,
+  useState,
+  ReactNode,
+  FC,
+  Children,
+  cloneElement,
+} from 'react';
+import { Provider, SwipeDirection, Viewport } from '@radix-ui/react-toast';
 import type { ToastPosition, BaseToastProps } from '../types.js';
-import { ReactNode, FC, Children, CloneElement } from 'react';
 
 const VIEWPORT_PADDING = 25;
 
@@ -53,7 +59,7 @@ const swipeOutBottomTop = keyframes({
   to: { transform: `translateY(calc(100% + ${VIEWPORT_PADDING}px))` },
 });
 
-const Viewport = styled(ToastPrimitive.Viewport, {
+const ViewportStyled = styled(Viewport, {
   position: 'fixed',
   display: 'flex',
   flexDirection: 'column',
@@ -67,12 +73,12 @@ const Viewport = styled(ToastPrimitive.Viewport, {
   transition: 'transform 0.2s 150ms ease',
 });
 
-export interface ToastProviderViewport {
+export type ToastProviderViewport = {
   hotkey?: string[];
   label?: string;
-}
+};
 
-export interface ToastProviderProps {
+export type ToastProviderProps = {
   children?: ReactNode;
   duration?: number;
   label?: string;
@@ -82,16 +88,17 @@ export interface ToastProviderProps {
   position?: ToastPosition;
   closeWithSwipe?: boolean;
   viewport?: ToastProviderViewport;
-}
+};
 
-export interface ToastContextProps {
+export type ToastContextProps = {
   toasts: ReactElement<BaseToastProps>[];
   publish: (toast: ReactElement<BaseToastProps>) => void;
-}
+};
 
 export const ToastContext = createContext<ToastContextProps>({
   toasts: [],
   publish: () => {
+    // eslint-disable-next-line no-console
     console.log('publish');
   },
 });
@@ -112,7 +119,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({
 }) => {
   const [toasts, setToasts] = useState<ReactElement<BaseToastProps>[]>([]);
 
-  const getSwipeDirection = (): ToastPrimitive.SwipeDirection => {
+  const getSwipeDirection = (): SwipeDirection => {
     switch (position) {
       case 'top-left':
       case 'bottom-left':
@@ -132,45 +139,43 @@ export const ToastProvider: FC<ToastProviderProps> = ({
   return (
     <ToastContext.Provider
       value={{
-        toasts: toasts,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        toasts,
         publish: (toast) => setToasts((prev) => [...prev, toast]),
       }}
     >
       {children}
-      <ToastPrimitive.Provider
+      <Provider
         swipeDirection={closeWithSwipe ? getSwipeDirection() : undefined}
         swipeThreshold={swipeThreshold}
         duration={duration}
         label={label}
       >
-        {Children.map(toasts, (toast, index) => {
-          return cloneElement(toast, {
+        {Children.map(toasts, (toast, index) =>
+          cloneElement(toast, {
             key: index,
             css: {
               toast: {
                 '@media (prefers-reduced-motion: no-preference)': {
                   '&[data-state="open"]': {
-                    ...(position?.includes('left') && {
-                      animation: `${slideInLeftRight} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+                    ...(position.includes('left') && {
+                      animation: `${slideInLeftRight.name} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
                     }),
-                    ...(position?.includes('right') && {
-                      animation: `${slideInRightLeft} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+                    ...(position.includes('right') && {
+                      animation: `${slideInRightLeft.name} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
                     }),
                     ...(position === 'top' && {
-                      animation: `${slideInTopBottom} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+                      animation: `${slideInTopBottom.name} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
                     }),
                     ...(position === 'bottom' && {
-                      animation: `${slideInBottomTop} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+                      animation: `${slideInBottomTop.name} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
                     }),
                   },
                   '&[data-state="closed"]': {
-                    animation: `${hide} 100ms ease-in`,
+                    animation: `${hide.name} 100ms ease-in`,
                   },
                   '&[data-swipe="move"]': {
-                    ...((position?.includes('left') ||
-                      position?.includes('right')) && {
+                    ...((position.includes('left') ||
+                      position.includes('right')) && {
                       transform: 'translateX(var(--radix-toast-swipe-move-x))',
                     }),
                     ...((position === 'top' || position === 'bottom') && {
@@ -182,29 +187,29 @@ export const ToastProvider: FC<ToastProviderProps> = ({
                     transition: 'transform 200ms ease-out',
                   },
                   '&[data-swipe="end"]': {
-                    ...(position?.includes('left') && {
-                      animation: `${swipeOutRightLeft} 100ms ease-out`,
+                    ...(position.includes('left') && {
+                      animation: `${swipeOutRightLeft.name} 100ms ease-out`,
                     }),
-                    ...(position?.includes('right') && {
-                      animation: `${swipeOutLeftRight} 100ms ease-out`,
+                    ...(position.includes('right') && {
+                      animation: `${swipeOutLeftRight.name} 100ms ease-out`,
                     }),
                     ...(position === 'top' && {
-                      animation: `${swipeOutTopBottom} 100ms ease-out`,
+                      animation: `${swipeOutTopBottom.name} 100ms ease-out`,
                     }),
                     ...(position === 'bottom' && {
-                      animation: `${swipeOutBottomTop} 100ms ease-out`,
+                      animation: `${swipeOutBottomTop.name} 100ms ease-out`,
                     }),
                   },
                 },
               },
             },
-          });
-        })}
-        <Viewport
-          hotkey={viewport?.hotkey}
-          label={viewport?.label}
+          })
+        )}
+        <ViewportStyled
+          hotkey={viewport.hotkey}
+          label={viewport.label}
           css={{
-            width: width,
+            width,
 
             ...(position === 'top-left' && {
               top: 0,
@@ -236,7 +241,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({
             ...css,
           }}
         />
-      </ToastPrimitive.Provider>
+      </Provider>
     </ToastContext.Provider>
   );
 };

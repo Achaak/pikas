@@ -1,7 +1,6 @@
 import { Checkbox } from '@pikas-ui/checkbox';
 import { ExampleContainer } from '@pikas/docs-ui';
-import { FC } from 'react';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
 export const CheckboxExample: FC = () => {
   const [checked, setChecked] = useState(true);

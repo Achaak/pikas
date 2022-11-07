@@ -1,7 +1,6 @@
 import { styled } from '@pikas-ui/styles';
-import { useContext } from 'react';
+import { useContext, FC } from 'react';
 import { ExplorerContext } from '../../Explorer.js';
-import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'none',
@@ -44,12 +43,12 @@ export const Actions: FC = () => {
   return (
     <Container
       css={{
-        ...(showActions?.default && { '@xs': { display: 'flex' } }),
-        ...(showActions?.xs && { '@xs': { display: 'flex' } }),
-        ...(showActions?.sm && { '@sm': { display: 'flex' } }),
-        ...(showActions?.md && { '@md': { display: 'flex' } }),
-        ...(showActions?.lg && { '@lg': { display: 'flex' } }),
-        ...(showActions?.xl && { '@xl': { display: 'flex' } }),
+        ...(showActions.default && { '@xs': { display: 'flex' } }),
+        ...(showActions.xs && { '@xs': { display: 'flex' } }),
+        ...(showActions.sm && { '@sm': { display: 'flex' } }),
+        ...(showActions.md && { '@md': { display: 'flex' } }),
+        ...(showActions.lg && { '@lg': { display: 'flex' } }),
+        ...(showActions.xl && { '@xl': { display: 'flex' } }),
       }}
     >
       {actions

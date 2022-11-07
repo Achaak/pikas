@@ -4,7 +4,7 @@ export type PikasBorderStyles = typeof pikasBorderStyles;
 export type PikasBorderStyle = keyof PikasBorderStyles;
 
 export type BorderStylesRecordValue = string;
-export type BorderStylesRecordKey = string | number | PikasBorderStyle;
+export type BorderStylesRecordKey = PikasBorderStyle | number | string;
 export type BorderStylesRecord = Record<
   BorderStylesRecordKey,
   BorderStylesRecordValue
@@ -12,10 +12,10 @@ export type BorderStylesRecord = Record<
 
 export const loadBorderStyles = <T extends BorderStylesRecord>(
   values:
+    | T
     | {
         [key in keyof PikasBorderStyles]?: BorderStylesRecordValue;
       }
-    | T
 ): PikasBorderStyles & T =>
   ({
     ...pikasBorderStyles,

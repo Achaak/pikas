@@ -4,20 +4,15 @@ import { FC } from 'react';
 import { DefaultToastProvider } from './defaultToastProvider';
 import { toastPosition } from '../utils';
 
-export const DefaultToastExample: FC = () => {
-  return (
-    <ExampleContainer
-      css={{
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-      }}
-    >
-      {toastPosition.map((position, positionKey) => (
-        <DefaultToastProvider
-          key={positionKey}
-          position={position as ToastPosition}
-        />
-      ))}
-    </ExampleContainer>
-  );
-};
+export const DefaultToastExample: FC = () => (
+  <ExampleContainer
+    css={{
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+    }}
+  >
+    {toastPosition.map((position, positionKey) => (
+      <DefaultToastProvider key={positionKey} position={position} />
+    ))}
+  </ExampleContainer>
+);

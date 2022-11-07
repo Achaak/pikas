@@ -1,4 +1,18 @@
-import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
+import {
+  Content as MenuPrimitiveContent,
+  Item as MenuPrimitiveItem,
+  CheckboxItem as MenuPrimitiveCheckboxItem,
+  RadioGroup as MenuPrimitiveRadioGroup,
+  RadioItem as MenuPrimitiveRadioItem,
+  SubTrigger as MenuPrimitiveSubTrigger,
+  SubContent as MenuPrimitiveSubContent,
+  Label as MenuPrimitiveLabel,
+  Separator as MenuPrimitiveSeparator,
+  ItemIndicator as MenuPrimitiveItemIndicator,
+  Root as MenuPrimitiveRoot,
+  Trigger as MenuPrimitiveTrigger,
+  Sub as MenuPrimitiveSub,
+} from '@radix-ui/react-context-menu';
 import { styled } from '@pikas-ui/styles';
 import { ClipLoader } from '@pikas-ui/loader';
 import type {
@@ -22,36 +36,36 @@ import {
 import { IconByName } from '@pikas-ui/icons';
 import { FC, ReactNode } from 'react';
 
-const Content = styled(ContextMenuPrimitive.Content, {
+const Content = styled(MenuPrimitiveContent, {
   ...MenuContentCSS,
 });
 
-const Item = styled(ContextMenuPrimitive.Item, {
+const Item = styled(MenuPrimitiveItem, {
   ...MenuItemCSS,
 });
-const CheckboxItem = styled(ContextMenuPrimitive.CheckboxItem, {
+const CheckboxItem = styled(MenuPrimitiveCheckboxItem, {
   ...MenuCheckboxItemCSS,
 });
-const RadioGroup = styled(ContextMenuPrimitive.RadioGroup);
-const RadioItem = styled(ContextMenuPrimitive.RadioItem, {
+const RadioGroup = styled(MenuPrimitiveRadioGroup);
+const RadioItem = styled(MenuPrimitiveRadioItem, {
   ...MenuRadioItemCSS,
 });
-const SubTrigger = styled(ContextMenuPrimitive.SubTrigger, {
+const SubTrigger = styled(MenuPrimitiveSubTrigger, {
   ...MenuItemCSS,
 });
-const SubContent = styled(ContextMenuPrimitive.SubContent, {
+const SubContent = styled(MenuPrimitiveSubContent, {
   ...MenuContentCSS,
 });
 
-const Label = styled(ContextMenuPrimitive.Label, {
+const Label = styled(MenuPrimitiveLabel, {
   ...MenuLabelCSS,
 });
 
-const Separator = styled(ContextMenuPrimitive.Separator, {
+const Separator = styled(MenuPrimitiveSeparator, {
   ...MenuSeparatorCSS,
 });
 
-const ItemIndicator = styled(ContextMenuPrimitive.ItemIndicator, {
+const ItemIndicator = styled(MenuPrimitiveItemIndicator, {
   ...MenuItemIndicatorCSS,
 });
 
@@ -73,7 +87,194 @@ export type ContextMenuCSS = MenuCSS;
 export type ContextMenuDataItem = MenuDataItem;
 export type ContextMenuDataItemEntry = ItemEntry;
 export type ContextMenuData = MenuDataItem[];
-export interface ContextMenuProps extends MenuProps {
+
+type ContextMenuDataProps = {
+  data: MenuData;
+  css?: ContextMenuCSS;
+};
+
+const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
+  <>
+    {data
+      .map((d) => ({
+        ...d,
+        items: d.items.filter((item) => !item.hide),
+      }))
+      .filter((d) => d.items.length > 0)
+      .map((d, dIndex) => {
+        const res: ReactNode[] = [];
+
+        if (dIndex > 0) {
+          res.push(
+            <Separator key={`separator-${dIndex}`} css={css?.content} />
+          );
+        }
+
+        if (d.label) {
+          res.push(
+            <Label key={`label-${dIndex}`} css={d.css}>
+              {d.label}
+            </Label>
+          );
+        }
+
+        for (let i = 0; i < d.items.length; i++) {
+          const item = d.items[i];
+
+          if (item.type === 'item') {
+            res.push(
+              <Item
+                key={`item-${dIndex}-${i}`}
+                disabled={item.disabled}
+                onClick={item.onClick}
+                css={{
+                  color:
+                    item.colorHex ??
+                    (item.colorName ? `$${item.colorName}` : undefined) ??
+                    'GRAY_DARKER',
+                  ...item.css?.container,
+                }}
+              >
+                {item.loading ? (
+                  <ItemIndicator forceMount css={item.css?.indicator}>
+                    <ClipLoader
+                      size={16}
+                      colorName={item.iconColorName ?? item.colorName}
+                      colorHex={
+                        item.iconColorHex ?? item.colorHex ?? 'GRAY_DARKER'
+                      }
+                    />
+                  </ItemIndicator>
+                ) : (
+                  item.Icon && (
+                    <ItemIndicator forceMount css={item.css?.indicator}>
+                      <item.Icon
+                        size={16}
+                        colorName={item.iconColorName ?? item.colorName}
+                        colorHex={
+                          item.iconColorHex ?? item.colorHex ?? 'GRAY_DARKER'
+                        }
+                      />
+                    </ItemIndicator>
+                  )
+                )}
+                <Span css={item.css?.label}>{item.label}</Span>
+                <RightSlot
+                  css={{
+                    ...item.css?.rightSlot,
+                  }}
+                >
+                  {item.rightSlot}
+                </RightSlot>
+              </Item>
+            );
+          }
+
+          if (item.type === 'checkbox') {
+            res.push(
+              <CheckboxItem
+                key={`checkbox-${dIndex}-${i}`}
+                disabled={item.disabled}
+                checked={item.checked}
+                onCheckedChange={item.onCheckedChange}
+                css={{
+                  color:
+                    item.colorHex ??
+                    (item.colorName ? `$${item.colorName}` : undefined) ??
+                    'GRAY_DARKER',
+                  ...item.css?.container,
+                }}
+              >
+                <ItemIndicator css={item.css?.indicator}>
+                  <IconByName
+                    name="bx:check"
+                    size={16}
+                    colorName={item.colorName}
+                    colorHex={item.colorHex ?? 'GRAY_DARKER'}
+                  />
+                </ItemIndicator>
+                <Span css={item.css?.label}>{item.label}</Span>
+                <RightSlot css={item.css?.rightSlot}>
+                  {item.rightSlot}
+                </RightSlot>
+              </CheckboxItem>
+            );
+          }
+
+          if (item.type === 'radio') {
+            res.push(
+              <RadioGroup
+                key={`radio-${dIndex}-${i}`}
+                value={item.value}
+                onValueChange={item.onValueChange}
+                css={{
+                  color:
+                    item.colorHex ??
+                    (item.colorName ? `$${item.colorName}` : undefined) ??
+                    'GRAY_DARKER',
+                  ...item.css?.container,
+                }}
+              >
+                {item.radios.map((radio, radioIndex) => (
+                  <RadioItem
+                    key={`radio-${dIndex}-${i}-${radioIndex}`}
+                    disabled={radio.disabled}
+                    value={radio.value}
+                    css={radio.css?.container}
+                  >
+                    <ItemIndicator css={radio.css?.indicator}>
+                      <IconByName
+                        name="bxs:circle"
+                        size={8}
+                        colorName={item.colorName}
+                        colorHex={item.colorHex ?? 'GRAY_DARKER'}
+                      />
+                    </ItemIndicator>
+                    <Span css={radio.css?.label}>{radio.label}</Span>
+                    <RightSlot css={radio.css?.rightSlot}>
+                      {radio.rightSlot}
+                    </RightSlot>
+                  </RadioItem>
+                ))}
+              </RadioGroup>
+            );
+          }
+
+          if (item.type === 'menu') {
+            res.push(
+              <MenuPrimitiveSub key={`menu-${dIndex}-${i}`}>
+                <SubTrigger
+                  css={{
+                    color:
+                      item.colorHex ??
+                      (item.colorName ? `$${item.colorName}` : undefined) ??
+                      'GRAY_DARKER',
+                    ...item.css?.container,
+                  }}
+                >
+                  {item.label}
+                  <RightSlot>
+                    <IconByName
+                      name="bxs:chevron-right"
+                      colorName={item.colorName}
+                      colorHex={item.colorHex ?? 'GRAY_DARKER'}
+                      size={20}
+                    />
+                  </RightSlot>
+                </SubTrigger>
+                <SubContent>
+                  {<ContextMenuDataElement data={item.data} css={css} />}
+                </SubContent>
+              </MenuPrimitiveSub>
+            );
+          }
+        }
+
+        return res;
+      })}
+  </>
+);
+export type ContextMenuProps = MenuProps & {
   children?: ReactNode;
 
   onOpenChange?: (open: boolean) => void;
@@ -89,7 +290,7 @@ export interface ContextMenuProps extends MenuProps {
   alignOffset?: number;
   avoidCollisions?: boolean;
   collisionPadding?: number;
-}
+};
 
 export const ContextMenu: FC<ContextMenuProps> = ({
   data,
@@ -107,210 +308,23 @@ export const ContextMenu: FC<ContextMenuProps> = ({
   alignOffset,
   avoidCollisions = true,
   collisionPadding,
-}) => {
-  return (
-    <ContextMenuPrimitive.Root
-      onOpenChange={onOpenChange}
-      modal={modal}
-      dir={direction}
+}) => (
+  <MenuPrimitiveRoot onOpenChange={onOpenChange} modal={modal} dir={direction}>
+    <MenuPrimitiveTrigger>{children}</MenuPrimitiveTrigger>
+
+    <Content
+      css={css?.content}
+      loop={loop}
+      onCloseAutoFocus={onCloseAutoFocus}
+      onEscapeKeyDown={onEscapeKeyDown}
+      onPointerDownOutside={onPointerDownOutside}
+      onFocusOutside={onFocusOutside}
+      onInteractOutside={onInteractOutside}
+      alignOffset={alignOffset}
+      avoidCollisions={avoidCollisions}
+      collisionPadding={collisionPadding}
     >
-      <ContextMenuPrimitive.Trigger>{children}</ContextMenuPrimitive.Trigger>
-
-      <Content
-        css={css?.content}
-        loop={loop}
-        onCloseAutoFocus={onCloseAutoFocus}
-        onEscapeKeyDown={onEscapeKeyDown}
-        onPointerDownOutside={onPointerDownOutside}
-        onFocusOutside={onFocusOutside}
-        onInteractOutside={onInteractOutside}
-        alignOffset={alignOffset}
-        avoidCollisions={avoidCollisions}
-        collisionPadding={collisionPadding}
-      >
-        <ContextMenuData data={data} css={css} />
-      </Content>
-    </ContextMenuPrimitive.Root>
-  );
-};
-
-interface ContextMenuDataProps {
-  data: MenuData;
-  css?: ContextMenuCSS;
-}
-
-const ContextMenuData: FC<ContextMenuDataProps> = ({ data, css }) => {
-  return (
-    <>
-      {data
-        .map((data) => ({
-          ...data,
-          items: data.items.filter((item) => !item.hide),
-        }))
-        .filter((data) => data.items.length > 0)
-        .map((data, dataIndex) => {
-          const res: ReactNode[] = [];
-
-          if (dataIndex > 0) {
-            res.push(
-              <Separator key={`separator-${dataIndex}`} css={css?.content} />
-            );
-          }
-
-          if (data.label) {
-            res.push(
-              <Label key={`label-${dataIndex}`} css={data?.css}>
-                {data.label}
-              </Label>
-            );
-          }
-
-          for (let i = 0; i < data.items.length; i++) {
-            const item = data.items[i];
-
-            if (item.type === 'item') {
-              res.push(
-                <Item
-                  key={`item-${dataIndex}-${i}`}
-                  disabled={item?.disabled}
-                  onClick={item.onClick}
-                  css={{
-                    color:
-                      item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
-                    ...item?.css?.container,
-                  }}
-                >
-                  {item.loading ? (
-                    <ItemIndicator forceMount css={item?.css?.indicator}>
-                      <ClipLoader
-                        size={16}
-                        colorName={item.iconColorName || item.colorName}
-                        colorHex={
-                          item.iconColorHex || item.colorHex || 'GRAY_DARKER'
-                        }
-                      />
-                    </ItemIndicator>
-                  ) : (
-                    item.Icon && (
-                      <ItemIndicator forceMount css={item?.css?.indicator}>
-                        <item.Icon
-                          size={16}
-                          colorName={item.iconColorName || item.colorName}
-                          colorHex={
-                            item.iconColorHex || item.colorHex || 'GRAY_DARKER'
-                          }
-                        />
-                      </ItemIndicator>
-                    )
-                  )}
-                  <Span css={item?.css?.label}>{item.label}</Span>
-                  <RightSlot
-                    css={{
-                      ...item?.css?.rightSlot,
-                    }}
-                  >
-                    {item.rightSlot}
-                  </RightSlot>
-                </Item>
-              );
-            }
-
-            if (item.type === 'checkbox') {
-              res.push(
-                <CheckboxItem
-                  key={`checkbox-${dataIndex}-${i}`}
-                  disabled={item?.disabled}
-                  checked={item.checked}
-                  onCheckedChange={item.onCheckedChange}
-                  css={{
-                    color:
-                      item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
-                    ...item?.css?.container,
-                  }}
-                >
-                  <ItemIndicator css={item?.css?.indicator}>
-                    <IconByName
-                      name="bx:check"
-                      size={16}
-                      colorName={item.colorName}
-                      colorHex={item.colorHex || 'GRAY_DARKER'}
-                    />
-                  </ItemIndicator>
-                  <Span css={item?.css?.label}>{item.label}</Span>
-                  <RightSlot css={item?.css?.rightSlot}>
-                    {item.rightSlot}
-                  </RightSlot>
-                </CheckboxItem>
-              );
-            }
-
-            if (item.type === 'radio') {
-              res.push(
-                <RadioGroup
-                  key={`radio-${dataIndex}-${i}`}
-                  value={item.value}
-                  onValueChange={item.onValueChange}
-                  css={{
-                    color:
-                      item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
-                    ...item?.css?.container,
-                  }}
-                >
-                  {item.radios.map((radio, radioIndex) => (
-                    <RadioItem
-                      key={`radio-${dataIndex}-${i}-${radioIndex}`}
-                      disabled={radio?.disabled}
-                      value={radio.value}
-                      css={radio?.css?.container}
-                    >
-                      <ItemIndicator css={radio?.css?.indicator}>
-                        <IconByName
-                          name="bxs:circle"
-                          size={8}
-                          colorName={item.colorName}
-                          colorHex={item.colorHex || 'GRAY_DARKER'}
-                        />
-                      </ItemIndicator>
-                      <Span css={radio?.css?.label}>{radio.label}</Span>
-                      <RightSlot css={radio?.css?.rightSlot}>
-                        {radio.rightSlot}
-                      </RightSlot>
-                    </RadioItem>
-                  ))}
-                </RadioGroup>
-              );
-            }
-
-            if (item.type === 'menu') {
-              res.push(
-                <ContextMenuPrimitive.Sub key={`menu-${dataIndex}-${i}`}>
-                  <SubTrigger
-                    css={{
-                      color:
-                        item.colorHex || `$${item.colorName}` || 'GRAY_DARKER',
-                      ...item?.css?.container,
-                    }}
-                  >
-                    {item.label}
-                    <RightSlot>
-                      <IconByName
-                        name="bxs:chevron-right"
-                        colorName={item.colorName}
-                        colorHex={item.colorHex || 'GRAY_DARKER'}
-                        size={20}
-                      />
-                    </RightSlot>
-                  </SubTrigger>
-                  <SubContent>
-                    {<ContextMenuData data={item.data} css={css} />}
-                  </SubContent>
-                </ContextMenuPrimitive.Sub>
-              );
-            }
-          }
-
-          return res;
-        })}
-    </>
-  );
-};
+      <ContextMenuDataElement data={data} css={css} />
+    </Content>
+  </MenuPrimitiveRoot>
+);

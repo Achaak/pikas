@@ -1,17 +1,17 @@
 import type { ToastPosition } from '@pikas-ui/toast';
-import { DefaultToast as DefaultToastPikasUI } from '@pikas-ui/toast';
-import { useToast } from '@pikas-ui/toast';
+import { DefaultToast as DefaultToastPikasUI, useToast } from '@pikas-ui/toast';
 import { Button } from '@pikas-ui/button';
 import type { IconProps } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
+import { FC } from 'react';
 
-const IconExample: FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />;
-};
+const IconExample: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:baguette" />
+);
 
-interface DefaultToastExampleProps {
+type DefaultToastExampleProps = {
   position: ToastPosition;
-}
+};
 
 export const DefaultToastItem: FC<DefaultToastExampleProps> = ({
   position,

@@ -3,13 +3,13 @@ import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 import { ClipLoader as ClipLoaderDefault } from 'react-spinners';
 
-export interface ClipLoaderProps {
+export type ClipLoaderProps = {
   size?: number | string;
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
   speedMultiplier?: number;
-}
+};
 
 export const ClipLoader: FC<ClipLoaderProps> = ({
   size,
@@ -24,9 +24,7 @@ export const ClipLoader: FC<ClipLoaderProps> = ({
     <ClipLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
     />
   );

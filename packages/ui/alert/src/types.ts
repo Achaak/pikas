@@ -24,14 +24,14 @@ export const alertGap = {
 } as const;
 export type AlertGap = keyof typeof alertGap;
 
-export interface AlertCSS {
+export type AlertCSS = {
   container?: PikasCSS;
   content?: PikasCSS;
   icon?: IconCSS;
   child?: PikasCSS;
-}
+};
 
-export interface BaseAlertProps {
+export type BaseAlertProps = {
   children?: React.ReactNode;
   fontSize?: PikasFontSize;
   fontWeight?: PikasFontWeight;
@@ -41,4 +41,4 @@ export interface BaseAlertProps {
   gap?: AlertGap;
   visible?: boolean;
   css?: AlertCSS;
-}
+};

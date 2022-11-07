@@ -8,7 +8,14 @@ import type {
 } from '@pikas-ui/styles';
 import fontColorContrast from 'font-color-contrast';
 import { keyframes, styled, useTheme } from '@pikas-ui/styles';
-import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import {
+  Content as TooltipPrimitiveContent,
+  Provider as TooltipPrimitiveProvider,
+  Portal as TooltipPrimitivePortal,
+  Root as TooltipPrimitiveRoot,
+  Trigger as TooltipPrimitiveTrigger,
+  Arrow as TooltipPrimitiveArrow,
+} from '@radix-ui/react-tooltip';
 import { ReactNode, FC } from 'react';
 
 const slideUpAndFade = keyframes({
@@ -31,7 +38,7 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 });
 
-const StyledContent = styled(TooltipPrimitive.Content, {
+const StyledContent = styled(TooltipPrimitiveContent, {
   color: '$BLACK',
 
   variants: {
@@ -70,11 +77,11 @@ const StyledContent = styled(TooltipPrimitive.Content, {
   },
 });
 
-const Trigger = styled(TooltipPrimitive.Trigger, {
+const Trigger = styled(TooltipPrimitiveTrigger, {
   all: 'unset',
 });
 
-const StyledArrow = styled(TooltipPrimitive.Arrow, {});
+const StyledArrow = styled(TooltipPrimitiveArrow, {});
 
 export const tooltipSide = {
   top: true,
@@ -103,8 +110,8 @@ export type TooltipCSS = {
   content?: PikasCSS;
 };
 
-export interface TooltipProps {
-  content: string | ReactNode;
+export type TooltipProps = {
+  content: ReactNode | string;
   children?: ReactNode;
   backgroundColorName?: PikasColor;
   open?: boolean;
@@ -127,7 +134,7 @@ export interface TooltipProps {
   boxShadow?: PikasShadow;
   padding?: TooltipPadding;
   css?: TooltipCSS;
-}
+};
 
 export const Tooltip: FC<TooltipProps> = ({
   content,
@@ -157,11 +164,11 @@ export const Tooltip: FC<TooltipProps> = ({
   const theme = useTheme();
 
   return (
-    <TooltipPrimitive.Provider
+    <TooltipPrimitiveProvider
       delayDuration={delayDuration}
       skipDelayDuration={skipDelayDuration}
     >
-      <TooltipPrimitive.Root
+      <TooltipPrimitiveRoot
         open={open}
         onOpenChange={onOpenChange}
         defaultOpen={defaultOpen}
@@ -171,7 +178,7 @@ export const Tooltip: FC<TooltipProps> = ({
           <div>{children}</div>
         </Trigger>
 
-        <TooltipPrimitive.Portal>
+        <TooltipPrimitivePortal>
           <StyledContent
             className={theme}
             side={side}
@@ -185,15 +192,11 @@ export const Tooltip: FC<TooltipProps> = ({
               br: borderRadius,
               backgroundColor: `$${backgroundColorName}`,
               fontSize: `$${fontSize}`,
-              fontWeight: `$${fontWeight}`,
+              fontWeight: fontWeight && `$${fontWeight}`,
               boxShadow: `$${boxShadow}`,
               color:
-                (theme &&
-                  fontColorContrast(
-                    theme.colors[backgroundColorName || 'BLACK'].value,
-                    0.7
-                  )) ||
-                undefined,
+                theme &&
+                fontColorContrast(theme.colors[backgroundColorName].value, 0.7),
 
               ...css?.content,
             }}
@@ -210,8 +213,8 @@ export const Tooltip: FC<TooltipProps> = ({
               />
             )}
           </StyledContent>
-        </TooltipPrimitive.Portal>
-      </TooltipPrimitive.Root>
-    </TooltipPrimitive.Provider>
+        </TooltipPrimitivePortal>
+      </TooltipPrimitiveRoot>
+    </TooltipPrimitiveProvider>
   );
 };

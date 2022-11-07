@@ -163,14 +163,14 @@ export type {
   FileWithPath,
 } from 'react-dropzone';
 
-export interface DropzoneCSS {
+export type DropzoneCSS = {
   container?: PikasCSS;
   dropzone?: PikasCSS;
   description?: PikasCSS;
   subDescription?: PikasCSS;
-}
+};
 
-export interface DropzoneProps extends DropzoneOptions {
+export type DropzoneProps = DropzoneOptions & {
   height?: number | string;
   width?: number | string;
   description?: string;
@@ -184,7 +184,7 @@ export interface DropzoneProps extends DropzoneOptions {
     acceptedFiles: File[];
     fileRejections: FileRejection[];
   }) => ReactNode;
-}
+};
 
 export const Dropzone: FC<DropzoneProps> = ({
   maxFiles = 0,
@@ -262,22 +262,20 @@ export const Dropzone: FC<DropzoneProps> = ({
     </FileListItem>
   ));
 
-  const fileRejectionItems = fileRejections.map(({ file, errors }, index) => {
-    return (
-      <FileListItem key={index}>
-        <FileListContent>
-          <IconByName name="bx:error" colorName="DANGER" size="1.2em" />
-          <FileListName>{file.name}</FileListName>
-          <FileListSize>({humanFileSize(file.size)})</FileListSize>
-        </FileListContent>
-        <ErrorList>
-          {errors.map((e) => (
-            <ErrorListItem key={e.code}>{e.message}</ErrorListItem>
-          ))}
-        </ErrorList>
-      </FileListItem>
-    );
-  });
+  const fileRejectionItems = fileRejections.map(({ file, errors }, index) => (
+    <FileListItem key={index}>
+      <FileListContent>
+        <IconByName name="bx:error" colorName="DANGER" size="1.2em" />
+        <FileListName>{file.name}</FileListName>
+        <FileListSize>({humanFileSize(file.size)})</FileListSize>
+      </FileListContent>
+      <ErrorList>
+        {errors.map((e) => (
+          <ErrorListItem key={e.code}>{e.message}</ErrorListItem>
+        ))}
+      </ErrorList>
+    </FileListItem>
+  ));
 
   return (
     <Container isDisabled={disabled} css={css?.container}>
@@ -293,11 +291,11 @@ export const Dropzone: FC<DropzoneProps> = ({
       >
         <input {...getInputProps()} />
         <Description isFocused={isDragActive} css={css?.description}>
-          {description ||
+          {description ??
             "Drag 'n' drop some files here, or click to select files"}
         </Description>
         <SubDescription isFocused={isDragActive} css={css?.subDescription}>
-          {subDescription ||
+          {subDescription ??
             `(${maxFiles} ${maxFiles > 1 ? 'files are' : 'file is'} the maximum
           number of files you can drop here)`}
         </SubDescription>
@@ -307,7 +305,7 @@ export const Dropzone: FC<DropzoneProps> = ({
         ? renderResult?.({
             acceptedFiles,
             fileRejections,
-          }) || (
+          }) ?? (
             <FilesResult>
               {acceptedFiles.length > 0 && (
                 <AcceptedFiles>
@@ -333,7 +331,7 @@ const humanFileSize = (bytes: number, si = false, dp = 1): string => {
   const thresh = si ? 1000 : 1024;
 
   if (Math.abs(bytes) < thresh) {
-    return bytes + ' B';
+    return `${bytes} B`;
   }
 
   const units = si
@@ -350,5 +348,5 @@ const humanFileSize = (bytes: number, si = false, dp = 1): string => {
     u < units.length - 1
   );
 
-  return bytes.toFixed(dp) + ' ' + units[u];
+  return `${bytes.toFixed(dp)} ${units[u]}`;
 };

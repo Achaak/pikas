@@ -6,9 +6,9 @@ import { gap } from './gap.js';
 
 export const loadUtils = <T extends Record<string, string>>(
   utils: T
-): ConfigType.Utils<T & Gap & BR> =>
+): ConfigType.Utils<BR & Gap & T> =>
   ({
     ...gap,
     ...br,
     ...utils,
-  } as ConfigType.Utils<T & Gap & BR>);
+  } as ConfigType.Utils<BR & Gap & T>);

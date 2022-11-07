@@ -10,15 +10,15 @@ export type PikasMedias = typeof pikasMedias;
 export type PikasMedia = keyof PikasMedias;
 
 export type MediasRecordValue = string;
-export type MediasRecordKey = string | number | PikasMedia;
+export type MediasRecordKey = PikasMedia | number | string;
 export type MediasRecord = Record<MediasRecordKey, MediasRecordValue>;
 
 export const loadMedias = <T extends MediasRecord>(
   values:
+    | T
     | {
         [key in keyof PikasMedias]?: MediasRecordValue;
       }
-    | T
 ): PikasMedias & T =>
   ({
     ...pikasMedias,

@@ -1,7 +1,7 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import type { PikasColor } from '@pikas-ui/styles';
-import { useTheme } from '@pikas-ui/styles';
-import { styled } from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
+
 import { ClipLoader } from '@pikas-ui/loader';
 import type {
   MenuData,
@@ -98,7 +98,7 @@ export type DropdownMenuCSS = MenuCSS;
 export type DropdownMenuDataItem = MenuDataItem;
 export type DropdownMenuDataItemEntry = ItemEntry;
 export type DropdownMenuData = MenuDataItem[];
-export interface DropdownMenuProps extends MenuProps {
+export type DropdownMenuProps = MenuProps & {
   triggerContent?: ReactNode;
   iconColorName?: PikasColor;
   iconSize?: number;
@@ -121,7 +121,7 @@ export interface DropdownMenuProps extends MenuProps {
   alignOffset?: number;
   avoidCollisions?: boolean;
   collisionPadding?: number;
-}
+};
 
 export const DropdownMenu: FC<DropdownMenuProps> = ({
   data,
@@ -199,190 +199,188 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
   );
 };
 
-interface DropdownMenuDataProps {
+type DropdownMenuDataProps = {
   data: MenuData;
   css?: DropdownMenuCSS;
-}
+};
 
-const DropdownMenuData: FC<DropdownMenuDataProps> = ({ data, css }) => {
-  return (
-    <>
-      {data
-        .map((data) => ({
-          ...data,
-          items: data.items.filter((item) => !item.hide),
-        }))
-        .filter((data) => data.items.length > 0)
-        .map((data, dataIndex) => {
-          const res: ReactNode[] = [];
+const DropdownMenuData: FC<DropdownMenuDataProps> = ({ data, css }) => (
+  <>
+    {data
+      .map((data) => ({
+        ...data,
+        items: data.items.filter((item) => !item.hide),
+      }))
+      .filter((data) => data.items.length > 0)
+      .map((data, dataIndex) => {
+        const res: ReactNode[] = [];
 
-          if (dataIndex > 0) {
+        if (dataIndex > 0) {
+          res.push(
+            <Separator key={`separator-${dataIndex}`} css={css?.separator} />
+          );
+        }
+
+        if (data.label) {
+          res.push(
+            <Label key={`label-${dataIndex}`} css={data.css}>
+              {data.label}
+            </Label>
+          );
+        }
+
+        for (let i = 0; i < data.items.length; i++) {
+          const item = data.items[i];
+
+          if (item.type === 'item') {
             res.push(
-              <Separator key={`separator-${dataIndex}`} css={css?.separator} />
-            );
-          }
-
-          if (data.label) {
-            res.push(
-              <Label key={`label-${dataIndex}`} css={data?.css}>
-                {data.label}
-              </Label>
-            );
-          }
-
-          for (let i = 0; i < data.items.length; i++) {
-            const item = data.items[i];
-
-            if (item.type === 'item') {
-              res.push(
-                <Item
-                  key={`item-${dataIndex}-${i}`}
-                  disabled={item?.disabled}
-                  onClick={item.onClick}
-                  css={{
-                    color:
-                      item.colorHex ||
-                      (item.colorName && `$${item.colorName}`) ||
-                      '$GRAY_DARKER',
-                    ...item?.css?.container,
-                  }}
-                >
-                  {item.loading ? (
-                    <ItemIndicator forceMount css={item?.css?.indicator}>
-                      <ClipLoader
+              <Item
+                key={`item-${dataIndex}-${i}`}
+                disabled={item.disabled}
+                onClick={item.onClick}
+                css={{
+                  color:
+                    item.colorHex ||
+                    (item.colorName && `$${item.colorName}`) ||
+                    '$GRAY_DARKER',
+                  ...item.css?.container,
+                }}
+              >
+                {item.loading ? (
+                  <ItemIndicator forceMount css={item.css?.indicator}>
+                    <ClipLoader
+                      size={16}
+                      colorName={item.iconColorName || item.colorName}
+                      colorHex={
+                        item.iconColorHex || item.colorHex || 'GRAY_DARKER'
+                      }
+                    />
+                  </ItemIndicator>
+                ) : (
+                  item.Icon && (
+                    <ItemIndicator forceMount css={item.css?.indicator}>
+                      <item.Icon
                         size={16}
                         colorName={item.iconColorName || item.colorName}
                         colorHex={
-                          item.iconColorHex || item.colorHex || 'GRAY_DARKER'
+                          item.iconColorHex || item.colorName || 'GRAY_DARKER'
                         }
                       />
                     </ItemIndicator>
-                  ) : (
-                    item.Icon && (
-                      <ItemIndicator forceMount css={item?.css?.indicator}>
-                        <item.Icon
-                          size={16}
-                          colorName={item.iconColorName || item.colorName}
-                          colorHex={
-                            item.iconColorHex || item.colorName || 'GRAY_DARKER'
-                          }
-                        />
-                      </ItemIndicator>
-                    )
-                  )}
-                  <Span css={item?.css?.label}>{item.label}</Span>
-                  <RightSlot
-                    css={{
-                      ...item?.css?.rightSlot,
-                    }}
-                  >
-                    {item.rightSlot}
-                  </RightSlot>
-                </Item>
-              );
-            }
-
-            if (item.type === 'checkbox') {
-              res.push(
-                <CheckboxItem
-                  key={`checkbox-${dataIndex}-${i}`}
-                  disabled={item?.disabled}
-                  checked={item.checked}
-                  onCheckedChange={item.onCheckedChange}
+                  )
+                )}
+                <Span css={item.css?.label}>{item.label}</Span>
+                <RightSlot
                   css={{
-                    color:
-                      item.colorHex ||
-                      (item.colorName && `$${item.colorName}`) ||
-                      '$GRAY_DARKER',
-                    ...item?.css?.container,
+                    ...item.css?.rightSlot,
                   }}
                 >
-                  <ItemIndicator css={item?.css?.indicator}>
-                    <IconByName
-                      name="bx:check"
-                      size={16}
-                      colorName={item.colorName}
-                      colorHex={item.colorHex || 'GRAY_DARKER'}
-                    />
-                  </ItemIndicator>
-                  <Span css={item?.css?.label}>{item.label}</Span>
-                  <RightSlot css={item?.css?.rightSlot}>
-                    {item.rightSlot}
-                  </RightSlot>
-                </CheckboxItem>
-              );
-            }
-
-            if (item.type === 'radio') {
-              res.push(
-                <RadioGroup
-                  key={`radio-${dataIndex}-${i}`}
-                  value={item.value}
-                  css={{
-                    color:
-                      item.colorHex ||
-                      (item.colorName && `$${item.colorName}`) ||
-                      '$GRAY_DARKER',
-                    ...item?.css?.container,
-                  }}
-                >
-                  {item.radios.map((radio, radioIndex) => (
-                    <RadioItem
-                      key={`radio-${dataIndex}-${i}-${radioIndex}`}
-                      disabled={radio?.disabled}
-                      value={radio.value}
-                      css={radio?.css?.container}
-                    >
-                      <ItemIndicator css={radio?.css?.indicator}>
-                        <IconByName
-                          name="bxs:circle"
-                          size={8}
-                          colorName={item.colorName}
-                          colorHex={item.colorHex || 'GRAY_DARKER'}
-                        />
-                      </ItemIndicator>
-                      <Span css={radio?.css?.label}>{radio.label}</Span>
-                      <RightSlot css={radio?.css?.rightSlot}>
-                        {radio.rightSlot}
-                      </RightSlot>
-                    </RadioItem>
-                  ))}
-                </RadioGroup>
-              );
-            }
-
-            if (item.type === 'menu') {
-              res.push(
-                <DropdownMenuPrimitive.Sub key={`menu-${dataIndex}-${i}`}>
-                  <SubTrigger
-                    css={{
-                      color:
-                        item.colorHex ||
-                        (item.colorName && `$${item.colorName}`) ||
-                        '$GRAY_DARKER',
-                      ...item?.css?.container,
-                    }}
-                  >
-                    {item.label}
-                    <RightSlot>
-                      <IconByName
-                        name="bxs:chevron-right"
-                        colorName={item.colorName}
-                        colorHex={item.colorHex || 'GRAY_DARKER'}
-                        size={20}
-                      />
-                    </RightSlot>
-                  </SubTrigger>
-                  <SubContent>
-                    {<DropdownMenuData data={item.data} css={css} />}
-                  </SubContent>
-                </DropdownMenuPrimitive.Sub>
-              );
-            }
+                  {item.rightSlot}
+                </RightSlot>
+              </Item>
+            );
           }
 
-          return res;
-        })}
-    </>
-  );
-};
+          if (item.type === 'checkbox') {
+            res.push(
+              <CheckboxItem
+                key={`checkbox-${dataIndex}-${i}`}
+                disabled={item.disabled}
+                checked={item.checked}
+                onCheckedChange={item.onCheckedChange}
+                css={{
+                  color:
+                    item.colorHex ||
+                    (item.colorName && `$${item.colorName}`) ||
+                    '$GRAY_DARKER',
+                  ...item.css?.container,
+                }}
+              >
+                <ItemIndicator css={item.css?.indicator}>
+                  <IconByName
+                    name="bx:check"
+                    size={16}
+                    colorName={item.colorName}
+                    colorHex={item.colorHex || 'GRAY_DARKER'}
+                  />
+                </ItemIndicator>
+                <Span css={item.css?.label}>{item.label}</Span>
+                <RightSlot css={item.css?.rightSlot}>
+                  {item.rightSlot}
+                </RightSlot>
+              </CheckboxItem>
+            );
+          }
+
+          if (item.type === 'radio') {
+            res.push(
+              <RadioGroup
+                key={`radio-${dataIndex}-${i}`}
+                value={item.value}
+                css={{
+                  color:
+                    item.colorHex ||
+                    (item.colorName && `$${item.colorName}`) ||
+                    '$GRAY_DARKER',
+                  ...item.css?.container,
+                }}
+              >
+                {item.radios.map((radio, radioIndex) => (
+                  <RadioItem
+                    key={`radio-${dataIndex}-${i}-${radioIndex}`}
+                    disabled={radio.disabled}
+                    value={radio.value}
+                    css={radio.css?.container}
+                  >
+                    <ItemIndicator css={radio.css?.indicator}>
+                      <IconByName
+                        name="bxs:circle"
+                        size={8}
+                        colorName={item.colorName}
+                        colorHex={item.colorHex || 'GRAY_DARKER'}
+                      />
+                    </ItemIndicator>
+                    <Span css={radio.css?.label}>{radio.label}</Span>
+                    <RightSlot css={radio.css?.rightSlot}>
+                      {radio.rightSlot}
+                    </RightSlot>
+                  </RadioItem>
+                ))}
+              </RadioGroup>
+            );
+          }
+
+          if (item.type === 'menu') {
+            res.push(
+              <DropdownMenuPrimitive.Sub key={`menu-${dataIndex}-${i}`}>
+                <SubTrigger
+                  css={{
+                    color:
+                      item.colorHex ||
+                      (item.colorName && `$${item.colorName}`) ||
+                      '$GRAY_DARKER',
+                    ...item.css?.container,
+                  }}
+                >
+                  {item.label}
+                  <RightSlot>
+                    <IconByName
+                      name="bxs:chevron-right"
+                      colorName={item.colorName}
+                      colorHex={item.colorHex || 'GRAY_DARKER'}
+                      size={20}
+                    />
+                  </RightSlot>
+                </SubTrigger>
+                <SubContent>
+                  {<DropdownMenuData data={item.data} css={css} />}
+                </SubContent>
+              </DropdownMenuPrimitive.Sub>
+            );
+          }
+        }
+
+        return res;
+      })}
+  </>
+);

@@ -15,9 +15,9 @@ export const alertVariant = {
 } as const;
 export type AlertVariant = keyof typeof alertVariant;
 
-export interface AlertProps extends BaseAlertProps {
+export type AlertProps = BaseAlertProps & {
   variant?: AlertVariant;
-}
+};
 
 export const Alert: FC<AlertProps> = ({
   variant = 'info',
@@ -26,18 +26,18 @@ export const Alert: FC<AlertProps> = ({
 }) => {
   const theme = useTheme();
 
-  const Icon: FC<IconProps> = (props) => {
+  const Icon: FC<IconProps> = (propsIcon) => {
     switch (variant) {
       case 'success':
-        return <IconByName {...props} name="bx:check-circle" />;
+        return <IconByName {...propsIcon} name="bx:check-circle" />;
       case 'warning':
-        return <IconByName {...props} name="bx:error" />;
+        return <IconByName {...propsIcon} name="bx:error" />;
       case 'danger':
-        return <IconByName {...props} name="bx:x-circle" />;
+        return <IconByName {...propsIcon} name="bx:x-circle" />;
       case 'info':
-        return <IconByName {...props} name="bx:info-circle" />;
+        return <IconByName {...propsIcon} name="bx:info-circle" />;
       default:
-        return <IconByName {...props} name="bx:info-circle" />;
+        return <IconByName {...propsIcon} name="bx:info-circle" />;
     }
   };
 

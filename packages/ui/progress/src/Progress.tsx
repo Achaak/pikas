@@ -4,14 +4,16 @@ import type {
   PikasCSS,
   PikasShadow,
 } from '@pikas-ui/styles';
-import { useTheme } from '@pikas-ui/styles';
-import { styled } from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
 import { Skeleton } from '@pikas-ui/skeleton';
-import * as ProgressPrimitive from '@radix-ui/react-progress';
+import {
+  Root as ProgressPrimitiveRoot,
+  Indicator,
+} from '@radix-ui/react-progress';
 import fontColorContrast from 'font-color-contrast';
 import { FC } from 'react';
 
-const Root = styled(ProgressPrimitive.Root, {
+const Root = styled(ProgressPrimitiveRoot, {
   position: 'relative',
   background: '$BLACK',
   zIndex: '$HIGH',
@@ -40,7 +42,7 @@ const ProgressContent = styled('div', {
   overflow: 'hidden',
 });
 
-const ProgressIndicator = styled(ProgressPrimitive.Indicator, {
+const ProgressIndicator = styled(Indicator, {
   width: '100%',
   height: '100%',
   transition: 'transform 660ms cubic-bezier(0.65, 0, 0.35, 1)',
@@ -63,13 +65,13 @@ const ContentBack = styled(Content, {});
 
 const ContentFront = styled(Content, {});
 
-export interface ProgressCSS {
+export type ProgressCSS = {
   container?: PikasCSS;
   content?: PikasCSS;
   indicator?: PikasCSS;
-}
+};
 
-export interface ProgressProps {
+export type ProgressProps = {
   progress: number;
   max?: number;
   width?: number | string;
@@ -83,7 +85,7 @@ export interface ProgressProps {
   getValueLabel?: (value: number, max: number) => string;
   content?: string;
   css?: ProgressCSS;
-}
+};
 
 export const Progress: FC<ProgressProps> = ({
   progress = 0,
@@ -96,7 +98,8 @@ export const Progress: FC<ProgressProps> = ({
   boxShadow = 'DIMINUTION_1',
   borderRadius = 'round',
   borderRadiusIndicator = 'none',
-  getValueLabel = (value, max): string => `${Math.round((value / max) * 100)}%`,
+  getValueLabel = (value, maxRes): string =>
+    `${Math.round((value / maxRes) * 100)}%`,
   content,
   css,
 }) => {
@@ -148,11 +151,7 @@ export const Progress: FC<ProgressProps> = ({
               100 - Math.round((progress / (max || 100)) * 100)
             }% 0 0)`,
             color:
-              theme &&
-              fontColorContrast(
-                theme.colors[colorName || 'PRIMARY'].value,
-                0.7
-              ),
+              theme && fontColorContrast(theme.colors[colorName].value, 0.7),
           }}
         >
           {content}
@@ -165,10 +164,7 @@ export const Progress: FC<ProgressProps> = ({
             )}%)`,
             color:
               theme &&
-              fontColorContrast(
-                theme.colors[backgroundColorName || 'GRAY'].value,
-                0.7
-              ),
+              fontColorContrast(theme.colors[backgroundColorName].value, 0.7),
           }}
         >
           {content}

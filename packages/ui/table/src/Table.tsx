@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 import type {
   ColumnDef,
   OnChangeFn,
@@ -7,14 +7,15 @@ import type {
   SortingState,
   Updater,
 } from '@tanstack/react-table';
-import { flexRender } from '@tanstack/react-table';
-import { useReactTable } from '@tanstack/react-table';
 import {
+  flexRender,
+  useReactTable,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
 } from '@tanstack/react-table';
+
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { PaginationCSS } from './pagination/index.js';
@@ -140,7 +141,7 @@ export const tableVariant = {
 } as const;
 export type TableVariant = keyof typeof tableVariant;
 
-export interface TableCSS<T> {
+export type TableCSS<T> = {
   container?: PikasCSS;
   table?: PikasCSS;
   thead?: PikasCSS;
@@ -165,36 +166,36 @@ export interface TableCSS<T> {
       }
     >
   >;
-}
+};
 
-export interface TablePaginationProps {
+export type TablePaginationProps = {
   active: boolean;
   state?: PaginationState;
   onPaginationChange?: OnChangeFn<PaginationState>;
   selectValue?: number[];
-}
+};
 
-export interface TableSelection {
+export type TableSelection = {
   active: boolean;
   defaultState?: RowSelectionState;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
-}
+};
 
-export interface TableSorting {
+export type TableSorting = {
   active: boolean;
   state?: SortingState;
   onSortingChange?: OnChangeFn<SortingState>;
-}
+};
 
-export interface TablePadding {
-  th?: 'sm' | 'md' | 'lg';
-  td?: 'sm' | 'md' | 'lg';
-}
+export type TablePadding = {
+  th?: 'lg' | 'md' | 'sm';
+  td?: 'lg' | 'md' | 'sm';
+};
 
-export interface TableProps<T extends Record<string, unknown>> {
+export type TableProps<T extends Record<string, unknown>> = {
   variant?: TableVariant;
   data: T[];
-  emptyMessage?: React.ReactNode;
+  emptyMessage?: ReactNode;
   hasTfoot?: boolean;
   pagination?: TablePaginationProps;
   selection?: TableSelection;
@@ -203,7 +204,7 @@ export interface TableProps<T extends Record<string, unknown>> {
   css?: TableCSS<T>;
   padding?: TablePadding;
   hoverEffect?: boolean;
-}
+};
 
 export const Table = <T extends Record<string, unknown>>({
   data,
@@ -222,13 +223,13 @@ export const Table = <T extends Record<string, unknown>>({
   hoverEffect = true,
 }: TableProps<T>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
-    selection?.defaultState || {}
+    selection?.defaultState ?? {}
   );
   const [sortingState, setSortingState] = useState<SortingState>([]);
 
   /* Pagination */
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>(
-    pagination?.state || {
+    pagination?.state ?? {
       pageIndex: 0,
       pageSize: 5,
     }
@@ -261,7 +262,7 @@ export const Table = <T extends Record<string, unknown>>({
   };
   /* Selection */
 
-  const columnsMemo = React.useMemo<ColumnDef<T>[]>(
+  const columnsMemo = useMemo<ColumnDef<T>[]>(
     () => [
       ...(selection?.active
         ? ([
@@ -311,7 +312,7 @@ export const Table = <T extends Record<string, unknown>>({
           onRowSelectionChange: handleRowSelectionChange,
         }
       : {}),
-    ...(selection?.active && selection?.onRowSelectionChange
+    ...(selection?.active && selection.onRowSelectionChange
       ? {
           onRowSelectionChange: setSelectionState,
         }
@@ -335,27 +336,35 @@ export const Table = <T extends Record<string, unknown>>({
   });
 
   useEffect(() => {
-    if (selection?.active && selection?.onRowSelectionChange) {
-      selection?.onRowSelectionChange(selectionState);
+    if (selection?.active && selection.onRowSelectionChange) {
+      selection.onRowSelectionChange(selectionState);
     }
   }, [selectionState]);
 
   useEffect(() => {
-    if (sorting?.active && sorting?.onSortingChange) {
-      sorting?.onSortingChange(sortingState);
+    if (sorting?.active && sorting.onSortingChange) {
+      sorting.onSortingChange(sortingState);
     }
   }, [sortingState]);
 
   useEffect(() => {
-    if (!sorting) return;
-    if (!sorting?.active) return;
-    setSortingState(sorting.state || []);
+    if (!sorting) {
+      return;
+    }
+    if (!sorting.active) {
+      return;
+    }
+    setSortingState(sorting.state ?? []);
   }, [sorting?.state]);
 
   useEffect(() => {
-    if (!selection) return;
-    if (!selection.active) return;
-    setSelectionState(selection.defaultState || {});
+    if (!selection) {
+      return;
+    }
+    if (!selection.active) {
+      return;
+    }
+    setSelectionState(selection.defaultState ?? {});
   }, [selection?.defaultState]);
 
   return (
@@ -389,7 +398,7 @@ export const Table = <T extends Record<string, unknown>>({
                     ...css?.th,
                     ...css?.column?.[header.id as keyof T]?.th,
                   }}
-                  padding={padding?.th}
+                  padding={padding.th}
                 >
                   {header.isPlaceholder ? null : (
                     <ThSpan
@@ -441,39 +450,31 @@ export const Table = <T extends Record<string, unknown>>({
           ))}
         </Thead>
         <Tbody variant={variant} css={css?.tbody}>
-          {table.getRowModel().rows.map((row) => {
-            return (
-              <Tr key={row.id} variant={variant} css={css?.tr}>
-                {row.getVisibleCells().map((cell) => {
-                  return (
-                    <Td
-                      key={cell.id}
-                      variant={variant}
-                      css={{
-                        ...css?.td,
-                        ...css?.column?.[cell.column.id as keyof T]?.td,
-                      }}
-                      padding={padding?.td}
-                    >
-                      <TdContent
-                        variant={variant}
-                        css={{
-                          ...css?.tdContent,
-                          ...css?.column?.[cell.column.id as keyof T]
-                            ?.tdContent,
-                        }}
-                      >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TdContent>
-                    </Td>
-                  );
-                })}
-              </Tr>
-            );
-          })}
+          {table.getRowModel().rows.map((row) => (
+            <Tr key={row.id} variant={variant} css={css?.tr}>
+              {row.getVisibleCells().map((cell) => (
+                <Td
+                  key={cell.id}
+                  variant={variant}
+                  css={{
+                    ...css?.td,
+                    ...css?.column?.[cell.column.id as keyof T]?.td,
+                  }}
+                  padding={padding.td}
+                >
+                  <TdContent
+                    variant={variant}
+                    css={{
+                      ...css?.tdContent,
+                      ...css?.column?.[cell.column.id as keyof T]?.tdContent,
+                    }}
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TdContent>
+                </Td>
+              ))}
+            </Tr>
+          ))}
 
           {!table.getRowModel().rows.length && emptyMessage ? (
             <Tr key="empty">
@@ -482,7 +483,7 @@ export const Table = <T extends Record<string, unknown>>({
                 css={{
                   ...css?.tdEmptyMessage,
                 }}
-                padding={padding?.td}
+                padding={padding.td}
                 variant={variant}
               >
                 <TdContent
@@ -512,7 +513,7 @@ export const Table = <T extends Record<string, unknown>>({
                       ...css?.th,
                       ...css?.column?.[header.id as keyof T]?.th,
                     }}
-                    padding={padding?.th}
+                    padding={padding.th}
                   >
                     {header.isPlaceholder ? null : (
                       <ThSpan
@@ -574,7 +575,7 @@ export const Table = <T extends Record<string, unknown>>({
           pageCount={table.getPageCount()}
           pageIndex={table.getState().pagination.pageIndex}
           previousPage={table.previousPage}
-          selectValue={pagination.selectValue || [5, 10, 25, 50, 100]}
+          selectValue={pagination.selectValue ?? [5, 10, 25, 50, 100]}
           setPageSize={table.setPageSize}
           setPageIndex={table.setPageIndex}
           defaultPageSize={5}

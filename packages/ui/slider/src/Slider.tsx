@@ -238,10 +238,7 @@ export const Slider: FC<SliderProps> = ({
         <Track
           css={{
             br: sliderBorderRadius,
-            backgroundColor:
-              trackColorHex || trackColorName
-                ? `$${trackColorName}`
-                : undefined,
+            backgroundColor: trackColorHex ?? `$${trackColorName}`,
 
             '&[data-orientation="horizontal"]': { height: weight },
             '&[data-orientation="vertical"]': { width: weight },
@@ -252,11 +249,7 @@ export const Slider: FC<SliderProps> = ({
           <Range
             css={{
               br: sliderBorderRadius,
-              backgroundColor:
-                rangeColorHex || rangeColorName
-                  ? `$${rangeColorName}`
-                  : undefined,
-
+              backgroundColor: rangeColorHex ?? `$${rangeColorName}`,
               ...css?.range,
             }}
           />
@@ -266,22 +259,16 @@ export const Slider: FC<SliderProps> = ({
             br: thumbBorderRadius,
             width: thumbSize,
             height: thumbSize,
-            backgroundColor:
-              thumbColorHex || thumbColorName
-                ? `$${thumbColorName}`
-                : undefined,
+            backgroundColor: thumbColorHex ?? `$${thumbColorName}`,
             borderColor:
-              thumbBorderColorHex || thumbBorderColorName
-                ? `$${thumbBorderColorName}`
-                : undefined,
+              thumbBorderColorHex ??
+              (thumbBorderColorName ? `$${thumbBorderColorName}` : undefined),
             borderWidth: thumbBorderWidth,
             borderRadius: thumbBorderRadius,
 
             '&:hover': {
               backgroundColor:
-                thumbBorderColorHoverHex || thumbBorderColorNameHover
-                  ? `$${thumbBorderColorNameHover}`
-                  : undefined,
+                thumbBorderColorHoverHex ?? `$${thumbBorderColorNameHover}`,
             },
 
             ...css?.thumb,

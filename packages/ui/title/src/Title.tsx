@@ -69,7 +69,7 @@ export type TitleTextTransform = keyof typeof textTransformComponent;
 export const titleVariant = titleComponent;
 export type TitleVariant = keyof typeof titleVariant;
 
-export interface TitleCSS {
+export type TitleCSS = {
   global?: PikasCSS;
   h1?: PikasCSS;
   h2?: PikasCSS;
@@ -77,15 +77,15 @@ export interface TitleCSS {
   h4?: PikasCSS;
   h5?: PikasCSS;
   h6?: PikasCSS;
-}
+};
 
-export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
+export type TitleProps = HTMLAttributes<HTMLHeadingElement> & {
   as: TitleAs;
   variant?: TitleVariant;
   textTransform?: TitleTextTransform;
   css?: TitleCSS;
   children?: ReactNode;
-}
+};
 
 export const Title: FC<TitleProps> = ({
   children,
@@ -93,18 +93,16 @@ export const Title: FC<TitleProps> = ({
   variant,
   textTransform,
   css,
-}) => {
-  return (
-    <TitleStyle
-      as={as}
-      variant={variant || as}
-      css={{
-        textTransform,
-        ...css?.global,
-        ...css?.[variant || as],
-      }}
-    >
-      {children}
-    </TitleStyle>
-  );
-};
+}) => (
+  <TitleStyle
+    as={as}
+    variant={variant ?? as}
+    css={{
+      textTransform,
+      ...css?.global,
+      ...css?.[variant ?? as],
+    }}
+  >
+    {children}
+  </TitleStyle>
+);

@@ -25,7 +25,6 @@ import type {
   GridContainerColumnGap,
   GridContainerRowGap,
 } from '@pikas-ui/grid';
-import { FC } from 'react';
 
 const Container = styled('div', {
   width: '100%',
@@ -67,7 +66,7 @@ const DragOverlayNumber = styled('span', {
 });
 
 export type ExplorerItemType = 'file' | 'folder';
-export interface ExplorerItem {
+export type ExplorerItem = {
   id: string;
   name: string;
   size: string;
@@ -76,14 +75,14 @@ export interface ExplorerItem {
   updatedAt: string;
   isFavorite?: boolean;
   menu?: MenuDataItem[];
-}
-export interface ExplorerItemFile extends ExplorerItem {
+};
+export type ExplorerItemFile = ExplorerItem & {
   type: 'file';
-}
-export interface ExplorerItemFolder extends ExplorerItem {
+};
+export type ExplorerItemFolder = ExplorerItem & {
   type: 'folder';
-}
-export type ExplorerShowType = 'list' | 'grid';
+};
+export type ExplorerShowType = 'grid' | 'list';
 
 export type OnClickItem = {
   id: string;
@@ -111,6 +110,7 @@ export type OnFavoriteItem = (values: {
 }) => Promise<void> | void;
 
 export type ShowBreadcrumb =
+  | false
   | {
       default: boolean;
       xs?: boolean;
@@ -118,10 +118,10 @@ export type ShowBreadcrumb =
       md?: boolean;
       lg?: boolean;
       xl?: boolean;
-    }
-  | false;
+    };
 
 export type ShowActions =
+  | false
   | {
       default: boolean;
       xs?: boolean;
@@ -129,14 +129,13 @@ export type ShowActions =
       md?: boolean;
       lg?: boolean;
       xl?: boolean;
-    }
-  | false;
+    };
 
-export interface Action {
+export type Action = {
   Icon: FC<IconProps>;
   onClick: (ids: string[]) => Promise<void> | void;
-  accessType: Array<ExplorerItemType>;
-}
+  accessType: ExplorerItemType[];
+};
 
 export const ExplorerContext = createContext<{
   items: ExplorerItem[];
@@ -158,6 +157,7 @@ export const ExplorerContext = createContext<{
 }>({
   items: [],
   onClickItem: () => {
+    // eslint-disable-next-line no-console
     console.log('onClickItem');
   },
   itemsSelected: [],
@@ -166,7 +166,7 @@ export const ExplorerContext = createContext<{
   gridColumnGap: { default: 16 },
 });
 
-export interface ExplorerProps {
+export type ExplorerProps = {
   showType?: ExplorerShowType;
   items: ExplorerItem[];
   multiSelectable?: boolean;
@@ -183,7 +183,7 @@ export interface ExplorerProps {
   gridCols?: GridContainerCols;
   gridRowGap?: GridContainerRowGap;
   gridColumnGap?: GridContainerColumnGap;
-}
+};
 
 export const Explorer: FC<ExplorerProps> = ({
   showType = 'grid',
@@ -260,7 +260,7 @@ export const Explorer: FC<ExplorerProps> = ({
   };
 
   const handleClickItem = ({ id }: OnClickItem): void => {
-    const item = itemsFiltered.find((item) => item.id === id);
+    const item = itemsFiltered.find((i) => i.id === id);
 
     if (!item) {
       return;
@@ -268,11 +268,11 @@ export const Explorer: FC<ExplorerProps> = ({
 
     if (multiSelectable && ctrlPressed) {
       if (itemsSelected.includes(item)) {
-        setItemsSelected((itemsSelected) =>
-          itemsSelected.filter((itemSelected) => itemSelected.id !== item.id)
+        setItemsSelected((lastItemSelected) =>
+          lastItemSelected.filter((is) => is.id !== item.id)
         );
       } else {
-        setItemsSelected((itemsSelected) => [...itemsSelected, item]);
+        setItemsSelected((lastItemSelected) => [...lastItemSelected, item]);
       }
       setLastItemClicked(item);
     } else if (multiSelectable && shiftPressed) {
@@ -308,19 +308,19 @@ export const Explorer: FC<ExplorerProps> = ({
       value={{
         items: itemsFiltered,
         onClickItem: handleClickItem,
-        itemsSelected: itemsSelected,
-        breadcrumb: breadcrumb,
-        onOpenItem: onOpenItem,
-        showFavorite: showFavorite,
-        onFavoriteItem: onFavoriteItem,
-        showBreadcrumb: showBreadcrumb,
-        showContextMenu: showContextMenu,
-        showDropdownMenu: showDropdownMenu,
-        showActions: showActions,
-        actions: actions,
-        gridCols: gridCols,
-        gridRowGap: gridRowGap,
-        gridColumnGap: gridColumnGap,
+        itemsSelected,
+        breadcrumb,
+        onOpenItem,
+        showFavorite,
+        onFavoriteItem,
+        showBreadcrumb,
+        showContextMenu,
+        showDropdownMenu,
+        showActions,
+        actions,
+        gridCols,
+        gridRowGap,
+        gridColumnGap,
       }}
     >
       <Container onClick={handleResetItemsSelected} ref={containerRef}>
@@ -360,8 +360,8 @@ export const Explorer: FC<ExplorerProps> = ({
   );
 };
 
-const sortItems = (items: ExplorerItem[]): ExplorerItem[] => {
-  return items
+const sortItems = (items: ExplorerItem[]): ExplorerItem[] =>
+  items
     .sort((a, b) => a.name.localeCompare(b.name))
     .sort((a, b) => {
       if (a.type === 'folder' && b.type === 'file') {
@@ -372,4 +372,3 @@ const sortItems = (items: ExplorerItem[]): ExplorerItem[] => {
       }
       return 0;
     });
-};

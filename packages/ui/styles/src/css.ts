@@ -36,23 +36,23 @@ const utils = loadUtils({});
 
 export const pikasConfig = createStitches({
   theme: {
-    colors: colors,
-    fonts: fonts,
-    shadows: shadows,
-    fontSizes: fontSizes,
+    colors,
+    fonts,
+    shadows,
+    fontSizes,
     space: spaces,
-    sizes: sizes,
-    fontWeights: fontWeights,
-    lineHeights: lineHeights,
-    letterSpacings: letterSpacings,
-    borderWidths: borderWidths,
-    borderStyles: borderStyles,
-    radii: radii,
-    zIndices: zIndices,
-    transitions: transitions,
+    sizes,
+    fontWeights,
+    lineHeights,
+    letterSpacings,
+    borderWidths,
+    borderStyles,
+    radii,
+    zIndices,
+    transitions,
   },
   media: medias,
-  utils: utils,
+  utils,
 });
 
 export const {

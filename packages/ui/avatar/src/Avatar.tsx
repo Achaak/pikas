@@ -1,4 +1,8 @@
-import * as AvatarPrimitive from '@radix-ui/react-avatar';
+import {
+  Root as AvatarPrimitiveRoot,
+  Image as AvatarPrimitiveImage,
+  Fallback as AvatarPrimitiveFallback,
+} from '@radix-ui/react-avatar';
 import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { ImageLoadingStatus } from '@radix-ui/react-avatar';
@@ -7,7 +11,7 @@ import { FC } from 'react';
 
 export type { ImageLoadingStatus } from '@radix-ui/react-avatar';
 
-const Root = styled(AvatarPrimitive.Root, {
+const Root = styled(AvatarPrimitiveRoot, {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -17,14 +21,14 @@ const Root = styled(AvatarPrimitive.Root, {
   position: 'relative',
 });
 
-const Image = styled(AvatarPrimitive.Image, {
+const Image = styled(AvatarPrimitiveImage, {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
   borderRadius: 'inherit',
 });
 
-const Fallback = styled(AvatarPrimitive.Fallback, {
+const Fallback = styled(AvatarPrimitiveFallback, {
   width: '100%',
   height: '100%',
   display: 'flex',
@@ -34,13 +38,13 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   fontWeight: '$BOLD',
 });
 
-export interface AvatarCSS {
+export type AvatarCSS = {
   container?: PikasCSS;
   image?: PikasCSS;
   fallback?: PikasCSS;
-}
+};
 
-export interface AvatarProps {
+export type AvatarProps = {
   alt?: string;
   src?: string;
   onLoadingStatusChange?: (status: ImageLoadingStatus) => void;
@@ -52,7 +56,7 @@ export interface AvatarProps {
   size?: number;
   borderRadius?: BorderRadius;
   loading?: boolean;
-}
+};
 
 export const Avatar: FC<AvatarProps> = ({
   alt,
@@ -66,49 +70,47 @@ export const Avatar: FC<AvatarProps> = ({
   size = 80,
   borderRadius = 'round',
   loading = false,
-}) => {
-  return (
-    <Root
-      css={{
-        height: size,
-        minHeight: size,
-        width: size,
-        minWidth: size,
-        br: borderRadius,
-        ...css?.container,
-      }}
-    >
-      {loading ? (
-        <Skeleton
-          animation="pulse"
-          width="100%"
-          height="100%"
-          borderRadius={borderRadius}
-          css={{
-            position: 'absolute',
-          }}
-        />
-      ) : null}
-
-      <Image
-        src={src}
-        alt={alt}
-        onLoadingStatusChange={onLoadingStatusChange}
+}) => (
+  <Root
+    css={{
+      height: size,
+      minHeight: size,
+      width: size,
+      minWidth: size,
+      br: borderRadius,
+      ...css?.container,
+    }}
+  >
+    {loading ? (
+      <Skeleton
+        animation="pulse"
+        width="100%"
+        height="100%"
+        borderRadius={borderRadius}
         css={{
-          ...css?.image,
+          position: 'absolute',
         }}
       />
-      <Fallback
-        delayMs={delayMs}
-        css={{
-          fontSize: size ? size / 2.5 : undefined,
-          color: `$${fallbackColorName}`,
-          backgroundColor: `$${fallbackBackgroundColorName}`,
-          ...css?.fallback,
-        }}
-      >
-        {fallback}
-      </Fallback>
-    </Root>
-  );
-};
+    ) : null}
+
+    <Image
+      src={src}
+      alt={alt}
+      onLoadingStatusChange={onLoadingStatusChange}
+      css={{
+        ...css?.image,
+      }}
+    />
+    <Fallback
+      delayMs={delayMs}
+      css={{
+        fontSize: size ? size / 2.5 : undefined,
+        color: `$${fallbackColorName}`,
+        backgroundColor: `$${fallbackBackgroundColorName}`,
+        ...css?.fallback,
+      }}
+    >
+      {fallback}
+    </Fallback>
+  </Root>
+);

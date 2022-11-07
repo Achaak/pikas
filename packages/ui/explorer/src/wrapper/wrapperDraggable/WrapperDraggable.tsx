@@ -4,17 +4,17 @@ import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {});
 
-export interface WrapperDraggableProps {
+export type WrapperDraggableProps = {
   children?: ReactNode;
   id: string;
-}
+};
 
 export const WrapperDraggable: FC<WrapperDraggableProps> = ({
   children,
   id,
 }) => {
   const { attributes, listeners, setNodeRef } = useDraggable({
-    id: id,
+    id,
   });
 
   return (

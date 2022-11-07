@@ -41,6 +41,8 @@ export const br = {
         return {
           borderRadius: 5000,
         };
+      default:
+        return {};
     }
   },
   brTL: (value: BorderRadius): Record<string, unknown> => {
@@ -73,6 +75,8 @@ export const br = {
         return {
           borderTopLeftRadius: 5000,
         };
+      default:
+        return {};
     }
   },
   brTR: (value: BorderRadius): Record<string, unknown> => {
@@ -105,6 +109,8 @@ export const br = {
         return {
           borderTopRightRadius: 5000,
         };
+      default:
+        return {};
     }
   },
   brBL: (value: BorderRadius): Record<string, unknown> => {
@@ -137,6 +143,8 @@ export const br = {
         return {
           borderBottomLeftRadius: 5000,
         };
+      default:
+        return {};
     }
   },
   brBR: (value: BorderRadius): Record<string, unknown> => {
@@ -169,6 +177,8 @@ export const br = {
         return {
           borderBottomRightRadius: 5000,
         };
+      default:
+        return {};
     }
   },
 };

@@ -3,13 +3,13 @@ import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 import { PulseLoader as PulseLoaderDefault } from 'react-spinners';
 
-export interface PulseLoaderProps {
+export type PulseLoaderProps = {
   size?: number | string;
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
   speedMultiplier?: number;
-}
+};
 
 export const PulseLoader: FC<PulseLoaderProps> = ({
   size,
@@ -24,9 +24,7 @@ export const PulseLoader: FC<PulseLoaderProps> = ({
     <PulseLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
     />
   );

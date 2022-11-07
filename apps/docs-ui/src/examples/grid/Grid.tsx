@@ -11,27 +11,25 @@ const Block = styled('div', {
   color: '$WHITE_FIX',
 });
 
-export const GridExample: FC = () => {
-  return (
-    <ExampleContainer>
-      <Grid type="container" cols={{ default: 12 }}>
-        <Grid type="item" cols={{ default: 12, xl: 6 }}>
-          <Block>1</Block>
-        </Grid>
-        <Grid type="item" cols={{ default: 12, md: 6, xl: 3 }}>
-          <Block>2</Block>
-        </Grid>
-        <Grid type="item" cols={{ default: 12, md: 6, xl: 3 }}>
-          <Block>3</Block>
-        </Grid>
-        <Grid
-          type="item"
-          cols={{ default: 12, xl: 6 }}
-          start={{ default: 1, xl: 7 }}
-        >
-          <Block>4</Block>
-        </Grid>
+export const GridExample: FC = () => (
+  <ExampleContainer>
+    <Grid type="container" cols={{ default: 12 }}>
+      <Grid type="item" cols={{ default: 12, xl: 6 }}>
+        <Block>1</Block>
       </Grid>
-    </ExampleContainer>
-  );
-};
+      <Grid type="item" cols={{ default: 12, md: 6, xl: 3 }}>
+        <Block>2</Block>
+      </Grid>
+      <Grid type="item" cols={{ default: 12, md: 6, xl: 3 }}>
+        <Block>3</Block>
+      </Grid>
+      <Grid
+        type="item"
+        cols={{ default: 12, xl: 6 }}
+        start={{ default: 1, xl: 7 }}
+      >
+        <Block>4</Block>
+      </Grid>
+    </Grid>
+  </ExampleContainer>
+);

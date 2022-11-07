@@ -1,14 +1,13 @@
 import { CustomAlert } from '@pikas-ui/alert';
 import { ExampleContainer } from '@pikas/docs-ui';
-import { FC } from 'react';
+import { FC, FC, useState } from 'react';
 import type { IconProps } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
-import { FC, useState } from 'react';
 import { Button } from '@pikas-ui/button';
 
-const IconExample: FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />;
-};
+const IconExample: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:baguette" />
+);
 
 export const CustomAlertExample: FC = () => {
   const [visible, setVisible] = useState(true);

@@ -1,9 +1,8 @@
 import { IconByName } from '@pikas-ui/icons';
 import { styled } from '@pikas-ui/styles';
-import { useContext } from 'react';
+import { useContext, FC } from 'react';
 import { ExplorerContext } from '../../Explorer.js';
 import { BreadcrumbItem } from './breadcrumbItem/BreadcrumbItem.js';
-import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'none',
@@ -33,12 +32,12 @@ export const Breadcrumb: FC = () => {
   return (
     <Container
       css={{
-        ...(showBreadcrumb?.default && { '@xs': { display: 'flex' } }),
-        ...(showBreadcrumb?.xs && { '@xs': { display: 'flex' } }),
-        ...(showBreadcrumb?.sm && { '@sm': { display: 'flex' } }),
-        ...(showBreadcrumb?.md && { '@md': { display: 'flex' } }),
-        ...(showBreadcrumb?.lg && { '@lg': { display: 'flex' } }),
-        ...(showBreadcrumb?.xl && { '@xl': { display: 'flex' } }),
+        ...(showBreadcrumb.default && { '@xs': { display: 'flex' } }),
+        ...(showBreadcrumb.xs && { '@xs': { display: 'flex' } }),
+        ...(showBreadcrumb.sm && { '@sm': { display: 'flex' } }),
+        ...(showBreadcrumb.md && { '@md': { display: 'flex' } }),
+        ...(showBreadcrumb.lg && { '@lg': { display: 'flex' } }),
+        ...(showBreadcrumb.xl && { '@xl': { display: 'flex' } }),
       }}
     >
       {breadcrumb?.map((breadcrumbItem, index) => {

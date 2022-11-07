@@ -13,8 +13,8 @@ export const pikasFontWeights = {
 export type PikasFontWeights = typeof pikasFontWeights;
 export type PikasFontWeight = keyof PikasFontWeights;
 
-export type FontWeightsRecordValue = string | number;
-export type FontWeightsRecordKey = string | number | PikasFontWeight;
+export type FontWeightsRecordValue = number | string;
+export type FontWeightsRecordKey = PikasFontWeight | number | string;
 export type FontWeightsRecord = Record<
   FontWeightsRecordKey,
   FontWeightsRecordValue
@@ -22,10 +22,10 @@ export type FontWeightsRecord = Record<
 
 export const loadFontWeights = <T extends FontWeightsRecord>(
   values:
+    | T
     | {
         [key in keyof PikasFontWeights]?: FontWeightsRecordValue;
       }
-    | T
 ): PikasFontWeights & T =>
   ({
     ...pikasFontWeights,

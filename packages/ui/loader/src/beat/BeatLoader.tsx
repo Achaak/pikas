@@ -3,14 +3,14 @@ import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 import { BeatLoader as BeatLoaderDefault } from 'react-spinners';
 
-export interface BeatLoaderProps {
+export type BeatLoaderProps = {
   size?: number | string;
   margin?: number;
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
   speedMultiplier?: number;
-}
+};
 
 export const BeatLoader: FC<BeatLoaderProps> = ({
   size,
@@ -26,9 +26,7 @@ export const BeatLoader: FC<BeatLoaderProps> = ({
     <BeatLoaderDefault
       size={size}
       margin={margin}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
       speedMultiplier={speedMultiplier}
     />

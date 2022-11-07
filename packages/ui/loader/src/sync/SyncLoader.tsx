@@ -3,14 +3,14 @@ import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 
-export interface SyncLoaderProps {
+export type SyncLoaderProps = {
   size?: number;
   margin?: number;
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
   speedMultiplier?: number;
-}
+};
 
 export const SyncLoader: FC<SyncLoaderProps> = ({
   size,
@@ -27,9 +27,7 @@ export const SyncLoader: FC<SyncLoaderProps> = ({
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
     />
   );

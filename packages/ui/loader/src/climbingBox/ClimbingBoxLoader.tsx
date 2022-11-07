@@ -3,13 +3,13 @@ import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 
-export interface ClimbingBoxLoaderProps {
+export type ClimbingBoxLoaderProps = {
   size?: number;
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
   speedMultiplier?: number;
-}
+};
 
 export const ClimbingBoxLoader: FC<ClimbingBoxLoaderProps> = ({
   size,
@@ -24,9 +24,7 @@ export const ClimbingBoxLoader: FC<ClimbingBoxLoaderProps> = ({
     <ClimbingBoxLoaderDefault
       size={size}
       speedMultiplier={speedMultiplier}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
     />
   );

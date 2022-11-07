@@ -55,7 +55,7 @@ const ButtonArrowRight = styled(ButtonArrow, {
   marginLeft: 8,
 });
 
-export interface PaginationCSS {
+export type PaginationCSS = {
   container?: PikasCSS;
   leftContainer?: PikasCSS;
   rightContainer?: PikasCSS;
@@ -66,9 +66,9 @@ export interface PaginationCSS {
   buttonChevronsRight?: PikasCSS;
   buttonChevronLeft?: PikasCSS;
   buttonChevronRight?: PikasCSS;
-}
+};
 
-export interface PaginationProps {
+export type PaginationProps = {
   previousPage: () => void;
   nextPage: () => void;
   setPageSize: (pageSize: number) => void;
@@ -80,7 +80,7 @@ export interface PaginationProps {
   selectValue: number[];
   defaultPageSize: number;
   css?: PaginationCSS;
-}
+};
 
 export const Pagination: FC<PaginationProps> = ({
   nextPage,
@@ -98,7 +98,7 @@ export const Pagination: FC<PaginationProps> = ({
   const theme = useTheme();
 
   const getNumber = (): ReactNode => {
-    const pagesBtn: Array<ReactElement> = [];
+    const pagesBtn: ReactElement[] = [];
 
     let start = pageIndex;
     // Add previous
@@ -127,9 +127,7 @@ export const Pagination: FC<PaginationProps> = ({
               ...(i === pageIndex && {
                 backgroundColor: '$PRIMARY',
                 color:
-                  (theme &&
-                    fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
-                  undefined,
+                  theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
                 ...css?.pageNumberActive,
               }),
             }}

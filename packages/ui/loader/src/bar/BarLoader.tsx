@@ -3,14 +3,14 @@ import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
 import { BarLoader as BarLoaderDefault } from 'react-spinners';
 
-export interface BarLoaderProps {
+export type BarLoaderProps = {
   width?: number;
   height?: number;
   colorName?: PikasColor;
   colorHex?: string;
   loading?: boolean;
   speedMultiplier?: number;
-}
+};
 
 export const BarLoader: FC<BarLoaderProps> = ({
   width,
@@ -27,9 +27,7 @@ export const BarLoader: FC<BarLoaderProps> = ({
       width={width}
       height={height}
       speedMultiplier={speedMultiplier}
-      color={
-        colorHex || (colorName ? theme?.colors[colorName].value : undefined)
-      }
+      color={colorHex ?? theme?.colors[colorName].value}
       loading={loading}
     />
   );
