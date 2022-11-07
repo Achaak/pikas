@@ -277,6 +277,20 @@ export const Dropzone: FC<DropzoneProps> = ({
     </FileListItem>
   ));
 
+  const getCustomSubDescription = () => {
+    if (maxFiles === 0) {
+      return '(You can upload any number of files)';
+    }
+
+    if (maxFiles === 1) {
+      return '(You can upload only one file)';
+    }
+
+    return `(${maxFiles} ${
+      maxFiles > 1 ? 'files' : 'file'
+    } is the maximum number of files you can drop here)`;
+  };
+
   return (
     <Container isDisabled={disabled} css={css?.container}>
       <DropzoneStyled
@@ -295,9 +309,7 @@ export const Dropzone: FC<DropzoneProps> = ({
             "Drag 'n' drop some files here, or click to select files"}
         </Description>
         <SubDescription isFocused={isDragActive} css={css?.subDescription}>
-          {subDescription ??
-            `(${maxFiles} ${maxFiles > 1 ? 'files are' : 'file is'} the maximum
-          number of files you can drop here)`}
+          {subDescription ?? getCustomSubDescription()}
         </SubDescription>
       </DropzoneStyled>
       {(acceptedFiles.length > 0 || fileRejections.length > 0) &&

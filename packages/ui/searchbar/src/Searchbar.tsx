@@ -432,58 +432,65 @@ export const Searchbar = <T,>({
               <ClipLoader size={40} colorName="PRIMARY" />
             </ResultLoading>
           ) : null}
-          {!loading && nbItems && result ? (
-            result.map((group, groupIndex) => {
-              const res = [];
+          {!loading && (
+            <>
+              {nbItems && result ? (
+                result.map((group, groupIndex) => {
+                  const res = [];
 
-              if (group.title && group.items.length) {
-                res.push(
-                  <ResultGroupTitle
-                    key={`${groupIndex}-title`}
-                    css={css?.resultGroupTitle}
-                  >
-                    {group.title}
-                  </ResultGroupTitle>
-                );
-              }
-
-              res.push(
-                <ResultGroupStyled key={groupIndex} css={css?.resultGroup}>
-                  {group.items.map((item, itemIndex) => {
-                    const resGroupItem = [];
-
-                    if (itemIndex) {
-                      resGroupItem.push(
-                        <Separator size={1} key={`${itemIndex}-separator`} />
-                      );
-                    }
-
-                    resGroupItem.push(
-                      <ResultItemStyled
-                        ref={(ref): void => {
-                          refItem.current[item.id] = ref;
-                        }}
-                        key={itemIndex}
-                        onClick={(): void => {
-                          item.onClick?.();
-                          setIsOpen(false);
-                        }}
-                        selected={selectionId === item.id}
-                        css={css?.resultItem}
+                  if (group.title && group.items.length) {
+                    res.push(
+                      <ResultGroupTitle
+                        key={`${groupIndex}-title`}
+                        css={css?.resultGroupTitle}
                       >
-                        {item.content}
-                      </ResultItemStyled>
+                        {group.title}
+                      </ResultGroupTitle>
                     );
+                  }
 
-                    return resGroupItem;
-                  })}
-                </ResultGroupStyled>
-              );
+                  res.push(
+                    <ResultGroupStyled key={groupIndex} css={css?.resultGroup}>
+                      {group.items.map((item, itemIndex) => {
+                        const resGroupItem = [];
 
-              return res;
-            })
-          ) : (
-            <NoResult css={css?.noResult}>{noResult}</NoResult>
+                        if (itemIndex) {
+                          resGroupItem.push(
+                            <Separator
+                              size={1}
+                              key={`${itemIndex}-separator`}
+                            />
+                          );
+                        }
+
+                        resGroupItem.push(
+                          <ResultItemStyled
+                            ref={(ref): void => {
+                              refItem.current[item.id] = ref;
+                            }}
+                            key={itemIndex}
+                            onClick={(): void => {
+                              item.onClick?.();
+                              setIsOpen(false);
+                            }}
+                            selected={selectionId === item.id}
+                            css={css?.resultItem}
+                          >
+                            {item.content}
+                          </ResultItemStyled>
+                        );
+
+                        return resGroupItem;
+                      })}
+                    </ResultGroupStyled>
+                  );
+
+                  return res;
+                })
+              ) : (
+                <NoResult css={css?.noResult}>{noResult}</NoResult>
+              )}
+            </>
           )}
         </SearchResultContainer>
       </Result>
