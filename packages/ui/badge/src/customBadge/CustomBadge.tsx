@@ -4,8 +4,7 @@ import type {
   PikasCSS,
   PikasShadow,
 } from '@pikas-ui/styles';
-import { useTheme } from '@pikas-ui/styles';
-import { styled } from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
 import fontColorContrast from 'font-color-contrast';
 import type { HTMLAttributes } from 'react';
 import { ReactNode, FC } from 'react';
@@ -16,14 +15,14 @@ const Container = styled('div', {
   justifyContent: 'center',
 });
 
-export interface CustomBadgeProps extends HTMLAttributes<HTMLDivElement> {
+export type CustomBadgeProps = HTMLAttributes<HTMLDivElement> & {
   children?: ReactNode;
   colorName?: PikasColor;
   colorHex?: string;
   boxShadow?: PikasShadow | 'none';
   borderRadius?: BorderRadius;
   css?: PikasCSS;
-}
+};
 
 export const CustomBadge: FC<CustomBadgeProps> = ({
   colorName = 'PRIMARY',
@@ -44,10 +43,7 @@ export const CustomBadge: FC<CustomBadgeProps> = ({
         br: borderRadius,
         color:
           theme &&
-          fontColorContrast(
-            colorHex || theme.colors[colorName || 'PRIMARY'].value,
-            0.7
-          ),
+          fontColorContrast(colorHex ?? theme.colors[colorName].value, 0.7),
         ...css,
       }}
       {...props}

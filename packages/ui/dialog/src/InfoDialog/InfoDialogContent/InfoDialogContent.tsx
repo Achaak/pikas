@@ -9,10 +9,10 @@ const Container = styled('div', {
   color: '$BLACK',
 });
 
-export interface InfoDialogContentProps {
+export type InfoDialogContentProps = {
   content: ReactNode;
-}
-
-export const InfoDialogContent: FC<InfoDialogContentProps> = ({ content }) => {
-  return <Container>{content}</Container>;
 };
+
+export const InfoDialogContent: FC<InfoDialogContentProps> = ({ content }) => (
+  <Container>{content}</Container>
+);

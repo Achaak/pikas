@@ -12,17 +12,13 @@ const Container = styled('div', {
   marginBottom: 8,
 });
 
-export interface ErrorDialogHeaderProps {
+export type ErrorDialogHeaderProps = {
   title?: string;
-}
-
-export const ErrorDialogHeader: FC<ErrorDialogHeaderProps> = ({
-  title,
-}) => {
-  return (
-    <Container>
-      <IconContainer iconName="bx:x-circle" backgroundColorName="DANGER" />
-      <Title>{title}</Title>
-    </Container>
-  );
 };
+
+export const ErrorDialogHeader: FC<ErrorDialogHeaderProps> = ({ title }) => (
+  <Container>
+    <IconContainer iconName="bx:x-circle" backgroundColorName="DANGER" />
+    <Title>{title}</Title>
+  </Container>
+);

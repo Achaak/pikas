@@ -1,5 +1,6 @@
 import type { ToastPosition } from '@pikas-ui/toast';
 import { ToastProvider } from '@pikas-ui/toast';
+import { FC } from 'react';
 import { CustomToastItem } from './customToastItem';
 
 type CustomToastExampleProps = {

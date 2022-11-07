@@ -58,10 +58,10 @@ const BxsMoon: FC<IconProps> = (props) => (
   <IconByName name="bxs:moon" {...props} />
 );
 
-interface CustomProps {
+type CustomProps = {
   documentationLink: string;
   githubLink: string;
-}
+};
 
 export const Header: FC<CustomProps> = ({ documentationLink, githubLink }) => {
   const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode();

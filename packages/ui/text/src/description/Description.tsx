@@ -10,11 +10,11 @@ const DescriptionStyled = styled('p', {
   color: '$BLACK',
 });
 
-export interface DescriptionProps {
+export type DescriptionProps = {
   children?: ReactNode;
   css?: PikasCSS;
-}
-
-export const Description: FC<DescriptionProps> = ({ children, css }) => {
-  return <DescriptionStyled css={css}>{children}</DescriptionStyled>;
 };
+
+export const Description: FC<DescriptionProps> = ({ children, css }) => (
+  <DescriptionStyled css={css}>{children}</DescriptionStyled>
+);

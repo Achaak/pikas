@@ -5,10 +5,9 @@ import { Tooltip } from '@pikas-ui/tooltip';
 import type { PikasCSS, PikasFontSize } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import { Label, TextError } from '@pikas-ui/text';
-import * as SwitchPrimitive from '@radix-ui/react-switch';
+import { Root, Thumb } from '@radix-ui/react-switch';
 import type { ButtonHTMLAttributes } from 'react';
-import { useEffect, useState } from 'react';
-import { FC, ReactNode } from 'react';
+import { useEffect, useState, FC, ReactNode } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -22,7 +21,7 @@ const SwitchContainer = styled('div', {
   alignItems: 'center',
 });
 
-const SwitchStyle = styled(SwitchPrimitive.Root, {
+const SwitchStyle = styled(Root, {
   all: 'unset',
   width: 48,
   height: 24,
@@ -41,7 +40,7 @@ const SwitchStyle = styled(SwitchPrimitive.Root, {
   },
 });
 
-const SwitchThumb = styled(SwitchPrimitive.Thumb, {
+const SwitchThumb = styled(Thumb, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -69,7 +68,7 @@ const Required = styled('div', {
   marginLeft: 4,
 });
 
-export interface SwitchCSS {
+export type SwitchCSS = {
   container?: PikasCSS;
   content?: PikasCSS;
   infoTooltip?: TooltipCSS;
@@ -77,9 +76,9 @@ export interface SwitchCSS {
   label?: PikasCSS;
   required?: PikasCSS;
   textError?: PikasCSS;
-}
+};
 
-export interface BasicSwitchProps {
+export type BasicSwitchProps = {
   label?: string;
   name?: string;
   fontSize?: PikasFontSize;
@@ -97,10 +96,10 @@ export interface BasicSwitchProps {
   required?: boolean;
   checked?: boolean;
   info?: string;
-}
+};
 
-export type SwitchProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  BasicSwitchProps;
+export type SwitchProps = BasicSwitchProps &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Switch: FC<SwitchProps> = ({
   id,
@@ -119,7 +118,7 @@ export const Switch: FC<SwitchProps> = ({
   checked,
   ...props
 }) => {
-  const [checkedState, setCheckedState] = useState(defaultChecked || checked);
+  const [checkedState, setCheckedState] = useState(defaultChecked ?? checked);
 
   useEffect(() => {
     setCheckedState(checked);

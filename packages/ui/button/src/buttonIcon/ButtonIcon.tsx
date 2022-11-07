@@ -6,7 +6,11 @@ import type {
   PikasShadow,
 } from '@pikas-ui/styles';
 import { styled, useTheme } from '@pikas-ui/styles';
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  MouseEvent,
+} from 'react';
 import { forwardRef, useCallback, ReactNode, FC } from 'react';
 import type {
   ButtonType,
@@ -156,7 +160,7 @@ export type ButtonIconDefaultProps = {
 };
 
 export type BaseButtonIconProps = ButtonIconDefaultProps & {
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => Promise<void> | void;
   type?: ButtonType;
 };
 
@@ -164,7 +168,7 @@ export type ButtonIconProps = BaseButtonIconProps &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type BaseButtonIconLinkProps = ButtonIconDefaultProps & {
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => Promise<void> | void;
   href?: string;
   target?: ButtonTarget;
 };
@@ -240,13 +244,16 @@ const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   ) => {
     const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return;
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLButtonElement>) => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.();
-    }, [disabled, onClick, loading]);
+        void onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
     if (!theme) {
       return <></>;
@@ -327,13 +334,16 @@ export const ButtonIconLink = forwardRef<
   ) => {
     const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return;
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLAnchorElement>): void => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.();
-    }, [disabled, onClick, loading]);
+        onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
     if (!theme) {
       return <></>;

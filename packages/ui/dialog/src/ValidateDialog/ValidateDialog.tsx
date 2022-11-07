@@ -6,7 +6,7 @@ import { ValidateDialogFooter } from './ValidateDialogFooter/index.js';
 import { ValidateDialogHeader } from './ValidateDialogHeader/index.js';
 import { ReactNode, FC } from 'react';
 
-export interface ValidateDialogProps extends DialogProps {
+export type ValidateDialogProps = DialogProps & {
   cancelButtonLabel?: string;
   validateButtonLabel?: string;
   cancelButtonColorName?: PikasColor;
@@ -19,7 +19,7 @@ export interface ValidateDialogProps extends DialogProps {
   onValidate?: () => Promise<void>;
   title?: string;
   content: ReactNode;
-}
+};
 
 export const ValidateDialog: FC<ValidateDialogProps> = ({
   onClose,
@@ -36,41 +36,39 @@ export const ValidateDialog: FC<ValidateDialogProps> = ({
   title = 'Are you sure ?',
   content,
   ...props
-}) => {
-  return (
-    <CustomDialog
-      onClose={onClose}
-      hasCloseIcon={false}
-      header={<ValidateDialogHeader title={title} />}
-      content={<ValidateDialogContent content={content} />}
-      footer={
-        <ValidateDialogFooter
-          cancelButtonLabel={cancelButtonLabel}
-          validateButtonLabel={validateButtonLabel}
-          cancelButtonColorName={cancelButtonColorName}
-          validateButtonColorName={validateButtonColorName}
-          cancelButtonDisabled={cancelButtonDisabled}
-          validateButtonDisabled={validateButtonDisabled}
-          cancelButtonLoading={cancelButtonLoading}
-          validateButtonLoading={validateButtonLoading}
-          onCancel={onCancel}
-          onValidate={onValidate}
-          onClose={onClose}
-        />
-      }
-      padding={{
-        container: 'no-padding',
-        header: 'no-padding',
-        content: 'no-padding',
-        footer: 'lg',
-      }}
-      gap={{
-        container: 'no-gap',
-        content: 'md',
-        footer: 'md',
-        header: 'md',
-      }}
-      {...props}
-    />
-  );
-};
+}) => (
+  <CustomDialog
+    onClose={onClose}
+    hasCloseIcon={false}
+    header={<ValidateDialogHeader title={title} />}
+    content={<ValidateDialogContent content={content} />}
+    footer={
+      <ValidateDialogFooter
+        cancelButtonLabel={cancelButtonLabel}
+        validateButtonLabel={validateButtonLabel}
+        cancelButtonColorName={cancelButtonColorName}
+        validateButtonColorName={validateButtonColorName}
+        cancelButtonDisabled={cancelButtonDisabled}
+        validateButtonDisabled={validateButtonDisabled}
+        cancelButtonLoading={cancelButtonLoading}
+        validateButtonLoading={validateButtonLoading}
+        onCancel={onCancel}
+        onValidate={onValidate}
+        onClose={onClose}
+      />
+    }
+    padding={{
+      container: 'no-padding',
+      header: 'no-padding',
+      content: 'no-padding',
+      footer: 'lg',
+    }}
+    gap={{
+      container: 'no-gap',
+      content: 'md',
+      footer: 'md',
+      header: 'md',
+    }}
+    {...props}
+  />
+);

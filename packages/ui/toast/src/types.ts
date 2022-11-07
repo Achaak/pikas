@@ -1,14 +1,14 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import type { SwipeEvent } from '@radix-ui/react-toast';
 
-export interface ToastCSS {
+export type ToastCSS = {
   toast?: PikasCSS;
-}
+};
 
-export interface ToastAction {
+export type ToastAction = {
   altText: string;
   trigger?: JSX.Element;
-}
+};
 
 export const toastType = {
   foreground: true,
@@ -16,7 +16,7 @@ export const toastType = {
 } as const;
 export type ToastType = keyof typeof toastType;
 
-export interface BaseToastProps {
+export type BaseToastProps = {
   css?: ToastCSS;
   duration?: number;
   onOpenChange?: (open: boolean) => void;
@@ -28,13 +28,13 @@ export interface BaseToastProps {
   onSwipeEnd?: (event: SwipeEvent) => void;
   onPause?: () => void;
   onResume?: () => void;
-  forceMount?: boolean;
+  forceMount?: true;
   hasCloseButton?: boolean;
   timer?: boolean;
   width?: number | string;
   maxWidth?: number | string;
   minWidth?: number | string;
-}
+};
 
 export const toastPosition = {
   'top-left': true,

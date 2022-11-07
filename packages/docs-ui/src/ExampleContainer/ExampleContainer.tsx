@@ -13,14 +13,12 @@ const Container = styled('div', {
   br: 'sm',
 });
 
-interface ExampleContainerProps {
+type ExampleContainerProps = {
   children?: ReactNode;
   css?: PikasCSS;
-}
+};
 
 export const ExampleContainer: FC<ExampleContainerProps> = ({
   children,
   css,
-}) => {
-  return <Container css={css}>{children}</Container>;
-};
+}) => <Container css={css}>{children}</Container>;

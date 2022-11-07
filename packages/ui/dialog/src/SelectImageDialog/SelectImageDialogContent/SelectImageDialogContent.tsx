@@ -5,11 +5,10 @@ import Cropper from 'react-easy-crop';
 import { IconByName } from '@pikas-ui/icons';
 import { Button } from '@pikas-ui/button';
 import type { ChangeEvent } from 'react';
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, FC } from 'react';
 import { getRotatedImage, readFile } from '../utils.js';
 import { getOrientation } from 'get-orientation/browser';
 import { MoonLoader } from '@pikas-ui/loader';
-import { FC } from 'react';
 
 const PictureContainer = styled('div', {
   width: '100%',
@@ -47,7 +46,7 @@ const Container = styled('div', {
   customRowGap: 16,
 });
 
-export interface SelectImageDialogContentProps {
+export type SelectImageDialogContentProps = {
   setImage: (image: string) => void;
   setImageFull: (image: string) => void;
   image?: string;
@@ -62,11 +61,9 @@ export interface SelectImageDialogContentProps {
   aspect: number;
   cropShape: 'rect' | 'round';
   cropSize?: { width: number; height: number };
-}
+};
 
-export const SelectImageDialogContent: FC<
-  SelectImageDialogContentProps
-> = ({
+export const SelectImageDialogContent: FC<SelectImageDialogContentProps> = ({
   setImage,
   setImageFull,
   image,

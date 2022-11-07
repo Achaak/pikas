@@ -2,6 +2,7 @@ import type { ToastVariant } from '@pikas-ui/toast';
 import { Toast as ToastPikasUI, useToast } from '@pikas-ui/toast';
 import { Button } from '@pikas-ui/button';
 import type { PikasColor } from '@pikas/docs-ui';
+import { FC } from 'react';
 
 type ToastExampleProps = {
   variant: ToastVariant;

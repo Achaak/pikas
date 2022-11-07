@@ -41,12 +41,9 @@ export const PacmanLoader: FC<PacmanLoaderProps> = ({
         '& span:nth-child(3), & span:nth-child(4), & span:nth-child(5), & span:nth-child(6)':
           {
             backgroundColor:
-              colorBubbleHex || colorBubble
-                ? `${
-                    colorBubbleHex ||
-                    (colorBubble ? `var(--colors-${colorBubble})` : undefined)
-                  } !important`
-                : undefined,
+              (colorBubbleHex && `${colorBubbleHex} !important`) ??
+              (colorBubble && `var(--colors-${colorBubble}) !important`) ??
+              undefined,
             zIndex: -1,
           },
       }}

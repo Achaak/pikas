@@ -5,6 +5,7 @@ import type {
   PikasFontSize,
   PikasFontWeight,
 } from '@pikas-ui/styles';
+import { ReactNode } from 'react';
 
 export const alertPadding = {
   xs: true,
@@ -32,7 +33,7 @@ export type AlertCSS = {
 };
 
 export type BaseAlertProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
   fontSize?: PikasFontSize;
   fontWeight?: PikasFontWeight;
   borderRadius?: BorderRadius;

@@ -110,13 +110,13 @@ const H3 = styled('h3', {
   fontWeight: '$BOLD',
 });
 
-const MenuIcon: FC<IconProps> = (props) => {
-  return <IconByName name="bx:menu" {...props} />;
-};
+const MenuIcon: FC<IconProps> = (props) => (
+  <IconByName name="bx:menu" {...props} />
+);
 
-interface CustomProps {
+type CustomProps = {
   menu: LayoutMenu;
-}
+};
 
 export const Menu: FC<CustomProps> = ({ menu }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -155,7 +155,7 @@ export const Menu: FC<CustomProps> = ({ menu }) => {
                 key={itemKey}
                 selected={pathname === item.href}
                 onClick={(): void => setIsOpen(false)}
-                disabled={item.disabled || false}
+                disabled={item.disabled ?? false}
               >
                 <Link href={item.href}>{item.label}</Link>
               </Item>

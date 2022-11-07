@@ -9,16 +9,14 @@ const Container = styled('div', {
   width: '100%',
 });
 
-export interface DefaultDialogHeaderProps {
+export type DefaultDialogHeaderProps = {
   title: string;
-}
+};
 
 export const DefaultDialogHeader: FC<DefaultDialogHeaderProps> = ({
   title,
-}) => {
-  return (
-    <Container>
-      <Title css={{ textAlign: 'left' }}>{title}</Title>
-    </Container>
-  );
-};
+}) => (
+  <Container>
+    <Title css={{ textAlign: 'left' }}>{title}</Title>
+  </Container>
+);

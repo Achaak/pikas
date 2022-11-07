@@ -12,20 +12,18 @@ const Container = styled('div', {
   marginBottom: 8,
 });
 
-export interface ValidateDialogHeaderProps {
+export type ValidateDialogHeaderProps = {
   title?: string;
-}
+};
 
 export const ValidateDialogHeader: FC<ValidateDialogHeaderProps> = ({
   title,
-}) => {
-  return (
-    <Container>
-      <IconContainer
-        iconName="ant-design:question-circle-outlined"
-        backgroundColorName="WARNING"
-      />
-      <Title>{title}</Title>
-    </Container>
-  );
-};
+}) => (
+  <Container>
+    <IconContainer
+      iconName="ant-design:question-circle-outlined"
+      backgroundColorName="WARNING"
+    />
+    <Title>{title}</Title>
+  </Container>
+);

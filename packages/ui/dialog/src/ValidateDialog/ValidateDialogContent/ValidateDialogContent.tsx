@@ -9,12 +9,10 @@ const Container = styled('div', {
   color: '$BLACK',
 });
 
-export interface ValidateDialogContentProps {
+export type ValidateDialogContentProps = {
   content: ReactNode;
-}
+};
 
 export const ValidateDialogContent: FC<ValidateDialogContentProps> = ({
   content,
-}) => {
-  return <Container>{content}</Container>;
-};
+}) => <Container>{content}</Container>;

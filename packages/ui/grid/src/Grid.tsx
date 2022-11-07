@@ -121,42 +121,42 @@ const Container = styled('div', {
 
 export type GridType = 'container' | 'item';
 
-export interface GridBaseProps {
+export type GridBaseProps = {
   children?: ReactNode;
   css?: PikasCSS;
   type: GridType;
-}
+};
 
 export type GridContainerRowGap =
-  | 'none'
-  | 'xs'
-  | 'sm'
-  | 'md'
   | 'lg'
+  | 'md'
+  | 'none'
+  | 'sm'
   | 'xl'
+  | 'xs'
   | {
-      default: string | number;
-      xs?: string | number;
-      sm?: string | number;
-      md?: string | number;
-      lg?: string | number;
-      xl?: string | number;
+      default: number | string;
+      xs?: number | string;
+      sm?: number | string;
+      md?: number | string;
+      lg?: number | string;
+      xl?: number | string;
     };
 
 export type GridContainerColumnGap =
-  | 'none'
-  | 'xs'
-  | 'sm'
-  | 'md'
   | 'lg'
+  | 'md'
+  | 'none'
+  | 'sm'
   | 'xl'
+  | 'xs'
   | {
-      default: string | number;
-      xs?: string | number;
-      sm?: string | number;
-      md?: string | number;
-      lg?: string | number;
-      xl?: string | number;
+      default: number | string;
+      xs?: number | string;
+      sm?: number | string;
+      md?: number | string;
+      lg?: number | string;
+      xl?: number | string;
     };
 
 export type GridContainerCols = {
@@ -169,22 +169,22 @@ export type GridContainerCols = {
 };
 
 export type GridContainerDirection =
-  | 'row'
+  | 'column dense'
   | 'column'
   | 'dense'
   | 'row dense'
-  | 'column dense';
+  | 'row';
 
 export type GridContainerJustifyContent =
-  | 'start'
   | 'center'
   | 'end'
+  | 'space-around'
   | 'space-between'
-  | 'space-around';
+  | 'start';
 
-export type GridContainerAlignItems = 'start' | 'center' | 'end' | 'stretch';
+export type GridContainerAlignItems = 'center' | 'end' | 'start' | 'stretch';
 
-export interface GridContainerProps extends GridBaseProps {
+export type GridContainerProps = GridBaseProps & {
   type: 'container';
   rowGap?: GridContainerRowGap;
   columnGap?: GridContainerColumnGap;
@@ -192,7 +192,7 @@ export interface GridContainerProps extends GridBaseProps {
   direction?: GridContainerDirection;
   justifyContent?: GridContainerJustifyContent;
   alignItems?: GridContainerAlignItems;
-}
+};
 
 export type GridItemCols = {
   default: number;
@@ -230,13 +230,13 @@ export type GridItemOrder = {
   xl?: number;
 };
 
-export interface GridItemProps extends GridBaseProps {
+export type GridItemProps = GridBaseProps & {
   type: 'item';
   cols?: GridItemCols;
   start?: GridItemStart;
   end?: GridItemEnd;
   order?: GridItemOrder;
-}
+};
 
 export type GridProps = GridContainerProps | GridItemProps;
 

@@ -1,8 +1,7 @@
 import { Button } from '@pikas-ui/button';
 import type { PikasColor } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import { useState } from 'react';
-import { FC } from 'react';
+import { useState, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -11,14 +10,14 @@ const Container = styled('div', {
   width: '100%',
 });
 
-export interface DefaultDialogFooterProps {
+export type DefaultDialogFooterProps = {
   onClose?: () => void;
   validateButtonLabel?: string;
   validateButtonColorName?: PikasColor;
   onValidate?: () => Promise<void>;
   validateButtonDisabled?: boolean;
   validateButtonLoading?: boolean;
-}
+};
 
 export const DefaultDialogFooter: FC<DefaultDialogFooterProps> = ({
   onClose,
@@ -44,7 +43,7 @@ export const DefaultDialogFooter: FC<DefaultDialogFooterProps> = ({
         onClick={handleValidate}
         colorName={validateButtonColorName}
         disabled={validateButtonDisabled}
-        loading={validateButtonLoading || validateLoading}
+        loading={validateButtonLoading ?? validateLoading}
       >
         {validateButtonLabel}
       </Button>

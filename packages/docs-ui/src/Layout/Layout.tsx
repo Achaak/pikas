@@ -141,28 +141,26 @@ type LayoutMenuGroupeItem = {
 
 export type LayoutMenu = LayoutMenuGroupeItem[];
 
-interface LayoutProps {
+type LayoutProps = {
   children?: ReactNode;
   menu: LayoutMenu;
   documentationLink: string;
   githubLink: string;
-}
+};
 
 export const Layout: FC<LayoutProps> = ({
   children,
   menu,
   githubLink,
   documentationLink,
-}) => {
-  return (
-    <Container>
-      <Header documentationLink={documentationLink} githubLink={githubLink} />
-      <Center>
-        <Menu menu={menu} />
-        <Content>
-          <ContentChild>{children}</ContentChild>
-        </Content>
-      </Center>
-    </Container>
-  );
-};
+}) => (
+  <Container>
+    <Header documentationLink={documentationLink} githubLink={githubLink} />
+    <Center>
+      <Menu menu={menu} />
+      <Content>
+        <ContentChild>{children}</ContentChild>
+      </Content>
+    </Center>
+  </Container>
+);

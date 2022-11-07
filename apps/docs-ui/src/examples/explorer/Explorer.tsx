@@ -121,7 +121,9 @@ export const ExplorerExample: FC<ExplorerExampleProps> = ({ showType }) => (
       }}
       onDropItems={({ folderId, item }): void => {
         alert(
-          `Drop item id: ${item.map((i) => i.id)} to folder id: ${folderId}`
+          `Drop item id: ${item
+            .map((i) => i.id)
+            .join(', ')} to folder id: ${folderId}`
         );
       }}
       onFavoriteItem={async (item): Promise<void> => {
@@ -140,7 +142,7 @@ export const ExplorerExample: FC<ExplorerExampleProps> = ({ showType }) => (
         {
           accessType: ['folder'],
           onClick: (ids): void => {
-            alert(`Delete items id: ${ids}`);
+            alert(`Delete items id: ${ids.join(', ')}`);
           },
           Icon: TrashIcon,
         },

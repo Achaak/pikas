@@ -139,10 +139,10 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
                   <ItemIndicator forceMount css={item.css?.indicator}>
                     <ClipLoader
                       size={16}
-                      colorName={item.iconColorName ?? item.colorName}
-                      colorHex={
-                        item.iconColorHex ?? item.colorHex ?? 'GRAY_DARKER'
+                      colorName={
+                        item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
                       }
+                      colorHex={item.iconColorHex ?? item.colorHex}
                     />
                   </ItemIndicator>
                 ) : (
@@ -150,10 +150,10 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
                     <ItemIndicator forceMount css={item.css?.indicator}>
                       <item.Icon
                         size={16}
-                        colorName={item.iconColorName ?? item.colorName}
-                        colorHex={
-                          item.iconColorHex ?? item.colorHex ?? 'GRAY_DARKER'
+                        colorName={
+                          item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
                         }
+                        colorHex={item.iconColorHex ?? item.colorHex}
                       />
                     </ItemIndicator>
                   )
@@ -189,8 +189,10 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
                   <IconByName
                     name="bx:check"
                     size={16}
-                    colorName={item.colorName}
-                    colorHex={item.colorHex ?? 'GRAY_DARKER'}
+                    colorName={
+                      item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
+                    }
+                    colorHex={item.iconColorHex ?? item.colorHex}
                   />
                 </ItemIndicator>
                 <Span css={item.css?.label}>{item.label}</Span>
@@ -226,8 +228,10 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
                       <IconByName
                         name="bxs:circle"
                         size={8}
-                        colorName={item.colorName}
-                        colorHex={item.colorHex ?? 'GRAY_DARKER'}
+                        colorName={
+                          item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
+                        }
+                        colorHex={item.iconColorHex ?? item.colorHex}
                       />
                     </ItemIndicator>
                     <Span css={radio.css?.label}>{radio.label}</Span>
@@ -256,8 +260,10 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
                   <RightSlot>
                     <IconByName
                       name="bxs:chevron-right"
-                      colorName={item.colorName}
-                      colorHex={item.colorHex ?? 'GRAY_DARKER'}
+                      colorName={
+                        item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
+                      }
+                      colorHex={item.iconColorHex ?? item.colorHex}
                       size={20}
                     />
                   </RightSlot>

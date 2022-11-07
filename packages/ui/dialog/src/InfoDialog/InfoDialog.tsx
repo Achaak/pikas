@@ -6,7 +6,7 @@ import { InfoDialogFooter } from './InfoDialogFooter/index.js';
 import { InfoDialogHeader } from './InfoDialogHeader/index.js';
 import { ReactNode, FC } from 'react';
 
-export interface InfoDialogProps extends DialogProps {
+export type InfoDialogProps = DialogProps & {
   validateButtonLabel?: string;
   validateButtonColorName?: PikasColor;
   validateButtonDisabled?: boolean;
@@ -14,7 +14,7 @@ export interface InfoDialogProps extends DialogProps {
   onValidate?: () => Promise<void>;
   title?: string;
   content: ReactNode;
-}
+};
 
 export const InfoDialog: FC<InfoDialogProps> = ({
   onClose,
@@ -26,36 +26,34 @@ export const InfoDialog: FC<InfoDialogProps> = ({
   title = 'We have a information for you !',
   content,
   ...props
-}) => {
-  return (
-    <CustomDialog
-      onClose={onClose}
-      hasCloseIcon={false}
-      header={<InfoDialogHeader title={title} />}
-      content={<InfoDialogContent content={content} />}
-      footer={
-        <InfoDialogFooter
-          validateButtonLabel={validateButtonLabel}
-          validateButtonColorName={validateButtonColorName}
-          validateButtonDisabled={validateButtonDisabled}
-          validateButtonLoading={validateButtonLoading}
-          onValidate={onValidate}
-          onClose={onClose}
-        />
-      }
-      padding={{
-        container: 'no-padding',
-        header: 'no-padding',
-        content: 'no-padding',
-        footer: 'lg',
-      }}
-      gap={{
-        container: 'no-gap',
-        content: 'md',
-        footer: 'md',
-        header: 'md',
-      }}
-      {...props}
-    />
-  );
-};
+}) => (
+  <CustomDialog
+    onClose={onClose}
+    hasCloseIcon={false}
+    header={<InfoDialogHeader title={title} />}
+    content={<InfoDialogContent content={content} />}
+    footer={
+      <InfoDialogFooter
+        validateButtonLabel={validateButtonLabel}
+        validateButtonColorName={validateButtonColorName}
+        validateButtonDisabled={validateButtonDisabled}
+        validateButtonLoading={validateButtonLoading}
+        onValidate={onValidate}
+        onClose={onClose}
+      />
+    }
+    padding={{
+      container: 'no-padding',
+      header: 'no-padding',
+      content: 'no-padding',
+      footer: 'lg',
+    }}
+    gap={{
+      container: 'no-gap',
+      content: 'md',
+      footer: 'md',
+      header: 'md',
+    }}
+    {...props}
+  />
+);

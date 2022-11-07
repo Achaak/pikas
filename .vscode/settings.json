@@ -20,14 +20,6 @@
   },
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "cSpell.words": [
-    "clonedeep",
-    "compressorjs",
-    "iconify",
-    "linebreak",
-    "Pacman",
-    "Roboto",
-    "tanstack",
-    "usehook",
-    "usehooks"
+    "Iconify"
   ]
 }

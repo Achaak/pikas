@@ -11,6 +11,7 @@ import type {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   FC,
+  MouseEvent,
   ReactNode,
 } from 'react';
 import { forwardRef, useCallback } from 'react';
@@ -203,7 +204,7 @@ export type ButtonDefaultProps = {
 };
 
 export type BaseButtonProps = ButtonDefaultProps & {
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => Promise<void> | void;
   type?: ButtonType;
 };
 
@@ -211,7 +212,7 @@ export type ButtonProps = BaseButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type BaseButtonLinkProps = ButtonDefaultProps & {
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => Promise<void> | void;
   href?: string;
   target?: ButtonTarget;
 };
@@ -304,13 +305,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return;
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLButtonElement>) => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.();
-    }, [disabled, onClick, loading]);
+        void onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
     if (!theme) {
       return <></>;
@@ -404,13 +408,16 @@ const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   ) => {
     const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return;
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLAnchorElement>): void => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.();
-    }, [disabled, onClick, loading]);
+        onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
     if (!theme) {
       return <></>;

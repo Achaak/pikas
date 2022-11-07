@@ -89,16 +89,15 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
     if (item.type === 'folder') {
       return <IconByName name="bx:folder" size={64} colorName="BLACK" />;
     }
-    if (item.type === 'file') {
-      return (
-        <IconByName
-          name="bx:file"
-          size={64}
-          colorHex={extension ? getColorByExtension(extension) : undefined}
-          colorName={extension ? undefined : 'BLACK'}
-        />
-      );
-    }
+
+    return (
+      <IconByName
+        name="bx:file"
+        size={64}
+        colorHex={extension ? getColorByExtension(extension) : undefined}
+        colorName={extension ? undefined : 'BLACK'}
+      />
+    );
   }, [item]);
 
   const handleFavoriteClick = async (): Promise<void> => {
@@ -142,13 +141,21 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
         )}
 
         {showFavorite && item.isFavorite === true && !favoriteLoading && (
-          <FavoriteContainer onClick={handleFavoriteClick}>
+          <FavoriteContainer
+            onClick={() => {
+              void handleFavoriteClick();
+            }}
+          >
             <IconByName name="bxs:star" size={24} colorName="WARNING" />
           </FavoriteContainer>
         )}
 
         {showFavorite && item.isFavorite === false && !favoriteLoading && (
-          <FavoriteContainer onClick={handleFavoriteClick}>
+          <FavoriteContainer
+            onClick={() => {
+              void handleFavoriteClick();
+            }}
+          >
             <IconByName name="bx:star" size={24} colorName="WARNING" />
           </FavoriteContainer>
         )}

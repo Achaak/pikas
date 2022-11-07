@@ -10,13 +10,13 @@ const Container = styled('div', {
   width: '100%',
 });
 
-export interface SuccessDialogFooterProps {
+export type SuccessDialogFooterProps = {
   validateButtonLabel?: string;
   validateButtonColorName?: PikasColor;
   validateButtonDisabled?: boolean;
   validateButtonLoading?: boolean;
   onClose?: () => void;
-}
+};
 
 export const SuccessDialogFooter: FC<SuccessDialogFooterProps> = ({
   validateButtonLabel,
@@ -24,18 +24,16 @@ export const SuccessDialogFooter: FC<SuccessDialogFooterProps> = ({
   validateButtonDisabled,
   validateButtonLoading,
   onClose,
-}) => {
-  return (
-    <Container>
-      <Button
-        colorName={validateButtonColorName}
-        onClick={onClose}
-        width="auto"
-        disabled={validateButtonDisabled}
-        loading={validateButtonLoading}
-      >
-        {validateButtonLabel}
-      </Button>
-    </Container>
-  );
-};
+}) => (
+  <Container>
+    <Button
+      colorName={validateButtonColorName}
+      onClick={onClose}
+      width="auto"
+      disabled={validateButtonDisabled}
+      loading={validateButtonLoading}
+    >
+      {validateButtonLabel}
+    </Button>
+  </Container>
+);

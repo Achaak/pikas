@@ -59,7 +59,7 @@ const SearchResultContainer = styled('div', {
   flexDirection: 'column',
 });
 
-const ResultGroup = styled('div', {});
+const ResultGroupStyled = styled('div', {});
 
 const ResultGroupTitle = styled('span', {
   fontWeight: '$BOLD',
@@ -67,7 +67,7 @@ const ResultGroupTitle = styled('span', {
   color: '$BLACK',
 });
 
-const ResultItem = styled('div', {
+const ResultItemStyled = styled('div', {
   padding: '8px 16px',
   cursor: 'pointer',
   color: '$BLACK',
@@ -109,11 +109,11 @@ const SearchIcon: FC<IconProps> = ({ ...props }) => (
   <IconByName name="bx:search" {...props} />
 );
 
-export const SearchbarDirection = {
+export const searchbarDirection = {
   up: true,
   down: false,
 };
-export type SearchbarDirection = typeof SearchbarDirection;
+export type SearchbarDirection = typeof searchbarDirection;
 
 export type ResultItem = {
   content: ReactNode;
@@ -167,7 +167,7 @@ export const Searchbar = <T,>({
   searchFunction,
   searchType = 'button',
   isOpen: isOpenProp = false,
-  id,
+  id = 'searchbar',
   searchWhenKeyUp,
   css,
   textfield,
@@ -203,30 +203,29 @@ export const Searchbar = <T,>({
     setOuterHeight(window.outerHeight);
   }, [windowSize]);
 
-  const getResultFormat = (
-    result: ResultGroup[] | null
-  ): ResultGroupWithId[] => {
-    if (!result) {
+  const getResultFormat = (res: ResultGroup[] | null): ResultGroupWithId[] => {
+    if (!res) {
       return [];
     }
 
     let i = directResult?.enabled ? 1 : 0;
     const resultFormat: ResultGroupWithId[] = [];
 
-    result.forEach((group) => {
+    for (const group of res) {
       const items: (ResultItem & { id: number })[] = [];
-      group.items.forEach((item) => {
+      for (const item of group.items) {
         items.push({
           ...item,
           id: i,
         });
         i++;
-      });
+      }
+
       resultFormat.push({
         title: group.title,
         items,
       });
-    });
+    }
 
     setNbItems(i);
 
@@ -259,7 +258,7 @@ export const Searchbar = <T,>({
 
   useEffect(() => {
     if (searchWhenKeyUp) {
-      handleSearch();
+      void handleSearch();
     }
   }, [debouncedValue]);
 
@@ -315,7 +314,7 @@ export const Searchbar = <T,>({
     <Form
       onSubmit={(e): void => {
         e.preventDefault();
-        handleSearch();
+        void handleSearch();
       }}
       css={{
         width,
@@ -340,7 +339,7 @@ export const Searchbar = <T,>({
             setIsOpen(false);
           }
         }}
-        id={id || 'searchbar'}
+        id={id}
         rightChildren={
           searchType === 'button' ? (
             <ButtonIcon
@@ -412,7 +411,7 @@ export const Searchbar = <T,>({
         }
       >
         {directResult?.enabled && textfieldValue ? (
-          <ResultItem
+          <ResultItemStyled
             ref={(ref): void => {
               refItem.current[0] = ref;
             }}
@@ -424,7 +423,7 @@ export const Searchbar = <T,>({
             css={css?.resultItem}
           >
             <DirectResultValue>{textfieldValue}</DirectResultValue>
-          </ResultItem>
+          </ResultItemStyled>
         ) : null}
 
         <SearchResultContainer>
@@ -432,7 +431,8 @@ export const Searchbar = <T,>({
             <ResultLoading>
               <ClipLoader size={40} colorName="PRIMARY" />
             </ResultLoading>
-          ) : nbItems && result ? (
+          ) : null}
+          {!loading && nbItems && result ? (
             result.map((group, groupIndex) => {
               const res = [];
 
@@ -448,18 +448,18 @@ export const Searchbar = <T,>({
               }
 
               res.push(
-                <ResultGroup key={groupIndex} css={css?.resultGroup}>
+                <ResultGroupStyled key={groupIndex} css={css?.resultGroup}>
                   {group.items.map((item, itemIndex) => {
-                    const res = [];
+                    const resGroupItem = [];
 
                     if (itemIndex) {
-                      res.push(
+                      resGroupItem.push(
                         <Separator size={1} key={`${itemIndex}-separator`} />
                       );
                     }
 
-                    res.push(
-                      <ResultItem
+                    resGroupItem.push(
+                      <ResultItemStyled
                         ref={(ref): void => {
                           refItem.current[item.id] = ref;
                         }}
@@ -472,12 +472,12 @@ export const Searchbar = <T,>({
                         css={css?.resultItem}
                       >
                         {item.content}
-                      </ResultItem>
+                      </ResultItemStyled>
                     );
 
-                    return res;
+                    return resGroupItem;
                   })}
-                </ResultGroup>
+                </ResultGroupStyled>
               );
 
               return res;

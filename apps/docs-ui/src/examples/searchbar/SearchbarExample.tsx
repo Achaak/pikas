@@ -17,6 +17,7 @@ export const SearchbarExample: FC = () => (
           items: value.map((item) => ({
             content: `${item.firstName} ${item.lastName}`,
             onClick: (): void => {
+              // eslint-disable-next-line no-console
               console.log(item);
             },
           })),

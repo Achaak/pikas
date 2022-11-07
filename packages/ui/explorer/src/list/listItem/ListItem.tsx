@@ -79,16 +79,15 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
     if (item.type === 'folder') {
       return <IconByName name="bx:folder" size={32} colorName="BLACK" />;
     }
-    if (item.type === 'file') {
-      return (
-        <IconByName
-          name="bx:file"
-          size={32}
-          colorHex={extension ? getColorByExtension(extension) : undefined}
-          colorName={extension ? undefined : 'BLACK'}
-        />
-      );
-    }
+
+    return (
+      <IconByName
+        name="bx:file"
+        size={32}
+        colorHex={extension ? getColorByExtension(extension) : undefined}
+        colorName={extension ? undefined : 'BLACK'}
+      />
+    );
   }, [item]);
 
   const handleFavoriteClick = async (): Promise<void> => {
@@ -107,13 +106,21 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
       <Container selected={itemsSelected.some((i) => i.id === item.id)}>
         <ListItemColumn width={32}>
           {showFavorite && item.isFavorite === true && !favoriteLoading && (
-            <Favorite onClick={handleFavoriteClick}>
+            <Favorite
+              onClick={() => {
+                void handleFavoriteClick();
+              }}
+            >
               <IconByName name="bxs:star" size={24} colorName="WARNING" />
             </Favorite>
           )}
 
           {showFavorite && item.isFavorite === false && !favoriteLoading && (
-            <Favorite onClick={handleFavoriteClick}>
+            <Favorite
+              onClick={() => {
+                void handleFavoriteClick();
+              }}
+            >
               <IconByName name="bx:star" size={24} colorName="WARNING" />
             </Favorite>
           )}

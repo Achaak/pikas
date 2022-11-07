@@ -1,7 +1,10 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { IconCSS, IconProps } from '@pikas-ui/icons';
-import * as ToastPrimitive from '@radix-ui/react-toast';
+import {
+  Title as ToastPrimitiveTitle,
+  Description as ToastPrimitiveDescription,
+} from '@radix-ui/react-toast';
 import type {
   CustomToastCSS,
   CustomToastProps,
@@ -16,13 +19,13 @@ const Content = styled('div', {
   customRowGap: 8,
 });
 
-const Title = styled(ToastPrimitive.Title, {
+const Title = styled(ToastPrimitiveTitle, {
   fontWeight: '$BOLD',
   color: '$BLACK',
   fontSize: '$EM-MEDIUM',
 });
 
-const Description = styled(ToastPrimitive.Description, {
+const Description = styled(ToastPrimitiveDescription, {
   margin: 0,
   color: '$BLACK',
   fontSize: '$EM-SMALL',
@@ -34,18 +37,18 @@ const Container = styled('div', {
   alignItems: 'center',
 });
 
-export interface DefaultToastCSS extends CustomToastCSS {
+export type DefaultToastCSS = CustomToastCSS & {
   icon?: IconCSS;
   title?: PikasCSS;
   description?: PikasCSS;
-}
+};
 
-export interface DefaultToastProps extends CustomToastProps {
+export type DefaultToastProps = CustomToastProps & {
   title?: string;
   description?: string;
   Icon?: FC<IconProps>;
   css?: DefaultToastCSS;
-}
+};
 
 export const DefaultToast: FC<DefaultToastProps> = ({
   description,
@@ -53,20 +56,18 @@ export const DefaultToast: FC<DefaultToastProps> = ({
   Icon,
   css,
   ...props
-}) => {
-  return (
-    <CustomToast {...props} css={css}>
-      <Container>
-        {Icon && <Icon size={24} colorName="BLACK" css={css?.icon} />}
-        {title || description ? (
-          <Content>
-            {title && <Title css={css?.title}>{title}</Title>}
-            {description && (
-              <Description css={css?.description}>{description}</Description>
-            )}
-          </Content>
-        ) : null}
-      </Container>
-    </CustomToast>
-  );
-};
+}) => (
+  <CustomToast {...props} css={css}>
+    <Container>
+      {Icon && <Icon size={24} colorName="BLACK" css={css?.icon} />}
+      {title || description ? (
+        <Content>
+          {title && <Title css={css?.title}>{title}</Title>}
+          {description && (
+            <Description css={css?.description}>{description}</Description>
+          )}
+        </Content>
+      ) : null}
+    </Container>
+  </CustomToast>
+);

@@ -17,17 +17,20 @@ export const DropdownMenuExample: FC = () => (
             {
               label: 'Item 1-1',
               type: 'item',
+              // eslint-disable-next-line no-console
               onClick: console.log,
             },
             {
               type: 'checkbox',
               checked: true,
               label: 'Item 1-2',
+              // eslint-disable-next-line no-console
               onCheckedChange: console.log,
               colorName: 'PRIMARY',
             },
             {
               type: 'radio',
+              // eslint-disable-next-line no-console
               onValueChange: console.log,
               value: '1',
               radios: [
@@ -51,6 +54,7 @@ export const DropdownMenuExample: FC = () => (
                     {
                       label: 'Item 1-4-1-1',
                       type: 'item',
+                      // eslint-disable-next-line no-console
                       onClick: console.log,
                     },
                   ],
@@ -75,17 +79,20 @@ export const DropdownMenuExample: FC = () => (
             {
               label: 'Item 1-1',
               type: 'item',
+              // eslint-disable-next-line no-console
               onClick: console.log,
             },
             {
               type: 'checkbox',
               checked: true,
               label: 'Item 1-2',
+              // eslint-disable-next-line no-console
               onCheckedChange: console.log,
               colorName: 'PRIMARY',
             },
             {
               type: 'radio',
+              // eslint-disable-next-line no-console
               onValueChange: console.log,
               value: '1',
               radios: [
@@ -109,6 +116,7 @@ export const DropdownMenuExample: FC = () => (
                     {
                       label: 'Item 1-4-1-1',
                       type: 'item',
+                      // eslint-disable-next-line no-console
                       onClick: console.log,
                     },
                   ],

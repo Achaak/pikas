@@ -1,13 +1,16 @@
 import type { IconCSS } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import type { PikasCSS } from '@pikas-ui/styles';
-import { useTheme } from '@pikas-ui/styles';
-import { styled } from '@pikas-ui/styles';
-import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { useEffect, useState } from 'react';
-import { ReactNode, FC } from 'react';
+import { useTheme, styled } from '@pikas-ui/styles';
+import {
+  Overlay as DialogPrimitiveOverlay,
+  Content as DialogPrimitiveContent,
+  Root as DialogPrimitiveRoot,
+  Portal as DialogPrimitivePortal,
+} from '@radix-ui/react-dialog';
+import { useEffect, useState, ReactNode, FC } from 'react';
 
-const Overlay = styled(DialogPrimitive.Overlay, {
+const Overlay = styled(DialogPrimitiveOverlay, {
   position: 'fixed',
   backgroundColor: '$GRAY_LIGHT',
   opacity: 0,
@@ -24,7 +27,7 @@ const Overlay = styled(DialogPrimitive.Overlay, {
   },
 });
 
-const Container = styled(DialogPrimitive.Content, {
+const Container = styled(DialogPrimitiveContent, {
   inset: 'initial',
   position: 'fixed',
   top: 0,
@@ -164,12 +167,12 @@ const customDialogPaddingElement = {
 export type CustomDialogPaddingElement =
   keyof typeof customDialogPaddingElement;
 
-export interface CustomDialogPadding {
+export type CustomDialogPadding = {
   container?: CustomDialogPaddingElement;
   header?: CustomDialogPaddingElement;
   content?: CustomDialogPaddingElement;
   footer?: CustomDialogPaddingElement;
-}
+};
 
 const customDialogGapElement = {
   'no-gap': true,
@@ -179,40 +182,40 @@ const customDialogGapElement = {
 } as const;
 export type CustomDialogGapElement = keyof typeof customDialogGapElement;
 
-export interface CustomDialogGap {
+export type CustomDialogGap = {
   container?: CustomDialogGapElement;
   header?: CustomDialogGapElement;
   content?: CustomDialogGapElement;
   footer?: CustomDialogGapElement;
-}
+};
 
-export interface CustomDialogCSS {
+export type CustomDialogCSS = {
   container?: PikasCSS;
   header?: PikasCSS;
   content?: PikasCSS;
   footer?: PikasCSS;
   closeIcon?: IconCSS;
   overlay?: PikasCSS;
-}
+};
 
-export interface DialogProps {
+export type DialogProps = {
   visible: boolean;
   onOpen?: () => void;
   onClose?: () => void;
-}
+};
 
-export interface CustomDialogProps extends DialogProps {
+export type CustomDialogProps = DialogProps & {
   closeIfClickOutside?: boolean;
   hasCloseIcon?: boolean;
   css?: CustomDialogCSS;
-  width?: string | number;
-  height?: string | number;
+  width?: number | string;
+  height?: number | string;
   padding?: CustomDialogPadding;
   gap?: CustomDialogGap;
   header?: ReactNode;
   content?: ReactNode;
   footer?: ReactNode;
-}
+};
 
 export const CustomDialog: FC<CustomDialogProps> = ({
   visible,
@@ -256,7 +259,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
   };
 
   return (
-    <DialogPrimitive.Root
+    <DialogPrimitiveRoot
       open={visibleDOM}
       modal={true}
       onOpenChange={(open): void => {
@@ -265,7 +268,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
         }
       }}
     >
-      <DialogPrimitive.Portal>
+      <DialogPrimitivePortal>
         <Overlay
           className={theme}
           visible={visibleStyle}
@@ -287,8 +290,8 @@ export const CustomDialog: FC<CustomDialogProps> = ({
           gap={gap?.container}
           css={{
             '@sm': {
-              width: width,
-              height: height,
+              width,
+              height,
             },
 
             ...css?.container,
@@ -347,7 +350,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
             </Footer>
           )}
         </Container>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
+      </DialogPrimitivePortal>
+    </DialogPrimitiveRoot>
   );
 };

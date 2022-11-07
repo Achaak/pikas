@@ -14,22 +14,20 @@ const Container = styled('div', {
   },
 });
 
-interface InfoDialogProps {
+type InfoDialogProps = {
   backgroundColorName: PikasColor;
   iconName: string;
-}
+};
 
 export const IconContainer: FC<InfoDialogProps> = ({
   backgroundColorName,
   iconName,
-}) => {
-  return (
-    <Container
-      css={{
-        backgroundColor: `$${backgroundColorName}`,
-      }}
-    >
-      <IconByName name={iconName} size={100} colorName="WHITE" />
-    </Container>
-  );
-};
+}) => (
+  <Container
+    css={{
+      backgroundColor: `$${backgroundColorName}`,
+    }}
+  >
+    <IconByName name={iconName} size={100} colorName="WHITE" />
+  </Container>
+);

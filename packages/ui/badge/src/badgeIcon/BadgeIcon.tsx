@@ -27,21 +27,19 @@ const BadgeStyled = styled(CustomBadge, {
   },
 });
 
-export interface BadgeIconProps extends CustomBadgeProps {
+export type BadgeIconProps = CustomBadgeProps & {
   iconName: string;
   size?: number | string;
   padding?: BadgePadding;
-}
+};
 
 export const BadgeIcon: FC<BadgeIconProps> = ({
   iconName,
   size = 24,
   padding = 'md',
   ...props
-}) => {
-  return (
-    <BadgeStyled padding={padding} {...props}>
-      <IconByName name={iconName} size={size} />
-    </BadgeStyled>
-  );
-};
+}) => (
+  <BadgeStyled padding={padding} {...props}>
+    <IconByName name={iconName} size={size} />
+  </BadgeStyled>
+);

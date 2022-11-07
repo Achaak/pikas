@@ -9,12 +9,10 @@ const Container = styled('div', {
   color: '$BLACK',
 });
 
-export interface ErrorDialogContentProps {
+export type ErrorDialogContentProps = {
   content: ReactNode;
-}
+};
 
 export const ErrorDialogContent: FC<ErrorDialogContentProps> = ({
   content,
-}) => {
-  return <Container>{content}</Container>;
-};
+}) => <Container>{content}</Container>;

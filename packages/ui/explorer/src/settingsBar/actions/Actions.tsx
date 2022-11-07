@@ -63,13 +63,12 @@ export const Actions: FC = () => {
           return false;
         })
         .map((action, index) => (
-          <Icon>
+          <Icon key={index}>
             <action.Icon
               size={16}
-              key={index}
               onClick={(event): void => {
                 event.stopPropagation();
-                action.onClick(itemsSelected.map((item) => item.id));
+                void action.onClick(itemsSelected.map((item) => item.id));
               }}
             />
           </Icon>

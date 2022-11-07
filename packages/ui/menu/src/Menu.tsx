@@ -169,6 +169,8 @@ export type CheckboxItem = ItemBase & {
   type: 'checkbox';
   checked: boolean;
   label: ReactNode;
+  iconColorName?: PikasColor;
+  iconColorHex?: string;
   onCheckedChange: (checked: boolean | 'indeterminate') => void;
   css?: {
     container?: PikasCSS;
@@ -182,6 +184,8 @@ export type RadioItem = ItemBase & {
   type: 'radio';
   onValueChange: (value: string) => void;
   value: string;
+  iconColorName?: PikasColor;
+  iconColorHex?: string;
   radios: {
     label: string;
     value: string;
@@ -203,6 +207,8 @@ export type MenuItem = ItemBase & {
   type: 'menu';
   data: MenuData;
   label: ReactNode;
+  iconColorName?: PikasColor;
+  iconColorHex?: string;
   css?: {
     container?: PikasCSS;
   };

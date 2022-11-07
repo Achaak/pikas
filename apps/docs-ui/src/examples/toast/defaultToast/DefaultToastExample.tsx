@@ -1,4 +1,3 @@
-import type { ToastPosition } from '@pikas-ui/toast';
 import { ExampleContainer } from '@pikas/docs-ui';
 import { FC } from 'react';
 import { DefaultToastProvider } from './defaultToastProvider';

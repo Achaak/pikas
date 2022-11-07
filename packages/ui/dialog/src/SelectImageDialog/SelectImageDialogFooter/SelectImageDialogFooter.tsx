@@ -1,8 +1,7 @@
 import { Button } from '@pikas-ui/button';
 import type { PikasColor } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import { useState } from 'react';
-import { FC } from 'react';
+import { useState, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -12,7 +11,7 @@ const Container = styled('div', {
   width: '100%',
 });
 
-export interface SelectImageDialogFooterProps {
+export type SelectImageDialogFooterProps = {
   onClose?: () => void;
   validateButtonLabel?: string;
   cancelButtonLabel?: string;
@@ -24,11 +23,9 @@ export interface SelectImageDialogFooterProps {
   validateButtonLoading?: boolean;
   onCancel?: () => Promise<void>;
   onValidate?: () => Promise<void>;
-}
+};
 
-export const SelectImageDialogFooter: FC<
-  SelectImageDialogFooterProps
-> = ({
+export const SelectImageDialogFooter: FC<SelectImageDialogFooterProps> = ({
   cancelButtonLabel,
   validateButtonLabel,
   onCancel,
@@ -64,8 +61,8 @@ export const SelectImageDialogFooter: FC<
         colorName={cancelButtonColorName}
         onClick={handleCancel}
         width="auto"
-        disabled={cancelButtonDisabled || validateButtonLoading}
-        loading={cancelButtonLoading || cancelLoading}
+        disabled={cancelButtonDisabled ?? validateButtonLoading}
+        loading={cancelButtonLoading ?? cancelLoading}
       >
         {cancelButtonLabel}
       </Button>
@@ -73,8 +70,8 @@ export const SelectImageDialogFooter: FC<
         colorName={validateButtonColorName}
         onClick={handleValidate}
         width="auto"
-        disabled={validateButtonDisabled || cancelButtonLoading}
-        loading={validateButtonLoading || validateLoading}
+        disabled={validateButtonDisabled ?? cancelButtonLoading}
+        loading={validateButtonLoading ?? validateLoading}
       >
         {validateButtonLabel}
       </Button>

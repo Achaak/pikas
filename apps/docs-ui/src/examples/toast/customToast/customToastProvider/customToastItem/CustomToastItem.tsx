@@ -2,6 +2,7 @@ import type { ToastPosition } from '@pikas-ui/toast';
 import { CustomToast as CustomToastPikasUI, useToast } from '@pikas-ui/toast';
 import { Button } from '@pikas-ui/button';
 import { styled } from '@pikas/docs-ui';
+import { FC } from 'react';
 
 const Span = styled('span', {
   color: '$BLACK',

@@ -1,17 +1,20 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { keyframes, styled } from '@pikas-ui/styles';
 import { IconByName } from '@pikas-ui/icons';
-import { useState } from 'react';
-import * as ToastPrimitive from '@radix-ui/react-toast';
+import { useState, ReactNode, FC } from 'react';
+import {
+  Root,
+  Action as ToastPrimitiveAction,
+  Close as ToastPrimitiveClose,
+} from '@radix-ui/react-toast';
 import type { ToastCSS, BaseToastProps } from '../types.js';
-import { ReactNode, FC } from 'react';
 
 const timerWidth = keyframes({
   '0%': { width: '100%' },
   '100%': { width: 0 },
 });
 
-const Toast = styled(ToastPrimitive.Root, {
+const Toast = styled(Root, {
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: '$WHITE',
@@ -20,9 +23,9 @@ const Toast = styled(ToastPrimitive.Root, {
   overflow: 'hidden',
 });
 
-const Action = styled(ToastPrimitive.Action, {});
+const Action = styled(ToastPrimitiveAction, {});
 
-const Close = styled(ToastPrimitive.Close, {
+const Close = styled(ToastPrimitiveClose, {
   all: 'unset',
   cursor: 'pointer',
 });
@@ -41,16 +44,16 @@ const Timer = styled('div', {
   position: 'relative',
 });
 
-export interface CustomToastCSS extends ToastCSS {
+export type CustomToastCSS = ToastCSS & {
   close?: PikasCSS;
   timer?: PikasCSS;
   content?: PikasCSS;
-}
+};
 
-export interface CustomToastProps extends BaseToastProps {
+export type CustomToastProps = BaseToastProps & {
   css?: CustomToastCSS;
   children?: ReactNode;
-}
+};
 
 export const CustomToast: FC<CustomToastProps> = ({
   duration = 5000,
@@ -95,9 +98,9 @@ export const CustomToast: FC<CustomToastProps> = ({
         }
       }}
       css={{
-        width: width,
-        minWidth: minWidth,
-        maxWidth: maxWidth,
+        width,
+        minWidth,
+        maxWidth,
         ...css?.toast,
       }}
       onPause={onPause}
@@ -106,7 +109,7 @@ export const CustomToast: FC<CustomToastProps> = ({
       onSwipeStart={onSwipeStart}
       onSwipeMove={onSwipeMove}
       onSwipeEnd={onSwipeEnd}
-      forceMount={forceMount || undefined}
+      forceMount={forceMount}
       type={type}
     >
       <Content css={css?.content}>
@@ -125,7 +128,7 @@ export const CustomToast: FC<CustomToastProps> = ({
       {timer && (
         <Timer
           css={{
-            animation: `${timerWidth} ${duration}ms linear forwards`,
+            animation: `${timerWidth.name} ${duration}ms linear forwards`,
             ...css?.timer,
           }}
         />

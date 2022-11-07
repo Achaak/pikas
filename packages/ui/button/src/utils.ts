@@ -15,7 +15,7 @@ export const getContentColor = ({
   }
 
   if (!outlined) {
-    return fontColorContrast(colorHex || '', 0.7);
+    return fontColorContrast(colorHex ?? '', 0.7);
   } else {
     return colorHex;
   }

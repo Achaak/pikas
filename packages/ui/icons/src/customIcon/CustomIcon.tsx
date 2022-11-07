@@ -8,9 +8,9 @@ const Container = styled('div', {
   justifyContent: 'center',
 });
 
-export interface CustomIconProps extends IconProps {
+export type CustomIconProps = IconProps & {
   children?: ReactNode;
-}
+};
 
 export const CustomIcon: FC<CustomIconProps> = ({
   children,
@@ -20,22 +20,20 @@ export const CustomIcon: FC<CustomIconProps> = ({
   onClick,
   size,
   css,
-}) => {
-  return (
-    <Container
-      onClick={onClick}
-      className={className}
-      css={{
-        ...css?.container,
-        svg: {
-          width: size,
-          height: size,
-          color: (colorName ? `$${colorName}` : undefined) || colorHex,
-          ...css?.svg,
-        },
-      }}
-    >
-      {children}
-    </Container>
-  );
-};
+}) => (
+  <Container
+    onClick={onClick}
+    className={className}
+    css={{
+      ...css?.container,
+      svg: {
+        width: size,
+        height: size,
+        color: colorHex ?? (colorName ? `$${colorName}` : undefined),
+        ...css?.svg,
+      },
+    }}
+  >
+    {children}
+  </Container>
+);

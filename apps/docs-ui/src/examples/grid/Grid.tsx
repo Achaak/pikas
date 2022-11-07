@@ -1,5 +1,6 @@
 import { Grid } from '@pikas-ui/grid';
 import { ExampleContainer, styled } from '@pikas/docs-ui';
+import { FC } from 'react';
 
 const Block = styled('div', {
   backgroundColor: '$PRIMARY',

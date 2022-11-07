@@ -12,17 +12,15 @@ const Container = styled('div', {
   marginBottom: 8,
 });
 
-export interface SuccessDialogHeaderProps {
+export type SuccessDialogHeaderProps = {
   title?: string;
-}
+};
 
 export const SuccessDialogHeader: FC<SuccessDialogHeaderProps> = ({
   title,
-}) => {
-  return (
-    <Container>
-      <IconContainer iconName="bx:check-circle" backgroundColorName="SUCCESS" />
-      <Title>{title}</Title>
-    </Container>
-  );
-};
+}) => (
+  <Container>
+    <IconContainer iconName="bx:check-circle" backgroundColorName="SUCCESS" />
+    <Title>{title}</Title>
+  </Container>
+);

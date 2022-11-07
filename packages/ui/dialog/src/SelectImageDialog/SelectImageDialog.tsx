@@ -1,5 +1,5 @@
 import type { PikasColor } from '@pikas-ui/styles';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, FC } from 'react';
 import type { DialogProps } from '../CustomDialog/index.js';
 import { CustomDialog } from '../CustomDialog/index.js';
 import { SelectImageDialogContent } from './SelectImageDialogContent/index.js';
@@ -7,9 +7,8 @@ import { SelectImageDialogFooter } from './SelectImageDialogFooter/index.js';
 import { SelectImageDialogHeader } from './SelectImageDialogHeader/index.js';
 import type { CroppedImageType } from './types.js';
 import { getCroppedImg } from './utils.js';
-import { FC } from 'react';
 
-export interface SelectImageDialogProps extends DialogProps {
+export type SelectImageDialogProps = DialogProps & {
   cancelButtonLabel?: string;
   validateButtonLabel?: string;
   cancelButtonColorName?: PikasColor;
@@ -30,7 +29,7 @@ export interface SelectImageDialogProps extends DialogProps {
   aspect?: number;
   cropShape?: 'rect' | 'round';
   cropSize?: { width: number; height: number };
-}
+};
 
 export const SelectImageDialog: FC<SelectImageDialogProps> = ({
   onClose,
@@ -92,7 +91,7 @@ export const SelectImageDialog: FC<SelectImageDialogProps> = ({
       });
 
       if (croppedImage) {
-        onValidate?.(croppedImage, imageFull);
+        await onValidate?.(croppedImage, imageFull);
       }
     } catch (e) {
       // eslint-disable-next-line no-console

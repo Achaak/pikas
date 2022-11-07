@@ -2,7 +2,7 @@ type GetLink<T extends Record<string, string>> = (
   key: keyof T,
   config?: {
     withOrigin?: boolean;
-    queries?: Record<string, string | number>;
+    queries?: Record<string, number | string>;
     hash?: string;
     lang?: string;
   }
@@ -21,27 +21,27 @@ export const routes = <T extends Record<string, string>>({
     let link: string = links[key];
 
     let queriesFormatted = '';
-    if (configs?.queries) {
-      for (const [key, value] of Object.entries(configs.queries)) {
-        if (link.includes(`:${key}`)) {
-          link = link.replace(`:${key}`, value.toString());
+    if (configs.queries) {
+      for (const [k, v] of Object.entries(configs.queries)) {
+        if (link.includes(`:${k}`)) {
+          link = link.replace(`:${k}`, v.toString());
         } else {
-          queriesFormatted += `${queriesFormatted ? '&' : '?'}${key}=${value}`;
+          queriesFormatted += `${queriesFormatted ? '&' : '?'}${k}=${v}`;
         }
       }
     }
 
     let url = '';
-    if (configs?.withOrigin) {
+    if (configs.withOrigin) {
       url += origin;
     }
-    if (configs?.lang) {
-      url += `/${configs?.lang}`;
+    if (configs.lang) {
+      url += `/${configs.lang}`;
     }
     url += link;
     url += queriesFormatted;
-    if (configs?.hash) {
-      url += `#${configs?.hash}`;
+    if (configs.hash) {
+      url += `#${configs.hash}`;
     }
     return url;
   };

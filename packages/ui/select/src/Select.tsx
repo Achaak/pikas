@@ -5,32 +5,48 @@ import type {
   PikasShadow,
   PikasFontSize,
 } from '@pikas-ui/styles';
-import { useTheme } from '@pikas-ui/styles';
-import { styled } from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
+
 import type { IconCSS } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import { Description, Label, TextError } from '@pikas-ui/text';
-import * as SelectPrimitive from '@radix-ui/react-select';
+import {
+  Root as SelectPrimitiveRoot,
+  Trigger as SelectPrimitiveTrigger,
+  Value as SelectPrimitiveValue,
+  Icon as SelectPrimitiveIcon,
+  Content as SelectPrimitiveContent,
+  Viewport as SelectPrimitiveViewport,
+  Group as SelectPrimitiveGroup,
+  ScrollUpButton as SelectPrimitiveScrollUpButton,
+  ScrollDownButton as SelectPrimitiveScrollDownButton,
+  ItemIndicator as SelectPrimitiveItemIndicator,
+  Separator as SelectPrimitiveSeparator,
+  Label as SelectPrimitiveLabel,
+  Item as SelectPrimitiveItem,
+  ItemText as SelectPrimitiveItemText,
+  Portal as SelectPrimitivePortal,
+} from '@radix-ui/react-select';
 import {
   forwardRef,
   useEffect,
   useImperativeHandle,
   useMemo,
   useState,
+  ReactNode,
 } from 'react';
 import type { TooltipCSS } from '@pikas-ui/tooltip';
 import { Tooltip } from '@pikas-ui/tooltip';
 import { Textfield } from '@pikas-ui/textfield';
-import { ReactNode } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 });
 
-const SelectContainer = styled(SelectPrimitive.Root, {});
+const SelectContainer = styled(SelectPrimitiveRoot, {});
 
-const Trigger = styled(SelectPrimitive.Trigger, {
+const Trigger = styled(SelectPrimitiveTrigger, {
   all: 'unset',
   display: 'flex',
   alignItems: 'center',
@@ -69,24 +85,24 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   },
 });
 
-const SelectValue = styled(SelectPrimitive.Value, {});
+const SelectValue = styled(SelectPrimitiveValue, {});
 
-const Icon = styled(SelectPrimitive.Icon, {
+const Icon = styled(SelectPrimitiveIcon, {
   marginLeft: 4,
 });
 
-const Content = styled(SelectPrimitive.Content, {
+const Content = styled(SelectPrimitiveContent, {
   backgroundColor: '$WHITE',
   boxShadow: '$ELEVATION_1',
   br: 'sm',
   zIndex: '$XXX-HIGH',
 });
 
-const Viewport = styled(SelectPrimitive.Viewport, {
+const Viewport = styled(SelectPrimitiveViewport, {
   padding: 4,
 });
 
-const Group = styled(SelectPrimitive.Group, {});
+const Group = styled(SelectPrimitiveGroup, {});
 
 const scrollButtonCSS: PikasCSS = {
   display: 'flex',
@@ -96,14 +112,14 @@ const scrollButtonCSS: PikasCSS = {
   cursor: 'default',
 };
 
-const ScrollUpButton = styled(SelectPrimitive.ScrollUpButton, scrollButtonCSS);
+const ScrollUpButton = styled(SelectPrimitiveScrollUpButton, scrollButtonCSS);
 
 const ScrollDownButton = styled(
-  SelectPrimitive.ScrollDownButton,
+  SelectPrimitiveScrollDownButton,
   scrollButtonCSS
 );
 
-const ItemIndicator = styled(SelectPrimitive.ItemIndicator, {
+const ItemIndicator = styled(SelectPrimitiveItemIndicator, {
   position: 'absolute',
   left: 0,
   display: 'flex',
@@ -111,20 +127,20 @@ const ItemIndicator = styled(SelectPrimitive.ItemIndicator, {
   justifyContent: 'center',
 });
 
-const Separator = styled(SelectPrimitive.Separator, {
+const Separator = styled(SelectPrimitiveSeparator, {
   height: 1,
   backgroundColor: '$GRAY_LIGHTER',
   margin: 8,
 });
 
-const GroupLabel = styled(SelectPrimitive.Label, {
+const GroupLabel = styled(SelectPrimitiveLabel, {
   padding: '4px 16px 4px 24px',
   fontWeight: '$MEDIUM',
   fontSize: '$EM-SMALL',
   color: '$BLACK',
 });
 
-const Item = styled(SelectPrimitive.Item, {
+const Item = styled(SelectPrimitiveItem, {
   all: 'unset',
   display: 'flex',
   alignItems: 'center',
@@ -202,7 +218,7 @@ export type SelectCSS = {
   content?: PikasCSS;
 };
 
-export interface SelectProps {
+export type SelectProps = {
   css?: SelectCSS;
   hasSearch?: boolean;
   searchPlaceholder?: string;
@@ -216,7 +232,7 @@ export interface SelectProps {
   data: {
     name?: string;
     hidden?: boolean;
-    items: Array<SelectItem>;
+    items: SelectItem[];
   }[];
   id?: string;
   onChange?: (value: string) => void;
@@ -230,19 +246,19 @@ export interface SelectProps {
   backgroundColorName?: PikasColor;
   outline?: boolean;
   description?: string;
-  width?: string | number;
-  maxWidth?: string | number;
-  minWidth?: string | number;
+  width?: number | string;
+  maxWidth?: number | string;
+  minWidth?: number | string;
   info?: ReactNode;
   required?: boolean;
   disabled?: boolean;
-}
+};
 
-export interface SelectRef {
+export type SelectRef = {
   setValue: (value: string) => void;
-}
+};
 
-export const Select = forwardRef<SelectRef, SelectProps>(
+const Select = forwardRef<SelectRef, SelectProps>(
   (
     {
       data,
@@ -286,7 +302,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       setFormattedData(
         data.map((group) => {
           const items = group.items.map((item) => {
-            let hidden = item.hidden || false;
+            let hidden = item.hidden ?? false;
 
             if (searchValue.length > 0) {
               if (
@@ -301,7 +317,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
 
             return {
               ...item,
-              hidden: hidden,
+              hidden,
             };
           });
 
@@ -314,14 +330,14 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       );
     }, [data, searchValue]);
 
-    const handleChange = (value: string): void => {
-      onChange?.(value);
-      setValue(value);
+    const handleChange = (newValue: string): void => {
+      onChange?.(newValue);
+      setValue(newValue);
     };
 
     useImperativeHandle(ref, () => ({
-      setValue: (value: string): void => {
-        handleChange(value);
+      setValue: (newValue: string): void => {
+        handleChange(newValue);
       },
     }));
 
@@ -365,9 +381,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                       ...(item.hidden ? { display: 'none' } : {}),
                     }}
                   >
-                    <SelectPrimitive.ItemText>
+                    <SelectPrimitiveItemText>
                       <ItemText>{item.label}</ItemText>
-                    </SelectPrimitive.ItemText>
+                    </SelectPrimitiveItemText>
                     <ItemIndicator>
                       <IconByName name="bx:check" size={20} colorName="BLACK" />
                     </ItemIndicator>
@@ -387,9 +403,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       <Container
         css={{
           fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
+          width,
+          maxWidth,
+          minWidth,
           opacity: disabled ? 0.5 : 1,
           ...css?.container,
         }}
@@ -467,7 +483,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             css={{
               br: borderRadius,
               borderColor: `$${borderColorName}`,
-              borderWidth: borderWidth,
+              borderWidth,
               boxShadow: `$${boxShadow}`,
               backgroundColor: `$${backgroundColorName}`,
               ...css?.trigger,
@@ -479,7 +495,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             </Icon>
           </Trigger>
 
-          <SelectPrimitive.Portal>
+          <SelectPrimitivePortal>
             <Content css={css?.content} className={theme}>
               {hasSearch ? (
                 <>
@@ -510,7 +526,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                 />
               </ScrollDownButton>
             </Content>
-          </SelectPrimitive.Portal>
+          </SelectPrimitivePortal>
         </SelectContainer>
 
         {textError ? (
@@ -522,3 +538,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
     );
   }
 );
+
+Select.displayName = 'Select';
+
+export { Select };
