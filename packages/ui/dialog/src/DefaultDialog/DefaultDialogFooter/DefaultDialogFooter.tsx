@@ -14,7 +14,7 @@ export type DefaultDialogFooterProps = {
   onClose?: () => void;
   validateButtonLabel?: string;
   validateButtonColorName?: PikasColor;
-  onValidate?: () => Promise<void>;
+  onValidate?: () => Promise<void> | void;
   validateButtonDisabled?: boolean;
   validateButtonLoading?: boolean;
 };

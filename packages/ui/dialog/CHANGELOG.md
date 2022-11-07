@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.4.8
+
+### Patch Changes
+
+- Fix callback type
+
 ## 2.4.7
 
 ### Patch Changes

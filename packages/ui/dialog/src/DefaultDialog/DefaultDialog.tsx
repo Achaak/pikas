@@ -13,7 +13,7 @@ export type DefaultDialogProps = DialogProps & {
   validateButtonColorName?: PikasColor;
   validateButtonDisabled?: boolean;
   validateButtonLoading?: boolean;
-  onValidate?: () => Promise<void>;
+  onValidate?: () => Promise<void> | void;
 };
 
 export const DefaultDialog: FC<DefaultDialogProps> = ({

@@ -15,8 +15,8 @@ export type ValidateDialogProps = DialogProps & {
   validateButtonDisabled?: boolean;
   cancelButtonLoading?: boolean;
   validateButtonLoading?: boolean;
-  onCancel?: () => Promise<void>;
-  onValidate?: () => Promise<void>;
+  onCancel?: () => Promise<void> | void;
+  onValidate?: () => Promise<void> | void;
   title?: string;
   content: ReactNode;
 };

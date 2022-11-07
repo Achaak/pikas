@@ -11,7 +11,7 @@ export type ErrorDialogProps = DialogProps & {
   validateButtonColorName?: PikasColor;
   validateButtonDisabled?: boolean;
   validateButtonLoading?: boolean;
-  onValidate?: () => Promise<void>;
+  onValidate?: () => Promise<void> | void;
   title?: string;
   content: ReactNode;
 };
