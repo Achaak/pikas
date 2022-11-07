@@ -20,7 +20,7 @@
     "start": "turbo start --parallel",
     "start:docs-ui": "turbo start --parallel --filter=@pikas-ui/docs...",
     "start:docs-utils": "turbo start --parallel --filter=@pikas-utils/docs...",
-    "lint": "turbo lint --concurrency=1",
+    "lint": "turbo lint",
     "format": "turbo format",
     "pre-lint": "turbo pre-lint",
     "changeset": "changeset",
