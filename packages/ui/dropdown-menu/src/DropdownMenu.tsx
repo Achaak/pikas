@@ -352,7 +352,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
   sideOffset,
   align,
   alignOffset,
-  avoidCollisions = false,
+  avoidCollisions = true,
   collisionPadding,
 }) => {
   const theme = useTheme();

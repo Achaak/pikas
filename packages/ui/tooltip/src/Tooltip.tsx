@@ -151,7 +151,7 @@ export const Tooltip: FC<TooltipProps> = ({
   align,
   alignOffset,
   sideOffset,
-  avoidCollisions,
+  avoidCollisions = true,
   collisionPadding,
   borderRadius = 'md' as BorderRadius,
   fontSize = 'EM-SMALL',
