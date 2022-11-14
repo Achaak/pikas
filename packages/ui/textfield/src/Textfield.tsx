@@ -257,16 +257,18 @@ const getColor = ({
 }): string => {
   const theme = useTheme();
 
-  return (
-    (colorHex ||
-      (colorName ? `$${colorName}` : undefined) ||
-      (theme &&
-        fontColorContrast(
-          theme.colors[backgroundColorName ?? 'WHITE'].value,
-          0.7
-        ))) ??
-    ''
-  );
+  if (colorHex) {
+    return colorHex;
+  } else if (colorName) {
+    return `$${colorName}`;
+  } else if (theme) {
+    return fontColorContrast(
+      theme.colors[backgroundColorName ?? 'WHITE'].value,
+      0.7
+    );
+  } else {
+    return '';
+  }
 };
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
