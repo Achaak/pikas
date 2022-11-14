@@ -4,19 +4,23 @@ import type {
   PikasSize,
   PikasCSS,
   PikasShadow,
-} from '@pikas-ui/styles'
-import { styled, useTheme } from '@pikas-ui/styles'
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
-import React, { forwardRef, useCallback } from 'react'
+} from '@pikas-ui/styles';
+import { styled, useTheme } from '@pikas-ui/styles';
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  MouseEvent,
+} from 'react';
+import { forwardRef, useCallback, ReactNode, FC } from 'react';
 import type {
   ButtonType,
   ButtonEffect,
   ButtonPadding,
   ButtonTarget,
-} from '../types.js'
-import type { IconProps, IconCSS } from '@pikas-ui/icons'
-import { ClipLoader } from '@pikas-ui/loader'
-import { getColors, getContentColor } from '../utils.js'
+} from '../types.js';
+import type { IconProps, IconCSS } from '@pikas-ui/icons';
+import { ClipLoader } from '@pikas-ui/loader';
+import { getColors, getContentColor } from '../utils.js';
 
 const ButtonIconDOM = styled('button', {
   all: 'unset',
@@ -113,13 +117,13 @@ const ButtonIconDOM = styled('button', {
       },
     },
   },
-})
+});
 
 const Content = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-})
+});
 
 const LoadingContainer = styled('div', {
   display: 'flex',
@@ -130,47 +134,47 @@ const LoadingContainer = styled('div', {
   left: 0,
   right: 0,
   bottom: 0,
-})
+});
 
 export type ButtonIconCSS = {
-  button?: PikasCSS
-  icon?: IconCSS
-}
+  button?: PikasCSS;
+  icon?: IconCSS;
+};
 
-export interface ButtonIconDefaultProps {
-  Icon: React.FC<IconProps>
-  css?: ButtonIconCSS
-  loading?: boolean
-  outlined?: boolean
-  effect?: ButtonEffect
-  padding?: ButtonPadding
-  size?: PikasSize
-  colorName?: PikasColor
-  colorHex?: string
-  contentColorName?: PikasColor
-  contentColorHex?: string
-  disabled?: boolean
-  borderRadius?: BorderRadius
-  borderWidth?: number
-  boxShadow?: PikasShadow | 'none'
-}
+export type ButtonIconDefaultProps = {
+  Icon: FC<IconProps>;
+  css?: ButtonIconCSS;
+  loading?: boolean;
+  outlined?: boolean;
+  effect?: ButtonEffect;
+  padding?: ButtonPadding;
+  size?: PikasSize;
+  colorName?: PikasColor;
+  colorHex?: string;
+  contentColorName?: PikasColor;
+  contentColorHex?: string;
+  disabled?: boolean;
+  borderRadius?: BorderRadius;
+  borderWidth?: number;
+  boxShadow?: PikasShadow | 'none';
+};
 
-export interface BaseButtonIconProps extends ButtonIconDefaultProps {
-  onClick?: () => void
-  type?: ButtonType
-}
+export type BaseButtonIconProps = ButtonIconDefaultProps & {
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => Promise<void> | void;
+  type?: ButtonType;
+};
 
-export type ButtonIconProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  BaseButtonIconProps
+export type ButtonIconProps = BaseButtonIconProps &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
-export interface BaseButtonIconLinkProps extends ButtonIconDefaultProps {
-  onClick?: () => void
-  href?: string
-  target?: ButtonTarget
-}
+export type BaseButtonIconLinkProps = ButtonIconDefaultProps & {
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => Promise<void> | void;
+  href?: string;
+  target?: ButtonTarget;
+};
 
 export type ButtonIconLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
-  BaseButtonIconLinkProps
+  BaseButtonIconLinkProps;
 
 const getContent = ({
   loading,
@@ -179,22 +183,22 @@ const getContent = ({
   size,
   Icon,
 }: {
-  loading?: boolean
-  css?: ButtonIconCSS
-  contentColor?: string
-  size?: PikasSize
-  Icon: React.FC<IconProps>
-}): React.ReactNode => {
-  const theme = useTheme()
+  loading?: boolean;
+  css?: ButtonIconCSS;
+  contentColor?: string;
+  size?: PikasSize;
+  Icon: FC<IconProps>;
+}): ReactNode => {
+  const theme = useTheme();
 
   if (!theme) {
-    return null
+    return null;
   }
   return (
     <>
       <LoadingContainer>
         <ClipLoader
-          size={theme.sizes[size || 6].value}
+          size={theme.sizes[size ?? 6].value}
           colorHex={contentColor}
           loading={loading}
         />
@@ -206,14 +210,14 @@ const getContent = ({
         }}
       >
         <Icon
-          size={theme.sizes[size || 6].value}
+          size={theme.sizes[size ?? 6].value}
           colorHex={contentColor}
           css={css?.icon}
         />
       </Content>
     </>
-  )
-}
+  );
+};
 
 export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   (
@@ -238,23 +242,27 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
     },
     ref
   ) => {
-    const theme = useTheme()
+    const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLButtonElement>) => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.()
-    }, [disabled, onClick, loading])
+        void onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
-    if (!theme) return <></>
+    if (!theme) {
+      return <></>;
+    }
 
-    const colorHexFinal =
-      colorHex || (colorName && theme.colors[colorName].value)
+    const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
       contentColorHex ||
-      (contentColorName && theme.colors[contentColorName].value)
+      (contentColorName && theme.colors[contentColorName].value);
 
     return (
       <ButtonIconDOM
@@ -265,7 +273,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         padding={padding}
         css={{
           br: borderRadius,
-          borderWidth: borderWidth,
+          borderWidth,
           boxShadow: `$${boxShadow}`,
 
           ...getColors({
@@ -281,8 +289,8 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         {getContent({
           contentColor: getContentColor({
             outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
+            contentColorHex,
+            colorHex,
           }),
           loading,
           size,
@@ -290,9 +298,11 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
           Icon,
         })}
       </ButtonIconDOM>
-    )
+    );
   }
-)
+);
+
+ButtonIcon.displayName = 'Button';
 
 export const ButtonIconLink = forwardRef<
   HTMLAnchorElement,
@@ -320,23 +330,27 @@ export const ButtonIconLink = forwardRef<
     },
     ref
   ) => {
-    const theme = useTheme()
+    const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLAnchorElement>): void => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.()
-    }, [disabled, onClick, loading])
+        onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
-    if (!theme) return <></>
+    if (!theme) {
+      return <></>;
+    }
 
-    const colorHexFinal =
-      colorHex || (colorName && theme.colors[colorName].value)
+    const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
       contentColorHex ||
-      (contentColorName && theme.colors[contentColorName].value)
+      (contentColorName && theme.colors[contentColorName].value);
 
     return (
       <ButtonIconDOM
@@ -348,7 +362,7 @@ export const ButtonIconLink = forwardRef<
         padding={padding}
         css={{
           br: borderRadius,
-          borderWidth: borderWidth,
+          borderWidth,
           boxShadow: `$${boxShadow}`,
 
           ...getColors({
@@ -364,8 +378,8 @@ export const ButtonIconLink = forwardRef<
         {getContent({
           contentColor: getContentColor({
             outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
+            contentColorHex,
+            colorHex,
           }),
           loading,
           size,
@@ -373,6 +387,10 @@ export const ButtonIconLink = forwardRef<
           Icon,
         })}
       </ButtonIconDOM>
-    )
+    );
   }
-)
+);
+
+ButtonIconLink.displayName = 'ButtonIconLink';
+
+export default ButtonIcon;

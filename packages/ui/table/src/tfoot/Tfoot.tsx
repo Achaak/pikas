@@ -1,24 +1,22 @@
-import React from 'react'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled, useTheme } from '@pikas-ui/styles'
-import fontColorContrast from 'font-color-contrast'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled, useTheme } from '@pikas-ui/styles';
+import fontColorContrast from 'font-color-contrast';
+import { FC, HTMLAttributes } from 'react';
 
-interface CustomProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-  variant?: 'default' | 'light'
-  css?: PikasCSS
-}
+type CustomProps = HTMLAttributes<HTMLTableSectionElement> & {
+  variant?: 'default' | 'light';
+  css?: PikasCSS;
+};
 
-export const Tfoot: React.FC<CustomProps> = (props) => {
-  const theme = useTheme()
+export const Tfoot: FC<CustomProps> = (props) => {
+  const theme = useTheme();
 
-  const Tfoot = styled('tfoot', {
+  const TfootStyled = styled('tfoot', {
     variants: {
       variant: {
         default: {
           backgroundColor: '$PRIMARY',
-          color:
-            (theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
-            undefined,
+          color: theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
 
           tr: {
             borderTop: '1px solid',
@@ -52,7 +50,7 @@ export const Tfoot: React.FC<CustomProps> = (props) => {
         },
       },
     },
-  })
+  });
 
-  return <Tfoot {...props} />
-}
+  return <TfootStyled {...props} />;
+};

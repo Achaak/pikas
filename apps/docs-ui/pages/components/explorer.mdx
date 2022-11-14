@@ -1,0 +1,185 @@
+import { ExplorerExample } from './../../src/examples/explorer';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
+
+export const stylesLink = getLink('styles');
+
+<NextSeo title="Explorer" />
+
+# @pikas-ui/explorer
+
+This package contains a explorer component.
+
+This library is based on [dndkit](https://dndkit.com).
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/explorer/CHANGELOG.md">
+  Change Log
+</a>
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/explorer
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/explorer
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/explorer
+```
+
+---
+
+## Usage
+
+### Explorer
+
+#### With grid view
+
+<ExplorerExample showType="grid" />
+
+#### With list view
+
+<ExplorerExample showType="list" />
+
+```tsx
+import type { ExplorerItem, ExplorerShowType } from '@pikas-ui/explorer';
+import { Explorer } from '@pikas-ui/explorer';
+import type { IconProps } from `@pikas-ui/icons`;
+import { IconByName } from `@pikas-ui/icons`;
+
+const TrashIcon: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:trash" />
+);
+
+const data: ExplorerItem[] = [
+  {
+    id: '1',
+    name: 'Folder',
+    type: 'folder',
+    size: '1.2 MB',
+    createdAt: '2021-01-01',
+    updatedAt: '2021-01-01',
+    isFavorite: true,
+  },
+  {
+    id: '2',
+    name: 'my-file.png',
+    type: 'file',
+    size: '987.6 KB',
+    createdAt: '2020-03-01',
+    updatedAt: '2020-03-01',
+    isFavorite: false,
+  },
+];
+
+const Example: React.FC = () => {
+  return (
+    <Explorer
+      showType={showType}
+      showFavorite={true}
+      items={data.map((item) => ({
+        ...item,
+        menu: [
+          {
+            items: [
+              {
+                type: 'item',
+                label: 'Delete',
+                onClick: (): void => {
+                  alert(`Delete item id: ${item.id}`);
+                },
+                colorName: 'DANGER',
+                Icon: TrashIcon,
+              },
+            ],
+          },
+        ],
+      }))}
+      breadcrumb={[
+        {
+          id: '100',
+          name: 'Root',
+        },
+        {
+          id: '101',
+          name: 'Folder after root',
+        },
+        {
+          id: '102',
+          name: 'Folder',
+        },
+      ]}
+      onOpenItem={(item): void => {
+        alert(`Open item id: ${item.id}`);
+      }}
+      onDropItems={({ folderId, item }): void => {
+        alert(
+          `Drop item id: ${item
+            .map((i) => i.id)
+            .join(', ')} to folder id: ${folderId}`
+        );
+      }}
+      onFavoriteItem={async (item): Promise<void> => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        alert(`Favorite item id: ${item.id}`);
+      }}
+      showBreadcrumb={{
+        default: false,
+        xs: false,
+        sm: false,
+        md: true,
+        lg: true,
+        xl: true,
+      }}
+      actions={[
+        {
+          accessType: ['folder'],
+          onClick: (ids): void => {
+            alert(`Delete items id: ${ids.join(', ')}`);
+          },
+          Icon: TrashIcon,
+        },
+      ]}
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop               | Description                            | Type                     | Default                                      |
+| :----------------- | :------------------------------------- | :----------------------- | :------------------------------------------- |
+| `showType`         | The type of view to show               | `ExplorerShowType`       | `grid`                                       |
+| `items`            | The items to show                      | `ExplorerItem[]`         | -                                            |
+| `multiSelectable`  | If the items can be selected           | `boolean`                | `true`                                       |
+| `breadcrumb`       | The breadcrumb to show                 | `BreadcrumbItem[]`       | -                                            |
+| `onOpenItem`       | The callback when an item is opened    | `OnOpenItem`             | -                                            |
+| `onDropItems`      | The callback when an item is dropped   | `OnDropItems`            | -                                            |
+| `onFavoriteItem`   | The callback when an item is favorited | `OnFavoriteItem`         | -                                            |
+| `showFavorite`     | If the favorite button is shown        | `boolean`                | -                                            |
+| `showBreadcrumb`   | If the breadcrumb is shown             | `ShowBreadcrumb`         | `{ default: true }`                          |
+| `showContextMenu`  | If the context menu is shown           | `boolean`                | `true`                                       |
+| `showDropdownMenu` | If the dropdown menu is shown          | `boolean`                | `true`                                       |
+| `showActions`      | If the actions are shown               | `ShowActions`            | `{ default: true }`                          |
+| `actions`          | The actions to show                    | `Action[]`               | -                                            |
+| `gridCols`         | The number of columns to show          | `GridContainerCols`      | `{ default: 1, sm: 2, md: 3, lg: 4, xl: 5 }` |
+| `gridRowGap`       | The row gap to show                    | `GridContainerRowGap`    | `{ default: 16 }`                            |
+| `gridColumnGap`    | The column gap to show                 | `GridContainerColumnGap` | `{ default: 16 }`                            |
+
+---
+
+[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/explorer.mdx)

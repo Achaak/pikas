@@ -1,5 +1,15 @@
 # @pikas-ui/menu
 
+## 3.3.6
+
+### Patch Changes
+
+- 2dcaae1: Upgrade dependencies
+- 7db5c93: Export more type
+- Updated dependencies [2dcaae1]
+  - @pikas-ui/icons@3.3.6
+  - @pikas-ui/styles@3.5.6
+
 ## 3.3.5
 
 ### Patch Changes

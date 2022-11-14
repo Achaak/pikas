@@ -1,9 +1,9 @@
-import { DropzoneExample } from './../../src/examples/dropzone'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { DropzoneExample } from './../../src/examples/dropzone';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Dropzone" />
 
@@ -61,38 +61,38 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                    | Description                               | Type               | Default    |
-| :---------------------- | :---------------------------------------- | :----------------- | :--------- |
-| `height`                | The height of the dropzone                | `number or string` | `200`      |
-| `width`                 | The width of the dropzone                 | `number or string` | `"100%"`   |
-| `description`           | The description of the dropzone           | `string`           | -          |
-| `subDescription`        | The sub description of the dropzone       | `string`           | -          |
-| `css`                   | The css of the dropzone                   | `DropzoneCSS`      | -          |
-| `showFilesResult`       | Show the files result                     | `boolean`          | `true`     |
-| `maxFiles`              | The max files of the dropzone             | `number`           | `0`        |
-| `accept`                | Set the accepted file types               | `string`           | -          |
-| `maxSize`               | Set the max size of the file              | `number`           | `Infinity` |
-| `minSize`               | Set the min size of the file              | `number`           | `0`        |
-| `disabled`              | Disable the dropzone                      | `boolean`          | `false`    |
-| `multiple`              | Allow multiple files                      | `boolean`          | `true`     |
-| `noClick`               | Disable click to open file dialog         | `boolean`          | `false`    |
-| `noKeyboard`            | Disable keyboard navigation               | `boolean`          | `false`    |
-| `autoFocus`             | Set focus on the dropzone                 | `boolean`          | `false`    |
-| `getFilesFromEvent`     | Get files from event                      | `Function`         | -          |
-| `noDragEventsBubbling`  | Stop drag events from bubbling            | `boolean`          | `false`    |
-| `onDrop`                | Callback when a file is dropped           | `Function`         | -          |
-| `onDropAccepted`        | Callback when a file is accepted          | `Function`         | -          |
-| `onDropRejected`        | Callback when a file is rejected          | `Function`         | -          |
-| `onDragEnter`           | Callback when the dragenter event occurs  | `Function`         | -          |
-| `onDragLeave`           | Callback when the dragleave event occurs  | `Function`         | -          |
-| `onDragOver`            | Callback when the dragover event occurs   | `Function`         | -          |
-| `noDrag`                | Disable drag and drop                     | `boolean`          | `false`    |
-| `onError`               | Callback when an error occurs             | `Function`         | -          |
-| `onFileDialogCancel`    | Callback when the file dialog is canceled | `Function`         | -          |
-| `onFileDialogOpen`      | Callback when the file dialog is opened   | `Function`         | -          |
-| `preventDropOnDocument` | Prevent drop on document                  | `boolean`          | `false`    |
-| `useFsAccessApi`        | Use the file system access api            | `boolean`          | `false`    |
-| `validator`             | Validator function                        | `Function`         | -          |
+| Prop                    | Description                                     | Type               | Default    |
+| :---------------------- | :---------------------------------------------- | :----------------- | :--------- |
+| `height`                | The height of the dropzone                      | `number or string` | `200`      |
+| `width`                 | The width of the dropzone                       | `number or string` | `"100%"`   |
+| `description`           | The description of the dropzone                 | `string`           | -          |
+| `subDescription`        | The sub description of the dropzone             | `string`           | -          |
+| `css`                   | The css of the dropzone                         | `DropzoneCSS`      | -          |
+| `showFilesResult`       | Show the files result                           | `boolean`          | `true`     |
+| `maxFiles`              | The max files of the dropzone (0 for unlimited) | `number`           | `0`        |
+| `accept`                | Set the accepted file types                     | `string`           | -          |
+| `maxSize`               | Set the max size of the file                    | `number`           | `Infinity` |
+| `minSize`               | Set the min size of the file                    | `number`           | `0`        |
+| `disabled`              | Disable the dropzone                            | `boolean`          | `false`    |
+| `multiple`              | Allow multiple files                            | `boolean`          | `true`     |
+| `noClick`               | Disable click to open file dialog               | `boolean`          | `false`    |
+| `noKeyboard`            | Disable keyboard navigation                     | `boolean`          | `false`    |
+| `autoFocus`             | Set focus on the dropzone                       | `boolean`          | `false`    |
+| `getFilesFromEvent`     | Get files from event                            | `Function`         | -          |
+| `noDragEventsBubbling`  | Stop drag events from bubbling                  | `boolean`          | `false`    |
+| `onDrop`                | Callback when a file is dropped                 | `Function`         | -          |
+| `onDropAccepted`        | Callback when a file is accepted                | `Function`         | -          |
+| `onDropRejected`        | Callback when a file is rejected                | `Function`         | -          |
+| `onDragEnter`           | Callback when the dragenter event occurs        | `Function`         | -          |
+| `onDragLeave`           | Callback when the dragleave event occurs        | `Function`         | -          |
+| `onDragOver`            | Callback when the dragover event occurs         | `Function`         | -          |
+| `noDrag`                | Disable drag and drop                           | `boolean`          | `false`    |
+| `onError`               | Callback when an error occurs                   | `Function`         | -          |
+| `onFileDialogCancel`    | Callback when the file dialog is canceled       | `Function`         | -          |
+| `onFileDialogOpen`      | Callback when the file dialog is opened         | `Function`         | -          |
+| `preventDropOnDocument` | Prevent drop on document                        | `boolean`          | `false`    |
+| `useFsAccessApi`        | Use the file system access api                  | `boolean`          | `false`    |
+| `validator`             | Validator function                              | `Function`         | -          |
 
 ---
 

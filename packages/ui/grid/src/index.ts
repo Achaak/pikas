@@ -1,1 +1,1 @@
-export * from './Grid.js'
+export * from './Grid.js';

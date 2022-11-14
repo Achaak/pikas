@@ -1,1 +1,1 @@
-export * from './DefaultToastItem'
+export * from './DefaultToastItem';

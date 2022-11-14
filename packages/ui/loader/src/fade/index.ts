@@ -1,1 +1,1 @@
-export * from './FadeLoader.js'
+export * from './FadeLoader.js';

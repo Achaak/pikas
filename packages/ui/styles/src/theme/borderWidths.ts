@@ -1,23 +1,23 @@
-export const pikasBorderWidths = {}
+export const pikasBorderWidths = {};
 
-export type PikasBorderWidths = typeof pikasBorderWidths
-export type PikasBorderWidth = keyof PikasBorderWidths
+export type PikasBorderWidths = typeof pikasBorderWidths;
+export type PikasBorderWidth = keyof PikasBorderWidths;
 
-export type BorderWidthsRecordValue = string | number
-export type BorderWidthsRecordKey = string | number | PikasBorderWidth
+export type BorderWidthsRecordValue = number | string;
+export type BorderWidthsRecordKey = PikasBorderWidth | number | string;
 export type BorderWidthsRecord = Record<
   BorderWidthsRecordKey,
   BorderWidthsRecordValue
->
+>;
 
 export const loadBorderWidths = <T extends BorderWidthsRecord>(
   values:
-    | {
-        [key in keyof PikasBorderWidths]?: BorderWidthsRecordValue
-      }
     | T
+    | {
+        [key in keyof PikasBorderWidths]?: BorderWidthsRecordValue;
+      }
 ): PikasBorderWidths & T =>
   ({
     ...pikasBorderWidths,
     ...values,
-  } as PikasBorderWidths & T)
+  } as PikasBorderWidths & T);

@@ -1,1 +1,1 @@
-export * from './PulseLoader.js'
+export * from './PulseLoader.js';

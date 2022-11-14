@@ -1,1 +1,1 @@
-export * from './PikasUIProvider.js'
+export * from './PikasUIProvider.js';

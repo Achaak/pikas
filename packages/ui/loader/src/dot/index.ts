@@ -1,1 +1,1 @@
-export * from './DotLoader.js'
+export * from './DotLoader.js';

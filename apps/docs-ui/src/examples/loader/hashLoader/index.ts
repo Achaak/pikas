@@ -1,1 +1,1 @@
-export * from './HashLoaderExample'
+export * from './HashLoaderExample';

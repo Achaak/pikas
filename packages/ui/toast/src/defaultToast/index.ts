@@ -1,1 +1,1 @@
-export * from './DefaultToast.js'
+export * from './DefaultToast.js';

@@ -1,9 +1,14 @@
-import React from 'react'
-import * as TabsPrimitive from '@radix-ui/react-tabs'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
+import {
+  Root as TabsPrimitiveRoot,
+  List as TabsPrimitiveList,
+  Trigger as TabsPrimitiveTrigger,
+  Content as TabsPrimitiveContent,
+} from '@radix-ui/react-tabs';
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { ReactNode } from 'react';
 
-const Root = styled(TabsPrimitive.Root, {
+const Root = styled(TabsPrimitiveRoot, {
   display: 'flex',
   width: '100%',
 
@@ -13,9 +18,9 @@ const Root = styled(TabsPrimitive.Root, {
   '&[data-orientation="vertical"]': {
     flexDirection: 'column',
   },
-})
+});
 
-const List = styled(TabsPrimitive.List, {
+const List = styled(TabsPrimitiveList, {
   display: 'flex',
   overflow: 'auto',
 
@@ -46,9 +51,9 @@ const List = styled(TabsPrimitive.List, {
       },
     },
   },
-})
+});
 
-const Trigger = styled(TabsPrimitive.Trigger, {
+const Trigger = styled(TabsPrimitiveTrigger, {
   all: 'unset',
   fontFamily: 'inherit',
   display: 'flex',
@@ -88,7 +93,7 @@ const Trigger = styled(TabsPrimitive.Trigger, {
       },
     },
   },
-})
+});
 
 const TriggerExtremities = styled('div', {
   display: 'flex',
@@ -116,13 +121,13 @@ const TriggerExtremities = styled('div', {
       },
     },
   },
-})
+});
 
-const StartTrigger = styled(TriggerExtremities, {})
+const StartTrigger = styled(TriggerExtremities, {});
 
-const EndTrigger = styled(TriggerExtremities, {})
+const EndTrigger = styled(TriggerExtremities, {});
 
-const Content = styled(TabsPrimitive.Content, {
+const Content = styled(TabsPrimitiveContent, {
   flexGrow: 1,
   borderBottomLeftRadius: 6,
   borderBottomRightRadius: 6,
@@ -155,57 +160,57 @@ const Content = styled(TabsPrimitive.Content, {
       },
     },
   },
-})
+});
 
-export interface TabsItem<T extends string> {
-  trigger: React.ReactNode
-  id: T
-  content: React.ReactNode
-  disabled?: boolean
+export type TabsItem<T extends string> = {
+  trigger: ReactNode;
+  id: T;
+  content: ReactNode;
+  disabled?: boolean;
   css?: {
-    trigger?: PikasCSS
-    content?: PikasCSS
-  }
-}
+    trigger?: PikasCSS;
+    content?: PikasCSS;
+  };
+};
 
-export type TabsOrientation = 'horizontal' | 'vertical'
+export type TabsOrientation = 'horizontal' | 'vertical';
 
-export type TabsDirection = 'ltr' | 'rtl'
+export type TabsDirection = 'ltr' | 'rtl';
 
-export type TabsActivationMode = 'manual' | 'automatic'
+export type TabsActivationMode = 'automatic' | 'manual';
 
-export interface TabsCSS {
-  container?: PikasCSS
-  triggerList?: PikasCSS
-  endTrigger?: PikasCSS
-  startTrigger?: PikasCSS
-  trigger?: PikasCSS
-  content?: PikasCSS
-}
+export type TabsCSS = {
+  container?: PikasCSS;
+  triggerList?: PikasCSS;
+  endTrigger?: PikasCSS;
+  startTrigger?: PikasCSS;
+  trigger?: PikasCSS;
+  content?: PikasCSS;
+};
 
-export interface TabsPadding {
-  trigger?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
-  content?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
-}
+export type TabsPadding = {
+  trigger?: 'lg' | 'md' | 'none' | 'sm' | 'xl' | 'xs';
+  content?: 'lg' | 'md' | 'none' | 'sm' | 'xl' | 'xs';
+};
 
-export type TabsAlignmentTrigger = 'start' | 'center' | 'end' | 'stretch'
+export type TabsAlignmentTrigger = 'center' | 'end' | 'start' | 'stretch';
 
-export interface TabsProps<T extends string> {
-  items: TabsItem<T>[]
-  defaultValue: T
-  value?: string
-  onValueChange?: (value: string) => void
-  orientation?: TabsOrientation
+export type TabsProps<T extends string> = {
+  items: TabsItem<T>[];
+  defaultValue: T;
+  value?: string;
+  onValueChange?: (value: string) => void;
+  orientation?: TabsOrientation;
 
-  direction?: TabsDirection
-  activationMode?: TabsActivationMode
-  loop?: boolean
-  css?: TabsCSS
-  padding?: TabsPadding
-  alignmentTrigger?: TabsAlignmentTrigger
-  startTrigger?: React.ReactNode
-  endTrigger?: React.ReactNode
-}
+  direction?: TabsDirection;
+  activationMode?: TabsActivationMode;
+  loop?: boolean;
+  css?: TabsCSS;
+  padding?: TabsPadding;
+  alignmentTrigger?: TabsAlignmentTrigger;
+  startTrigger?: ReactNode;
+  endTrigger?: ReactNode;
+};
 
 export const Tabs = <T extends string>({
   items,
@@ -224,60 +229,54 @@ export const Tabs = <T extends string>({
   alignmentTrigger = 'stretch',
   endTrigger,
   startTrigger,
-}: TabsProps<T>): JSX.Element => {
-  return (
-    <Root
-      defaultValue={defaultValue}
-      value={value}
-      onValueChange={onValueChange}
-      orientation={orientation}
-      dir={direction}
-      activationMode={activationMode}
-      css={css?.container}
-    >
-      <List loop={loop} alignment={alignmentTrigger} css={css?.triggerList}>
-        {startTrigger && (
-          <StartTrigger padding={padding?.trigger} css={css?.startTrigger}>
-            {startTrigger}
-          </StartTrigger>
-        )}
-        {items.map((item, itemKey) => {
-          return (
-            <Trigger
-              key={itemKey}
-              value={item.id}
-              disabled={item.disabled}
-              css={{
-                ...css?.trigger,
-                ...item.css?.trigger,
-              }}
-              padding={padding?.trigger}
-            >
-              {item.trigger}
-            </Trigger>
-          )
-        })}
-        {endTrigger && (
-          <EndTrigger padding={padding?.trigger} css={css?.endTrigger}>
-            {endTrigger}
-          </EndTrigger>
-        )}
-      </List>
-      {items.map((item, itemKey) => {
-        return (
-          <Content
-            key={itemKey}
-            value={item.id}
-            css={{
-              ...css?.content,
-              ...item?.css?.content,
-            }}
-            padding={padding?.content}
-          >
-            {item.content}
-          </Content>
-        )
-      })}
-    </Root>
-  )
-}
+}: TabsProps<T>): JSX.Element => (
+  <Root
+    defaultValue={defaultValue}
+    value={value}
+    onValueChange={onValueChange}
+    orientation={orientation}
+    dir={direction}
+    activationMode={activationMode}
+    css={css?.container}
+  >
+    <List loop={loop} alignment={alignmentTrigger} css={css?.triggerList}>
+      {startTrigger && (
+        <StartTrigger padding={padding.trigger} css={css?.startTrigger}>
+          {startTrigger}
+        </StartTrigger>
+      )}
+      {items.map((item, itemKey) => (
+        <Trigger
+          key={itemKey}
+          value={item.id}
+          disabled={item.disabled}
+          css={{
+            ...css?.trigger,
+            ...item.css?.trigger,
+          }}
+          padding={padding.trigger}
+        >
+          {item.trigger}
+        </Trigger>
+      ))}
+      {endTrigger && (
+        <EndTrigger padding={padding.trigger} css={css?.endTrigger}>
+          {endTrigger}
+        </EndTrigger>
+      )}
+    </List>
+    {items.map((item, itemKey) => (
+      <Content
+        key={itemKey}
+        value={item.id}
+        css={{
+          ...css?.content,
+          ...item.css?.content,
+        }}
+        padding={padding.content}
+      >
+        {item.content}
+      </Content>
+    ))}
+  </Root>
+);

@@ -1,1 +1,1 @@
-export * from './InfoDialogContent.js'
+export * from './InfoDialogContent.js';

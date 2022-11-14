@@ -1,1 +1,1 @@
-export * from './PropagateLoader.js'
+export * from './PropagateLoader.js';

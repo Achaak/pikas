@@ -1,1 +1,1 @@
-export * from './ScaleLoaderExample'
+export * from './ScaleLoaderExample';

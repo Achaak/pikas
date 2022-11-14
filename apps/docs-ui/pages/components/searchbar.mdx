@@ -1,9 +1,9 @@
-import { SearchbarExample } from './../../src/examples/searchbar'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { SearchbarExample } from './../../src/examples/searchbar';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Searchbar" />
 
@@ -66,7 +66,7 @@ const Example: React.FC = () => {
 | `onSearch`        | The function to call when the search is performed. | `(value: T) => ResultItem[] or null` | -             |
 | `searchType`      | The type of the searchbar.                         | `"button", "textfield"`              | `"button"`    |
 | `isOpen`          | The state of the searchbar.                        | `boolean`                            | `false`       |
-| `id`              | The id of the searchbar.                           | `string`                             | -             |
+| `id`              | The id of the searchbar.                           | `string`                             | `"searchbar"` |
 | `searchWhenKeyUp` | The state of the searchbar.                        | `boolean`                            | `false`       |
 | `debounceDelay`   | The delay of the searchbar.                        | `number`                             | `500`         |
 | `textfield`       | The props of the textfield.                        | `TextfieldProps`                     | -             |

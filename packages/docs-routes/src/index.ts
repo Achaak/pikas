@@ -1,4 +1,4 @@
-import { routes } from '@pikas-utils/router'
+import { routes } from '@pikas-utils/router';
 
 export const docsUIRoutes = routes({
   origin: 'https://pikas-ui.vercel.app',
@@ -33,12 +33,13 @@ export const docsUIRoutes = routes({
     toast: '/components/toast',
     grid: '/components/grid',
     dropzone: '/components/dropzone',
+    explorer: '/components/explorer',
     textfieldMultiple: '/components/textfield-multiple',
     badge: '/components/badge',
     styles: '/utilities/styles',
     useTheme: '/utilities/useTheme',
   },
-})
+});
 
 export const docsUtilsRoutes = routes({
   origin: 'https://pikas-utils.vercel.app',
@@ -47,4 +48,4 @@ export const docsUtilsRoutes = routes({
     router: '/router',
     screen: '/screen',
   },
-})
+});

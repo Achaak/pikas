@@ -1,23 +1,23 @@
-export const pikasBorderStyles = {}
+export const pikasBorderStyles = {};
 
-export type PikasBorderStyles = typeof pikasBorderStyles
-export type PikasBorderStyle = keyof PikasBorderStyles
+export type PikasBorderStyles = typeof pikasBorderStyles;
+export type PikasBorderStyle = keyof PikasBorderStyles;
 
-export type BorderStylesRecordValue = string
-export type BorderStylesRecordKey = string | number | PikasBorderStyle
+export type BorderStylesRecordValue = string;
+export type BorderStylesRecordKey = PikasBorderStyle | number | string;
 export type BorderStylesRecord = Record<
   BorderStylesRecordKey,
   BorderStylesRecordValue
->
+>;
 
 export const loadBorderStyles = <T extends BorderStylesRecord>(
   values:
-    | {
-        [key in keyof PikasBorderStyles]?: BorderStylesRecordValue
-      }
     | T
+    | {
+        [key in keyof PikasBorderStyles]?: BorderStylesRecordValue;
+      }
 ): PikasBorderStyles & T =>
   ({
     ...pikasBorderStyles,
     ...values,
-  } as PikasBorderStyles & T)
+  } as PikasBorderStyles & T);

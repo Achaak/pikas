@@ -1,1 +1,1 @@
-export * from './ClimbingBoxLoaderExample'
+export * from './ClimbingBoxLoaderExample';

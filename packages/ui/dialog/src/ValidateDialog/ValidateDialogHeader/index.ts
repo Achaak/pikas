@@ -1,1 +1,1 @@
-export * from './ValidateDialogHeader.js'
+export * from './ValidateDialogHeader.js';

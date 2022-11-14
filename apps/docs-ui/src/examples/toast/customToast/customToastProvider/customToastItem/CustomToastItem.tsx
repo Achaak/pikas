@@ -1,29 +1,27 @@
-import type { ToastPosition } from '@pikas-ui/toast'
-import { CustomToast as CustomToastPikasUI } from '@pikas-ui/toast'
-import { useToast } from '@pikas-ui/toast'
-import { Button } from '@pikas-ui/button'
-import { styled } from '@pikas/docs-ui'
+import type { ToastPosition } from '@pikas-ui/toast';
+import { CustomToast as CustomToastPikasUI, useToast } from '@pikas-ui/toast';
+import { Button } from '@pikas-ui/button';
+import { styled } from '@pikas/docs-ui';
+import { FC } from 'react';
 
 const Span = styled('span', {
   color: '$BLACK',
-})
+});
 
-interface CustomToastExampleProps {
-  position: ToastPosition
-}
+type CustomToastExampleProps = {
+  position: ToastPosition;
+};
 
-export const CustomToastItem: React.FC<CustomToastExampleProps> = ({
-  position,
-}) => {
-  const { publish } = useToast()
+export const CustomToastItem: FC<CustomToastExampleProps> = ({ position }) => {
+  const { publish } = useToast();
 
   const handlePublish = (): void => {
     publish(
       <CustomToastPikasUI>
         <Span>Custom Toast</Span>
       </CustomToastPikasUI>
-    )
-  }
+    );
+  };
 
   return (
     <Button
@@ -44,5 +42,5 @@ export const CustomToastItem: React.FC<CustomToastExampleProps> = ({
     >
       {position}
     </Button>
-  )
-}
+  );
+};

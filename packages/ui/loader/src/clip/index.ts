@@ -1,1 +1,1 @@
-export * from './ClipLoader.js'
+export * from './ClipLoader.js';

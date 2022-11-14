@@ -1,25 +1,25 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
   "files.eol": "\n",
   "editor.tabSize": 2,
   "files.autoSave": "onFocusChange",
-  "editor.formatOnSave": true,
   "typescript.implementationsCodeLens.enabled": true,
   "typescript.referencesCodeLens.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.rulers": [80],
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "editor.codeActionsOnSave": {
-    // For ESLint
     "source.fixAll.eslint": true
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "cSpell.words": [
-    "iconify",
-    "Pacman",
-    "Roboto"
+    "Iconify"
   ]
 }

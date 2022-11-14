@@ -1,23 +1,23 @@
-export const pikasTransitions = {}
+export const pikasTransitions = {};
 
-export type PikasTransitions = typeof pikasTransitions
-export type PikasTransition = keyof PikasTransitions
+export type PikasTransitions = typeof pikasTransitions;
+export type PikasTransition = keyof PikasTransitions;
 
-export type TransitionsRecordValue = string
-export type TransitionsRecordKey = string | number | PikasTransition
+export type TransitionsRecordValue = string;
+export type TransitionsRecordKey = PikasTransition | number | string;
 export type TransitionsRecord = Record<
   TransitionsRecordKey,
   TransitionsRecordValue
->
+>;
 
 export const loadTransitions = <T extends TransitionsRecord>(
   values:
-    | {
-        [key in keyof PikasTransitions]?: TransitionsRecordValue
-      }
     | T
+    | {
+        [key in keyof PikasTransitions]?: TransitionsRecordValue;
+      }
 ): PikasTransitions & T =>
   ({
     ...pikasTransitions,
     ...values,
-  } as PikasTransitions & T)
+  } as PikasTransitions & T);

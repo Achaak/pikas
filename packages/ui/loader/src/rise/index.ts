@@ -1,1 +1,1 @@
-export * from './RiseLoader.js'
+export * from './RiseLoader.js';

@@ -1,51 +1,50 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { Table } from '@pikas-ui/table'
-import { dataTable } from '../data'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { Table } from '@pikas-ui/table';
+import { dataTable } from '../data';
 
-export const LightTableExample: React.FC = () => {
-  return (
-    <ExampleContainer>
-      <Table
-        variant="light"
-        data={dataTable}
-        emptyMessage="No data found"
-        columns={[
-          {
-            header: 'Age',
-            accessorKey: 'age',
-            cell: (props) => props.getValue<string>(),
-          },
-          {
-            header: 'Name',
-            columns: [
-              {
-                header: 'First Name',
-                accessorKey: 'firstName',
-              },
-              {
-                header: 'Last Name',
-                accessorKey: 'lastName',
-              },
-            ],
-          },
-          {
-            header: 'Data',
-            columns: [
-              {
-                header: 'Email',
-                accessorKey: 'email',
-              },
-              {
-                header: 'Number',
-                accessorKey: 'number',
-              },
-            ],
-          },
-        ]}
-        pagination={{
-          active: true,
-        }}
-      />
-    </ExampleContainer>
-  )
-}
+export const LightTableExample: FC = () => (
+  <ExampleContainer>
+    <Table
+      variant="light"
+      data={dataTable}
+      emptyMessage="No data found"
+      columns={[
+        {
+          header: 'Age',
+          accessorKey: 'age',
+          cell: (props) => props.getValue<string>(),
+        },
+        {
+          header: 'Name',
+          columns: [
+            {
+              header: 'First Name',
+              accessorKey: 'firstName',
+            },
+            {
+              header: 'Last Name',
+              accessorKey: 'lastName',
+            },
+          ],
+        },
+        {
+          header: 'Data',
+          columns: [
+            {
+              header: 'Email',
+              accessorKey: 'email',
+            },
+            {
+              header: 'Number',
+              accessorKey: 'number',
+            },
+          ],
+        },
+      ]}
+      pagination={{
+        active: true,
+      }}
+    />
+  </ExampleContainer>
+);

@@ -1,28 +1,25 @@
-import React from 'react'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { useTheme, styled } from '@pikas-ui/styles'
-import fontColorContrast from 'font-color-contrast'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
+import fontColorContrast from 'font-color-contrast';
+import { FC, HTMLAttributes } from 'react';
 
-interface CustomProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-  variant?: 'default' | 'light'
-  css?: PikasCSS
-}
+type CustomProps = HTMLAttributes<HTMLTableSectionElement> & {
+  variant?: 'default' | 'light';
+  css?: PikasCSS;
+};
 
-export const Thead: React.FC<CustomProps> = (props) => {
-  const theme = useTheme()
+export const Thead: FC<CustomProps> = (props) => {
+  const theme = useTheme();
 
-  const Thead = styled('thead', {
+  const TheadStyled = styled('thead', {
     variants: {
       variant: {
         default: {
           backgroundColor: '$PRIMARY',
-          color:
-            (theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
-            undefined,
+          color: theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
 
           svg: {
-            fill:
-              theme && fontColorContrast(theme.colors['PRIMARY'].value, 0.7),
+            fill: theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
           },
 
           tr: {
@@ -58,7 +55,7 @@ export const Thead: React.FC<CustomProps> = (props) => {
         },
       },
     },
-  })
+  });
 
-  return <Thead {...props} />
-}
+  return <TheadStyled {...props} />;
+};

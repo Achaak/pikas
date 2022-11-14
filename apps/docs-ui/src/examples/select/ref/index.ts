@@ -1,1 +1,1 @@
-export * from './SelectRefExample'
+export * from './SelectRefExample';

@@ -1,1 +1,1 @@
-export * from './Progress.js'
+export * from './Progress.js';

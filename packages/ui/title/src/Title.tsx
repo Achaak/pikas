@@ -1,6 +1,7 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import type { HTMLAttributes } from 'react'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import type { HTMLAttributes } from 'react';
+import { ReactNode, FC } from 'react';
 
 const TitleStyle = styled('h1', {
   all: 'unset',
@@ -45,7 +46,7 @@ const TitleStyle = styled('h1', {
       },
     },
   },
-})
+});
 
 export const titleComponent = {
   h1: true,
@@ -54,56 +55,54 @@ export const titleComponent = {
   h4: true,
   h5: true,
   h6: true,
-} as const
-export type TitleAs = keyof typeof titleComponent
+} as const;
+export type TitleAs = keyof typeof titleComponent;
 
 export const textTransformComponent = {
   uppercase: true,
   lowercase: true,
   capitalize: true,
   none: true,
-} as const
-export type TitleTextTransform = keyof typeof textTransformComponent
+} as const;
+export type TitleTextTransform = keyof typeof textTransformComponent;
 
-export const titleVariant = titleComponent
-export type TitleVariant = keyof typeof titleVariant
+export const titleVariant = titleComponent;
+export type TitleVariant = keyof typeof titleVariant;
 
-export interface TitleCSS {
-  global?: PikasCSS
-  h1?: PikasCSS
-  h2?: PikasCSS
-  h3?: PikasCSS
-  h4?: PikasCSS
-  h5?: PikasCSS
-  h6?: PikasCSS
-}
+export type TitleCSS = {
+  global?: PikasCSS;
+  h1?: PikasCSS;
+  h2?: PikasCSS;
+  h3?: PikasCSS;
+  h4?: PikasCSS;
+  h5?: PikasCSS;
+  h6?: PikasCSS;
+};
 
-export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  as: TitleAs
-  variant?: TitleVariant
-  textTransform?: TitleTextTransform
-  css?: TitleCSS
-  children?: React.ReactNode
-}
+export type TitleProps = HTMLAttributes<HTMLHeadingElement> & {
+  as: TitleAs;
+  variant?: TitleVariant;
+  textTransform?: TitleTextTransform;
+  css?: TitleCSS;
+  children?: ReactNode;
+};
 
-export const Title: React.FC<TitleProps> = ({
+export const Title: FC<TitleProps> = ({
   children,
   as,
   variant,
   textTransform,
   css,
-}) => {
-  return (
-    <TitleStyle
-      as={as}
-      variant={variant || as}
-      css={{
-        textTransform,
-        ...css?.global,
-        ...css?.[variant || as],
-      }}
-    >
-      {children}
-    </TitleStyle>
-  )
-}
+}) => (
+  <TitleStyle
+    as={as}
+    variant={variant ?? as}
+    css={{
+      textTransform,
+      ...css?.global,
+      ...css?.[variant ?? as],
+    }}
+  >
+    {children}
+  </TitleStyle>
+);

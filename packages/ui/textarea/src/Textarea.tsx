@@ -4,23 +4,22 @@ import type {
   PikasCSS,
   PikasShadow,
   PikasFontSize,
-} from '@pikas-ui/styles'
-import { styled, useTheme } from '@pikas-ui/styles'
-import { Label, TextError, Description } from '@pikas-ui/text'
-import fontColorContrast from 'font-color-contrast'
-import type { TextareaHTMLAttributes } from 'react'
-import { forwardRef } from 'react'
-import React, { useState } from 'react'
-import type { IconCSS } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import type { TooltipCSS } from '@pikas-ui/tooltip'
-import { Tooltip } from '@pikas-ui/tooltip'
+} from '@pikas-ui/styles';
+import { styled, useTheme } from '@pikas-ui/styles';
+import { Label, TextError, Description } from '@pikas-ui/text';
+import fontColorContrast from 'font-color-contrast';
+import type { ChangeEvent, ForwardedRef, TextareaHTMLAttributes } from 'react';
+import { forwardRef, useState, ReactNode } from 'react';
+import type { IconCSS } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import type { TooltipCSS } from '@pikas-ui/tooltip';
+import { Tooltip } from '@pikas-ui/tooltip';
 
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   userSelect: 'none',
-})
+});
 
 const TextareaContainer = styled('div', {
   width: '100%',
@@ -50,7 +49,7 @@ const TextareaContainer = styled('div', {
       },
     },
   },
-})
+});
 
 const TextareaStyled = styled('textarea', {
   width: '100%',
@@ -59,76 +58,101 @@ const TextareaStyled = styled('textarea', {
   border: 'none',
   fontFamily: '$roboto',
   backgroundColor: '$TRANSPARENT',
-})
+});
 
 const LabelContainer = styled('div', {
   display: 'flex',
   marginBottom: 4,
-})
+});
 
 const Required = styled('div', {
   color: '$WARNING',
   marginLeft: 4,
-})
+});
 
 export const textareaPadding = {
   sm: true,
   md: true,
   lg: true,
-} as const
-export type TextareaPadding = keyof typeof textareaPadding
+} as const;
+export type TextareaPadding = keyof typeof textareaPadding;
 
 export const textareaResize = {
   none: true,
   vertical: true,
   horizontal: true,
   both: true,
-} as const
-export type TextareaResize = keyof typeof textareaResize
+} as const;
+export type TextareaResize = keyof typeof textareaResize;
 
-export interface TextareaCSS {
-  container?: PikasCSS
-  textareaContainer?: PikasCSS
-  textarea?: PikasCSS
-  infoTooltip?: TooltipCSS
-  infoIcon?: IconCSS
-  label?: PikasCSS
-  description?: PikasCSS
-  textError?: PikasCSS
-  required?: PikasCSS
-}
+export type TextareaCSS = {
+  container?: PikasCSS;
+  textareaContainer?: PikasCSS;
+  textarea?: PikasCSS;
+  infoTooltip?: TooltipCSS;
+  infoIcon?: IconCSS;
+  label?: PikasCSS;
+  description?: PikasCSS;
+  textError?: PikasCSS;
+  required?: PikasCSS;
+};
 
-export type TextareaProps = {
-  id?: string
-  label?: string
-  boxShadow?: PikasShadow | 'none'
-  borderRadius?: BorderRadius
-  padding?: TextareaPadding
-  fontSize?: PikasFontSize
-  textError?: string
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  css?: TextareaCSS
-  outline?: boolean
-  resize?: TextareaResize
-  description?: string
-  width?: string | number
-  maxWidth?: string | number
-  height?: string | number
-  maxHeight?: string | number
-  minHeight?: string | number
-  minWidth?: string | number
-  borderColorName?: PikasColor
-  borderColorHex?: string
-  borderWidth?: number
-  colorName?: PikasColor
-  colorHex?: string
-  placeholderColorName?: PikasColor
-  placeholderColorHex?: string
-  backgroundColorName?: PikasColor
-  backgroundColorHex?: string
-  info?: React.ReactNode
-  data?: DOMStringMap
-} & TextareaHTMLAttributes<HTMLTextAreaElement>
+export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
+  id?: string;
+  label?: string;
+  boxShadow?: PikasShadow | 'none';
+  borderRadius?: BorderRadius;
+  padding?: TextareaPadding;
+  fontSize?: PikasFontSize;
+  textError?: string;
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  css?: TextareaCSS;
+  outline?: boolean;
+  resize?: TextareaResize;
+  description?: string;
+  width?: number | string;
+  maxWidth?: number | string;
+  height?: number | string;
+  maxHeight?: number | string;
+  minHeight?: number | string;
+  minWidth?: number | string;
+  borderColorName?: PikasColor;
+  borderColorHex?: string;
+  borderWidth?: number;
+  colorName?: PikasColor;
+  colorHex?: string;
+  placeholderColorName?: PikasColor;
+  placeholderColorHex?: string;
+  backgroundColorName?: PikasColor;
+  backgroundColorHex?: string;
+  info?: ReactNode;
+  data?: DOMStringMap;
+};
+
+const getColor = ({
+  colorName,
+  colorHex,
+  backgroundColorName,
+}: {
+  colorName?: PikasColor;
+  colorHex?: string;
+  backgroundColorName?: PikasColor;
+}): string => {
+  const theme = useTheme();
+
+  if (colorHex) {
+    return colorHex;
+  } else if (colorName) {
+    return `$${colorName}`;
+  } else if (theme) {
+    return fontColorContrast(
+      theme.colors[backgroundColorName ?? 'WHITE'].value,
+      0.7
+    );
+  } else {
+    return '';
+  }
+};
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
@@ -166,44 +190,23 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       data,
       ...props
     }: TextareaProps,
-    ref: React.ForwardedRef<HTMLTextAreaElement>
+    ref: ForwardedRef<HTMLTextAreaElement>
   ) => {
-    const [focus, setFocus] = useState(false)
-    const theme = useTheme()
+    const [focus, setFocus] = useState(false);
 
-    const onChangeTextarea = (
-      e: React.ChangeEvent<HTMLTextAreaElement>
-    ): void => {
+    const onChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>): void => {
       if (onChange) {
-        onChange(e)
+        onChange(e);
       }
-    }
-
-    const getColor = ({
-      colorName,
-      colorHex,
-    }: {
-      colorName?: PikasColor
-      colorHex?: string
-    }): string => {
-      return colorHex || colorName
-        ? `$${colorName}`
-        : undefined ||
-            (theme &&
-              fontColorContrast(
-                theme.colors[backgroundColorName || 'WHITE'].value,
-                0.7
-              )) ||
-            ''
-    }
+    };
 
     return (
       <Container
         css={{
           fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
+          width,
+          maxWidth,
+          minWidth,
           opacity: disabled ? 0.5 : 1,
           cursor: disabled ? 'not-allowed' : undefined,
 
@@ -257,16 +260,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           focus={outline ? focus : undefined}
           css={{
             br: borderRadius,
-            borderColor:
-              borderColorHex || borderColorName
-                ? `$${borderColorName}`
-                : undefined,
-            backgroundColor:
-              backgroundColorHex || backgroundColorName
-                ? `$${backgroundColorName}`
-                : undefined,
+            borderColor: borderColorHex ?? `$${borderColorName}`,
+            backgroundColor: backgroundColorHex ?? `$${backgroundColorName}`,
             boxShadow: `$${boxShadow}`,
-            borderWidth: borderWidth,
+            borderWidth,
 
             ...css?.textareaContainer,
           }}
@@ -280,16 +277,17 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             required={required}
             disabled={disabled}
             css={{
-              resize: resize,
-              height: height,
-              maxHeight: maxHeight,
-              minHeight: minHeight,
-              color: getColor({ colorName: colorName, colorHex: colorHex }),
+              resize,
+              height,
+              maxHeight,
+              minHeight,
+              color: getColor({ colorName, colorHex, backgroundColorName }),
 
               '&::placeholder': {
                 color: getColor({
                   colorName: placeholderColorName,
                   colorHex: placeholderColorHex,
+                  backgroundColorName,
                 }),
               },
 
@@ -306,6 +304,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           </TextError>
         )}
       </Container>
-    )
+    );
   }
-)
+);
+
+Textarea.displayName = 'Textarea';

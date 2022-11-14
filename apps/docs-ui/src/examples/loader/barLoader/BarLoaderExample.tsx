@@ -1,17 +1,16 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { BarLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { BarLoader } from '@pikas-ui/loader';
 
-export const BarLoaderExample: React.FC = () => {
-  return (
-    <ExampleContainer
-      css={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 150,
-      }}
-    >
-      <BarLoader />
-    </ExampleContainer>
-  )
-}
+export const BarLoaderExample: FC = () => (
+  <ExampleContainer
+    css={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 150,
+    }}
+  >
+    <BarLoader />
+  </ExampleContainer>
+);

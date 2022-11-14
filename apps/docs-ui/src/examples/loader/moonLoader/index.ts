@@ -1,1 +1,1 @@
-export * from './MoonLoaderExample'
+export * from './MoonLoaderExample';

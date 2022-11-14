@@ -1,12 +1,16 @@
-import type { IconCSS } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { useEffect, useState } from 'react'
+import type { IconCSS } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import type { PikasCSS } from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
+import {
+  Overlay as DialogPrimitiveOverlay,
+  Content as DialogPrimitiveContent,
+  Root as DialogPrimitiveRoot,
+  Portal as DialogPrimitivePortal,
+} from '@radix-ui/react-dialog';
+import { useEffect, useState, ReactNode, FC } from 'react';
 
-const Overlay = styled(DialogPrimitive.Overlay, {
+const Overlay = styled(DialogPrimitiveOverlay, {
   position: 'fixed',
   backgroundColor: '$GRAY_LIGHT',
   opacity: 0,
@@ -21,9 +25,9 @@ const Overlay = styled(DialogPrimitive.Overlay, {
       },
     },
   },
-})
+});
 
-const Container = styled(DialogPrimitive.Content, {
+const Container = styled(DialogPrimitiveContent, {
   inset: 'initial',
   position: 'fixed',
   top: 0,
@@ -104,7 +108,7 @@ const Container = styled(DialogPrimitive.Content, {
       },
     },
   },
-})
+});
 
 const DefaultContainer = styled('div', {
   display: 'flex',
@@ -140,79 +144,80 @@ const DefaultContainer = styled('div', {
       },
     },
   },
-})
+});
 
-const Header = styled(DefaultContainer, {})
+const Header = styled(DefaultContainer, {});
 
 const Content = styled(DefaultContainer, {
-  overflow: 'auto',
+  overflow: 'auto', // TODO Find a better way to do this
   flex: 1,
   display: 'flex',
   justifyContent: 'start',
   alignItems: 'start',
-})
+});
 
-const Footer = styled(DefaultContainer, {})
+const Footer = styled(DefaultContainer, {});
 
 const customDialogPaddingElement = {
   'no-padding': true,
   sm: true,
   md: true,
   lg: true,
-} as const
-export type CustomDialogPaddingElement = keyof typeof customDialogPaddingElement
+} as const;
+export type CustomDialogPaddingElement =
+  keyof typeof customDialogPaddingElement;
 
-export interface CustomDialogPadding {
-  container?: CustomDialogPaddingElement
-  header?: CustomDialogPaddingElement
-  content?: CustomDialogPaddingElement
-  footer?: CustomDialogPaddingElement
-}
+export type CustomDialogPadding = {
+  container?: CustomDialogPaddingElement;
+  header?: CustomDialogPaddingElement;
+  content?: CustomDialogPaddingElement;
+  footer?: CustomDialogPaddingElement;
+};
 
 const customDialogGapElement = {
   'no-gap': true,
   sm: true,
   md: true,
   lg: true,
-} as const
-export type CustomDialogGapElement = keyof typeof customDialogGapElement
+} as const;
+export type CustomDialogGapElement = keyof typeof customDialogGapElement;
 
-export interface CustomDialogGap {
-  container?: CustomDialogGapElement
-  header?: CustomDialogGapElement
-  content?: CustomDialogGapElement
-  footer?: CustomDialogGapElement
-}
+export type CustomDialogGap = {
+  container?: CustomDialogGapElement;
+  header?: CustomDialogGapElement;
+  content?: CustomDialogGapElement;
+  footer?: CustomDialogGapElement;
+};
 
-export interface CustomDialogCSS {
-  container?: PikasCSS
-  header?: PikasCSS
-  content?: PikasCSS
-  footer?: PikasCSS
-  closeIcon?: IconCSS
-  overlay?: PikasCSS
-}
+export type CustomDialogCSS = {
+  container?: PikasCSS;
+  header?: PikasCSS;
+  content?: PikasCSS;
+  footer?: PikasCSS;
+  closeIcon?: IconCSS;
+  overlay?: PikasCSS;
+};
 
-export interface DialogProps {
-  visible: boolean
-  onOpen?: () => void
-  onClose?: () => void
-}
+export type DialogProps = {
+  visible: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
+};
 
-export interface CustomDialogProps extends DialogProps {
-  closeIfClickOutside?: boolean
-  hasCloseIcon?: boolean
-  css?: CustomDialogCSS
-  width?: string | number
-  height?: string | number
-  padding?: CustomDialogPadding
-  gap?: CustomDialogGap
-  header?: React.ReactNode
-  content?: React.ReactNode
-  footer?: React.ReactNode
-}
+export type CustomDialogProps = DialogProps & {
+  closeIfClickOutside?: boolean;
+  hasCloseIcon?: boolean;
+  css?: CustomDialogCSS;
+  width?: number | string;
+  height?: number | string;
+  padding?: CustomDialogPadding;
+  gap?: CustomDialogGap;
+  header?: ReactNode;
+  content?: ReactNode;
+  footer?: ReactNode;
+};
 
-export const CustomDialog: React.FC<CustomDialogProps> = ({
+export const CustomDialog: FC<CustomDialogProps> = ({
   visible,
   hasCloseIcon = true,
   onClose,
@@ -227,43 +232,43 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
   content,
   gap,
 }) => {
-  const [visibleStyle, setVisibleStyle] = useState(false)
-  const [visibleDOM, setVisibleDOM] = useState(false)
-  const theme = useTheme()
+  const [visibleStyle, setVisibleStyle] = useState(false);
+  const [visibleDOM, setVisibleDOM] = useState(false);
+  const theme = useTheme();
 
   useEffect(() => {
     if (visible) {
-      setVisibleDOM(visible)
+      setVisibleDOM(visible);
 
       setTimeout(() => {
-        setVisibleStyle(visible)
-      }, 100)
+        setVisibleStyle(visible);
+      }, 100);
     } else {
-      setVisibleStyle(visible)
+      setVisibleStyle(visible);
 
       setTimeout(() => {
-        setVisibleDOM(visible)
-      }, 500)
+        setVisibleDOM(visible);
+      }, 500);
     }
-  }, [visible])
+  }, [visible]);
 
   const handleClose = (): void => {
     if (onClose) {
-      onClose()
+      onClose();
     }
-  }
+  };
 
   return (
-    <DialogPrimitive.Root
+    <DialogPrimitiveRoot
       open={visibleDOM}
       modal={true}
       onOpenChange={(open): void => {
         if (open) {
-          onOpen?.()
+          onOpen?.();
         }
       }}
     >
-      <DialogPrimitive.Portal>
+      <DialogPrimitivePortal>
         <Overlay
           className={theme}
           visible={visibleStyle}
@@ -278,15 +283,15 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
           visible={visibleStyle}
           onInteractOutside={(): void => {
             if (closeIfClickOutside) {
-              handleClose()
+              handleClose();
             }
           }}
           padding={padding?.container}
           gap={gap?.container}
           css={{
             '@sm': {
-              width: width,
-              height: height,
+              width,
+              height,
             },
 
             ...css?.container,
@@ -305,6 +310,7 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
                   position: 'absolute',
                   right: 16,
                   top: 16,
+                  zIndex: '$XX-HIGH',
                   ...css?.closeIcon?.container,
                 },
               }}
@@ -345,7 +351,7 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
             </Footer>
           )}
         </Container>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
-  )
-}
+      </DialogPrimitivePortal>
+    </DialogPrimitiveRoot>
+  );
+};

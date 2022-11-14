@@ -1,5 +1,6 @@
-import type { BorderRadius, PikasCSS } from '@pikas-ui/styles'
-import { styled, keyframes } from '@pikas-ui/styles'
+import type { BorderRadius, PikasCSS } from '@pikas-ui/styles';
+import { styled, keyframes } from '@pikas-ui/styles';
+import { FC } from 'react';
 
 const wave = keyframes({
   '0%': {
@@ -11,7 +12,7 @@ const wave = keyframes({
   '100%': {
     transform: 'translateX(100%)',
   },
-})
+});
 
 const pulse = keyframes({
   '0%': {
@@ -23,7 +24,7 @@ const pulse = keyframes({
   '100%': {
     opacity: 1,
   },
-})
+});
 
 const Container = styled('div', {
   display: 'block',
@@ -44,7 +45,7 @@ const Container = styled('div', {
           left: 0,
           right: 0,
           bottom: 0,
-          animation: `${pulse} 2s 0.5s linear infinite`,
+          animation: `${pulse.name} 2s 0.5s linear infinite`,
           backgroundColor: '$GRAY_LIGHTER',
         },
       },
@@ -72,7 +73,7 @@ const Container = styled('div', {
           width: '100%',
           background:
             'linear-gradient(90deg, $TRANSPARENT, $GRAY_LIGHTER, $TRANSPARENT)',
-          animation: `${wave} 3s 0.5s linear infinite`,
+          animation: `${wave.name} 3s 0.5s linear infinite`,
         },
       },
       false: {
@@ -91,35 +92,33 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
-export type SkeletonAnimation = 'pulse' | 'wave' | false
+export type SkeletonAnimation = 'pulse' | 'wave' | false;
 
-export interface SkeletonProps {
-  animation?: SkeletonAnimation
-  width?: string | number
-  height?: string | number
-  borderRadius?: BorderRadius
-  css?: PikasCSS
-}
+export type SkeletonProps = {
+  animation?: SkeletonAnimation;
+  width?: number | string;
+  height?: number | string;
+  borderRadius?: BorderRadius;
+  css?: PikasCSS;
+};
 
-export const Skeleton: React.FC<SkeletonProps> = ({
+export const Skeleton: FC<SkeletonProps> = ({
   animation = 'pulse',
   borderRadius = 'sm',
   height,
   width,
   css,
-}) => {
-  return (
-    <Container
-      css={{
-        width,
-        height,
-        br: borderRadius,
+}) => (
+  <Container
+    css={{
+      width,
+      height,
+      br: borderRadius,
 
-        ...css,
-      }}
-      animation={animation}
-    ></Container>
-  )
-}
+      ...css,
+    }}
+    animation={animation}
+  ></Container>
+);

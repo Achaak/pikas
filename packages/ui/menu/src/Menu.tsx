@@ -1,27 +1,27 @@
-import type { IconProps } from '@pikas-ui/icons'
-import type { PikasColor, PikasCSS } from '@pikas-ui/styles'
-import { keyframes } from '@pikas-ui/styles'
-import 'react'
+import type { IconProps } from '@pikas-ui/icons';
+import type { PikasColor, PikasCSS } from '@pikas-ui/styles';
+import { keyframes } from '@pikas-ui/styles';
+import { ReactNode, FC } from 'react';
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(8px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-})
+});
 
 const slideRightAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateX(-8px)' },
   '100%': { opacity: 1, transform: 'translateX(0)' },
-})
+});
 
 const slideDownAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(-8px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-})
+});
 
 const slideLeftAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateX(8px)' },
   '100%': { opacity: 1, transform: 'translateX(0)' },
-})
+});
 
 export const MenuContentCSS: PikasCSS = {
   backgroundColor: '$WHITE',
@@ -50,7 +50,7 @@ export const MenuContentCSS: PikasCSS = {
       },
     },
   },
-}
+};
 
 export const MenuItemCSS: PikasCSS = {
   all: 'unset',
@@ -82,41 +82,41 @@ export const MenuItemCSS: PikasCSS = {
   '&:focus': {
     backgroundColor: '$PRIMARY_LIGHTEST_2',
   },
-}
+};
 
 export const MenuCheckboxItemCSS: PikasCSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
   ...MenuItemCSS,
-}
+};
 
 export const MenuRadioItemCSS: PikasCSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
   ...MenuItemCSS,
-}
+};
 
 export const MenuTriggerItemCSS: PikasCSS = {
   '&[data-state="open"]': {
     color: '$BLACK',
   },
   ...MenuItemCSS,
-}
+};
 
 export const MenuLabelCSS: PikasCSS = {
   padding: '4px 0',
   paddingLeft: 24,
   fontSize: '$EM-X-SMALL',
   color: '$BLACK',
-}
+};
 
 export const MenuSeparatorCSS: PikasCSS = {
   height: 1,
   backgroundColor: '$GRAY_LIGHT',
   margin: 4,
-}
+};
 
 export const MenuItemIndicatorCSS: PikasCSS = {
   position: 'absolute',
@@ -125,7 +125,7 @@ export const MenuItemIndicatorCSS: PikasCSS = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-}
+};
 
 export const RightSlotCSS: PikasCSS = {
   marginLeft: 'auto',
@@ -136,94 +136,100 @@ export const RightSlotCSS: PikasCSS = {
     opacity: 0.5,
     color: '$BLACK_LIGHT',
   },
-}
+};
 
-export const SpanCSS: PikasCSS = {}
+export const SpanCSS: PikasCSS = {};
 
-interface ItemBase {
-  disabled?: boolean
-  rightSlot?: string
-  colorName?: PikasColor
-  colorHex?: string
-  type: 'item' | 'checkbox' | 'radio' | 'menu'
-  hide?: boolean
-}
+export type ItemBase = {
+  disabled?: boolean;
+  rightSlot?: string;
+  colorName?: PikasColor;
+  colorHex?: string;
+  type: 'checkbox' | 'item' | 'menu' | 'radio';
+  hide?: boolean;
+};
 
-interface DefaultItem extends ItemBase {
-  type: 'item'
-  Icon?: React.FC<IconProps>
-  iconColorName?: PikasColor
-  iconColorHex?: string
-  loading?: boolean
-  label: React.ReactNode
-  onClick?: () => void
+export type DefaultItem = ItemBase & {
+  type: 'item';
+  Icon?: FC<IconProps>;
+  iconColorName?: PikasColor;
+  iconColorHex?: string;
+  loading?: boolean;
+  label: ReactNode;
+  onClick?: () => void;
   css?: {
-    container?: PikasCSS
-    indicator?: PikasCSS
-    label?: PikasCSS
-    rightSlot?: PikasCSS
-  }
-}
+    container?: PikasCSS;
+    indicator?: PikasCSS;
+    label?: PikasCSS;
+    rightSlot?: PikasCSS;
+  };
+};
 
-interface CheckboxItem extends ItemBase {
-  type: 'checkbox'
-  checked: boolean
-  label: React.ReactNode
-  onCheckedChange: (checked: boolean | 'indeterminate') => void
+export type CheckboxItem = ItemBase & {
+  type: 'checkbox';
+  checked: boolean;
+  label: ReactNode;
+  iconColorName?: PikasColor;
+  iconColorHex?: string;
+  onCheckedChange: (checked: boolean | 'indeterminate') => void;
   css?: {
-    container?: PikasCSS
-    indicator?: PikasCSS
-    label?: PikasCSS
-    rightSlot?: PikasCSS
-  }
-}
+    container?: PikasCSS;
+    indicator?: PikasCSS;
+    label?: PikasCSS;
+    rightSlot?: PikasCSS;
+  };
+};
 
-interface RadioItem extends ItemBase {
-  type: 'radio'
-  onValueChange: (value: string) => void
-  value: string
+export type RadioItem = ItemBase & {
+  type: 'radio';
+  onValueChange: (value: string) => void;
+  value: string;
+  iconColorName?: PikasColor;
+  iconColorHex?: string;
   radios: {
-    label: string
-    value: string
-    disabled?: boolean
-    rightSlot?: string
+    label: string;
+    value: string;
+    disabled?: boolean;
+    rightSlot?: string;
     css?: {
-      container?: PikasCSS
-      indicator?: PikasCSS
-      label?: PikasCSS
-      rightSlot?: PikasCSS
-    }
-  }[]
+      container?: PikasCSS;
+      indicator?: PikasCSS;
+      label?: PikasCSS;
+      rightSlot?: PikasCSS;
+    };
+  }[];
   css?: {
-    container?: PikasCSS
-  }
-}
+    container?: PikasCSS;
+  };
+};
 
-interface MenuItem extends ItemBase {
-  type: 'menu'
-  data: MenuData
-  label: React.ReactNode
+export type MenuItem = ItemBase & {
+  type: 'menu';
+  data: MenuData;
+  label: ReactNode;
+  iconColorName?: PikasColor;
+  iconColorHex?: string;
   css?: {
-    container?: PikasCSS
-  }
-}
+    container?: PikasCSS;
+  };
+};
 
-export type ItemEntry = DefaultItem | CheckboxItem | RadioItem | MenuItem
+export type ItemEntry = CheckboxItem | DefaultItem | MenuItem | RadioItem;
 
-export interface MenuDataItem {
-  label?: React.ReactNode
-  css?: PikasCSS
-  items: ItemEntry[]
-}
+export type MenuDataItem = {
+  label?: ReactNode;
+  css?: PikasCSS;
+  items: ItemEntry[];
+};
 
-export type MenuData = MenuDataItem[]
+export type MenuData = MenuDataItem[];
 
-export interface MenuCSS {
-  content?: PikasCSS
-  separator?: PikasCSS
-}
+export type MenuCSS = {
+  content?: PikasCSS;
+  separator?: PikasCSS;
+};
 
-export interface MenuProps {
-  data: MenuData
-  css?: MenuCSS
-}
+export type MenuProps = {
+  data: MenuData;
+  css?: MenuCSS;
+};

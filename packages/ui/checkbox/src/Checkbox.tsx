@@ -4,25 +4,23 @@ import type {
   PikasCSS,
   PikasFontSize,
   PikasShadow,
-} from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import type { IconCSS } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import { Label, TextError } from '@pikas-ui/text'
-import type { ReactNode } from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import fontColorContrast from 'font-color-contrast'
+} from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
+import type { IconCSS } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import { Label, TextError } from '@pikas-ui/text';
+import type { ReactNode } from 'react';
+import { useEffect, useState, FC } from 'react';
+import { Root, Indicator } from '@radix-ui/react-checkbox';
+import fontColorContrast from 'font-color-contrast';
 
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   userSelect: 'none',
-})
+});
 
-const CheckboxStyled = styled(CheckboxPrimitive.Root, {
+const CheckboxStyled = styled(Root, {
   all: 'unset',
   display: 'flex',
   alignItems: 'center',
@@ -39,56 +37,56 @@ const CheckboxStyled = styled(CheckboxPrimitive.Root, {
       },
     },
   },
-})
+});
 
-const CheckboxIndicator = styled(CheckboxPrimitive.Indicator, {})
+const CheckboxIndicator = styled(Indicator, {});
 
 const Item = styled('div', {
   display: 'flex',
   alignItems: 'center',
-})
+});
 
 export const checkboxSide = {
   left: true,
   right: true,
-} as const
-export type CheckboxSide = keyof typeof checkboxSide
+} as const;
+export type CheckboxSide = keyof typeof checkboxSide;
 
-export interface CheckboxCSS {
-  container?: PikasCSS
-  label?: PikasCSS
-  checkboxRoot?: PikasCSS
-  checkboxIndicator?: PikasCSS
-  textError?: PikasCSS
-  icon?: IconCSS
-}
+export type CheckboxCSS = {
+  container?: PikasCSS;
+  label?: PikasCSS;
+  checkboxRoot?: PikasCSS;
+  checkboxIndicator?: PikasCSS;
+  textError?: PikasCSS;
+  icon?: IconCSS;
+};
 
-export interface CheckboxProps {
-  defaultChecked?: boolean
-  onChange?: (checked: boolean) => void
-  id?: string
-  label?: string | ReactNode
-  backgroundColorName?: PikasColor
-  backgroundColorNameChecked?: PikasColor
-  textError?: string
-  boxShadow?: PikasShadow | 'none'
-  borderColorName?: PikasColor
-  borderWidth?: number
-  borderRadius?: BorderRadius
-  fontSize?: PikasFontSize
-  size?: number
-  checked?: boolean
-  className?: string
-  disabled?: boolean
-  required?: boolean
-  name?: string
-  side?: CheckboxSide
-  outline?: boolean
-  indeterminate?: boolean
-  css?: CheckboxCSS
-}
+export type CheckboxProps = {
+  defaultChecked?: boolean;
+  onChange?: (checked: boolean) => void;
+  id?: string;
+  label?: ReactNode | string;
+  backgroundColorName?: PikasColor;
+  backgroundColorNameChecked?: PikasColor;
+  textError?: string;
+  boxShadow?: PikasShadow | 'none';
+  borderColorName?: PikasColor;
+  borderWidth?: number;
+  borderRadius?: BorderRadius;
+  fontSize?: PikasFontSize;
+  size?: number;
+  checked?: boolean;
+  className?: string;
+  disabled?: boolean;
+  required?: boolean;
+  name?: string;
+  side?: CheckboxSide;
+  outline?: boolean;
+  indeterminate?: boolean;
+  css?: CheckboxCSS;
+};
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: FC<CheckboxProps> = ({
   id,
   label,
   textError,
@@ -112,38 +110,38 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   indeterminate = false,
   css,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
     indeterminate ? 'indeterminate' : defaultChecked
-  )
-  const [focus, setFocus] = useState(false)
+  );
+  const [focus, setFocus] = useState(false);
 
-  const handleChange = (checked: boolean): void => {
-    setIsChecked(checked)
+  const handleChange = (newChecked: boolean): void => {
+    setIsChecked(newChecked);
 
     if (onChange) {
-      onChange(checked)
+      onChange(newChecked);
     }
-  }
+  };
 
   useEffect(() => {
     if (checked !== undefined) {
-      setIsChecked(checked)
+      setIsChecked(checked);
     }
-  }, [checked])
+  }, [checked]);
 
   useEffect(() => {
     if (indeterminate) {
-      setIsChecked('indeterminate')
+      setIsChecked('indeterminate');
     }
-  }, [indeterminate])
+  }, [indeterminate]);
 
   return (
     <Container
       className={className}
       css={{
-        fontSize: `$${fontSize}`,
+        fontSize: fontSize && `$${fontSize}`,
         cursor: disabled ? 'not-allowed' : undefined,
         opacity: disabled ? 0.5 : 1,
 
@@ -183,8 +181,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             backgroundColor: `$${backgroundColorName}`,
             br: borderRadius,
             boxShadow: `$${boxShadow}`,
-            borderColor: `$${borderColorName}`,
-            borderWidth: borderWidth,
+            borderColor: borderColorName && `$${borderColorName}`,
+            borderWidth,
             width: size,
             height: size,
 
@@ -198,12 +196,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           <CheckboxIndicator
             css={{
               color:
-                (theme &&
-                  fontColorContrast(
-                    theme.colors[backgroundColorNameChecked || 'WHITE'].value,
-                    0.7
-                  )) ||
-                undefined,
+                theme &&
+                fontColorContrast(
+                  theme.colors[backgroundColorNameChecked].value,
+                  0.7
+                ),
 
               ...css?.checkboxIndicator,
             }}
@@ -212,12 +209,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               <IconByName
                 name="bx:minus"
                 colorHex={
-                  (theme &&
-                    fontColorContrast(
-                      theme.colors[backgroundColorName || 'BLACK'].value,
-                      0.7
-                    )) ||
-                  ''
+                  theme &&
+                  fontColorContrast(
+                    theme.colors[backgroundColorName].value,
+                    0.7
+                  )
                 }
                 css={{
                   ...css?.icon,
@@ -260,5 +256,5 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         </TextError>
       ) : null}
     </Container>
-  )
-}
+  );
+};

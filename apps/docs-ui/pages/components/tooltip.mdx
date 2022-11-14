@@ -1,9 +1,9 @@
-import { TooltipExample } from './../../src/examples/tooltip'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { TooltipExample } from './../../src/examples/tooltip';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Tooltip" />
 
@@ -81,7 +81,7 @@ const Example: React.FC = () => {
 | `sideOffset`          | Side offset of the tooltip         | `number`                  | -               |
 | `align`               | Align of content                   | `TooltipAlign`            | -               |
 | `alignOffset`         | Align offset                       | `number`                  | -               |
-| `avoidCollisions`     | Avoid collisions                   | `boolean`                 | -               |
+| `avoidCollisions`     | Avoid collisions                   | `boolean`                 | `true`          |
 | `collisionPadding`    | Collision tolerance of the tooltip | `number`                  | -               |
 | `borderRadius`        | Border radius of the tooltip       | `BorderRadius`            | `"md"`          |
 | `fontSize`            | Font size of content               | `PikasFontSize`           | `"EM-SMALL"`    |

@@ -1,14 +1,14 @@
-import { styled } from '@pikas-ui/styles'
-import { Slider } from '@pikas-ui/slider'
-import type { Area } from 'react-easy-crop'
-import Cropper from 'react-easy-crop'
-import { IconByName } from '@pikas-ui/icons'
-import { Button } from '@pikas-ui/button'
-import type { ChangeEvent } from 'react'
-import { useRef, useState, useCallback } from 'react'
-import { getRotatedImage, readFile } from '../utils.js'
-import { getOrientation } from 'get-orientation/browser'
-import { MoonLoader } from '@pikas-ui/loader'
+import { styled } from '@pikas-ui/styles';
+import { Slider } from '@pikas-ui/slider';
+import type { Area } from 'react-easy-crop';
+import Cropper from 'react-easy-crop';
+import { IconByName } from '@pikas-ui/icons';
+import { Button } from '@pikas-ui/button';
+import type { ChangeEvent } from 'react';
+import { useRef, useState, useCallback, FC } from 'react';
+import { getRotatedImage, readFile } from '../utils.js';
+import { getOrientation } from 'get-orientation/browser';
+import { MoonLoader } from '@pikas-ui/loader';
 
 const PictureContainer = styled('div', {
   width: '100%',
@@ -19,7 +19,7 @@ const PictureContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-})
+});
 
 const ImageEmpty = styled('div', {
   position: 'absolute',
@@ -31,11 +31,11 @@ const ImageEmpty = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-})
+});
 
 const InputImage = styled('input', {
   display: 'none',
-})
+});
 
 const Container = styled('div', {
   width: '100%',
@@ -44,28 +44,26 @@ const Container = styled('div', {
   justifyContent: 'center',
   flexDirection: 'column',
   customRowGap: 16,
-})
+});
 
-export interface SelectImageDialogContentProps {
-  setImage: (image: string) => void
-  setImageFull: (image: string) => void
-  image?: string
-  imageFull?: string
-  selectImageLabel: string
-  setRotation: (rotate: number) => void
-  rotation: number
-  setCroppedAreaPixels: (area: Area) => void
-  maxZoom: number
-  minZoom: number
-  defaultZoom: number
-  aspect: number
-  cropShape: 'rect' | 'round'
-  cropSize?: { width: number; height: number }
-}
+export type SelectImageDialogContentProps = {
+  setImage: (image: string) => void;
+  setImageFull: (image: string) => void;
+  image?: string;
+  imageFull?: string;
+  selectImageLabel: string;
+  setRotation: (rotate: number) => void;
+  rotation: number;
+  setCroppedAreaPixels: (area: Area) => void;
+  maxZoom: number;
+  minZoom: number;
+  defaultZoom: number;
+  aspect: number;
+  cropShape: 'rect' | 'round';
+  cropSize?: { width: number; height: number };
+};
 
-export const SelectImageDialogContent: React.FC<
-  SelectImageDialogContentProps
-> = ({
+export const SelectImageDialogContent: FC<SelectImageDialogContentProps> = ({
   setImage,
   setImageFull,
   image,
@@ -81,66 +79,66 @@ export const SelectImageDialogContent: React.FC<
   cropShape,
   cropSize,
 }) => {
-  const inputImage = useRef<HTMLInputElement>(null)
-  const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(defaultZoom | minZoom)
-  const [loadingImage, setLoadingImage] = useState(false)
+  const inputImage = useRef<HTMLInputElement>(null);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(defaultZoom | minZoom);
+  const [loadingImage, setLoadingImage] = useState(false);
 
   const onCropComplete = useCallback(
     (_croppedArea: Area, newCroppedAreaPixels: Area) => {
-      setCroppedAreaPixels(newCroppedAreaPixels)
+      setCroppedAreaPixels(newCroppedAreaPixels);
     },
     []
-  )
+  );
 
   const onFileChange = async (
     e: ChangeEvent<HTMLInputElement>
   ): Promise<void> => {
-    setLoadingImage(true)
+    setLoadingImage(true);
 
     if (e.target.files && e.target.files.length > 0) {
-      const file = e.target.files[0]
-      let imageDataUrl = await readFile(file)
-      setImageFull(imageDataUrl)
+      const file = e.target.files[0];
+      let imageDataUrl = await readFile(file);
+      setImageFull(imageDataUrl);
 
       // apply rotation if needed
-      const orientation: number = await getOrientation(file)
-      let newRotation = 0
+      const orientation: number = await getOrientation(file);
+      let newRotation = 0;
 
       switch (orientation) {
         case 3:
-          newRotation = 180
-          break
+          newRotation = 180;
+          break;
         case 6:
-          newRotation = -90
-          break
+          newRotation = -90;
+          break;
         case 8:
-          newRotation = -270
-          break
+          newRotation = -270;
+          break;
 
         default:
-          break
+          break;
       }
 
       if (newRotation) {
         const getRotatedImageRes = await getRotatedImage(
           imageDataUrl,
           newRotation
-        )
+        );
         if (getRotatedImageRes) {
-          imageDataUrl = getRotatedImageRes
+          imageDataUrl = getRotatedImageRes;
         }
       }
 
-      setImage(imageDataUrl)
+      setImage(imageDataUrl);
     }
 
-    setLoadingImage(false)
-  }
+    setLoadingImage(false);
+  };
 
   const handleSelectImage = (): void => {
-    inputImage.current?.click()
-  }
+    inputImage.current?.click();
+  };
 
   return (
     <Container>
@@ -172,7 +170,7 @@ export const SelectImageDialogContent: React.FC<
 
       <InputImage
         onChange={(e): void => {
-          void onFileChange(e)
+          void onFileChange(e);
         }}
         ref={inputImage}
         type="file"
@@ -208,5 +206,5 @@ export const SelectImageDialogContent: React.FC<
         value={[rotation]}
       />
     </Container>
-  )
-}
+  );
+};

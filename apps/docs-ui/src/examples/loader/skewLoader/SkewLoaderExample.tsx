@@ -1,17 +1,16 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { SkewLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { SkewLoader } from '@pikas-ui/loader';
 
-export const SkewLoaderExample: React.FC = () => {
-  return (
-    <ExampleContainer
-      css={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 150,
-      }}
-    >
-      <SkewLoader />
-    </ExampleContainer>
-  )
-}
+export const SkewLoaderExample: FC = () => (
+  <ExampleContainer
+    css={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 150,
+    }}
+  >
+    <SkewLoader />
+  </ExampleContainer>
+);

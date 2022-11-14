@@ -1,20 +1,21 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { Title as DialogPrimitiveTitle } from '@radix-ui/react-dialog';
+import { ReactNode, FC } from 'react';
 
-const Container = styled(DialogPrimitive.Title, {
+const Container = styled(DialogPrimitiveTitle, {
   all: 'unset',
   color: '$BLACK',
   fontSize: '$EM-XX-LARGE',
   textAlign: 'center',
   width: '100%',
-})
+});
 
-interface InfoDialogProps {
-  children?: React.ReactNode
-  css?: PikasCSS
-}
+type InfoDialogProps = {
+  children?: ReactNode;
+  css?: PikasCSS;
+};
 
-export const Title: React.FC<InfoDialogProps> = ({ children, css }) => {
-  return <Container css={css}>{children}</Container>
-}
+export const Title: FC<InfoDialogProps> = ({ children, css }) => (
+  <Container css={css}>{children}</Container>
+);

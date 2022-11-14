@@ -1,1 +1,1 @@
-export * from './CustomBadge.js'
+export * from './CustomBadge.js';

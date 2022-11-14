@@ -1,1 +1,1 @@
-export * from './ErrorDialogContent.js'
+export * from './ErrorDialogContent.js';

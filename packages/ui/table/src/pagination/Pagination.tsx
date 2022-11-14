@@ -1,11 +1,11 @@
-import type { ReactElement } from 'react'
-import React from 'react'
-import type { PikasCSS } from '@pikas-ui/styles'
-import { useTheme, styled } from '@pikas-ui/styles'
-import fontColorContrast from 'font-color-contrast'
-import { IconByName } from '@pikas-ui/icons'
-import type { SelectCSS } from '@pikas-ui/select'
-import { Select } from '@pikas-ui/select'
+import type { ReactElement } from 'react';
+import type { PikasCSS } from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
+import fontColorContrast from 'font-color-contrast';
+import { IconByName } from '@pikas-ui/icons';
+import type { SelectCSS } from '@pikas-ui/select';
+import { Select } from '@pikas-ui/select';
+import { ReactNode, FC } from 'react';
 
 const Footer = styled('div', {
   display: 'flex',
@@ -13,17 +13,17 @@ const Footer = styled('div', {
   alignItems: 'center',
   marginTop: 8,
   paddingBottom: 2,
-})
+});
 
 const Left = styled('div', {
   display: 'flex',
   alignItems: 'center',
-})
+});
 
 const Right = styled('div', {
   display: 'flex',
   alignItems: 'center',
-})
+});
 
 const PageNumber = styled('button', {
   all: 'unset',
@@ -37,7 +37,7 @@ const PageNumber = styled('button', {
   height: 24,
   width: 24,
   cursor: 'pointer',
-})
+});
 
 const ButtonArrow = styled('button', {
   all: 'unset',
@@ -45,44 +45,44 @@ const ButtonArrow = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-})
+});
 
 const ButtonArrowLeft = styled(ButtonArrow, {
   marginRight: 8,
-})
+});
 
 const ButtonArrowRight = styled(ButtonArrow, {
   marginLeft: 8,
-})
+});
 
-export interface PaginationCSS {
-  container?: PikasCSS
-  leftContainer?: PikasCSS
-  rightContainer?: PikasCSS
-  pageNumber?: PikasCSS
-  pageNumberActive?: PikasCSS
-  select?: SelectCSS
-  buttonChevronsLeft?: PikasCSS
-  buttonChevronsRight?: PikasCSS
-  buttonChevronLeft?: PikasCSS
-  buttonChevronRight?: PikasCSS
-}
+export type PaginationCSS = {
+  container?: PikasCSS;
+  leftContainer?: PikasCSS;
+  rightContainer?: PikasCSS;
+  pageNumber?: PikasCSS;
+  pageNumberActive?: PikasCSS;
+  select?: SelectCSS;
+  buttonChevronsLeft?: PikasCSS;
+  buttonChevronsRight?: PikasCSS;
+  buttonChevronLeft?: PikasCSS;
+  buttonChevronRight?: PikasCSS;
+};
 
-export interface PaginationProps {
-  previousPage: () => void
-  nextPage: () => void
-  setPageSize: (pageSize: number) => void
-  canPreviousPage: boolean
-  canNextPage: boolean
-  pageIndex: number
-  pageCount: number
-  setPageIndex: (pageIndex: number) => void
-  selectValue: number[]
-  defaultPageSize: number
-  css?: PaginationCSS
-}
+export type PaginationProps = {
+  previousPage: () => void;
+  nextPage: () => void;
+  setPageSize: (pageSize: number) => void;
+  canPreviousPage: boolean;
+  canNextPage: boolean;
+  pageIndex: number;
+  pageCount: number;
+  setPageIndex: (pageIndex: number) => void;
+  selectValue: number[];
+  defaultPageSize: number;
+  css?: PaginationCSS;
+};
 
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination: FC<PaginationProps> = ({
   nextPage,
   previousPage,
   setPageSize,
@@ -95,25 +95,25 @@ export const Pagination: React.FC<PaginationProps> = ({
   selectValue,
   css,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
-  const getNumber = (): React.ReactNode => {
-    const pagesBtn: Array<ReactElement> = []
+  const getNumber = (): ReactNode => {
+    const pagesBtn: ReactElement[] = [];
 
-    let start = pageIndex
+    let start = pageIndex;
     // Add previous
-    start -= pageIndex >= 5 ? 4 : pageIndex
+    start -= pageIndex >= 5 ? 4 : pageIndex;
     // Add more previous
     if (pageCount > 5) {
-      start -= pageIndex > pageCount - 5 ? 5 - (pageCount - pageIndex) : 0
+      start -= pageIndex > pageCount - 5 ? 5 - (pageCount - pageIndex) : 0;
     }
 
-    let end = pageIndex
+    let end = pageIndex;
     // Add more
-    end += pageIndex < pageCount - 5 ? 5 : pageCount - 1 - pageIndex + 1
+    end += pageIndex < pageCount - 5 ? 5 : pageCount - 1 - pageIndex + 1;
     // Add more next
     if (pageCount > 5) {
-      end += pageIndex < 4 ? 4 - pageIndex : 0
+      end += pageIndex < 4 ? 4 - pageIndex : 0;
     }
 
     for (let i = start; i < end; i++) {
@@ -127,21 +127,19 @@ export const Pagination: React.FC<PaginationProps> = ({
               ...(i === pageIndex && {
                 backgroundColor: '$PRIMARY',
                 color:
-                  (theme &&
-                    fontColorContrast(theme.colors['PRIMARY'].value, 0.7)) ||
-                  undefined,
+                  theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
                 ...css?.pageNumberActive,
               }),
             }}
           >
             {i + 1}
           </PageNumber>
-        )
+        );
       }
     }
 
-    return pagesBtn
-  }
+    return pagesBtn;
+  };
 
   return (
     <Footer css={css?.container}>
@@ -157,7 +155,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           ]}
           defaultValue={`${defaultPageSize}`}
           onChange={(value): void => {
-            setPageSize(Number(value))
+            setPageSize(Number(value));
           }}
           padding="sm"
           fontSize="EM-SMALL"
@@ -196,5 +194,5 @@ export const Pagination: React.FC<PaginationProps> = ({
         </ButtonArrowRight>
       </Right>
     </Footer>
-  )
-}
+  );
+};

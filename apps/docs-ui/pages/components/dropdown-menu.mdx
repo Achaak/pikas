@@ -1,9 +1,9 @@
-import { DropdownMenuExample } from './../../src/examples/dropdownMenu'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { DropdownMenuExample } from './../../src/examples/dropdownMenu';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Dropdown Menu" />
 
@@ -131,9 +131,9 @@ const Example: React.FC = () => {
 | `onPointerDownOutside` | Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling event.preventDefault.                                                            | `() => void`                     | -       |
 | `onFocusOutside`       | Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.                                                                       | `() => void`                     | -       |
 | `onInteractOutside`    | Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.                                                                       | `() => void`                     | -       |
-| `side`                 | The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled. This prop is ignored within submenus.                           | `DropdownMenuSide`               | -       |
+| `side`                 | The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled. This prop is ignored within submenus.                           | `DropdownMenuSide`               | `true`  |
 | `sideOffset`           | The horizontal distance in pixels from the anchor. This only applies within submenus.                                                                                                                 | `number`                         | -       |
-| `align`                | The preferred alignment against the trigger. May change when collisions occur. This prop is ignored within submenus.                                                                                  | `DropdownMenu`                   | -       |
+| `align`                | The preferred alignment against the trigger. May change when collisions occur. This prop is ignored within submenus.                                                                                  | `DropdownMenuAlign`              | -       |
 | `alignOffset`          | The vertical distance in pixels from the anchor.                                                                                                                                                      | `number`                         | -       |
 | `avoidCollisions`      | When true, overrides the side andalign preferences to prevent collisions with window edges.                                                                                                           | `boolean`                        | `false` |
 | `collisionPadding`     | The distance in pixels from window edges where collision detection should occur.                                                                                                                      | `number`                         | -       |

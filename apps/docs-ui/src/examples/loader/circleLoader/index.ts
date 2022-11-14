@@ -1,1 +1,1 @@
-export * from './CircleLoaderExample'
+export * from './CircleLoaderExample';

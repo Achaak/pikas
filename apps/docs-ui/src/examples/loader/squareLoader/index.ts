@@ -1,1 +1,1 @@
-export * from './SquareLoaderExample'
+export * from './SquareLoaderExample';

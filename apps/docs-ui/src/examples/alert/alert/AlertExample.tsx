@@ -1,10 +1,10 @@
-import { Alert } from '@pikas-ui/alert'
-import { Button } from '@pikas-ui/button'
-import { ExampleContainer } from '@pikas/docs-ui'
-import { useState } from 'react'
+import { Alert } from '@pikas-ui/alert';
+import { Button } from '@pikas-ui/button';
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC, useState } from 'react';
 
-export const AlertExample: React.FC = () => {
-  const [visible, setVisible] = useState(true)
+export const AlertExample: FC = () => {
+  const [visible, setVisible] = useState(true);
 
   return (
     <ExampleContainer
@@ -42,5 +42,5 @@ export const AlertExample: React.FC = () => {
         {visible ? 'Hide' : 'Show'}
       </Button>
     </ExampleContainer>
-  )
-}
+  );
+};

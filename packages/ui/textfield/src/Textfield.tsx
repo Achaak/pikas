@@ -1,28 +1,27 @@
-import type { IconProps, IconCSS } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
+import type { IconProps, IconCSS } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
 import type {
   PikasColor,
   BorderRadius,
   PikasCSS,
   PikasShadow,
   PikasFontSize,
-} from '@pikas-ui/styles'
-import { styled, useTheme } from '@pikas-ui/styles'
-import { Description, Label, TextError } from '@pikas-ui/text'
-import * as LabelPrimitive from '@radix-ui/react-label'
-import fontColorContrast from 'font-color-contrast'
-import type { InputHTMLAttributes } from 'react'
-import { forwardRef } from 'react'
-import React, { useRef, useState } from 'react'
-import useMergedRef from '@react-hook/merged-ref'
-import type { TooltipCSS } from '@pikas-ui/tooltip'
-import { Tooltip } from '@pikas-ui/tooltip'
+} from '@pikas-ui/styles';
+import { styled, useTheme } from '@pikas-ui/styles';
+import { Description, Label, TextError } from '@pikas-ui/text';
+import { Root } from '@radix-ui/react-label';
+import fontColorContrast from 'font-color-contrast';
+import type { ChangeEvent, InputHTMLAttributes } from 'react';
+import { forwardRef, useRef, useState, ReactNode, FC } from 'react';
+import useMergedRef from '@react-hook/merged-ref';
+import type { TooltipCSS } from '@pikas-ui/tooltip';
+import { Tooltip } from '@pikas-ui/tooltip';
 
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   userSelect: 'none',
-})
+});
 
 const InputContainer = styled('div', {
   width: '100%',
@@ -59,7 +58,7 @@ const InputContainer = styled('div', {
       },
     },
   },
-})
+});
 
 const Input = styled('input', {
   width: '100%',
@@ -88,9 +87,9 @@ const Input = styled('input', {
       },
     },
   },
-})
+});
 
-const LeftContainer = styled(LabelPrimitive.Root, {
+const LeftContainer = styled(Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -114,9 +113,9 @@ const LeftContainer = styled(LabelPrimitive.Root, {
       },
     },
   },
-})
+});
 
-const RightContainer = styled(LabelPrimitive.Root, {
+const RightContainer = styled(Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -140,17 +139,17 @@ const RightContainer = styled(LabelPrimitive.Root, {
       },
     },
   },
-})
+});
 
 const LabelContainer = styled('div', {
   display: 'flex',
   marginBottom: 4,
-})
+});
 
 const Required = styled('div', {
   color: '$WARNING',
   marginLeft: 4,
-})
+});
 
 export const textfieldType = {
   color: true,
@@ -167,8 +166,8 @@ export const textfieldType = {
   time: true,
   url: true,
   week: true,
-} as const
-export type TextfieldType = keyof typeof textfieldType
+} as const;
+export type TextfieldType = keyof typeof textfieldType;
 
 export const textfieldPadding = {
   xs: true,
@@ -176,8 +175,8 @@ export const textfieldPadding = {
   md: true,
   lg: true,
   xl: true,
-} as const
-export type TextfieldPadding = keyof typeof textfieldPadding
+} as const;
+export type TextfieldPadding = keyof typeof textfieldPadding;
 
 export const textfieldGap = {
   xs: true,
@@ -185,67 +184,92 @@ export const textfieldGap = {
   md: true,
   lg: true,
   xl: true,
-} as const
-export type TextfieldGap = keyof typeof textfieldGap
+} as const;
+export type TextfieldGap = keyof typeof textfieldGap;
 
 export type TextfieldCSS = {
-  container?: PikasCSS
-  inputContainer?: PikasCSS
-  input?: PikasCSS
-  left?: PikasCSS
-  right?: PikasCSS
-  leftIcon?: IconCSS
-  rightIcon?: IconCSS
-  infoTooltip?: TooltipCSS
-  infoIcon?: IconCSS
-  label?: PikasCSS
-  description?: PikasCSS
-  textError?: PikasCSS
-  required?: PikasCSS
-}
+  container?: PikasCSS;
+  inputContainer?: PikasCSS;
+  input?: PikasCSS;
+  left?: PikasCSS;
+  right?: PikasCSS;
+  leftIcon?: IconCSS;
+  rightIcon?: IconCSS;
+  infoTooltip?: TooltipCSS;
+  infoIcon?: IconCSS;
+  label?: PikasCSS;
+  description?: PikasCSS;
+  textError?: PikasCSS;
+  required?: PikasCSS;
+};
 
-export type TextfieldProps = {
-  type?: TextfieldType
-  id?: string
-  label?: string
-  boxShadow?: PikasShadow | 'none'
-  borderRadius?: BorderRadius
-  padding?: TextfieldPadding
-  gap?: TextfieldGap
-  fontSize?: PikasFontSize
-  borderColorName?: PikasColor
-  borderColorHex?: string
-  borderWidth?: number
-  colorName?: PikasColor
-  colorHex?: string
-  placeholderColorName?: PikasColor
-  placeholderColorHex?: string
-  backgroundColorName?: PikasColor
-  backgroundColorHex?: string
-  textError?: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  autoComplete?: string
-  LeftIcon?: React.FC<IconProps>
-  RightIcon?: React.FC<IconProps>
-  leftIconColorName?: PikasColor
-  leftIconColorHex?: string
-  rightIconColorName?: PikasColor
-  rightIconColorHex?: string
-  leftIconSize?: number
-  rightIconSize?: number
-  leftChildren?: React.ReactNode
-  rightChildren?: React.ReactNode
-  css?: TextfieldCSS
-  min?: number
-  max?: number
-  outline?: boolean
-  description?: string
-  width?: string | number
-  maxWidth?: string | number
-  minWidth?: string | number
-  info?: React.ReactNode
-  data?: DOMStringMap
-} & InputHTMLAttributes<HTMLInputElement>
+export type TextfieldProps = InputHTMLAttributes<HTMLInputElement> & {
+  type?: TextfieldType;
+  id?: string;
+  label?: string;
+  boxShadow?: PikasShadow | 'none';
+  borderRadius?: BorderRadius;
+  padding?: TextfieldPadding;
+  gap?: TextfieldGap;
+  fontSize?: PikasFontSize;
+  borderColorName?: PikasColor;
+  borderColorHex?: string;
+  borderWidth?: number;
+  colorName?: PikasColor;
+  colorHex?: string;
+  placeholderColorName?: PikasColor;
+  placeholderColorHex?: string;
+  backgroundColorName?: PikasColor;
+  backgroundColorHex?: string;
+  textError?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  autoComplete?: string;
+  LeftIcon?: FC<IconProps>;
+  RightIcon?: FC<IconProps>;
+  leftIconColorName?: PikasColor;
+  leftIconColorHex?: string;
+  rightIconColorName?: PikasColor;
+  rightIconColorHex?: string;
+  leftIconSize?: number;
+  rightIconSize?: number;
+  leftChildren?: ReactNode;
+  rightChildren?: ReactNode;
+  css?: TextfieldCSS;
+  min?: number;
+  max?: number;
+  outline?: boolean;
+  description?: string;
+  width?: number | string;
+  maxWidth?: number | string;
+  minWidth?: number | string;
+  info?: ReactNode;
+  data?: DOMStringMap;
+};
+
+const getColor = ({
+  colorName,
+  colorHex,
+  backgroundColorName,
+}: {
+  colorName?: PikasColor;
+  colorHex?: string;
+  backgroundColorName?: PikasColor;
+}): string => {
+  const theme = useTheme();
+
+  if (colorHex) {
+    return colorHex;
+  } else if (colorName) {
+    return `$${colorName}`;
+  } else if (theme) {
+    return fontColorContrast(
+      theme.colors[backgroundColorName ?? 'WHITE'].value,
+      0.7
+    );
+  } else {
+    return '';
+  }
+};
 
 export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
   (
@@ -296,54 +320,33 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     },
     ref
   ) => {
-    const refInput = useRef<HTMLInputElement>(null)
-    const multiRef = useMergedRef(ref, refInput)
-    const [focus, setFocus] = useState(false)
-    const theme = useTheme()
+    const refInput = useRef<HTMLInputElement>(null);
+    const multiRef = useMergedRef(ref, refInput);
+    const [focus, setFocus] = useState(false);
 
-    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChangeInput = (e: ChangeEvent<HTMLInputElement>): void => {
       if (type === 'number' && refInput.current) {
-        const value = parseInt(e.target.value)
+        const value = parseInt(e.target.value);
 
         if (max !== undefined && value > max) {
-          refInput.current.value = `${max}`
+          refInput.current.value = `${max}`;
         } else if (min !== undefined && value < min) {
-          refInput.current.value = `${min}`
+          refInput.current.value = `${min}`;
         }
       }
 
       if (onChange) {
-        onChange(e)
+        onChange(e);
       }
-    }
-
-    const getColor = ({
-      colorName,
-      colorHex,
-    }: {
-      colorName?: PikasColor
-      colorHex?: string
-    }): string => {
-      return (
-        colorHex ||
-        (colorName ? `$${colorName}` : undefined) ||
-        (theme
-          ? fontColorContrast(
-              theme.colors[backgroundColorName || 'WHITE'].value,
-              0.7
-            )
-          : undefined) ||
-        ''
-      )
-    }
+    };
 
     return (
       <Container
         css={{
           fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
+          width,
+          maxWidth,
+          minWidth,
           opacity: disabled ? 0.5 : 1,
           cursor: disabled ? 'not-allowed' : undefined,
 
@@ -396,16 +399,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
           gap={gap}
           css={{
             br: borderRadius,
-            borderColor:
-              borderColorHex || borderColorName
-                ? `$${borderColorName}`
-                : undefined,
-            backgroundColor:
-              backgroundColorHex || backgroundColorName
-                ? `$${backgroundColorName}`
-                : undefined,
+            borderColor: borderColorHex ?? `$${borderColorName}`,
+            backgroundColor: backgroundColorHex ?? `$${backgroundColorName}`,
             boxShadow: `$${boxShadow}`,
-            borderWidth: borderWidth,
+            borderWidth,
 
             ...css?.inputContainer,
           }}
@@ -437,10 +434,11 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
               }}
             >
               <LeftIcon
-                size={leftIconSize || '1em'}
+                size={leftIconSize ?? '1em'}
                 colorHex={getColor({
-                  colorName: leftIconColorName || colorName,
-                  colorHex: leftIconColorHex || colorHex,
+                  colorName: leftIconColorName ?? colorName,
+                  colorHex: leftIconColorHex ?? colorHex,
+                  backgroundColorName,
                 })}
                 css={css?.leftIcon}
               />
@@ -461,12 +459,13 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             disabled={disabled}
             required={required}
             css={{
-              color: getColor({ colorName, colorHex }),
+              color: getColor({ colorName, colorHex, backgroundColorName }),
 
               '&::placeholder': {
                 color: getColor({
                   colorName: placeholderColorName,
                   colorHex: placeholderColorHex,
+                  backgroundColorName,
                 }),
               },
 
@@ -488,10 +487,11 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
               }}
             >
               <RightIcon
-                size={rightIconSize || '1em'}
+                size={rightIconSize ?? '1em'}
                 colorHex={getColor({
-                  colorName: rightIconColorName || colorName,
-                  colorHex: rightIconColorHex || colorHex,
+                  colorName: rightIconColorName ?? colorName,
+                  colorHex: rightIconColorHex ?? colorHex,
+                  backgroundColorName,
                 })}
                 css={css?.rightIcon}
               />
@@ -520,6 +520,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
           </TextError>
         )}
       </Container>
-    )
+    );
   }
-)
+);
+
+Textfield.displayName = 'Textfield';

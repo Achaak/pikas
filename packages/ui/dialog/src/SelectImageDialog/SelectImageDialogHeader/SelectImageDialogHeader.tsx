@@ -1,11 +1,10 @@
-import { Title } from '../../Components/Title/Title.js'
+import { Title } from '../../Components/Title/Title.js';
+import { FC } from 'react';
 
-export interface SelectImageDialogHeaderProps {
-  title?: string
-}
+export type SelectImageDialogHeaderProps = {
+  title?: string;
+};
 
-export const SelectImageDialogHeader: React.FC<
-  SelectImageDialogHeaderProps
-> = ({ title }) => {
-  return <Title>{title}</Title>
-}
+export const SelectImageDialogHeader: FC<SelectImageDialogHeaderProps> = ({
+  title,
+}) => <Title>{title}</Title>;

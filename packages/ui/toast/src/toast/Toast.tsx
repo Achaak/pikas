@@ -1,62 +1,58 @@
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
-import type { PikasColor } from '@pikas-ui/styles'
-import React, { useCallback } from 'react'
-import type { DefaultToastCSS } from '../defaultToast'
-import { DefaultToast } from '../defaultToast'
-import type { BaseToastProps } from '../types'
+import type { IconProps } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
+import type { PikasColor } from '@pikas-ui/styles';
+import { useCallback, FC } from 'react';
+import type { DefaultToastCSS } from '../defaultToast';
+import { DefaultToast } from '../defaultToast';
+import type { BaseToastProps } from '../types';
 
 export const toastVariant = {
   warning: true,
   danger: true,
   success: true,
   info: true,
-} as const
-export type ToastVariant = keyof typeof toastVariant
+} as const;
+export type ToastVariant = keyof typeof toastVariant;
 
-export interface ToastProps extends BaseToastProps {
-  variant?: ToastVariant
-  title?: string
-  description?: string
-  css?: DefaultToastCSS
-}
+export type ToastProps = BaseToastProps & {
+  variant?: ToastVariant;
+  title?: string;
+  description?: string;
+  css?: DefaultToastCSS;
+};
 
-export const Toast: React.FC<ToastProps> = ({
-  variant = 'info',
-  css,
-  ...props
-}) => {
-  const Icon: React.FC<IconProps> = (props) => {
+export const Toast: FC<ToastProps> = ({ variant = 'info', css, ...props }) => {
+  const Icon: FC<IconProps> = (propsIcon) => {
     switch (variant) {
       case 'success':
-        return <IconByName {...props} name="bx:check-circle" />
+        return <IconByName {...propsIcon} name="bx:check-circle" />;
       case 'warning':
-        return <IconByName {...props} name="bx:error" />
+        return <IconByName {...propsIcon} name="bx:error" />;
       case 'danger':
-        return <IconByName {...props} name="bx:x-circle" />
+        return <IconByName {...propsIcon} name="bx:x-circle" />;
       case 'info':
-        return <IconByName {...props} name="bx:info-circle" />
+        return <IconByName {...propsIcon} name="bx:info-circle" />;
       default:
-        return <IconByName {...props} name="bx:info-circle" />
+        return <IconByName {...propsIcon} name="bx:info-circle" />;
     }
-  }
+  };
 
   const getColor = useCallback((): PikasColor => {
     {
       switch (variant) {
         case 'success':
-          return 'SUCCESS'
+          return 'SUCCESS';
         case 'warning':
-          return 'WARNING'
+          return 'WARNING';
         case 'danger':
-          return 'DANGER'
+          return 'DANGER';
         case 'info':
-          return 'PRIMARY'
+          return 'PRIMARY';
         default:
-          return 'PRIMARY'
+          return 'PRIMARY';
       }
     }
-  }, [variant])
+  }, [variant]);
 
   return (
     <DefaultToast
@@ -77,5 +73,5 @@ export const Toast: React.FC<ToastProps> = ({
       }}
       {...props}
     />
-  )
-}
+  );
+};

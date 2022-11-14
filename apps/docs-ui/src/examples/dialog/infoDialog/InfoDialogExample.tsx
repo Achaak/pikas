@@ -1,10 +1,10 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
-import { InfoDialog } from '@pikas-ui/dialog'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC, useState } from 'react';
+import { Button } from '@pikas-ui/button';
+import { InfoDialog } from '@pikas-ui/dialog';
 
-export const InfoDialogExample: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+export const InfoDialogExample: FC = () => {
+  const [visible, setVisible] = useState(false);
 
   return (
     <ExampleContainer
@@ -27,5 +27,5 @@ export const InfoDialogExample: React.FC = () => {
         {visible ? 'Hide' : 'Show'}
       </Button>
     </ExampleContainer>
-  )
-}
+  );
+};

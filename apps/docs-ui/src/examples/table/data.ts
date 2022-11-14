@@ -20,4 +20,4 @@ export const dataTable = [
     email: 'joe@email.com',
     number: 1234567890,
   },
-]
+];

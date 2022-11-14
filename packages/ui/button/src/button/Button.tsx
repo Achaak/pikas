@@ -5,13 +5,18 @@ import type {
   PikasFontSize,
   PikasFontWeight,
   PikasShadow,
-} from '@pikas-ui/styles'
-import { useTheme } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
-import React, { forwardRef, useCallback } from 'react'
-import type { IconProps, IconCSS } from '@pikas-ui/icons'
-import { BeatLoader } from '@pikas-ui/loader'
+} from '@pikas-ui/styles';
+import { useTheme, styled } from '@pikas-ui/styles';
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  MouseEvent,
+  ReactNode,
+} from 'react';
+import { forwardRef, useCallback } from 'react';
+import type { IconProps, IconCSS } from '@pikas-ui/icons';
+import { BeatLoader } from '@pikas-ui/loader';
 import type {
   ButtonType,
   ButtonEffect,
@@ -19,8 +24,8 @@ import type {
   ButtonPadding,
   ButtonTextTransform,
   ButtonTarget,
-} from '../types.js'
-import { getColors, getContentColor } from '../utils.js'
+} from '../types.js';
+import { getColors, getContentColor } from '../utils.js';
 
 const ButtonDOM = styled('button', {
   all: 'unset',
@@ -114,7 +119,7 @@ const ButtonDOM = styled('button', {
       },
     },
   },
-})
+});
 
 const Content = styled('div', {
   display: 'flex',
@@ -134,7 +139,7 @@ const Content = styled('div', {
       },
     },
   },
-})
+});
 
 const LoadingContainer = styled('div', {
   display: 'flex',
@@ -145,7 +150,7 @@ const LoadingContainer = styled('div', {
   left: 0,
   right: 0,
   bottom: 0,
-})
+});
 
 const Children = styled('div', {
   display: 'block',
@@ -165,55 +170,55 @@ const Children = styled('div', {
       none: {},
     },
   },
-})
+});
 
 export type ButtonCSS = {
-  button?: PikasCSS
-  icon?: IconCSS
-}
+  button?: PikasCSS;
+  icon?: IconCSS;
+};
 
-export interface ButtonDefaultProps {
-  children?: React.ReactNode
-  css?: ButtonCSS
-  loading?: boolean
-  padding?: ButtonPadding
-  fontSize?: PikasFontSize
-  gap?: ButtonGap
-  colorName?: PikasColor
-  colorHex?: string
-  contentColorName?: PikasColor
-  contentColorHex?: string
-  textTransform?: ButtonTextTransform
-  fontWeight?: PikasFontWeight
-  outlined?: boolean
-  effect?: ButtonEffect
-  LeftIcon?: React.FC<IconProps>
-  RightIcon?: React.FC<IconProps>
-  disabled?: boolean
-  width?: string | number
-  maxWidth?: string | number
-  minWidth?: string | number
-  borderRadius?: BorderRadius
-  borderWidth?: number
-  boxShadow?: PikasShadow | 'none'
-}
+export type ButtonDefaultProps = {
+  children?: ReactNode;
+  css?: ButtonCSS;
+  loading?: boolean;
+  padding?: ButtonPadding;
+  fontSize?: PikasFontSize;
+  gap?: ButtonGap;
+  colorName?: PikasColor;
+  colorHex?: string;
+  contentColorName?: PikasColor;
+  contentColorHex?: string;
+  textTransform?: ButtonTextTransform;
+  fontWeight?: PikasFontWeight;
+  outlined?: boolean;
+  effect?: ButtonEffect;
+  LeftIcon?: FC<IconProps>;
+  RightIcon?: FC<IconProps>;
+  disabled?: boolean;
+  width?: number | string;
+  maxWidth?: number | string;
+  minWidth?: number | string;
+  borderRadius?: BorderRadius;
+  borderWidth?: number;
+  boxShadow?: PikasShadow | 'none';
+};
 
-export interface BaseButtonProps extends ButtonDefaultProps {
-  onClick?: () => void
-  type?: ButtonType
-}
+export type BaseButtonProps = ButtonDefaultProps & {
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => Promise<void> | void;
+  type?: ButtonType;
+};
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  BaseButtonProps
+export type ButtonProps = BaseButtonProps &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
-export interface BaseButtonLinkProps extends ButtonDefaultProps {
-  onClick?: () => void
-  href?: string
-  target?: ButtonTarget
-}
+export type BaseButtonLinkProps = ButtonDefaultProps & {
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => Promise<void> | void;
+  href?: string;
+  target?: ButtonTarget;
+};
 
 export type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
-  BaseButtonLinkProps
+  BaseButtonLinkProps;
 
 const getContent = ({
   LeftIcon,
@@ -225,18 +230,20 @@ const getContent = ({
   textTransform,
   gap,
 }: {
-  LeftIcon?: React.FC<IconProps>
-  RightIcon?: React.FC<IconProps>
-  loading?: boolean
-  children?: React.ReactNode
-  css?: ButtonCSS
-  contentColor?: string
-  textTransform?: ButtonTextTransform
-  gap?: ButtonGap
-}): React.ReactNode => {
-  const theme = useTheme()
+  LeftIcon?: FC<IconProps>;
+  RightIcon?: FC<IconProps>;
+  loading?: boolean;
+  children?: ReactNode;
+  css?: ButtonCSS;
+  contentColor?: string;
+  textTransform?: ButtonTextTransform;
+  gap?: ButtonGap;
+}): ReactNode => {
+  const theme = useTheme();
 
-  if (!theme) return <></>
+  if (!theme) {
+    return <></>;
+  }
   return (
     <>
       <LoadingContainer>
@@ -262,8 +269,8 @@ const getContent = ({
         ) : null}
       </Content>
     </>
-  )
-}
+  );
+};
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -296,23 +303,27 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const theme = useTheme()
+    const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLButtonElement>) => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.()
-    }, [disabled, onClick, loading])
+        void onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
-    if (!theme) return <></>
+    if (!theme) {
+      return <></>;
+    }
 
-    const colorHexFinal =
-      colorHex || (colorName && theme.colors[colorName].value)
+    const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
       contentColorHex ||
-      (contentColorName && theme.colors[contentColorName].value)
+      (contentColorName && theme.colors[contentColorName].value);
 
     return (
       <ButtonDOM
@@ -324,11 +335,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         css={{
           br: borderRadius,
           fontWeight: `$${fontWeight}`,
-          borderWidth: borderWidth,
+          borderWidth,
           fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
+          width,
+          maxWidth,
+          minWidth,
           boxShadow: `$${boxShadow}`,
 
           ...getColors({
@@ -351,14 +362,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           textTransform,
           contentColor: getContentColor({
             outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
+            contentColorHex,
+            colorHex,
           }),
         })}
       </ButtonDOM>
-    )
+    );
   }
-)
+);
+
+Button.displayName = 'Button';
 
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   (
@@ -391,23 +404,27 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     },
     ref
   ) => {
-    const theme = useTheme()
+    const theme = useTheme();
 
-    const handleClick = useCallback((): void => {
-      if (disabled || loading) {
-        return
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLAnchorElement>): void => {
+        if (disabled || loading) {
+          return;
+        }
 
-      onClick?.()
-    }, [disabled, onClick, loading])
+        onClick?.(e);
+      },
+      [disabled, onClick, loading]
+    );
 
-    if (!theme) return <></>
+    if (!theme) {
+      return <></>;
+    }
 
-    const colorHexFinal =
-      colorHex || (colorName && theme.colors[colorName].value)
+    const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
       contentColorHex ||
-      (contentColorName && theme.colors[contentColorName].value)
+      (contentColorName && theme.colors[contentColorName].value);
 
     return (
       <ButtonDOM
@@ -420,11 +437,11 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         css={{
           br: borderRadius,
           fontWeight: `$${fontWeight}`,
-          borderWidth: borderWidth,
+          borderWidth,
           fontSize: `$${fontSize}`,
-          width: width,
-          maxWidth: maxWidth,
-          minWidth: minWidth,
+          width,
+          maxWidth,
+          minWidth,
           boxShadow: `$${boxShadow}`,
 
           ...getColors({
@@ -446,11 +463,13 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           textTransform,
           contentColor: getContentColor({
             outlined,
-            contentColorHex: contentColorHex,
-            colorHex: colorHex,
+            contentColorHex,
+            colorHex,
           }),
         })}
       </ButtonDOM>
-    )
+    );
   }
-)
+);
+
+ButtonLink.displayName = 'ButtonLink';

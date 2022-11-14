@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => {
   return {
@@ -12,5 +12,5 @@ export default defineConfig((options) => {
     target: 'esnext',
     platform: 'browser',
     bundle: false,
-  }
-})
+  };
+});

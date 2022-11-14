@@ -1,17 +1,16 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { ClipLoader } from '@pikas-ui/loader'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC } from 'react';
+import { ClipLoader } from '@pikas-ui/loader';
 
-export const ClipLoaderExample: React.FC = () => {
-  return (
-    <ExampleContainer
-      css={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 150,
-      }}
-    >
-      <ClipLoader />
-    </ExampleContainer>
-  )
-}
+export const ClipLoaderExample: FC = () => (
+  <ExampleContainer
+    css={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 150,
+    }}
+  >
+    <ClipLoader />
+  </ExampleContainer>
+);

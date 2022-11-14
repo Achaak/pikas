@@ -6,26 +6,26 @@ export const pikasLetterSpacings = {
   LARGE: '1.5px',
   'X-LARGE': '2px',
   'XX-LARGE': '3px',
-}
+};
 
-export type PikasLetterSpacings = typeof pikasLetterSpacings
-export type PikasLetterSpacing = keyof PikasLetterSpacings
+export type PikasLetterSpacings = typeof pikasLetterSpacings;
+export type PikasLetterSpacing = keyof PikasLetterSpacings;
 
-export type LetterSpacingsRecordValue = string | number
-export type LetterSpacingsRecordKey = string | number | PikasLetterSpacing
+export type LetterSpacingsRecordValue = number | string;
+export type LetterSpacingsRecordKey = PikasLetterSpacing | number | string;
 export type LetterSpacingsRecord = Record<
   LetterSpacingsRecordKey,
   LetterSpacingsRecordValue
->
+>;
 
 export const loadLetterSpacings = <T extends LetterSpacingsRecord>(
   values:
-    | {
-        [key in keyof PikasLetterSpacings]?: LetterSpacingsRecordValue
-      }
     | T
+    | {
+        [key in keyof PikasLetterSpacings]?: LetterSpacingsRecordValue;
+      }
 ): PikasLetterSpacings & T =>
   ({
     ...pikasLetterSpacings,
     ...values,
-  } as PikasLetterSpacings & T)
+  } as PikasLetterSpacings & T);

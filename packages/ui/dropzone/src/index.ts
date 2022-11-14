@@ -1,1 +1,1 @@
-export * from './Dropzone.js'
+export * from './Dropzone.js';

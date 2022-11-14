@@ -1,6 +1,7 @@
-import { styled } from '@pikas-ui/styles'
-import { Header } from './header/index.js'
-import { Menu } from './menu/index.js'
+import { styled } from '@pikas-ui/styles';
+import { FC, ReactNode } from 'react';
+import { Header } from './header/index.js';
+import { Menu } from './menu/index.js';
 
 const Container = styled('div', {
   display: 'flex',
@@ -9,7 +10,7 @@ const Container = styled('div', {
   width: '100vw',
   height: '100vh',
   backgroundColor: '$WHITE2',
-})
+});
 
 const Center = styled('div', {
   position: 'relative',
@@ -21,13 +22,13 @@ const Center = styled('div', {
     paddingLeft: 250,
     marginTop: '$10',
   },
-})
+});
 
 const Content = styled('div', {
   padding: 16,
   display: 'flex',
   justifyContent: 'center',
-})
+});
 
 const ContentChild = styled('div', {
   width: 800,
@@ -125,43 +126,41 @@ const ContentChild = styled('div', {
       br: 'sm',
     },
   },
-})
+});
 
 type LayoutMenuItem = {
-  label: string
-  href: string
-  disabled?: boolean
-}
+  label: string;
+  href: string;
+  disabled?: boolean;
+};
 
 type LayoutMenuGroupeItem = {
-  label: string
-  items: LayoutMenuItem[]
-}
+  label: string;
+  items: LayoutMenuItem[];
+};
 
-export type LayoutMenu = LayoutMenuGroupeItem[]
+export type LayoutMenu = LayoutMenuGroupeItem[];
 
-interface LayoutProps {
-  children?: React.ReactNode
-  menu: LayoutMenu
-  documentationLink: string
-  githubLink: string
-}
+type LayoutProps = {
+  children?: ReactNode;
+  menu: LayoutMenu;
+  documentationLink: string;
+  githubLink: string;
+};
 
-export const Layout: React.FC<LayoutProps> = ({
+export const Layout: FC<LayoutProps> = ({
   children,
   menu,
   githubLink,
   documentationLink,
-}) => {
-  return (
-    <Container>
-      <Header documentationLink={documentationLink} githubLink={githubLink} />
-      <Center>
-        <Menu menu={menu} />
-        <Content>
-          <ContentChild>{children}</ContentChild>
-        </Content>
-      </Center>
-    </Container>
-  )
-}
+}) => (
+  <Container>
+    <Header documentationLink={documentationLink} githubLink={githubLink} />
+    <Center>
+      <Menu menu={menu} />
+      <Content>
+        <ContentChild>{children}</ContentChild>
+      </Content>
+    </Center>
+  </Container>
+);

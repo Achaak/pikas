@@ -1,1 +1,1 @@
-export * from './Separator.js'
+export * from './Separator.js';

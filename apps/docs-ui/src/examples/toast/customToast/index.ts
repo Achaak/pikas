@@ -1,1 +1,1 @@
-export * from './CustomToastExample'
+export * from './CustomToastExample';

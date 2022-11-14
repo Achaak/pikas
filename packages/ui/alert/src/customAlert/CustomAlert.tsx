@@ -1,8 +1,8 @@
-import type { IconProps } from '@pikas-ui/icons'
-import type { PikasColor } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import React from 'react'
-import type { BaseAlertProps } from '../types.js'
+import type { IconProps } from '@pikas-ui/icons';
+import type { PikasColor } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import type { BaseAlertProps } from '../types.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -24,7 +24,7 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const Content = styled('div', {
   display: 'flex',
@@ -67,20 +67,20 @@ const Content = styled('div', {
       },
     },
   },
-})
+});
 
 const Child = styled('p', {
   margin: 0,
-})
+});
 
-export interface CustomAlertProps extends BaseAlertProps {
-  Icon?: React.FC<IconProps>
-  backgroundColorName?: PikasColor
-  colorName?: PikasColor
-  colorHex?: string
-}
+export type CustomAlertProps = BaseAlertProps & {
+  Icon?: FC<IconProps>;
+  backgroundColorName?: PikasColor;
+  colorName?: PikasColor;
+  colorHex?: string;
+};
 
-export const CustomAlert: React.FC<CustomAlertProps> = ({
+export const CustomAlert: FC<CustomAlertProps> = ({
   children,
   Icon,
   backgroundColorName,
@@ -94,30 +94,30 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
   padding = 'md',
   visible = true,
   css,
-}) => {
-  return (
-    <Container visible={visible} css={css?.container}>
-      <Content
-        gap={gap}
-        padding={padding}
+}) => (
+  <Container visible={visible} css={css?.container}>
+    <Content
+      gap={gap}
+      padding={padding}
+      css={{
+        backgroundColor: backgroundColorName
+          ? `$${backgroundColorName}`
+          : undefined,
+        color: colorHex ?? (colorName ? `$${colorName}` : undefined),
+        fontSize: `$${fontSize}`,
+        fontWeight: `$${fontWeight}`,
+        br: borderRadius,
+        ...css?.content,
+      }}
+    >
+      {Icon ? <Icon size={iconSize} css={css?.icon} /> : null}
+      <Child
         css={{
-          backgroundColor: `$${backgroundColorName}`,
-          color: colorHex || `$${colorName}`,
-          fontSize: `$${fontSize}`,
-          fontWeight: `$${fontWeight}`,
-          br: borderRadius,
-          ...css?.content,
+          ...css?.child,
         }}
       >
-        {Icon ? <Icon size={iconSize} css={css?.icon} /> : null}
-        <Child
-          css={{
-            ...css?.child,
-          }}
-        >
-          {children}
-        </Child>
-      </Content>
-    </Container>
-  )
-}
+        {children}
+      </Child>
+    </Content>
+  </Container>
+);

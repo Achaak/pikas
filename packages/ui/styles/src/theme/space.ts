@@ -12,23 +12,23 @@ export const pikasSpaces = {
   11: '64px',
   12: '72px',
   13: '80px',
-}
+};
 
-export type PikasSpaces = typeof pikasSpaces
-export type PikasSpace = keyof PikasSpaces
+export type PikasSpaces = typeof pikasSpaces;
+export type PikasSpace = keyof PikasSpaces;
 
-export type SpacesRecordValue = string | number
-export type SpacesRecordKey = string | number | PikasSpace
-export type SpacesRecord = Record<SpacesRecordKey, SpacesRecordValue>
+export type SpacesRecordValue = number | string;
+export type SpacesRecordKey = PikasSpace | number | string;
+export type SpacesRecord = Record<SpacesRecordKey, SpacesRecordValue>;
 
 export const loadSpaces = <T extends SpacesRecord>(
   values:
-    | {
-        [key in keyof PikasSpaces]?: SpacesRecordValue
-      }
     | T
+    | {
+        [key in keyof PikasSpaces]?: SpacesRecordValue;
+      }
 ): PikasSpaces & T =>
   ({
     ...pikasSpaces,
     ...values,
-  } as PikasSpaces & T)
+  } as PikasSpaces & T);

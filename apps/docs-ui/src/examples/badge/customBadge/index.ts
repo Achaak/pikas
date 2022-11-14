@@ -1,1 +1,1 @@
-export * from './CustomBadge'
+export * from './CustomBadge';

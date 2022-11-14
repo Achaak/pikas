@@ -1,1 +1,1 @@
-export * from './RingLoader.js'
+export * from './RingLoader.js';

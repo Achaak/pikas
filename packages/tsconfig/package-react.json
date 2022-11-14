@@ -1,8 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Package React",
+  "display": "React Library",
   "extends": "./package-default.json",
   "compilerOptions": {
+    "lib": ["ES2015", "DOM"],
     "jsx": "react-jsx"
   }
 }

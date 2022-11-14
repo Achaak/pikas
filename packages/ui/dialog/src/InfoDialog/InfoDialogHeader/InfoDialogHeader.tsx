@@ -1,6 +1,7 @@
-import { styled } from '@pikas-ui/styles'
-import { IconContainer } from '../../Components/IconContainer/index.js'
-import { Title } from '../../Components/Title/Title.js'
+import { styled } from '@pikas-ui/styles';
+import { IconContainer } from '../../Components/IconContainer/index.js';
+import { Title } from '../../Components/Title/Title.js';
+import { FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -9,19 +10,15 @@ const Container = styled('div', {
   flexDirection: 'column',
   width: '100%',
   marginBottom: 8,
-})
+});
 
-export interface InfoDialogHeaderProps {
-  title?: string
-}
+export type InfoDialogHeaderProps = {
+  title?: string;
+};
 
-export const InfoDialogHeader: React.FC<InfoDialogHeaderProps> = ({
-  title,
-}) => {
-  return (
-    <Container>
-      <IconContainer iconName="bx:info-circle" backgroundColorName="PRIMARY" />
-      <Title>{title}</Title>
-    </Container>
-  )
-}
+export const InfoDialogHeader: FC<InfoDialogHeaderProps> = ({ title }) => (
+  <Container>
+    <IconContainer iconName="bx:info-circle" backgroundColorName="PRIMARY" />
+    <Title>{title}</Title>
+  </Container>
+);

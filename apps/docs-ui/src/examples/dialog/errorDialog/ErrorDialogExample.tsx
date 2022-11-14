@@ -1,10 +1,10 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
-import { ErrorDialog } from '@pikas-ui/dialog'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC, useState } from 'react';
+import { Button } from '@pikas-ui/button';
+import { ErrorDialog } from '@pikas-ui/dialog';
 
-export const ErrorDialogExample: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+export const ErrorDialogExample: FC = () => {
+  const [visible, setVisible] = useState(false);
 
   return (
     <ExampleContainer
@@ -27,5 +27,5 @@ export const ErrorDialogExample: React.FC = () => {
         {visible ? 'Hide' : 'Show'}
       </Button>
     </ExampleContainer>
-  )
-}
+  );
+};

@@ -1,5 +1,6 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import { FC, ReactNode } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -10,17 +11,14 @@ const Container = styled('div', {
   padding: 16,
   border: '2px solid $GRAY_LIGHT',
   br: 'sm',
-})
+});
 
-interface ExampleContainerProps {
-  children?: React.ReactNode
-  css?: PikasCSS
-}
+type ExampleContainerProps = {
+  children?: ReactNode;
+  css?: PikasCSS;
+};
 
-export const ExampleContainer: React.FC<ExampleContainerProps> = ({
+export const ExampleContainer: FC<ExampleContainerProps> = ({
   children,
   css,
-}) => {
-
-  return <Container css={css}>{children}</Container>
-}
+}) => <Container css={css}>{children}</Container>;

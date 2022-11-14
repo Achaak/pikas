@@ -1,1 +1,1 @@
-export * from './ClockLoader.js'
+export * from './ClockLoader.js';

@@ -1,10 +1,10 @@
-import { ExampleContainer } from '@pikas/docs-ui'
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
-import { DefaultDialog } from '@pikas-ui/dialog'
+import { ExampleContainer } from '@pikas/docs-ui';
+import { FC, useState } from 'react';
+import { Button } from '@pikas-ui/button';
+import { DefaultDialog } from '@pikas-ui/dialog';
 
-export const DefaultDialogExample: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+export const DefaultDialogExample: FC = () => {
+  const [visible, setVisible] = useState(false);
 
   return (
     <ExampleContainer
@@ -28,5 +28,5 @@ export const DefaultDialogExample: React.FC = () => {
         {visible ? 'Hide' : 'Show'}
       </Button>
     </ExampleContainer>
-  )
-}
+  );
+};

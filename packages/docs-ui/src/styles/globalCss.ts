@@ -1,5 +1,5 @@
-import { globalCss } from '@pikas-ui/styles'
-export * from '@pikas-ui/styles'
+import { globalCss } from '@pikas-ui/styles';
+export * from '@pikas-ui/styles';
 
 export const customGlobalCss = globalCss({
   'html, body, #__next': {
@@ -32,4 +32,4 @@ export const customGlobalCss = globalCss({
     background: '$GRAY_DARK',
     br: 'md',
   },
-})
+});

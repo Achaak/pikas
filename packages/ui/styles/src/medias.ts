@@ -4,23 +4,23 @@ export const pikasMedias = {
   md: `(min-width: 768px)`,
   lg: `(min-width: 1024px)`,
   xl: `(min-width: 1280px)`,
-}
+};
 
-export type PikasMedias = typeof pikasMedias
-export type PikasMedia = keyof PikasMedias
+export type PikasMedias = typeof pikasMedias;
+export type PikasMedia = keyof PikasMedias;
 
-export type MediasRecordValue = string
-export type MediasRecordKey = string | number | PikasMedia
-export type MediasRecord = Record<MediasRecordKey, MediasRecordValue>
+export type MediasRecordValue = string;
+export type MediasRecordKey = PikasMedia | number | string;
+export type MediasRecord = Record<MediasRecordKey, MediasRecordValue>;
 
 export const loadMedias = <T extends MediasRecord>(
   values:
-    | {
-        [key in keyof PikasMedias]?: MediasRecordValue
-      }
     | T
+    | {
+        [key in keyof PikasMedias]?: MediasRecordValue;
+      }
 ): PikasMedias & T =>
   ({
     ...pikasMedias,
     ...values,
-  } as PikasMedias & T)
+  } as PikasMedias & T);

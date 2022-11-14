@@ -12,23 +12,23 @@ export const pikasSizes = {
   11: '64px',
   12: '72px',
   13: '80px',
-}
+};
 
-export type PikasSizes = typeof pikasSizes
-export type PikasSize = keyof PikasSizes
+export type PikasSizes = typeof pikasSizes;
+export type PikasSize = keyof PikasSizes;
 
-export type SizesRecordValue = string | number
-export type SizesRecordKey = string | number | PikasSize
-export type SizesRecord = Record<SizesRecordKey, SizesRecordValue>
+export type SizesRecordValue = number | string;
+export type SizesRecordKey = PikasSize | number | string;
+export type SizesRecord = Record<SizesRecordKey, SizesRecordValue>;
 
 export const loadSizes = <T extends SizesRecord>(
   values:
-    | {
-        [key in keyof PikasSizes]?: SizesRecordValue
-      }
     | T
+    | {
+        [key in keyof PikasSizes]?: SizesRecordValue;
+      }
 ): PikasSizes & T =>
   ({
     ...pikasSizes,
     ...values,
-  } as PikasSizes & T)
+  } as PikasSizes & T);

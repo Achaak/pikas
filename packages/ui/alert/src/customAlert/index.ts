@@ -1,1 +1,1 @@
-export * from './CustomAlert.js'
+export * from './CustomAlert.js';

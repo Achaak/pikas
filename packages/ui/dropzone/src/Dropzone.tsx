@@ -1,9 +1,10 @@
-import type { PikasCSS } from '@pikas-ui/styles'
-import { styled } from '@pikas-ui/styles'
-import type { DropzoneOptions, FileRejection } from 'react-dropzone'
-import { useDropzone } from 'react-dropzone'
-import { IconByName } from '@pikas-ui/icons'
-import { fromEvent } from 'file-selector'
+import type { PikasCSS } from '@pikas-ui/styles';
+import { styled } from '@pikas-ui/styles';
+import type { DropzoneOptions, FileRejection } from 'react-dropzone';
+import { useDropzone } from 'react-dropzone';
+import { IconByName } from '@pikas-ui/icons';
+import { fromEvent } from 'file-selector';
+import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {
   display: 'flex',
@@ -23,7 +24,7 @@ const Container = styled('div', {
       },
     },
   },
-})
+});
 
 const DropzoneStyled = styled('div', {
   display: 'flex',
@@ -46,78 +47,78 @@ const DropzoneStyled = styled('div', {
       },
     },
   },
-})
+});
 
 const FilesResult = styled('div', {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
   customRowGap: 8,
-})
+});
 
 const AcceptedFiles = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-})
+});
 
 const RejectedFiles = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-})
+});
 
 const FileList = styled('ul', {
   display: 'flex',
   flexDirection: 'column',
   customRowGap: 8,
   marginTop: 8,
-})
+});
 
 const FileListContent = styled('div', {
   display: 'flex',
   alignItems: 'flex-end',
   fontSize: '$EM-SMALL',
-})
+});
 
 const FileListName = styled('span', {
   marginLeft: 4,
   fontSize: '$EM-MEDIUM',
   lineHeight: '$EM-MEDIUM',
   color: '$BLACK',
-})
+});
 
 const FileListSize = styled('span', {
   marginLeft: 4,
   fontSize: '$EM-X-SMALL',
   color: '$BLACK',
-})
+});
 
 const FileListItem = styled('li', {
   display: 'flex',
   flexDirection: 'column',
   color: '$BLACK',
-})
+});
 
 const ErrorList = styled('ul', {
   display: 'flex',
   flexDirection: 'column',
   customRowGap: 8,
-})
+});
 
 const ErrorListItem = styled('li', {
   display: 'flex',
   color: '$DANGER',
   fontSize: '$EM-X-SMALL',
-})
+});
 
 const FilesTitle = styled('span', {
   fontSize: '$EM-SMALL',
   fontWeight: '$BOLD',
   color: '$BLACK',
-})
+});
 
-const AcceptedFilesTitle = styled(FilesTitle, {})
+const AcceptedFilesTitle = styled(FilesTitle, {});
 
-const RejectedFilesTitle = styled(FilesTitle, {})
+const RejectedFilesTitle = styled(FilesTitle, {});
 
 const Description = styled('span', {
   fontSize: '$EM-MEDIUM',
@@ -131,7 +132,7 @@ const Description = styled('span', {
       },
     },
   },
-})
+});
 
 const SubDescription = styled('span', {
   fontSize: '$EM-SMALL',
@@ -146,7 +147,7 @@ const SubDescription = styled('span', {
       },
     },
   },
-})
+});
 
 export type {
   Accept,
@@ -160,32 +161,32 @@ export type {
   FileError,
   FileRejection,
   FileWithPath,
-} from 'react-dropzone'
+} from 'react-dropzone';
 
-export interface DropzoneCSS {
-  container?: PikasCSS
-  dropzone?: PikasCSS
-  description?: PikasCSS
-  subDescription?: PikasCSS
-}
+export type DropzoneCSS = {
+  container?: PikasCSS;
+  dropzone?: PikasCSS;
+  description?: PikasCSS;
+  subDescription?: PikasCSS;
+};
 
-export interface DropzoneProps extends DropzoneOptions {
-  height?: number | string
-  width?: number | string
-  description?: string
-  subDescription?: string
-  css?: DropzoneCSS
-  showFilesResult?: boolean
+export type DropzoneProps = DropzoneOptions & {
+  height?: number | string;
+  width?: number | string;
+  description?: string;
+  subDescription?: string;
+  css?: DropzoneCSS;
+  showFilesResult?: boolean;
   renderResult?: ({
     acceptedFiles,
     fileRejections,
   }: {
-    acceptedFiles: File[]
-    fileRejections: FileRejection[]
-  }) => React.ReactNode
-}
+    acceptedFiles: File[];
+    fileRejections: FileRejection[];
+  }) => ReactNode;
+};
 
-export const Dropzone: React.FC<DropzoneProps> = ({
+export const Dropzone: FC<DropzoneProps> = ({
   maxFiles = 0,
   accept,
   maxSize = Infinity,
@@ -249,7 +250,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
     preventDropOnDocument,
     useFsAccessApi,
     validator,
-  })
+  });
 
   const acceptedFileItems = acceptedFiles.map((file, index) => (
     <FileListItem key={index}>
@@ -259,24 +260,36 @@ export const Dropzone: React.FC<DropzoneProps> = ({
         <FileListSize>({humanFileSize(file.size)})</FileListSize>
       </FileListContent>
     </FileListItem>
-  ))
+  ));
 
-  const fileRejectionItems = fileRejections.map(({ file, errors }, index) => {
-    return (
-      <FileListItem key={index}>
-        <FileListContent>
-          <IconByName name="bx:error" colorName="DANGER" size="1.2em" />
-          <FileListName>{file.name}</FileListName>
-          <FileListSize>({humanFileSize(file.size)})</FileListSize>
-        </FileListContent>
-        <ErrorList>
-          {errors.map((e) => (
-            <ErrorListItem key={e.code}>{e.message}</ErrorListItem>
-          ))}
-        </ErrorList>
-      </FileListItem>
-    )
-  })
+  const fileRejectionItems = fileRejections.map(({ file, errors }, index) => (
+    <FileListItem key={index}>
+      <FileListContent>
+        <IconByName name="bx:error" colorName="DANGER" size="1.2em" />
+        <FileListName>{file.name}</FileListName>
+        <FileListSize>({humanFileSize(file.size)})</FileListSize>
+      </FileListContent>
+      <ErrorList>
+        {errors.map((e) => (
+          <ErrorListItem key={e.code}>{e.message}</ErrorListItem>
+        ))}
+      </ErrorList>
+    </FileListItem>
+  ));
+
+  const getCustomSubDescription = () => {
+    if (maxFiles === 0) {
+      return '(You can upload any number of files)';
+    }
+
+    if (maxFiles === 1) {
+      return '(You can upload only one file)';
+    }
+
+    return `(${maxFiles} ${
+      maxFiles > 1 ? 'files' : 'file'
+    } is the maximum number of files you can drop here)`;
+  };
 
   return (
     <Container isDisabled={disabled} css={css?.container}>
@@ -292,13 +305,11 @@ export const Dropzone: React.FC<DropzoneProps> = ({
       >
         <input {...getInputProps()} />
         <Description isFocused={isDragActive} css={css?.description}>
-          {description ||
+          {description ??
             "Drag 'n' drop some files here, or click to select files"}
         </Description>
         <SubDescription isFocused={isDragActive} css={css?.subDescription}>
-          {subDescription ||
-            `(${maxFiles} ${maxFiles > 1 ? 'files are' : 'file is'} the maximum
-          number of files you can drop here)`}
+          {subDescription ?? getCustomSubDescription()}
         </SubDescription>
       </DropzoneStyled>
       {(acceptedFiles.length > 0 || fileRejections.length > 0) &&
@@ -306,7 +317,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
         ? renderResult?.({
             acceptedFiles,
             fileRejections,
-          }) || (
+          }) ?? (
             <FilesResult>
               {acceptedFiles.length > 0 && (
                 <AcceptedFiles>
@@ -325,29 +336,29 @@ export const Dropzone: React.FC<DropzoneProps> = ({
           )
         : null}
     </Container>
-  )
-}
+  );
+};
 
 const humanFileSize = (bytes: number, si = false, dp = 1): string => {
-  const thresh = si ? 1000 : 1024
+  const thresh = si ? 1000 : 1024;
 
   if (Math.abs(bytes) < thresh) {
-    return bytes + ' B'
+    return `${bytes} B`;
   }
 
   const units = si
     ? ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
-  let u = -1
-  const r = 10 ** dp
+    : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+  let u = -1;
+  const r = 10 ** dp;
 
   do {
-    bytes /= thresh
-    ++u
+    bytes /= thresh;
+    ++u;
   } while (
     Math.round(Math.abs(bytes) * r) / r >= thresh &&
     u < units.length - 1
-  )
+  );
 
-  return bytes.toFixed(dp) + ' ' + units[u]
-}
+  return `${bytes.toFixed(dp)} ${units[u]}`;
+};

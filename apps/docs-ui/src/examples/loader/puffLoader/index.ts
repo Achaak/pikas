@@ -1,1 +1,1 @@
-export * from './PuffLoaderExample'
+export * from './PuffLoaderExample';

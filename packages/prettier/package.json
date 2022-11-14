@@ -1,0 +1,16 @@
+{
+  "name": "@pikas/prettier",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.cjs",
+  "license": "MIT",
+  "files": [
+    "index.cjs"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
