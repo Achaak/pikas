@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textarea",
-  "version": "3.3.6",
+  "version": "3.3.7",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,11 +46,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.5",
-    "@pikas-ui/loader": "3.3.5",
-    "@pikas-ui/styles": "3.5.5",
-    "@pikas-ui/text": "4.2.5",
-    "@pikas-ui/tooltip": "3.3.5",
+    "@pikas-ui/icons": "3.3.6",
+    "@pikas-ui/loader": "3.3.6",
+    "@pikas-ui/styles": "3.5.6",
+    "@pikas-ui/text": "4.2.6",
+    "@pikas-ui/tooltip": "3.3.6",
     "font-color-contrast": "11.1.0"
   },
   "peerDependencies": {

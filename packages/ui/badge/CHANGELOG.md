@@ -1,5 +1,14 @@
 # @pikas-ui/badge
 
+## 1.3.6
+
+### Patch Changes
+
+- 2dcaae1: Upgrade dependencies
+- Updated dependencies [2dcaae1]
+  - @pikas-ui/icons@3.3.6
+  - @pikas-ui/styles@3.5.6
+
 ## 1.3.5
 
 ### Patch Changes

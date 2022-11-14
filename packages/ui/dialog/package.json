@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.4.8",
+  "version": "2.4.9",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,16 +46,16 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.3.5",
-    "@pikas-ui/icons": "3.3.5",
-    "@pikas-ui/loader": "3.3.5",
-    "@pikas-ui/slider": "3.3.5",
-    "@pikas-ui/styles": "3.5.5",
-    "@pikas-ui/title": "1.2.6",
+    "@pikas-ui/button": "3.3.6",
+    "@pikas-ui/icons": "3.3.6",
+    "@pikas-ui/loader": "3.3.6",
+    "@pikas-ui/slider": "3.3.6",
+    "@pikas-ui/styles": "3.5.6",
+    "@pikas-ui/title": "1.2.7",
     "@radix-ui/react-dialog": "1.0.2",
     "compressorjs": "1.1.1",
     "get-orientation": "1.1.2",
-    "react-easy-crop": "4.6.1"
+    "react-easy-crop": "4.6.2"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -63,15 +63,15 @@
   },
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
-    "eslint-config-custom": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
     "cross-env": "7.0.3",
     "eslint": "8.27.0",
+    "eslint-config-custom": "workspace:*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "tsup": "6.4.0",
     "typescript": "4.8.4"
   },

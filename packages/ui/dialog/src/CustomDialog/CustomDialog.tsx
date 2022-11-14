@@ -149,7 +149,7 @@ const DefaultContainer = styled('div', {
 const Header = styled(DefaultContainer, {});
 
 const Content = styled(DefaultContainer, {
-  overflow: 'auto',
+  overflow: 'auto', // TODO Find a better way to do this
   flex: 1,
   display: 'flex',
   justifyContent: 'start',
@@ -310,6 +310,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
                   position: 'absolute',
                   right: 16,
                   top: 16,
+                  zIndex: '$XX-HIGH',
                   ...css?.closeIcon?.container,
                 },
               }}

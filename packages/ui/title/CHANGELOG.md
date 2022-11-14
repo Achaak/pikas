@@ -1,5 +1,13 @@
 # @pikas-ui/title
 
+## 1.2.7
+
+### Patch Changes
+
+- 2dcaae1: Upgrade dependencies
+- Updated dependencies [2dcaae1]
+  - @pikas-ui/styles@3.5.6
+
 ## 1.2.6
 
 ### Patch Changes
