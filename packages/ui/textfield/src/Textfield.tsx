@@ -269,7 +269,7 @@ const getColor = ({
   );
 };
 
-const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
+export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
   (
     {
       id,
@@ -523,5 +523,3 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 );
 
 Textfield.displayName = 'Textfield';
-
-export { Textfield };

@@ -219,7 +219,7 @@ const getContent = ({
   );
 };
 
-const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
+export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   (
     {
       colorName = 'PRIMARY',
@@ -303,8 +303,6 @@ const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
 );
 
 ButtonIcon.displayName = 'Button';
-
-export { ButtonIcon };
 
 export const ButtonIconLink = forwardRef<
   HTMLAnchorElement,

@@ -258,7 +258,7 @@ export type SelectRef = {
   setValue: (value: string) => void;
 };
 
-const Select = forwardRef<SelectRef, SelectProps>(
+export const Select = forwardRef<SelectRef, SelectProps>(
   (
     {
       data,
@@ -540,5 +540,3 @@ const Select = forwardRef<SelectRef, SelectProps>(
 );
 
 Select.displayName = 'Select';
-
-export { Select };
