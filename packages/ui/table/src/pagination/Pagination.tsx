@@ -168,14 +168,14 @@ export const Pagination: FC<PaginationProps> = ({
           disabled={!canPreviousPage}
           css={css?.buttonChevronsLeft}
         >
-          <IconByName name="bx:chevrons-left" size="1em" />
+          <IconByName name="bx:chevrons-left" size="1em" colorName="BLACK" />
         </ButtonArrowLeft>
         <ButtonArrowLeft
           onClick={previousPage}
           disabled={!canPreviousPage}
           css={css?.buttonChevronLeft}
         >
-          <IconByName name="bx:chevron-left" size="1em" />
+          <IconByName name="bx:chevron-left" size="1em" colorName="BLACK" />
         </ButtonArrowLeft>
         {getNumber()}
         <ButtonArrowRight
@@ -183,14 +183,14 @@ export const Pagination: FC<PaginationProps> = ({
           disabled={!canNextPage}
           css={css?.buttonChevronRight}
         >
-          <IconByName name="bx:chevron-right" size="1em" />
+          <IconByName name="bx:chevron-right" size="1em" colorName="BLACK" />
         </ButtonArrowRight>
         <ButtonArrowRight
           onClick={(): void => setPageIndex(pageCount - 1)}
           disabled={!canNextPage}
           css={css?.buttonChevronsRight}
         >
-          <IconByName name="bx:chevrons-right" size="1em" />
+          <IconByName name="bx:chevrons-right" size="1em" colorName="BLACK" />
         </ButtonArrowRight>
       </Right>
     </Footer>

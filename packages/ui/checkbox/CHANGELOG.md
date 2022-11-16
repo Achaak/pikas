@@ -1,5 +1,16 @@
 # @pikas-ui/checkbox
 
+## 3.3.10
+
+### Patch Changes
+
+- Fix dark mode color
+- upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/icons@3.3.7
+  - @pikas-ui/styles@3.5.7
+  - @pikas-ui/text@4.2.7
+
 ## 3.3.9
 
 ### Patch Changes

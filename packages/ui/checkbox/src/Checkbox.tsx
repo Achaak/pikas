@@ -98,7 +98,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   disabled = false,
   required = false,
   name,
-  backgroundColorName = 'WHITE',
+  backgroundColorName = 'WHITE_FIX',
   backgroundColorNameChecked = 'PRIMARY',
   borderRadius = 'md',
   boxShadow = 'DIMINUTION_1',

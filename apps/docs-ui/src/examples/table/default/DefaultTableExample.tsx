@@ -15,32 +15,26 @@ export const DefaultTableExample: FC = () => (
           cell: (props) => props.getValue<string>(),
         },
         {
-          header: 'Name',
-          columns: [
-            {
-              header: 'First Name',
-              accessorKey: 'firstName',
-            },
-            {
-              header: 'Last Name',
-              accessorKey: 'lastName',
-            },
-          ],
+          header: 'First Name',
+          accessorKey: 'firstName',
         },
         {
-          header: 'Data',
-          columns: [
-            {
-              header: 'Email',
-              accessorKey: 'email',
-            },
-            {
-              header: 'Number',
-              accessorKey: 'number',
-            },
-          ],
+          header: 'Last Name',
+          accessorKey: 'lastName',
+        },
+        {
+          header: 'Email',
+          accessorKey: 'email',
+        },
+        {
+          header: 'Number',
+          accessorKey: 'number',
         },
       ]}
+      selection={{
+        active: true,
+        // onRowSelectionChange: console.log,
+      }}
     />
   </ExampleContainer>
 );

@@ -256,9 +256,11 @@ export const Table = <T extends Record<string, unknown>>({
   /* Pagination */
 
   /* Selection */
-  const handleRowSelectionChange = (): void => {
-    selection?.onRowSelectionChange?.(selectionState);
-    setSelectionState(selectionState);
+  const handleRowSelectionChange = (
+    state: Updater<RowSelectionState>
+  ): void => {
+    selection?.onRowSelectionChange?.(state);
+    setSelectionState(state);
   };
   /* Selection */
 
@@ -312,11 +314,6 @@ export const Table = <T extends Record<string, unknown>>({
           onRowSelectionChange: handleRowSelectionChange,
         }
       : {}),
-    ...(selection?.active && selection.onRowSelectionChange
-      ? {
-          onRowSelectionChange: setSelectionState,
-        }
-      : {}),
     ...(sorting?.active
       ? {
           onPaginationChange: pagination?.onPaginationChange,
@@ -334,12 +331,6 @@ export const Table = <T extends Record<string, unknown>>({
       : undefined,
     getSortedRowModel: sorting?.active ? getSortedRowModel() : undefined,
   });
-
-  useEffect(() => {
-    if (selection?.active && selection.onRowSelectionChange) {
-      selection.onRowSelectionChange(selectionState);
-    }
-  }, [selectionState]);
 
   useEffect(() => {
     if (sorting?.active && sorting.onSortingChange) {

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "3.5.6",
+  "version": "3.5.7",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -57,19 +57,19 @@
   },
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
-    "eslint-config-custom": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "@types/lodash.clonedeep": "4.5.7",
     "@types/lodash.merge": "4.6.7",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
+    "@types/react-dom": "18.0.9",
     "cross-env": "7.0.3",
     "eslint": "8.27.0",
+    "eslint-config-custom": "workspace:*",
     "prettier": "2.7.1",
-    "tsup": "6.4.0",
-    "typescript": "4.8.4"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tsup": "6.5.0",
+    "typescript": "4.9.3"
   }
 }
