@@ -47,5 +47,7 @@ export const docsUtilsRoutes = routes({
     introduction: '/',
     router: '/router',
     screen: '/screen',
+    file: '/file',
+    keyboard: '/keyboard',
   },
 });

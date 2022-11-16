@@ -103,7 +103,7 @@ const Item = styled('li', {
   },
 });
 
-const H3 = styled('h3', {
+const H3 = styled('li', {
   fontSize: '$EM-LARGE',
   padding: '8px 16px',
   color: '$BLACK',

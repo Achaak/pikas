@@ -1,5 +1,11 @@
 # @pikas-utils/router
 
+## 1.0.11
+
+### Patch Changes
+
+- Update package.json
+
 ## 1.0.10
 
 ### Patch Changes

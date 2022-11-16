@@ -1,6 +1,110 @@
-import { NextSeo } from 'next-seo'
+import { docsUtilsRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUtilsRoutes;
+import { NextSeo } from 'next-seo';
 
 <NextSeo title="Router" />
 
 # @pikas-utils/router
 
+This package contains a avatar component.
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/utils/router/CHANGELOG.md">
+  Change Log
+</a>
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-utils/router
+```
+
+With yarn:
+
+```
+yarn add @pikas-utils/router
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-utils/router
+```
+
+---
+
+## Usage
+
+```ts
+import { routes } from '@pikas-utils/router';
+
+// Define your routes
+const { getLink } = routes({
+  origin: 'https://www.google.com',
+  links: {
+    home: '/',
+    about: '/about',
+    contact: '/contact',
+    items: '/items:id',
+    docs: '/docs',
+  },
+});
+```
+
+### Parameters
+
+| Prop     | Description               | Type                     | Default  |
+| :------- | :------------------------ | :----------------------- | :------- |
+| `origin` | The origin of the website | `string`                 | required |
+| `links`  | The links of the website  | `Record<string, string>` | required |
+
+---
+
+### getLink
+
+```ts
+getLink('ROUTE_NAME', CONFIG);
+```
+
+#### Examples
+
+```ts
+const homeLink = getLink('home');
+// => '/'
+
+const aboutLink = getLink('about', {
+  withOrigin: true,
+});
+// => 'https://www.google.com/about'
+
+const itemLink = getLink('items', {
+  query: {
+    id: '123',
+  },
+});
+// => '/items/123'
+
+const contactLink = getLink('contact', {
+  hash: 'MyHash',
+});
+// => '/contact#MyHash'
+
+const docsLink = getLink('docs', {
+  lang: 'en',
+});
+// => '/en/docs'
+```
+
+### Config
+
+| Prop         | Description          | Type                               | Default |
+| :----------- | :------------------- | :--------------------------------- | :------ |
+| `withOrigin` | The origin of link   | `boolean`                          | `false` |
+| `query`      | The query of link    | `Record<string, number or string>` | -       |
+| `lang`       | The language of link | `string`                           | -       |
+| `hash`       | The hash of link     | `string`                           | -       |
+
+---
+
+[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-utils/pages/router.mdx)

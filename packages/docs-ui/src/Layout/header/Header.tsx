@@ -2,6 +2,7 @@ import type { IconProps } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import { styled, useTernaryDarkMode } from '@pikas-ui/styles';
 import { Switch } from '@pikas-ui/switch';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC, ReactNode, useEffect, useState } from 'react';
 
@@ -50,6 +51,12 @@ const NavItem = styled('span', {
   color: '$BLACK',
 });
 
+const TitleContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  customColumnGap: 8,
+});
+
 const BxsSun: FC<IconProps> = (props) => (
   <IconByName name="bxs:sun" {...props} />
 );
@@ -61,9 +68,16 @@ const BxsMoon: FC<IconProps> = (props) => (
 type CustomProps = {
   documentationLink: string;
   githubLink: string;
+  title: string;
+  logoUrl: string;
 };
 
-export const Header: FC<CustomProps> = ({ documentationLink, githubLink }) => {
+export const Header: FC<CustomProps> = ({
+  documentationLink,
+  githubLink,
+  title,
+  logoUrl,
+}) => {
   const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode();
   const [switchComponent, setSwitchComponent] = useState<ReactNode>(undefined);
 
@@ -90,7 +104,10 @@ export const Header: FC<CustomProps> = ({ documentationLink, githubLink }) => {
     <Container>
       <Left>
         <Link href="/">
-          <H1>Pikas UI</H1>
+          <TitleContainer>
+            <Image src={logoUrl} alt={title} height={40} width={40} />
+            <H1>{title}</H1>
+          </TitleContainer>
         </Link>
       </Left>
       <Right>
@@ -98,7 +115,7 @@ export const Header: FC<CustomProps> = ({ documentationLink, githubLink }) => {
           <Link href={documentationLink}>
             <NavItem>Documentation</NavItem>
           </Link>
-          <Link href={githubLink}>
+          <Link href={githubLink} aria-label="github">
             <NavItem>
               <IconByName
                 name="ant-design:github-filled"

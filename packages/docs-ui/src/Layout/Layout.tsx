@@ -146,6 +146,8 @@ type LayoutProps = {
   menu: LayoutMenu;
   documentationLink: string;
   githubLink: string;
+  title: string;
+  logoUrl: string;
 };
 
 export const Layout: FC<LayoutProps> = ({
@@ -153,9 +155,16 @@ export const Layout: FC<LayoutProps> = ({
   menu,
   githubLink,
   documentationLink,
+  title,
+  logoUrl,
 }) => (
   <Container>
-    <Header documentationLink={documentationLink} githubLink={githubLink} />
+    <Header
+      documentationLink={documentationLink}
+      githubLink={githubLink}
+      title={title}
+      logoUrl={logoUrl}
+    />
     <Center>
       <Menu menu={menu} />
       <Content>

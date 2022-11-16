@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/keyboard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -34,16 +34,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Achaak/pikas-utils.git"
+    "url": "git+https://github.com/Achaak/pikas.git"
   },
   "author": {
     "name": "Axel Lavoie",
     "email": "axel.lavoie@gmail.com"
   },
   "bugs": {
-    "url": "https://github.com/Achaak/pikas-utils/issues"
+    "url": "https://github.com/Achaak/pikas/issues"
   },
-  "homepage": "https://github.com/Achaak/pikas-utils#readme",
+  "homepage": "https://github.com/Achaak/pikas#readme",
   "peerDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0"

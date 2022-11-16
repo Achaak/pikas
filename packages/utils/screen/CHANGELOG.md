@@ -1,5 +1,11 @@
 # @pikas-utils/screen
 
+## 1.0.12
+
+### Patch Changes
+
+- Update package.json
+
 ## 1.0.11
 
 ### Patch Changes

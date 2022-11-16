@@ -1,6 +1,7 @@
 import type { LayoutMenu } from '@pikas/docs-ui';
-import { docsUIRoutes } from '@pikas/docs-routes';
-const { getLink } = docsUIRoutes;
+import { docsUtilsRoutes, docsUIRoutes } from '@pikas/docs-routes';
+const { getLink: getLinkUtils } = docsUtilsRoutes;
+const { getLink: getLinkUI } = docsUIRoutes;
 
 export const menu: LayoutMenu = [
   {
@@ -8,11 +9,11 @@ export const menu: LayoutMenu = [
     items: [
       {
         label: 'Introduction',
-        href: getLink('introduction'),
+        href: getLinkUI('introduction'),
       },
       {
         label: 'Getting Started',
-        href: getLink('gettingStarted'),
+        href: getLinkUI('gettingStarted'),
       },
       // {
       //   label: 'Custom config',
@@ -25,127 +26,127 @@ export const menu: LayoutMenu = [
     items: [
       {
         label: 'Alert',
-        href: getLink('alert'),
+        href: getLinkUI('alert'),
       },
       {
         label: 'Avatar',
-        href: getLink('avatar'),
+        href: getLinkUI('avatar'),
       },
       {
         label: 'Badge',
-        href: getLink('badge'),
+        href: getLinkUI('badge'),
       },
       {
         label: 'Button',
-        href: getLink('button'),
+        href: getLinkUI('button'),
       },
       {
         label: 'Checkbox',
-        href: getLink('checkbox'),
+        href: getLinkUI('checkbox'),
       },
       {
         label: 'Context Menu',
-        href: getLink('contextMenu'),
+        href: getLinkUI('contextMenu'),
       },
       {
         label: 'Dialog',
-        href: getLink('dialog'),
+        href: getLinkUI('dialog'),
       },
       {
         label: 'Dropdown Menu',
-        href: getLink('dropdownMenu'),
+        href: getLinkUI('dropdownMenu'),
       },
       {
         label: 'Dropzone',
-        href: getLink('dropzone'),
+        href: getLinkUI('dropzone'),
       },
       {
         label: 'Explorer',
-        href: getLink('explorer'),
+        href: getLinkUI('explorer'),
       },
       {
         label: 'Grid',
-        href: getLink('grid'),
+        href: getLinkUI('grid'),
       },
       {
         label: 'Icons',
-        href: getLink('icons'),
+        href: getLinkUI('icons'),
       },
       {
         label: 'Loader',
-        href: getLink('loader'),
+        href: getLinkUI('loader'),
       },
       {
         label: 'Progress',
-        href: getLink('progress'),
+        href: getLinkUI('progress'),
       },
       {
         label: 'Searchbar',
-        href: getLink('searchbar'),
+        href: getLinkUI('searchbar'),
       },
       {
         label: 'Select',
-        href: getLink('select'),
+        href: getLinkUI('select'),
       },
       {
         label: 'Separator',
-        href: getLink('separator'),
+        href: getLinkUI('separator'),
       },
       {
         label: 'Skeleton',
 
-        href: getLink('skeleton'),
+        href: getLinkUI('skeleton'),
       },
       {
         label: 'Slider',
 
-        href: getLink('slider'),
+        href: getLinkUI('slider'),
       },
       {
         label: 'Switch',
 
-        href: getLink('switch'),
+        href: getLinkUI('switch'),
       },
       {
         label: 'Table',
-        href: getLink('table'),
+        href: getLinkUI('table'),
       },
       {
         label: 'Tabs',
-        href: getLink('tabs'),
+        href: getLinkUI('tabs'),
       },
       {
         label: 'Text',
-        href: getLink('text'),
+        href: getLinkUI('text'),
       },
       {
         label: 'Textarea',
-        href: getLink('textarea'),
+        href: getLinkUI('textarea'),
       },
       {
         label: 'Textfield',
-        href: getLink('textfield'),
+        href: getLinkUI('textfield'),
       },
       {
         label: 'Textfield Multiple (Coming soon)',
-        href: getLink('textfieldMultiple'),
+        href: getLinkUI('textfieldMultiple'),
         disabled: true,
       },
       {
         label: 'Title',
-        href: getLink('title'),
+        href: getLinkUI('title'),
       },
       {
         label: 'Toast',
-        href: getLink('toast'),
+        href: getLinkUI('toast'),
       },
       {
         label: 'Tooltip',
-        href: getLink('tooltip'),
+        href: getLinkUI('tooltip'),
       },
       {
         label: 'Radio (Coming soon)',
-        href: getLink('radio'),
+        href: getLinkUI('radio'),
         disabled: true,
       },
     ],
@@ -155,11 +156,20 @@ export const menu: LayoutMenu = [
     items: [
       {
         label: 'Styles',
-        href: getLink('styles'),
+        href: getLinkUI('styles'),
       },
       {
         label: 'useTheme',
-        href: getLink('useTheme'),
+        href: getLinkUI('useTheme'),
+      },
+    ],
+  },
+  {
+    label: 'Pikas',
+    items: [
+      {
+        label: 'Pikas-Utils',
+        href: getLinkUtils('introduction', { withOrigin: true }),
       },
     ],
   },

@@ -20,6 +20,8 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
           menu={menu}
           documentationLink={getLink('introduction')}
           githubLink="https://github.com/Achaak/pikas"
+          title="Pikas UI"
+          logoUrl="/pikas-logo.png"
         >
           <Component {...pageProps} />
         </Layout>

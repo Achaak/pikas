@@ -1,0 +1,57 @@
+import { docsUtilsRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUtilsRoutes;
+import { NextSeo } from 'next-seo';
+import { GetColorByExtension } from './../src/examples/file/getColorByExtension';
+
+<NextSeo title="File" />
+
+# @pikas-utils/file
+
+This package contains a avatar component.
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/utils/file/CHANGELOG.md">
+  Change Log
+</a>
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-utils/file
+```
+
+With yarn:
+
+```
+yarn add @pikas-utils/file
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-utils/file
+```
+
+---
+
+## Usage
+
+### getColorByExtension
+
+Return a color based on the file extension.
+
+Colors are based on the [Mikael Edwards](https://dribbble.com/mikaeledwards) color palette.
+
+<GetColorByExtension />
+
+```ts
+import { getColorByExtension } from '@pikas-utils/file';
+
+getColorByExtension('png');
+// => '#df7971'
+```
+
+---
+
+[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-utils/pages/file.mdx)

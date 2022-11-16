@@ -1,5 +1,14 @@
 # @pikas-ui/explorer
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-utils/file@1.0.3
+  - @pikas-utils/keyboard@1.0.3
+  - @pikas-utils/screen@1.0.12
+
 ## 1.0.2
 
 ### Patch Changes
