@@ -1,6 +1,8 @@
 <div align="center">
 <h1>PIKAS</h1>
 
+<img src="images/pikas-logo.png" width="200" height="200" />
+
 Pikas is an open source project that aims to provide a simple and easy to use to create a simple and fast web application.
 </div>
 
