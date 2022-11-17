@@ -4,6 +4,7 @@
   "exclude": ["dist", "build", "node_modules", "tsup.config.ts"],
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "lib": ["ES2015", "dom"],
   }
 }

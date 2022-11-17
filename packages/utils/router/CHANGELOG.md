@@ -1,5 +1,11 @@
 # @pikas-utils/router
 
+## 1.0.12
+
+### Patch Changes
+
+- Add keepHash and keepSearch
+
 ## 1.0.11
 
 ### Patch Changes
