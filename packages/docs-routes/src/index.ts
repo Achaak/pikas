@@ -36,6 +36,7 @@ export const docsUIRoutes = routes({
     explorer: '/components/explorer',
     textfieldMultiple: '/components/textfield-multiple',
     badge: '/components/badge',
+    colorsManager: '/tools/colors-manager',
     styles: '/utilities/styles',
     useTheme: '/utilities/useTheme',
   },

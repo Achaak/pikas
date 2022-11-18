@@ -165,6 +165,15 @@ export const menu: LayoutMenu = [
     ],
   },
   {
+    label: 'Tools',
+    items: [
+      {
+        label: 'Colors Manager',
+        href: getLinkUI('colorsManager'),
+      },
+    ],
+  },
+  {
     label: 'Pikas',
     items: [
       {
