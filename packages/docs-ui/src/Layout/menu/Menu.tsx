@@ -157,7 +157,13 @@ export const Menu: FC<CustomProps> = ({ menu }) => {
                 onClick={(): void => setIsOpen(false)}
                 disabled={item.disabled ?? false}
               >
-                <Link href={item.href}>{item.label}</Link>
+                {item.href.startsWith('http') ? (
+                  <a href={item.href} target="_blank" rel="noreferrer">
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link href={item.href}>{item.label}</Link>
+                )}
               </Item>
             ))}
           </Group>
