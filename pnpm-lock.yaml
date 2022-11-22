@@ -39,7 +39,7 @@ importers:
       '@pikas-ui/grid': workspace:*
       '@pikas-ui/icons': workspace:*
       '@pikas-ui/loader': workspace:*
-      '@pikas-ui/menu': workspace:3.3.8
+      '@pikas-ui/menu': workspace:3.3.9
       '@pikas-ui/progress': workspace:*
       '@pikas-ui/searchbar': workspace:*
       '@pikas-ui/select': workspace:*
@@ -530,7 +530,7 @@ importers:
     specifiers:
       '@pikas-ui/icons': 3.3.7
       '@pikas-ui/loader': 3.3.7
-      '@pikas-ui/menu': 3.3.8
+      '@pikas-ui/menu': 3.3.9
       '@pikas-ui/styles': 3.5.7
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -618,7 +618,7 @@ importers:
     specifiers:
       '@pikas-ui/icons': 3.3.7
       '@pikas-ui/loader': 3.3.7
-      '@pikas-ui/menu': 3.3.8
+      '@pikas-ui/menu': 3.3.9
       '@pikas-ui/styles': 3.5.7
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -695,12 +695,12 @@ importers:
       '@dnd-kit/core': ^6.0.5
       '@dnd-kit/modifiers': ^6.0.0
       '@dnd-kit/utilities': ^3.2.0
-      '@pikas-ui/context-menu': 3.3.8
-      '@pikas-ui/dropdown-menu': 3.4.8
+      '@pikas-ui/context-menu': 3.3.9
+      '@pikas-ui/dropdown-menu': 3.4.9
       '@pikas-ui/grid': 1.1.10
       '@pikas-ui/icons': 3.3.7
       '@pikas-ui/loader': 3.3.7
-      '@pikas-ui/menu': 3.3.8
+      '@pikas-ui/menu': 3.3.9
       '@pikas-ui/styles': 3.5.7
       '@pikas-utils/file': 1.0.3
       '@pikas-utils/keyboard': 1.0.3
@@ -1541,7 +1541,7 @@ importers:
 
   packages/utils/router:
     specifiers:
-      '@pikas-ui/menu': workspace:3.3.8
+      '@pikas-ui/menu': workspace:3.3.9
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.9

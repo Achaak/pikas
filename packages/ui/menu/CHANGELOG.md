@@ -1,5 +1,11 @@
 # @pikas-ui/menu
 
+## 3.3.9
+
+### Patch Changes
+
+- Update onValueChange and onCheckedChange types
+
 ## 3.3.8
 
 ### Patch Changes

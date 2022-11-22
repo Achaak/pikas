@@ -1,5 +1,12 @@
 # @pikas-utils/router
 
+## 1.0.14
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/menu@3.3.9
+
 ## 1.0.13
 
 ### Patch Changes
