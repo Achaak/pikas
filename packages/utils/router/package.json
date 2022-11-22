@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/router",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -54,8 +54,5 @@
     "tsup": "6.5.0",
     "typescript": "4.9.3"
   },
-  "node": "12.20.0 || 14.13.1 || >=16.0.0",
-  "dependencies": {
-    "@pikas-ui/menu": "workspace:3.3.9"
-  }
+  "node": "12.20.0 || 14.13.1 || >=16.0.0"
 }

@@ -1,5 +1,11 @@
 # @pikas-utils/router
 
+## 1.0.15
+
+### Patch Changes
+
+- fix dependencies
+
 ## 1.0.14
 
 ### Patch Changes
