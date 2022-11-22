@@ -156,7 +156,7 @@ export type DefaultItem = ItemBase & {
   iconColorHex?: string;
   loading?: boolean;
   label: ReactNode;
-  onClick?: () => void;
+  onClick?: () => Promise<void> | void;
   css?: {
     container?: PikasCSS;
     indicator?: PikasCSS;
