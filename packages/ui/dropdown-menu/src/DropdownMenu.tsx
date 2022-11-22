@@ -1,14 +1,9 @@
 import {
   Content as DropdownMenuContent,
-  Item as DropdownMenuItem,
-  CheckboxItem as DropdownMenuCheckboxItem,
-  RadioGroup as DropdownMenuRadioGroup,
-  RadioItem as DropdownMenuRadioItem,
   SubTrigger as DropdownMenuSubTrigger,
   SubContent as DropdownMenuSubContent,
   Label as DropdownMenuLabel,
   Separator as DropdownMenuSeparator,
-  ItemIndicator as DropdownMenuItemIndicator,
   Sub as DropdownMenuSub,
   Root as DropdownMenuRoot,
   Trigger as DropdownMenuTrigger,
@@ -16,8 +11,6 @@ import {
 } from '@radix-ui/react-dropdown-menu';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
-
-import { ClipLoader } from '@pikas-ui/loader';
 import type {
   MenuData,
   MenuDataItem,
@@ -27,32 +20,21 @@ import type {
 } from '@pikas-ui/menu';
 import {
   MenuContentCSS,
-  MenuCheckboxItemCSS,
-  MenuRadioItemCSS,
-  MenuItemIndicatorCSS,
   MenuSeparatorCSS,
   MenuLabelCSS,
   MenuItemCSS,
   RightSlotCSS,
-  SpanCSS,
 } from '@pikas-ui/menu';
 import { IconByName } from '@pikas-ui/icons';
 import { ReactNode, FC } from 'react';
+import { DropdownMenuRadio } from './Radio/index.js';
+import { DropdownMenuCheckbox } from './Checkbox/index.js';
+import { DropdownMenuItem } from './Item/index.js';
 
 const Content = styled(DropdownMenuContent, {
   ...MenuContentCSS,
 });
 
-const Item = styled(DropdownMenuItem, {
-  ...MenuItemCSS,
-});
-const CheckboxItem = styled(DropdownMenuCheckboxItem, {
-  ...MenuCheckboxItemCSS,
-});
-const RadioGroup = styled(DropdownMenuRadioGroup);
-const RadioItem = styled(DropdownMenuRadioItem, {
-  ...MenuRadioItemCSS,
-});
 const SubTrigger = styled(DropdownMenuSubTrigger, {
   ...MenuItemCSS,
 });
@@ -68,20 +50,12 @@ const Separator = styled(DropdownMenuSeparator, {
   ...MenuSeparatorCSS,
 });
 
-const ItemIndicator = styled(DropdownMenuItemIndicator, {
-  ...MenuItemIndicatorCSS,
-});
-
 const IconButton = styled('div', {
   all: 'unset',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-});
-
-const Span = styled('span', {
-  ...SpanCSS,
 });
 
 const RightSlot = styled('div', {
@@ -149,123 +123,19 @@ const DropdownMenuDataElement: FC<DropdownMenuDataProps> = ({ data, css }) => (
 
           if (item.type === 'item') {
             res.push(
-              <Item
-                key={`item-${dIndex}-${i}`}
-                disabled={item.disabled}
-                onClick={item.onClick}
-                css={{
-                  color:
-                    item.colorHex ??
-                    (item.colorName ? `$${item.colorName}` : undefined) ??
-                    'GRAY_DARKER',
-                  ...item.css?.container,
-                }}
-              >
-                {item.loading ? (
-                  <ItemIndicator forceMount css={item.css?.indicator}>
-                    <ClipLoader
-                      size={16}
-                      colorName={
-                        item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                      }
-                      colorHex={item.iconColorHex ?? item.colorHex}
-                    />
-                  </ItemIndicator>
-                ) : (
-                  item.Icon && (
-                    <ItemIndicator forceMount css={item.css?.indicator}>
-                      <item.Icon
-                        size={16}
-                        colorName={
-                          item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                        }
-                        colorHex={item.iconColorHex ?? item.colorHex}
-                      />
-                    </ItemIndicator>
-                  )
-                )}
-                <Span css={item.css?.label}>{item.label}</Span>
-                <RightSlot
-                  css={{
-                    ...item.css?.rightSlot,
-                  }}
-                >
-                  {item.rightSlot}
-                </RightSlot>
-              </Item>
+              <DropdownMenuItem key={`item-${dIndex}-${i}`} {...item} />
             );
           }
 
           if (item.type === 'checkbox') {
             res.push(
-              <CheckboxItem
-                key={`checkbox-${dIndex}-${i}`}
-                disabled={item.disabled}
-                checked={item.checked}
-                onCheckedChange={item.onCheckedChange}
-                css={{
-                  color:
-                    item.colorHex ??
-                    (item.colorName ? `$${item.colorName}` : undefined) ??
-                    'GRAY_DARKER',
-                  ...item.css?.container,
-                }}
-              >
-                <ItemIndicator css={item.css?.indicator}>
-                  <IconByName
-                    name="bx:check"
-                    size={16}
-                    colorName={
-                      item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                    }
-                    colorHex={item.iconColorHex ?? item.colorHex}
-                  />
-                </ItemIndicator>
-                <Span css={item.css?.label}>{item.label}</Span>
-                <RightSlot css={item.css?.rightSlot}>
-                  {item.rightSlot}
-                </RightSlot>
-              </CheckboxItem>
+              <DropdownMenuCheckbox key={`checkbox-${dIndex}-${i}`} {...item} />
             );
           }
 
           if (item.type === 'radio') {
             res.push(
-              <RadioGroup
-                key={`radio-${dIndex}-${i}`}
-                value={item.value}
-                css={{
-                  color:
-                    item.colorHex ??
-                    (item.colorName ? `$${item.colorName}` : undefined) ??
-                    'GRAY_DARKER',
-                  ...item.css?.container,
-                }}
-              >
-                {item.radios.map((radio, radioIndex) => (
-                  <RadioItem
-                    key={`radio-${dIndex}-${i}-${radioIndex}`}
-                    disabled={radio.disabled}
-                    value={radio.value}
-                    css={radio.css?.container}
-                  >
-                    <ItemIndicator css={radio.css?.indicator}>
-                      <IconByName
-                        name="bxs:circle"
-                        size={8}
-                        colorName={
-                          item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                        }
-                        colorHex={item.iconColorHex ?? item.colorHex}
-                      />
-                    </ItemIndicator>
-                    <Span css={radio.css?.label}>{radio.label}</Span>
-                    <RightSlot css={radio.css?.rightSlot}>
-                      {radio.rightSlot}
-                    </RightSlot>
-                  </RadioItem>
-                ))}
-              </RadioGroup>
+              <DropdownMenuRadio key={`radio-${dIndex}-${i}`} {...item} />
             );
           }
 

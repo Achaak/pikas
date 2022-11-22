@@ -1,5 +1,11 @@
 # @pikas-ui/menu
 
+## 3.3.10
+
+### Patch Changes
+
+- fix and add auto loading
+
 ## 3.3.9
 
 ### Patch Changes

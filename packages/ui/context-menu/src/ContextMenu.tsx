@@ -1,20 +1,14 @@
 import {
   Content as MenuPrimitiveContent,
-  Item as MenuPrimitiveItem,
-  CheckboxItem as MenuPrimitiveCheckboxItem,
-  RadioGroup as MenuPrimitiveRadioGroup,
-  RadioItem as MenuPrimitiveRadioItem,
   SubTrigger as MenuPrimitiveSubTrigger,
   SubContent as MenuPrimitiveSubContent,
   Label as MenuPrimitiveLabel,
   Separator as MenuPrimitiveSeparator,
-  ItemIndicator as MenuPrimitiveItemIndicator,
   Root as MenuPrimitiveRoot,
   Trigger as MenuPrimitiveTrigger,
   Sub as MenuPrimitiveSub,
 } from '@radix-ui/react-context-menu';
 import { styled } from '@pikas-ui/styles';
-import { ClipLoader } from '@pikas-ui/loader';
 import type {
   MenuData,
   MenuDataItem,
@@ -24,32 +18,21 @@ import type {
 } from '@pikas-ui/menu';
 import {
   MenuContentCSS,
-  MenuCheckboxItemCSS,
-  MenuRadioItemCSS,
-  MenuItemIndicatorCSS,
   MenuSeparatorCSS,
   MenuLabelCSS,
   MenuItemCSS,
   RightSlotCSS,
-  SpanCSS,
 } from '@pikas-ui/menu';
 import { IconByName } from '@pikas-ui/icons';
 import { FC, ReactNode } from 'react';
+import { ContextMenuRadio } from './Radio/index.js';
+import { ContextMenuCheckbox } from './Checkbox/index.js';
+import { ContextMenuItem } from './Item/index.js';
 
 const Content = styled(MenuPrimitiveContent, {
   ...MenuContentCSS,
 });
 
-const Item = styled(MenuPrimitiveItem, {
-  ...MenuItemCSS,
-});
-const CheckboxItem = styled(MenuPrimitiveCheckboxItem, {
-  ...MenuCheckboxItemCSS,
-});
-const RadioGroup = styled(MenuPrimitiveRadioGroup);
-const RadioItem = styled(MenuPrimitiveRadioItem, {
-  ...MenuRadioItemCSS,
-});
 const SubTrigger = styled(MenuPrimitiveSubTrigger, {
   ...MenuItemCSS,
 });
@@ -65,16 +48,8 @@ const Separator = styled(MenuPrimitiveSeparator, {
   ...MenuSeparatorCSS,
 });
 
-const ItemIndicator = styled(MenuPrimitiveItemIndicator, {
-  ...MenuItemIndicatorCSS,
-});
-
 const RightSlot = styled('div', {
   ...RightSlotCSS,
-});
-
-const Span = styled('span', {
-  ...SpanCSS,
 });
 
 export const contextMenuDirection = {
@@ -122,125 +97,18 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
           const item = d.items[i];
 
           if (item.type === 'item') {
-            res.push(
-              <Item
-                key={`item-${dIndex}-${i}`}
-                disabled={item.disabled}
-                onClick={item.onClick}
-                css={{
-                  color:
-                    item.colorHex ??
-                    (item.colorName ? `$${item.colorName}` : undefined) ??
-                    'GRAY_DARKER',
-                  ...item.css?.container,
-                }}
-              >
-                {item.loading ? (
-                  <ItemIndicator forceMount css={item.css?.indicator}>
-                    <ClipLoader
-                      size={16}
-                      colorName={
-                        item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                      }
-                      colorHex={item.iconColorHex ?? item.colorHex}
-                    />
-                  </ItemIndicator>
-                ) : (
-                  item.Icon && (
-                    <ItemIndicator forceMount css={item.css?.indicator}>
-                      <item.Icon
-                        size={16}
-                        colorName={
-                          item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                        }
-                        colorHex={item.iconColorHex ?? item.colorHex}
-                      />
-                    </ItemIndicator>
-                  )
-                )}
-                <Span css={item.css?.label}>{item.label}</Span>
-                <RightSlot
-                  css={{
-                    ...item.css?.rightSlot,
-                  }}
-                >
-                  {item.rightSlot}
-                </RightSlot>
-              </Item>
-            );
+            res.push(<ContextMenuItem key={`item-${dIndex}-${i}`} {...item} />);
           }
 
           if (item.type === 'checkbox') {
             res.push(
-              <CheckboxItem
-                key={`checkbox-${dIndex}-${i}`}
-                disabled={item.disabled}
-                checked={item.checked}
-                onCheckedChange={item.onCheckedChange}
-                css={{
-                  color:
-                    item.colorHex ??
-                    (item.colorName ? `$${item.colorName}` : undefined) ??
-                    'GRAY_DARKER',
-                  ...item.css?.container,
-                }}
-              >
-                <ItemIndicator css={item.css?.indicator}>
-                  <IconByName
-                    name="bx:check"
-                    size={16}
-                    colorName={
-                      item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                    }
-                    colorHex={item.iconColorHex ?? item.colorHex}
-                  />
-                </ItemIndicator>
-                <Span css={item.css?.label}>{item.label}</Span>
-                <RightSlot css={item.css?.rightSlot}>
-                  {item.rightSlot}
-                </RightSlot>
-              </CheckboxItem>
+              <ContextMenuCheckbox key={`checkbox-${dIndex}-${i}`} {...item} />
             );
           }
 
           if (item.type === 'radio') {
             res.push(
-              <RadioGroup
-                key={`radio-${dIndex}-${i}`}
-                value={item.value}
-                onValueChange={item.onValueChange}
-                css={{
-                  color:
-                    item.colorHex ??
-                    (item.colorName ? `$${item.colorName}` : undefined) ??
-                    'GRAY_DARKER',
-                  ...item.css?.container,
-                }}
-              >
-                {item.radios.map((radio, radioIndex) => (
-                  <RadioItem
-                    key={`radio-${dIndex}-${i}-${radioIndex}`}
-                    disabled={radio.disabled}
-                    value={radio.value}
-                    css={radio.css?.container}
-                  >
-                    <ItemIndicator css={radio.css?.indicator}>
-                      <IconByName
-                        name="bxs:circle"
-                        size={8}
-                        colorName={
-                          item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
-                        }
-                        colorHex={item.iconColorHex ?? item.colorHex}
-                      />
-                    </ItemIndicator>
-                    <Span css={radio.css?.label}>{radio.label}</Span>
-                    <RightSlot css={radio.css?.rightSlot}>
-                      {radio.rightSlot}
-                    </RightSlot>
-                  </RadioItem>
-                ))}
-              </RadioGroup>
+              <ContextMenuRadio key={`radio-${dIndex}-${i}`} {...item} />
             );
           }
 

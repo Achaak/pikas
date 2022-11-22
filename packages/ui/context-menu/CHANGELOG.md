@@ -1,5 +1,13 @@
 # @pikas-ui/context-menu
 
+## 3.3.10
+
+### Patch Changes
+
+- fix and add auto loading
+- Updated dependencies
+  - @pikas-ui/menu@3.3.10
+
 ## 3.3.9
 
 ### Patch Changes

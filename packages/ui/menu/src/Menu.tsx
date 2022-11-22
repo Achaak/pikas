@@ -141,8 +141,6 @@ export const RightSlotCSS: PikasCSS = {
 export const SpanCSS: PikasCSS = {};
 
 export type ItemBase = {
-  disabled?: boolean;
-  rightSlot?: string;
   colorName?: PikasColor;
   colorHex?: string;
   type: 'checkbox' | 'item' | 'menu' | 'radio';
@@ -157,6 +155,8 @@ export type DefaultItem = ItemBase & {
   loading?: boolean;
   label: ReactNode;
   onClick?: () => Promise<void> | void;
+  rightSlot?: string;
+  disabled?: boolean;
   css?: {
     container?: PikasCSS;
     indicator?: PikasCSS;
@@ -171,6 +171,8 @@ export type CheckboxItem = ItemBase & {
   label: ReactNode;
   iconColorName?: PikasColor;
   iconColorHex?: string;
+  rightSlot?: string;
+  disabled?: boolean;
   onCheckedChange: (checked: boolean | 'indeterminate') => Promise<void> | void;
   css?: {
     container?: PikasCSS;
