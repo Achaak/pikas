@@ -1,5 +1,11 @@
 # @pikas-ui/menu
 
+## 3.3.8
+
+### Patch Changes
+
+- b87c0a8: Update onClick type
+
 ## 3.3.7
 
 ### Patch Changes
