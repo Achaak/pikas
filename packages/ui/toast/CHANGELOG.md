@@ -1,5 +1,11 @@
 # @pikas-ui/toast
 
+## 1.2.8
+
+### Patch Changes
+
+- Fix linter
+
 ## 1.2.7
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @pikas-ui/tabs
 
+## 2.2.8
+
+### Patch Changes
+
+- Fix linter
+
 ## 2.2.7
 
 ### Patch Changes

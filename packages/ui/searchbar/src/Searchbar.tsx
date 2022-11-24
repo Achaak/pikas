@@ -127,7 +127,7 @@ export type ResultGroup = {
 
 type ResultGroupWithId = {
   title?: string;
-  items: (ResultItem & { id: number })[];
+  items: Array<ResultItem & { id: number }>;
 };
 
 export type SearchbarCSS = {
@@ -191,7 +191,7 @@ export const Searchbar = <T,>({
   const refContainer = useRef<HTMLFormElement | null>(null);
   const refTextfield = useRef<HTMLInputElement | null>(null);
   const refResult = useRef<HTMLDivElement | null>(null);
-  const refItem = useRef<(HTMLDivElement | null)[]>([]);
+  const refItem = useRef<Array<HTMLDivElement | null>>([]);
   useOnClickOutside(refContainer, () => setIsOpen(false));
   const [outerHeight, setOuterHeight] = useState<number>();
   const windowSize = useWindowSize();
@@ -212,7 +212,7 @@ export const Searchbar = <T,>({
     const resultFormat: ResultGroupWithId[] = [];
 
     for (const group of res) {
-      const items: (ResultItem & { id: number })[] = [];
+      const items: Array<ResultItem & { id: number }> = [];
       for (const item of group.items) {
         items.push({
           ...item,

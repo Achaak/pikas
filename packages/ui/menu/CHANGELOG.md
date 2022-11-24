@@ -1,5 +1,11 @@
 # @pikas-ui/menu
 
+## 3.3.11
+
+### Patch Changes
+
+- Fix linter
+
 ## 3.3.10
 
 ### Patch Changes

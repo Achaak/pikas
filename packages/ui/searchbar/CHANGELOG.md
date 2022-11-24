@@ -1,5 +1,11 @@
 # @pikas-ui/searchbar
 
+## 3.2.12
+
+### Patch Changes
+
+- Fix linter
+
 ## 3.2.11
 
 ### Patch Changes

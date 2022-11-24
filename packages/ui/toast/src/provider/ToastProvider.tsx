@@ -91,7 +91,7 @@ export type ToastProviderProps = {
 };
 
 export type ToastContextProps = {
-  toasts: ReactElement<BaseToastProps>[];
+  toasts: Array<ReactElement<BaseToastProps>>;
   publish: (toast: ReactElement<BaseToastProps>) => void;
 };
 
@@ -117,7 +117,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({
   },
   children,
 }) => {
-  const [toasts, setToasts] = useState<ReactElement<BaseToastProps>[]>([]);
+  const [toasts, setToasts] = useState<Array<ReactElement<BaseToastProps>>>([]);
 
   const getSwipeDirection = (): SwipeDirection => {
     switch (position) {

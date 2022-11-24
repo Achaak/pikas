@@ -1,5 +1,15 @@
 # @pikas-ui/explorer
 
+## 1.0.7
+
+### Patch Changes
+
+- Fix linter
+- Updated dependencies
+  - @pikas-ui/menu@3.3.11
+  - @pikas-ui/context-menu@3.3.11
+  - @pikas-ui/dropdown-menu@3.4.11
+
 ## 1.0.6
 
 ### Patch Changes

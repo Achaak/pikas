@@ -196,7 +196,7 @@ export type TabsPadding = {
 export type TabsAlignmentTrigger = 'center' | 'end' | 'start' | 'stretch';
 
 export type TabsProps<T extends string> = {
-  items: TabsItem<T>[];
+  items: Array<TabsItem<T>>;
   defaultValue: T;
   value?: string;
   onValueChange?: (value: string) => void;

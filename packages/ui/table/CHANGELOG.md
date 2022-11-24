@@ -1,5 +1,13 @@
 # @pikas-ui/table
 
+## 3.2.13
+
+### Patch Changes
+
+- Fix linter
+- Updated dependencies
+  - @pikas-ui/select@4.3.10
+
 ## 3.2.12
 
 ### Patch Changes

@@ -200,7 +200,7 @@ export type TableProps<T extends Record<string, unknown>> = {
   pagination?: TablePaginationProps;
   selection?: TableSelection;
   sorting?: TableSorting;
-  columns: ColumnDef<T>[];
+  columns: Array<ColumnDef<T>>;
   css?: TableCSS<T>;
   padding?: TablePadding;
   hoverEffect?: boolean;
@@ -264,7 +264,7 @@ export const Table = <T extends Record<string, unknown>>({
   };
   /* Selection */
 
-  const columnsMemo = useMemo<ColumnDef<T>[]>(
+  const columnsMemo = useMemo<Array<ColumnDef<T>>>(
     () => [
       ...(selection?.active
         ? ([
@@ -289,7 +289,7 @@ export const Table = <T extends Record<string, unknown>>({
                 />
               ),
             },
-          ] as ColumnDef<T>[])
+          ] as Array<ColumnDef<T>>)
         : []),
       ...columns,
     ],

@@ -229,11 +229,11 @@ export type SelectProps = {
   fontSize?: PikasFontSize;
   borderColorName?: PikasColor;
   borderWidth?: number;
-  data: {
+  data: Array<{
     name?: string;
     hidden?: boolean;
     items: SelectItem[];
-  }[];
+  }>;
   id?: string;
   onChange?: (value: string) => void;
   defaultValue: string;

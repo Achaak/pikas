@@ -28,7 +28,7 @@
     "@pikas-ui/grid": "workspace:*",
     "@pikas-ui/icons": "workspace:*",
     "@pikas-ui/loader": "workspace:*",
-    "@pikas-ui/menu": "workspace:3.3.10",
+    "@pikas-ui/menu": "workspace:3.3.11",
     "@pikas-ui/progress": "workspace:*",
     "@pikas-ui/searchbar": "workspace:*",
     "@pikas-ui/select": "workspace:*",

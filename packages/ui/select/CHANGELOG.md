@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 4.3.10
+
+### Patch Changes
+
+- Fix linter
+
 ## 4.3.9
 
 ### Patch Changes

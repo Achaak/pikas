@@ -188,7 +188,7 @@ export type RadioItem = ItemBase & {
   value: string;
   iconColorName?: PikasColor;
   iconColorHex?: string;
-  radios: {
+  radios: Array<{
     label: string;
     value: string;
     disabled?: boolean;
@@ -199,7 +199,7 @@ export type RadioItem = ItemBase & {
       label?: PikasCSS;
       rightSlot?: PikasCSS;
     };
-  }[];
+  }>;
   css?: {
     container?: PikasCSS;
   };

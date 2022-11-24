@@ -98,10 +98,10 @@ export type OnOpenItem = (values: {
   type: ExplorerItemType;
 }) => void;
 export type OnDropItems = (values: {
-  item: {
+  item: Array<{
     id: string;
     type: ExplorerItemType;
-  }[];
+  }>;
   folderId: string;
 }) => void;
 export type OnFavoriteItem = (values: {
