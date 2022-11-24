@@ -1,5 +1,12 @@
 # @pikas-ui/table
 
+## 3.2.14
+
+### Patch Changes
+
+- fix sortable
+  - @pikas-ui/select@4.3.11
+
 ## 3.2.13
 
 ### Patch Changes

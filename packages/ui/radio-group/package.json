@@ -1,13 +1,13 @@
 {
-  "name": "@pikas-ui/select",
-  "version": "4.3.11",
+  "name": "@pikas-ui/radio-group",
+  "version": "3.3.7",
   "private": false,
   "keywords": [
     "pikas-ui",
-    "select",
+    "radio-group",
     "react"
   ],
-  "description": "Components for creating select elements",
+  "description": "Components for creating a radio-group",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -49,9 +49,9 @@
     "@pikas-ui/icons": "3.3.7",
     "@pikas-ui/styles": "3.5.7",
     "@pikas-ui/text": "4.2.7",
-    "@pikas-ui/textfield": "3.3.9",
     "@pikas-ui/tooltip": "3.3.7",
-    "@radix-ui/react-select": "1.1.2"
+    "@radix-ui/react-label": "2.0.0",
+    "@radix-ui/react-radio-group": "1.1.0"
   },
   "peerDependencies": {
     "react": "18.2.0",

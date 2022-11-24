@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 3.3.9
+
+### Patch Changes
+
+- Remove dependencies
+
 ## 3.3.8
 
 ### Patch Changes

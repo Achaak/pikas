@@ -1,0 +1,105 @@
+import { RadioGroupExample } from './../../src/examples/radioGroup';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
+
+export const stylesLink = getLink('styles');
+
+<NextSeo title="Radio Group" />
+
+# @pikas-ui/radio-group
+
+This package contains a radio-group component.
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/radio-group/CHANGELOG.md">
+  Change Log
+</a>
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/radio-group
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/radio-group
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/radio-group
+```
+
+---
+
+## Usage
+
+### RadioGroup
+
+<RadioGroupExample />
+
+```tsx
+import { RadioGroup } from `@pikas-ui/radio-group`;
+
+const Example: React.FC = () => {
+  return (
+    <RadioGroup
+      label="Radio Group label"
+      description="Eu est labore ea laborum laborum mollit non minim eu commodo."
+      required
+      id="Radio Group"
+      data={[
+        {
+          label: 'Radio Group item 1',
+          value: 'Radio Group item 1',
+        },
+        {
+          label: 'Radio Group item 2',
+          value: 'Radio Group item 2',
+        },
+        {
+          label: 'Radio Group item 3',
+          value: 'Radio Group item 3',
+          disabled: true,
+        },
+      ]}
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop           | Description                          | Type                                       | Default      |
+| :------------- | :----------------------------------- | :----------------------------------------- | :----------- |
+| `data`         | The data of the radio group          | `RadioGroupItem[]`                         | required     |
+| `id`           | The id of the radio group            | `string`                                   | -            |
+| `label`        | The label of the radio group         | `ReactNode or string`                      | -            |
+| `textError`    | The error text of the radio group    | `string`                                   | -            |
+| `fontSize`     | The font size of the radio group     | `PikasFontSize`                            | `EM-MEDIUM`  |
+| `className`    | The class name of the radio group    | `string`                                   | -            |
+| `description`  | The description of the radio group   | `string`                                   | -            |
+| `css`          | The css of the radio group           | `RadioGroupCSS`                            | -            |
+| `required`     | The required of the radio group      | `boolean`                                  | -            |
+| `info`         | The info of the radio group          | `ReactNode`                                | -            |
+| `defaultValue` | The default value of the radio group | `string`                                   | -            |
+| `value`        | The value of the radio group         | `string`                                   | -            |
+| `onChange`     | The onChange of the radio group      | `(value: string) => Promise<void> or void` | -            |
+| `disabled`     | The disabled of the radio group      | `boolean`                                  | -            |
+| `name`         | The name of the radio group          | `string`                                   | -            |
+| `orientation`  | The orientation of the radio group   | `RadioGroupOrientation`                    | `"vertical"` |
+| `dir`          | The direction of the radio group     | `RadioGroupDirection`                      | `"ltr"`      |
+| `loop`         | The loop of the radio group          | `boolean`                                  | `false`      |
+
+---
+
+[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/radio-group.mdx)

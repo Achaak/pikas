@@ -145,9 +145,8 @@ export const menu: LayoutMenu = [
         href: getLinkUI('tooltip'),
       },
       {
-        label: 'Radio (Coming soon)',
-        href: getLinkUI('radio'),
-        disabled: true,
+        label: 'Radio Group',
+        href: getLinkUI('radioGroup'),
       },
     ],
   },

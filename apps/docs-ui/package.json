@@ -45,6 +45,7 @@
     "@pikas-ui/title": "workspace:*",
     "@pikas-ui/toast": "workspace:*",
     "@pikas-ui/tooltip": "workspace:*",
+    "@pikas-ui/radio-group": "workspace:*",
     "@pikas/docs-routes": "workspace:*",
     "@pikas/docs-ui": "workspace:*",
     "color": "^4.2.3",

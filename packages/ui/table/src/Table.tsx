@@ -171,12 +171,13 @@ export type TableCSS<T> = {
 export type TablePaginationProps = {
   active: boolean;
   state?: PaginationState;
-  onPaginationChange?: OnChangeFn<PaginationState>;
   selectValue?: number[];
+  onPaginationChange?: OnChangeFn<PaginationState>;
 };
 
 export type TableSelection = {
   active: boolean;
+  state?: RowSelectionState;
   defaultState?: RowSelectionState;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
 };
@@ -184,6 +185,7 @@ export type TableSelection = {
 export type TableSorting = {
   active: boolean;
   state?: SortingState;
+  defaultState?: SortingState;
   onSortingChange?: OnChangeFn<SortingState>;
 };
 
@@ -223,9 +225,11 @@ export const Table = <T extends Record<string, unknown>>({
   hoverEffect = true,
 }: TableProps<T>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
-    selection?.defaultState ?? {}
+    selection?.defaultState ?? selection?.state ?? {}
   );
-  const [sortingState, setSortingState] = useState<SortingState>([]);
+  const [sortingState, setSortingState] = useState<SortingState>(
+    sorting?.defaultState ?? sorting?.state ?? []
+  );
 
   /* Pagination */
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>(
@@ -299,37 +303,43 @@ export const Table = <T extends Record<string, unknown>>({
   const table = useReactTable({
     data,
     columns: columnsMemo,
-    state: {
-      ...(pagination?.active && { pagination: paginationMemo }),
-      ...(selection?.active ? { rowSelection: selectionState } : {}),
-      ...(sorting?.active ? { sorting: sortingState } : {}),
-    },
+    state: {},
+
+    // Pagination
     ...(pagination?.active
       ? {
+          pagination: paginationMemo,
           onPaginationChange: handlePaginationChange,
         }
       : {}),
+
+    // Selection
     ...(selection?.active
       ? {
+          rowSelection: selectionState,
           onRowSelectionChange: handleRowSelectionChange,
         }
       : {}),
+
+    // Sorting
     ...(sorting?.active
+      ? {
+          sorting: sortingState,
+          onSortingChange: setSortingState,
+          getSortedRowModel: getSortedRowModel(),
+        }
+      : {}),
+
+    // Pagination
+    ...(pagination?.active
       ? {
           onPaginationChange: pagination?.onPaginationChange,
+          getPaginationRowModel: getPaginationRowModel(),
         }
       : {}),
-    ...(sorting?.active
-      ? {
-          onSortingChange: setSortingState,
-        }
-      : {}),
+
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: pagination?.active
-      ? getPaginationRowModel()
-      : undefined,
-    getSortedRowModel: sorting?.active ? getSortedRowModel() : undefined,
   });
 
   useEffect(() => {
@@ -347,6 +357,26 @@ export const Table = <T extends Record<string, unknown>>({
     }
     setSortingState(sorting.state ?? []);
   }, [sorting?.state]);
+
+  useEffect(() => {
+    if (!sorting) {
+      return;
+    }
+    if (!sorting.active) {
+      return;
+    }
+    setSortingState(sorting.defaultState ?? []);
+  }, [sorting?.defaultState]);
+
+  useEffect(() => {
+    if (!selection) {
+      return;
+    }
+    if (!selection.active) {
+      return;
+    }
+    setSelectionState(selection.state ?? {});
+  }, [selection?.state]);
 
   useEffect(() => {
     if (!selection) {
@@ -380,12 +410,14 @@ export const Table = <T extends Record<string, unknown>>({
                 ...css?.tr,
               }}
             >
-              {headerGroup.headers.map((header) => (
+              {headerGroup.headers.map((header, headerIndex) => (
                 <Th
-                  key={header.id}
+                  key={headerIndex}
                   colSpan={header.colSpan}
                   variant={variant}
                   css={{
+                    width:
+                      selection?.active && headerIndex === 0 ? 20 : undefined,
                     ...css?.th,
                     ...css?.column?.[header.id as keyof T]?.th,
                   }}
@@ -396,14 +428,18 @@ export const Table = <T extends Record<string, unknown>>({
                       css={{
                         ...css?.thSpan,
                         ...css?.column?.[header.id as keyof T]?.thSpan,
-                        ...(header.column.getCanSort()
+                        ...(header.column.getCanSort() && sorting?.active
                           ? {
                               cursor: 'pointer',
                               userSelect: 'none',
                             }
                           : {}),
                       }}
-                      onClick={header.column.getToggleSortingHandler()}
+                      onClick={
+                        sorting?.active
+                          ? header.column.getToggleSortingHandler()
+                          : undefined
+                      }
                     >
                       {flexRender(
                         header.column.columnDef.header,
@@ -441,11 +477,11 @@ export const Table = <T extends Record<string, unknown>>({
           ))}
         </Thead>
         <Tbody variant={variant} css={css?.tbody}>
-          {table.getRowModel().rows.map((row) => (
-            <Tr key={row.id} variant={variant} css={css?.tr}>
-              {row.getVisibleCells().map((cell) => (
+          {table.getRowModel().rows.map((row, rowIndex) => (
+            <Tr key={rowIndex} variant={variant} css={css?.tr}>
+              {row.getVisibleCells().map((cell, cellIndex) => (
                 <Td
-                  key={cell.id}
+                  key={cellIndex}
                   variant={variant}
                   css={{
                     ...css?.td,
@@ -493,11 +529,11 @@ export const Table = <T extends Record<string, unknown>>({
         </Tbody>
         {hasTfoot ? (
           <Tfoot variant={variant} css={css?.tfoot}>
-            {table.getFooterGroups().map((footerGroup) => (
-              <Tr key={footerGroup.id} variant={variant} css={css?.tr}>
-                {footerGroup.headers.map((header) => (
+            {table.getFooterGroups().map((footerGroup, footerGroupIndex) => (
+              <Tr key={footerGroupIndex} variant={variant} css={css?.tr}>
+                {footerGroup.headers.map((header, headerIndex) => (
                   <Th
-                    key={header.id}
+                    key={headerIndex}
                     colSpan={header.colSpan}
                     variant={variant}
                     css={{
