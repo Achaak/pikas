@@ -1,4 +1,5 @@
-import { RadioGroupExample } from './../../src/examples/radioGroup';
+import { RadioGroupExample } from './../../src/examples/radioGroup/classic';
+import { RadioGroupImageExample } from './../../src/examples/radioGroup/image';
 import { docsUIRoutes } from '@pikas/docs-routes';
 export const { getLink } = docsUIRoutes;
 import { NextSeo } from 'next-seo';
@@ -99,6 +100,71 @@ const Example: React.FC = () => {
 | `orientation`  | The orientation of the radio group   | `RadioGroupOrientation`                    | `"vertical"` |
 | `dir`          | The direction of the radio group     | `RadioGroupDirection`                      | `"ltr"`      |
 | `loop`         | The loop of the radio group          | `boolean`                                  | `false`      |
+
+---
+
+### RadioGroupImage
+
+<RadioGroupImageExample />
+
+```tsx
+import { RadioGroupImage } from `@pikas-ui/radio-group`;
+
+const Example: React.FC = () => {
+  return (
+    <RadioGroupImage
+      label="Radio Group Image label"
+      description="Eu est labore ea laborum laborum mollit non minim eu commodo."
+      required
+      id="Radio Group Image"
+      data={[
+        {
+          label: 'Radio Group Image item 1',
+          value: 'Radio Group Image item 1',
+          image: 'https://picsum.photos/200/300',
+        },
+        {
+          label: 'Radio Group Image item 2',
+          value: 'Radio Group Image item 2',
+          image: 'https://picsum.photos/200/300',
+        },
+        {
+          label: 'Radio Group Image item 3',
+          value: 'Radio Group Image item 3',
+          image: 'https://picsum.photos/200/300',
+          disabled: true,
+        },
+      ]}
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop           | Description                          | Type                                       | Default      |
+| :------------- | :----------------------------------- | :----------------------------------------- | :----------- |
+| `data`         | The data of the radio group          | `RadioGroupImageItem[]`                    | required     |
+| `id`           | The id of the radio group            | `string`                                   | -            |
+| `label`        | The label of the radio group         | `ReactNode or string`                      | -            |
+| `textError`    | The error text of the radio group    | `string`                                   | -            |
+| `fontSize`     | The font size of the radio group     | `PikasFontSize`                            | `EM-MEDIUM`  |
+| `className`    | The class name of the radio group    | `string`                                   | -            |
+| `description`  | The description of the radio group   | `string`                                   | -            |
+| `css`          | The css of the radio group           | `RadioGroupImageCSS`                       | -            |
+| `required`     | The required of the radio group      | `boolean`                                  | -            |
+| `info`         | The info of the radio group          | `ReactNode`                                | -            |
+| `defaultValue` | The default value of the radio group | `string`                                   | -            |
+| `value`        | The value of the radio group         | `string`                                   | -            |
+| `onChange`     | The onChange of the radio group      | `(value: string) => Promise<void> or void` | -            |
+| `disabled`     | The disabled of the radio group      | `boolean`                                  | -            |
+| `name`         | The name of the radio group          | `string`                                   | -            |
+| `orientation`  | The orientation of the radio group   | `RadioGroupOrientation`                    | `"vertical"` |
+| `dir`          | The direction of the radio group     | `RadioGroupDirection`                      | `"ltr"`      |
+| `loop`         | The loop of the radio group          | `boolean`                                  | `false`      |
+| `borderRadius` | The border radius of the radio group | `BorderRadius`                             | `"md"`       |
+| `imageWidth`   | The image width of the radio group   | `number or string`                         | `40`         |
+| `imageHeight`  | The image height of the radio group  | `number or string`                         | `40`         |
 
 ---
 
