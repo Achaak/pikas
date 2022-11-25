@@ -1,12 +1,12 @@
 import { Label } from '@pikas-ui/text';
-import { Textfield } from '@pikas-ui/textfield';
 import { Title } from '@pikas-ui/title';
 import { styled, useTernaryDarkMode } from '@pikas/docs-ui';
-import { createRef, FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { normal } from 'color-blend';
 import Color from 'color';
 import fontColorContrast from 'font-color-contrast';
 import { Toast, useToast } from '@pikas-ui/toast';
+import { ColorPicker } from '@pikas-ui/color-picker';
 
 const Container = styled('div', {
   display: 'flex',
@@ -14,30 +14,6 @@ const Container = styled('div', {
   minWidth: 200,
   customRowGap: 8,
   padding: '16px 0px',
-});
-
-const ColorInputWrapper = styled('div', {
-  display: 'flex',
-  height: 32,
-  width: 32,
-  br: 'sm',
-  cursor: 'pointer',
-});
-
-const ColorInput = styled('input', {
-  visibility: 'hidden',
-  pointerEvents: 'none',
-});
-
-const InputsContent = styled('div', {
-  display: 'flex',
-  customColumnGap: 8,
-});
-
-const DefaultColorContainer = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  customRowGap: 4,
 });
 
 const ColorResultContainer = styled('div', {
@@ -78,7 +54,6 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
   lightestOpacity,
 }) => {
   const [color, setColor] = useState(defaultColor);
-  const colorInputRef = createRef<HTMLInputElement>();
   const [isDarkModeState, setIsDarkModeState] = useState(false);
   const { isDarkMode } = useTernaryDarkMode();
   const { publish } = useToast();
@@ -157,32 +132,11 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
     <Container>
       <Title as="h2">{title}</Title>
 
-      <DefaultColorContainer>
-        <Label>Default color</Label>
-        <InputsContent>
-          <ColorInputWrapper
-            css={{
-              backgroundColor: color,
-            }}
-            onClick={() => {
-              colorInputRef.current?.click();
-            }}
-          >
-            <ColorInput
-              ref={colorInputRef}
-              type="color"
-              value={color}
-              onChange={(e) => setColor(e.target.value)}
-            />
-          </ColorInputWrapper>
-
-          <Textfield
-            value={color}
-            onChange={(e) => setColor(e.target.value)}
-            placeholder="Color"
-          />
-        </InputsContent>
-      </DefaultColorContainer>
+      <ColorPicker
+        label="Color picker"
+        onChange={(value) => setColor(value)}
+        defaultValue={defaultColor}
+      />
 
       <ColorResultContainer>
         <Label>Darker</Label>

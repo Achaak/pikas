@@ -1,0 +1,89 @@
+import { ColorPickerExample } from './../../src/examples/colorPicker';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
+
+export const stylesLink = getLink('styles');
+
+<NextSeo title="Color Picker" />
+
+# @pikas-ui/color-picker
+
+This package contains a color-picker component.
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/color-picker/CHANGELOG.md">
+  Change Log
+</a>
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/color-picker
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/color-picker
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/color-picker
+```
+
+---
+
+## Usage
+
+### ColorPicker
+
+<ColorPickerExample />
+
+```tsx
+import { ColorPicker } from `@pikas-ui/color-picker`;
+
+const Example: React.FC = () => {
+  return (
+    <ColorPicker
+      label="Color Picker"
+      description="This is a description"
+      required
+      defaultValue="#52A2FF"
+    />
+  )
+}
+```
+
+#### Props
+
+| Prop            | Description                               | Type                      | Default       |
+| :-------------- | :---------------------------------------- | :------------------------ | :------------ |
+| `value`         | The value of the color picker             | `string`                  | -             |
+| `defaultValue`  | The default value of the color picker     | `string`                  | `"#FFFFFF'`   |
+| `onChange`      | The onChange function of the color picker | `(value: string) => void` | -             |
+| `css`           | The css object                            | `ColorPickerCSS`          | -             |
+| `description`   | The description of the color picker       | `string`                  | -             |
+| `info`          | The info of the color picker              | `ReactNode`               | -             |
+| `label`         | The label of the color picker             | `string`                  | -             |
+| `fontSize`      | The font size of the color picker         | `PikasFontSize`           | `"EM-MEDIUM'` |
+| `width`         | The width of the color picker             | `number or string`        | `"100%'`      |
+| `maxWidth`      | The max width of the color picker         | `number or string`        | `"100%'`      |
+| `minWidth`      | The min width of the color picker         | `number or string`        | -             |
+| `disabled`      | If the color picker is disabled           | `boolean`                 | -             |
+| `id`            | The id of the color picker                | `string`                  | -             |
+| `required`      | If the color picker is required           | `boolean`                 | -             |
+| `textError`     | The text error of the color picker        | `string`                  | -             |
+| `textfield`     | The textfield props of the color picker   | `TextfieldProps`          | -             |
+| `hideTextfield` | If the textfield is hidden                | `boolean`                 | `false`       |
+
+---
+
+[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/color-picker.mdx)

@@ -1,13 +1,13 @@
 {
-  "name": "@pikas-ui/table",
-  "version": "3.2.14",
+  "name": "@pikas-ui/color-picker",
+  "version": "1.0.0",
   "private": false,
   "keywords": [
     "pikas-ui",
-    "table",
+    "color-picker",
     "react"
   ],
-  "description": "Components for creating tables",
+  "description": "Components for displaying color-pickers",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -46,13 +46,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "3.3.10",
     "@pikas-ui/icons": "3.3.7",
-    "@pikas-ui/loader": "3.3.7",
-    "@pikas-ui/select": "4.3.11",
     "@pikas-ui/styles": "3.5.7",
-    "@tanstack/react-table": "8.7.0",
-    "font-color-contrast": "11.1.0"
+    "@pikas-ui/text": "4.2.7",
+    "@pikas-ui/textfield": "3.3.9",
+    "@pikas-ui/tooltip": "3.3.7"
   },
   "peerDependencies": {
     "react": "18.2.0",

@@ -45,6 +45,10 @@ export const menu: LayoutMenu = [
         href: getLinkUI('checkbox'),
       },
       {
+        label: 'Color Picker',
+        href: getLinkUI('colorPicker'),
+      },
+      {
         label: 'Context Menu',
         href: getLinkUI('contextMenu'),
       },
