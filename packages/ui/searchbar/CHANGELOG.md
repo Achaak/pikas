@@ -1,5 +1,18 @@
 # @pikas-ui/searchbar
 
+## 3.2.14
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+- Updated dependencies [402c61d]
+  - @pikas-ui/button@3.3.8
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/loader@3.3.8
+  - @pikas-ui/separator@3.3.8
+  - @pikas-ui/styles@3.5.8
+  - @pikas-ui/textfield@3.3.10
+
 ## 3.2.13
 
 ### Patch Changes

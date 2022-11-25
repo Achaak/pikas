@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.5.8
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+
 ## 3.5.7
 
 ### Patch Changes

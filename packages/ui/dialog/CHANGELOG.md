@@ -1,5 +1,18 @@
 # @pikas-ui/dialog
 
+## 2.4.11
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+- Updated dependencies [402c61d]
+  - @pikas-ui/button@3.3.8
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/loader@3.3.8
+  - @pikas-ui/slider@3.3.8
+  - @pikas-ui/styles@3.5.8
+  - @pikas-ui/title@1.2.9
+
 ## 2.4.10
 
 ### Patch Changes

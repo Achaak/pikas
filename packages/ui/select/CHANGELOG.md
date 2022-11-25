@@ -1,5 +1,17 @@
 # @pikas-ui/select
 
+## 4.3.12
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+- Updated dependencies [402c61d]
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/styles@3.5.8
+  - @pikas-ui/text@4.2.8
+  - @pikas-ui/textfield@3.3.10
+  - @pikas-ui/tooltip@3.3.8
+
 ## 4.3.11
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @pikas-ui/checkbox
 
+## 3.3.11
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+- Updated dependencies [402c61d]
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/styles@3.5.8
+  - @pikas-ui/text@4.2.8
+
 ## 3.3.10
 
 ### Patch Changes

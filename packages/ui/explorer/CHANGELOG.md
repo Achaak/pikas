@@ -1,5 +1,22 @@
 # @pikas-ui/explorer
 
+## 1.0.8
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+- Updated dependencies [402c61d]
+  - @pikas-ui/context-menu@3.3.12
+  - @pikas-ui/dropdown-menu@3.4.12
+  - @pikas-ui/grid@1.1.11
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/loader@3.3.8
+  - @pikas-ui/menu@3.3.12
+  - @pikas-ui/styles@3.5.8
+  - @pikas-utils/file@1.0.4
+  - @pikas-utils/keyboard@1.0.4
+  - @pikas-utils/screen@1.0.13
+
 ## 1.0.7
 
 ### Patch Changes

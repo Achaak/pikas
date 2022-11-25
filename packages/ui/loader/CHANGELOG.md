@@ -1,5 +1,13 @@
 # @pikas-ui/loader
 
+## 3.3.8
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+- Updated dependencies [402c61d]
+  - @pikas-ui/styles@3.5.8
+
 ## 3.3.7
 
 ### Patch Changes

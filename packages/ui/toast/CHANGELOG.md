@@ -1,5 +1,15 @@
 # @pikas-ui/toast
 
+## 1.2.9
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+- Updated dependencies [402c61d]
+  - @pikas-ui/button@3.3.8
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/styles@3.5.8
+
 ## 1.2.8
 
 ### Patch Changes

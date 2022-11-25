@@ -1,5 +1,11 @@
 # @pikas-utils/keyboard
 
+## 1.0.4
+
+### Patch Changes
+
+- 402c61d: Upgrade dependencies
+
 ## 1.0.3
 
 ### Patch Changes
