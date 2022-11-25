@@ -22,11 +22,11 @@ const Container = styled('div', {
 });
 
 const TextareaContainer = styled('div', {
-  width: '100%',
+  width: 'fit-content',
+  maxWidth: '100%',
   overflow: 'hidden',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
   borderStyle: 'solid',
 
   variants: {

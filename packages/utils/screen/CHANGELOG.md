@@ -1,5 +1,11 @@
 # @pikas-utils/screen
 
+## 1.0.13
+
+### Patch Changes
+
+- 402c61d0: Upgrade dependencies
+
 ## 1.0.12
 
 ### Patch Changes

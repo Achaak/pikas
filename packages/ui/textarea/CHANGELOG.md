@@ -1,5 +1,22 @@
 # @pikas-ui/textarea
 
+## 3.3.11
+
+### Patch Changes
+
+- Fix resize
+
+## 3.3.10
+
+### Patch Changes
+
+- 402c61d0: Upgrade dependencies
+- Updated dependencies [402c61d0]
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/styles@3.5.8
+  - @pikas-ui/text@4.2.8
+  - @pikas-ui/tooltip@3.3.8
+
 ## 3.3.9
 
 ### Patch Changes

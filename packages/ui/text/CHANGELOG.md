@@ -1,5 +1,13 @@
 # @pikas-ui/text
 
+## 4.2.8
+
+### Patch Changes
+
+- 402c61d0: Upgrade dependencies
+- Updated dependencies [402c61d0]
+  - @pikas-ui/styles@3.5.8
+
 ## 4.2.7
 
 ### Patch Changes

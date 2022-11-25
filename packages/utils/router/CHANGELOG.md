@@ -1,5 +1,11 @@
 # @pikas-utils/router
 
+## 1.0.16
+
+### Patch Changes
+
+- 402c61d0: Upgrade dependencies
+
 ## 1.0.15
 
 ### Patch Changes

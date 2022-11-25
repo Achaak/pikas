@@ -1,5 +1,16 @@
 # @pikas-ui/context-menu
 
+## 3.3.12
+
+### Patch Changes
+
+- 402c61d0: Upgrade dependencies
+- Updated dependencies [402c61d0]
+  - @pikas-ui/icons@3.3.8
+  - @pikas-ui/loader@3.3.8
+  - @pikas-ui/menu@3.3.12
+  - @pikas-ui/styles@3.5.8
+
 ## 3.3.11
 
 ### Patch Changes

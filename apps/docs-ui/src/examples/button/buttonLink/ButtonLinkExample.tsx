@@ -8,7 +8,7 @@ export const ButtonLinkExample: FC = () => (
       Primary
     </ButtonLink>
     <ButtonLink colorName="PRIMARY" width="auto" href="#" outlined>
-      ButtonLink
+      Primary
     </ButtonLink>
     <ButtonLink colorName="SECONDARY" width="auto" href="#">
       Secondary
