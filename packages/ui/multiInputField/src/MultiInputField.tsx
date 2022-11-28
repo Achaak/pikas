@@ -225,6 +225,7 @@ export type MultiInputFieldGap = keyof typeof multiInputFieldGap;
 export type MultiInputFieldCSS = {
   container?: PikasCSS;
   inputContainer?: PikasCSS;
+  inputContent?: PikasCSS;
   input?: PikasCSS;
   left?: PikasCSS;
   right?: PikasCSS;
@@ -236,6 +237,7 @@ export type MultiInputFieldCSS = {
   description?: PikasCSS;
   textError?: PikasCSS;
   required?: PikasCSS;
+  badge?: PikasCSS;
 };
 
 export type MultiInputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
@@ -473,9 +475,6 @@ export const MultiInputField = forwardRef<
         <InputContainer
           focus={outline ? focus : undefined}
           gap={gap}
-          onClick={() => {
-            refInput.current?.focus();
-          }}
           onBlur={(): void => setFocus(false)}
           css={{
             br: borderRadius,
@@ -525,13 +524,14 @@ export const MultiInputField = forwardRef<
             </LeftContainer>
           )}
 
-          <InputContent padding={padding} gap={gap}>
+          <InputContent padding={padding} gap={gap} css={css?.inputContent}>
             {currentValues.map((item, index) => (
               <MultiInputFieldBadge
                 index={index}
                 value={item}
                 key={index}
                 onDelete={handleDeleteValue}
+                css={css?.badge}
               />
             ))}
             <Input

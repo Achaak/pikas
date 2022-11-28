@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.4.12
+
+### Patch Changes
+
+- @pikas-ui/slider@3.3.9
+
 ## 2.4.11
 
 ### Patch Changes

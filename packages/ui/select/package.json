@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "4.3.12",
+  "version": "4.3.13",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,8 +48,8 @@
   "dependencies": {
     "@pikas-ui/icons": "3.3.8",
     "@pikas-ui/styles": "3.5.8",
-    "@pikas-ui/text": "4.2.8",
-    "@pikas-ui/textfield": "3.3.10",
+    "@pikas-ui/text": "4.2.9",
+    "@pikas-ui/textfield": "3.3.11",
     "@pikas-ui/tooltip": "3.3.8",
     "@radix-ui/react-select": "1.1.2"
   },

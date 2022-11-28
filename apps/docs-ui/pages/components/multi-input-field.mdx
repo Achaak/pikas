@@ -59,8 +59,51 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop | Description | Type | Default |
-| :--- | :---------- | :--- | :------ |
+Props extends `InputHTMLAttributes<HTMLInputElement>`
+
+| Prop                   | Description                                 | Type                         | Default             |
+| :--------------------- | :------------------------------------------ | :--------------------------- | :------------------ |
+| `data`                 | The data of the component                   | `DOMStringMap`               | required            |
+| `defaultValues`        | The default-values of the component         | `string[]`                   | `[]`                |
+| `css`                  | The css of the component                    | `MultiInputFieldCSS`         | -                   |
+| `id`                   | The id of the component                     | `string`                     | -                   |
+| `label`                | The label of the component                  | `string`                     | -                   |
+| `boxShadow`            | The box-shadow of the component             | `PikasShadow or 'none'`      | `"DIMINUTION_1"`    |
+| `borderRadius`         | The border-radius of the component          | `BorderRadius`               | `"md"`              |
+| `padding`              | The padding of the component                | `MultiInputFieldPadding`     | `"md"`              |
+| `gap`                  | The gap of the component                    | `MultiInputFieldGap`         | `"sm"`              |
+| `fontSize`             | The font-size of the component              | `PikasFontSize`              | `"EM-MEDIUM"`       |
+| `borderColorName`      | The border-color-name of the component      | `PikasColor`                 | `"TRANSPARENT"`     |
+| `borderColorHex`       | The border-color-hex of the component       | `string`                     | -                   |
+| `borderWidth`          | The border-width of the component           | `number`                     | `0`                 |
+| `colorName`            | The color-name of the component             | `PikasColor`                 | -                   |
+| `colorHex`             | The color-hex of the component              | `string`                     | -                   |
+| `placeholderColorName` | The placeholder-color-name of the component | `PikasColor`                 | `"BLACK_LIGHT"`     |
+| `placeholderColorHex`  | The placeholder-color-hex of the component  | `string`                     | -                   |
+| `backgroundColorName`  | The background-color-name of the component  | `PikasColor`                 | `"GRAY_LIGHTEST_1"` |
+| `backgroundColorHex`   | The background-color-hex of the component   | `string`                     | -                   |
+| `textError`            | The text-error of the component             | `string`                     | -                   |
+| `onChange`             | The on-change of the component              | `(values: string[]) => void` | -                   |
+| `autoComplete`         | The auto-complete of the component          | `string`                     | -                   |
+| `LeftIcon`             | The left-icon of the component              | `FC<IconProps>`              | -                   |
+| `RightIcon`            | The right-icon of the component             | `FC<IconProps>`              | -                   |
+| `leftIconColorName`    | The left-icon-color-name of the component   | `PikasColor`                 | -                   |
+| `leftIconColorHex`     | The left-icon-color-hex of the component    | `string`                     | -                   |
+| `rightIconColorName`   | The right-icon-color-name of the component  | `PikasColor`                 | -                   |
+| `rightIconColorHex`    | The right-icon-color-hex of the component   | `string`                     | -                   |
+| `leftIconSize`         | The left-icon-size of the component         | `number`                     | -                   |
+| `rightIconSize`        | The right-icon-size of the component        | `number`                     | -                   |
+| `leftChildren`         | The left-children of the component          | `ReactNode`                  | -                   |
+| `rightChildren`        | The right-children of the component         | `ReactNode`                  | -                   |
+| `min`                  | The min of the component                    | `number`                     | -                   |
+| `max`                  | The max of the component                    | `number`                     | -                   |
+| `outline`              | The outline of the component                | `boolean`                    | `true`              |
+| `description`          | The description of the component            | `string`                     | -                   |
+| `width`                | The width of the component                  | `number or string`           | `"100%"`            |
+| `maxWidth`             | The max-width of the component              | `number or string`           | `"100%"`            |
+| `minWidth`             | The min-width of the component              | `number or string`           | -                   |
+| `info`                 | The info of the component                   | `ReactNode`                  | -                   |
+| `type`                 | The type of the component                   | `MultiInputFieldType`        | `"text"`            |
 
 ---
 

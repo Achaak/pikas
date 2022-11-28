@@ -57,7 +57,9 @@ export type BadgeGap = keyof typeof gapPadding;
 export type BadgeProps = CustomBadgeProps & {
   fontSize?: PikasFontSize;
   LeftIcon?: FC<IconProps>;
+  leftIconProps?: IconProps;
   RightIcon?: FC<IconProps>;
+  rightIconProps?: IconProps;
   gap?: BadgeGap;
   padding?: BadgePadding;
 };
@@ -69,6 +71,8 @@ export const Badge: FC<BadgeProps> = ({
   RightIcon,
   padding = 'md',
   gap = 'md',
+  leftIconProps,
+  rightIconProps,
   ...props
 }) => (
   <BadgeStyled
@@ -80,8 +84,8 @@ export const Badge: FC<BadgeProps> = ({
     }}
     {...props}
   >
-    {LeftIcon && <LeftIcon size="1em" />}
+    {LeftIcon && <LeftIcon size="1em" {...leftIconProps} />}
     {children}
-    {RightIcon && <RightIcon size="1em" />}
+    {RightIcon && <RightIcon size="1em" {...rightIconProps} />}
   </BadgeStyled>
 );
