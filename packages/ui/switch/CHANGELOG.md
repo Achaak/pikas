@@ -1,5 +1,12 @@
 # @pikas-ui/switch
 
+## 2.2.9
+
+### Patch Changes
+
+- Updated dependencies [eecc9a3b]
+  - @pikas-ui/text@4.2.9
+
 ## 2.2.8
 
 ### Patch Changes

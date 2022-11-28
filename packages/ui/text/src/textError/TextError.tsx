@@ -1,17 +1,17 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import { FC, ReactNode } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 
 const TextErrorStyled = styled('p', {
   color: '$DANGER',
   fontSize: '$EM-X-SMALL',
 });
 
-export type TextErrorProps = {
+export type TextErrorProps = HTMLAttributes<HTMLParagraphElement> & {
   children?: ReactNode;
   css?: PikasCSS;
 };
 
-export const TextError: FC<TextErrorProps> = ({ children, css }) => (
-  <TextErrorStyled css={css}>{children}</TextErrorStyled>
+export const TextError: FC<TextErrorProps> = ({ css, ...props }) => (
+  <TextErrorStyled css={css} {...props} />
 );

@@ -1,5 +1,12 @@
 # @pikas-ui/radio-group
 
+## 3.3.10
+
+### Patch Changes
+
+- Updated dependencies [eecc9a3b]
+  - @pikas-ui/text@4.2.9
+
 ## 3.3.9
 
 ### Patch Changes

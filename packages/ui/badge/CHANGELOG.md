@@ -1,5 +1,12 @@
 # @pikas-ui/badge
 
+## 1.3.9
+
+### Patch Changes
+
+- Add icons props
+- eecc9a3b: Update left and right icons
+
 ## 1.3.8
 
 ### Patch Changes

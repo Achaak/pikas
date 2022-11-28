@@ -81,6 +81,10 @@ export const menu: LayoutMenu = [
         href: getLinkUI('loader'),
       },
       {
+        label: 'Multi Input Field',
+        href: getLinkUI('multiInputField'),
+      },
+      {
         label: 'Progress',
         href: getLinkUI('progress'),
       },
@@ -130,11 +134,6 @@ export const menu: LayoutMenu = [
       {
         label: 'Textfield',
         href: getLinkUI('textfield'),
-      },
-      {
-        label: 'Textfield Multiple (Coming soon)',
-        href: getLinkUI('textfieldMultiple'),
-        disabled: true,
       },
       {
         label: 'Title',

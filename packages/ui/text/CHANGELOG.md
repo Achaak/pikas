@@ -1,5 +1,11 @@
 # @pikas-ui/text
 
+## 4.2.9
+
+### Patch Changes
+
+- eecc9a3b: Add html props
+
 ## 4.2.8
 
 ### Patch Changes

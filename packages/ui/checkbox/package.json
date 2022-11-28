@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/checkbox",
-  "version": "3.3.11",
+  "version": "3.3.12",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,7 +48,7 @@
   "dependencies": {
     "@pikas-ui/icons": "3.3.8",
     "@pikas-ui/styles": "3.5.8",
-    "@pikas-ui/text": "4.2.8",
+    "@pikas-ui/text": "4.2.9",
     "@radix-ui/react-checkbox": "1.0.1",
     "font-color-contrast": "11.1.0"
   },

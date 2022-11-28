@@ -1,6 +1,6 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import { ReactNode, FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
 const DescriptionStyled = styled('p', {
   fontSize: '$EM-SMALL',
@@ -10,11 +10,10 @@ const DescriptionStyled = styled('p', {
   color: '$BLACK',
 });
 
-export type DescriptionProps = {
-  children?: ReactNode;
+export type DescriptionProps = HTMLAttributes<HTMLParagraphElement> & {
   css?: PikasCSS;
 };
 
-export const Description: FC<DescriptionProps> = ({ children, css }) => (
-  <DescriptionStyled css={css}>{children}</DescriptionStyled>
+export const Description: FC<DescriptionProps> = ({ css, ...props }) => (
+  <DescriptionStyled css={css} {...props} />
 );

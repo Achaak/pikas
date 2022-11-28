@@ -1,4 +1,4 @@
-import { IconByName } from '@pikas-ui/icons';
+import { IconProps } from '@pikas-ui/icons';
 import type { PikasFontSize } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { CustomBadgeProps } from '../customBadge/index.js';
@@ -56,8 +56,10 @@ export type BadgeGap = keyof typeof gapPadding;
 
 export type BadgeProps = CustomBadgeProps & {
   fontSize?: PikasFontSize;
-  leftIconName?: string;
-  rightIconName?: string;
+  LeftIcon?: FC<IconProps>;
+  leftIconProps?: IconProps;
+  RightIcon?: FC<IconProps>;
+  rightIconProps?: IconProps;
   gap?: BadgeGap;
   padding?: BadgePadding;
 };
@@ -65,10 +67,12 @@ export type BadgeProps = CustomBadgeProps & {
 export const Badge: FC<BadgeProps> = ({
   children,
   fontSize = 'EM-MEDIUM',
-  leftIconName,
-  rightIconName,
+  LeftIcon,
+  RightIcon,
   padding = 'md',
   gap = 'md',
+  leftIconProps,
+  rightIconProps,
   ...props
 }) => (
   <BadgeStyled
@@ -80,8 +84,8 @@ export const Badge: FC<BadgeProps> = ({
     }}
     {...props}
   >
-    {leftIconName && <IconByName name={leftIconName} size="1em" />}
+    {LeftIcon && <LeftIcon size="1em" {...leftIconProps} />}
     {children}
-    {rightIconName && <IconByName name={rightIconName} size="1em" />}
+    {RightIcon && <RightIcon size="1em" {...rightIconProps} />}
   </BadgeStyled>
 );

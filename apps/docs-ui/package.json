@@ -47,6 +47,7 @@
     "@pikas-ui/toast": "workspace:*",
     "@pikas-ui/color-picker": "workspace:*",
     "@pikas-ui/tooltip": "workspace:*",
+    "@pikas-ui/multi-input-field": "workspace:*",
     "@pikas/docs-routes": "workspace:*",
     "@pikas/docs-ui": "workspace:*",
     "color": "^4.2.3",
