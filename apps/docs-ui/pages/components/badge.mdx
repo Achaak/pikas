@@ -51,10 +51,15 @@ pnpm add @pikas-ui/badge
 
 ```tsx
 import { Badge } from `@pikas-ui/badge`;
+import { IconByName, IconProps } from '@pikas-ui/icons';
+
+const IconExample: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:baguette" />
+);
 
 const Example: React.FC = () => {
   return (
-    <Badge leftIconName="bx:baguette">Bread</Badge>
+    <Badge LeftIcon={IconExample}>Bread</Badge>
   )
 }
 ```
@@ -72,8 +77,8 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 | `borderRadius`   | The border radius of the badge. | `BorderRadius`  | `"round"`              |
 | `css`            | The css of the badge.           | `PikasCSS`      | -                      |
 | `fontSize`       | The font size of the badge.     | `PikasFontSize` | `"EM-MEDIUM"`          |
-| `leftIconName`   | The left icon of the badge.     | `string`        | -                      |
-| `rightIconName`  | The right icon of the badge.    | `string`        | -                      |
+| `LeftIcon`       | The left icon of the badge.     | `FC<IconProps>` | -                      |
+| `RightIcon`      | The right icon of the badge.    | `FC<IconProps>` | -                      |
 | `leftIconProps`  | The left icon props.            | `IconProps`     | -                      |
 | `rightIconProps` | The right icon props.           | `IconProps`     | -                      |
 | `gap`            | The gap of the badge.           | `BadgeGap`      | `"md"`                 |
@@ -87,15 +92,18 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
 import { BadgeIcon } from `@pikas-ui/badge`;
+import { IconByName, IconProps } from '@pikas-ui/icons';
+
+const IconExample: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:baguette" />
+);
 
 const Example: React.FC = () => {
   return (
-    <BadgeIcon iconName="bx:baguette" />
+    <BadgeIcon Icon={IconExample} />
   )
 }
 ```
-
-````
 
 #### Props
 
@@ -103,9 +111,10 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 
 | Prop           | Description                     | Type           | Default                |
 | :------------- | :------------------------------ | :------------- | :--------------------- |
-| `iconName`     | The icon of the badge.          | `string`       | required               |
+| `Icon`         | The icon of the badge.          | `LeftIcon`     | required               |
+| `iconProps`    | The icon props of the badge.    | `IconProps`    | -                      |
 | `children`     | The content of the badge.       | `ReactNode`    | -                      |
-| `colorName`    | The color of the badge.         | `PikasColors`       | `"PRIMARY"`            |
+| `colorName`    | The color of the badge.         | `PikasColors`  | `"PRIMARY"`            |
 | `colorHex`     | The color of the badge.         | `string`       | -                      |
 | `boxShadow`    | The shadow of the badge.        | `PikasShadow`  | `"ELEVATION_BOTTOM_1"` |
 | `borderRadius` | The border radius of the badge. | `BorderRadius` | `"round"`              |
@@ -134,7 +143,7 @@ const Example: React.FC = () => {
     </CustomBadge>
   )
 }
-````
+```
 
 #### Props
 

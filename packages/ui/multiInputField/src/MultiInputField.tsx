@@ -281,7 +281,7 @@ export type MultiInputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   info?: ReactNode;
   data?: DOMStringMap;
   type?: MultiInputFieldType;
-  defaultValues: string[];
+  defaultValues?: string[];
 };
 
 const getColor = ({
