@@ -1,0 +1,67 @@
+import { MultiInputFieldExample } from './../../src/examples/multiInputField';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
+
+export const stylesLink = getLink('styles');
+
+<NextSeo title="Multi Input Field" />
+
+# @pikas-ui/multi-input-field
+
+This package contains a multi-input-field component.
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/multi-input-field/CHANGELOG.md">
+  Change Log
+</a>
+
+## Getting Started
+
+You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+
+### Installation
+
+With npm:
+
+```
+npm install @pikas-ui/multi-input-field
+```
+
+With yarn:
+
+```
+yarn add @pikas-ui/multi-input-field
+```
+
+With pnpm:
+
+```
+pnpm add @pikas-ui/multi-input-field
+```
+
+---
+
+## Usage
+
+### MultiInputField
+
+<MultiInputFieldExample />
+
+```tsx
+import { MultiInputField } from `@pikas-ui/multi-input-field`;
+
+const Example: React.FC = () => {
+  return (
+    <MultiInputField />
+  )
+}
+```
+
+#### Props
+
+| Prop | Description | Type | Default |
+| :--- | :---------- | :--- | :------ |
+
+---
+
+[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/multi-input-field.mdx)
