@@ -1,5 +1,11 @@
 # @pikas-ui/switch
 
+## 2.2.11
+
+### Patch Changes
+
+- fix defaultChecked update
+
 ## 2.2.10
 
 ### Patch Changes
