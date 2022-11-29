@@ -1306,10 +1306,10 @@ importers:
 
   packages/ui/table:
     specifiers:
-      '@pikas-ui/checkbox': 3.3.12
+      '@pikas-ui/checkbox': 3.3.13
       '@pikas-ui/icons': 3.3.8
       '@pikas-ui/loader': 3.3.8
-      '@pikas-ui/select': 4.3.14
+      '@pikas-ui/select': 4.3.15
       '@pikas-ui/styles': 3.5.8
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*

@@ -137,6 +137,10 @@ export const Checkbox: FC<CheckboxProps> = ({
     }
   }, [indeterminate]);
 
+  useEffect(() => {
+    setIsChecked(defaultChecked);
+  }, [defaultChecked]);
+
   return (
     <Container
       className={className}

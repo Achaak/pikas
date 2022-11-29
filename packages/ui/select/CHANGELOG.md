@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 4.3.15
+
+### Patch Changes
+
+- fix update defaultValue and defaultChecked
+
 ## 4.3.14
 
 ### Patch Changes

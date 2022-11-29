@@ -330,6 +330,10 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       );
     }, [data, searchValue]);
 
+    useEffect(() => {
+      setValue(defaultValue);
+    }, [defaultValue]);
+
     const handleChange = (newValue: string): void => {
       onChange?.(newValue);
       setValue(newValue);

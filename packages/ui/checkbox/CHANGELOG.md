@@ -1,5 +1,11 @@
 # @pikas-ui/checkbox
 
+## 3.3.13
+
+### Patch Changes
+
+- fix update defaultValue and defaultChecked
+
 ## 3.3.12
 
 ### Patch Changes
