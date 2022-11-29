@@ -1,5 +1,11 @@
 # @pikas-ui/radio-group
 
+## 3.3.11
+
+### Patch Changes
+
+- Update label props type
+
 ## 3.3.10
 
 ### Patch Changes

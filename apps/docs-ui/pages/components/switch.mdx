@@ -1,9 +1,9 @@
-import { SwitchExample } from './../../src/examples/switch'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { SwitchExample } from './../../src/examples/switch';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Switch" />
 
@@ -69,7 +69,7 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | Prop              | Description                                       | Type                                                   | Default  |
 | :---------------- | :------------------------------------------------ | :----------------------------------------------------- | :------- |
 | `id`              | The id of the switch.                             | `string`                                               | `-`      |
-| `label`           | The label of the switch.                          | `string`                                               | `-`      |
+| `label`           | The label of the switch.                          | `string` or `ReactNode`                                | `-`      |
 | `name`            | The name of the switch.                           | `string`                                               | `-`      |
 | `fontSize`        | The font size of the switch.                      | `string`                                               | `-`      |
 | `textError`       | The text error of the switch.                     | `string`                                               | `-`      |

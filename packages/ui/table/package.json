@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "3.2.16",
+  "version": "3.2.17",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -49,7 +49,7 @@
     "@pikas-ui/checkbox": "3.3.12",
     "@pikas-ui/icons": "3.3.8",
     "@pikas-ui/loader": "3.3.8",
-    "@pikas-ui/select": "4.3.13",
+    "@pikas-ui/select": "4.3.14",
     "@pikas-ui/styles": "3.5.8",
     "@tanstack/react-table": "8.7.0",
     "font-color-contrast": "11.1.0"

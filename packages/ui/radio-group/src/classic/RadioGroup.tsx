@@ -32,7 +32,7 @@ const Indicator = styled(RadioGroupPrimitiveIndicator, {
 });
 
 export type RadioGroupItem = {
-  label: ReactNode;
+  label: ReactNode | string;
   value: string;
   disabled?: boolean;
   required?: boolean;

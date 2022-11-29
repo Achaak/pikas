@@ -206,7 +206,7 @@ export type TextfieldCSS = {
 export type TextfieldProps = InputHTMLAttributes<HTMLInputElement> & {
   type?: TextfieldType;
   id?: string;
-  label?: string;
+  label?: ReactNode | string;
   boxShadow?: PikasShadow | 'none';
   borderRadius?: BorderRadius;
   padding?: TextfieldPadding;

@@ -57,7 +57,7 @@ export type ColorPickerCSS = {
 
 export type ColorPickerProps = {
   css?: ColorPickerCSS;
-  label?: string;
+  label?: ReactNode | string;
   description?: string;
   info?: ReactNode;
   fontSize?: PikasFontSize;

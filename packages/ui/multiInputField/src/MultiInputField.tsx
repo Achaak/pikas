@@ -243,7 +243,7 @@ export type MultiInputFieldCSS = {
 export type MultiInputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   css?: MultiInputFieldCSS;
   id?: string;
-  label?: string;
+  label?: ReactNode | string;
   boxShadow?: PikasShadow | 'none';
   borderRadius?: BorderRadius;
   padding?: MultiInputFieldPadding;

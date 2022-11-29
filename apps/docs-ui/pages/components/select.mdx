@@ -1,10 +1,10 @@
-import { SelectExample } from './../../src/examples/select/default'
-import { SelectRefExample } from './../../src/examples/select/ref'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { SelectExample } from './../../src/examples/select/default';
+import { SelectRefExample } from './../../src/examples/select/ref';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Select" />
 
@@ -98,7 +98,7 @@ const Example: React.FC = () => {
 | :-------------------- | :-------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | `description`         | The description of the select.                | `string`                                                                                                                                              | -        |
 | `css`                 | Custom css for the component.                 | `SelectCSS`                                                                                                                                           | -        |
-| `label`               | The label of the select.                      | `string`                                                                                                                                              | -        |
+| `label`               | The label of the select.                      | `string` or `ReactNode`                                                                                                                               | -        |
 | `id`                  | The id of the select.                         | `string`                                                                                                                                              | -        |
 | `value`               | The value of the select.                      | `string`                                                                                                                                              | -        |
 | `hasSearch`           | If the select has a search.                   | `boolean`                                                                                                                                             | `false`  |
@@ -130,13 +130,13 @@ const Example: React.FC = () => {
 <SelectRefExample />
 
 ```tsx
-import type { SelectRef } from '@pikas-ui/select'
-import { Select } from '@pikas-ui/select'
-import { useRef } from 'react'
-import { Button } from '@pikas-ui/button'
+import type { SelectRef } from '@pikas-ui/select';
+import { Select } from '@pikas-ui/select';
+import { useRef } from 'react';
+import { Button } from '@pikas-ui/button';
 
 const Example: React.FC = () => {
-  const selectRef = useRef<SelectRef>(null)
+  const selectRef = useRef<SelectRef>(null);
 
   return (
     <>
@@ -160,21 +160,21 @@ const Example: React.FC = () => {
       />
       <Button
         onClick={(): void => {
-          selectRef.current?.setValue('option-1')
+          selectRef.current?.setValue('option-1');
         }}
       >
         Set Option 1
       </Button>
       <Button
         onClick={(): void => {
-          selectRef.current?.setValue('option-2')
+          selectRef.current?.setValue('option-2');
         }}
       >
         Set Option 2
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 | Ref        | Description                  | Type                      | Default |

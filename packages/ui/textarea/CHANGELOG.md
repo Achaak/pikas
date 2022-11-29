@@ -1,5 +1,12 @@
 # @pikas-ui/textarea
 
+## 3.3.13
+
+### Patch Changes
+
+- Fix style
+- Update label props type
+
 ## 3.3.12
 
 ### Patch Changes

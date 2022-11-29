@@ -21,13 +21,18 @@ const Container = styled('div', {
   userSelect: 'none',
 });
 
-const TextareaContainer = styled('div', {
-  width: 'fit-content',
+const TextareaStyled = styled('textarea', {
+  width: '100%',
   maxWidth: '100%',
   overflow: 'hidden',
   display: 'flex',
   alignItems: 'center',
   borderStyle: 'solid',
+  outline: 'none',
+  fontSize: '$EM-SMALL',
+  border: 'none',
+  fontFamily: '$roboto',
+  backgroundColor: '$TRANSPARENT',
 
   variants: {
     padding: {
@@ -49,15 +54,6 @@ const TextareaContainer = styled('div', {
       },
     },
   },
-});
-
-const TextareaStyled = styled('textarea', {
-  width: '100%',
-  outline: 'none',
-  fontSize: '$EM-SMALL',
-  border: 'none',
-  fontFamily: '$roboto',
-  backgroundColor: '$TRANSPARENT',
 });
 
 const LabelContainer = styled('div', {
@@ -87,7 +83,6 @@ export type TextareaResize = keyof typeof textareaResize;
 
 export type TextareaCSS = {
   container?: PikasCSS;
-  textareaContainer?: PikasCSS;
   textarea?: PikasCSS;
   infoTooltip?: TooltipCSS;
   infoIcon?: IconCSS;
@@ -99,7 +94,7 @@ export type TextareaCSS = {
 
 export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   id?: string;
-  label?: string;
+  label?: ReactNode | string;
   boxShadow?: PikasShadow | 'none';
   borderRadius?: BorderRadius;
   padding?: TextareaPadding;
@@ -255,48 +250,41 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           </Description>
         ) : null}
 
-        <TextareaContainer
+        <TextareaStyled
+          ref={ref}
+          id={id}
           padding={padding}
           focus={outline ? focus : undefined}
+          onChange={onChangeTextarea}
+          onFocus={(): void => setFocus(true)}
+          onBlur={(): void => setFocus(false)}
+          required={required}
+          disabled={disabled}
           css={{
             br: borderRadius,
             borderColor: borderColorHex ?? `$${borderColorName}`,
             backgroundColor: backgroundColorHex ?? `$${backgroundColorName}`,
             boxShadow: `$${boxShadow}`,
             borderWidth,
+            resize,
+            height,
+            maxHeight,
+            minHeight,
+            color: getColor({ colorName, colorHex, backgroundColorName }),
 
-            ...css?.textareaContainer,
+            '&::placeholder': {
+              color: getColor({
+                colorName: placeholderColorName,
+                colorHex: placeholderColorHex,
+                backgroundColorName,
+              }),
+            },
+
+            ...css?.textarea,
           }}
-        >
-          <TextareaStyled
-            ref={ref}
-            id={id}
-            onChange={onChangeTextarea}
-            onFocus={(): void => setFocus(true)}
-            onBlur={(): void => setFocus(false)}
-            required={required}
-            disabled={disabled}
-            css={{
-              resize,
-              height,
-              maxHeight,
-              minHeight,
-              color: getColor({ colorName, colorHex, backgroundColorName }),
-
-              '&::placeholder': {
-                color: getColor({
-                  colorName: placeholderColorName,
-                  colorHex: placeholderColorHex,
-                  backgroundColorName,
-                }),
-              },
-
-              ...css?.textarea,
-            }}
-            {...props}
-            {...data}
-          />
-        </TextareaContainer>
+          {...props}
+          {...data}
+        />
 
         {textError && (
           <TextError css={{ marginTop: 5, ...css?.textError }}>

@@ -1,5 +1,12 @@
 # @pikas-ui/table
 
+## 3.2.17
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/select@4.3.14
+
 ## 3.2.16
 
 ### Patch Changes

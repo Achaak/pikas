@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 3.3.12
+
+### Patch Changes
+
+- Update label props type
+
 ## 3.3.11
 
 ### Patch Changes

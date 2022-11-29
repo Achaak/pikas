@@ -1,5 +1,13 @@
 # @pikas-ui/color-picker
 
+## 1.0.3
+
+### Patch Changes
+
+- Update label props type
+- Updated dependencies
+  - @pikas-ui/textfield@3.3.12
+
 ## 1.0.2
 
 ### Patch Changes

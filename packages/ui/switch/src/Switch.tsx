@@ -79,7 +79,7 @@ export type SwitchCSS = {
 };
 
 export type BasicSwitchProps = {
-  label?: string;
+  label?: ReactNode | string;
   name?: string;
   fontSize?: PikasFontSize;
   textError?: string;

@@ -1,5 +1,11 @@
 # @pikas-ui/multi-input-field
 
+## 2.3.10
+
+### Patch Changes
+
+- Update label props type
+
 ## 2.3.9
 
 ### Patch Changes

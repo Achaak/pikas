@@ -1,5 +1,13 @@
 # @pikas-ui/select
 
+## 4.3.14
+
+### Patch Changes
+
+- Update label props type
+- Updated dependencies
+  - @pikas-ui/textfield@3.3.12
+
 ## 4.3.13
 
 ### Patch Changes

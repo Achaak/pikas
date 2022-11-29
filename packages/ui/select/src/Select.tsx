@@ -223,7 +223,7 @@ export type SelectProps = {
   hasSearch?: boolean;
   searchPlaceholder?: string;
 
-  label?: string;
+  label?: ReactNode | string;
   borderRadius?: BorderRadius;
   padding?: SelectPadding;
   fontSize?: PikasFontSize;

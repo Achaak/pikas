@@ -1,9 +1,9 @@
-import { TextfieldExample } from './../../src/examples/textfield'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { TextfieldExample } from './../../src/examples/textfield';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Textfield" />
 
@@ -68,7 +68,7 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | Prop                   | Description                                 | Type                                         | Default             |
 | :--------------------- | :------------------------------------------ | :------------------------------------------- | :------------------ |
 | `type`                 | The type of the textfield.                  | `TextfieldType`                              | `"text"`            |
-| `label`                | The label of the textfield.                 | `string`                                     | -                   |
+| `label`                | The label of the textfield.                 | `string` or `ReactNode`                      | -                   |
 | `boxShadow`            | The box shadow of the textfield.            | `PikasShadow`                                | `"DIMINUTION_1"`    |
 | `borderRadius`         | The border radius of the textfield.         | `BorderRadius`                               | `"md"`              |
 | `padding`              | The padding of the textfield.               | `TextfieldPadding`                           | `"md"`              |
