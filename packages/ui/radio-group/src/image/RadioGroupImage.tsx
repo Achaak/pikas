@@ -1,6 +1,6 @@
 import { BorderRadius, styled } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
-import { ReactNode, useState, FC } from 'react';
+import { ReactNode, useState, FC, useEffect } from 'react';
 import { Tooltip } from '@pikas-ui/tooltip';
 import { IconByName, IconCSS } from '@pikas-ui/icons';
 import { RadioGroupBaseProps, RadioGroupCSS } from '../types.js';
@@ -84,6 +84,18 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
     void onChange?.(newValue);
   };
 
+  useEffect(() => {
+    if (value) {
+      setCurrentValue(value);
+    }
+  }, [value]);
+
+  useEffect(() => {
+    if (defaultValue) {
+      setCurrentValue(defaultValue);
+    }
+  }, [defaultValue]);
+
   return (
     <Container
       className={className}
@@ -138,7 +150,7 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
       >
         <Root
           defaultValue={defaultValue}
-          value={value}
+          value={currentValue}
           onValueChange={handleChange}
           disabled={disabled}
           name={name}

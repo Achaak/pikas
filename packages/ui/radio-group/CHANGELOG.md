@@ -1,5 +1,11 @@
 # @pikas-ui/radio-group
 
+## 3.3.12
+
+### Patch Changes
+
+- Fix defaultValue and value props
+
 ## 3.3.11
 
 ### Patch Changes

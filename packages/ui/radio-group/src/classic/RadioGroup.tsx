@@ -1,8 +1,7 @@
 import { styled } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
-import type { ReactNode } from 'react';
+import { ReactNode, useEffect, useState, FC } from 'react';
 import { Indicator as RadioGroupPrimitiveIndicator } from '@radix-ui/react-radio-group';
-import { FC } from 'react';
 import { Tooltip } from '@pikas-ui/tooltip';
 import { IconByName } from '@pikas-ui/icons';
 import { RadioGroupBaseProps, RadioGroupCSS } from '../types.js';
@@ -63,105 +62,126 @@ export const RadioGroup: FC<RadioGroupProps> = ({
   dir = 'ltr',
   loop = false,
   flexWrap,
-}) => (
-  <Container
-    className={className}
-    css={{
-      fontSize: `$${fontSize}`,
-      ...css?.container,
-    }}
-    disabled={disabled}
-  >
-    {label ? (
-      <LabelContainer>
-        <Label htmlFor={id} css={css?.label}>
-          {label}
-        </Label>
+}) => {
+  const [currentValue, setCurrentValue] = useState<string>(defaultValue ?? '');
 
-        {required ? <Required css={css?.required}>*</Required> : null}
-        {info ? (
-          <Tooltip content={info} css={css?.infoTooltip}>
-            <IconByName
-              name="bx:info-circle"
-              colorName="BLACK_LIGHT"
-              css={{
-                container: {
-                  marginLeft: 4,
-                  ...css?.infoIcon?.container,
-                },
-                svg: {
-                  ...css?.infoIcon?.svg,
-                },
-              }}
-            />
-          </Tooltip>
-        ) : null}
-      </LabelContainer>
-    ) : null}
+  const handleChange = (newValue: string) => {
+    setCurrentValue(newValue);
+    void onChange?.(newValue);
+  };
 
-    {description ? (
-      <Description
+  useEffect(() => {
+    if (value) {
+      setCurrentValue(value);
+    }
+  }, [value]);
+
+  useEffect(() => {
+    if (defaultValue) {
+      setCurrentValue(defaultValue);
+    }
+  }, [defaultValue]);
+
+  return (
+    <Container
+      className={className}
+      css={{
+        fontSize: `$${fontSize}`,
+        ...css?.container,
+      }}
+      disabled={disabled}
+    >
+      {label ? (
+        <LabelContainer>
+          <Label htmlFor={id} css={css?.label}>
+            {label}
+          </Label>
+
+          {required ? <Required css={css?.required}>*</Required> : null}
+          {info ? (
+            <Tooltip content={info} css={css?.infoTooltip}>
+              <IconByName
+                name="bx:info-circle"
+                colorName="BLACK_LIGHT"
+                css={{
+                  container: {
+                    marginLeft: 4,
+                    ...css?.infoIcon?.container,
+                  },
+                  svg: {
+                    ...css?.infoIcon?.svg,
+                  },
+                }}
+              />
+            </Tooltip>
+          ) : null}
+        </LabelContainer>
+      ) : null}
+
+      {description ? (
+        <Description
+          css={{
+            marginBottom: 4,
+            ...css?.description,
+          }}
+        >
+          {description}
+        </Description>
+      ) : null}
+
+      <Item
         css={{
-          marginBottom: 4,
-          ...css?.description,
+          ...css?.element,
         }}
       >
-        {description}
-      </Description>
-    ) : null}
-
-    <Item
-      css={{
-        ...css?.element,
-      }}
-    >
-      <Root
-        defaultValue={defaultValue}
-        value={value}
-        onValueChange={onChange}
-        disabled={disabled}
-        name={name}
-        orientation={orientation}
-        dir={dir}
-        loop={loop}
-        css={css?.radioGroup}
-        flexWrap={flexWrap}
-      >
-        {data.map((item, index) => (
-          <RadioGroupItemContainer
-            key={index}
-            disabled={item.disabled}
-            css={css?.radioGroupItemContainer}
-          >
-            <RadioGroupItem
-              value={item.value}
-              id={item.value}
+        <Root
+          defaultValue={defaultValue}
+          value={currentValue}
+          onValueChange={handleChange}
+          disabled={disabled}
+          name={name}
+          orientation={orientation}
+          dir={dir}
+          loop={loop}
+          css={css?.radioGroup}
+          flexWrap={flexWrap}
+        >
+          {data.map((item, index) => (
+            <RadioGroupItemContainer
+              key={index}
               disabled={item.disabled}
-              required={item.required}
-              css={{
-                width: 16,
-                height: 16,
-                br: 'round',
-                ...css?.radioGroupItem,
-              }}
+              css={css?.radioGroupItemContainer}
             >
-              <Indicator css={css?.radioGroupItemIndicator} />
-            </RadioGroupItem>
-            <RadioGroupItemLabel
-              htmlFor={item.value}
-              css={css?.radioGroupItemLabel}
-            >
-              {item.label}
-            </RadioGroupItemLabel>
-          </RadioGroupItemContainer>
-        ))}
-      </Root>
-    </Item>
+              <RadioGroupItem
+                value={item.value}
+                id={item.value}
+                disabled={item.disabled}
+                required={item.required}
+                css={{
+                  width: 16,
+                  height: 16,
+                  br: 'round',
+                  ...css?.radioGroupItem,
+                }}
+              >
+                <Indicator css={css?.radioGroupItemIndicator} />
+              </RadioGroupItem>
+              <RadioGroupItemLabel
+                htmlFor={item.value}
+                css={css?.radioGroupItemLabel}
+              >
+                {item.label}
+              </RadioGroupItemLabel>
+            </RadioGroupItemContainer>
+          ))}
+        </Root>
+      </Item>
 
-    {textError ? (
-      <TextError css={{ marginTop: 5, ...css?.textError }}>
-        {textError}
-      </TextError>
-    ) : null}
-  </Container>
-);
+      {textError ? (
+        <TextError css={{ marginTop: 5, ...css?.textError }}>
+          {textError}
+        </TextError>
+      ) : null}
+    </Container>
+  );
+};
