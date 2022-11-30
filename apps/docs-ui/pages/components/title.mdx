@@ -1,9 +1,9 @@
-import { TitleExample } from './../../src/examples/title'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { TitleExample } from './../../src/examples/title';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Title" />
 
@@ -48,7 +48,7 @@ pnpm add @pikas-ui/title
 <TitleExample />
 
 ```tsx
-import { Title } from `@pikas-ui/title`;
+import { Title } from '@pikas-ui/title';
 
 const Example: React.FC = () => {
   return (
@@ -60,8 +60,8 @@ const Example: React.FC = () => {
       <Title as="h5">Title H5</Title>
       <Title as="h6">Title H6</Title>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props

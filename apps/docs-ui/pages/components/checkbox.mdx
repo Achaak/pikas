@@ -50,11 +50,9 @@ pnpm add @pikas-ui/checkbox
 <CheckboxExample />
 
 ```tsx
-import { Checkbox } from `@pikas-ui/checkbox`
+import { Checkbox } from '@pikas-ui/checkbox';
 
-const Example: React.FC = () => (
-  <Checkbox />
-)
+const Example: React.FC = () => <Checkbox />;
 ```
 
 #### Props
@@ -65,7 +63,7 @@ const Example: React.FC = () => (
 | `onChange`                   | The callback when the checkbox is changed.         | `(checked: boolean) => void` | -                |
 | `id`                         | The id of the checkbox.                            | `string`                     | -                |
 | `label`                      | The label of the checkbox.                         | `string` or `ReactNode`      | -                |
-| `backgroundColorName`        | The background color of the checkbox.              | `PikasColors`                | `"WHITE_FIX"`       |
+| `backgroundColorName`        | The background color of the checkbox.              | `PikasColors`                | `"WHITE_FIX"`    |
 | `backgroundColorNameChecked` | The background color of the checkbox when checked. | `PikasColors`                | `"PRIMARY"`      |
 | `textError`                  | The error text of the checkbox.                    | `string`                     | -                |
 | `boxShadow`                  | The box shadow of the checkbox.                    | `PikasShadow` or `"none"`    | `"DIMINUTION_1"` |

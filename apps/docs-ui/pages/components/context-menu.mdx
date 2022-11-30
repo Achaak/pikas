@@ -1,9 +1,9 @@
-import { ContextMenuExample } from './../../src/examples/contextMenu'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { ContextMenuExample } from './../../src/examples/contextMenu';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Context Menu" />
 
@@ -50,7 +50,7 @@ pnpm add @pikas-ui/context-menu
 <ContextMenuExample />
 
 ```tsx
-import { ContextMenu } from `@pikas-ui/context-menu`
+import { ContextMenu } from '@pikas-ui/context-menu';
 
 const Example: React.FC = () => {
   return (
@@ -106,12 +106,10 @@ const Example: React.FC = () => {
         },
       ]}
     >
-      <div>
-        Right click here
-      </div>
+      <div>Right click here</div>
     </ContextMenu>
-  )
-}
+  );
+};
 ```
 
 #### Props

@@ -33,6 +33,7 @@ export const docsUIRoutes = routes({
     grid: '/components/grid',
     dropzone: '/components/dropzone',
     explorer: '/components/explorer',
+    drawer: '/components/drawer',
     radioGroup: '/components/radio-group',
     colorPicker: '/components/color-picker',
     multiInputField: '/components/multi-input-field',

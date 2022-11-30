@@ -1,9 +1,9 @@
-import { TabsExample } from './../../src/examples/tabs'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { TabsExample } from './../../src/examples/tabs';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Tabs" />
 
@@ -50,7 +50,7 @@ pnpm add @pikas-ui/tabs
 <TabsExample />
 
 ```tsx
-import { Tabs } from `@pikas-ui/tabs`;
+import { Tabs } from '@pikas-ui/tabs';
 
 const Example: React.FC = () => {
   return (
@@ -75,8 +75,8 @@ const Example: React.FC = () => {
       ]}
       defaultValue="tab1"
     />
-  )
-}
+  );
+};
 ```
 
 #### Props

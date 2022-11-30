@@ -1,12 +1,12 @@
-import { ButtonExample } from './../../src/examples/button/button'
-import { ButtonLinkExample } from './../../src/examples/button/buttonLink'
-import { ButtonIconExample } from './../../src/examples/button/buttonIcon'
-import { ButtonIconLinkExample } from './../../src/examples/button/buttonIconLink'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { ButtonExample } from './../../src/examples/button/button';
+import { ButtonLinkExample } from './../../src/examples/button/buttonLink';
+import { ButtonIconExample } from './../../src/examples/button/buttonIcon';
+import { ButtonIconLinkExample } from './../../src/examples/button/buttonIconLink';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Button" />
 
@@ -51,11 +51,9 @@ pnpm add @pikas-ui/button
 <ButtonExample />
 
 ```tsx
-import { Button } from `@pikas-ui/button`;
+import { Button } from '@pikas-ui/button';
 
-const Example: React.FC = () => (
-  <Button>Click me</Button>
-)
+const Example: React.FC = () => <Button>Click me</Button>;
 ```
 
 #### Props
@@ -97,11 +95,9 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 <ButtonLinkExample />
 
 ```tsx
-import { ButtonLink } from `@pikas-ui/button`;
+import { ButtonLink } from '@pikas-ui/button';
 
-const Example: React.FC = () => (
-  <ButtonLink href="#">Click me</ButtonLink>
-)
+const Example: React.FC = () => <ButtonLink href="#">Click me</ButtonLink>;
 ```
 
 #### Props
@@ -144,16 +140,14 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 <ButtonIconExample />
 
 ```tsx
-import { ButtonIcon } from `@pikas-ui/button`;
-import { IconProps, IconByName } from '@pikas-ui/icons'
+import { ButtonIcon } from '@pikas-ui/button';
+import { IconProps, IconByName } from '@pikas-ui/icons';
 
 const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
+  return <IconByName {...props} name="bx:baguette" />;
+};
 
-const Example: React.FC = () => (
-  <ButtonIcon icon={IconExample} />
-)
+const Example: React.FC = () => <ButtonIcon icon={IconExample} />;
 ```
 
 #### Props
@@ -186,16 +180,14 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 <ButtonIconLinkExample />
 
 ```tsx
-import { ButtonIconLink } from `@pikas-ui/button`;
-import { IconProps, IconByName } from '@pikas-ui/icons'
+import { ButtonIconLink } from '@pikas-ui/button';
+import { IconProps, IconByName } from '@pikas-ui/icons';
 
 const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
+  return <IconByName {...props} name="bx:baguette" />;
+};
 
-const Example: React.FC = () => (
-  <ButtonIconLink icon={IconExample} href="#" />
-)
+const Example: React.FC = () => <ButtonIconLink icon={IconExample} href="#" />;
 ```
 
 #### Props

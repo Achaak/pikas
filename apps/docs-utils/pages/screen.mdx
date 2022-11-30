@@ -48,7 +48,7 @@ This hook comes from [usehooks-ts](https://usehooks-ts.com/react-hook/use-window
 <UseWindowSizeExample />
 
 ```tsx
-import { useWindowSize } from `@pikas-utils/screen`;
+import { useWindowSize } from '@pikas-utils/screen';
 
 const Example: React.FC = () => {
   const { width, height } = useWindowSize();
@@ -59,7 +59,7 @@ const Example: React.FC = () => {
       <code>{JSON.stringify({ width, height })}</code>
     </div>
   );
-}
+};
 ```
 
 ---
@@ -71,7 +71,7 @@ Use this hook to know the screen media in relation to the window size.
 <UseMediaScreenExample />
 
 ```tsx
-import { useWindowSize } from `@pikas-utils/screen`;
+import { useWindowSize } from '@pikas-utils/screen';
 
 const Example: React.FC = () => {
   const media = useMediaScreen();
@@ -81,7 +81,7 @@ const Example: React.FC = () => {
       The current media screen is: <b>{media}</b>
     </div>
   );
-}
+};
 ```
 
 ---
@@ -93,7 +93,7 @@ Use this hook to find out if the screen media is valid for the current screen.
 <UseMediaScreenValidExample />
 
 ```tsx
-import { useMediaScreenValid } from `@pikas-utils/screen`;
+import { useMediaScreenValid } from '@pikas-utils/screen';
 
 const Example: React.FC = () => {
   const mediaValid = useMediaScreenValid({ media: 'md', operator: '>' });
@@ -111,7 +111,7 @@ const Example: React.FC = () => {
       </span>
     </div>
   );
-}
+};
 ```
 
 ---
@@ -119,10 +119,10 @@ const Example: React.FC = () => {
 ### getMediaByScreenSize
 
 ```ts
-import { getMediaByScreenSize } from `@pikas-utils/screen`;
+import { getMediaByScreenSize } from '@pikas-utils/screen';
 
 const size: number = 1200;
-getMediaByScreenSize(size)
+getMediaByScreenSize(size);
 // 'xl'
 ```
 
@@ -131,10 +131,10 @@ getMediaByScreenSize(size)
 ### getScreenSizeByMedia
 
 ```ts
-import { getScreenSizeByMedia } from `@pikas-utils/screen`;
+import { getScreenSizeByMedia } from '@pikas-utils/screen';
 
 const media: Medias = 'md';
-getScreenSizeByMedia(media)
+getScreenSizeByMedia(media);
 // 768
 ```
 

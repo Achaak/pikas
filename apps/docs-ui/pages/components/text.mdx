@@ -1,11 +1,11 @@
-import { LabelExample } from './../../src/examples/text/label'
-import { DescriptionExample } from './../../src/examples/text/description'
-import { TextErrorExample } from './../../src/examples/text/textError'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { LabelExample } from './../../src/examples/text/label';
+import { DescriptionExample } from './../../src/examples/text/description';
+import { TextErrorExample } from './../../src/examples/text/textError';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Text" />
 
@@ -52,11 +52,11 @@ With the `Label` component you can create a label for a form field.
 <LabelExample />
 
 ```tsx
-import { Label } from `@pikas-ui/text`;
+import { Label } from '@pikas-ui/text';
 
 const Example: React.FC = () => {
-  return <Label>Label</Label>
-}
+  return <Label>Label</Label>;
+};
 ```
 
 #### Props
@@ -76,11 +76,11 @@ With the `Description` component you can add a description.
 <DescriptionExample />
 
 ```tsx
-import { Description } from `@pikas-ui/text`;
+import { Description } from '@pikas-ui/text';
 
 const Example: React.FC = () => {
-  return <Description>Description</Description>
-}
+  return <Description>Description</Description>;
+};
 ```
 
 #### Props
@@ -99,11 +99,11 @@ With the `TextError` component you can display an error message.
 <TextErrorExample />
 
 ```tsx
-import { TextError } from `@pikas-ui/text`;
+import { TextError } from '@pikas-ui/text';
 
 const Example: React.FC = () => {
-  return <TextError>TextError</TextError>
-}
+  return <TextError>TextError</TextError>;
+};
 ```
 
 #### Props

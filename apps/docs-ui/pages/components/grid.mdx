@@ -1,9 +1,9 @@
-import { GridExample } from './../../src/examples/grid'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { GridExample } from './../../src/examples/grid';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Grid" />
 
@@ -50,7 +50,7 @@ pnpm add @pikas-ui/grid
 <GridExample />
 
 ```tsx
-import { Grid } from `@pikas-ui/grid`;
+import { Grid } from '@pikas-ui/grid';
 
 const Example: React.FC = () => {
   return (
@@ -72,20 +72,18 @@ const Example: React.FC = () => {
         <Block>4</Block>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 ```
 
 #### Container
 
 ```tsx
-import { Grid } from `@pikas-ui/grid`;
+import { Grid } from '@pikas-ui/grid';
 
 const Example: React.FC = () => {
-  return (
-    <Grid type="container" />
-  )
-}
+  return <Grid type="container" />;
+};
 ```
 
 #### Props
@@ -107,13 +105,11 @@ const Example: React.FC = () => {
 #### Item
 
 ```tsx
-import { Grid } from `@pikas-ui/grid`;
+import { Grid } from '@pikas-ui/grid';
 
 const Example: React.FC = () => {
-  return (
-    <Grid type="type" />
-  )
-}
+  return <Grid type="type" />;
+};
 ```
 
 #### Props

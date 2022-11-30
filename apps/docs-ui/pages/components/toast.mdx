@@ -70,35 +70,27 @@ pnpm add @pikas-ui/toast
 <ToastExample />
 
 ```tsx
-import { Toast, useToast, ToastProvider } from `@pikas-ui/toast`;
+import { Toast, useToast, ToastProvider } from '@pikas-ui/toast';
 
 const Child: React.FC = () => {
   const toast = useToast();
 
   const handleClick = () => {
     toast.publish(
-      <Toast
-        title="Title"
-        description="Description"
-        variant="success"
-      />
+      <Toast title="Title" description="Description" variant="success" />
     );
   };
 
-  return (
-    <button onClick={handleClick}>
-      Show toast
-    </button>
-  )
-}
+  return <button onClick={handleClick}>Show toast</button>;
+};
 
 const Parent: React.FC = () => {
   return (
     <ToastProvider position="top-right">
       <Child />
     </ToastProvider>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -134,13 +126,13 @@ const Parent: React.FC = () => {
 <DefaultToastExample />
 
 ```tsx
-import { DefaultToast, useToast, ToastProvider } from `@pikas-ui/toast`;
-import type { IconProps } from '@pikas-ui/icons'
-import { IconByName } from '@pikas-ui/icons'
+import { DefaultToast, useToast, ToastProvider } from '@pikas-ui/toast';
+import type { IconProps } from '@pikas-ui/icons';
+import { IconByName } from '@pikas-ui/icons';
 
 const IconExample: React.FC<IconProps> = (props) => {
-  return <IconByName {...props} name="bx:baguette" />
-}
+  return <IconByName {...props} name="bx:baguette" />;
+};
 
 const Child: React.FC = () => {
   const toast = useToast();
@@ -155,20 +147,16 @@ const Child: React.FC = () => {
     );
   };
 
-  return (
-    <button onClick={handleClick}>
-      Show toast
-    </button>
-  )
-}
+  return <button onClick={handleClick}>Show toast</button>;
+};
 
 const Parent: React.FC = () => {
   return (
     <ToastProvider position="top-right">
       <Child />
     </ToastProvider>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -204,33 +192,25 @@ const Parent: React.FC = () => {
 <CustomToastExample />
 
 ```tsx
-import { CustomToast, useToast, ToastProvider } from `@pikas-ui/toast`;
+import { CustomToast, useToast, ToastProvider } from '@pikas-ui/toast';
 
 const Child: React.FC = () => {
   const toast = useToast();
 
   const handleClick = () => {
-    toast.publish(
-      <CustomToast>
-        Hello world
-      </CustomToast>
-    );
+    toast.publish(<CustomToast>Hello world</CustomToast>);
   };
 
-  return (
-    <button onClick={handleClick}>
-      Show toast
-    </button>
-  )
-}
+  return <button onClick={handleClick}>Show toast</button>;
+};
 
 const Parent: React.FC = () => {
   return (
     <ToastProvider position="top-right">
       <Child />
     </ToastProvider>
-  )
-}
+  );
+};
 ```
 
 #### Props

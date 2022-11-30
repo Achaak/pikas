@@ -50,7 +50,7 @@ pnpm add @pikas-ui/badge
 <BadgeExample />
 
 ```tsx
-import { Badge } from `@pikas-ui/badge`;
+import { Badge } from '@pikas-ui/badge';
 import { IconByName, IconProps } from '@pikas-ui/icons';
 
 const IconExample: FC<IconProps> = (props) => (
@@ -58,10 +58,8 @@ const IconExample: FC<IconProps> = (props) => (
 );
 
 const Example: React.FC = () => {
-  return (
-    <Badge LeftIcon={IconExample}>Bread</Badge>
-  )
-}
+  return <Badge LeftIcon={IconExample}>Bread</Badge>;
+};
 ```
 
 #### Props
@@ -91,7 +89,7 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 <BadgeIconExample />
 
 ```tsx
-import { BadgeIcon } from `@pikas-ui/badge`;
+import { BadgeIcon } from '@pikas-ui/badge';
 import { IconByName, IconProps } from '@pikas-ui/icons';
 
 const IconExample: FC<IconProps> = (props) => (
@@ -99,10 +97,8 @@ const IconExample: FC<IconProps> = (props) => (
 );
 
 const Example: React.FC = () => {
-  return (
-    <BadgeIcon Icon={IconExample} />
-  )
-}
+  return <BadgeIcon Icon={IconExample} />;
+};
 ```
 
 #### Props
@@ -129,7 +125,7 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 <CustomBadgeExample />
 
 ```tsx
-import { CustomBadge } from `@pikas-ui/badge`;
+import { CustomBadge } from '@pikas-ui/badge';
 
 const Example: React.FC = () => {
   return (
@@ -141,8 +137,8 @@ const Example: React.FC = () => {
     >
       Hello world
     </CustomBadge>
-  )
-}
+  );
+};
 ```
 
 #### Props

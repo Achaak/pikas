@@ -57,6 +57,10 @@ export const menu: LayoutMenu = [
         href: getLinkUI('dialog'),
       },
       {
+        label: 'Drawer',
+        href: getLinkUI('drawer'),
+      },
+      {
         label: 'Dropdown Menu',
         href: getLinkUI('dropdownMenu'),
       },

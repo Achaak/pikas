@@ -1,9 +1,9 @@
-import { ProgressExample } from './../../src/examples/progress'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { ProgressExample } from './../../src/examples/progress';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Progress" />
 
@@ -50,13 +50,11 @@ pnpm add @pikas-ui/progress
 <ProgressExample />
 
 ```tsx
-import { Progress } from `@pikas-ui/progress`;
+import { Progress } from '@pikas-ui/progress';
 
 const Example: React.FC = () => {
-  return (
-    <Progress progress={60} />
-  )
-}
+  return <Progress progress={60} />;
+};
 ```
 
 #### Props

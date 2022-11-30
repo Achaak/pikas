@@ -1,9 +1,9 @@
-import { AvatarExample } from './../../src/examples/avatar'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { AvatarExample } from './../../src/examples/avatar';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Avatar" />
 
@@ -50,7 +50,7 @@ pnpm add @pikas-ui/avatar
 <AvatarExample />
 
 ```tsx
-import { Avatar } from `@pikas-ui/avatar`;
+import { Avatar } from '@pikas-ui/avatar';
 
 const Example: React.FC = () => {
   return (
@@ -61,8 +61,8 @@ const Example: React.FC = () => {
         'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80'
       }
     />
-  )
-}
+  );
+};
 ```
 
 #### Props

@@ -1,15 +1,15 @@
-import { DefaultDialogExample } from './../../src/examples/dialog/defaultDialog'
-import { ErrorDialogExample } from './../../src/examples/dialog/errorDialog'
-import { SuccessDialogExample } from './../../src/examples/dialog/successDialog'
-import { ValidateDialogExample } from './../../src/examples/dialog/validateDialog'
-import { InfoDialogExample } from './../../src/examples/dialog/infoDialog'
-import { CustomDialogExample } from './../../src/examples/dialog/customDialog'
-import { SelectImageDialogExample } from './../../src/examples/dialog/selectImageDialog'
-import { docsUIRoutes } from '@pikas/docs-routes'
-export const { getLink } = docsUIRoutes
-import { NextSeo } from 'next-seo'
+import { DefaultDialogExample } from './../../src/examples/dialog/defaultDialog';
+import { ErrorDialogExample } from './../../src/examples/dialog/errorDialog';
+import { SuccessDialogExample } from './../../src/examples/dialog/successDialog';
+import { ValidateDialogExample } from './../../src/examples/dialog/validateDialog';
+import { InfoDialogExample } from './../../src/examples/dialog/infoDialog';
+import { CustomDialogExample } from './../../src/examples/dialog/customDialog';
+import { SelectImageDialogExample } from './../../src/examples/dialog/selectImageDialog';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
 
-export const stylesLink = getLink('styles')
+export const stylesLink = getLink('styles');
 
 <NextSeo title="Dialog" />
 
@@ -56,12 +56,12 @@ pnpm add @pikas-ui/dialog
 <DefaultDialogExample />
 
 ```tsx
-import { DefaultDialog } from `@pikas-ui/dialog`;
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
+import { DefaultDialog } from '@pikas-ui/dialog';
+import { useState } from 'react';
+import { Button } from '@pikas-ui/button';
 
 const Example: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -72,14 +72,12 @@ const Example: React.FC = () => {
         title="Hello"
       />
 
-      <Button
-        onClick={(): void => setVisible((lastState) => !lastState)}
-      >
+      <Button onClick={(): void => setVisible((lastState) => !lastState)}>
         {visible ? 'Hide' : 'Show'}
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -104,12 +102,12 @@ const Example: React.FC = () => {
 <SuccessDialogExample />
 
 ```tsx
-import { SuccessDialog } from `@pikas-ui/dialog`;
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
+import { SuccessDialog } from '@pikas-ui/dialog';
+import { useState } from 'react';
+import { Button } from '@pikas-ui/button';
 
 const Example: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -119,14 +117,12 @@ const Example: React.FC = () => {
         content="You have successfully completed the task."
       />
 
-      <Button
-        onClick={(): void => setVisible((lastState) => !lastState)}
-      >
+      <Button onClick={(): void => setVisible((lastState) => !lastState)}>
         {visible ? 'Hide' : 'Show'}
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -151,12 +147,12 @@ const Example: React.FC = () => {
 <ValidateDialogExample />
 
 ```tsx
-import { ValidateDialog } from `@pikas-ui/dialog`;
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
+import { ValidateDialog } from '@pikas-ui/dialog';
+import { useState } from 'react';
+import { Button } from '@pikas-ui/button';
 
 const Example: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -166,14 +162,12 @@ const Example: React.FC = () => {
         content="Are you sure you want to do this ?"
       />
 
-      <Button
-        onClick={(): void => setVisible((lastState) => !lastState)}
-      >
+      <Button onClick={(): void => setVisible((lastState) => !lastState)}>
         {visible ? 'Hide' : 'Show'}
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -203,12 +197,12 @@ const Example: React.FC = () => {
 <ErrorDialogExample />
 
 ```tsx
-import { ErrorDialog } from `@pikas-ui/dialog`;
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
+import { ErrorDialog } from '@pikas-ui/dialog';
+import { useState } from 'react';
+import { Button } from '@pikas-ui/button';
 
 const Example: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -218,14 +212,12 @@ const Example: React.FC = () => {
         content="Please try again later."
       />
 
-      <Button
-        onClick={(): void => setVisible((lastState) => !lastState)}
-      >
+      <Button onClick={(): void => setVisible((lastState) => !lastState)}>
         {visible ? 'Hide' : 'Show'}
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -250,12 +242,12 @@ const Example: React.FC = () => {
 <InfoDialogExample />
 
 ```tsx
-import { InfoDialog } from `@pikas-ui/dialog`;
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
+import { InfoDialog } from '@pikas-ui/dialog';
+import { useState } from 'react';
+import { Button } from '@pikas-ui/button';
 
 const Example: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -265,14 +257,12 @@ const Example: React.FC = () => {
         content="You have successfully completed the task."
       />
 
-      <Button
-        onClick={(): void => setVisible((lastState) => !lastState)}
-      >
+      <Button onClick={(): void => setVisible((lastState) => !lastState)}>
         {visible ? 'Hide' : 'Show'}
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -297,12 +287,12 @@ const Example: React.FC = () => {
 <CustomDialogExample />
 
 ```tsx
-import { CustomDialog } from `@pikas-ui/dialog`;
-import { useState } from 'react'
-import { Button } from '@pikas-ui/button'
+import { CustomDialog } from '@pikas-ui/dialog';
+import { useState } from 'react';
+import { Button } from '@pikas-ui/button';
 
 const Example: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -324,14 +314,12 @@ const Example: React.FC = () => {
         }}
       />
 
-      <Button
-        onClick={(): void => setVisible((lastState) => !lastState)}
-      >
+      <Button onClick={(): void => setVisible((lastState) => !lastState)}>
         {visible ? 'Hide' : 'Show'}
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props
@@ -357,10 +345,10 @@ const Example: React.FC = () => {
 <SelectImageDialogExample />
 
 ```tsx
-import { SelectImageDialog } from `@pikas-ui/dialog`;
+import { SelectImageDialog } from '@pikas-ui/dialog';
 
 const Example: React.FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -369,14 +357,12 @@ const Example: React.FC = () => {
         onClose={(): void => setVisible(false)}
       />
 
-      <Button
-        onClick={(): void => setVisible((lastState) => !lastState)}
-      >
+      <Button onClick={(): void => setVisible((lastState) => !lastState)}>
         {visible ? 'Hide' : 'Show'}
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 #### Props

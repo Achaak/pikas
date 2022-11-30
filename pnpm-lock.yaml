@@ -34,6 +34,7 @@ importers:
       '@pikas-ui/color-picker': workspace:*
       '@pikas-ui/context-menu': workspace:*
       '@pikas-ui/dialog': workspace:*
+      '@pikas-ui/drawer': workspace:*
       '@pikas-ui/dropdown-menu': workspace:*
       '@pikas-ui/dropzone': workspace:*
       '@pikas-ui/explorer': workspace:*
@@ -99,6 +100,7 @@ importers:
       '@pikas-ui/color-picker': link:../../packages/ui/color-picker
       '@pikas-ui/context-menu': link:../../packages/ui/context-menu
       '@pikas-ui/dialog': link:../../packages/ui/dialog
+      '@pikas-ui/drawer': link:../../packages/ui/drawer
       '@pikas-ui/dropdown-menu': link:../../packages/ui/dropdown-menu
       '@pikas-ui/dropzone': link:../../packages/ui/dropzone
       '@pikas-ui/explorer': link:../../packages/ui/explorer
@@ -633,6 +635,43 @@ importers:
       compressorjs: 1.1.1
       get-orientation: 1.1.2
       react-easy-crop: 4.6.2_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@pikas/prettier': link:../../prettier
+      '@pikas/tsconfig': link:../../tsconfig
+      '@types/node': 18.11.9
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
+      cross-env: 7.0.3
+      eslint: 8.28.0
+      eslint-config-custom: link:../../eslint-config-custom
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tsup: 6.5.0_typescript@4.9.3
+      typescript: 4.9.3
+
+  packages/ui/drawer:
+    specifiers:
+      '@pikas-ui/icons': 3.3.8
+      '@pikas-ui/styles': 3.5.8
+      '@pikas-ui/title': 1.2.9
+      '@pikas/prettier': workspace:*
+      '@pikas/tsconfig': workspace:*
+      '@types/node': 18.11.9
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
+      cross-env: 7.0.3
+      eslint: 8.28.0
+      eslint-config-custom: workspace:*
+      react: 18.2.0
+      react-dom: 18.2.0
+      tsup: 6.5.0
+      typescript: 4.9.3
+      usehooks-ts: 2.9.1
+    dependencies:
+      '@pikas-ui/icons': link:../icons
+      '@pikas-ui/styles': link:../styles
+      '@pikas-ui/title': link:../title
+      usehooks-ts: 2.9.1_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@pikas/prettier': link:../../prettier
       '@pikas/tsconfig': link:../../tsconfig
