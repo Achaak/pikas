@@ -1,12 +1,12 @@
 {
   "name": "@pikas-utils/screen",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "private": false,
   "keywords": [
     "pikas-utils",
     "screen"
   ],
-  "description": "Create a screen for your application",
+  "description": "Screen utils",
   "license": "MIT",
   "type": "module",
   "exports": {

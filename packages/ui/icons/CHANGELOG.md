@@ -1,5 +1,13 @@
 # @pikas-ui/icons
 
+## 3.3.10
+
+### Patch Changes
+
+- fix ESM
+- Updated dependencies
+  - @pikas-ui/styles@3.5.10
+
 ## 3.3.9
 
 ### Patch Changes

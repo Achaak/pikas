@@ -1,4 +1,4 @@
-import type { ConfigType } from '@stitches/react/types/config';
+import type { ConfigType } from '@stitches/react/types/config'; // TODO: remove this line when @stitches/react is updated
 import type { BR } from './borderRadius.js';
 import { br } from './borderRadius.js';
 import type { Gap } from './gap.js';

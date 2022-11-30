@@ -30,7 +30,7 @@
     "@pikas-ui/grid": "workspace:*",
     "@pikas-ui/icons": "workspace:*",
     "@pikas-ui/loader": "workspace:*",
-    "@pikas-ui/menu": "workspace:3.3.13",
+    "@pikas-ui/menu": "workspace:3.3.14",
     "@pikas-ui/multi-input-field": "workspace:*",
     "@pikas-ui/progress": "workspace:*",
     "@pikas-ui/radio-group": "workspace:*",

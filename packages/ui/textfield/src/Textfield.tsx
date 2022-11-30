@@ -11,11 +11,18 @@ import { styled, useTheme } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
 import { Root } from '@radix-ui/react-label';
 import { Color } from '@pikas-utils/color';
-import type { ChangeEvent, InputHTMLAttributes } from 'react';
-import { forwardRef, useRef, useState, ReactNode, FC } from 'react';
-import useMergedRef from '@react-hook/merged-ref';
+import {
+  ChangeEvent,
+  InputHTMLAttributes,
+  forwardRef,
+  useRef,
+  useState,
+  ReactNode,
+  FC,
+} from 'react';
 import type { TooltipCSS } from '@pikas-ui/tooltip';
 import { Tooltip } from '@pikas-ui/tooltip';
+import { useMergedRef } from '@pikas-utils/hooks';
 
 const Container = styled('div', {
   display: 'flex',

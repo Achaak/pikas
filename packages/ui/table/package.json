@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "3.2.19",
+  "version": "3.2.20",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,13 +48,13 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/checkbox": "3.3.14",
-    "@pikas-ui/icons": "3.3.9",
-    "@pikas-ui/loader": "3.3.9",
-    "@pikas-ui/select": "4.3.16",
-    "@pikas-ui/styles": "3.5.9",
+    "@pikas-ui/checkbox": "3.3.15",
+    "@pikas-ui/icons": "3.3.10",
+    "@pikas-ui/loader": "3.3.10",
+    "@pikas-ui/select": "4.3.17",
+    "@pikas-ui/styles": "3.5.10",
     "@tanstack/react-table": "8.7.0",
-    "@pikas-utils/color": "1.0.0"
+    "@pikas-utils/color": "1.0.1"
   },
   "peerDependencies": {
     "react": "18.2.0",

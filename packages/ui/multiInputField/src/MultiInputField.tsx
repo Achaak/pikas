@@ -18,12 +18,12 @@ import {
   useRef,
   useState,
 } from 'react';
-import useMergedRef from '@react-hook/merged-ref';
 import { Root } from '@radix-ui/react-label';
 import { Description, Label, TextError } from '@pikas-ui/text';
 import { Tooltip, TooltipCSS } from '@pikas-ui/tooltip';
 import { Color } from '@pikas-utils/color';
 import { MultiInputFieldBadge } from './badge/index.js';
+import { useMergedRef } from '@pikas-utils/hooks';
 
 const Container = styled('div', {
   display: 'flex',

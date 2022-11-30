@@ -1,6 +1,6 @@
 import { Icon as Iconify } from '@iconify/react';
-import { CustomIcon } from '../customIcon';
-import type { IconProps } from '../types';
+import { CustomIcon } from '../customIcon/index.js';
+import type { IconProps } from '../types.js';
 import { FC } from 'react';
 
 export type IconByNameProps = IconProps & {

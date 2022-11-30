@@ -1,5 +1,5 @@
 {
-  "extends": "@pikas/tsconfig/package-react.json",
+  "extends": "@pikas/tsconfig/package-default.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules", "tsup.config.ts"],
   "compilerOptions": {

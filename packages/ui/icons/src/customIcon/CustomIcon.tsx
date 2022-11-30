@@ -1,5 +1,5 @@
 import { styled } from '@pikas-ui/styles';
-import type { IconProps } from '../types';
+import type { IconProps } from '../types.js';
 import { ReactNode, FC } from 'react';
 
 const Container = styled('div', {

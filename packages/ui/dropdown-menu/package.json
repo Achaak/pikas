@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dropdown-menu",
-  "version": "3.4.13",
+  "version": "3.4.14",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,10 +48,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.9",
-    "@pikas-ui/loader": "3.3.9",
-    "@pikas-ui/menu": "3.3.13",
-    "@pikas-ui/styles": "3.5.9",
+    "@pikas-ui/icons": "3.3.10",
+    "@pikas-ui/loader": "3.3.10",
+    "@pikas-ui/menu": "3.3.14",
+    "@pikas-ui/styles": "3.5.10",
     "@radix-ui/react-dropdown-menu": "2.0.1"
   },
   "peerDependencies": {

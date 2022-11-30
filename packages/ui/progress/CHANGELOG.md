@@ -1,5 +1,15 @@
 # @pikas-ui/progress
 
+## 1.3.10
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/styles@3.5.10
+  - @pikas-utils/color@1.0.1
+  - @pikas-ui/skeleton@2.2.10
+
 ## 1.3.9
 
 ### Patch Changes

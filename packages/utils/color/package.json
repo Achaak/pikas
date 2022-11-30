@@ -1,12 +1,12 @@
 {
   "name": "@pikas-utils/color",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "keywords": [
     "pikas-utils",
     "color"
   ],
-  "description": "Create a color for your application",
+  "description": "Color utils",
   "license": "MIT",
   "type": "module",
   "exports": {
