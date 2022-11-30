@@ -1,5 +1,15 @@
 # @pikas-ui/separator
 
+## 3.3.9
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/styles@3.5.9
+
 ## 3.3.8
 
 ### Patch Changes

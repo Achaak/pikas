@@ -1,5 +1,12 @@
 # @pikas-utils/file
 
+## 1.0.5
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+
 ## 1.0.4
 
 ### Patch Changes

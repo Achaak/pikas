@@ -6,7 +6,7 @@ import type {
   PikasFontWeight,
   PikasShadow,
 } from '@pikas-ui/styles';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import { keyframes, styled, useTheme } from '@pikas-ui/styles';
 import {
   Content as TooltipPrimitiveContent,
@@ -196,7 +196,9 @@ export const Tooltip: FC<TooltipProps> = ({
               boxShadow: `$${boxShadow}`,
               color:
                 theme &&
-                fontColorContrast(theme.colors[backgroundColorName].value, 0.7),
+                new Color(theme.colors[backgroundColorName].value).getContrast(
+                  0.7
+                ),
 
               ...css?.content,
             }}

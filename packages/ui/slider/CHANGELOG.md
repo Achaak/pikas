@@ -1,5 +1,17 @@
 # @pikas-ui/slider
 
+## 3.3.10
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/icons@3.3.9
+  - @pikas-ui/styles@3.5.9
+  - @pikas-ui/text@4.2.10
+
 ## 3.3.9
 
 ### Patch Changes

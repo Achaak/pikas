@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { PikasCSS } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import { IconByName } from '@pikas-ui/icons';
 import type { SelectCSS } from '@pikas-ui/select';
 import { Select } from '@pikas-ui/select';
@@ -127,7 +127,7 @@ export const Pagination: FC<PaginationProps> = ({
               ...(i === pageIndex && {
                 backgroundColor: '$PRIMARY',
                 color:
-                  theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
+                  theme && new Color(theme.colors.PRIMARY.value).getContrast(),
                 ...css?.pageNumberActive,
               }),
             }}

@@ -1,5 +1,5 @@
 import type { PikasCSS } from '@pikas-ui/styles';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 
 export const getContentColor = ({
   contentColorHex,
@@ -15,7 +15,7 @@ export const getContentColor = ({
   }
 
   if (!outlined) {
-    return fontColorContrast(colorHex ?? '', 0.7);
+    return new Color(colorHex ?? '').getContrast();
   } else {
     return colorHex;
   }

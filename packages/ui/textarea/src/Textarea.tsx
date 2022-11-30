@@ -7,7 +7,7 @@ import type {
 } from '@pikas-ui/styles';
 import { styled, useTheme } from '@pikas-ui/styles';
 import { Label, TextError, Description } from '@pikas-ui/text';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import type { ChangeEvent, ForwardedRef, TextareaHTMLAttributes } from 'react';
 import { forwardRef, useState, ReactNode } from 'react';
 import type { IconCSS } from '@pikas-ui/icons';
@@ -140,10 +140,9 @@ const getColor = ({
   } else if (colorName) {
     return `$${colorName}`;
   } else if (theme) {
-    return fontColorContrast(
-      theme.colors[backgroundColorName ?? 'WHITE'].value,
-      0.7
-    );
+    return new Color(
+      theme.colors[backgroundColorName ?? 'WHITE'].value
+    ).getContrast();
   } else {
     return '';
   }

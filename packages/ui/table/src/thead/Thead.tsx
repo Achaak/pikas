@@ -1,6 +1,6 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import { FC, HTMLAttributes } from 'react';
 
 type CustomProps = HTMLAttributes<HTMLTableSectionElement> & {
@@ -16,10 +16,10 @@ export const Thead: FC<CustomProps> = (props) => {
       variant: {
         default: {
           backgroundColor: '$PRIMARY',
-          color: theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
+          color: theme && new Color(theme.colors.PRIMARY.value).getContrast(),
 
           svg: {
-            fill: theme && fontColorContrast(theme.colors.PRIMARY.value, 0.7),
+            fill: theme && new Color(theme.colors.PRIMARY.value).getContrast(),
           },
 
           tr: {

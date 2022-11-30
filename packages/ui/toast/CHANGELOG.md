@@ -1,5 +1,17 @@
 # @pikas-ui/toast
 
+## 1.2.10
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/button@3.3.9
+  - @pikas-ui/icons@3.3.9
+  - @pikas-ui/styles@3.5.9
+
 ## 1.2.9
 
 ### Patch Changes

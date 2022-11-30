@@ -3,8 +3,7 @@ import { Title } from '@pikas-ui/title';
 import { styled, useTernaryDarkMode } from '@pikas/docs-ui';
 import { FC, useEffect, useState } from 'react';
 import { normal } from 'color-blend';
-import Color from 'color';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import { Toast, useToast } from '@pikas-ui/toast';
 import { ColorPicker } from '@pikas-ui/color-picker';
 
@@ -67,8 +66,8 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
     color2: string,
     color2Opacity: number
   ) => {
-    const color1Parsed = Color(color1);
-    const color2Parsed = Color(color2);
+    const color1Parsed = new Color(color1);
+    const color2Parsed = new Color(color2);
 
     const result = normal(
       {
@@ -85,7 +84,12 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
       }
     );
 
-    return Color.rgb(result.r, result.g, result.b, result.a).hex();
+    return new Color({
+      r: result.r,
+      g: result.g,
+      b: result.b,
+      a: result.a,
+    }).toHex();
   };
 
   const darkModeMergeDark = isDarkModeState ? '#FFFFFF' : '#000000';
@@ -143,7 +147,7 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
         <ColorResultContent
           css={{
             backgroundColor: darkerColor,
-            color: fontColorContrast(darkerColor, 0.7),
+            color: new Color(darkerColor).getContrast(),
           }}
           onClick={() => {
             void handleCopy(darkerColor);
@@ -158,7 +162,7 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
         <ColorResultContent
           css={{
             backgroundColor: darkColor,
-            color: fontColorContrast(darkColor, 0.7),
+            color: new Color(darkColor).getContrast(),
           }}
           onClick={() => {
             void handleCopy(darkColor);
@@ -173,7 +177,7 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
         <ColorResultContent
           css={{
             backgroundColor: color,
-            color: fontColorContrast(color, 0.7),
+            color: new Color(color).getContrast(),
           }}
           onClick={() => {
             void handleCopy(color);
@@ -188,7 +192,7 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
         <ColorResultContent
           css={{
             backgroundColor: lightColor,
-            color: fontColorContrast(lightColor, 0.7),
+            color: new Color(lightColor).getContrast(),
           }}
           onClick={() => {
             void handleCopy(lightColor);
@@ -203,7 +207,7 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
         <ColorResultContent
           css={{
             backgroundColor: lighterColor,
-            color: fontColorContrast(lighterColor, 0.7),
+            color: new Color(lighterColor).getContrast(),
           }}
           onClick={() => {
             void handleCopy(lighterColor);
@@ -218,7 +222,7 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
         <ColorResultContent
           css={{
             backgroundColor: lightest2Color,
-            color: fontColorContrast(lightest2Color, 0.7),
+            color: new Color(lightest2Color).getContrast(),
           }}
           onClick={() => {
             void handleCopy(lightest2Color);
@@ -233,7 +237,7 @@ export const ColorsManagerColumn: FC<ColorsManagerColumnProps> = ({
         <ColorResultContent
           css={{
             backgroundColor: lightest1Color,
-            color: fontColorContrast(lightest1Color, 0.7),
+            color: new Color(lightest1Color).getContrast(),
           }}
           onClick={() => {
             void handleCopy(lightest1Color);

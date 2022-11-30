@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/switch",
-  "version": "2.2.11",
+  "version": "2.2.12",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -9,22 +9,24 @@
   ],
   "description": "Components for creating a switch",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     },
     "./dist/*": {
-      "import": "./dist/*.mjs",
-      "require": "./dist/*.js",
+      "import": "./dist/*.js",
+      "require": "./dist/*.cjs",
       "types": "./dist/*.d.ts"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist/**/*"
+    "dist/**"
   ],
   "scripts": {
     "build": "tsup",
@@ -46,10 +48,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.8",
-    "@pikas-ui/styles": "3.5.8",
-    "@pikas-ui/text": "4.2.9",
-    "@pikas-ui/tooltip": "3.3.8",
+    "@pikas-ui/icons": "3.3.9",
+    "@pikas-ui/styles": "3.5.9",
+    "@pikas-ui/text": "4.2.10",
+    "@pikas-ui/tooltip": "3.3.9",
     "@radix-ui/react-switch": "1.0.1"
   },
   "peerDependencies": {

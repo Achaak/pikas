@@ -1,5 +1,12 @@
 # @pikas-ui/styles
 
+## 3.5.9
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+
 ## 3.5.8
 
 ### Patch Changes

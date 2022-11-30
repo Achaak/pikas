@@ -1,0 +1,6 @@
+stories
+.storybook
+**/*.scss
+node_modules
+dist
+.eslintrc.cjs

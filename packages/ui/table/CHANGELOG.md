@@ -1,5 +1,19 @@
 # @pikas-ui/table
 
+## 3.2.19
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/checkbox@3.3.14
+  - @pikas-ui/icons@3.3.9
+  - @pikas-ui/loader@3.3.9
+  - @pikas-ui/select@4.3.16
+  - @pikas-ui/styles@3.5.9
+
 ## 3.2.18
 
 ### Patch Changes

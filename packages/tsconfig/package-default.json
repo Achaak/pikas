@@ -5,8 +5,9 @@
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
-    "lib": ["ES2015"],
-    "module": "ESNext",
-    "target": "ES6"
+    "lib": ["ES2021"],
+    "module": "Node16",
+    "moduleResolution": "Node",
+    "target": "ES2021"
   }
 }

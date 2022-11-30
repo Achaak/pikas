@@ -5,7 +5,7 @@ import { CustomAlert } from '../customAlert/index.js';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import type { BaseAlertProps } from '../types.js';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 
 export const alertVariant = {
   info: true,
@@ -64,7 +64,7 @@ export const Alert: FC<AlertProps> = ({
       backgroundColorName={getBackgroundColor()}
       colorHex={
         theme &&
-        fontColorContrast(theme.colors[getBackgroundColor()].value, 0.7)
+        new Color(theme.colors[getBackgroundColor()].value).getContrast()
       }
       {...props}
     >

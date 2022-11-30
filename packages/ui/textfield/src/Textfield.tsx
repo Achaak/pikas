@@ -10,7 +10,7 @@ import type {
 import { styled, useTheme } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
 import { Root } from '@radix-ui/react-label';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import type { ChangeEvent, InputHTMLAttributes } from 'react';
 import { forwardRef, useRef, useState, ReactNode, FC } from 'react';
 import useMergedRef from '@react-hook/merged-ref';
@@ -262,10 +262,9 @@ const getColor = ({
   } else if (colorName) {
     return `$${colorName}`;
   } else if (theme) {
-    return fontColorContrast(
-      theme.colors[backgroundColorName ?? 'WHITE'].value,
-      0.7
-    );
+    return new Color(
+      theme.colors[backgroundColorName ?? 'WHITE'].value
+    ).getContrast();
   } else {
     return '';
   }

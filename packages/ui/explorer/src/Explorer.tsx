@@ -17,7 +17,7 @@ import { snapCenterToCursor } from '@dnd-kit/modifiers';
 import { useOnClickOutside } from 'usehooks-ts';
 import { useKeyPress } from '@pikas-utils/keyboard';
 import { SettingsBar } from './settingsBar/SettingsBar.js';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import type { MenuDataItem } from '@pikas-ui/menu';
 import type { IconProps } from '@pikas-ui/icons';
 import type {
@@ -346,7 +346,7 @@ export const Explorer: FC<ExplorerProps> = ({
                   css={{
                     color:
                       theme &&
-                      fontColorContrast(theme.colors.PRIMARY.value, 0.7),
+                      new Color(theme.colors.PRIMARY.value).getContrast(),
                   }}
                 >
                   {itemsSelected.length}

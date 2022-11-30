@@ -129,7 +129,7 @@ export type DrawerProps = {
   height?: number;
   minHeight?: number;
   maxHeight?: number;
-  closeIcon: FC<IconProps>;
+  closeIcon?: FC<IconProps>;
   children?: ReactNode;
 };
 

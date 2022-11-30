@@ -10,7 +10,7 @@ import {
   Root as ProgressPrimitiveRoot,
   Indicator,
 } from '@radix-ui/react-progress';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import { FC } from 'react';
 
 const Root = styled(ProgressPrimitiveRoot, {
@@ -151,7 +151,7 @@ export const Progress: FC<ProgressProps> = ({
               100 - Math.round((progress / (max || 100)) * 100)
             }% 0 0)`,
             color:
-              theme && fontColorContrast(theme.colors[colorName].value, 0.7),
+              theme && new Color(theme.colors[colorName].value).getContrast(),
           }}
         >
           {content}
@@ -164,7 +164,9 @@ export const Progress: FC<ProgressProps> = ({
             )}%)`,
             color:
               theme &&
-              fontColorContrast(theme.colors[backgroundColorName].value, 0.7),
+              new Color(theme.colors[backgroundColorName].value).getContrast(
+                0.7
+              ),
           }}
         >
           {content}

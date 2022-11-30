@@ -12,7 +12,7 @@ import { Label, TextError } from '@pikas-ui/text';
 import type { ReactNode } from 'react';
 import { useEffect, useState, FC } from 'react';
 import { Root, Indicator } from '@radix-ui/react-checkbox';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 
 const Container = styled('div', {
   display: 'flex',
@@ -201,10 +201,9 @@ export const Checkbox: FC<CheckboxProps> = ({
             css={{
               color:
                 theme &&
-                fontColorContrast(
-                  theme.colors[backgroundColorNameChecked].value,
-                  0.7
-                ),
+                new Color(
+                  theme.colors[backgroundColorNameChecked].value
+                ).getContrast(),
 
               ...css?.checkboxIndicator,
             }}
@@ -214,10 +213,9 @@ export const Checkbox: FC<CheckboxProps> = ({
                 name="bx:minus"
                 colorHex={
                   theme &&
-                  fontColorContrast(
-                    theme.colors[backgroundColorName].value,
-                    0.7
-                  )
+                  new Color(
+                    theme.colors[backgroundColorName].value
+                  ).getContrast()
                 }
                 css={{
                   ...css?.icon,

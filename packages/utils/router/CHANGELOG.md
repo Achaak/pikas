@@ -1,5 +1,12 @@
 # @pikas-utils/router
 
+## 1.0.17
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+
 ## 1.0.16
 
 ### Patch Changes

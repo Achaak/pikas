@@ -5,7 +5,7 @@ import type {
   PikasShadow,
 } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
-import fontColorContrast from 'font-color-contrast';
+import { Color } from '@pikas-utils/color';
 import type { HTMLAttributes } from 'react';
 import { ReactNode, FC } from 'react';
 
@@ -43,7 +43,7 @@ export const CustomBadge: FC<CustomBadgeProps> = ({
         br: borderRadius,
         color:
           theme &&
-          fontColorContrast(colorHex ?? theme.colors[colorName].value, 0.7),
+          new Color(colorHex ?? theme.colors[colorName].value).getContrast(),
         ...css,
       }}
       {...props}

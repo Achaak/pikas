@@ -1,5 +1,16 @@
 # @pikas-ui/menu
 
+## 3.3.13
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix ESM
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/icons@3.3.9
+  - @pikas-ui/styles@3.5.9
+
 ## 3.3.12
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/icons",
-  "version": "3.3.8",
+  "version": "3.3.9",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -9,22 +9,24 @@
   ],
   "description": "Components for creating icons",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     },
     "./dist/*": {
-      "import": "./dist/*.mjs",
-      "require": "./dist/*.js",
+      "import": "./dist/*.js",
+      "require": "./dist/*.cjs",
       "types": "./dist/*.d.ts"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist/**/*"
+    "dist/**"
   ],
   "scripts": {
     "build": "tsup",
@@ -46,9 +48,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@iconify/react": "4.0.0",
-    "@pikas-ui/styles": "3.5.8",
-    "iconify-icon": "1.0.1"
+    "@iconify/react": "4.0.1",
+    "@pikas-ui/styles": "3.5.9",
+    "iconify-icon": "1.0.2"
   },
   "peerDependencies": {
     "react": "18.2.0",
