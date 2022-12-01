@@ -1,5 +1,11 @@
 # @pikas-ui/drawer
 
+## 1.0.5
+
+### Patch Changes
+
+- Fix css props
+
 ## 1.0.4
 
 ### Patch Changes

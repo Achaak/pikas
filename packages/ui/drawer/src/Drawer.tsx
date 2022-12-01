@@ -108,10 +108,10 @@ export const drawerPadding = {
 export type DrawerPadding = keyof typeof drawerPadding;
 
 export type DrawerCSS = {
-  container: PikasCSS;
-  header: PikasCSS;
-  content: PikasCSS;
-  title: TitleCSS;
+  container?: PikasCSS;
+  header?: PikasCSS;
+  content?: PikasCSS;
+  title?: TitleCSS;
 };
 
 export type DrawerProps = {
