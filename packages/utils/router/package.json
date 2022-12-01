@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/router",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -11,14 +11,14 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./dist/*": {
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
-      "types": "./dist/*.d.ts"
+      "require": "./dist/*.cjs"
     }
   },
   "main": "./dist/index.cjs",

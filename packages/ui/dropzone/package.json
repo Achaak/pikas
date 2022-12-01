@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dropzone",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -12,14 +12,14 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./dist/*": {
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
-      "types": "./dist/*.d.ts"
+      "require": "./dist/*.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -48,8 +48,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.11",
-    "@pikas-ui/styles": "3.5.11",
+    "@pikas-ui/icons": "3.3.12",
+    "@pikas-ui/styles": "3.5.12",
     "file-selector": "^0.6.0",
     "react-dropzone": "^14.2.3"
   },

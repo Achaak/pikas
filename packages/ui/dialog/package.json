@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.4.15",
+  "version": "2.4.16",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -12,14 +12,14 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./dist/*": {
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
-      "types": "./dist/*.d.ts"
+      "require": "./dist/*.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -48,12 +48,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.3.11",
-    "@pikas-ui/icons": "3.3.11",
-    "@pikas-ui/loader": "3.3.11",
-    "@pikas-ui/slider": "3.3.12",
-    "@pikas-ui/styles": "3.5.11",
-    "@pikas-ui/title": "1.2.12",
+    "@pikas-ui/button": "3.3.12",
+    "@pikas-ui/icons": "3.3.12",
+    "@pikas-ui/loader": "3.3.12",
+    "@pikas-ui/slider": "3.3.13",
+    "@pikas-ui/styles": "3.5.12",
+    "@pikas-ui/title": "1.2.13",
     "@radix-ui/react-dialog": "1.0.2",
     "compressorjs": "1.1.1",
     "get-orientation": "1.1.2",

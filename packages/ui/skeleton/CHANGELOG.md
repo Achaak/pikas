@@ -1,5 +1,13 @@
 # @pikas-ui/skeleton
 
+## 2.2.12
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/styles@3.5.12
+
 ## 2.2.11
 
 ### Patch Changes

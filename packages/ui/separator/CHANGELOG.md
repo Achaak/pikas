@@ -1,5 +1,13 @@
 # @pikas-ui/separator
 
+## 3.3.12
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/styles@3.5.12
+
 ## 3.3.11
 
 ### Patch Changes

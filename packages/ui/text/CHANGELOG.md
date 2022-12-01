@@ -1,5 +1,13 @@
 # @pikas-ui/text
 
+## 4.2.13
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/styles@3.5.12
+
 ## 4.2.12
 
 ### Patch Changes

@@ -1,20 +1,20 @@
 {
   "name": "@pikas-ui/loader",
-  "version": "3.3.11",
+  "version": "3.3.12",
   "private": false,
   "description": "Components for creating loading indicators",
   "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./dist/*": {
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
-      "types": "./dist/*.d.ts"
+      "require": "./dist/*.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.11",
+    "@pikas-ui/styles": "3.5.12",
     "react-spinners": "0.13.6"
   },
   "peerDependencies": {

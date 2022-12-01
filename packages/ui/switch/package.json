@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/switch",
-  "version": "2.2.14",
+  "version": "2.2.15",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -12,14 +12,14 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./dist/*": {
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
-      "types": "./dist/*.d.ts"
+      "require": "./dist/*.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -48,10 +48,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.11",
-    "@pikas-ui/styles": "3.5.11",
-    "@pikas-ui/text": "4.2.12",
-    "@pikas-ui/tooltip": "3.3.11",
+    "@pikas-ui/icons": "3.3.12",
+    "@pikas-ui/styles": "3.5.12",
+    "@pikas-ui/text": "4.2.13",
+    "@pikas-ui/tooltip": "3.3.12",
     "@radix-ui/react-switch": "1.0.1"
   },
   "peerDependencies": {

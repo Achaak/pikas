@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/searchbar",
-  "version": "3.2.19",
+  "version": "3.2.20",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -12,14 +12,14 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./dist/*": {
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.js",
-      "require": "./dist/*.cjs",
-      "types": "./dist/*.d.ts"
+      "require": "./dist/*.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -48,12 +48,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.3.11",
-    "@pikas-ui/icons": "3.3.11",
-    "@pikas-ui/loader": "3.3.11",
-    "@pikas-ui/separator": "3.3.11",
-    "@pikas-ui/styles": "3.5.11",
-    "@pikas-ui/textfield": "3.3.15",
+    "@pikas-ui/button": "3.3.12",
+    "@pikas-ui/icons": "3.3.12",
+    "@pikas-ui/loader": "3.3.12",
+    "@pikas-ui/separator": "3.3.12",
+    "@pikas-ui/styles": "3.5.12",
+    "@pikas-ui/textfield": "3.3.16",
     "usehooks-ts": "2.9.1"
   },
   "peerDependencies": {

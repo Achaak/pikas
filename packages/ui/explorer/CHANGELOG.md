@@ -1,5 +1,23 @@
 # @pikas-ui/explorer
 
+## 1.0.12
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/context-menu@3.3.16
+  - @pikas-ui/dropdown-menu@3.4.16
+  - @pikas-ui/grid@1.1.15
+  - @pikas-ui/icons@3.3.12
+  - @pikas-ui/loader@3.3.12
+  - @pikas-ui/menu@3.3.16
+  - @pikas-ui/styles@3.5.12
+  - @pikas-utils/color@1.0.3
+  - @pikas-utils/file@1.0.7
+  - @pikas-utils/keyboard@1.0.7
+  - @pikas-utils/screen@1.0.17
+
 ## 1.0.11
 
 ### Patch Changes

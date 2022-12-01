@@ -1,5 +1,16 @@
 # @pikas-ui/button
 
+## 3.3.12
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/icons@3.3.12
+  - @pikas-ui/loader@3.3.12
+  - @pikas-ui/styles@3.5.12
+  - @pikas-utils/color@1.0.3
+
 ## 3.3.11
 
 ### Patch Changes
