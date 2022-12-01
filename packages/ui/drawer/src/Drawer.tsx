@@ -1,6 +1,5 @@
 import { IconByName, IconProps } from '@pikas-ui/icons';
 import { PikasCSS, PikasShadow, styled } from '@pikas-ui/styles';
-import { Title, TitleCSS } from '@pikas-ui/title';
 import { FC, ReactNode, useMemo, useRef } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 
@@ -90,6 +89,16 @@ const Content = styled('div', {
   flexDirection: 'column',
 });
 
+const Title = styled('h2', {
+  all: 'unset',
+  whiteSpace: 'pre-line',
+  color: '$BLACK',
+  textTransform: 'capitalize',
+  fontSize: '$EM-XX-LARGE',
+  fontWeight: '$BOLD',
+  letterSpacing: '$MEDIUM',
+});
+
 export const drawerPosition = {
   top: true,
   right: true,
@@ -111,7 +120,7 @@ export type DrawerCSS = {
   container?: PikasCSS;
   header?: PikasCSS;
   content?: PikasCSS;
-  title?: TitleCSS;
+  title?: PikasCSS;
 };
 
 export type DrawerProps = {
@@ -213,11 +222,7 @@ export const Drawer: FC<DrawerProps> = ({
       isOpen={isOpen}
     >
       <Header position={position} css={css?.header}>
-        {title && (
-          <Title as="h2" css={css?.title}>
-            {title}
-          </Title>
-        )}
+        {title && <Title css={css?.title}>{title}</Title>}
         <IconByName
           name={getCloseIconName}
           onClick={onClose}
