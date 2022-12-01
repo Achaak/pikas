@@ -1,5 +1,18 @@
 # @pikas-ui/dialog
 
+## 2.4.15
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/button@3.3.11
+  - @pikas-ui/icons@3.3.11
+  - @pikas-ui/loader@3.3.11
+  - @pikas-ui/slider@3.3.12
+  - @pikas-ui/styles@3.5.11
+  - @pikas-ui/title@1.2.12
+
 ## 2.4.14
 
 ### Patch Changes

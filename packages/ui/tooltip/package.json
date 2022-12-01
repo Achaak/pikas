@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/tooltip",
-  "version": "3.3.10",
+  "version": "3.3.11",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,9 +48,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.10",
+    "@pikas-ui/styles": "3.5.11",
     "@radix-ui/react-tooltip": "1.0.2",
-    "@pikas-utils/color": "1.0.1"
+    "@pikas-utils/color": "1.0.2"
   },
   "peerDependencies": {
     "react": "18.2.0",

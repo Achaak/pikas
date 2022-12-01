@@ -1,5 +1,18 @@
 # @pikas-ui/searchbar
 
+## 3.2.19
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/button@3.3.11
+  - @pikas-ui/icons@3.3.11
+  - @pikas-ui/loader@3.3.11
+  - @pikas-ui/separator@3.3.11
+  - @pikas-ui/styles@3.5.11
+  - @pikas-ui/textfield@3.3.15
+
 ## 3.2.18
 
 ### Patch Changes

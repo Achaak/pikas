@@ -1,5 +1,13 @@
 # @pikas-ui/title
 
+## 1.2.12
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/styles@3.5.11
+
 ## 1.2.11
 
 ### Patch Changes

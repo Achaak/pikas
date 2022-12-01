@@ -2,9 +2,9 @@ import type { IconProps } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useCallback, FC } from 'react';
-import type { DefaultToastCSS } from '../defaultToast';
-import { DefaultToast } from '../defaultToast';
-import type { BaseToastProps } from '../types';
+import type { DefaultToastCSS } from '../defaultToast/index.js';
+import { DefaultToast } from '../defaultToast/index.js';
+import type { BaseToastProps } from '../types.js';
 
 export const toastVariant = {
   warning: true,

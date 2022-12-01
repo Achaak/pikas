@@ -1,5 +1,15 @@
 # @pikas-ui/badge
 
+## 1.3.12
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/icons@3.3.11
+  - @pikas-ui/styles@3.5.11
+  - @pikas-utils/color@1.0.2
+
 ## 1.3.11
 
 ### Patch Changes

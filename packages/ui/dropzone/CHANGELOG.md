@@ -1,5 +1,14 @@
 # @pikas-ui/dropzone
 
+## 1.0.7
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/icons@3.3.11
+  - @pikas-ui/styles@3.5.11
+
 ## 1.0.6
 
 ### Patch Changes

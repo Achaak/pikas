@@ -6,8 +6,7 @@
     "declaration": true,
     "declarationMap": true,
     "lib": ["ES2021"],
-    "module": "Node16",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
     "target": "ES2021"
   }
 }

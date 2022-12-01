@@ -1,5 +1,14 @@
 # @pikas-ui/tooltip
 
+## 3.3.11
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/styles@3.5.11
+  - @pikas-utils/color@1.0.2
+
 ## 3.3.10
 
 ### Patch Changes

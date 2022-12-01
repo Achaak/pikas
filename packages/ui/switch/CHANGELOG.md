@@ -1,5 +1,16 @@
 # @pikas-ui/switch
 
+## 2.2.14
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/icons@3.3.11
+  - @pikas-ui/styles@3.5.11
+  - @pikas-ui/text@4.2.12
+  - @pikas-ui/tooltip@3.3.11
+
 ## 2.2.13
 
 ### Patch Changes

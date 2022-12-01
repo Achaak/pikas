@@ -1,5 +1,17 @@
 # @pikas-ui/textarea
 
+## 3.3.16
+
+### Patch Changes
+
+- Fix esm
+- Updated dependencies
+  - @pikas-ui/icons@3.3.11
+  - @pikas-ui/styles@3.5.11
+  - @pikas-ui/text@4.2.12
+  - @pikas-ui/tooltip@3.3.11
+  - @pikas-utils/color@1.0.2
+
 ## 3.3.15
 
 ### Patch Changes

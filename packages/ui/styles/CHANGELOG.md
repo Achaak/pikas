@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.5.11
+
+### Patch Changes
+
+- Fix esm
+
 ## 3.5.10
 
 ### Patch Changes
