@@ -1,5 +1,14 @@
 # @pikas-ui/drawer
 
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.15
+  - @pikas-ui/icons@3.3.15
+  - @pikas-ui/title@1.2.16
+
 ## 1.0.8
 
 ### Patch Changes

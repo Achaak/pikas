@@ -1,5 +1,12 @@
 # @pikas-ui/tooltip
 
+## 3.3.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.15
+
 ## 3.3.15
 
 ### Patch Changes

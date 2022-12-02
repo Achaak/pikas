@@ -3,9 +3,11 @@ import type { createTheme } from '../css.js';
 import { styled, theme as themeDefault } from '../css.js';
 import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
-import { useTernaryDarkMode } from 'usehooks-ts';
+import * as usehooks from 'usehooks-ts';
 
-export { useTernaryDarkMode } from 'usehooks-ts';
+const { useTernaryDarkMode } = usehooks;
+
+export { useTernaryDarkMode };
 
 const ContainerStyled = styled('div', {
   width: 'auto',

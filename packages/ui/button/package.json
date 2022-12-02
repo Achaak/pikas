@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/button",
-  "version": "3.3.15",
+  "version": "3.3.16",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,9 +48,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.14",
-    "@pikas-ui/loader": "3.3.15",
-    "@pikas-ui/styles": "3.5.14",
+    "@pikas-ui/icons": "3.3.15",
+    "@pikas-ui/loader": "3.3.16",
+    "@pikas-ui/styles": "3.5.15",
     "@pikas-utils/color": "1.0.4"
   },
   "peerDependencies": {
