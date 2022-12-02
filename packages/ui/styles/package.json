@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "3.5.12",
+  "version": "3.5.13",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -26,7 +26,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist/**"
+    "dist/**/*"
   ],
   "scripts": {
     "build": "tsup",
@@ -62,7 +62,7 @@
     "@pikas/tsconfig": "workspace:*",
     "@types/lodash.clonedeep": "4.5.7",
     "@types/lodash.merge": "4.6.7",
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.10",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "cross-env": "7.0.3",

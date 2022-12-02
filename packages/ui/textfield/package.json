@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textfield",
-  "version": "3.3.16",
+  "version": "3.3.17",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -26,7 +26,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist/**"
+    "dist/**/*"
   ],
   "scripts": {
     "build": "tsup",
@@ -48,13 +48,13 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.12",
-    "@pikas-ui/styles": "3.5.12",
-    "@pikas-ui/text": "4.2.13",
-    "@pikas-ui/tooltip": "3.3.12",
-    "@radix-ui/react-label": "2.0.0",
-    "@pikas-utils/color": "1.0.3",
-    "@pikas-utils/hooks": "1.0.2"
+    "@pikas-ui/icons": "3.3.13",
+    "@pikas-ui/styles": "3.5.13",
+    "@pikas-ui/text": "4.2.14",
+    "@pikas-ui/tooltip": "3.3.13",
+    "@pikas-utils/color": "1.0.4",
+    "@pikas-utils/hooks": "1.0.3",
+    "@radix-ui/react-label": "2.0.0"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -63,7 +63,7 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.10",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "cross-env": "7.0.3",

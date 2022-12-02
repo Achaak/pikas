@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/icons",
-  "version": "3.3.12",
+  "version": "3.3.13",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -26,7 +26,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist/**"
+    "dist/**/*"
   ],
   "scripts": {
     "build": "tsup",
@@ -49,8 +49,7 @@
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
     "@iconify/react": "4.0.1",
-    "@pikas-ui/styles": "3.5.12",
-    "iconify-icon": "1.0.2"
+    "@pikas-ui/styles": "3.5.13"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -59,7 +58,7 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.10",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "cross-env": "7.0.3",
