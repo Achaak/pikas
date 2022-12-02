@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.4.20
+
+### Patch Changes
+
+- Fix esm
+
 ## 2.4.19
 
 ### Patch Changes
