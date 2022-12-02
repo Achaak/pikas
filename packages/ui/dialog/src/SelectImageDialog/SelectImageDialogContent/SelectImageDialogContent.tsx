@@ -7,7 +7,7 @@ import { Button } from '@pikas-ui/button';
 import type { ChangeEvent } from 'react';
 import { useRef, useState, useCallback, FC } from 'react';
 import { getRotatedImage, readFile } from '../utils.js';
-import { getOrientation } from 'get-orientation';
+import { getOrientation } from 'get-orientation/browser.js';
 import { MoonLoader } from '@pikas-ui/loader';
 
 const PictureContainer = styled('div', {
