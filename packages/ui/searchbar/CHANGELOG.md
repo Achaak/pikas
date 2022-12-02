@@ -1,5 +1,13 @@
 # @pikas-ui/searchbar
 
+## 3.2.23
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/loader@3.3.14
+  - @pikas-ui/button@3.3.14
+
 ## 3.2.22
 
 ### Patch Changes

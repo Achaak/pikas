@@ -1,4 +1,4 @@
-import { GridLoader as GridLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -23,7 +23,7 @@ export const GridLoader: FC<GridLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <GridLoaderDefault
+    <Loader.GridLoader
       size={size}
       speedMultiplier={speedMultiplier}
       margin={margin}

@@ -22,6 +22,7 @@
   },
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "cSpell.words": [
-    "Iconify"
+    "Iconify",
+    "Pacman"
   ]
 }

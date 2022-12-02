@@ -1,7 +1,7 @@
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
-import { BounceLoader as BounceLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 
 export type BounceLoaderProps = {
   size?: number | string;
@@ -21,7 +21,7 @@ export const BounceLoader: FC<BounceLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <BounceLoaderDefault
+    <Loader.BounceLoader
       size={size}
       speedMultiplier={speedMultiplier}
       color={colorHex ?? theme?.colors[colorName].value}

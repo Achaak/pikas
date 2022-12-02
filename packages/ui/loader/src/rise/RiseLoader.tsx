@@ -1,4 +1,4 @@
-import { RiseLoader as RiseLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -23,7 +23,7 @@ export const RiseLoader: FC<RiseLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <RiseLoaderDefault
+    <Loader.RiseLoader
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}

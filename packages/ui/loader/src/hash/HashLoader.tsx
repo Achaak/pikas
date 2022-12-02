@@ -1,4 +1,4 @@
-import { HashLoader as HashLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -21,7 +21,7 @@ export const HashLoader: FC<HashLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <HashLoaderDefault
+    <Loader.HashLoader
       size={size}
       speedMultiplier={speedMultiplier}
       color={colorHex ?? theme?.colors[colorName].value}

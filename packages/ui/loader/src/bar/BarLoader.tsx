@@ -1,7 +1,7 @@
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
-import { BarLoader as BarLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 
 export type BarLoaderProps = {
   width?: number;
@@ -23,7 +23,7 @@ export const BarLoader: FC<BarLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <BarLoaderDefault
+    <Loader.BarLoader
       width={width}
       height={height}
       speedMultiplier={speedMultiplier}

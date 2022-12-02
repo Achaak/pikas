@@ -1,4 +1,4 @@
-import { PuffLoader as PuffLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -21,7 +21,7 @@ export const PuffLoader: FC<PuffLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <PuffLoaderDefault
+    <Loader.PuffLoader
       size={size}
       speedMultiplier={speedMultiplier}
       color={colorHex ?? theme?.colors[colorName].value}

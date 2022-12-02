@@ -1,4 +1,4 @@
-import { ScaleLoader as ScaleLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -27,7 +27,7 @@ export const ScaleLoader: FC<ScaleLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <ScaleLoaderDefault
+    <Loader.ScaleLoader
       height={height}
       width={width}
       radius={radius}

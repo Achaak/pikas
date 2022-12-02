@@ -1,9 +1,9 @@
-import { PacmanLoader as PacmanLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
 import { FC } from 'react';
 
-const PacmanLoaderStyled = styled(PacmanLoaderDefault, {
+const PacmanLoaderStyled = styled(Loader.PacmanLoader, {
   display: 'flex',
 });
 

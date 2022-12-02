@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.4.18",
+  "version": "2.4.19",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -48,9 +48,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.3.13",
+    "@pikas-ui/button": "3.3.14",
     "@pikas-ui/icons": "3.3.13",
-    "@pikas-ui/loader": "3.3.13",
+    "@pikas-ui/loader": "3.3.14",
     "@pikas-ui/slider": "3.3.15",
     "@pikas-ui/styles": "3.5.13",
     "@pikas-ui/title": "1.2.14",

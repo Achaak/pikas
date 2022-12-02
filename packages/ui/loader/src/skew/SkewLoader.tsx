@@ -1,4 +1,4 @@
-import { SkewLoader as SkewLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -21,7 +21,7 @@ export const SkewLoader: FC<SkewLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <SkewLoaderDefault
+    <Loader.SkewLoader
       size={size}
       speedMultiplier={speedMultiplier}
       color={colorHex ?? theme?.colors[colorName].value}

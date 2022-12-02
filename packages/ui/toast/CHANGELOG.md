@@ -1,5 +1,11 @@
 # @pikas-ui/toast
 
+## 1.2.16
+
+### Patch Changes
+
+- @pikas-ui/button@3.3.14
+
 ## 1.2.15
 
 ### Patch Changes

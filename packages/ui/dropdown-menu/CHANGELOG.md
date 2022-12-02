@@ -1,5 +1,12 @@
 # @pikas-ui/dropdown-menu
 
+## 3.4.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/loader@3.3.14
+
 ## 3.4.18
 
 ### Patch Changes

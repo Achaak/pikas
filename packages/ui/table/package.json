@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "3.2.24",
+  "version": "3.2.25",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -50,7 +50,7 @@
   "dependencies": {
     "@pikas-ui/checkbox": "3.3.19",
     "@pikas-ui/icons": "3.3.13",
-    "@pikas-ui/loader": "3.3.13",
+    "@pikas-ui/loader": "3.3.14",
     "@pikas-ui/select": "4.3.21",
     "@pikas-ui/styles": "3.5.13",
     "@pikas-utils/color": "1.0.4",

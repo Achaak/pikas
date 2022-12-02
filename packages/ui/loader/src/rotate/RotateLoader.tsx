@@ -1,4 +1,4 @@
-import { RotateLoader as RotateLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -23,7 +23,7 @@ export const RotateLoader: FC<RotateLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <RotateLoaderDefault
+    <Loader.RotateLoader
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}

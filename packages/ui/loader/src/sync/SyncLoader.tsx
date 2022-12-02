@@ -1,4 +1,4 @@
-import { SyncLoader as SyncLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -23,7 +23,7 @@ export const SyncLoader: FC<SyncLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <SyncLoaderDefault
+    <Loader.SyncLoader
       size={size}
       margin={margin}
       speedMultiplier={speedMultiplier}

@@ -1,4 +1,4 @@
-import { PropagateLoader as PropagateLoaderDefault } from 'react-spinners';
+import * as Loader from 'react-spinners';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme } from '@pikas-ui/styles';
 import { FC } from 'react';
@@ -21,7 +21,7 @@ export const PropagateLoader: FC<PropagateLoaderProps> = ({
   const theme = useTheme();
 
   return (
-    <PropagateLoaderDefault
+    <Loader.PropagateLoader
       size={size}
       speedMultiplier={speedMultiplier}
       color={colorHex ?? theme?.colors[colorName].value}

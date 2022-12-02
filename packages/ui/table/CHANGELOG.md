@@ -1,5 +1,12 @@
 # @pikas-ui/table
 
+## 3.2.25
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/loader@3.3.14
+
 ## 3.2.24
 
 ### Patch Changes
