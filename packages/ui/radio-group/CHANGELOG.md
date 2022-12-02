@@ -1,5 +1,15 @@
 # @pikas-ui/radio-group
 
+## 3.3.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.14
+  - @pikas-ui/icons@3.3.14
+  - @pikas-ui/text@4.2.16
+  - @pikas-ui/tooltip@3.3.15
+
 ## 3.3.18
 
 ### Patch Changes

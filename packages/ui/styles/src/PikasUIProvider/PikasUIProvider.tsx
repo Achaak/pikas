@@ -3,12 +3,9 @@ import type { createTheme } from '../css.js';
 import { styled, theme as themeDefault } from '../css.js';
 import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
-// eslint-disable-next-line import/no-namespace
-import * as usehooks from 'usehooks-ts';
+import { useTernaryDarkMode } from 'usehooks-ts';
 
-const { useTernaryDarkMode } = usehooks;
-
-export { useTernaryDarkMode };
+export { useTernaryDarkMode } from 'usehooks-ts';
 
 const ContainerStyled = styled('div', {
   width: 'auto',

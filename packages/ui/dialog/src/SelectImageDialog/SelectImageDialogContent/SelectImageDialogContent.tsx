@@ -1,7 +1,6 @@
 import { styled } from '@pikas-ui/styles';
 import { Slider } from '@pikas-ui/slider';
-import type { Area } from 'react-easy-crop';
-import Cropper from 'react-easy-crop';
+import * as Cropper from 'react-easy-crop';
 import { IconByName } from '@pikas-ui/icons';
 import { Button } from '@pikas-ui/button';
 import type { ChangeEvent } from 'react';
@@ -54,7 +53,7 @@ export type SelectImageDialogContentProps = {
   selectImageLabel: string;
   setRotation: (rotate: number) => void;
   rotation: number;
-  setCroppedAreaPixels: (area: Area) => void;
+  setCroppedAreaPixels: (area: Cropper.Area) => void;
   maxZoom: number;
   minZoom: number;
   defaultZoom: number;
@@ -85,7 +84,7 @@ export const SelectImageDialogContent: FC<SelectImageDialogContentProps> = ({
   const [loadingImage, setLoadingImage] = useState(false);
 
   const onCropComplete = useCallback(
-    (_croppedArea: Area, newCroppedAreaPixels: Area) => {
+    (_croppedArea: Cropper.Area, newCroppedAreaPixels: Cropper.Area) => {
       setCroppedAreaPixels(newCroppedAreaPixels);
     },
     []
@@ -144,7 +143,7 @@ export const SelectImageDialogContent: FC<SelectImageDialogContentProps> = ({
     <Container>
       <PictureContainer>
         {imageFull && image ? (
-          <Cropper
+          <Cropper.default
             image={imageFull}
             crop={crop}
             rotation={rotation}

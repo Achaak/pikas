@@ -22,7 +22,9 @@
   },
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "cSpell.words": [
+    "clonedeep",
     "Iconify",
-    "Pacman"
+    "Pacman",
+    "usehooks"
   ]
 }

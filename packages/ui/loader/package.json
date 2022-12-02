@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/loader",
-  "version": "3.3.14",
+  "version": "3.3.15",
   "private": false,
   "description": "Components for creating loading indicators",
   "license": "MIT",
@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.13",
+    "@pikas-ui/styles": "3.5.14",
     "react-spinners": "0.13.6"
   },
   "peerDependencies": {
