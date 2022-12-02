@@ -1,17 +1,10 @@
-import {
-  Root as AvatarPrimitiveRoot,
-  Image as AvatarPrimitiveImage,
-  Fallback as AvatarPrimitiveFallback,
-} from '@radix-ui/react-avatar';
+import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import type { ImageLoadingStatus } from '@radix-ui/react-avatar';
 import { Skeleton } from '@pikas-ui/skeleton';
 import { FC } from 'react';
 
-export type { ImageLoadingStatus } from '@radix-ui/react-avatar';
-
-const Root = styled(AvatarPrimitiveRoot, {
+const Root = styled(AvatarPrimitive.Root, {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -21,14 +14,14 @@ const Root = styled(AvatarPrimitiveRoot, {
   position: 'relative',
 });
 
-const Image = styled(AvatarPrimitiveImage, {
+const Image = styled(AvatarPrimitive.Image, {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
   borderRadius: 'inherit',
 });
 
-const Fallback = styled(AvatarPrimitiveFallback, {
+const Fallback = styled(AvatarPrimitive.Fallback, {
   width: '100%',
   height: '100%',
   display: 'flex',
@@ -44,10 +37,12 @@ export type AvatarCSS = {
   fallback?: PikasCSS;
 };
 
+export type AvatarImageLoadingStatus = AvatarPrimitive.ImageLoadingStatus;
+
 export type AvatarProps = {
   alt?: string;
   src?: string;
-  onLoadingStatusChange?: (status: ImageLoadingStatus) => void;
+  onLoadingStatusChange?: (status: AvatarImageLoadingStatus) => void;
   delayMs?: number;
   fallback?: string;
   fallbackColorName?: PikasColor;

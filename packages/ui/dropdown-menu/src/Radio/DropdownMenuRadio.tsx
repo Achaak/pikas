@@ -1,8 +1,4 @@
-import {
-  ItemIndicator as DropdownMenuItemIndicator,
-  RadioGroup as DropdownMenuRadioGroup,
-  RadioItem as DropdownMenuRadioItem,
-} from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { styled } from '@pikas-ui/styles';
 import {
   MenuItemIndicatorCSS,
@@ -14,12 +10,12 @@ import {
 import { FC } from 'react';
 import { IconByName } from '@pikas-ui/icons';
 
-const RadioGroup = styled(DropdownMenuRadioGroup);
-const RadioItemStyled = styled(DropdownMenuRadioItem, {
+const RadioGroup = styled(DropdownMenuPrimitive.RadioGroup);
+const RadioItemStyled = styled(DropdownMenuPrimitive.RadioItem, {
   ...MenuRadioItemCSS,
 });
 
-const ItemIndicator = styled(DropdownMenuItemIndicator, {
+const ItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
 });
 

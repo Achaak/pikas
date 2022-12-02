@@ -1,14 +1,9 @@
-import {
-  Root as TabsPrimitiveRoot,
-  List as TabsPrimitiveList,
-  Trigger as TabsPrimitiveTrigger,
-  Content as TabsPrimitiveContent,
-} from '@radix-ui/react-tabs';
+import * as TabsPrimitive from '@radix-ui/react-tabs';
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import { ReactNode } from 'react';
 
-const Root = styled(TabsPrimitiveRoot, {
+const Root = styled(TabsPrimitive.Root, {
   display: 'flex',
   width: '100%',
 
@@ -20,7 +15,7 @@ const Root = styled(TabsPrimitiveRoot, {
   },
 });
 
-const List = styled(TabsPrimitiveList, {
+const List = styled(TabsPrimitive.List, {
   display: 'flex',
   overflow: 'auto',
 
@@ -53,7 +48,7 @@ const List = styled(TabsPrimitiveList, {
   },
 });
 
-const Trigger = styled(TabsPrimitiveTrigger, {
+const Trigger = styled(TabsPrimitive.Trigger, {
   all: 'unset',
   fontFamily: 'inherit',
   display: 'flex',
@@ -127,7 +122,7 @@ const StartTrigger = styled(TriggerExtremities, {});
 
 const EndTrigger = styled(TriggerExtremities, {});
 
-const Content = styled(TabsPrimitiveContent, {
+const Content = styled(TabsPrimitive.Content, {
   flexGrow: 1,
   borderBottomLeftRadius: 6,
   borderBottomRightRadius: 6,

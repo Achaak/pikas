@@ -1,5 +1,11 @@
 # @pikas-ui/tabs
 
+## 2.2.15
+
+### Patch Changes
+
+- fix esm
+
 ## 2.2.14
 
 ### Patch Changes

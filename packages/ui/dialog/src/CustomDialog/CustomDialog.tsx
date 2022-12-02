@@ -2,15 +2,10 @@ import type { IconCSS } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import type { PikasCSS } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
-import {
-  Overlay as DialogPrimitiveOverlay,
-  Content as DialogPrimitiveContent,
-  Root as DialogPrimitiveRoot,
-  Portal as DialogPrimitivePortal,
-} from '@radix-ui/react-dialog';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { useEffect, useState, ReactNode, FC } from 'react';
 
-const Overlay = styled(DialogPrimitiveOverlay, {
+const Overlay = styled(DialogPrimitive.Overlay, {
   position: 'fixed',
   backgroundColor: '$GRAY_LIGHT',
   opacity: 0,
@@ -27,7 +22,7 @@ const Overlay = styled(DialogPrimitiveOverlay, {
   },
 });
 
-const Container = styled(DialogPrimitiveContent, {
+const Container = styled(DialogPrimitive.Content, {
   inset: 'initial',
   position: 'fixed',
   top: 0,
@@ -259,7 +254,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
   };
 
   return (
-    <DialogPrimitiveRoot
+    <DialogPrimitive.Root
       open={visibleDOM}
       modal={true}
       onOpenChange={(open): void => {
@@ -268,7 +263,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
         }
       }}
     >
-      <DialogPrimitivePortal>
+      <DialogPrimitive.Portal>
         <Overlay
           className={theme}
           visible={visibleStyle}
@@ -351,7 +346,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
             </Footer>
           )}
         </Container>
-      </DialogPrimitivePortal>
-    </DialogPrimitiveRoot>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 };

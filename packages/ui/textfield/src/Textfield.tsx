@@ -9,7 +9,7 @@ import type {
 } from '@pikas-ui/styles';
 import { styled, useTheme } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
-import { Root } from '@radix-ui/react-label';
+import * as LabelPrimitive from '@radix-ui/react-label';
 import { Color } from '@pikas-utils/color';
 import {
   ChangeEvent,
@@ -96,7 +96,7 @@ const Input = styled('input', {
   },
 });
 
-const LeftContainer = styled(Root, {
+const LeftContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -122,7 +122,7 @@ const LeftContainer = styled(Root, {
   },
 });
 
-const RightContainer = styled(Root, {
+const RightContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

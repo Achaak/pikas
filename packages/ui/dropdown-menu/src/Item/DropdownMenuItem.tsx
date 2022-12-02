@@ -1,7 +1,4 @@
-import {
-  Item as DropdownMenuItemRadix,
-  ItemIndicator as DropdownMenuItemIndicator,
-} from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { styled } from '@pikas-ui/styles';
 import { ClipLoader } from '@pikas-ui/loader';
 import {
@@ -13,11 +10,11 @@ import {
 } from '@pikas-ui/menu';
 import { FC, useState } from 'react';
 
-const Item = styled(DropdownMenuItemRadix, {
+const Item = styled(DropdownMenuPrimitive.Item, {
   ...MenuItemCSS,
 });
 
-const ItemIndicator = styled(DropdownMenuItemIndicator, {
+const ItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
 });
 

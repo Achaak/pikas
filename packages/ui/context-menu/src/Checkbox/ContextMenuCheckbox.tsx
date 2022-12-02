@@ -1,7 +1,4 @@
-import {
-  ContextMenuCheckboxItem,
-  ItemIndicator as ContextMenuItemIndicator,
-} from '@radix-ui/react-context-menu';
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import { styled } from '@pikas-ui/styles';
 import {
   CheckboxItem,
@@ -13,11 +10,11 @@ import {
 import { FC } from 'react';
 import { IconByName } from '@pikas-ui/icons';
 
-const CheckboxItemStyled = styled(ContextMenuCheckboxItem, {
+const CheckboxItemStyled = styled(ContextMenuPrimitive.CheckboxItem, {
   ...MenuCheckboxItemCSS,
 });
 
-const ItemIndicator = styled(ContextMenuItemIndicator, {
+const ItemIndicator = styled(ContextMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
 });
 

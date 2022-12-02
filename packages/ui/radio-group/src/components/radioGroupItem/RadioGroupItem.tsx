@@ -1,8 +1,8 @@
 import { PikasCSS, styled } from '@pikas-ui/styles';
 import { FC, ReactNode } from 'react';
-import { RadioGroupItem as RadioGroupPrimitiveItem } from '@radix-ui/react-radio-group';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
-const RadioGroupItemStyled = styled(RadioGroupPrimitiveItem, {
+const RadioGroupItemStyled = styled(RadioGroupPrimitive.Item, {
   all: 'unset',
   backgroundColor: '$WHITE_FIX',
   borderStyle: 'solid',

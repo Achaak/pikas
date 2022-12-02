@@ -18,7 +18,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { Root } from '@radix-ui/react-label';
+import * as LabelPrimitive from '@radix-ui/react-label';
 import { Description, Label, TextError } from '@pikas-ui/text';
 import { Tooltip, TooltipCSS } from '@pikas-ui/tooltip';
 import { Color } from '@pikas-utils/color';
@@ -124,7 +124,7 @@ const Input = styled('input', {
   flex: 1,
 });
 
-const LeftContainer = styled(Root, {
+const LeftContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -150,7 +150,7 @@ const LeftContainer = styled(Root, {
   },
 });
 
-const RightContainer = styled(Root, {
+const RightContainer = styled(LabelPrimitive.Root, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

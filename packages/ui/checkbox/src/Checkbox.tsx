@@ -11,7 +11,7 @@ import { IconByName } from '@pikas-ui/icons';
 import { Label, TextError } from '@pikas-ui/text';
 import type { ReactNode } from 'react';
 import { useEffect, useState, FC } from 'react';
-import { Root, Indicator } from '@radix-ui/react-checkbox';
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { Color } from '@pikas-utils/color';
 
 const Container = styled('div', {
@@ -20,7 +20,7 @@ const Container = styled('div', {
   userSelect: 'none',
 });
 
-const CheckboxStyled = styled(Root, {
+const CheckboxStyled = styled(CheckboxPrimitive.Root, {
   all: 'unset',
   display: 'flex',
   alignItems: 'center',
@@ -39,7 +39,7 @@ const CheckboxStyled = styled(Root, {
   },
 });
 
-const CheckboxIndicator = styled(Indicator, {});
+const CheckboxIndicator = styled(CheckboxPrimitive.Indicator, {});
 
 const Item = styled('div', {
   display: 'flex',

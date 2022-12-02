@@ -1,5 +1,11 @@
 # @pikas-ui/tooltip
 
+## 3.3.14
+
+### Patch Changes
+
+- fix esm
+
 ## 3.3.13
 
 ### Patch Changes

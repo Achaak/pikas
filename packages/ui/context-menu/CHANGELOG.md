@@ -1,5 +1,11 @@
 # @pikas-ui/context-menu
 
+## 3.3.18
+
+### Patch Changes
+
+- fix esm
+
 ## 3.3.17
 
 ### Patch Changes

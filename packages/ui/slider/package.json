@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/slider",
-  "version": "3.3.14",
+  "version": "3.3.15",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -50,7 +50,7 @@
   "dependencies": {
     "@pikas-ui/icons": "3.3.13",
     "@pikas-ui/styles": "3.5.13",
-    "@pikas-ui/text": "4.2.14",
+    "@pikas-ui/text": "4.2.15",
     "@radix-ui/react-slider": "1.1.0"
   },
   "peerDependencies": {

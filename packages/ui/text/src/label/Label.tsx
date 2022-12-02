@@ -1,19 +1,16 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import {
-  Label as LabelPrimitiveLabel,
-  PrimitiveLabelProps,
-} from '@radix-ui/react-label';
+import * as LabelPrimitive from '@radix-ui/react-label';
 import { FC } from 'react';
 
-const LabelStyled = styled(LabelPrimitiveLabel, {
+const LabelStyled = styled(LabelPrimitive.Label, {
   fontSize: '$EM-SMALL',
   fontWeight: '$BOLD',
   display: 'block',
   color: '$BLACK',
 });
 
-export type LabelProps = PrimitiveLabelProps & {
+export type LabelProps = LabelPrimitive.PrimitiveLabelProps & {
   css?: PikasCSS;
 };
 

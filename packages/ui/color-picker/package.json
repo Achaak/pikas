@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/color-picker",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -50,9 +50,9 @@
   "dependencies": {
     "@pikas-ui/icons": "3.3.13",
     "@pikas-ui/styles": "3.5.13",
-    "@pikas-ui/text": "4.2.14",
-    "@pikas-ui/textfield": "3.3.17",
-    "@pikas-ui/tooltip": "3.3.13"
+    "@pikas-ui/text": "4.2.15",
+    "@pikas-ui/textfield": "3.3.18",
+    "@pikas-ui/tooltip": "3.3.14"
   },
   "peerDependencies": {
     "react": "18.2.0",

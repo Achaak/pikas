@@ -1,5 +1,13 @@
 # @pikas-ui/dialog
 
+## 2.4.18
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/slider@3.3.15
+
 ## 2.4.17
 
 ### Patch Changes

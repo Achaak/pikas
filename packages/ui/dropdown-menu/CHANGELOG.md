@@ -1,5 +1,11 @@
 # @pikas-ui/dropdown-menu
 
+## 3.4.18
+
+### Patch Changes
+
+- fix esm
+
 ## 3.4.17
 
 ### Patch Changes

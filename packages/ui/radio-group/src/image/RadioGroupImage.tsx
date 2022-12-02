@@ -12,7 +12,7 @@ import { Root } from '../components/root/Root.js';
 import { RadioGroupItemContainer } from '../components/radioGroupItemContainer/RadioGroupItemContainer.js';
 import { RadioGroupItemLabel } from '../components/radioGroupItemLabel/RadioGroupItemLabel.js';
 import { RadioGroupItem } from '../components/radioGroupItem/RadioGroupItem.js';
-import { Indicator as RadioGroupPrimitiveIndicator } from '@radix-ui/react-radio-group';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 const RadioGroupItemImage = styled('img', {
   width: '100%',
@@ -20,7 +20,7 @@ const RadioGroupItemImage = styled('img', {
   objectFit: 'cover',
 });
 
-const Indicator = styled(RadioGroupPrimitiveIndicator, {
+const Indicator = styled(RadioGroupPrimitive.Indicator, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

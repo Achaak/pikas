@@ -1,5 +1,11 @@
 # @pikas-ui/toast
 
+## 1.2.15
+
+### Patch Changes
+
+- fix esm
+
 ## 1.2.14
 
 ### Patch Changes

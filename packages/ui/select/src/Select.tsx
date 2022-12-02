@@ -10,23 +10,7 @@ import { useTheme, styled } from '@pikas-ui/styles';
 import type { IconCSS } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import { Description, Label, TextError } from '@pikas-ui/text';
-import {
-  Root as SelectPrimitiveRoot,
-  Trigger as SelectPrimitiveTrigger,
-  Value as SelectPrimitiveValue,
-  Icon as SelectPrimitiveIcon,
-  Content as SelectPrimitiveContent,
-  Viewport as SelectPrimitiveViewport,
-  Group as SelectPrimitiveGroup,
-  ScrollUpButton as SelectPrimitiveScrollUpButton,
-  ScrollDownButton as SelectPrimitiveScrollDownButton,
-  ItemIndicator as SelectPrimitiveItemIndicator,
-  Separator as SelectPrimitiveSeparator,
-  Label as SelectPrimitiveLabel,
-  Item as SelectPrimitiveItem,
-  ItemText as SelectPrimitiveItemText,
-  Portal as SelectPrimitivePortal,
-} from '@radix-ui/react-select';
+import * as SelectPrimitive from '@radix-ui/react-select';
 import {
   forwardRef,
   useEffect,
@@ -44,9 +28,9 @@ const Container = styled('div', {
   flexDirection: 'column',
 });
 
-const SelectContainer = styled(SelectPrimitiveRoot, {});
+const SelectContainer = styled(SelectPrimitive.Root, {});
 
-const Trigger = styled(SelectPrimitiveTrigger, {
+const Trigger = styled(SelectPrimitive.Trigger, {
   all: 'unset',
   display: 'flex',
   alignItems: 'center',
@@ -85,24 +69,24 @@ const Trigger = styled(SelectPrimitiveTrigger, {
   },
 });
 
-const SelectValue = styled(SelectPrimitiveValue, {});
+const SelectValue = styled(SelectPrimitive.Value, {});
 
-const Icon = styled(SelectPrimitiveIcon, {
+const Icon = styled(SelectPrimitive.Icon, {
   marginLeft: 4,
 });
 
-const Content = styled(SelectPrimitiveContent, {
+const Content = styled(SelectPrimitive.Content, {
   backgroundColor: '$WHITE',
   boxShadow: '$ELEVATION_1',
   br: 'sm',
   zIndex: '$XXX-HIGH',
 });
 
-const Viewport = styled(SelectPrimitiveViewport, {
+const Viewport = styled(SelectPrimitive.Viewport, {
   padding: 4,
 });
 
-const Group = styled(SelectPrimitiveGroup, {});
+const Group = styled(SelectPrimitive.Group, {});
 
 const scrollButtonCSS: PikasCSS = {
   display: 'flex',
@@ -112,14 +96,14 @@ const scrollButtonCSS: PikasCSS = {
   cursor: 'default',
 };
 
-const ScrollUpButton = styled(SelectPrimitiveScrollUpButton, scrollButtonCSS);
+const ScrollUpButton = styled(SelectPrimitive.ScrollUpButton, scrollButtonCSS);
 
 const ScrollDownButton = styled(
-  SelectPrimitiveScrollDownButton,
+  SelectPrimitive.ScrollDownButton,
   scrollButtonCSS
 );
 
-const ItemIndicator = styled(SelectPrimitiveItemIndicator, {
+const ItemIndicator = styled(SelectPrimitive.ItemIndicator, {
   position: 'absolute',
   left: 0,
   display: 'flex',
@@ -127,20 +111,20 @@ const ItemIndicator = styled(SelectPrimitiveItemIndicator, {
   justifyContent: 'center',
 });
 
-const Separator = styled(SelectPrimitiveSeparator, {
+const Separator = styled(SelectPrimitive.Separator, {
   height: 1,
   backgroundColor: '$GRAY_LIGHTER',
   margin: 8,
 });
 
-const GroupLabel = styled(SelectPrimitiveLabel, {
+const GroupLabel = styled(SelectPrimitive.Label, {
   padding: '4px 16px 4px 24px',
   fontWeight: '$MEDIUM',
   fontSize: '$EM-SMALL',
   color: '$BLACK',
 });
 
-const Item = styled(SelectPrimitiveItem, {
+const Item = styled(SelectPrimitive.Item, {
   all: 'unset',
   display: 'flex',
   alignItems: 'center',
@@ -385,9 +369,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                       ...(item.hidden ? { display: 'none' } : {}),
                     }}
                   >
-                    <SelectPrimitiveItemText>
+                    <SelectPrimitive.ItemText>
                       <ItemText>{item.label}</ItemText>
-                    </SelectPrimitiveItemText>
+                    </SelectPrimitive.ItemText>
                     <ItemIndicator>
                       <IconByName name="bx:check" size={20} colorName="BLACK" />
                     </ItemIndicator>
@@ -499,7 +483,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             </Icon>
           </Trigger>
 
-          <SelectPrimitivePortal>
+          <SelectPrimitive.Portal>
             <Content css={css?.content} className={theme}>
               {hasSearch ? (
                 <>
@@ -530,7 +514,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                 />
               </ScrollDownButton>
             </Content>
-          </SelectPrimitivePortal>
+          </SelectPrimitive.Portal>
         </SelectContainer>
 
         {textError ? (

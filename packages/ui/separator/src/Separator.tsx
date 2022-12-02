@@ -1,13 +1,13 @@
 import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import { Orientation, Root } from '@radix-ui/react-separator';
+import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import { FC } from 'react';
 
-const StyledSeparator = styled(Root, {
+const StyledSeparator = styled(SeparatorPrimitive.Root, {
   overflow: 'hidden',
 });
 
-export type SeparatorOrientation = Orientation;
+export type SeparatorOrientation = SeparatorPrimitive.Orientation;
 
 export type SeparatorProps = {
   orientation?: SeparatorOrientation;

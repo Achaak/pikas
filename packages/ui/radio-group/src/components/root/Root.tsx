@@ -1,13 +1,13 @@
 import { PikasCSS, styled } from '@pikas-ui/styles';
 import { FC, ReactNode } from 'react';
-import { Root as RadioGroupPrimitiveRoot } from '@radix-ui/react-radio-group';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import {
   RadioGroupDirection,
   RadioGroupFlexWrap,
   RadioGroupOrientation,
 } from '../../types.js';
 
-const RootStyled = styled(RadioGroupPrimitiveRoot, {
+const RootStyled = styled(RadioGroupPrimitive.Root, {
   display: 'flex',
   customColumnGap: 8,
   customRowGap: 8,

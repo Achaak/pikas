@@ -1,13 +1,4 @@
-import {
-  Content as MenuPrimitiveContent,
-  SubTrigger as MenuPrimitiveSubTrigger,
-  SubContent as MenuPrimitiveSubContent,
-  Label as MenuPrimitiveLabel,
-  Separator as MenuPrimitiveSeparator,
-  Root as MenuPrimitiveRoot,
-  Trigger as MenuPrimitiveTrigger,
-  Sub as MenuPrimitiveSub,
-} from '@radix-ui/react-context-menu';
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import { styled } from '@pikas-ui/styles';
 import type {
   MenuData,
@@ -29,22 +20,22 @@ import { ContextMenuRadio } from './Radio/index.js';
 import { ContextMenuCheckbox } from './Checkbox/index.js';
 import { ContextMenuItem } from './Item/index.js';
 
-const Content = styled(MenuPrimitiveContent, {
+const Content = styled(ContextMenuPrimitive.Content, {
   ...MenuContentCSS,
 });
 
-const SubTrigger = styled(MenuPrimitiveSubTrigger, {
+const SubTrigger = styled(ContextMenuPrimitive.Trigger, {
   ...MenuItemCSS,
 });
-const SubContent = styled(MenuPrimitiveSubContent, {
+const SubContent = styled(ContextMenuPrimitive.SubContent, {
   ...MenuContentCSS,
 });
 
-const Label = styled(MenuPrimitiveLabel, {
+const Label = styled(ContextMenuPrimitive.Label, {
   ...MenuLabelCSS,
 });
 
-const Separator = styled(MenuPrimitiveSeparator, {
+const Separator = styled(ContextMenuPrimitive.Separator, {
   ...MenuSeparatorCSS,
 });
 
@@ -114,7 +105,7 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
 
           if (item.type === 'menu') {
             res.push(
-              <MenuPrimitiveSub key={`menu-${dIndex}-${i}`}>
+              <ContextMenuPrimitive.Sub key={`menu-${dIndex}-${i}`}>
                 <SubTrigger
                   css={{
                     color:
@@ -139,7 +130,7 @@ const ContextMenuDataElement: FC<ContextMenuDataProps> = ({ data, css }) => (
                 <SubContent>
                   {<ContextMenuDataElement data={item.data} css={css} />}
                 </SubContent>
-              </MenuPrimitiveSub>
+              </ContextMenuPrimitive.Sub>
             );
           }
         }
@@ -183,8 +174,12 @@ export const ContextMenu: FC<ContextMenuProps> = ({
   avoidCollisions = true,
   collisionPadding,
 }) => (
-  <MenuPrimitiveRoot onOpenChange={onOpenChange} modal={modal} dir={direction}>
-    <MenuPrimitiveTrigger>{children}</MenuPrimitiveTrigger>
+  <ContextMenuPrimitive.Root
+    onOpenChange={onOpenChange}
+    modal={modal}
+    dir={direction}
+  >
+    <ContextMenuPrimitive.Trigger>{children}</ContextMenuPrimitive.Trigger>
 
     <Content
       css={css?.content}
@@ -200,5 +195,5 @@ export const ContextMenu: FC<ContextMenuProps> = ({
     >
       <ContextMenuDataElement data={data} css={css} />
     </Content>
-  </MenuPrimitiveRoot>
+  </ContextMenuPrimitive.Root>
 );

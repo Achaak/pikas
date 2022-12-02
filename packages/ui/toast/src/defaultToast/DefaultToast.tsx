@@ -1,10 +1,7 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { IconCSS, IconProps } from '@pikas-ui/icons';
-import {
-  Title as ToastPrimitiveTitle,
-  Description as ToastPrimitiveDescription,
-} from '@radix-ui/react-toast';
+import * as ToastPrimitive from '@radix-ui/react-toast';
 import type {
   CustomToastCSS,
   CustomToastProps,
@@ -19,13 +16,13 @@ const Content = styled('div', {
   customRowGap: 8,
 });
 
-const Title = styled(ToastPrimitiveTitle, {
+const Title = styled(ToastPrimitive.Title, {
   fontWeight: '$BOLD',
   color: '$BLACK',
   fontSize: '$EM-MEDIUM',
 });
 
-const Description = styled(ToastPrimitiveDescription, {
+const Description = styled(ToastPrimitive.Description, {
   margin: 0,
   color: '$BLACK',
   fontSize: '$EM-SMALL',

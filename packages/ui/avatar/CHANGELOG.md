@@ -1,5 +1,11 @@
 # @pikas-ui/avatar
 
+## 2.3.14
+
+### Patch Changes
+
+- fix esm
+
 ## 2.3.13
 
 ### Patch Changes

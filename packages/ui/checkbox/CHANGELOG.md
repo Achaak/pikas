@@ -1,5 +1,13 @@
 # @pikas-ui/checkbox
 
+## 3.3.19
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/text@4.2.15
+
 ## 3.3.18
 
 ### Patch Changes

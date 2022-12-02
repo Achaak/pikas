@@ -8,14 +8,7 @@ import type {
 } from '@pikas-ui/styles';
 import { Color } from '@pikas-utils/color';
 import { keyframes, styled, useTheme } from '@pikas-ui/styles';
-import {
-  Content as TooltipPrimitiveContent,
-  Provider as TooltipPrimitiveProvider,
-  Portal as TooltipPrimitivePortal,
-  Root as TooltipPrimitiveRoot,
-  Trigger as TooltipPrimitiveTrigger,
-  Arrow as TooltipPrimitiveArrow,
-} from '@radix-ui/react-tooltip';
+import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import { ReactNode, FC } from 'react';
 
 const slideUpAndFade = keyframes({
@@ -38,7 +31,7 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 });
 
-const StyledContent = styled(TooltipPrimitiveContent, {
+const StyledContent = styled(TooltipPrimitive.Content, {
   color: '$BLACK',
 
   variants: {
@@ -77,11 +70,11 @@ const StyledContent = styled(TooltipPrimitiveContent, {
   },
 });
 
-const Trigger = styled(TooltipPrimitiveTrigger, {
+const Trigger = styled(TooltipPrimitive.Trigger, {
   all: 'unset',
 });
 
-const StyledArrow = styled(TooltipPrimitiveArrow, {});
+const StyledArrow = styled(TooltipPrimitive.Arrow, {});
 
 export const tooltipSide = {
   top: true,
@@ -164,11 +157,11 @@ export const Tooltip: FC<TooltipProps> = ({
   const theme = useTheme();
 
   return (
-    <TooltipPrimitiveProvider
+    <TooltipPrimitive.Provider
       delayDuration={delayDuration}
       skipDelayDuration={skipDelayDuration}
     >
-      <TooltipPrimitiveRoot
+      <TooltipPrimitive.Root
         open={open}
         onOpenChange={onOpenChange}
         defaultOpen={defaultOpen}
@@ -178,7 +171,7 @@ export const Tooltip: FC<TooltipProps> = ({
           <div>{children}</div>
         </Trigger>
 
-        <TooltipPrimitivePortal>
+        <TooltipPrimitive.Portal>
           <StyledContent
             className={theme}
             side={side}
@@ -215,8 +208,8 @@ export const Tooltip: FC<TooltipProps> = ({
               />
             )}
           </StyledContent>
-        </TooltipPrimitivePortal>
-      </TooltipPrimitiveRoot>
-    </TooltipPrimitiveProvider>
+        </TooltipPrimitive.Portal>
+      </TooltipPrimitive.Root>
+    </TooltipPrimitive.Provider>
   );
 };

@@ -1,7 +1,4 @@
-import {
-  Item as ContextMenuItemRadix,
-  ItemIndicator as ContextMenuItemIndicator,
-} from '@radix-ui/react-context-menu';
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import { styled } from '@pikas-ui/styles';
 import { ClipLoader } from '@pikas-ui/loader';
 import {
@@ -13,11 +10,11 @@ import {
 } from '@pikas-ui/menu';
 import { FC, useState } from 'react';
 
-const Item = styled(ContextMenuItemRadix, {
+const Item = styled(ContextMenuPrimitive.Item, {
   ...MenuItemCSS,
 });
 
-const ItemIndicator = styled(ContextMenuItemIndicator, {
+const ItemIndicator = styled(ContextMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
 });
 

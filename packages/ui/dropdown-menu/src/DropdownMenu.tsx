@@ -1,14 +1,4 @@
-import {
-  Content as DropdownMenuContent,
-  SubTrigger as DropdownMenuSubTrigger,
-  SubContent as DropdownMenuSubContent,
-  Label as DropdownMenuLabel,
-  Separator as DropdownMenuSeparator,
-  Sub as DropdownMenuSub,
-  Root as DropdownMenuRoot,
-  Trigger as DropdownMenuTrigger,
-  Portal as DropdownMenuPortal,
-} from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import type { PikasColor } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
 import type {
@@ -31,22 +21,22 @@ import { DropdownMenuRadio } from './Radio/index.js';
 import { DropdownMenuCheckbox } from './Checkbox/index.js';
 import { DropdownMenuItem } from './Item/index.js';
 
-const Content = styled(DropdownMenuContent, {
+const Content = styled(DropdownMenuPrimitive.Content, {
   ...MenuContentCSS,
 });
 
-const SubTrigger = styled(DropdownMenuSubTrigger, {
+const SubTrigger = styled(DropdownMenuPrimitive.SubTrigger, {
   ...MenuItemCSS,
 });
-const SubContent = styled(DropdownMenuSubContent, {
+const SubContent = styled(DropdownMenuPrimitive.SubContent, {
   ...MenuContentCSS,
 });
 
-const Label = styled(DropdownMenuLabel, {
+const Label = styled(DropdownMenuPrimitive.Label, {
   ...MenuLabelCSS,
 });
 
-const Separator = styled(DropdownMenuSeparator, {
+const Separator = styled(DropdownMenuPrimitive.Separator, {
   ...MenuSeparatorCSS,
 });
 
@@ -141,7 +131,7 @@ const DropdownMenuDataElement: FC<DropdownMenuDataProps> = ({ data, css }) => (
 
           if (item.type === 'menu') {
             res.push(
-              <DropdownMenuSub key={`menu-${dIndex}-${i}`}>
+              <DropdownMenuPrimitive.Sub key={`menu-${dIndex}-${i}`}>
                 <SubTrigger
                   css={{
                     color:
@@ -166,7 +156,7 @@ const DropdownMenuDataElement: FC<DropdownMenuDataProps> = ({ data, css }) => (
                 <SubContent>
                   {<DropdownMenuDataElement data={item.data} css={css} />}
                 </SubContent>
-              </DropdownMenuSub>
+              </DropdownMenuPrimitive.Sub>
             );
           }
         }
@@ -229,7 +219,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
 
   return (
     <>
-      <DropdownMenuRoot
+      <DropdownMenuPrimitive.Root
         modal={modal}
         open={open}
         onOpenChange={onOpenChange}
@@ -237,11 +227,11 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
         defaultOpen={defaultOpen}
       >
         {triggerContent ? (
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuPrimitive.Trigger asChild>
             <IconButton>{triggerContent}</IconButton>
-          </DropdownMenuTrigger>
+          </DropdownMenuPrimitive.Trigger>
         ) : (
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuPrimitive.Trigger asChild>
             <IconButton>
               <IconByName
                 name="bx:dots-vertical-rounded"
@@ -249,10 +239,10 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
                 colorName={iconColorName ?? 'BLACK_LIGHT'}
               />
             </IconButton>
-          </DropdownMenuTrigger>
+          </DropdownMenuPrimitive.Trigger>
         )}
 
-        <DropdownMenuPortal>
+        <DropdownMenuPrimitive.Portal>
           <Content
             className={theme}
             css={css?.content}
@@ -271,8 +261,8 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
           >
             <DropdownMenuDataElement data={data} css={css} />
           </Content>
-        </DropdownMenuPortal>
-      </DropdownMenuRoot>
+        </DropdownMenuPrimitive.Portal>
+      </DropdownMenuPrimitive.Root>
     </>
   );
 };

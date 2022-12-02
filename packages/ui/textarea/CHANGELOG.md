@@ -1,5 +1,13 @@
 # @pikas-ui/textarea
 
+## 3.3.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/text@4.2.15
+  - @pikas-ui/tooltip@3.3.14
+
 ## 3.3.18
 
 ### Patch Changes

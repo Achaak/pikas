@@ -1,9 +1,9 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
-import { Title as DialogPrimitiveTitle } from '@radix-ui/react-dialog';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { ReactNode, FC } from 'react';
 
-const Container = styled(DialogPrimitiveTitle, {
+const Container = styled(DialogPrimitive.Title, {
   all: 'unset',
   color: '$BLACK',
   fontSize: '$EM-XX-LARGE',

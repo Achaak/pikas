@@ -7,12 +7,7 @@ import type {
 import { styled } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
 import type { ReactNode } from 'react';
-import {
-  Root,
-  Track as SliderPrimitiveTrack,
-  Range as SliderPrimitiveRange,
-  Thumb as SliderPrimitiveThumb,
-} from '@radix-ui/react-slider';
+import * as SliderPrimitive from '@radix-ui/react-slider';
 import { FC } from 'react';
 
 const Container = styled('div', {
@@ -21,7 +16,7 @@ const Container = styled('div', {
   userSelect: 'none',
 });
 
-const SliderStyled = styled(Root, {
+const SliderStyled = styled(SliderPrimitive.Root, {
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -29,17 +24,17 @@ const SliderStyled = styled(Root, {
   touchAction: 'none',
 });
 
-const Track = styled(SliderPrimitiveTrack, {
+const Track = styled(SliderPrimitive.Track, {
   position: 'relative',
   flexGrow: 1,
 });
 
-const Range = styled(SliderPrimitiveRange, {
+const Range = styled(SliderPrimitive.Range, {
   position: 'absolute',
   height: '100%',
 });
 
-const Thumb = styled(SliderPrimitiveThumb, {
+const Thumb = styled(SliderPrimitive.Thumb, {
   all: 'unset',
   display: 'block',
   boxShadow: '$ELEVATION_1',

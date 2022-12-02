@@ -9,7 +9,7 @@ import {
   Children,
   cloneElement,
 } from 'react';
-import { Provider, SwipeDirection, Viewport } from '@radix-ui/react-toast';
+import * as ToastPrimitive from '@radix-ui/react-toast';
 import type { ToastPosition, BaseToastProps } from '../types.js';
 
 const VIEWPORT_PADDING = 25;
@@ -59,7 +59,7 @@ const swipeOutBottomTop = keyframes({
   to: { transform: `translateY(calc(100% + ${VIEWPORT_PADDING}px))` },
 });
 
-const ViewportStyled = styled(Viewport, {
+const ViewportStyled = styled(ToastPrimitive.Viewport, {
   position: 'fixed',
   display: 'flex',
   flexDirection: 'column',
@@ -119,7 +119,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({
 }) => {
   const [toasts, setToasts] = useState<Array<ReactElement<BaseToastProps>>>([]);
 
-  const getSwipeDirection = (): SwipeDirection => {
+  const getSwipeDirection = (): ToastPrimitive.SwipeDirection => {
     switch (position) {
       case 'top-left':
       case 'bottom-left':
@@ -144,7 +144,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({
       }}
     >
       {children}
-      <Provider
+      <ToastPrimitive.Provider
         swipeDirection={closeWithSwipe ? getSwipeDirection() : undefined}
         swipeThreshold={swipeThreshold}
         duration={duration}
@@ -241,7 +241,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({
             ...css,
           }}
         />
-      </Provider>
+      </ToastPrimitive.Provider>
     </ToastContext.Provider>
   );
 };

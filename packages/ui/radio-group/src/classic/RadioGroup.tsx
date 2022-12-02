@@ -1,7 +1,7 @@
 import { styled } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
 import { ReactNode, useEffect, useState, FC } from 'react';
-import { Indicator as RadioGroupPrimitiveIndicator } from '@radix-ui/react-radio-group';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { Tooltip } from '@pikas-ui/tooltip';
 import { IconByName } from '@pikas-ui/icons';
 import { RadioGroupBaseProps, RadioGroupCSS } from '../types.js';
@@ -14,7 +14,7 @@ import { RadioGroupItemContainer } from '../components/radioGroupItemContainer/R
 import { RadioGroupItemLabel } from '../components/radioGroupItemLabel/RadioGroupItemLabel.js';
 import { RadioGroupItem } from '../components/radioGroupItem/RadioGroupItem.js';
 
-const Indicator = styled(RadioGroupPrimitiveIndicator, {
+const Indicator = styled(RadioGroupPrimitive.Indicator, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

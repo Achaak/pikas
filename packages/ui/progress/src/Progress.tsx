@@ -6,14 +6,11 @@ import type {
 } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
 import { Skeleton } from '@pikas-ui/skeleton';
-import {
-  Root as ProgressPrimitiveRoot,
-  Indicator,
-} from '@radix-ui/react-progress';
+import * as ProgressPrimitive from '@radix-ui/react-progress';
 import { Color } from '@pikas-utils/color';
 import { FC } from 'react';
 
-const Root = styled(ProgressPrimitiveRoot, {
+const Root = styled(ProgressPrimitive.Root, {
   position: 'relative',
   background: '$BLACK',
   zIndex: '$HIGH',
@@ -42,7 +39,7 @@ const ProgressContent = styled('div', {
   overflow: 'hidden',
 });
 
-const ProgressIndicator = styled(Indicator, {
+const ProgressIndicator = styled(ProgressPrimitive.Indicator, {
   width: '100%',
   height: '100%',
   transition: 'transform 660ms cubic-bezier(0.65, 0, 0.35, 1)',

@@ -2,11 +2,7 @@ import type { PikasCSS } from '@pikas-ui/styles';
 import { keyframes, styled } from '@pikas-ui/styles';
 import { IconByName } from '@pikas-ui/icons';
 import { useState, ReactNode, FC } from 'react';
-import {
-  Root,
-  Action as ToastPrimitiveAction,
-  Close as ToastPrimitiveClose,
-} from '@radix-ui/react-toast';
+import * as ToastPrimitive from '@radix-ui/react-toast';
 import type { ToastCSS, BaseToastProps } from '../types.js';
 
 const timerWidth = keyframes({
@@ -14,7 +10,7 @@ const timerWidth = keyframes({
   '100%': { width: 0 },
 });
 
-const Toast = styled(Root, {
+const Toast = styled(ToastPrimitive.Root, {
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: '$WHITE',
@@ -23,9 +19,9 @@ const Toast = styled(Root, {
   overflow: 'hidden',
 });
 
-const Action = styled(ToastPrimitiveAction, {});
+const Action = styled(ToastPrimitive.Action, {});
 
-const Close = styled(ToastPrimitiveClose, {
+const Close = styled(ToastPrimitive.Close, {
   all: 'unset',
   cursor: 'pointer',
 });

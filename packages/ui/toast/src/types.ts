@@ -1,5 +1,5 @@
 import type { PikasCSS } from '@pikas-ui/styles';
-import type { SwipeEvent } from '@radix-ui/react-toast';
+import type * as ToastPrimitive from '@radix-ui/react-toast';
 
 export type ToastCSS = {
   toast?: PikasCSS;
@@ -23,9 +23,9 @@ export type BaseToastProps = {
   action?: ToastAction;
   type?: ToastType;
   onEscapeKeyDown?: (event: KeyboardEvent) => void;
-  onSwipeStart?: (event: SwipeEvent) => void;
-  onSwipeMove?: (event: SwipeEvent) => void;
-  onSwipeEnd?: (event: SwipeEvent) => void;
+  onSwipeStart?: (event: ToastPrimitive.SwipeEvent) => void;
+  onSwipeMove?: (event: ToastPrimitive.SwipeEvent) => void;
+  onSwipeEnd?: (event: ToastPrimitive.SwipeEvent) => void;
   onPause?: () => void;
   onResume?: () => void;
   forceMount?: true;

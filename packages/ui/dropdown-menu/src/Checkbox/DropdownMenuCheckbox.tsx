@@ -1,7 +1,4 @@
-import {
-  DropdownMenuCheckboxItem,
-  ItemIndicator as DropdownMenuItemIndicator,
-} from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { styled } from '@pikas-ui/styles';
 import {
   CheckboxItem,
@@ -13,11 +10,11 @@ import {
 import { FC } from 'react';
 import { IconByName } from '@pikas-ui/icons';
 
-const CheckboxItemStyled = styled(DropdownMenuCheckboxItem, {
+const CheckboxItemStyled = styled(DropdownMenuPrimitive.CheckboxItem, {
   ...MenuCheckboxItemCSS,
 });
 
-const ItemIndicator = styled(DropdownMenuItemIndicator, {
+const ItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
 });
 

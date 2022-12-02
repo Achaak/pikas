@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textarea",
-  "version": "3.3.18",
+  "version": "3.3.19",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -50,8 +50,8 @@
   "dependencies": {
     "@pikas-ui/icons": "3.3.13",
     "@pikas-ui/styles": "3.5.13",
-    "@pikas-ui/text": "4.2.14",
-    "@pikas-ui/tooltip": "3.3.13",
+    "@pikas-ui/text": "4.2.15",
+    "@pikas-ui/tooltip": "3.3.14",
     "@pikas-utils/color": "1.0.4"
   },
   "peerDependencies": {

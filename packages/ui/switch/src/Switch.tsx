@@ -5,7 +5,7 @@ import { Tooltip } from '@pikas-ui/tooltip';
 import type { PikasCSS, PikasFontSize } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import { Label, TextError } from '@pikas-ui/text';
-import { Root, Thumb } from '@radix-ui/react-switch';
+import * as SwitchPrimitive from '@radix-ui/react-switch';
 import type { ButtonHTMLAttributes } from 'react';
 import { useEffect, useState, FC, ReactNode } from 'react';
 
@@ -21,7 +21,7 @@ const SwitchContainer = styled('div', {
   alignItems: 'center',
 });
 
-const SwitchStyle = styled(Root, {
+const SwitchStyle = styled(SwitchPrimitive.Root, {
   all: 'unset',
   width: 48,
   height: 24,
@@ -40,7 +40,7 @@ const SwitchStyle = styled(Root, {
   },
 });
 
-const SwitchThumb = styled(Thumb, {
+const SwitchThumb = styled(SwitchPrimitive.Thumb, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

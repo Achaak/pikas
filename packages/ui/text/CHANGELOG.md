@@ -1,5 +1,11 @@
 # @pikas-ui/text
 
+## 4.2.15
+
+### Patch Changes
+
+- fix esm
+
 ## 4.2.14
 
 ### Patch Changes

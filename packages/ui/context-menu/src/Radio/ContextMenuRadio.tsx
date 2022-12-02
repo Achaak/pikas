@@ -1,8 +1,4 @@
-import {
-  ItemIndicator as ContextMenuItemIndicator,
-  RadioGroup as ContextMenuRadioGroup,
-  RadioItem as ContextMenuRadioItem,
-} from '@radix-ui/react-context-menu';
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import { styled } from '@pikas-ui/styles';
 import {
   MenuItemIndicatorCSS,
@@ -14,12 +10,12 @@ import {
 import { FC } from 'react';
 import { IconByName } from '@pikas-ui/icons';
 
-const RadioGroup = styled(ContextMenuRadioGroup);
-const RadioItemStyled = styled(ContextMenuRadioItem, {
+const RadioGroup = styled(ContextMenuPrimitive.RadioGroup);
+const RadioItemStyled = styled(ContextMenuPrimitive.RadioItem, {
   ...MenuRadioItemCSS,
 });
 
-const ItemIndicator = styled(ContextMenuItemIndicator, {
+const ItemIndicator = styled(ContextMenuPrimitive.ItemIndicator, {
   ...MenuItemIndicatorCSS,
 });
 

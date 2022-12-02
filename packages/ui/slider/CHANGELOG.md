@@ -1,5 +1,13 @@
 # @pikas-ui/slider
 
+## 3.3.15
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/text@4.2.15
+
 ## 3.3.14
 
 ### Patch Changes
