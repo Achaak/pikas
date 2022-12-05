@@ -1,5 +1,13 @@
 # @pikas-ui/tabs
 
+## 2.2.19
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/styles@3.5.17
+
 ## 2.2.18
 
 ### Patch Changes

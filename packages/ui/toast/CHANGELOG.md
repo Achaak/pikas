@@ -1,5 +1,15 @@
 # @pikas-ui/toast
 
+## 1.2.20
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/button@3.3.18
+  - @pikas-ui/icons@3.3.17
+  - @pikas-ui/styles@3.5.17
+
 ## 1.2.19
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @pikas-ui/icons
 
+## 3.3.17
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/styles@3.5.17
+
 ## 3.3.16
 
 ### Patch Changes

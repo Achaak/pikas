@@ -1,5 +1,13 @@
 # @pikas-ui/title
 
+## 1.2.18
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/styles@3.5.17
+
 ## 1.2.17
 
 ### Patch Changes

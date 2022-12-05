@@ -1,5 +1,14 @@
 # @pikas-ui/avatar
 
+## 2.3.18
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/skeleton@2.2.17
+  - @pikas-ui/styles@3.5.17
+
 ## 2.3.17
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @pikas-ui/color-picker
 
+## 1.0.13
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/icons@3.3.17
+  - @pikas-ui/styles@3.5.17
+  - @pikas-ui/text@4.2.19
+  - @pikas-ui/textfield@3.3.22
+  - @pikas-ui/tooltip@3.3.18
+
 ## 1.0.12
 
 ### Patch Changes

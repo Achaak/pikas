@@ -1,5 +1,11 @@
 # @pikas-utils/keyboard
 
+## 1.0.10
+
+### Patch Changes
+
+- fix esm and cjs
+
 ## 1.0.9
 
 ### Patch Changes

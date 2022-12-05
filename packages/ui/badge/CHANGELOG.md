@@ -1,5 +1,15 @@
 # @pikas-ui/badge
 
+## 1.3.18
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/icons@3.3.17
+  - @pikas-ui/styles@3.5.17
+  - @pikas-utils/color@1.0.6
+
 ## 1.3.17
 
 ### Patch Changes

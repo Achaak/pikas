@@ -1,5 +1,11 @@
 # @pikas-utils/router
 
+## 1.0.22
+
+### Patch Changes
+
+- fix esm and cjs
+
 ## 1.0.21
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @pikas-ui/checkbox
 
+## 3.3.23
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/icons@3.3.17
+  - @pikas-ui/styles@3.5.17
+  - @pikas-ui/text@4.2.19
+  - @pikas-utils/color@1.0.6
+
 ## 3.3.22
 
 ### Patch Changes

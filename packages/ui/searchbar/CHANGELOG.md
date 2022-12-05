@@ -1,5 +1,18 @@
 # @pikas-ui/searchbar
 
+## 3.2.27
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/button@3.3.18
+  - @pikas-ui/icons@3.3.17
+  - @pikas-ui/loader@3.3.18
+  - @pikas-ui/separator@3.3.18
+  - @pikas-ui/styles@3.5.17
+  - @pikas-ui/textfield@3.3.22
+
 ## 3.2.26
 
 ### Patch Changes

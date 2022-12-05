@@ -1,5 +1,11 @@
 # @pikas-utils/color
 
+## 1.0.6
+
+### Patch Changes
+
+- fix esm and cjs
+
 ## 1.0.5
 
 ### Patch Changes
