@@ -1,11 +1,9 @@
 {
   "extends": "@pikas/tsconfig/package-react.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules", "tsup.config.ts"],
+  "include": ["src", "tsup.config.ts"],
+  "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "rootDir": "./src",
-    "module": "ESNext",
-    "outDir": "dist/mjs",
-    "target": "ESNext"
+    "outDir": "./dist"
   }
 }

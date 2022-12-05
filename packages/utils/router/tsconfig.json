@@ -1,12 +1,10 @@
 {
   "extends": "@pikas/tsconfig/package-default.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules", "tsup.config.ts"],
+  "include": ["src", "tsup.config.ts"],
+  "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "lib": ["ES2015", "dom"],
     "rootDir": "./src",
-    "module": "ESNext",
-    "outDir": "dist/mjs",
-    "target": "ESNext"
+    "outDir": "./dist"
   }
 }

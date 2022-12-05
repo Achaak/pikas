@@ -8,17 +8,19 @@
   ],
   "description": "Create a router for your application",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/mjs/index.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
   "exports": {
     ".": {
-      "import": "./dist/mjs/index.js",
-      "require": "./dist/cjs/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
-    "build": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
-    "dev": "tsc --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "lint": "cross-env TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo node_modules dist"
@@ -42,6 +44,7 @@
     "cross-env": "7.0.3",
     "eslint": "8.29.0",
     "eslint-config-custom": "workspace:*",
+    "tsup": "6.5.0",
     "typescript": "4.9.3"
   },
   "node": "12.20.0 || 14.13.1 || >=16.0.0"
