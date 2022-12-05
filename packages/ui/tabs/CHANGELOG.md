@@ -1,5 +1,13 @@
 # @pikas-ui/tabs
 
+## 2.2.18
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/styles@3.5.16
+
 ## 2.2.17
 
 ### Patch Changes

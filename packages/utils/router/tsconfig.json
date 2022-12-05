@@ -3,8 +3,10 @@
   "include": ["."],
   "exclude": ["dist", "build", "node_modules", "tsup.config.ts"],
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
     "lib": ["ES2015", "dom"],
+    "rootDir": "./src",
+    "module": "ESNext",
+    "outDir": "dist/mjs",
+    "target": "ESNext"
   }
 }

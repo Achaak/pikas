@@ -1,5 +1,13 @@
 # @pikas-ui/grid
 
+## 1.1.19
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/styles@3.5.16
+
 ## 1.1.18
 
 ### Patch Changes

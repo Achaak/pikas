@@ -1,5 +1,15 @@
 # @pikas-ui/progress
 
+## 1.3.17
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/skeleton@2.2.16
+  - @pikas-ui/styles@3.5.16
+  - @pikas-utils/color@1.0.5
+
 ## 1.3.16
 
 ### Patch Changes

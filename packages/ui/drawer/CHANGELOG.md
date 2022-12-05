@@ -1,5 +1,15 @@
 # @pikas-ui/drawer
 
+## 1.0.10
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/icons@3.3.16
+  - @pikas-ui/styles@3.5.16
+  - @pikas-ui/title@1.2.17
+
 ## 1.0.9
 
 ### Patch Changes

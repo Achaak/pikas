@@ -1,5 +1,19 @@
 # @pikas-ui/multi-input-field
 
+## 2.3.19
+
+### Patch Changes
+
+- fix esm
+- Updated dependencies
+  - @pikas-ui/badge@1.3.17
+  - @pikas-ui/icons@3.3.16
+  - @pikas-ui/styles@3.5.16
+  - @pikas-ui/text@4.2.18
+  - @pikas-ui/tooltip@3.3.17
+  - @pikas-utils/color@1.0.5
+  - @pikas-utils/hooks@1.0.4
+
 ## 2.3.18
 
 ### Patch Changes

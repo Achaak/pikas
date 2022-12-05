@@ -1,5 +1,11 @@
 # @pikas-utils/file
 
+## 1.0.9
+
+### Patch Changes
+
+- fix esm
+
 ## 1.0.8
 
 ### Patch Changes
