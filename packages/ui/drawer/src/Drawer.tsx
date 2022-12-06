@@ -1,7 +1,7 @@
 import { IconByName, IconProps } from '@pikas-ui/icons';
 import { PikasCSS, PikasShadow, styled } from '@pikas-ui/styles';
 import { FC, ReactNode, useMemo, useRef } from 'react';
-import * as usehooks from 'usehooks-ts';
+import { useOnClickOutside } from 'usehooks-ts';
 
 const Container = styled('div', {
   position: 'fixed',
@@ -169,7 +169,7 @@ export const Drawer: FC<DrawerProps> = ({
     onClose?.();
   };
 
-  usehooks.useOnClickOutside(ref, handleClickOutside);
+  useOnClickOutside(ref, handleClickOutside);
 
   const getCloseIconName = useMemo(() => {
     switch (position) {

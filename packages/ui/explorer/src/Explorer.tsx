@@ -14,7 +14,7 @@ import { createContext, useEffect, useRef, useState } from 'react';
 import { GridContainer } from './grid/gridContainer/index.js';
 import { ListContainer } from './list/listContainer/index.js';
 import { snapCenterToCursor } from '@dnd-kit/modifiers';
-import * as usehooks from 'usehooks-ts';
+import { useOnClickOutside } from 'usehooks-ts';
 import { useKeyPress } from '@pikas-utils/keyboard';
 import { SettingsBar } from './settingsBar/SettingsBar.js';
 import { Color } from '@pikas-utils/color';
@@ -301,7 +301,7 @@ export const Explorer: FC<ExplorerProps> = ({
     setItemsSelected([]);
   };
 
-  usehooks.useOnClickOutside(containerRef, handleResetItemsSelected);
+  useOnClickOutside(containerRef, handleResetItemsSelected);
 
   return (
     <ExplorerContext.Provider
