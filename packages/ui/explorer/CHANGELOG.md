@@ -1,5 +1,20 @@
 # @pikas-ui/explorer
 
+## 1.0.24
+
+### Patch Changes
+
+- fix esm and cjs
+- Updated dependencies
+  - @pikas-ui/styles@3.5.22
+  - @pikas-utils/screen@1.0.25
+  - @pikas-ui/context-menu@3.3.28
+  - @pikas-ui/dropdown-menu@3.4.28
+  - @pikas-ui/grid@1.1.25
+  - @pikas-ui/icons@3.3.22
+  - @pikas-ui/loader@3.3.23
+  - @pikas-ui/menu@3.3.26
+
 ## 1.0.23
 
 ### Patch Changes

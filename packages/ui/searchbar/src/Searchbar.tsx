@@ -8,7 +8,7 @@ import { styled } from '@pikas-ui/styles';
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield';
 import { Textfield } from '@pikas-ui/textfield';
 import { useEffect, useState, useRef, ReactNode, FC } from 'react';
-import usehooks from 'usehooks-ts';
+import * as usehooks from 'usehooks-ts';
 
 const useDebounce = usehooks.useDebounce;
 const useOnClickOutside = usehooks.useOnClickOutside;
