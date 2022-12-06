@@ -1,5 +1,13 @@
 # @pikas-ui/tabs
 
+## 2.2.23
+
+### Patch Changes
+
+- text fix export
+- Updated dependencies
+  - @pikas-ui/styles@3.5.21
+
 ## 2.2.22
 
 ### Patch Changes

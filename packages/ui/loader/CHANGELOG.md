@@ -1,5 +1,13 @@
 # @pikas-ui/loader
 
+## 3.3.22
+
+### Patch Changes
+
+- text fix export
+- Updated dependencies
+  - @pikas-ui/styles@3.5.21
+
 ## 3.3.21
 
 ### Patch Changes

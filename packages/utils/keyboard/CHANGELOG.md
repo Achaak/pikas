@@ -1,5 +1,11 @@
 # @pikas-utils/keyboard
 
+## 1.0.12
+
+### Patch Changes
+
+- text fix export
+
 ## 1.0.11
 
 ### Patch Changes

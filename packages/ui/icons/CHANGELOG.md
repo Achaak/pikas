@@ -1,5 +1,13 @@
 # @pikas-ui/icons
 
+## 3.3.21
+
+### Patch Changes
+
+- text fix export
+- Updated dependencies
+  - @pikas-ui/styles@3.5.21
+
 ## 3.3.20
 
 ### Patch Changes

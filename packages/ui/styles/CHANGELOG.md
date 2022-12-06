@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 3.5.21
+
+### Patch Changes
+
+- text fix export
+
 ## 3.5.20
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 import { IconByName, IconProps } from '@pikas-ui/icons';
 import { PikasCSS, PikasShadow, styled } from '@pikas-ui/styles';
 import { FC, ReactNode, useMemo, useRef } from 'react';
-import * as usehooks from 'usehooks-ts';
+import usehooks from 'usehooks-ts';
 
 const Container = styled('div', {
   position: 'fixed',

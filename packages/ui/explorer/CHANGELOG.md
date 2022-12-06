@@ -1,5 +1,23 @@
 # @pikas-ui/explorer
 
+## 1.0.23
+
+### Patch Changes
+
+- text fix export
+- Updated dependencies
+  - @pikas-ui/context-menu@3.3.27
+  - @pikas-ui/dropdown-menu@3.4.27
+  - @pikas-ui/grid@1.1.24
+  - @pikas-ui/icons@3.3.21
+  - @pikas-ui/loader@3.3.22
+  - @pikas-ui/menu@3.3.25
+  - @pikas-ui/styles@3.5.21
+  - @pikas-utils/color@1.0.8
+  - @pikas-utils/file@1.0.12
+  - @pikas-utils/keyboard@1.0.12
+  - @pikas-utils/screen@1.0.24
+
 ## 1.0.22
 
 ### Patch Changes

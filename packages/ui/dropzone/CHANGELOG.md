@@ -1,5 +1,14 @@
 # @pikas-ui/dropzone
 
+## 1.0.17
+
+### Patch Changes
+
+- text fix export
+- Updated dependencies
+  - @pikas-ui/icons@3.3.21
+  - @pikas-ui/styles@3.5.21
+
 ## 1.0.16
 
 ### Patch Changes

@@ -14,7 +14,7 @@ import { createContext, useEffect, useRef, useState } from 'react';
 import { GridContainer } from './grid/gridContainer/index.js';
 import { ListContainer } from './list/listContainer/index.js';
 import { snapCenterToCursor } from '@dnd-kit/modifiers';
-import * as usehooks from 'usehooks-ts';
+import usehooks from 'usehooks-ts';
 import { useKeyPress } from '@pikas-utils/keyboard';
 import { SettingsBar } from './settingsBar/SettingsBar.js';
 import { Color } from '@pikas-utils/color';

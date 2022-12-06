@@ -1,5 +1,11 @@
 # @pikas-utils/color
 
+## 1.0.8
+
+### Patch Changes
+
+- text fix export
+
 ## 1.0.7
 
 ### Patch Changes

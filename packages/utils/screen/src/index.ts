@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import * as usehooks from 'usehooks-ts';
+import usehooks from 'usehooks-ts';
 
 const useWindowSize = usehooks.useWindowSize;
 

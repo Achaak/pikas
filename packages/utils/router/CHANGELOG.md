@@ -1,5 +1,11 @@
 # @pikas-utils/router
 
+## 1.0.24
+
+### Patch Changes
+
+- text fix export
+
 ## 1.0.23
 
 ### Patch Changes
