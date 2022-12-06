@@ -1,5 +1,16 @@
 # @pikas-ui/multi-input-field
 
+## 2.3.22
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.19
+  - @pikas-ui/badge@1.3.20
+  - @pikas-ui/icons@3.3.19
+  - @pikas-ui/text@4.2.21
+  - @pikas-ui/tooltip@3.3.20
+
 ## 2.3.21
 
 ### Patch Changes

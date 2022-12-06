@@ -1,5 +1,13 @@
 # @pikas-ui/alert
 
+## 3.4.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.19
+  - @pikas-ui/icons@3.3.19
+
 ## 3.4.18
 
 ### Patch Changes
