@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-namespace
-import * as usehook from 'usehooks-ts';
+import * as usehooks from 'usehooks-ts';
 
-const { useWindowSize } = usehook;
+const useWindowSize = usehooks.useWindowSize;
 
 export { useWindowSize };
 

@@ -1,5 +1,16 @@
 # @pikas-ui/table
 
+## 3.2.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.18
+  - @pikas-ui/checkbox@3.3.24
+  - @pikas-ui/icons@3.3.18
+  - @pikas-ui/loader@3.3.19
+  - @pikas-ui/select@4.3.26
+
 ## 3.2.29
 
 ### Patch Changes

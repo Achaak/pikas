@@ -8,10 +8,11 @@ import { styled } from '@pikas-ui/styles';
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield';
 import { Textfield } from '@pikas-ui/textfield';
 import { useEffect, useState, useRef, ReactNode, FC } from 'react';
-// eslint-disable-next-line import/no-namespace
-import * as usehook from 'usehooks-ts';
+import * as usehooks from 'usehooks-ts';
 
-const { useDebounce, useOnClickOutside, useWindowSize } = usehook;
+const useDebounce = usehooks.useDebounce;
+const useOnClickOutside = usehooks.useOnClickOutside;
+const useWindowSize = usehooks.useWindowSize;
 
 const Form = styled('form', {
   display: 'flex',

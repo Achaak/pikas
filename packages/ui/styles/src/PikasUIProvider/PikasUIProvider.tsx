@@ -5,7 +5,7 @@ import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
 import * as usehooks from 'usehooks-ts';
 
-const { useTernaryDarkMode } = usehooks;
+const useTernaryDarkMode = usehooks.useTernaryDarkMode;
 
 export { useTernaryDarkMode };
 

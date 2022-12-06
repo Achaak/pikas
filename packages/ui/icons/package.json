@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/icons",
-  "version": "3.3.17",
+  "version": "3.3.18",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -40,7 +40,7 @@
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
     "@iconify/react": "4.0.1",
-    "@pikas-ui/styles": "3.5.17"
+    "@pikas-ui/styles": "3.5.18"
   },
   "peerDependencies": {
     "react": "18.2.0",

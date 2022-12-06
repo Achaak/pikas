@@ -1,5 +1,16 @@
 # @pikas-ui/color-picker
 
+## 1.0.14
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.18
+  - @pikas-ui/icons@3.3.18
+  - @pikas-ui/text@4.2.20
+  - @pikas-ui/textfield@3.3.23
+  - @pikas-ui/tooltip@3.3.19
+
 ## 1.0.13
 
 ### Patch Changes

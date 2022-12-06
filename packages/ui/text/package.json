@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/text",
-  "version": "4.2.19",
+  "version": "4.2.20",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.17",
+    "@pikas-ui/styles": "3.5.18",
     "@radix-ui/react-label": "2.0.0"
   },
   "peerDependencies": {

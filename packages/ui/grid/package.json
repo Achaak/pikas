@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/grid",
-  "version": "1.1.20",
+  "version": "1.1.21",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.17"
+    "@pikas-ui/styles": "3.5.18"
   },
   "peerDependencies": {
     "react": "18.2.0",
