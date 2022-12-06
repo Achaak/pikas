@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useWindowSize } from 'usehooks-ts';
+import * as usehooks from 'usehooks-ts';
 
-export { useWindowSize } from 'usehooks-ts';
+const useWindowSize = usehooks.useWindowSize;
+
+export { useWindowSize };
 
 export type Medias = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 

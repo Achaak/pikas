@@ -1,5 +1,15 @@
 # @pikas-ui/toast
 
+## 1.2.23
+
+### Patch Changes
+
+- fix export
+- Updated dependencies
+  - @pikas-ui/button@3.3.21
+  - @pikas-ui/icons@3.3.20
+  - @pikas-ui/styles@3.5.20
+
 ## 1.2.22
 
 ### Patch Changes

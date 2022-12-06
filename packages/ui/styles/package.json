@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "3.5.19",
+  "version": "3.5.20",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -19,6 +19,9 @@
       "require": "./dist/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

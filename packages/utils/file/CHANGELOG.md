@@ -1,5 +1,11 @@
 # @pikas-utils/file
 
+## 1.0.11
+
+### Patch Changes
+
+- fix export
+
 ## 1.0.10
 
 ### Patch Changes

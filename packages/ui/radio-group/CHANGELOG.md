@@ -1,5 +1,16 @@
 # @pikas-ui/radio-group
 
+## 3.3.25
+
+### Patch Changes
+
+- fix export
+- Updated dependencies
+  - @pikas-ui/icons@3.3.20
+  - @pikas-ui/styles@3.5.20
+  - @pikas-ui/text@4.2.22
+  - @pikas-ui/tooltip@3.3.21
+
 ## 3.3.24
 
 ### Patch Changes

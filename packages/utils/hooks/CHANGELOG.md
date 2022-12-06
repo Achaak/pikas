@@ -1,5 +1,11 @@
 # @pikas-utils/hooks
 
+## 1.0.6
+
+### Patch Changes
+
+- fix export
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/color",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -18,6 +18,9 @@
       "require": "./dist/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

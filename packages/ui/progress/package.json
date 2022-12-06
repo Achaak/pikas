@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/progress",
-  "version": "1.3.20",
+  "version": "1.3.21",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -19,6 +19,9 @@
       "require": "./dist/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -39,9 +42,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/skeleton": "2.2.19",
-    "@pikas-ui/styles": "3.5.19",
-    "@pikas-utils/color": "1.0.6",
+    "@pikas-ui/skeleton": "2.2.20",
+    "@pikas-ui/styles": "3.5.20",
+    "@pikas-utils/color": "1.0.7",
     "@radix-ui/react-progress": "1.0.1"
   },
   "peerDependencies": {
