@@ -5,7 +5,7 @@ import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
 import * as usehooks from 'usehooks-ts';
 
-export { useTernaryDarkMode } from 'usehooks-ts';
+export const useTernaryDarkMode = usehooks.useTernaryDarkMode;
 
 const ContainerStyled = styled('div', {
   width: 'auto',
