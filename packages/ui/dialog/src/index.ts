@@ -5,3 +5,5 @@ export * from './ErrorDialog/index.js';
 export * from './ValidateDialog/index.js';
 export * from './InfoDialog/index.js';
 export * from './SelectImageDialog/index.js';
+export * from './Components/Title/index.js';
+export * from './Components/IconContainer/index.js';

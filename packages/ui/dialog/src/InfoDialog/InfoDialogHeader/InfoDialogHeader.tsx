@@ -1,6 +1,6 @@
 import { styled } from '@pikas-ui/styles';
-import { IconContainer } from '../../Components/IconContainer/index.js';
-import { Title } from '../../Components/Title/Title.js';
+import { DialogIconContainer } from '../../Components/IconContainer/index.js';
+import { DialogTitle } from '../../Components/Title/Title.js';
 import { FC } from 'react';
 
 const Container = styled('div', {
@@ -18,7 +18,10 @@ export type InfoDialogHeaderProps = {
 
 export const InfoDialogHeader: FC<InfoDialogHeaderProps> = ({ title }) => (
   <Container>
-    <IconContainer iconName="bx:info-circle" backgroundColorName="PRIMARY" />
-    <Title>{title}</Title>
+    <DialogIconContainer
+      iconName="bx:info-circle"
+      backgroundColorName="PRIMARY"
+    />
+    <DialogTitle>{title}</DialogTitle>
   </Container>
 );

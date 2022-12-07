@@ -16,6 +16,6 @@ type InfoDialogProps = {
   css?: PikasCSS;
 };
 
-export const Title: FC<InfoDialogProps> = ({ children, css }) => (
+export const DialogTitle: FC<InfoDialogProps> = ({ children, css }) => (
   <Container css={css}>{children}</Container>
 );

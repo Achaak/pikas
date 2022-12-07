@@ -19,7 +19,7 @@ type InfoDialogProps = {
   iconName: string;
 };
 
-export const IconContainer: FC<InfoDialogProps> = ({
+export const DialogIconContainer: FC<InfoDialogProps> = ({
   backgroundColorName,
   iconName,
 }) => (

@@ -1,6 +1,6 @@
 import { styled } from '@pikas-ui/styles';
-import { IconContainer } from '../../Components/IconContainer/index.js';
-import { Title } from '../../Components/Title/Title.js';
+import { DialogIconContainer } from '../../Components/IconContainer/index.js';
+import { DialogTitle } from '../../Components/Title/Title.js';
 import { FC } from 'react';
 
 const Container = styled('div', {
@@ -20,10 +20,10 @@ export const ValidateDialogHeader: FC<ValidateDialogHeaderProps> = ({
   title,
 }) => (
   <Container>
-    <IconContainer
+    <DialogIconContainer
       iconName="ant-design:question-circle-outlined"
       backgroundColorName="WARNING"
     />
-    <Title>{title}</Title>
+    <DialogTitle>{title}</DialogTitle>
   </Container>
 );

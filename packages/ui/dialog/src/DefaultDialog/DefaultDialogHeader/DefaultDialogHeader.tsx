@@ -1,5 +1,5 @@
 import { styled } from '@pikas-ui/styles';
-import { Title } from '../../Components/Title/Title.js';
+import { DialogTitle } from '../../Components/Title/Title.js';
 import { FC } from 'react';
 
 const Container = styled('div', {
@@ -17,6 +17,6 @@ export const DefaultDialogHeader: FC<DefaultDialogHeaderProps> = ({
   title,
 }) => (
   <Container>
-    <Title css={{ textAlign: 'left' }}>{title}</Title>
+    <DialogTitle css={{ textAlign: 'left' }}>{title}</DialogTitle>
   </Container>
 );

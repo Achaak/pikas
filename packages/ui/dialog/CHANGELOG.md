@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.4.32
+
+### Patch Changes
+
+- Export title and iconContainer components
+
 ## 2.4.31
 
 ### Patch Changes

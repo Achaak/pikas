@@ -1,6 +1,6 @@
 import { styled } from '@pikas-ui/styles';
-import { IconContainer } from '../../Components/IconContainer/index.js';
-import { Title } from '../../Components/Title/index.js';
+import { DialogIconContainer } from '../../Components/IconContainer/index.js';
+import { DialogTitle } from '../../Components/Title/index.js';
 import { FC } from 'react';
 
 const Container = styled('div', {
@@ -18,7 +18,7 @@ export type ErrorDialogHeaderProps = {
 
 export const ErrorDialogHeader: FC<ErrorDialogHeaderProps> = ({ title }) => (
   <Container>
-    <IconContainer iconName="bx:x-circle" backgroundColorName="DANGER" />
-    <Title>{title}</Title>
+    <DialogIconContainer iconName="bx:x-circle" backgroundColorName="DANGER" />
+    <DialogTitle>{title}</DialogTitle>
   </Container>
 );
