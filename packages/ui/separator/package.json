@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/separator",
-  "version": "3.3.23",
+  "version": "3.3.24",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.22",
+    "@pikas-ui/styles": "3.5.23",
     "@radix-ui/react-separator": "1.0.1"
   },
   "peerDependencies": {

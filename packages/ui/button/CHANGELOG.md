@@ -1,5 +1,14 @@
 # @pikas-ui/button
 
+## 3.3.24
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.23
+  - @pikas-ui/icons@3.3.23
+  - @pikas-ui/loader@3.3.24
+
 ## 3.3.23
 
 ### Patch Changes

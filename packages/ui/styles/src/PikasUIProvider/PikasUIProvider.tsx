@@ -5,9 +5,7 @@ import merge from 'lodash.merge';
 import cloneDeep from 'lodash.clonedeep';
 import * as usehooks from 'usehooks-ts';
 
-const useTernaryDarkMode = usehooks.useTernaryDarkMode;
-
-export { useTernaryDarkMode };
+export { useTernaryDarkMode } from 'usehooks-ts';
 
 const ContainerStyled = styled('div', {
   width: 'auto',
@@ -32,7 +30,7 @@ export const PikasUIProvider: FC<PikasUIProviderProps> = ({
   const [theme, setTheme] = useState<PikasUIContextProps>(
     merge(cloneDeep(themeDefault), lightTheme)
   );
-  const { isDarkMode } = useTernaryDarkMode();
+  const { isDarkMode } = usehooks.useTernaryDarkMode();
 
   useEffect(() => {
     const newDarkTheme = darkTheme ?? lightTheme;

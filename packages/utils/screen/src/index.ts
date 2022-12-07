@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as usehooks from 'usehooks-ts';
 
-const useWindowSize = usehooks.useWindowSize;
-
-export { useWindowSize };
+export { useWindowSize } from 'usehooks-ts';
 
 export type Medias = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
@@ -39,7 +37,7 @@ export const getScreenSizeByMedia = (media: Medias): number => {
 };
 
 export const useMediaScreen = (): Medias => {
-  const { width } = useWindowSize();
+  const { width } = usehooks.useWindowSize();
   const [media, setMedia] = useState<Medias>(getMediaByScreenSize(width));
 
   useEffect(() => {
@@ -56,7 +54,7 @@ export const useMediaScreenValid = ({
   media: Medias;
   operator?: '<' | '<=' | '=' | '>' | '>=';
 }): boolean | undefined => {
-  const { width } = useWindowSize();
+  const { width } = usehooks.useWindowSize();
   const [valid, setValid] = useState<boolean | undefined>(
     width === 0 || width > getScreenSizeByMedia(media)
   );

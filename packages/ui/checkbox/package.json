@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/checkbox",
-  "version": "3.3.28",
+  "version": "3.3.29",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,9 +42,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.22",
-    "@pikas-ui/styles": "3.5.22",
-    "@pikas-ui/text": "4.2.24",
+    "@pikas-ui/icons": "3.3.23",
+    "@pikas-ui/styles": "3.5.23",
+    "@pikas-ui/text": "4.2.25",
     "@pikas-utils/color": "1.0.8",
     "@radix-ui/react-checkbox": "1.0.1"
   },

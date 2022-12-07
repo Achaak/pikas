@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/slider",
-  "version": "3.3.24",
+  "version": "3.3.25",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,9 +42,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.22",
-    "@pikas-ui/styles": "3.5.22",
-    "@pikas-ui/text": "4.2.24",
+    "@pikas-ui/icons": "3.3.23",
+    "@pikas-ui/styles": "3.5.23",
+    "@pikas-ui/text": "4.2.25",
     "@radix-ui/react-slider": "1.1.0"
   },
   "peerDependencies": {
