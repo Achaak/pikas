@@ -1,5 +1,14 @@
 # @pikas-ui/grid
 
+## 1.1.28
+
+### Patch Changes
+
+- fix: rowGap and columnGap without cols
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/styles@3.5.25
+
 ## 1.1.27
 
 ### Patch Changes

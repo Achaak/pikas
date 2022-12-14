@@ -1,5 +1,11 @@
 # @pikas-utils/color
 
+## 1.0.9
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 1.0.8
 
 ### Patch Changes

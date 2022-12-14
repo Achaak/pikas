@@ -308,19 +308,19 @@ export const Grid: FC<GridProps> = (
 
         '@xs': {
           // CONTAINER
-          ...(type === 'container' &&
-            props.cols.xs && {
+          ...(type === 'container' && {
+            ...(props.cols.xs && {
               gridTemplateColumns: `repeat(${props.cols.xs}, 1fr)`,
-
-              ...(typeof props.rowGap === 'object' &&
-                props.rowGap.xs && {
-                  rowGap: props.rowGap.xs,
-                }),
-              ...(typeof props.columnGap === 'object' &&
-                props.columnGap.xs && {
-                  columnGap: props.columnGap.xs,
-                }),
             }),
+            ...(typeof props.rowGap === 'object' &&
+              props.rowGap.xs && {
+                rowGap: props.rowGap.xs,
+              }),
+            ...(typeof props.columnGap === 'object' &&
+              props.columnGap.xs && {
+                columnGap: props.columnGap.xs,
+              }),
+          }),
 
           // ITEM
           ...(type === 'item' && {
@@ -342,19 +342,19 @@ export const Grid: FC<GridProps> = (
         },
         '@sm': {
           // CONTAINER
-          ...(type === 'container' &&
-            props.cols.sm && {
+          ...(type === 'container' && {
+            ...(props.cols.sm && {
               gridTemplateColumns: `repeat(${props.cols.sm}, 1fr)`,
-
-              ...(typeof props.rowGap === 'object' &&
-                props.rowGap.sm && {
-                  rowGap: props.rowGap.sm,
-                }),
-              ...(typeof props.columnGap === 'object' &&
-                props.columnGap.sm && {
-                  columnGap: props.columnGap.sm,
-                }),
             }),
+            ...(typeof props.rowGap === 'object' &&
+              props.rowGap.sm && {
+                rowGap: props.rowGap.sm,
+              }),
+            ...(typeof props.columnGap === 'object' &&
+              props.columnGap.sm && {
+                columnGap: props.columnGap.sm,
+              }),
+          }),
 
           // ITEM
           ...(type === 'item' && {
@@ -376,19 +376,19 @@ export const Grid: FC<GridProps> = (
         },
         '@md': {
           // CONTAINER
-          ...(type === 'container' &&
-            props.cols.md && {
+          ...(type === 'container' && {
+            ...(props.cols.md && {
               gridTemplateColumns: `repeat(${props.cols.md}, 1fr)`,
-
-              ...(typeof props.rowGap === 'object' &&
-                props.rowGap.md && {
-                  rowGap: props.rowGap.md,
-                }),
-              ...(typeof props.columnGap === 'object' &&
-                props.columnGap.md && {
-                  columnGap: props.columnGap.md,
-                }),
             }),
+            ...(typeof props.rowGap === 'object' &&
+              props.rowGap.md && {
+                rowGap: props.rowGap.md,
+              }),
+            ...(typeof props.columnGap === 'object' &&
+              props.columnGap.md && {
+                columnGap: props.columnGap.md,
+              }),
+          }),
 
           // ITEM
           ...(type === 'item' && {
@@ -410,19 +410,19 @@ export const Grid: FC<GridProps> = (
         },
         '@lg': {
           // CONTAINER
-          ...(type === 'container' &&
-            props.cols.lg && {
+          ...(type === 'container' && {
+            ...(props.cols.lg && {
               gridTemplateColumns: `repeat(${props.cols.lg}, 1fr)`,
-
-              ...(typeof props.rowGap === 'object' &&
-                props.rowGap.lg && {
-                  rowGap: props.rowGap.lg,
-                }),
-              ...(typeof props.columnGap === 'object' &&
-                props.columnGap.lg && {
-                  columnGap: props.columnGap.lg,
-                }),
             }),
+            ...(typeof props.rowGap === 'object' &&
+              props.rowGap.lg && {
+                rowGap: props.rowGap.lg,
+              }),
+            ...(typeof props.columnGap === 'object' &&
+              props.columnGap.lg && {
+                columnGap: props.columnGap.lg,
+              }),
+          }),
 
           // ITEM
           ...(type === 'item' && {
@@ -444,19 +444,19 @@ export const Grid: FC<GridProps> = (
         },
         '@xl': {
           // CONTAINER
-          ...(type === 'container' &&
-            props.cols.xl && {
+          ...(type === 'container' && {
+            ...(props.cols.xl && {
               gridTemplateColumns: `repeat(${props.cols.xl}, 1fr)`,
-
-              ...(typeof props.rowGap === 'object' &&
-                props.rowGap.xl && {
-                  rowGap: props.rowGap.xl,
-                }),
-              ...(typeof props.columnGap === 'object' &&
-                props.columnGap.xl && {
-                  columnGap: props.columnGap.xl,
-                }),
             }),
+            ...(typeof props.rowGap === 'object' &&
+              props.rowGap.xl && {
+                rowGap: props.rowGap.xl,
+              }),
+            ...(typeof props.columnGap === 'object' &&
+              props.columnGap.xl && {
+                columnGap: props.columnGap.xl,
+              }),
+          }),
 
           // ITEM
           ...(type === 'item' && {
