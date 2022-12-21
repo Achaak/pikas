@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 3.2.38
+
+### Patch Changes
+
+- fix sorting, pagination, selection
+
 ## 3.2.37
 
 ### Patch Changes

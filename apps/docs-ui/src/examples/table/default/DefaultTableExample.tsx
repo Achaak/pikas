@@ -35,6 +35,9 @@ export const DefaultTableExample: FC = () => (
         active: true,
         // onRowSelectionChange: console.log,
       }}
+      sorting={{
+        active: true,
+      }}
     />
   </ExampleContainer>
 );

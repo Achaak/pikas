@@ -303,20 +303,32 @@ export const Table = <T extends Record<string, unknown>>({
   const table = useReactTable({
     data,
     columns: columnsMemo,
-    state: {},
+    state: {
+      // Pagination
+      ...(pagination?.active
+        ? {
+            pagination: paginationMemo,
+          }
+        : {}),
 
-    // Pagination
-    ...(pagination?.active
-      ? {
-          pagination: paginationMemo,
-          onPaginationChange: handlePaginationChange,
-        }
-      : {}),
+      // Selection
+      ...(selection?.active
+        ? {
+            rowSelection: selectionState,
+          }
+        : {}),
+
+      // Sorting
+      ...(sorting?.active
+        ? {
+            sorting: sortingState,
+          }
+        : {}),
+    },
 
     // Selection
     ...(selection?.active
       ? {
-          rowSelection: selectionState,
           onRowSelectionChange: handleRowSelectionChange,
         }
       : {}),
@@ -324,7 +336,6 @@ export const Table = <T extends Record<string, unknown>>({
     // Sorting
     ...(sorting?.active
       ? {
-          sorting: sortingState,
           onSortingChange: setSortingState,
           getSortedRowModel: getSortedRowModel(),
         }
@@ -333,7 +344,7 @@ export const Table = <T extends Record<string, unknown>>({
     // Pagination
     ...(pagination?.active
       ? {
-          onPaginationChange: pagination?.onPaginationChange,
+          onPaginationChange: handlePaginationChange,
           getPaginationRowModel: getPaginationRowModel(),
         }
       : {}),
