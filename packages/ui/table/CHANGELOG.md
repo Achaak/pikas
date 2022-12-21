@@ -1,5 +1,18 @@
 # @pikas-ui/table
 
+## 3.2.39
+
+### Patch Changes
+
+- 0de2a9ae: Upgrade dependencies
+- Updated dependencies [0de2a9ae]
+  - @pikas-ui/checkbox@3.3.32
+  - @pikas-utils/color@1.0.10
+  - @pikas-ui/loader@3.3.27
+  - @pikas-ui/select@4.3.34
+  - @pikas-ui/styles@3.5.26
+  - @pikas-ui/icons@3.3.26
+
 ## 3.2.38
 
 ### Patch Changes

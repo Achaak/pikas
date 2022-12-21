@@ -1,5 +1,13 @@
 # @pikas-ui/grid
 
+## 1.1.29
+
+### Patch Changes
+
+- 0de2a9ae: Upgrade dependencies
+- Updated dependencies [0de2a9ae]
+  - @pikas-ui/styles@3.5.26
+
 ## 1.1.28
 
 ### Patch Changes

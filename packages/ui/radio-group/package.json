@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/radio-group",
-  "version": "3.3.30",
+  "version": "3.3.31",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,10 +42,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.25",
-    "@pikas-ui/styles": "3.5.25",
-    "@pikas-ui/text": "4.2.27",
-    "@pikas-ui/tooltip": "3.3.26",
+    "@pikas-ui/icons": "3.3.26",
+    "@pikas-ui/styles": "3.5.26",
+    "@pikas-ui/text": "4.2.28",
+    "@pikas-ui/tooltip": "3.3.27",
     "@radix-ui/react-label": "2.0.0",
     "@radix-ui/react-radio-group": "1.1.0"
   },

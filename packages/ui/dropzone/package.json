@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dropzone",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,8 +42,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.25",
-    "@pikas-ui/styles": "3.5.25",
+    "@pikas-ui/icons": "3.3.26",
+    "@pikas-ui/styles": "3.5.26",
     "file-selector": "^0.6.0",
     "react-dropzone": "^14.2.3"
   },
