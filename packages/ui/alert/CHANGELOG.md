@@ -1,5 +1,15 @@
 # @pikas-ui/alert
 
+## 3.4.27
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-utils/color@1.0.11
+  - @pikas-ui/styles@3.5.27
+  - @pikas-ui/icons@3.3.27
+
 ## 3.4.26
 
 ### Patch Changes

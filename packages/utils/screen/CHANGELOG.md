@@ -1,5 +1,11 @@
 # @pikas-utils/screen
 
+## 1.0.30
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 1.0.29
 
 ### Patch Changes

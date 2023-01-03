@@ -1,5 +1,19 @@
 # @pikas-ui/table
 
+## 3.2.40
+
+### Patch Changes
+
+- Fix columns rerender
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/checkbox@3.3.33
+  - @pikas-utils/color@1.0.11
+  - @pikas-ui/loader@3.3.28
+  - @pikas-ui/select@4.3.35
+  - @pikas-ui/styles@3.5.27
+  - @pikas-ui/icons@3.3.27
+
 ## 3.2.39
 
 ### Patch Changes

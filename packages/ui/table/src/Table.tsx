@@ -297,7 +297,7 @@ export const Table = <T extends Record<string, unknown>>({
         : []),
       ...columns,
     ],
-    []
+    [columns, selection?.active]
   );
 
   const table = useReactTable({

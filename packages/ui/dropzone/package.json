@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dropzone",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,8 +42,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.26",
-    "@pikas-ui/styles": "3.5.26",
+    "@pikas-ui/icons": "3.3.27",
+    "@pikas-ui/styles": "3.5.27",
     "file-selector": "^0.6.0",
     "react-dropzone": "^14.2.3"
   },
@@ -54,11 +54,11 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.11.17",
+    "@types/node": "18.11.18",
     "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.9",
+    "@types/react-dom": "18.0.10",
     "cross-env": "7.0.3",
-    "eslint": "8.30.0",
+    "eslint": "8.31.0",
     "eslint-config-custom": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",

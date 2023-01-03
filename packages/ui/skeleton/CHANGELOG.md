@@ -1,5 +1,13 @@
 # @pikas-ui/skeleton
 
+## 2.2.27
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/styles@3.5.27
+
 ## 2.2.26
 
 ### Patch Changes

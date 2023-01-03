@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/drawer",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,9 +42,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "3.3.26",
-    "@pikas-ui/styles": "3.5.26",
-    "@pikas-ui/title": "1.2.27",
+    "@pikas-ui/icons": "3.3.27",
+    "@pikas-ui/styles": "3.5.27",
+    "@pikas-ui/title": "1.2.28",
     "usehooks-ts": "2.9.1"
   },
   "peerDependencies": {
@@ -54,11 +54,11 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.11.17",
+    "@types/node": "18.11.18",
     "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.9",
+    "@types/react-dom": "18.0.10",
     "cross-env": "7.0.3",
-    "eslint": "8.30.0",
+    "eslint": "8.31.0",
     "eslint-config-custom": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",

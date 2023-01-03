@@ -1,5 +1,11 @@
 # @pikas-utils/file
 
+## 1.0.15
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 1.0.14
 
 ### Patch Changes
