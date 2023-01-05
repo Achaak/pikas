@@ -7,6 +7,12 @@ const Container = styled('div', {
   alignItems: 'center',
   width: '100%',
   color: '$BLACK',
+  textAlign: 'center',
+
+  padding: '0px 32px',
+  '@sm': {
+    padding: '0px 40px',
+  },
 });
 
 export type ValidateDialogContentProps = {

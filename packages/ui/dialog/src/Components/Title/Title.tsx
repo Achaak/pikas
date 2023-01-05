@@ -8,7 +8,8 @@ const Container = styled(DialogPrimitive.Title, {
   color: '$BLACK',
   fontSize: '$EM-XX-LARGE',
   textAlign: 'center',
-  width: '100%',
+  width: 'fit-content',
+  maxWidth: '100%',
 });
 
 type InfoDialogProps = {

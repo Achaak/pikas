@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 2.4.36
+
+### Patch Changes
+
+- Fix padding
+
 ## 2.4.35
 
 ### Patch Changes

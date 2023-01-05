@@ -24,6 +24,15 @@ export const SuccessDialogHeader: FC<SuccessDialogHeaderProps> = ({
       iconName="bx:check-circle"
       backgroundColorName="SUCCESS"
     />
-    <DialogTitle>{title}</DialogTitle>
+    <DialogTitle
+      css={{
+        padding: '0px 32px',
+        '@sm': {
+          padding: '0px 40px',
+        },
+      }}
+    >
+      {title}
+    </DialogTitle>
   </Container>
 );

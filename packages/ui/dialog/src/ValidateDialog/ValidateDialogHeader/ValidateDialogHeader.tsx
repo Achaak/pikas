@@ -24,6 +24,15 @@ export const ValidateDialogHeader: FC<ValidateDialogHeaderProps> = ({
       iconName="ant-design:question-circle-outlined"
       backgroundColorName="WARNING"
     />
-    <DialogTitle>{title}</DialogTitle>
+    <DialogTitle
+      css={{
+        padding: '0px 32px',
+        '@sm': {
+          padding: '0px 40px',
+        },
+      }}
+    >
+      {title}
+    </DialogTitle>
   </Container>
 );
