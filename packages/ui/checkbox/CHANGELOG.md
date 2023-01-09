@@ -1,5 +1,14 @@
 # @pikas-ui/checkbox
 
+## 3.3.34
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@3.5.28
+  - @pikas-ui/icons@3.3.28
+  - @pikas-ui/text@4.2.30
+
 ## 3.3.33
 
 ### Patch Changes
