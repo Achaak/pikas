@@ -171,7 +171,7 @@ export type CheckboxItem = ItemBase & {
   label: ReactNode;
   iconColorName?: PikasColor;
   iconColorHex?: string;
-  rightSlot?: string;
+  rightSlot?: ReactNode;
   disabled?: boolean;
   onCheckedChange: (checked: boolean | 'indeterminate') => Promise<void> | void;
   css?: {

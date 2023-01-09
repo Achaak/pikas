@@ -1,5 +1,11 @@
 # @pikas-ui/menu
 
+## 3.3.32
+
+### Patch Changes
+
+- Update type
+
 ## 3.3.31
 
 ### Patch Changes
