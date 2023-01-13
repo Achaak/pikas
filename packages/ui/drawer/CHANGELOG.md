@@ -1,5 +1,11 @@
 # @pikas-ui/drawer
 
+## 1.0.23
+
+### Patch Changes
+
+- Update type
+
 ## 1.0.22
 
 ### Patch Changes

@@ -131,7 +131,7 @@ export type DrawerProps = {
   padding?: DrawerPadding;
   boxShadow?: PikasShadow;
   closeIfClickOutside?: boolean;
-  title?: string;
+  title?: ReactNode;
   width?: number;
   minWidth?: number;
   maxWidth?: number;
