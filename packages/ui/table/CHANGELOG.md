@@ -1,5 +1,29 @@
 # @pikas-ui/table
 
+## 3.2.43
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/checkbox@3.4.0
+
+## 3.2.42
+
+### Patch Changes
+
+- Fix selection
+- Add hideColumns props
+- Upgrade dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @pikas-ui/checkbox@3.3.35
+  - @pikas-utils/color@1.0.12
+  - @pikas-ui/loader@3.3.30
+  - @pikas-ui/select@4.3.37
+  - @pikas-ui/styles@3.5.29
+  - @pikas-ui/icons@3.3.29
+
 ## 3.2.41
 
 ### Patch Changes

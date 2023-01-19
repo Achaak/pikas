@@ -12,28 +12,33 @@ export const DefaultTableExample: FC = () => (
         {
           header: 'Age',
           accessorKey: 'age',
+          id: 'age',
           cell: (props) => props.getValue<string>(),
         },
         {
           header: 'First Name',
           accessorKey: 'firstName',
+          id: 'firstName',
         },
         {
           header: 'Last Name',
           accessorKey: 'lastName',
+          id: 'lastName',
         },
         {
           header: 'Email',
           accessorKey: 'email',
+          id: 'email',
         },
         {
           header: 'Number',
           accessorKey: 'number',
+          id: 'number',
         },
       ]}
       selection={{
         active: true,
-        // onRowSelectionChange: console.log,
+        onRowSelectionChange: console.log,
       }}
       sorting={{
         active: true,

@@ -1,5 +1,14 @@
 # @pikas-ui/tooltip
 
+## 3.3.30
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-utils/color@1.0.12
+  - @pikas-ui/styles@3.5.29
+
 ## 3.3.29
 
 ### Patch Changes

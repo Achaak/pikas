@@ -13,30 +13,37 @@ export const LightTableExample: FC = () => (
         {
           header: 'Age',
           accessorKey: 'age',
+          id: 'age',
           cell: (props) => props.getValue<string>(),
         },
         {
           header: 'Name',
+          id: 'name',
           columns: [
             {
               header: 'First Name',
+              id: 'firstName',
               accessorKey: 'firstName',
             },
             {
               header: 'Last Name',
+              id: 'lastName',
               accessorKey: 'lastName',
             },
           ],
         },
         {
           header: 'Data',
+          id: 'data',
           columns: [
             {
               header: 'Email',
+              id: 'email',
               accessorKey: 'email',
             },
             {
               header: 'Number',
+              id: 'number',
               accessorKey: 'number',
             },
           ],

@@ -1,5 +1,24 @@
 # @pikas-ui/checkbox
 
+## 3.4.0
+
+### Minor Changes
+
+- Remove indeterminate props and add indeterminate type in checked props
+
+## 3.3.35
+
+### Patch Changes
+
+- Update onChange type
+- Upgrade dependencies
+- Add onChangeEvent props
+- Updated dependencies
+  - @pikas-utils/color@1.0.12
+  - @pikas-ui/styles@3.5.29
+  - @pikas-ui/icons@3.3.29
+  - @pikas-ui/text@4.2.31
+
 ## 3.3.34
 
 ### Patch Changes

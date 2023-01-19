@@ -9,8 +9,7 @@ import { useTheme, styled } from '@pikas-ui/styles';
 import type { IconCSS } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import { Label, TextError } from '@pikas-ui/text';
-import type { ReactNode } from 'react';
-import { useEffect, useState, FC } from 'react';
+import { ReactNode, useRef, useEffect, useState, FC } from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { Color } from '@pikas-utils/color';
 
@@ -61,9 +60,12 @@ export type CheckboxCSS = {
   icon?: IconCSS;
 };
 
+export type CheckboxValue = CheckboxPrimitive.CheckedState;
+
 export type CheckboxProps = {
-  defaultChecked?: boolean;
-  onChange?: (checked: boolean) => void;
+  defaultChecked?: CheckboxValue;
+  onChange?: (checked: CheckboxValue) => void;
+  onChangeEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   id?: string;
   label?: ReactNode | string;
   backgroundColorName?: PikasColor;
@@ -75,14 +77,13 @@ export type CheckboxProps = {
   borderRadius?: BorderRadius;
   fontSize?: PikasFontSize;
   size?: number;
-  checked?: boolean;
+  checked?: CheckboxValue;
   className?: string;
   disabled?: boolean;
   required?: boolean;
   name?: string;
   side?: CheckboxSide;
   outline?: boolean;
-  indeterminate?: boolean;
   css?: CheckboxCSS;
 };
 
@@ -107,18 +108,18 @@ export const Checkbox: FC<CheckboxProps> = ({
   size = 24,
   side = 'right',
   outline = true,
-  indeterminate = false,
   css,
+  onChangeEvent,
 }) => {
   const theme = useTheme();
 
-  const [isChecked, setIsChecked] = useState<boolean | 'indeterminate'>(
-    indeterminate ? 'indeterminate' : defaultChecked
-  );
+  const [isChecked, setIsChecked] = useState<CheckboxValue>(defaultChecked);
   const [focus, setFocus] = useState(false);
+  const refInput = useRef<HTMLInputElement>(null);
 
-  const handleChange = (newChecked: boolean): void => {
+  const handleChange = (newChecked: CheckboxPrimitive.CheckedState): void => {
     setIsChecked(newChecked);
+    refInput.current?.click();
 
     if (onChange) {
       onChange(newChecked);
@@ -130,16 +131,6 @@ export const Checkbox: FC<CheckboxProps> = ({
       setIsChecked(checked);
     }
   }, [checked]);
-
-  useEffect(() => {
-    if (indeterminate) {
-      setIsChecked('indeterminate');
-    }
-  }, [indeterminate]);
-
-  useEffect(() => {
-    setIsChecked(defaultChecked);
-  }, [defaultChecked]);
 
   return (
     <Container
@@ -169,6 +160,17 @@ export const Checkbox: FC<CheckboxProps> = ({
             {label}
           </Label>
         ) : null}
+
+        <input
+          ref={refInput}
+          type="checkbox"
+          id={`${id}-input`}
+          onChange={onChangeEvent}
+          checked={typeof isChecked === 'boolean' ? isChecked : true}
+          style={{
+            display: 'none',
+          }}
+        />
 
         <CheckboxStyled
           defaultChecked={defaultChecked}

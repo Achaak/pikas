@@ -11,6 +11,6 @@
     "clean": "rm -rf .turbo node_modules"
   },
   "devDependencies": {
-    "prettier": "^2.8.2"
+    "prettier": "^2.8.3"
   }
 }

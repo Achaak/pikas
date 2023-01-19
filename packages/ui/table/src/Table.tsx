@@ -206,6 +206,7 @@ export type TableProps<T extends Record<string, unknown>> = {
   css?: TableCSS<T>;
   padding?: TablePadding;
   hoverEffect?: boolean;
+  hideColumns?: string[];
 };
 
 export const Table = <T extends Record<string, unknown>>({
@@ -223,6 +224,7 @@ export const Table = <T extends Record<string, unknown>>({
   },
   emptyMessage,
   hoverEffect = true,
+  hideColumns,
 }: TableProps<T>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
     selection?.defaultState ?? selection?.state ?? {}
@@ -263,9 +265,14 @@ export const Table = <T extends Record<string, unknown>>({
   const handleRowSelectionChange = (
     state: Updater<RowSelectionState>
   ): void => {
-    selection?.onRowSelectionChange?.(state);
     setSelectionState(state);
   };
+
+  useEffect(() => {
+    if (selection?.onRowSelectionChange) {
+      selection?.onRowSelectionChange?.(selectionState);
+    }
+  }, [selectionState]);
   /* Selection */
 
   const columnsMemo = useMemo<Array<ColumnDef<T>>>(
@@ -278,24 +285,32 @@ export const Table = <T extends Record<string, unknown>>({
                 <Checkbox
                   size={20}
                   borderRadius="sm"
-                  checked={table.getIsAllRowsSelected()}
-                  onChange={table.toggleAllRowsSelected}
-                  indeterminate={table.getIsSomeRowsSelected()}
+                  checked={
+                    table.getIsSomeRowsSelected()
+                      ? 'indeterminate'
+                      : table.getIsAllRowsSelected()
+                  }
+                  onChangeEvent={table.getToggleAllRowsSelectedHandler()}
+                  id="select-all"
                 />
               ),
               cell: ({ row }) => (
                 <Checkbox
                   size={20}
                   borderRadius="sm"
-                  checked={row.getIsSelected()}
-                  onChange={row.toggleSelected}
-                  indeterminate={row.getIsSomeSelected()}
+                  checked={
+                    row.getIsSomeSelected()
+                      ? 'indeterminate'
+                      : row.getIsSelected()
+                  }
+                  onChangeEvent={row.getToggleSelectedHandler()}
+                  id={`select-${row.id}`}
                 />
               ),
             },
           ] as Array<ColumnDef<T>>)
         : []),
-      ...columns,
+      ...columns.filter(({ id }) => (id ? !hideColumns?.includes(id) : true)),
     ],
     [columns, selection?.active]
   );

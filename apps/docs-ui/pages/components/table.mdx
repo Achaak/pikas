@@ -92,31 +92,38 @@ const Example: React.FC = () => {
         {
           header: 'Age',
           accessorKey: 'age',
+          id: 'age',
           cell: (props) => props.getValue<string>(),
         },
         {
           header: 'Name',
+          id: 'name',
           columns: [
             {
               header: 'First Name',
+              id: 'firstName',
               accessorKey: 'firstName',
             },
             {
               header: 'Last Name',
+              id: 'lastName',
               accessorKey: 'lastName',
             },
           ],
         },
         {
           header: 'Data',
+          id: 'data',
           columns: [
             {
               header: 'Email',
               accessorKey: 'email',
+              id: 'email',
             },
             {
               header: 'Number',
               accessorKey: 'number',
+              id: 'number',
             },
           ],
         },
@@ -141,6 +148,7 @@ const Example: React.FC = () => {
 | `css`          | The css of the table                        | `TableCSS<T>`          | -           |
 | `padding`      | The padding of the table                    | `TablePadding`         | -           |
 | `hoverEffect`  | If the table has a hover effect             | `boolean`              | `true`      |
+| `hideColumns`  | Hide columns by id                          | `string[]`             | -           |
 
 ---
 

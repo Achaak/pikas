@@ -1,5 +1,13 @@
 # @pikas-ui/separator
 
+## 3.3.30
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/styles@3.5.29
+
 ## 3.3.29
 
 ### Patch Changes
