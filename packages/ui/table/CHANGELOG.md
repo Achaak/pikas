@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 3.2.44
+
+### Patch Changes
+
+- fix render of hideColumns
+
 ## 3.2.43
 
 ### Patch Changes

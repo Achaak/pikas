@@ -312,7 +312,7 @@ export const Table = <T extends Record<string, unknown>>({
         : []),
       ...columns.filter(({ id }) => (id ? !hideColumns?.includes(id) : true)),
     ],
-    [columns, selection?.active]
+    [columns, selection?.active, hideColumns]
   );
 
   const table = useReactTable({
