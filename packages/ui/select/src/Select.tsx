@@ -202,6 +202,12 @@ export type SelectCSS = {
   content?: PikasCSS;
 };
 
+export type SelectData = Array<{
+  name?: string;
+  hidden?: boolean;
+  items: SelectItem[];
+}>;
+
 export type SelectProps = {
   css?: SelectCSS;
   hasSearch?: boolean;
@@ -213,11 +219,7 @@ export type SelectProps = {
   fontSize?: PikasFontSize;
   borderColorName?: PikasColor;
   borderWidth?: number;
-  data: Array<{
-    name?: string;
-    hidden?: boolean;
-    items: SelectItem[];
-  }>;
+  data: SelectData;
   id?: string;
   onChange?: (value: string) => void;
   defaultValue: string;

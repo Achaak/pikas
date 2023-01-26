@@ -1,5 +1,11 @@
 # @pikas-ui/select
 
+## 4.3.38
+
+### Patch Changes
+
+- Export SelectData type
+
 ## 4.3.37
 
 ### Patch Changes

@@ -1344,7 +1344,7 @@ importers:
       '@pikas-ui/checkbox': 3.4.0
       '@pikas-ui/icons': 3.3.29
       '@pikas-ui/loader': 3.3.30
-      '@pikas-ui/select': 4.3.37
+      '@pikas-ui/select': 4.3.38
       '@pikas-ui/styles': 3.5.29
       '@pikas-utils/color': 1.0.12
       '@pikas/prettier': workspace:*
