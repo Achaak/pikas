@@ -1,5 +1,12 @@
 # @pikas-ui/dialog
 
+## 2.4.39
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/title@1.2.31
+
 ## 2.4.38
 
 ### Patch Changes

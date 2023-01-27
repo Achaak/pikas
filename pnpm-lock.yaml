@@ -605,7 +605,7 @@ importers:
       '@pikas-ui/loader': 3.3.30
       '@pikas-ui/slider': 3.3.31
       '@pikas-ui/styles': 3.5.29
-      '@pikas-ui/title': 1.2.30
+      '@pikas-ui/title': 1.2.31
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-dialog': 1.0.2
@@ -651,7 +651,7 @@ importers:
     specifiers:
       '@pikas-ui/icons': 3.3.29
       '@pikas-ui/styles': 3.5.29
-      '@pikas-ui/title': 1.2.30
+      '@pikas-ui/title': 1.2.31
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.18

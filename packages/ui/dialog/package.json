@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.4.38",
+  "version": "2.4.39",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -47,7 +47,7 @@
     "@pikas-ui/loader": "3.3.30",
     "@pikas-ui/slider": "3.3.31",
     "@pikas-ui/styles": "3.5.29",
-    "@pikas-ui/title": "1.2.30",
+    "@pikas-ui/title": "1.2.31",
     "@radix-ui/react-dialog": "1.0.2",
     "compressorjs": "1.1.1",
     "get-orientation": "1.1.2",

@@ -1,5 +1,11 @@
 # @pikas-ui/title
 
+## 1.2.31
+
+### Patch Changes
+
+- Update textTransform possibility
+
 ## 1.2.30
 
 ### Patch Changes

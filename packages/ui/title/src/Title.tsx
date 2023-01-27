@@ -8,10 +8,6 @@ const TitleStyle = styled('h1', {
   whiteSpace: 'pre-line',
   color: '$BLACK',
 
-  '&:first-letter': {
-    textTransform: 'uppercase',
-  },
-
   variants: {
     variant: {
       h1: {
@@ -45,6 +41,25 @@ const TitleStyle = styled('h1', {
         letterSpacing: '$SMALL',
       },
     },
+    textTransform: {
+      uppercase: {
+        textTransform: 'uppercase',
+      },
+      lowercase: {
+        textTransform: 'lowercase',
+      },
+      capitalizeWords: {
+        textTransform: 'capitalize',
+      },
+      none: {
+        textTransform: 'none',
+      },
+      capitalizeFirstLetter: {
+        '&:first-letter': {
+          textTransform: 'uppercase',
+        },
+      },
+    },
   },
 });
 
@@ -61,7 +76,8 @@ export type TitleAs = keyof typeof titleComponent;
 export const textTransformComponent = {
   uppercase: true,
   lowercase: true,
-  capitalize: true,
+  capitalizeFirstLetter: true,
+  capitalizeWords: true,
   none: true,
 } as const;
 export type TitleTextTransform = keyof typeof textTransformComponent;
