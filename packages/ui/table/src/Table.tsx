@@ -438,7 +438,7 @@ export const Table = <T extends Record<string, unknown>>({
       <Content css={css?.content}>
         <TableStyled
           variant={variant}
-          css={{ ...css?.table, width: table.getCenterTotalSize() }}
+          css={{ width: table.getCenterTotalSize(), ...css?.table }}
         >
           <Thead
             variant={variant}
