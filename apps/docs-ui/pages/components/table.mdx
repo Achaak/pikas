@@ -1,6 +1,7 @@
 import { DefaultTableExample } from './../../src/examples/table/default';
 import { LightTableExample } from './../../src/examples/table/light';
 import { docsUIRoutes } from '@pikas/docs-routes';
+import { Alert } from '@pikas-ui/alert';
 export const { getLink } = docsUIRoutes;
 import { NextSeo } from 'next-seo';
 
@@ -135,21 +136,90 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop           | Description                                 | Type                   | Default     |
-| :------------- | :------------------------------------------ | :--------------------- | :---------- |
-| `variant`      | The variant of the table                    | `TableVariant`         | `"default"` |
-| `data`         | The data of the table                       | `T[]`                  | -           |
-| `emptyMessage` | The message to show when the table is empty | `ReactNode`            | -           |
-| `hasTfoot`     | If the table has a tfoot                    | `boolean`              | `false`     |
-| `pagination`   | The pagination of the table                 | `TablePaginationProps` | -           |
-| `selection`    | The selection of the table                  | `TableSelection`       | -           |
-| `sorting`      | The sorting of the table                    | `TableSorting`         | -           |
-| `columns`      | The columns of the table                    | `ColumnDef<T>[]`       | -           |
-| `css`          | The css of the table                        | `TableCSS<T>`          | -           |
-| `padding`      | The padding of the table                    | `TablePadding`         | -           |
-| `hoverEffect`  | If the table has a hover effect             | `boolean`              | `true`      |
-| `hideColumns`  | Hide columns by id                          | `string[]`             | -           |
+| Prop               | Description                                 | Type                   | Default     |
+| :----------------- | :------------------------------------------ | :--------------------- | :---------- |
+| `data`             | The data of the table                       | `T[]`                  | -           |
+| `columns`          | The columns of the table                    | `ColumnDef<T>[]`       | -           |
+| `variant`          | The variant of the table                    | `TableVariant`         | `"default"` |
+| `emptyMessage`     | The message to show when the table is empty | `ReactNode`            | -           |
+| `hasTfoot`         | If the table has a tfoot                    | `boolean`              | `false`     |
+| `pagination`       | The pagination of the table                 | `TablePaginationProps` | -           |
+| `selection`        | The selection of the table                  | `TableSelection`       | -           |
+| `columnOrder`      | The column order of the table               | `TableColumnOrder`     | -           |
+| `columnVisibility` | The column visibility of the table          | `TableVisibility`      | -           |
+| `resizing`         | The resizing of the table                   | `TableResize`          | -           |
+| `sorting`          | The sorting of the table                    | `TableSorting`         | -           |
+| `css`              | The css of the table                        | `TableCSS<T>`          | -           |
+| `padding`          | The padding of the table                    | `TablePadding`         | -           |
+| `hoverEffect`      | If the table has a hover effect             | `boolean`              | `true`      |
 
 ---
 
 [Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/table.mdx)
+
+
+
+#### Pagination
+Allows you to activate the data pagination.
+
+| Prop                 | Description                                      | Type                          | Default |
+| :------------------- | :----------------------------------------------- | :---------------------------- | :------ |
+| `enabled`            | If the pagination is enabled                     | `boolean`                     | `false` |
+| `state`              | The state of the pagination                      | `PaginationState`             | -       |
+| `selectValue`        | The select value of the pagination               | `number[]`                    | -       |
+| `onPaginationChange` | The function to call when the pagination changes | `OnChangeFn<PaginationState>` | -       |
+
+#### Selection
+Enable data selection by adding checkboxes.
+
+| Prop                   | Description                                     | Type                            | Default |
+| :--------------------- | :---------------------------------------------- | :------------------------------ | :------ |
+| `enabled`              | If the selection is enabled                     | `boolean`                       | `false` |
+| `state`                | The state of the selection                      | `RowSelectionState`             | -       |
+| `defaultState`         | The default state of the selection              | `RowSelectionState`             | -       |
+| `onRowSelectionChange` | The function to call when the selection changes | `OnChangeFn<RowSelectionState>` | -       |
+
+#### Sorting
+Allows you to activate the data sorting.
+
+| Prop              | Description                                   | Type                       | Default |
+| :---------------- | :-------------------------------------------- | :------------------------- | :------ |
+| `enabled`         | If the sorting is enabled                     | `boolean`                  | `false` |
+| `state`           | The state of the sorting                      | `SortingState`             | -       |
+| `defaultState`    | The default state of the sorting              | `SortingState`             | -       |
+| `onSortingChange` | The function to call when the sorting changes | `OnChangeFn<SortingState>` | -       |
+
+
+#### Column Visibility
+Allows you to activate the display or not of columns.
+
+| Prop                 | Description                                             | Type                          | Default |
+| :------------------- | :------------------------------------------------------ | :---------------------------- | :------ |
+| `enabled`            | If the column visibility is enabled                     | `boolean`                     | `false` |
+| `state`              | The state of the column visibility                      | `VisibilityState`             | -       |
+| `onVisibilityChange` | The function to call when the column visibility changes | `OnChangeFn<VisibilityState>` | -       |
+
+
+
+#### Column Order
+Allows to activate the moving of the columns.
+
+| Prop                  | Description                                        | Type                           | Default |
+| :-------------------- | :------------------------------------------------- | :----------------------------- | :------ |
+| `enabled`             | If the column order is enabled                     | `boolean`                      | `false` |
+| `defaultState`        | The default state of the column order              | `ColumnOrderState`             | -       |
+| `onColumnOrderChange` | The function to call when the column order changes | `OnChangeFn<ColumnOrderState>` | -       |
+
+<Alert variant="warning">
+  Column order is not enabled if you have a nested column.  
+</Alert>
+
+#### Resizing
+Enables changing the width of the columns.
+
+| Prop       | Description                                    | Type                            | Default |
+| :--------- | :--------------------------------------------- | :------------------------------ | :------ |
+| `enabled`  | If the resizing is enabled                     | `boolean`                       | `false` |
+| `mode`     | The mode of the resizing                       | `ColumnResizeMode`              | -       |
+| `onResize` | The function to call when the resizing changes | `OnChangeFn<ColumnSizingState>` | -       |
+

@@ -25,6 +25,7 @@
     "clonedeep",
     "Iconify",
     "Pacman",
+    "tanstack",
     "usehooks"
   ]
 }

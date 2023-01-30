@@ -37,11 +37,18 @@ export const DefaultTableExample: FC = () => (
         },
       ]}
       selection={{
-        active: true,
+        enabled: true,
         onRowSelectionChange: console.log,
       }}
       sorting={{
-        active: true,
+        enabled: true,
+      }}
+      resizing={{
+        enabled: true,
+        mode: 'onChange',
+      }}
+      columnOrder={{
+        enabled: true,
       }}
     />
   </ExampleContainer>

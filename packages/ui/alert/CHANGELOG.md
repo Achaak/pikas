@@ -1,5 +1,11 @@
 # @pikas-ui/alert
 
+## 3.4.30
+
+### Patch Changes
+
+- Remove the <p> element if ReactNode is passed in the children props
+
 ## 3.4.29
 
 ### Patch Changes

@@ -60,7 +60,7 @@ export type PaginationCSS = {
   leftContainer?: PikasCSS;
   rightContainer?: PikasCSS;
   pageNumber?: PikasCSS;
-  pageNumberActive?: PikasCSS;
+  pageNumberEnabled?: PikasCSS;
   select?: SelectCSS;
   buttonChevronsLeft?: PikasCSS;
   buttonChevronsRight?: PikasCSS;
@@ -128,7 +128,7 @@ export const Pagination: FC<PaginationProps> = ({
                 backgroundColor: '$PRIMARY',
                 color:
                   theme && new Color(theme.colors.PRIMARY.value).getContrast(),
-                ...css?.pageNumberActive,
+                ...css?.pageNumberEnabled,
               }),
             }}
           >

@@ -1,5 +1,17 @@
 # @pikas-ui/table
 
+## 3.3.0
+
+### Minor Changes
+
+- Replace active to enabled
+
+### Patch Changes
+
+- Add columnVisibility props
+- Add resizing props
+- Add columnOrder props
+
 ## 3.2.45
 
 ### Patch Changes

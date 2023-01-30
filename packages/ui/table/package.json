@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "3.2.45",
+  "version": "3.3.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,6 +42,10 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
+    "@dnd-kit/core": "^6.0.7",
+    "@dnd-kit/modifiers": "^6.0.1",
+    "@dnd-kit/sortable": "^7.0.2",
+    "@dnd-kit/utilities": "^3.2.1",
     "@pikas-ui/checkbox": "3.4.0",
     "@pikas-ui/icons": "3.3.29",
     "@pikas-ui/loader": "3.3.30",

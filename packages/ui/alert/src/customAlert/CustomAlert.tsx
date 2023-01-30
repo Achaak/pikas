@@ -115,6 +115,7 @@ export const CustomAlert: FC<CustomAlertProps> = ({
         css={{
           ...css?.child,
         }}
+        as={typeof children === 'string' ? 'span' : 'div'}
       >
         {children}
       </Child>

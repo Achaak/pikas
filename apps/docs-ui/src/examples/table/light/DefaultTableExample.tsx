@@ -50,7 +50,10 @@ export const LightTableExample: FC = () => (
         },
       ]}
       pagination={{
-        active: true,
+        enabled: true,
+      }}
+      columnOrder={{
+        enabled: true,
       }}
     />
   </ExampleContainer>

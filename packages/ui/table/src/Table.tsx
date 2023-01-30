@@ -1,11 +1,15 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import type {
   ColumnDef,
+  ColumnOrderState,
+  ColumnResizeMode,
+  ColumnSizingState,
   OnChangeFn,
   PaginationState,
   RowSelectionState,
   SortingState,
   Updater,
+  VisibilityState,
 } from '@tanstack/react-table';
 import {
   flexRender,
@@ -20,14 +24,18 @@ import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { PaginationCSS } from './pagination/index.js';
 import { Pagination } from './pagination/index.js';
-import { IconByName } from '@pikas-ui/icons';
 import { Checkbox } from '@pikas-ui/checkbox';
 import { Thead } from './thead/index.js';
 import { Tfoot } from './tfoot/index.js';
+import { Tr } from './tr/index.js';
 
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
+});
+
+const Content = styled('div', {
   width: '100%',
   overflow: 'auto',
 });
@@ -53,52 +61,6 @@ const Tbody = styled('tbody', {
           backgroundColor: '$GRAY_LIGHTER',
         },
       },
-      light: {},
-    },
-  },
-});
-
-const Tr = styled('tr', {
-  variants: {
-    variant: {
-      default: {},
-      light: {},
-    },
-  },
-});
-
-const Th = styled('th', {
-  variants: {
-    variant: {
-      default: {
-        textAlign: 'left',
-        fontWeight: '$MEDIUM',
-      },
-      light: {
-        textAlign: 'left',
-        fontWeight: '$MEDIUM',
-      },
-    },
-    padding: {
-      sm: {
-        padding: '4px 8px',
-      },
-      md: {
-        padding: '8px 16px',
-      },
-      lg: {
-        padding: '16px 24px',
-      },
-    },
-  },
-});
-
-const ThSpan = styled('span', {
-  display: 'flex',
-
-  variants: {
-    variant: {
-      default: {},
       light: {},
     },
   },
@@ -143,6 +105,7 @@ export type TableVariant = keyof typeof tableVariant;
 
 export type TableCSS<T> = {
   container?: PikasCSS;
+  content?: PikasCSS;
   table?: PikasCSS;
   thead?: PikasCSS;
   tbody?: PikasCSS;
@@ -169,24 +132,42 @@ export type TableCSS<T> = {
 };
 
 export type TablePaginationProps = {
-  active: boolean;
+  enabled: boolean;
   state?: PaginationState;
   selectValue?: number[];
   onPaginationChange?: OnChangeFn<PaginationState>;
 };
 
 export type TableSelection = {
-  active: boolean;
+  enabled: boolean;
   state?: RowSelectionState;
   defaultState?: RowSelectionState;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
 };
 
 export type TableSorting = {
-  active: boolean;
+  enabled: boolean;
   state?: SortingState;
   defaultState?: SortingState;
   onSortingChange?: OnChangeFn<SortingState>;
+};
+
+export type TableVisibility = {
+  enabled: boolean;
+  state?: VisibilityState;
+  onVisibilityChange?: OnChangeFn<VisibilityState>;
+};
+
+export type TableResize = {
+  enabled: boolean;
+  mode: ColumnResizeMode;
+  onResize?: OnChangeFn<ColumnSizingState>;
+};
+
+export type TableColumnOrder = {
+  enabled: boolean;
+  defaultState?: ColumnOrderState;
+  onColumnOrderChange?: OnChangeFn<ColumnOrderState>;
 };
 
 export type TablePadding = {
@@ -202,11 +183,13 @@ export type TableProps<T extends Record<string, unknown>> = {
   pagination?: TablePaginationProps;
   selection?: TableSelection;
   sorting?: TableSorting;
+  columnVisibility?: TableVisibility;
+  columnOrder?: TableColumnOrder;
+  resizing?: TableResize;
   columns: Array<ColumnDef<T>>;
   css?: TableCSS<T>;
   padding?: TablePadding;
   hoverEffect?: boolean;
-  hideColumns?: string[];
 };
 
 export const Table = <T extends Record<string, unknown>>({
@@ -224,13 +207,18 @@ export const Table = <T extends Record<string, unknown>>({
   },
   emptyMessage,
   hoverEffect = true,
-  hideColumns,
+  columnVisibility,
+  columnOrder,
+  resizing,
 }: TableProps<T>): JSX.Element => {
   const [selectionState, setSelectionState] = useState(
     selection?.defaultState ?? selection?.state ?? {}
   );
   const [sortingState, setSortingState] = useState<SortingState>(
     sorting?.defaultState ?? sorting?.state ?? []
+  );
+  const [columnOrderState, setColumnOrderState] = useState<ColumnOrderState>(
+    columnOrder?.defaultState ?? columns.map((column) => column.id as string)
   );
 
   /* Pagination */
@@ -269,15 +257,13 @@ export const Table = <T extends Record<string, unknown>>({
   };
 
   useEffect(() => {
-    if (selection?.onRowSelectionChange) {
-      selection?.onRowSelectionChange?.(selectionState);
-    }
+    selection?.onRowSelectionChange?.(selectionState);
   }, [selectionState]);
   /* Selection */
 
   const columnsMemo = useMemo<Array<ColumnDef<T>>>(
     () => [
-      ...(selection?.active
+      ...(selection?.enabled
         ? ([
             {
               id: 'select',
@@ -310,46 +296,65 @@ export const Table = <T extends Record<string, unknown>>({
             },
           ] as Array<ColumnDef<T>>)
         : []),
-      ...columns.filter(({ id }) => (id ? !hideColumns?.includes(id) : true)),
+      ...columns,
     ],
-    [columns, selection?.active, hideColumns]
+    [columns, selection?.enabled]
   );
 
   const table = useReactTable({
     data,
     columns: columnsMemo,
+    columnResizeMode: resizing?.mode,
+    enableColumnResizing: resizing?.enabled,
     state: {
       // Pagination
-      ...(pagination?.active
+      ...(pagination?.enabled
         ? {
             pagination: paginationMemo,
           }
         : {}),
 
       // Selection
-      ...(selection?.active
+      ...(selection?.enabled
         ? {
             rowSelection: selectionState,
           }
         : {}),
 
       // Sorting
-      ...(sorting?.active
+      ...(sorting?.enabled
         ? {
             sorting: sortingState,
+          }
+        : {}),
+
+      // Column Visibility
+      ...(columnVisibility?.enabled
+        ? {
+            columnVisibility: columnVisibility.state,
+          }
+        : {}),
+
+      // Column Order
+      ...(columnOrder?.enabled
+        ? {
+            columnOrder: [
+              ...(selection?.enabled ? ['select'] : []),
+              ...columnOrderState,
+            ],
           }
         : {}),
     },
 
     // Selection
-    ...(selection?.active
+    ...(selection?.enabled
       ? {
           onRowSelectionChange: handleRowSelectionChange,
         }
       : {}),
 
     // Sorting
-    ...(sorting?.active
+    ...(sorting?.enabled
       ? {
           onSortingChange: setSortingState,
           getSortedRowModel: getSortedRowModel(),
@@ -357,10 +362,24 @@ export const Table = <T extends Record<string, unknown>>({
       : {}),
 
     // Pagination
-    ...(pagination?.active
+    ...(pagination?.enabled
       ? {
           onPaginationChange: handlePaginationChange,
           getPaginationRowModel: getPaginationRowModel(),
+        }
+      : {}),
+
+    // Sorting Column
+    ...(columnOrder?.enabled
+      ? {
+          onColumnOrderChange: columnOrder.onColumnOrderChange,
+        }
+      : {}),
+
+    // Visibility
+    ...(columnVisibility?.enabled
+      ? {
+          onColumnVisibilityChange: columnVisibility.onVisibilityChange,
         }
       : {}),
 
@@ -369,7 +388,7 @@ export const Table = <T extends Record<string, unknown>>({
   });
 
   useEffect(() => {
-    if (sorting?.active && sorting.onSortingChange) {
+    if (sorting?.enabled && sorting.onSortingChange) {
       sorting.onSortingChange(sortingState);
     }
   }, [sortingState]);
@@ -378,7 +397,7 @@ export const Table = <T extends Record<string, unknown>>({
     if (!sorting) {
       return;
     }
-    if (!sorting.active) {
+    if (!sorting.enabled) {
       return;
     }
     setSortingState(sorting.state ?? []);
@@ -388,7 +407,7 @@ export const Table = <T extends Record<string, unknown>>({
     if (!sorting) {
       return;
     }
-    if (!sorting.active) {
+    if (!sorting.enabled) {
       return;
     }
     setSortingState(sorting.defaultState ?? []);
@@ -398,7 +417,7 @@ export const Table = <T extends Record<string, unknown>>({
     if (!selection) {
       return;
     }
-    if (!selection.active) {
+    if (!selection.enabled) {
       return;
     }
     setSelectionState(selection.state ?? {});
@@ -408,7 +427,7 @@ export const Table = <T extends Record<string, unknown>>({
     if (!selection) {
       return;
     }
-    if (!selection.active) {
+    if (!selection.enabled) {
       return;
     }
     setSelectionState(selection.defaultState ?? {});
@@ -416,211 +435,94 @@ export const Table = <T extends Record<string, unknown>>({
 
   return (
     <Container css={css?.container}>
-      <TableStyled variant={variant} css={css?.table}>
-        <Thead variant={variant} css={css?.thead}>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <Tr
-              key={headerGroup.id}
-              variant={variant}
-              css={{
-                ...(hoverEffect && {
-                  transition: 'all 0.2s ease-in-out',
-
-                  '&:hover': {
-                    td: {
-                      color: '$PRIMARY',
-                      fontWeight: '$MEDIUM',
-                    },
-                  },
-                }),
-                ...css?.tr,
-              }}
-            >
-              {headerGroup.headers.map((header, headerIndex) => (
-                <Th
-                  key={headerIndex}
-                  colSpan={header.colSpan}
-                  variant={variant}
-                  css={{
-                    width:
-                      selection?.active && headerIndex === 0 ? 20 : undefined,
-                    ...css?.th,
-                    ...css?.column?.[header.id as keyof T]?.th,
-                  }}
-                  padding={padding.th}
-                >
-                  {header.isPlaceholder ? null : (
-                    <ThSpan
+      <Content css={css?.content}>
+        <TableStyled
+          variant={variant}
+          css={{ ...css?.table, width: table.getCenterTotalSize() }}
+        >
+          <Thead
+            variant={variant}
+            css={css}
+            resizing={resizing}
+            sorting={sorting}
+            selection={selection}
+            table={table}
+            hoverEffect={hoverEffect}
+            padding={padding}
+            columnOrderState={columnOrderState}
+            setColumnOrderState={setColumnOrderState}
+            columnOrderEnabled={columnOrder?.enabled}
+          />
+          <Tbody variant={variant} css={css?.tbody}>
+            {table.getRowModel().rows.map((row, rowIndex) => (
+              <Tr key={rowIndex} variant={variant} css={css?.tr}>
+                {row.getVisibleCells().map((cell, cellIndex) => (
+                  <Td
+                    key={cellIndex}
+                    variant={variant}
+                    css={{
+                      ...css?.td,
+                      ...css?.column?.[cell.column.id as keyof T]?.td,
+                    }}
+                    padding={padding.td}
+                  >
+                    <TdContent
+                      variant={variant}
                       css={{
-                        ...css?.thSpan,
-                        ...css?.column?.[header.id as keyof T]?.thSpan,
-                        ...(header.column.getCanSort() && sorting?.active
-                          ? {
-                              cursor: 'pointer',
-                              userSelect: 'none',
-                            }
-                          : {}),
+                        ...css?.tdContent,
+                        ...css?.column?.[cell.column.id as keyof T]?.tdContent,
                       }}
-                      onClick={
-                        sorting?.active
-                          ? header.column.getToggleSortingHandler()
-                          : undefined
-                      }
                     >
                       {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
+                        cell.column.columnDef.cell,
+                        cell.getContext()
                       )}
-                      {{
-                        asc: (
-                          <IconByName
-                            name="bx:chevron-up"
-                            size="1em"
-                            css={{
-                              container: {
-                                marginLeft: 4,
-                              },
-                            }}
-                          />
-                        ),
-                        desc: (
-                          <IconByName
-                            name="bx:chevron-down"
-                            size="1em"
-                            css={{
-                              container: {
-                                marginLeft: 4,
-                              },
-                            }}
-                          />
-                        ),
-                      }[header.column.getIsSorted() as string] ?? null}
-                    </ThSpan>
-                  )}
-                </Th>
-              ))}
-            </Tr>
-          ))}
-        </Thead>
-        <Tbody variant={variant} css={css?.tbody}>
-          {table.getRowModel().rows.map((row, rowIndex) => (
-            <Tr key={rowIndex} variant={variant} css={css?.tr}>
-              {row.getVisibleCells().map((cell, cellIndex) => (
-                <Td
-                  key={cellIndex}
-                  variant={variant}
-                  css={{
-                    ...css?.td,
-                    ...css?.column?.[cell.column.id as keyof T]?.td,
-                  }}
-                  padding={padding.td}
-                >
-                  <TdContent
-                    variant={variant}
-                    css={{
-                      ...css?.tdContent,
-                      ...css?.column?.[cell.column.id as keyof T]?.tdContent,
-                    }}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TdContent>
-                </Td>
-              ))}
-            </Tr>
-          ))}
-
-          {!table.getRowModel().rows.length && emptyMessage ? (
-            <Tr key="empty">
-              <Td
-                colSpan={1000}
-                css={{
-                  ...css?.tdEmptyMessage,
-                }}
-                padding={padding.td}
-                variant={variant}
-              >
-                <TdContent
-                  css={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    ...css?.tdContentEmptyMessage,
-                  }}
-                  variant={variant}
-                >
-                  {emptyMessage}
-                </TdContent>
-              </Td>
-            </Tr>
-          ) : null}
-        </Tbody>
-        {hasTfoot ? (
-          <Tfoot variant={variant} css={css?.tfoot}>
-            {table.getFooterGroups().map((footerGroup, footerGroupIndex) => (
-              <Tr key={footerGroupIndex} variant={variant} css={css?.tr}>
-                {footerGroup.headers.map((header, headerIndex) => (
-                  <Th
-                    key={headerIndex}
-                    colSpan={header.colSpan}
-                    variant={variant}
-                    css={{
-                      ...css?.th,
-                      ...css?.column?.[header.id as keyof T]?.th,
-                    }}
-                    padding={padding.th}
-                  >
-                    {header.isPlaceholder ? null : (
-                      <ThSpan
-                        css={{
-                          ...css?.thSpan,
-                          ...css?.column?.[header.id as keyof T]?.thSpan,
-                          ...(header.column.getCanSort()
-                            ? {
-                                cursor: 'pointer',
-                                userSelect: 'none',
-                              }
-                            : {}),
-                        }}
-                        onClick={header.column.getToggleSortingHandler()}
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                        {{
-                          asc: (
-                            <IconByName
-                              name="bx:chevron-up"
-                              size="1em"
-                              css={{
-                                container: {
-                                  marginLeft: 4,
-                                },
-                              }}
-                            />
-                          ),
-                          desc: (
-                            <IconByName
-                              name="bx:chevron-down"
-                              size="1em"
-                              css={{
-                                container: {
-                                  marginLeft: 4,
-                                },
-                              }}
-                            />
-                          ),
-                        }[header.column.getIsSorted() as string] ?? null}
-                      </ThSpan>
-                    )}
-                  </Th>
+                    </TdContent>
+                  </Td>
                 ))}
               </Tr>
             ))}
-          </Tfoot>
-        ) : null}
-      </TableStyled>
 
-      {pagination?.active ? (
+            {!table.getRowModel().rows.length && emptyMessage ? (
+              <Tr key="empty">
+                <Td
+                  colSpan={1000}
+                  css={{
+                    ...css?.tdEmptyMessage,
+                  }}
+                  padding={padding.td}
+                  variant={variant}
+                >
+                  <TdContent
+                    css={{
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      ...css?.tdContentEmptyMessage,
+                    }}
+                    variant={variant}
+                  >
+                    {emptyMessage}
+                  </TdContent>
+                </Td>
+              </Tr>
+            ) : null}
+          </Tbody>
+          {hasTfoot ? (
+            <Tfoot
+              variant={variant}
+              css={css}
+              resizing={resizing}
+              sorting={sorting}
+              selection={selection}
+              table={table}
+              hoverEffect={hoverEffect}
+              padding={padding}
+            />
+          ) : null}
+        </TableStyled>
+      </Content>
+
+      {pagination?.enabled ? (
         <Pagination
           canNextPage={table.getCanNextPage()}
           canPreviousPage={table.getCanPreviousPage()}
