@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/keyboard",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -51,7 +51,7 @@
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "cross-env": "7.0.3",
-    "eslint": "8.32.0",
+    "eslint": "8.33.0",
     "eslint-config-custom": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",

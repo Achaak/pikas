@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/styles",
-  "version": "3.5.29",
+  "version": "3.5.30",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -60,7 +60,7 @@
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "cross-env": "7.0.3",
-    "eslint": "8.32.0",
+    "eslint": "8.33.0",
     "eslint-config-custom": "workspace:*",
     "prettier": "2.8.3",
     "react": "18.2.0",

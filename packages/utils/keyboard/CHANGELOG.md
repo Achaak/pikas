@@ -1,5 +1,11 @@
 # @pikas-utils/keyboard
 
+## 1.0.17
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 1.0.16
 
 ### Patch Changes
