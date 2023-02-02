@@ -4,7 +4,7 @@ import { FC, HTMLAttributes } from 'react';
 const RadioGroupItemContainerStyled = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  customColumnGap: 8,
+  columnGap: 8,
   cursor: 'pointer',
 
   variants: {

@@ -14,7 +14,7 @@ const PictureContainer = styled('div', {
   minHeight: 300,
   height: 300,
   position: 'relative',
-  backgroundColor: '$BLACK',
+  backgroundColor: '$black',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -26,7 +26,7 @@ const ImageEmpty = styled('div', {
   bottom: 0,
   left: 0,
   right: 0,
-  backgroundColor: '$GRAY_DARKER',
+  backgroundColor: '$gray-darker',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -42,7 +42,7 @@ const Container = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
-  customRowGap: 16,
+  rowGap: 16,
 });
 
 export type SelectImageDialogContentProps = {
@@ -160,11 +160,11 @@ export const SelectImageDialogContent: FC<SelectImageDialogContentProps> = ({
           />
         ) : (
           <ImageEmpty>
-            <IconByName name="bx:image" size={100} colorName="WHITE" />
+            <IconByName name="bx:image" size={100} colorName="white" />
           </ImageEmpty>
         )}
 
-        {loadingImage ? <MoonLoader size={100} colorName="PRIMARY" /> : null}
+        {loadingImage ? <MoonLoader size={100} colorName="primary" /> : null}
       </PictureContainer>
 
       <InputImage
@@ -180,7 +180,7 @@ export const SelectImageDialogContent: FC<SelectImageDialogContentProps> = ({
 
       <Button
         type="button"
-        colorName="PRIMARY"
+        colorName="primary"
         onClick={handleSelectImage}
         width="auto"
       >

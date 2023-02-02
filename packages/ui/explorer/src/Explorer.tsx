@@ -33,9 +33,9 @@ const Container = styled('div', {
 
 const DragOverlayStyled = styled('div', {
   padding: '8px 16px',
-  backgroundColor: '$WHITE',
-  boxShadow: '$ELEVATION_1',
-  br: 'md',
+  backgroundColor: '$white',
+  boxShadow: '$md',
+  borderRadius: '$md',
   transition: 'all 1s ease-in-out',
   position: 'relative',
 
@@ -50,15 +50,15 @@ const DragOverlayStyled = styled('div', {
 });
 
 const DragOverlayNumber = styled('span', {
-  fontSize: '$EM-SMALL',
-  fontWeight: '$BOLD',
-  backgroundColor: '$PRIMARY',
+  fontSize: '$em-small',
+  fontWeight: '$bold',
+  backgroundColor: '$primary',
   width: 24,
   height: 24,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  br: 'round',
+  borderRadius: '$full',
   position: 'absolute',
   top: 0,
   right: 0,
@@ -346,7 +346,7 @@ export const Explorer: FC<ExplorerProps> = ({
                   css={{
                     color:
                       theme &&
-                      new Color(theme.colors.PRIMARY.value).getContrast(),
+                      new Color(theme.colors.primary.value).getContrast(),
                   }}
                 >
                   {itemsSelected.length}

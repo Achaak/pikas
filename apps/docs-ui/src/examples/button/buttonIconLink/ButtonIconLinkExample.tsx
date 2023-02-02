@@ -10,16 +10,16 @@ const IconExample: FC<IconProps> = (props) => (
 
 export const ButtonIconLinkExample: FC = () => (
   <ExampleContainer>
-    <ButtonIconLink Icon={IconExample} colorName="PRIMARY" href="#" />
-    <ButtonIconLink Icon={IconExample} colorName="PRIMARY" href="#" outlined />
-    <ButtonIconLink Icon={IconExample} colorName="SECONDARY" href="#" />
+    <ButtonIconLink Icon={IconExample} colorName="primary" href="#" />
+    <ButtonIconLink Icon={IconExample} colorName="primary" href="#" outlined />
+    <ButtonIconLink Icon={IconExample} colorName="secondary" href="#" />
     <ButtonIconLink
       Icon={IconExample}
-      colorName="SECONDARY"
+      colorName="secondary"
       href="#"
       outlined
     />
-    <ButtonIconLink Icon={IconExample} colorName="TERTIARY" href="#" />
-    <ButtonIconLink Icon={IconExample} colorName="TERTIARY" href="#" outlined />
+    <ButtonIconLink Icon={IconExample} colorName="tertiary" href="#" />
+    <ButtonIconLink Icon={IconExample} colorName="tertiary" href="#" outlined />
   </ExampleContainer>
 );

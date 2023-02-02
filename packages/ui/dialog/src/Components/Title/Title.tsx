@@ -5,8 +5,8 @@ import { ReactNode, FC } from 'react';
 
 const Container = styled(DialogPrimitive.Title, {
   all: 'unset',
-  color: '$BLACK',
-  fontSize: '$EM-XX-LARGE',
+  color: '$black',
+  fontSize: '$em-2x-large',
   textAlign: 'center',
   width: 'fit-content',
   maxWidth: '100%',

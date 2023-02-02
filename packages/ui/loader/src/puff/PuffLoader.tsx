@@ -13,7 +13,7 @@ export type PuffLoaderProps = {
 
 export const PuffLoader: FC<PuffLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

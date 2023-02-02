@@ -13,7 +13,7 @@ export type MoonLoaderProps = {
 
 export const MoonLoader: FC<MoonLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

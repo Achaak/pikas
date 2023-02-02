@@ -3,11 +3,11 @@ import { styled } from '@pikas-ui/styles';
 import { FC, HTMLAttributes } from 'react';
 
 const DescriptionStyled = styled('p', {
-  fontSize: '$EM-SMALL',
-  fontWeight: '$NORMAL',
+  fontSize: '$em-small',
+  fontWeight: '$normal',
   display: 'block',
   margin: 0,
-  color: '$BLACK',
+  color: '$black',
 });
 
 export type DescriptionProps = HTMLAttributes<HTMLParagraphElement> & {

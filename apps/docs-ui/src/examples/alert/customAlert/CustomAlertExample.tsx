@@ -15,14 +15,14 @@ export const CustomAlertExample: FC = () => {
   return (
     <ExampleContainer
       css={{
-        customRowGap: !visible ? 0 : 8,
+        rowGap: !visible ? 0 : 8,
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}
     >
       <CustomAlert
         Icon={IconExample}
-        colorName="WHITE"
-        backgroundColorName="SECONDARY"
+        colorName="white"
+        backgroundColorName="secondary"
         visible={visible}
       >
         This is an danger alert.

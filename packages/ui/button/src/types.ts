@@ -6,6 +6,7 @@ export const buttonType = {
 export type ButtonType = keyof typeof buttonType;
 
 export const buttonPadding = {
+  none: true,
   xs: true,
   sm: true,
   md: true,

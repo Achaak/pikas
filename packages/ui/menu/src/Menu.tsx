@@ -24,11 +24,11 @@ const slideLeftAndFade = keyframes({
 });
 
 export const MenuContentCSS: PikasCSS = {
-  backgroundColor: '$WHITE',
-  br: 'md',
+  backgroundColor: '$white',
+  borderRadius: '$md',
   padding: 8,
-  boxShadow: '$ELEVATION_2',
-  zIndex: '$XXX-HIGH',
+  boxShadow: '$md',
+  zIndex: '$3x-high',
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: '400ms',
@@ -54,9 +54,9 @@ export const MenuContentCSS: PikasCSS = {
 
 export const MenuItemCSS: PikasCSS = {
   all: 'unset',
-  fontSize: '$EM-SMALL',
-  color: '$BLACK',
-  br: 'sm',
+  fontSize: '$em-small',
+  color: '$black',
+  borderRadius: '$sm',
   display: 'flex',
   alignItems: 'center',
   padding: 4,
@@ -76,31 +76,31 @@ export const MenuItemCSS: PikasCSS = {
   },
 
   '&[data-state="open"]': {
-    backgroundColor: '$PRIMARY_LIGHTEST_2',
+    backgroundColor: '$primary-lightest-2',
   },
 
   '&:focus': {
-    backgroundColor: '$PRIMARY_LIGHTEST_2',
+    backgroundColor: '$primary-lightest-2',
   },
 };
 
 export const MenuCheckboxItemCSS: PikasCSS = {
   '&[data-state="open"]': {
-    color: '$BLACK',
+    color: '$black',
   },
   ...MenuItemCSS,
 };
 
 export const MenuRadioItemCSS: PikasCSS = {
   '&[data-state="open"]': {
-    color: '$BLACK',
+    color: '$black',
   },
   ...MenuItemCSS,
 };
 
 export const MenuTriggerItemCSS: PikasCSS = {
   '&[data-state="open"]': {
-    color: '$BLACK',
+    color: '$black',
   },
   ...MenuItemCSS,
 };
@@ -108,13 +108,13 @@ export const MenuTriggerItemCSS: PikasCSS = {
 export const MenuLabelCSS: PikasCSS = {
   padding: '4px 0',
   paddingLeft: 24,
-  fontSize: '$EM-X-SMALL',
-  color: '$BLACK',
+  fontSize: '$em-x-small',
+  color: '$black',
 };
 
 export const MenuSeparatorCSS: PikasCSS = {
   height: 1,
-  backgroundColor: '$GRAY_LIGHT',
+  backgroundColor: '$gray-light',
   margin: 4,
 };
 
@@ -130,11 +130,11 @@ export const MenuItemIndicatorCSS: PikasCSS = {
 export const RightSlotCSS: PikasCSS = {
   marginLeft: 'auto',
   paddingLeft: 20,
-  color: '$BLACK',
+  color: '$black',
 
   '[data-disabled] &': {
     opacity: 0.5,
-    color: '$BLACK_LIGHT',
+    color: '$black-light',
   },
 };
 

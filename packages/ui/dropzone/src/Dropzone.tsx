@@ -12,14 +12,14 @@ const Container = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   transition: 'all 200ms ease-in-out',
-  customRowGap: 8,
+  rowGap: 8,
   width: '100%',
 
   variants: {
     isDisabled: {
       true: {
         opacity: 0.5,
-        color: '$BLACK_LIGHT',
+        color: '$black-light',
         pointerEvents: 'none',
       },
     },
@@ -33,17 +33,17 @@ const DropzoneStyled = styled('div', {
   justifyContent: 'center',
   width: '100%',
   height: '100%',
-  border: '2px dashed $GRAY',
-  br: 'sm',
-  backgroundColor: '$WHITE',
-  color: '$BLACK',
+  border: '2px dashed $gray',
+  borderRadius: '$sm',
+  backgroundColor: '$white',
+  color: '$black',
   transition: 'all 0.2s ease-in-out',
   padding: 16,
 
   variants: {
     isFocused: {
       true: {
-        backgroundColor: '$PRIMARY_LIGHTER',
+        backgroundColor: '$primary-lighter',
       },
     },
   },
@@ -53,7 +53,7 @@ const FilesResult = styled('div', {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  customRowGap: 8,
+  rowGap: 8,
 });
 
 const AcceptedFiles = styled('div', {
@@ -69,51 +69,51 @@ const RejectedFiles = styled('div', {
 const FileList = styled('ul', {
   display: 'flex',
   flexDirection: 'column',
-  customRowGap: 8,
+  rowGap: 8,
   marginTop: 8,
 });
 
 const FileListContent = styled('div', {
   display: 'flex',
   alignItems: 'flex-end',
-  fontSize: '$EM-SMALL',
+  fontSize: '$em-small',
 });
 
 const FileListName = styled('span', {
   marginLeft: 4,
-  fontSize: '$EM-MEDIUM',
-  lineHeight: '$EM-MEDIUM',
-  color: '$BLACK',
+  fontSize: '$em-base',
+  lineHeight: '$em-base',
+  color: '$black',
 });
 
 const FileListSize = styled('span', {
   marginLeft: 4,
-  fontSize: '$EM-X-SMALL',
-  color: '$BLACK',
+  fontSize: '$em-x-small',
+  color: '$black',
 });
 
 const FileListItem = styled('li', {
   display: 'flex',
   flexDirection: 'column',
-  color: '$BLACK',
+  color: '$black',
 });
 
 const ErrorList = styled('ul', {
   display: 'flex',
   flexDirection: 'column',
-  customRowGap: 8,
+  rowGap: 8,
 });
 
 const ErrorListItem = styled('li', {
   display: 'flex',
-  color: '$DANGER',
-  fontSize: '$EM-X-SMALL',
+  color: '$danger',
+  fontSize: '$em-x-small',
 });
 
 const FilesTitle = styled('span', {
-  fontSize: '$EM-SMALL',
-  fontWeight: '$BOLD',
-  color: '$BLACK',
+  fontSize: '$em-small',
+  fontWeight: '$bold',
+  color: '$black',
 });
 
 const AcceptedFilesTitle = styled(FilesTitle, {});
@@ -121,29 +121,29 @@ const AcceptedFilesTitle = styled(FilesTitle, {});
 const RejectedFilesTitle = styled(FilesTitle, {});
 
 const Description = styled('span', {
-  fontSize: '$EM-MEDIUM',
-  color: '$BLACK_LIGHT',
+  fontSize: '$em-base',
+  color: '$black-light',
   transition: 'all 200ms ease-in-out',
 
   variants: {
     isFocused: {
       true: {
-        color: '$PRIMARY',
+        color: '$primary',
       },
     },
   },
 });
 
 const SubDescription = styled('span', {
-  fontSize: '$EM-SMALL',
+  fontSize: '$em-small',
   fontStyle: 'italic',
   transition: 'all 200ms ease-in-out',
-  color: '$BLACK_LIGHT',
+  color: '$black-light',
 
   variants: {
     isFocused: {
       true: {
-        color: '$PRIMARY',
+        color: '$primary',
       },
     },
   },
@@ -255,7 +255,7 @@ export const Dropzone: FC<DropzoneProps> = ({
   const acceptedFileItems = acceptedFiles.map((file, index) => (
     <FileListItem key={index}>
       <FileListContent>
-        <IconByName name="bx:check" colorName="SUCCESS" size="1.2em" />
+        <IconByName name="bx:check" colorName="success" size="1.2em" />
         <FileListName>{file.name}</FileListName>
         <FileListSize>({humanFileSize(file.size)})</FileListSize>
       </FileListContent>
@@ -265,7 +265,7 @@ export const Dropzone: FC<DropzoneProps> = ({
   const fileRejectionItems = fileRejections.map(({ file, errors }, index) => (
     <FileListItem key={index}>
       <FileListContent>
-        <IconByName name="bx:error" colorName="DANGER" size="1.2em" />
+        <IconByName name="bx:error" colorName="danger" size="1.2em" />
         <FileListName>{file.name}</FileListName>
         <FileListSize>({humanFileSize(file.size)})</FileListSize>
       </FileListContent>

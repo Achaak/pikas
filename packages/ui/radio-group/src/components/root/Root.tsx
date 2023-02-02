@@ -9,8 +9,8 @@ import {
 
 const RootStyled = styled(RadioGroupPrimitive.Root, {
   display: 'flex',
-  customColumnGap: 8,
-  customRowGap: 8,
+  columnGap: 8,
+  rowGap: 8,
 
   "&[data-orientation='vertical']": {
     flexDirection: 'column',

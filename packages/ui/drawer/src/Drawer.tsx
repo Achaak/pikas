@@ -5,11 +5,11 @@ import * as usehooks from 'usehooks-ts';
 
 const Container = styled('div', {
   position: 'fixed',
-  backgroundColor: '$WHITE',
-  zIndex: '$XXX-HIGH',
+  backgroundColor: '$white',
+  zIndex: '$3x-high',
   transition: 'transform 0.3s ease-in-out',
-  customRowGap: 8,
-  customColumnGap: 8,
+  rowGap: 8,
+  columnGap: 8,
   display: 'flex',
   flexDirection: 'column',
 
@@ -70,7 +70,7 @@ const Header = styled('div', {
   alignItems: 'center',
   width: '100%',
   flexDirection: 'row',
-  customColumnGap: 8,
+  columnGap: 8,
 
   variants: {
     position: {
@@ -92,11 +92,11 @@ const Content = styled('div', {
 const Title = styled('h2', {
   all: 'unset',
   whiteSpace: 'pre-line',
-  color: '$BLACK',
+  color: '$black',
   textTransform: 'capitalize',
-  fontSize: '$EM-XX-LARGE',
-  fontWeight: '$BOLD',
-  letterSpacing: '$MEDIUM',
+  fontSize: '$em-2x-large',
+  fontWeight: '$bold',
+  letterSpacing: '$medium',
 });
 
 export const drawerPosition = {
@@ -147,7 +147,7 @@ export const Drawer: FC<DrawerProps> = ({
   position = 'right',
   isOpen,
   padding = 'md',
-  boxShadow = 'ELEVATION_2',
+  boxShadow = 'md',
   onClose,
   closeIfClickOutside = true,
   title,
@@ -227,7 +227,7 @@ export const Drawer: FC<DrawerProps> = ({
           name={getCloseIconName}
           onClick={onClose}
           size={32}
-          colorName="BLACK"
+          colorName="black"
           css={{
             container: {
               cursor: 'pointer',

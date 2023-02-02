@@ -1,13 +1,13 @@
 export const pikasFontWeights = {
-  THIN: 100,
-  'EXTRA-LIGHT': 200,
-  LIGHT: 300,
-  NORMAL: 400,
-  MEDIUM: 500,
-  'SEMI-BOLD': 600,
-  BOLD: 700,
-  'EXTRA-BOLD': 800,
-  BLACK: 900,
+  thin: 100,
+  'extra-thin': 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  'semi-bold': 600,
+  bold: 700,
+  'extra-bold': 800,
+  black: 900,
 };
 
 export type PikasFontWeights = typeof pikasFontWeights;

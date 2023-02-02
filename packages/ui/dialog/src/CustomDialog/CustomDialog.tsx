@@ -7,11 +7,11 @@ import { useEffect, useState, ReactNode, FC } from 'react';
 
 const Overlay = styled(DialogPrimitive.Overlay, {
   position: 'fixed',
-  backgroundColor: '$GRAY_LIGHT',
+  backgroundColor: '$gray-light',
   opacity: 0,
   inset: 0,
   transition: 'all 500ms',
-  zIndex: '$XX-HIGH',
+  zIndex: '$2x-high',
 
   variants: {
     visible: {
@@ -29,15 +29,15 @@ const Container = styled(DialogPrimitive.Content, {
   bottom: 0,
   left: 0,
   right: 0,
-  boxShadow: '$ELEVATION_BOTTOM_5',
+  boxShadow: '$bottom-xl',
 
-  backgroundColor: '$WHITE',
+  backgroundColor: '$white',
   maxWidth: '100vw',
   maxHeight: '100vh',
   transition: 'all 500ms',
   transform: 'scale(0.8)',
   opacity: 0,
-  zIndex: '$XX-HIGH',
+  zIndex: '$2x-high',
 
   display: 'flex',
   flexDirection: 'column',
@@ -49,7 +49,7 @@ const Container = styled(DialogPrimitive.Content, {
     left: '50%',
     bottom: 'initial',
     right: 'initial',
-    br: 'md',
+    borderRadius: '$lg',
     transformOrigin: '0% 0%',
     transform: 'scale(0.8) translate(-50%, -50%)',
   },
@@ -90,16 +90,16 @@ const Container = styled(DialogPrimitive.Content, {
     },
     gap: {
       'no-gap': {
-        customGap: 0,
+        gap: 0,
       },
       sm: {
-        customGap: 8,
+        gap: 8,
       },
       md: {
-        customGap: 16,
+        gap: 16,
       },
       lg: {
-        customGap: 32,
+        gap: 32,
       },
     },
   },
@@ -126,16 +126,16 @@ const DefaultContainer = styled('div', {
     },
     gap: {
       'no-gap': {
-        customGap: 0,
+        gap: 0,
       },
       sm: {
-        customGap: 8,
+        gap: 8,
       },
       md: {
-        customGap: 16,
+        gap: 16,
       },
       lg: {
-        customGap: 32,
+        gap: 32,
       },
     },
   },
@@ -296,7 +296,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
             <IconByName
               name="bx:x"
               size={32}
-              colorName="PRIMARY"
+              colorName="primary"
               onClick={handleClose}
               css={{
                 ...css?.closeIcon,
@@ -305,7 +305,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
                   position: 'absolute',
                   right: 16,
                   top: 16,
-                  zIndex: '$XX-HIGH',
+                  zIndex: '$2x-high',
                   ...css?.closeIcon?.container,
                 },
               }}

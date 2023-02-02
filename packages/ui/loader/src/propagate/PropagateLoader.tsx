@@ -13,7 +13,7 @@ export type PropagateLoaderProps = {
 
 export const PropagateLoader: FC<PropagateLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

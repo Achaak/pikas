@@ -5,7 +5,7 @@ import { styled } from '@pikas/docs-ui';
 import { FC } from 'react';
 
 const Span = styled('span', {
-  color: '$BLACK',
+  color: '$black',
 });
 
 type CustomToastExampleProps = {

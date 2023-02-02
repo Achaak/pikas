@@ -1,4 +1,4 @@
-import type { BorderRadius, PikasCSS } from '@pikas-ui/styles';
+import type { PikasRadius, PikasCSS } from '@pikas-ui/styles';
 import { styled, keyframes } from '@pikas-ui/styles';
 import { FC } from 'react';
 
@@ -36,7 +36,7 @@ const Container = styled('div', {
   variants: {
     animation: {
       pulse: {
-        backgroundColor: '$GRAY_LIGHT',
+        backgroundColor: '$gray-light',
 
         '&::before': {
           content: '""',
@@ -46,12 +46,12 @@ const Container = styled('div', {
           right: 0,
           bottom: 0,
           animation: `${pulse.name} 2s 0.5s linear infinite`,
-          backgroundColor: '$GRAY_LIGHTER',
+          backgroundColor: '$gray-lighter',
         },
       },
       wave: {
         overflow: 'hidden',
-        backgroundColor: '$GRAY_LIGHT',
+        backgroundColor: '$gray-light',
 
         '&::before': {
           content: '""',
@@ -61,7 +61,7 @@ const Container = styled('div', {
           right: 0,
           bottom: 0,
           opacity: 0.5,
-          backgroundColor: '$GRAY_LIGHTER',
+          backgroundColor: '$gray-lighter',
         },
 
         '&::after': {
@@ -72,12 +72,12 @@ const Container = styled('div', {
           left: 0,
           width: '100%',
           background:
-            'linear-gradient(90deg, $TRANSPARENT, $GRAY_LIGHTER, $TRANSPARENT)',
+            'linear-gradient(90deg, $transparent, $gray-lighter, $transparent)',
           animation: `${wave.name} 3s 0.5s linear infinite`,
         },
       },
       false: {
-        backgroundColor: '$GRAY_LIGHT',
+        backgroundColor: '$gray-light',
 
         '&::before': {
           content: '""',
@@ -87,7 +87,7 @@ const Container = styled('div', {
           right: 0,
           bottom: 0,
           opacity: 0.7,
-          backgroundColor: '$GRAY_LIGHTER',
+          backgroundColor: '$gray-lighter',
         },
       },
     },
@@ -100,7 +100,7 @@ export type SkeletonProps = {
   animation?: SkeletonAnimation;
   width?: number | string;
   height?: number | string;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   css?: PikasCSS;
 };
 
@@ -115,7 +115,7 @@ export const Skeleton: FC<SkeletonProps> = ({
     css={{
       width,
       height,
-      br: borderRadius,
+      borderRadius: `$${borderRadius}`,
 
       ...css,
     }}

@@ -24,13 +24,13 @@ export const ToastItem: FC<ToastExampleProps> = ({ variant }) => {
   const getColor = (): PikasColor => {
     switch (variant) {
       case 'success':
-        return 'SUCCESS';
+        return 'success';
       case 'warning':
-        return 'WARNING';
+        return 'warning';
       case 'danger':
-        return 'DANGER';
+        return 'danger';
       default:
-        return 'PRIMARY';
+        return 'primary';
     }
   };
 

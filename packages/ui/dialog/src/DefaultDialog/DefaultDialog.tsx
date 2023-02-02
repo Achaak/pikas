@@ -22,7 +22,7 @@ export const DefaultDialog: FC<DefaultDialogProps> = ({
   onClose,
   onValidate,
   validateButtonLabel = 'Ok',
-  validateButtonColorName = 'PRIMARY',
+  validateButtonColorName = 'primary',
   validateButtonDisabled,
   validateButtonLoading,
   ...props
@@ -57,7 +57,7 @@ export const DefaultDialog: FC<DefaultDialogProps> = ({
       header: {
         borderBottomWidth: 1,
         borderBottomStyle: 'solid',
-        borderBottomColor: '$GRAY_LIGHT',
+        borderBottomColor: '$gray-light',
       },
       footer: {
         paddingTop: 0,

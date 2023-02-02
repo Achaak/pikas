@@ -13,9 +13,9 @@ const timerWidth = keyframes({
 const Toast = styled(ToastPrimitive.Root, {
   display: 'flex',
   flexDirection: 'column',
-  backgroundColor: '$WHITE',
-  br: 'md',
-  boxShadow: '$ELEVATION_3',
+  backgroundColor: '$white',
+  borderRadius: '$lg',
+  boxShadow: '$bottom-md',
   overflow: 'hidden',
 });
 
@@ -28,14 +28,14 @@ const Close = styled(ToastPrimitive.Close, {
 
 const Content = styled('div', {
   display: 'flex',
-  customColumnGap: 16,
+  columnGap: 16,
   alignItems: 'center',
   padding: 16,
 });
 
 const Timer = styled('div', {
   height: 4,
-  backgroundColor: '$PRIMARY',
+  backgroundColor: '$primary',
   width: '100%',
   position: 'relative',
 });

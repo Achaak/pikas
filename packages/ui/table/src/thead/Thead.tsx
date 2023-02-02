@@ -1,15 +1,8 @@
 import { useTheme, styled } from '@pikas-ui/styles';
 import { Color } from '@pikas-utils/color';
-import {
-  TableCSS,
-  TablePadding,
-  TableResize,
-  TableSelection,
-  TableSorting,
-  TableVariant,
-} from '../index.js';
+import { Data, useStateContext } from '../index.js';
 import { Tr } from '../tr/index.js';
-import { ColumnOrderState, OnChangeFn, Table } from '@tanstack/react-table';
+import { ColumnOrderState, OnChangeFn } from '@tanstack/react-table';
 import {
   closestCenter,
   DndContext,
@@ -24,51 +17,35 @@ import {
 } from '@dnd-kit/sortable';
 import { Th } from './th/index.js';
 
-export type TheadProps<T extends Record<string, unknown>> = {
-  variant?: TableVariant;
-  css?: TableCSS<T>;
-  resizing?: TableResize;
-  sorting?: TableSorting;
-  selection?: TableSelection;
-  table: Table<T>;
-  hoverEffect?: boolean;
-  padding: TablePadding;
-
-  setColumnOrderState?: OnChangeFn<ColumnOrderState>;
+export type TheadProps = {
+  onColumnOrderState?: OnChangeFn<ColumnOrderState>;
   columnOrderState?: ColumnOrderState;
   columnOrderEnabled?: boolean;
 };
 
-export const Thead = <T extends Record<string, unknown>>({
-  variant,
-  css,
-  resizing,
-  sorting,
-  selection,
-  table,
-  hoverEffect,
-  padding,
+export const Thead = <T extends Data>({
   columnOrderState,
-  setColumnOrderState,
+  onColumnOrderState,
   columnOrderEnabled,
-}: TheadProps<T>) => {
+}: TheadProps) => {
+  const { variant, css, table } = useStateContext<T>();
   const theme = useTheme();
 
   const TheadStyled = styled('thead', {
     variants: {
       variant: {
         default: {
-          backgroundColor: '$PRIMARY',
-          color: theme && new Color(theme.colors.PRIMARY.value).getContrast(),
+          backgroundColor: '$primary',
+          color: theme && new Color(theme.colors.primary.value).getContrast(),
 
           svg: {
-            fill: theme && new Color(theme.colors.PRIMARY.value).getContrast(),
+            fill: theme && new Color(theme.colors.primary.value).getContrast(),
           },
 
           tr: {
             borderTop: '1px solid',
             borderBottom: '1px solid',
-            borderColor: '$PRIMARY_LIGHT',
+            borderColor: '$primary-light',
 
             '&:first-child': {
               borderTop: 'none',
@@ -80,7 +57,7 @@ export const Thead = <T extends Record<string, unknown>>({
             th: {
               borderLeft: '1px solid',
               borderRight: '1px solid',
-              borderColor: '$PRIMARY_LIGHT',
+              borderColor: '$primary-light',
               textTransform: 'capitalize',
 
               '&:first-child': {
@@ -94,7 +71,7 @@ export const Thead = <T extends Record<string, unknown>>({
         },
         light: {
           borderBottom: '1px solid',
-          borderColor: '$GRAY_LIGHT',
+          borderColor: '$gray-light',
         },
       },
     },
@@ -124,7 +101,7 @@ export const Thead = <T extends Record<string, unknown>>({
       autoScroll={false}
       onDragEnd={({ active, over }) => {
         if (active.id !== over?.id) {
-          setColumnOrderState?.((prev) => {
+          onColumnOrderState?.((prev) => {
             const prevIndex = prev.indexOf(String(active.id));
             const nextIndex = prev.indexOf(String(over?.id) || '');
 
@@ -143,40 +120,16 @@ export const Thead = <T extends Record<string, unknown>>({
     >
       <TheadStyled variant={variant} css={css?.thead}>
         {table.getHeaderGroups().map((headerGroup) => (
-          <Tr
-            key={headerGroup.id}
-            variant={variant}
-            css={{
-              ...(hoverEffect && {
-                transition: 'all 0.2s ease-in-out',
-
-                '&:hover': {
-                  td: {
-                    color: '$PRIMARY',
-                    fontWeight: '$MEDIUM',
-                  },
-                },
-              }),
-              ...css?.tr,
-            }}
-          >
+          <Tr key={headerGroup.id}>
             <SortableContext
               items={headerGroup.headers.map((i) => i.id)}
               strategy={horizontalListSortingStrategy}
               disabled={columnOrderDisabled}
             >
-              {headerGroup.headers.map((header, headerIndex) => (
+              {headerGroup.headers.map((header) => (
                 <Th
                   key={header.id}
                   header={header}
-                  variant={variant}
-                  css={css}
-                  resizing={resizing}
-                  sorting={sorting}
-                  selection={selection}
-                  table={table}
-                  padding={padding}
-                  headerIndex={headerIndex}
                   id={header.id}
                   columnOrderEnabled={
                     (!columnOrderDisabled &&

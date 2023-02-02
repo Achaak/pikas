@@ -6,38 +6,38 @@ import { ReactNode, FC } from 'react';
 const TitleStyle = styled('h1', {
   all: 'unset',
   whiteSpace: 'pre-line',
-  color: '$BLACK',
+  color: '$black',
 
   variants: {
     variant: {
       h1: {
-        fontSize: '$EM-XXX-LARGE',
-        fontWeight: '$MEDIUM',
-        letterSpacing: '$MEDIUM',
+        fontSize: '$em-3x-large',
+        fontWeight: '$medium',
+        letterSpacing: '$medium',
       },
       h2: {
-        fontSize: '$EM-XX-LARGE',
-        fontWeight: '$BOLD',
-        letterSpacing: '$MEDIUM',
+        fontSize: '$em-2x-large',
+        fontWeight: '$bold',
+        letterSpacing: '$medium',
       },
       h3: {
-        fontSize: '$EM-X-LARGE',
-        fontWeight: '$BOLD',
+        fontSize: '$em-x-large',
+        fontWeight: '$bold',
         letterSpacing: '$SMALL',
       },
       h4: {
-        fontSize: '$EM-LARGE',
-        fontWeight: '$BOLD',
+        fontSize: '$em-large',
+        fontWeight: '$bold',
         letterSpacing: '$SMALL',
       },
       h5: {
-        fontSize: '$EM-MEDIUM',
-        fontWeight: '$BOLD',
+        fontSize: '$em-base',
+        fontWeight: '$bold',
         letterSpacing: '$SMALL',
       },
       h6: {
-        fontSize: '$EM-SMALL',
-        fontWeight: '$BOLD',
+        fontSize: '$em-small',
+        fontWeight: '$bold',
         letterSpacing: '$SMALL',
       },
     },

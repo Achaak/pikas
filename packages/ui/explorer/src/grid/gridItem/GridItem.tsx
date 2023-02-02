@@ -18,18 +18,18 @@ import { ClipLoader } from '@pikas-ui/loader';
 import { getColorByExtension } from '@pikas-utils/file';
 
 const Container = styled('div', {
-  borderColor: '$GRAY',
+  borderColor: '$gray',
   borderStyle: 'solid',
   borderWidth: 2,
-  br: 'md',
-  backgroundColor: '$WHITE2',
+  borderRadius: '$md',
+  backgroundColor: '$white2',
   display: 'flex',
   position: 'relative',
 
   variants: {
     selected: {
       true: {
-        backgroundColor: '$PRIMARY_LIGHTER',
+        backgroundColor: '$primary-lighter',
       },
     },
   },
@@ -44,7 +44,7 @@ const WrapperClick = styled(WrapperClickBase, {
 });
 
 const Name = styled('span', {
-  color: '$BLACK',
+  color: '$black',
   fontSize: '$SMALL',
   marginTop: 8,
 });
@@ -87,7 +87,7 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
 
   const getIcon = useCallback(() => {
     if (item.type === 'folder') {
-      return <IconByName name="bx:folder" size={64} colorName="BLACK" />;
+      return <IconByName name="bx:folder" size={64} colorName="black" />;
     }
 
     return (
@@ -95,7 +95,7 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
         name="bx:file"
         size={64}
         colorHex={extension ? getColorByExtension(extension) : undefined}
-        colorName={extension ? undefined : 'BLACK'}
+        colorName={extension ? undefined : 'black'}
       />
     );
   }, [item]);
@@ -133,7 +133,7 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
                 <IconByName
                   name="bx:dots-horizontal-rounded"
                   size={24}
-                  colorName="GRAY_DARK"
+                  colorName="gray-dark"
                 />
               }
             />
@@ -146,7 +146,7 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
               void handleFavoriteClick();
             }}
           >
-            <IconByName name="bxs:star" size={24} colorName="WARNING" />
+            <IconByName name="bxs:star" size={24} colorName="warning" />
           </FavoriteContainer>
         )}
 
@@ -156,13 +156,13 @@ export const GridItem: FC<GridItemProps> = ({ item }) => {
               void handleFavoriteClick();
             }}
           >
-            <IconByName name="bx:star" size={24} colorName="WARNING" />
+            <IconByName name="bx:star" size={24} colorName="warning" />
           </FavoriteContainer>
         )}
 
         {showFavorite && favoriteLoading && (
           <FavoriteContainer>
-            <ClipLoader size={24} colorName="WARNING" />
+            <ClipLoader size={24} colorName="warning" />
           </FavoriteContainer>
         )}
       </Container>

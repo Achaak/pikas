@@ -1,16 +1,17 @@
-import { IconByName } from '@pikas-ui/icons';
-import {
-  TableCSS,
-  TablePadding,
-  TableResize,
-  TableSelection,
-  TableSorting,
-  TableVariant,
-} from '../../index.js';
-import { flexRender, Header, Table } from '@tanstack/react-table';
+import { Data, useStateContext } from '../../index.js';
+import { flexRender, Header } from '@tanstack/react-table';
 import { styled } from '@pikas-ui/styles';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { useState } from 'react';
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  CollapseAltIcon,
+  ExpandAltIcon,
+  MenuIcon,
+} from '../../icons.js';
+import { ButtonIcon } from '@pikas-ui/button';
 
 const ThStyled = styled('th', {
   position: 'relative',
@@ -20,16 +21,17 @@ const ThStyled = styled('th', {
       true: {
         zIndex: 1,
         opacity: 0.7,
+        cursor: 'grabbing',
       },
     },
     variant: {
       default: {
         textAlign: 'left',
-        fontWeight: '$MEDIUM',
+        fontWeight: '$medium',
       },
       light: {
         textAlign: 'left',
-        fontWeight: '$MEDIUM',
+        fontWeight: '$medium',
       },
     },
     padding: {
@@ -37,10 +39,35 @@ const ThStyled = styled('th', {
         padding: '4px 8px',
       },
       md: {
-        padding: '8px 16px',
+        padding: '8px 12px',
       },
       lg: {
-        padding: '16px 24px',
+        padding: '16px 16px',
+      },
+    },
+  },
+});
+
+const ThContent = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
+});
+
+const ThSpan = styled('span', {
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
+
+  variants: {
+    variant: {
+      default: {},
+      light: {},
+    },
+    sortable: {
+      true: {
+        cursor: 'pointer',
+        userSelect: 'none',
       },
     },
   },
@@ -52,7 +79,7 @@ const Resizer = styled('div', {
   top: 0,
   height: '100%',
   width: 6,
-  background: '$PRIMARY_DARK',
+  background: '$primary-dark',
   cursor: 'col-resize',
   userSelect: 'none',
   touchAction: 'none',
@@ -66,20 +93,8 @@ const Resizer = styled('div', {
   variants: {
     isResizing: {
       true: {
-        background: '$PRIMARY_DARKER',
+        background: '$primary-darker',
       },
-    },
-  },
-});
-
-const ThSpan = styled('span', {
-  display: 'flex',
-  alignItems: 'center',
-
-  variants: {
-    variant: {
-      default: {},
-      light: {},
     },
   },
 });
@@ -89,7 +104,7 @@ const OrderIndicator = styled('div', {
   position: 'absolute',
   top: 0,
   bottom: 0,
-  background: '$PRIMARY_DARKER',
+  background: '$primary-darker',
 
   variants: {
     position: {
@@ -106,35 +121,44 @@ const OrderIndicator = styled('div', {
 const ColumnOrderButton = styled('button', {
   all: 'unset',
   marginLeft: 'auto',
+  transition: 'all 0.2s ease',
+
+  variants: {
+    isVisible: {
+      true: {
+        opacity: 1,
+      },
+      false: {
+        opacity: 0,
+      },
+    },
+    isDragging: {
+      false: {
+        cursor: 'move',
+      },
+    },
+  },
 });
 
-type ThProps<T extends Record<string, unknown>> = {
-  variant?: TableVariant;
-  css?: TableCSS<T>;
-  resizing?: TableResize;
-  sorting?: TableSorting;
-  selection?: TableSelection;
-  table: Table<T>;
-  padding: TablePadding;
+const GroupIconContainer = styled('div', {
+  display: 'flex',
+});
+
+type ThProps<T extends Data> = {
   id: string;
-  headerIndex: number;
   header: Header<T, unknown>;
   columnOrderEnabled: boolean;
 };
 
-export const Th = <T extends Record<string, unknown>>({
-  variant,
-  css,
-  resizing,
-  sorting,
-  selection,
-  table,
+export const Th = <T extends Data>({
   id,
-  padding,
-  headerIndex,
   header,
   columnOrderEnabled,
 }: ThProps<T>) => {
+  const { variant, css, columnSizing, padding, table, sorting, grouping } =
+    useStateContext<T>();
+  const [isFocused, setIsFocused] = useState(false);
+
   const {
     isDragging,
     attributes,
@@ -160,11 +184,13 @@ export const Th = <T extends Record<string, unknown>>({
 
   return (
     <ThStyled
+      onMouseEnter={() => setIsFocused(true)}
+      onMouseLeave={() => setIsFocused(false)}
       colSpan={header.colSpan}
       variant={variant}
       isDragging={isDragging}
       css={{
-        width: selection?.enabled && headerIndex === 0 ? 20 : header.getSize(),
+        width: header.getSize(),
         ...css?.th,
         ...css?.column?.[header.id as keyof T]?.th,
         ...(columnOrderEnabled && isDragging ? style : {}),
@@ -173,78 +199,100 @@ export const Th = <T extends Record<string, unknown>>({
       ref={setNodeRef}
     >
       {header.isPlaceholder ? null : (
-        <ThSpan
-          css={{
-            ...css?.thSpan,
-            ...css?.column?.[header.id as keyof T]?.thSpan,
-            ...(header.column.getCanSort() && sorting?.enabled
-              ? {
-                  cursor: 'pointer',
-                  userSelect: 'none',
-                }
-              : {}),
-          }}
-          onClick={
-            sorting?.enabled
-              ? header.column.getToggleSortingHandler()
-              : undefined
-          }
-        >
-          {flexRender(header.column.columnDef.header, header.getContext())}
-          {{
-            asc: (
-              <IconByName
-                name="bx:chevron-up"
-                size="1em"
-                css={{
-                  container: {
-                    marginLeft: 4,
-                  },
-                }}
-              />
-            ),
-            desc: (
-              <IconByName
-                name="bx:chevron-down"
-                size="1em"
-                css={{
-                  container: {
-                    marginLeft: 4,
-                  },
-                }}
-              />
-            ),
-          }[header.column.getIsSorted() as string] ?? null}
-          {columnOrderEnabled && (
-            <ColumnOrderButton
-              ref={setActivatorNodeRef}
-              {...attributes}
-              {...listeners}
+        <>
+          <ThContent>
+            {header.column.getCanGroup() && grouping?.enabled ? (
+              <GroupIconContainer>
+                <ButtonIcon
+                  onClick={header.column.getToggleGroupingHandler()}
+                  Icon={
+                    header.column.getIsGrouped()
+                      ? ExpandAltIcon
+                      : CollapseAltIcon
+                  }
+                  colorName={
+                    header.column.getIsGrouped() ? 'danger' : 'primary'
+                  }
+                  size={3.5}
+                  padding="none"
+                  borderRadius="sm"
+                  css={{
+                    button: {
+                      marginRight: '$2',
+                    },
+                  }}
+                />
+              </GroupIconContainer>
+            ) : null}
+            <ThSpan
+              css={{
+                ...css?.thSpan,
+                ...css?.column?.[header.id as keyof T]?.thSpan,
+              }}
+              sortable={header.column.getCanSort() && sorting?.enabled}
+              onClick={
+                header.column.getCanSort() && sorting?.enabled
+                  ? header.column.getToggleSortingHandler()
+                  : undefined
+              }
             >
-              <IconByName name="bx:menu" size={20} />
-            </ColumnOrderButton>
+              {flexRender(header.column.columnDef.header, header.getContext())}
+              {{
+                asc: (
+                  <ChevronUpIcon
+                    size="1em"
+                    css={{
+                      container: {
+                        marginLeft: 4,
+                      },
+                    }}
+                  />
+                ),
+                desc: (
+                  <ChevronDownIcon
+                    size="1em"
+                    css={{
+                      container: {
+                        marginLeft: 4,
+                      },
+                    }}
+                  />
+                ),
+              }[header.column.getIsSorted() as string] ?? null}
+            </ThSpan>
+            {columnOrderEnabled && (
+              <ColumnOrderButton
+                isDragging={isDragging}
+                ref={setActivatorNodeRef}
+                isVisible={isFocused}
+                {...attributes}
+                {...listeners}
+              >
+                <MenuIcon size={20} colorName="black" />
+              </ColumnOrderButton>
+            )}
+          </ThContent>
+          {header.column.getCanResize() && columnSizing?.enabled && (
+            <Resizer
+              onMouseDown={header.getResizeHandler()}
+              onTouchStart={header.getResizeHandler()}
+              isResizing={header.column.getIsResizing()}
+              css={{
+                transform:
+                  columnSizing?.resizeMode === 'onEnd'
+                    ? `translateX(${
+                        table.getState().columnSizingInfo.deltaOffset
+                      }px)`
+                    : '',
+              }}
+            />
           )}
-        </ThSpan>
-      )}
-      {resizing?.enabled &&
-        !(selection?.enabled && headerIndex === 0) &&
-        activeIndex >= 0 && (
-          <Resizer
-            onMouseDown={header.getResizeHandler()}
-            onTouchStart={header.getResizeHandler()}
-            isResizing={header.column.getIsResizing()}
-            css={{
-              transform:
-                resizing?.mode === 'onEnd' && header.column.getIsResizing()
-                  ? `translateX(${
-                      table.getState().columnSizingInfo.deltaOffset
-                    }px)`
-                  : '',
-            }}
-          />
-        )}
-      {columnOrderEnabled && isOver && !isDragging && (
-        <OrderIndicator position={overIndex < activeIndex ? 'left' : 'right'} />
+          {columnOrderEnabled && isOver && !isDragging && (
+            <OrderIndicator
+              position={overIndex < activeIndex ? 'left' : 'right'}
+            />
+          )}
+        </>
       )}
     </ThStyled>
   );

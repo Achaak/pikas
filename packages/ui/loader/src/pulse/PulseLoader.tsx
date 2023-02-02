@@ -13,7 +13,7 @@ export type PulseLoaderProps = {
 
 export const PulseLoader: FC<PulseLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

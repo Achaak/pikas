@@ -95,7 +95,7 @@ export const ExplorerExample: FC<ExplorerExampleProps> = ({ showType }) => (
                 onClick: (): void => {
                   alert(`Delete item id: ${item.id}`);
                 },
-                colorName: 'DANGER',
+                colorName: 'danger',
                 Icon: TrashIcon,
               },
             ],

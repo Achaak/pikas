@@ -13,7 +13,7 @@ export type BounceLoaderProps = {
 
 export const BounceLoader: FC<BounceLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

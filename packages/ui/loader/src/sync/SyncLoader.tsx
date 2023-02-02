@@ -14,7 +14,7 @@ export type SyncLoaderProps = {
 
 export const SyncLoader: FC<SyncLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   margin,

@@ -1,5 +1,5 @@
 import type {
-  BorderRadius,
+  PikasRadius,
   PikasColor,
   PikasCSS,
   PikasShadow,
@@ -20,16 +20,16 @@ export type CustomBadgeProps = HTMLAttributes<HTMLDivElement> & {
   colorName?: PikasColor;
   colorHex?: string;
   boxShadow?: PikasShadow | 'none';
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   css?: PikasCSS;
 };
 
 export const CustomBadge: FC<CustomBadgeProps> = ({
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   children,
-  boxShadow = 'ELEVATION_BOTTOM_1',
-  borderRadius = 'round',
+  boxShadow = 'bottom-sm',
+  borderRadius = 'full',
   css,
   ...props
 }) => {
@@ -40,7 +40,7 @@ export const CustomBadge: FC<CustomBadgeProps> = ({
       css={{
         backgroundColor: `$${colorName}`,
         boxShadow: `$${boxShadow}`,
-        br: borderRadius,
+        borderRadius: `$${borderRadius}`,
         color:
           theme &&
           new Color(colorHex ?? theme.colors[colorName].value).getContrast(),

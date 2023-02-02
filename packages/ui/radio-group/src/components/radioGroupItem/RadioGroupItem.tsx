@@ -4,14 +4,14 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 const RadioGroupItemStyled = styled(RadioGroupPrimitive.Item, {
   all: 'unset',
-  backgroundColor: '$WHITE_FIX',
+  backgroundColor: '$white-fixed',
   borderStyle: 'solid',
   borderWidth: 2,
-  borderColor: '$GRAY',
+  borderColor: '$gray',
 
   '&:focus': {
     outline: 'solid',
-    outlineColor: '$PRIMARY',
+    outlineColor: '$primary',
     outlineWidth: 2,
   },
 });

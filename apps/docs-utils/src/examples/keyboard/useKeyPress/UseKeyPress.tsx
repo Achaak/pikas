@@ -4,10 +4,10 @@ import { FC } from 'react';
 import { Grid } from '@pikas-ui/grid';
 
 const KeyStyled = styled('span', {
-  color: '$PRIMARY',
-  backgroundColor: '$PRIMARY_LIGHTER',
-  fontWeight: '$BOLD',
-  br: 'sm',
+  color: '$primary',
+  backgroundColor: '$primary-lighter',
+  fontWeight: '$bold',
+  borderRadius: '$sm',
   padding: 8,
   display: 'flex',
   alignItems: 'center',
@@ -16,8 +16,8 @@ const KeyStyled = styled('span', {
   variants: {
     isPressed: {
       true: {
-        color: '$SUCCESS',
-        backgroundColor: '$SUCCESS_LIGHTER',
+        color: '$success',
+        backgroundColor: '$success-lighter',
       },
     },
   },

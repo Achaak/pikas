@@ -13,7 +13,7 @@ export type SquareLoaderProps = {
 
 export const SquareLoader: FC<SquareLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

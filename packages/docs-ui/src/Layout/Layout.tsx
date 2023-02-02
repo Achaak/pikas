@@ -9,7 +9,7 @@ const Container = styled('div', {
   position: 'fixed',
   width: '100vw',
   height: '100vh',
-  backgroundColor: '$WHITE2',
+  backgroundColor: '$white2',
 });
 
 const Center = styled('div', {
@@ -38,21 +38,21 @@ const ContentChild = styled('div', {
     marginBottom: 40,
   },
   '& > a': {
-    color: '$PRIMARY',
+    color: '$primary',
   },
   '& > p': {
     marginTop: 12,
     marginBottom: 12,
-    color: '$BLACK',
+    color: '$black',
 
     '& > code': {
       all: 'unset',
-      color: '$WARNING',
-      backgroundColor: '$WARNING_LIGHTEST_2',
+      color: '$warning',
+      backgroundColor: '$warning-lightest-2',
       padding: '4px 8px',
       margin: '1px 0',
       display: 'inline-block',
-      br: 'sm',
+      borderRadius: '$sm',
     },
   },
   '& > hr': {
@@ -60,54 +60,58 @@ const ContentChild = styled('div', {
     marginBottom: 40,
     display: 'block',
     border: 'none',
-    borderTop: '1px solid $GRAY_LIGHT',
+    borderTop: '1px solid $gray-light',
   },
   '& > h1': {
     marginTop: 32,
     marginBottom: 32,
-    color: '$BLACK',
+    color: '$black',
   },
   '& > h2': {
     marginTop: 32,
     marginBottom: 24,
-    color: '$BLACK',
+    color: '$black',
   },
   '& > h3': {
     marginTop: 24,
     marginBottom: 24,
-    color: '$BLACK',
+    color: '$black',
   },
   '& > h4': {
     marginTop: 24,
     marginBottom: 16,
-    color: '$BLACK',
+    color: '$black',
+  },
+  '& > ul': {
+    paddingLeft: 20,
   },
   '& > ul li': {
-    color: '$BLACK',
+    color: '$black',
+    listStyle: 'disc',
   },
   '& > ul li a, & > p a': {
-    color: '$PRIMARY',
+    color: '$primary',
   },
   '& > div pre': {
-    br: 'sm',
+    borderRadius: '$sm',
     overflow: 'auto',
   },
   '& > table': {
-    color: '$BLACK',
+    color: '$black',
     borderCollapse: 'collapse',
-    backgroundColor: '$GRAY_LIGHTEST_2',
+    backgroundColor: '$gray-lightest-2',
     width: '100%',
-    br: 'sm',
+    borderRadius: '$sm',
     overflowX: 'auto',
     display: 'inline-block',
     whiteSpace: 'nowrap',
-    fontSize: '$EM-SMALL',
+    fontSize: '$em-small',
 
     '& th': {
-      color: '$PRIMARY',
+      color: '$primary',
       padding: '8px 16px',
       borderBottom: '1px solid',
-      borderColor: '$GRAY_LIGHT',
+      borderColor: '$gray-light',
 
       '&:nth-child(2)': {
         width: '100%',
@@ -118,12 +122,12 @@ const ContentChild = styled('div', {
     },
     '& code': {
       all: 'unset',
-      color: '$WARNING',
-      backgroundColor: '$WARNING_LIGHTEST_2',
+      color: '$warning',
+      backgroundColor: '$warning-lightest-2',
       padding: '4px 8px',
       margin: '1px 0',
       display: 'inline-block',
-      br: 'sm',
+      borderRadius: '$sm',
     },
   },
 });

@@ -13,10 +13,10 @@ const Container = styled('div', {
 
 const Head = styled('div', {
   display: 'flex',
-  borderBottomColor: '$GRAY',
+  borderBottomColor: '$gray',
   borderBottomStyle: 'solid',
   borderBottomWidth: 2,
-  fontWeight: '$MEDIUM',
+  fontWeight: '$medium',
   width: '100%',
 });
 

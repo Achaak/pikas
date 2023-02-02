@@ -2,10 +2,15 @@ import type { ReactElement } from 'react';
 import type { PikasCSS } from '@pikas-ui/styles';
 import { useTheme, styled } from '@pikas-ui/styles';
 import { Color } from '@pikas-utils/color';
-import { IconByName } from '@pikas-ui/icons';
 import type { SelectCSS } from '@pikas-ui/select';
 import { Select } from '@pikas-ui/select';
 import { ReactNode, FC } from 'react';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronsLeftIcon,
+  ChevronsRightIcon,
+} from '../icons';
 
 const Footer = styled('div', {
   display: 'flex',
@@ -29,13 +34,14 @@ const PageNumber = styled('button', {
   all: 'unset',
   marginLeft: 2,
   marginRight: 2,
-  fontSize: '$EM-SMALL',
-  br: 'round',
+  fontSize: '$em-small',
+  borderRadius: '$full',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   height: 24,
-  width: 24,
+  minWidth: 16,
+  padding: '0 4px',
   cursor: 'pointer',
 });
 
@@ -77,7 +83,7 @@ export type PaginationProps = {
   pageIndex: number;
   pageCount: number;
   setPageIndex: (pageIndex: number) => void;
-  selectValue: number[];
+  pageSizes: number[];
   defaultPageSize: number;
   css?: PaginationCSS;
 };
@@ -92,7 +98,7 @@ export const Pagination: FC<PaginationProps> = ({
   pageCount,
   setPageIndex,
   defaultPageSize,
-  selectValue,
+  pageSizes,
   css,
 }) => {
   const theme = useTheme();
@@ -125,9 +131,9 @@ export const Pagination: FC<PaginationProps> = ({
             css={{
               ...css?.pageNumber,
               ...(i === pageIndex && {
-                backgroundColor: '$PRIMARY',
+                backgroundColor: '$primary',
                 color:
-                  theme && new Color(theme.colors.PRIMARY.value).getContrast(),
+                  theme && new Color(theme.colors.primary.value).getContrast(),
                 ...css?.pageNumberEnabled,
               }),
             }}
@@ -147,7 +153,7 @@ export const Pagination: FC<PaginationProps> = ({
         <Select
           data={[
             {
-              items: selectValue.map((pageSize) => ({
+              items: pageSizes.map((pageSize) => ({
                 label: `${pageSize}`,
                 value: `${pageSize}`,
               })),
@@ -158,7 +164,7 @@ export const Pagination: FC<PaginationProps> = ({
             setPageSize(Number(value));
           }}
           padding="sm"
-          fontSize="EM-SMALL"
+          fontSize="em-small"
           css={css?.select}
         />
       </Left>
@@ -168,14 +174,14 @@ export const Pagination: FC<PaginationProps> = ({
           disabled={!canPreviousPage}
           css={css?.buttonChevronsLeft}
         >
-          <IconByName name="bx:chevrons-left" size="1em" colorName="BLACK" />
+          <ChevronsLeftIcon size="1em" colorName="black" />
         </ButtonArrowLeft>
         <ButtonArrowLeft
           onClick={previousPage}
           disabled={!canPreviousPage}
           css={css?.buttonChevronLeft}
         >
-          <IconByName name="bx:chevron-left" size="1em" colorName="BLACK" />
+          <ChevronLeftIcon size="1em" colorName="black" />
         </ButtonArrowLeft>
         {getNumber()}
         <ButtonArrowRight
@@ -183,14 +189,14 @@ export const Pagination: FC<PaginationProps> = ({
           disabled={!canNextPage}
           css={css?.buttonChevronRight}
         >
-          <IconByName name="bx:chevron-right" size="1em" colorName="BLACK" />
+          <ChevronRightIcon size="1em" colorName="black" />
         </ButtonArrowRight>
         <ButtonArrowRight
           onClick={(): void => setPageIndex(pageCount - 1)}
           disabled={!canNextPage}
           css={css?.buttonChevronsRight}
         >
-          <IconByName name="bx:chevrons-right" size="1em" colorName="BLACK" />
+          <ChevronsRightIcon size="1em" colorName="black" />
         </ButtonArrowRight>
       </Right>
     </Footer>

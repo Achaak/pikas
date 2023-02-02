@@ -5,7 +5,7 @@ export const customGlobalCss = globalCss({
   'html, body, #__next': {
     fontFamily: '$roboto',
     scrollBehavior: 'smooth',
-    color: '$BLACK',
+    color: '$black',
   },
   '*': {
     margin: 0,
@@ -22,14 +22,14 @@ export const customGlobalCss = globalCss({
   '::-webkit-scrollbar': {
     width: '10px',
     height: '10px',
-    br: 'md',
+    borderRadius: '$lg',
   },
   '::-webkit-scrollbar-track': {
-    br: 'md',
-    backgroundColor: '$GRAY',
+    borderRadius: '$lg',
+    backgroundColor: '$gray',
   },
   '::-webkit-scrollbar-thumb': {
-    background: '$GRAY_DARK',
-    br: 'md',
+    background: '$gray-dark',
+    borderRadius: '$lg',
   },
 });

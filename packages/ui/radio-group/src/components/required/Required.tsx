@@ -2,7 +2,7 @@ import { PikasCSS, styled } from '@pikas-ui/styles';
 import { FC, HTMLAttributes } from 'react';
 
 const RequiredStyled = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 

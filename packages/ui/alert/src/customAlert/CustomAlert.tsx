@@ -51,19 +51,19 @@ const Content = styled('div', {
     },
     gap: {
       xs: {
-        customColumnGap: 8,
+        columnGap: 8,
       },
       sm: {
-        customColumnGap: 16,
+        columnGap: 16,
       },
       md: {
-        customColumnGap: 24,
+        columnGap: 24,
       },
       lg: {
-        customColumnGap: 32,
+        columnGap: 32,
       },
       xl: {
-        customColumnGap: 40,
+        columnGap: 40,
       },
     },
   },
@@ -86,10 +86,10 @@ export const CustomAlert: FC<CustomAlertProps> = ({
   backgroundColorName,
   colorName,
   colorHex,
-  fontSize = 'EM-SMALL',
+  fontSize = 'em-small',
   borderRadius = 'md',
   iconSize = 24,
-  fontWeight = 'NORMAL',
+  fontWeight = 'normal',
   gap = 'sm',
   padding = 'md',
   visible = true,
@@ -106,7 +106,7 @@ export const CustomAlert: FC<CustomAlertProps> = ({
         color: colorHex ?? (colorName ? `$${colorName}` : undefined),
         fontSize: `$${fontSize}`,
         fontWeight: `$${fontWeight}`,
-        br: borderRadius,
+        borderRadius: `$${borderRadius}`,
         ...css?.content,
       }}
     >

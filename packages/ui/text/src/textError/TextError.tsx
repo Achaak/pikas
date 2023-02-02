@@ -3,8 +3,8 @@ import { styled } from '@pikas-ui/styles';
 import { FC, HTMLAttributes, ReactNode } from 'react';
 
 const TextErrorStyled = styled('p', {
-  color: '$DANGER',
-  fontSize: '$EM-X-SMALL',
+  color: '$danger',
+  fontSize: '$em-x-small',
 });
 
 export type TextErrorProps = HTMLAttributes<HTMLParagraphElement> & {

@@ -13,7 +13,7 @@ export type DotLoaderProps = {
 
 export const DotLoader: FC<DotLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

@@ -10,10 +10,10 @@ const IconExample: FC<IconProps> = (props) => (
 export const BadgeExample: FC = () => (
   <ExampleContainer>
     <Badge LeftIcon={IconExample}>Bread</Badge>
-    <Badge LeftIcon={IconExample} colorName="SECONDARY">
+    <Badge LeftIcon={IconExample} colorName="secondary">
       Bread
     </Badge>
-    <Badge LeftIcon={IconExample} colorName="TERTIARY">
+    <Badge LeftIcon={IconExample} colorName="tertiary">
       Bread
     </Badge>
   </ExampleContainer>

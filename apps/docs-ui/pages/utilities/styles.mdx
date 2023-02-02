@@ -48,7 +48,7 @@ import { globalCss, createTheme } from '@pikas-ui/styles'
 
 const globalCssCustom = globalCss({
   'html, body, #__next': {
-    color: '$BLACK',
+    color: '$black',
     fontFamily: '$roboto',
     minWidth: 300,
     scrollBehavior: 'smooth',
@@ -72,23 +72,23 @@ const globalCssCustom = globalCss({
   },
   '::-webkit-scrollbar-track': {
     borderRadius: '10px',
-    backgroundColor: '$WHITE',
+    backgroundColor: '$white',
   },
   '::-webkit-scrollbar-thumb': {
-    background: '$GRAY',
+    background: '$gray',
     borderRadius: '10px',
   },
 })
 
 const myTheme = createTheme({
   colors: {
-    PRIMARY_DARKER: '#083358',
-    PRIMARY_DARK: '#0D4C84',
-    PRIMARY: '#1166B0',
-    PRIMARY_LIGHT: '#88B3D7',
-    PRIMARY_LIGHTER: '#C3D9EB',
-    PRIMARY_LIGHTEST_2: '#E7F0F7',
-    PRIMARY_LIGHTEST_1: '#F3F4F6',
+    primary-darker: '#083358',
+    primary-dark: '#0D4C84',
+    primary: '#1166B0',
+    primary-light: '#88B3D7',
+    primary-lighter: '#C3D9EB',
+    primary-lightest-2: '#E7F0F7',
+    primary-lightest-1: '#F3F4F6',
   },
 })
 
@@ -111,19 +111,19 @@ const App: React.FC = () => {
 import { styled } from '@pikas-ui/styles'
 
 const Button = styled('button', {
-  background: '$PRIMARY',
-  color: 'WHITE',
+  background: '$primary',
+  color: 'white',
   border: 'none',
   padding: '0.5rem',
-  br: 'sm',
-  fontSize: '$EM-SMALL',
-  fontWeight: '$BOLD',
+  borderRadius: '$sm',
+  fontSize: '$em-small',
+  fontWeight: '$bold',
   cursor: 'pointer',
   outline: 'none',
   transition: 'all 0.2s ease-in-out',
 
   '&:hover': {
-    background: '$PRIMARY_LIGHT',
+    background: '$primary-light',
   },
 })
 ```
@@ -135,13 +135,13 @@ import { createTheme } from '@pikas-ui/styles'
 
 const themeDark = createTheme({
   colors: {
-    PRIMARY_DARKER: '#083358',
-    PRIMARY_DARK: '#0D4C84',
-    PRIMARY: '#1166B0',
-    PRIMARY_LIGHT: '#88B3D7',
-    PRIMARY_LIGHTER: '#C3D9EB',
-    PRIMARY_LIGHTEST_2: '#E7F0F7',
-    PRIMARY_LIGHTEST_1: '#F3F4F6',
+    primary-darker: '#083358',
+    primary-dark: '#0D4C84',
+    primary: '#1166B0',
+    primary-light: '#88B3D7',
+    primary-lighter: '#C3D9EB',
+    primary-lightest-2: '#E7F0F7',
+    primary-lightest-1: '#F3F4F6',
   },
 })
 ```
@@ -172,7 +172,7 @@ Properties for border radius.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  br: 'sm',
+  borderRadius: '$sm',
 })
 ```
 
@@ -183,25 +183,25 @@ const Div = styled('div', {
 Properties for font size.
 
 ```bash
-'EM-XXX-SMALL'
-'EM-XX-SMALL'
-'EM-X-SMALL'
-'EM-SMALL'
-'EM-MEDIUM'
-'EM-LARGE'
-'EM-X-LARGE'
-'EM-XX-LARGE'
-'EM-XXX-LARGE'
+'em-3x-small'
+'em-2x-small'
+'em-x-small'
+'em-small'
+'em-base'
+'em-large'
+'em-x-large'
+'em-2x-large'
+'em-3x-large'
 
-'REM-XXX-SMALL'
-'REM-XX-SMALL'
-'REM-X-SMALL'
-'REM-SMALL'
-'REM-MEDIUM'
-'REM-LARGE'
-'REM-X-LARGE'
-'REM-XX-LARGE'
-'REM-XXX-LARGE'
+'rem-3x-small'
+'rem-2x-small'
+'rem-x-small'
+'rem-small'
+'rem-base'
+'rem-large'
+'rem-x-large'
+'rem-2x-large'
+'rem-3x-large'
 ```
 
 #### Example
@@ -210,7 +210,7 @@ Properties for font size.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  fontSize: '$EM-SMALL',
+  fontSize: '$em-small',
 })
 ```
 
@@ -221,15 +221,15 @@ const Div = styled('div', {
 Properties for font weight.
 
 ```bash
-'THIN'
-'EXTRA-LIGHT'
-'LIGHT'
-'NORMAL'
-'MEDIUM'
-'SEMI-BOLD'
-'BOLD'
-'EXTRA-BOLD'
-'BLACK'
+'thin'
+'extra-light'
+'light'
+'normal'
+'medium'
+'semi-bold'
+'bold'
+'extra-bold'
+'black'
 ```
 
 #### Example
@@ -238,7 +238,7 @@ Properties for font weight.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  fontWeight: '$BOLD',
+  fontWeight: '$bold',
 })
 ```
 
@@ -252,7 +252,7 @@ Properties for letter spacing.
 'XX-SMALL'
 'X-SMALL'
 'SMALL'
-'MEDIUM'
+'medium'
 'LARGE'
 'X-LARGE'
 'XX-LARGE'
@@ -275,25 +275,25 @@ const Div = styled('div', {
 Properties for line height.
 
 ```bash
-'EM-XXX-SMALL'
-'EM-XX-SMALL'
-'EM-X-SMALL'
-'EM-SMALL'
-'EM-MEDIUM'
-'EM-LARGE'
-'EM-X-LARGE'
-'EM-XX-LARGE'
-'EM-XXX-LARGE'
+'em-3x-small'
+'em-2x-small'
+'em-x-small'
+'em-small'
+'em-base'
+'em-large'
+'em-x-large'
+'em-2x-large'
+'em-3x-large'
 
-'REM-XXX-SMALL'
-'REM-XX-SMALL'
-'REM-X-SMALL'
-'REM-SMALL'
-'REM-MEDIUM'
-'REM-LARGE'
-'REM-X-LARGE'
-'REM-XX-LARGE'
-'REM-XXX-LARGE'
+'rem-3x-small'
+'rem-2x-small'
+'rem-x-small'
+'rem-small'
+'rem-base'
+'rem-large'
+'rem-x-large'
+'rem-2x-large'
+'rem-3x-large'
 ```
 
 #### Example
@@ -302,7 +302,7 @@ Properties for line height.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  lineHeight: '$EM-SMALL',
+  lineHeight: '$em-small',
 })
 ```
 
@@ -313,30 +313,47 @@ const Div = styled('div', {
 Properties for box shadow.
 
 ```bash
-'ELEVATION_1'
-'ELEVATION_2'
-'ELEVATION_3'
-'ELEVATION_4'
+'xs'
+'sm'
+'md'
+'lg'
+'xl'
+'2xl'
 
-'ELEVATION_TOP_1'
-'ELEVATION_TOP_2'
-'ELEVATION_TOP_3'
-'ELEVATION_TOP_4'
-'ELEVATION_TOP_5'
-'ELEVATION_TOP_6'
+'top-xs'
+'top-sm'
+'top-md'
+'top-lg'
+'top-xl'
+'top-2xl'
 
-'ELEVATION_BOTTOM_1'
-'ELEVATION_BOTTOM_2'
-'ELEVATION_BOTTOM_3'
-'ELEVATION_BOTTOM_4'
-'ELEVATION_BOTTOM_5'
-'ELEVATION_BOTTOM_6'
+'bottom-xs'
+'bottom-sm'
+'bottom-md'
+'bottom-lg'
+'bottom-xl'
+'bottom-2xl'
 
-'DIMINUTION_1'
-'DIMINUTION_2'
-'DIMINUTION_3'
-'DIMINUTION_4'
-'DIMINUTION_5'
+'inner-sm'
+'inner-md'
+'inner-md'
+'inner-lg'
+'inner-xl'
+'inner-2xl'
+
+'inset-top-sm'
+'inset-top-md'
+'inset-top-md'
+'inset-top-lg'
+'inset-top-xl'
+'inset-top-2xl'
+
+'inset-bottom-sm'
+'inset-bottom-md'
+'inset-bottom-md'
+'inset-bottom-lg'
+'inset-bottom-xl'
+'inset-bottom-2xl'
 ```
 
 #### Example
@@ -345,7 +362,7 @@ Properties for box shadow.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  boxShadow: '$ELEVATION_1',
+  boxShadow: '$xs',
 })
 ```
 
@@ -360,7 +377,7 @@ Properties for size.
 'XX-SMALL'
 'X-SMALL'
 'SMALL'
-'MEDIUM'
+'medium'
 'LARGE'
 'X-LARGE'
 'XX-LARGE'
@@ -384,15 +401,15 @@ const Div = styled('div', {
 Properties for z-index.
 
 ```bash
-'XXX-LOW'
-'XX-LOW'
-'X-LOW'
-'LOW'
-'MEDIUM'
-'HIGH'
-'X-HIGH'
-'XX-HIGH'
-'XXX-HIGH'
+'3x-low'
+'2x-low'
+'x-low'
+'low'
+'medium'
+'high'
+'x-high'
+'2x-high'
+'3x-high'
 ```
 
 #### Example
@@ -401,7 +418,7 @@ Properties for z-index.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  zIndex: '$XXX-LOW',
+  zIndex: '$3x-low',
 })
 ```
 
@@ -415,11 +432,11 @@ Properties for custom gap for resolve Safari gap issue.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  customGap: 8,
+  gap: 8,
   // or
-  customColumnGap: 8,
+  columnGap: 8,
   // or
-  customRowGap: 8,
+  rowGap: 8,
 })
 ```
 
@@ -432,131 +449,131 @@ Properties for color.
 #### Primary
 
 ```bash
-'PRIMARY_DARKER'
-'PRIMARY_DARK'
-'PRIMARY'
-'PRIMARY_LIGHT'
-'PRIMARY_LIGHTER'
-'PRIMARY_LIGHTEST_2'
-'PRIMARY_LIGHTEST_1'
+'primary-darker'
+'primary-dark'
+'primary'
+'primary-light'
+'primary-lighter'
+'primary-lightest-2'
+'primary-lightest-1'
 ```
 
 #### Secondary
 
 ```bash
-'SECONDARY_DARKER'
-'SECONDARY_DARK'
-'SECONDARY'
-'SECONDARY_LIGHT'
-'SECONDARY_LIGHTER'
-'SECONDARY_LIGHTEST_2'
-'SECONDARY_LIGHTEST_1'
+'secondary-darker'
+'secondary-dark'
+'secondary'
+'secondary-light'
+'secondary-lighter'
+'secondary-lightest-2'
+'secondary-lightest-1'
 ```
 
 #### Tertiary
 
 ```bash
-'TERTIARY_DARKER'
-'TERTIARY_DARK'
-'TERTIARY'
-'TERTIARY_LIGHT'
-'TERTIARY_LIGHTER'
-'TERTIARY_LIGHTEST_2'
-'TERTIARY_LIGHTEST_1'
+'tertiary-darker'
+'tertiary-dark'
+'tertiary'
+'tertiary-light'
+'tertiary-lighter'
+'tertiary-lightest-2'
+'tertiary-lightest-1'
 ```
 
 #### Black
 
 ```bash
-'BLACK'
-'BLACK_LIGHT'
-'BLACK_LIGHTER'
-'BLACK_LIGHTEST_2'
-'BLACK_LIGHTEST_1'
+'black'
+'black-light'
+'black-lighter'
+'black-lightest-2'
+'black-lightest-1'
 ```
 
 #### Black fix
 
 ```bash
-'BLACK_FIX'
-'BLACK_FIX_LIGHT'
-'BLACK_FIX_LIGHTER'
-'BLACK_FIX_LIGHTEST_2'
-'BLACK_FIX_LIGHTEST_1'
+'black-fixed'
+'black-fixed-light'
+'black-fixed-lighter'
+'black-fixed-lightest-2'
+'black-fixed-lightest-1'
 ```
 
 #### White
 
 ```bash
-'WHITE'
-'WHITE_LIGHT'
-'WHITE_LIGHTER'
-'WHITE_LIGHTEST_2'
-'WHITE_LIGHTEST_1'
+'white'
+'white-light'
+'white-lighter'
+'white-lightest-2'
+'white-lightest-1'
 ```
 
 #### White fix
 
 ```bash
-'WHITE_FIX'
-'WHITE_FIX_LIGHT'
-'WHITE_FIX_LIGHTER'
-'WHITE_FIX_LIGHTEST_2'
-'WHITE_FIX_LIGHTEST_1'
+'white-fixed'
+'white-fixed-light'
+'white-fixed-lighter'
+'white-fixed-lightest-2'
+'white-fixed-lightest-1'
 ```
 
 #### Gray
 
 ```bash
-'GRAY_DARKER'
-'GRAY_DARK'
-'GRAY'
-'GRAY_LIGHT'
-'GRAY_LIGHTER'
-'GRAY_LIGHTEST_2'
-'GRAY_LIGHTEST_1'
+'gray-darker'
+'gray-dark'
+'gray'
+'gray-light'
+'gray-lighter'
+'gray-lightest-2'
+'gray-lightest-1'
 ```
 
 #### Success
 
 ```bash
-'SUCCESS_DARKER'
-'SUCCESS_DARK'
-'SUCCESS'
-'SUCCESS_LIGHT'
-'SUCCESS_LIGHTER'
-'SUCCESS_LIGHTEST_2'
-'SUCCESS_LIGHTEST_1'
+'success-darker'
+'success-dark'
+'success'
+'success-light'
+'success-lighter'
+'success-lightest-2'
+'success-lightest-1'
 ```
 
 #### Warning
 
 ```bash
-'WARNING_DARKER'
-'WARNING_DARK'
-'WARNING'
-'WARNING_LIGHT'
-'WARNING_LIGHTER'
-'WARNING_LIGHTEST_2'
-'WARNING_LIGHTEST_1'
+'warning-darker'
+'warning-dark'
+'warning'
+'warning-light'
+'warning-lighter'
+'warning-lightest-2'
+'warning-lightest-1'
 ```
 
 #### Danger
 
 ```bash
-'DANGER_DARKER'
-'DANGER_DARK'
-'DANGER'
-'DANGER_LIGHT'
-'DANGER_LIGHTER'
-'DANGER_LIGHTEST_2'
-'DANGER_LIGHTEST_1'
+'danger-darker'
+'danger-dark'
+'danger'
+'danger-light'
+'danger-lighter'
+'danger-lightest-2'
+'danger-lightest-1'
 ```
 
 #### Other
 
 ```bash
-'TRANSPARENT' | 'BACKGROUND'
+'transparent' | 'background'
 ```
 
 #### Example
@@ -565,9 +582,9 @@ Properties for color.
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  color: '$PRIMARY',
-  backgroundColor: '$BACKGROUND',
-  borderColor: '$PRIMARY',
+  color: '$primary',
+  backgroundColor: '$background',
+  borderColor: '$primary',
   borderWidth: 1,
   borderStyle: 'solid',
 })

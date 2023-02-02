@@ -1,4 +1,4 @@
-import { BorderRadius, styled } from '@pikas-ui/styles';
+import { PikasRadius, styled } from '@pikas-ui/styles';
 import { Description, Label, TextError } from '@pikas-ui/text';
 import { ReactNode, useState, FC, useEffect } from 'react';
 import { Tooltip } from '@pikas-ui/tooltip';
@@ -24,7 +24,7 @@ const Indicator = styled(RadioGroupPrimitive.Indicator, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: '$PRIMARY',
+  backgroundColor: '$primary',
   position: 'absolute',
   top: 0,
   left: 0,
@@ -47,7 +47,7 @@ export type RadioGroupImageCSS = RadioGroupCSS & {
 
 export type RadioGroupImageProps = RadioGroupBaseProps & {
   data: RadioGroupImageItem[];
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   imageWidth?: number | string;
   imageHeight?: number | string;
   css?: RadioGroupImageCSS;
@@ -57,7 +57,7 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
   id,
   label,
   textError,
-  fontSize = 'EM-MEDIUM',
+  fontSize = 'em-base',
   className,
   description,
   css,
@@ -116,7 +116,7 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
             <Tooltip content={info} css={css?.infoTooltip}>
               <IconByName
                 name="bx:info-circle"
-                colorName="BLACK_LIGHT"
+                colorName="black-light"
                 css={{
                   container: {
                     marginLeft: 4,
@@ -172,7 +172,7 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
                 disabled={item.disabled}
                 required={item.required}
                 css={{
-                  br: borderRadius,
+                  borderRadius: `$${borderRadius}`,
                   width: imageWidth,
                   height: imageHeight,
                   overflow: 'hidden',
@@ -181,7 +181,7 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
                   ...css?.radioGroupItem,
 
                   borderColor:
-                    item.value === currentValue ? '$PRIMARY' : undefined,
+                    item.value === currentValue ? '$primary' : undefined,
                 }}
               >
                 <RadioGroupItemImage src={item.imageSrc} />
@@ -189,7 +189,7 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
                 <Indicator css={css?.radioGroupItemIndicator}>
                   <IconByName
                     name="bx:check"
-                    colorName="WHITE_FIX"
+                    colorName="white-fixed"
                     css={{
                       container: {
                         width: '75%',

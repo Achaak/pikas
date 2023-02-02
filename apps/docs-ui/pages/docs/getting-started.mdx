@@ -38,7 +38,7 @@ import { globalCss, createTheme } from '@pikas-ui/styles'
 
 const globalCssCustom = globalCss({
   'html, body, #__next': {
-    color: '$BLACK',
+    color: '$black',
     fontFamily: '$roboto',
     minWidth: 300,
     scrollBehavior: 'smooth',
@@ -62,23 +62,23 @@ const globalCssCustom = globalCss({
   },
   '::-webkit-scrollbar-track': {
     borderRadius: '10px',
-    backgroundColor: '$WHITE',
+    backgroundColor: '$white',
   },
   '::-webkit-scrollbar-thumb': {
-    background: '$GRAY',
+    background: '$gray',
     borderRadius: '10px',
   },
 })
 
 const myTheme = createTheme({
   colors: {
-    PRIMARY_DARKER: '#083358',
-    PRIMARY_DARK: '#0D4C84',
-    PRIMARY: '#1166B0',
-    PRIMARY_LIGHT: '#88B3D7',
-    PRIMARY_LIGHTER: '#C3D9EB',
-    PRIMARY_LIGHTEST_2: '#E7F0F7',
-    PRIMARY_LIGHTEST_1: '#F3F4F6',
+    primary-darker: '#083358',
+    primary-dark: '#0D4C84',
+    primary: '#1166B0',
+    primary-light: '#88B3D7',
+    primary-lighter: '#C3D9EB',
+    primary-lightest-2: '#E7F0F7',
+    primary-lightest-1: '#F3F4F6',
   },
 })
 
@@ -101,19 +101,19 @@ For styling your components you can use the `styled` function.
 import { styled } from '@pikas-ui/styles'
 
 const Button = styled('button', {
-  background: '$PRIMARY',
-  color: 'WHITE',
+  background: '$primary',
+  color: 'white',
   border: 'none',
   padding: '0.5rem',
-  br: 'sm',
-  fontSize: '$EM-SMALL',
-  fontWeight: '$BOLD',
+  borderRadius: '$sm',
+  fontSize: '$em-small',
+  fontWeight: '$bold',
   cursor: 'pointer',
   outline: 'none',
   transition: 'all 0.2s ease-in-out',
 
   '&:hover': {
-    background: '$PRIMARY_LIGHT',
+    background: '$primary-light',
   },
 })
 ```
@@ -127,13 +127,13 @@ import { createTheme } from '@pikas-ui/styles'
 
 const themeDark = createTheme({
   colors: {
-    PRIMARY_DARKER: '#083358',
-    PRIMARY_DARK: '#0D4C84',
-    PRIMARY: '#1166B0',
-    PRIMARY_LIGHT: '#88B3D7',
-    PRIMARY_LIGHTER: '#C3D9EB',
-    PRIMARY_LIGHTEST_2: '#E7F0F7',
-    PRIMARY_LIGHTEST_1: '#F3F4F6',
+    primary-darker: '#083358',
+    primary-dark: '#0D4C84',
+    primary: '#1166B0',
+    primary-light: '#88B3D7',
+    primary-lighter: '#C3D9EB',
+    primary-lightest-2: '#E7F0F7',
+    primary-lightest-1: '#F3F4F6',
   },
 })
 ```

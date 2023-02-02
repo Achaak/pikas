@@ -1,5 +1,13 @@
 import { DefaultTableExample } from './../../src/examples/table/default';
 import { LightTableExample } from './../../src/examples/table/light';
+import { PaginationTableExample } from './../../src/examples/table/pagination';
+import { RowSelectionTableExample } from './../../src/examples/table/rowSelection';
+import { SortingTableExample } from './../../src/examples/table/sorting';
+import { ColumnVisibilityTableExample } from './../../src/examples/table/columnVisibility';
+import { ColumnOrderTableExample } from './../../src/examples/table/columnOrder';
+import { ColumnSizingTableExample } from './../../src/examples/table/columnSizing';
+import { GroupingTableExample } from './../../src/examples/table/grouping';
+import { ExpandingTableExample } from './../../src/examples/table/expanding';
 import { docsUIRoutes } from '@pikas/docs-routes';
 import { Alert } from '@pikas-ui/alert';
 export const { getLink } = docsUIRoutes;
@@ -60,73 +68,46 @@ pnpm add @pikas-ui/table
 ```tsx
 import { Table } from '@pikas-ui/table';
 
-const data = [
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    email: 'tanner@email.com',
-    number: 1234567890,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    email: 'tandy@email.com',
-    number: 1234567890,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    email: 'joe@email.com',
-    number: 1234567890,
-  },
-];
-
 const Example: React.FC = () => {
   return (
     <Table
       data={data}
+      variant="default"
       emptyMessage="No data found"
       columns={[
+        {
+          header: 'First Name',
+          accessorKey: 'firstName',
+          id: 'firstName',
+          cell: info => info.getValue(),
+        },
+        {
+          header: 'Last Name',
+          accessorKey: 'lastName',
+          id: 'lastName',
+          cell: info => info.getValue(),
+        },
         {
           header: 'Age',
           accessorKey: 'age',
           id: 'age',
-          cell: (props) => props.getValue<string>(),
         },
         {
-          header: 'Name',
-          id: 'name',
-          columns: [
-            {
-              header: 'First Name',
-              id: 'firstName',
-              accessorKey: 'firstName',
-            },
-            {
-              header: 'Last Name',
-              id: 'lastName',
-              accessorKey: 'lastName',
-            },
-          ],
+          header: 'Visits',
+          accessorKey: 'visits',
+          id: 'age',
         },
         {
-          header: 'Data',
-          id: 'data',
-          columns: [
-            {
-              header: 'Email',
-              accessorKey: 'email',
-              id: 'email',
-            },
-            {
-              header: 'Number',
-              accessorKey: 'number',
-              id: 'number',
-            },
-          ],
+          header: 'Status',
+          accessorKey: 'status',
+          id: 'status',
+        },
+        {
+          header: 'Progress',
+          accessorKey: 'progress',
+          id: 'progress',
+          cell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
         },
       ]}
     />
@@ -143,83 +124,372 @@ const Example: React.FC = () => {
 | `variant`          | The variant of the table                    | `TableVariant`         | `"default"` |
 | `emptyMessage`     | The message to show when the table is empty | `ReactNode`            | -           |
 | `hasTfoot`         | If the table has a tfoot                    | `boolean`              | `false`     |
-| `pagination`       | The pagination of the table                 | `TablePaginationProps` | -           |
-| `selection`        | The selection of the table                  | `TableSelection`       | -           |
 | `columnOrder`      | The column order of the table               | `TableColumnOrder`     | -           |
+| `columnSizing`     | The column sizing of the table              | `TableColumnSizing`    | -           |
 | `columnVisibility` | The column visibility of the table          | `TableVisibility`      | -           |
-| `resizing`         | The resizing of the table                   | `TableResize`          | -           |
+| `expanding`        | The expanding of the table                  | `TableExpanding`       | -           |
+| `grouping`         | The grouping of the table                   | `TableGrouping`        | -           |
+| `pagination`       | The pagination of the table                 | `TablePaginationProps` | -           |
+| `rowSelection`     | The row selection of the table              | `TableRowSelection`    | -           |
 | `sorting`          | The sorting of the table                    | `TableSorting`         | -           |
 | `css`              | The css of the table                        | `TableCSS<T>`          | -           |
 | `padding`          | The padding of the table                    | `TablePadding`         | -           |
-| `hoverEffect`      | If the table has a hover effect             | `boolean`              | `true`      |
+| `hoverEffect`      | If the table has a hover effect             | `boolean`              | `false`     |
+| `debug`            | If the table is in debug mode               | `boolean`              | `false`     |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/table.mdx)
+## Features
 
+-  [Column Order](#column-order)
+-  [Column Sizing](#column-sizing)
+-  [Column Visibility](#column-visibility)
+-  [Expanding](#expanding)
+-  [Grouping](#grouping)
+-  [Pagination](#pagination)
+-  [Row Selection](#row-selection)
+-  [Sorting](#sorting)
 
+---
 
-#### Pagination
-Allows you to activate the data pagination.
-
-| Prop                 | Description                                      | Type                          | Default |
-| :------------------- | :----------------------------------------------- | :---------------------------- | :------ |
-| `enabled`            | If the pagination is enabled                     | `boolean`                     | `false` |
-| `state`              | The state of the pagination                      | `PaginationState`             | -       |
-| `selectValue`        | The select value of the pagination               | `number[]`                    | -       |
-| `onPaginationChange` | The function to call when the pagination changes | `OnChangeFn<PaginationState>` | -       |
-
-#### Selection
-Enable data selection by adding checkboxes.
-
-| Prop                   | Description                                     | Type                            | Default |
-| :--------------------- | :---------------------------------------------- | :------------------------------ | :------ |
-| `enabled`              | If the selection is enabled                     | `boolean`                       | `false` |
-| `state`                | The state of the selection                      | `RowSelectionState`             | -       |
-| `defaultState`         | The default state of the selection              | `RowSelectionState`             | -       |
-| `onRowSelectionChange` | The function to call when the selection changes | `OnChangeFn<RowSelectionState>` | -       |
-
-#### Sorting
-Allows you to activate the data sorting.
-
-| Prop              | Description                                   | Type                       | Default |
-| :---------------- | :-------------------------------------------- | :------------------------- | :------ |
-| `enabled`         | If the sorting is enabled                     | `boolean`                  | `false` |
-| `state`           | The state of the sorting                      | `SortingState`             | -       |
-| `defaultState`    | The default state of the sorting              | `SortingState`             | -       |
-| `onSortingChange` | The function to call when the sorting changes | `OnChangeFn<SortingState>` | -       |
-
-
-#### Column Visibility
-Allows you to activate the display or not of columns.
-
-| Prop                 | Description                                             | Type                          | Default |
-| :------------------- | :------------------------------------------------------ | :---------------------------- | :------ |
-| `enabled`            | If the column visibility is enabled                     | `boolean`                     | `false` |
-| `state`              | The state of the column visibility                      | `VisibilityState`             | -       |
-| `onVisibilityChange` | The function to call when the column visibility changes | `OnChangeFn<VisibilityState>` | -       |
-
-
-
-#### Column Order
+### Column Order <a id="column-order"></a>
 Allows to activate the moving of the columns.
-
-| Prop                  | Description                                        | Type                           | Default |
-| :-------------------- | :------------------------------------------------- | :----------------------------- | :------ |
-| `enabled`             | If the column order is enabled                     | `boolean`                      | `false` |
-| `defaultState`        | The default state of the column order              | `ColumnOrderState`             | -       |
-| `onColumnOrderChange` | The function to call when the column order changes | `OnChangeFn<ColumnOrderState>` | -       |
 
 <Alert variant="warning">
   Column order is not enabled if you have a nested column.  
 </Alert>
 
-#### Resizing
+<ColumnOrderTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      columnOrder={{
+        enabled: true,
+        defaultState: ['firstName', 'lastName', 'age', 'visits', 'status', 'progress']
+        onColumnOrderChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                  | Description                                        | Type                                | Default |
+| :-------------------- | :------------------------------------------------- | :---------------------------------- | :------ |
+| `enabled`             | If the column order is enabled                     | `boolean`                           | `false` |
+| `state`               | The state of the column order                      | `TableColumnOrderState`             | -       |
+| `defaultState`        | The default state of the column order              | `TableColumnOrderState`             | -       |
+| `onColumnOrderChange` | The function to call when the column order changes | `OnChangeFn<TableColumnOrderState>` | -       |
+
+
+---
+
+### Column Sizing <a id="column-sizing"></a>
 Enables changing the width of the columns.
 
-| Prop       | Description                                    | Type                            | Default |
-| :--------- | :--------------------------------------------- | :------------------------------ | :------ |
-| `enabled`  | If the resizing is enabled                     | `boolean`                       | `false` |
-| `mode`     | The mode of the resizing                       | `ColumnResizeMode`              | -       |
-| `onResize` | The function to call when the resizing changes | `OnChangeFn<ColumnSizingState>` | -       |
+<ColumnSizingTableExample />
 
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      columnSizing={{
+        enabled: true,
+        resizeMode: 'onChange',
+        defaultState: {
+          firstName: 200,
+          lastName: 200,
+          age: 100,
+          visits: 100,
+          status: 100,
+          progress: 100,
+        }
+        onColumnSizeChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop           | Description                                    | Type                                 | Default |
+| :------------- | :--------------------------------------------- | :----------------------------------- | :------ |
+| `enabled`      | If the resizing is enabled                     | `boolean`                            | `false` |
+| `mode`         | The mode of the resizing                       | `TableResizeMode`                    | -       |
+| `state`        | The state of the resizing                      | `TableColumnSizingState`             | -       |
+| `defaultState` | The default state of the resizing              | `TableColumnSizingState`             | -       |
+| `onResize`     | The function to call when the resizing changes | `OnChangeFn<TableColumnSizingState>` | -       |
+
+---
+
+### Column Visibility <a id="column-visibility"></a>
+Allows you to activate the display or not of columns.
+
+<ColumnVisibilityTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      columnVisibility={{
+        enabled: true,
+        state: {
+          firstName: true,
+          lastName: true,
+          age: true,
+          visits: true,
+          status: true,
+          progress: true,
+        },
+        onVisibilityChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                 | Description                                             | Type                               | Default |
+| :------------------- | :------------------------------------------------------ | :--------------------------------- | :------ |
+| `enabled`            | If the column visibility is enabled                     | `boolean`                          | `false` |
+| `state`              | The state of the column visibility                      | `TableVisibilityState`             | -       |
+| `onVisibilityChange` | The function to call when the column visibility changes | `OnChangeFn<TableVisibilityState>` | -       |
+
+---
+
+### Expanding <a id="expanding"></a>
+Allows you to activate the data grouping.
+
+<ExpandingTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      expanding={{
+        enabled: true,
+        defaultState: {
+          1: true,
+          2: true,
+        }
+        onExpandedChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop               | Description                                     | Type                             | Default |
+| :----------------- | :---------------------------------------------- | :------------------------------- | :------ |
+| `enabled`          | If the expanding is enabled                     | `boolean`                        | `false` |
+| `state`            | The state of the expanding                      | `TableExpandedState`             | -       |
+| `defaultState`     | The default state of the expanding              | `TableExpandedState`             | -       |
+| `onExpandedChange` | The function to call when the expanding changes | `OnChangeFn<TableExpandedState>` | -       |
+
+---
+
+### Grouping <a id="grouping"></a>
+Allows you to activate the data grouping.
+
+<GroupingTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      grouping={{
+        enabled: true,
+        defaultState: ['firstName', 'lastName']
+        onGroupingChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop              | Description                                   | Type                            | Default |
+| :---------------- | :-------------------------------------------- | :------------------------------ | :------ |
+| `enabled`         | If the grouping is enabled                    | `boolean`                       | `false` |
+| `state`           | The state of the grouping                     | `TableGroupingState`            | -       |
+| `defaultState`    | The default state of the grouping             | `TableGroupingState`            | -       |
+| `onGroupingChange`| The function to call when the grouping changes| `OnChangeFn<TableGroupingState>`| -       |
+
+---
+
+### Pagination <a id="pagination"></a>
+Allows you to activate the data pagination.
+
+<PaginationTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      pagination={{
+        enabled: true,
+        pageSizes: [10, 20, 30, 40, 50],
+        defaultPageIndex: 2,
+        defaultPageSize: 0,
+        onPaginationChange: ({ pageSize, pageIndex }) => {
+          console.log({ pageSize, pageIndex });
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                 | Description                                      | Type                               | Default |
+| :------------------- | :----------------------------------------------- | :--------------------------------- | :------ |
+| `enabled`            | If the pagination is enabled                     | `boolean`                          | `false` |
+| `pageSize`           | The size of the page                             | `number`                           | -       |
+| `pageSizes`          | The sizes of the page                            | `number[]`                         | -       |
+| `pageIndex`          | The index of the page                            | `number`                           | -       |
+| `defaultPageSize`    | The default size of the page                     | `number`                           | -       |
+| `defaultPageIndex`   | The default index of the page                    | `number`                           | -       |
+| `onPaginationChange` | The function to call when the pagination changes | `OnChangeFn<TablePaginationState>` | -       |
+
+---
+
+### Row Selection <a id="row-selection"></a>
+Enable data selection by adding checkboxes.
+
+<RowSelectionTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      rowSelection={{
+        enabled: true,
+        defaultState: {
+          '1': true,
+          '2': true,
+        },
+        onRowSelectionChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                   | Description                                         | Type                                 | Default |
+| :--------------------- | :-------------------------------------------------- | :----------------------------------- | :------ |
+| `enabled`              | If the row selection is enabled                     | `boolean`                            | `false` |
+| `state`                | The state of the row selection                      | `TableRowSelectionState`             | -       |
+| `defaultState`         | The default state of the row selection              | `TableRowSelectionState`             | -       |
+| `onRowSelectionChange` | The function to call when the row selection changes | `OnChangeFn<TableRowSelectionState>` | -       |
+
+---
+
+### Sorting <a id="sorting"></a>
+Allows you to activate the data sorting.
+
+<SortingTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      sorting={{
+        enabled: true,
+        defaultState: [
+          {
+            id: 'firstName',
+            desc: false,
+          },
+        ],
+        onSortingChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop              | Description                                   | Type                            | Default |
+| :---------------- | :-------------------------------------------- | :------------------------------ | :------ |
+| `enabled`         | If the sorting is enabled                     | `boolean`                       | `false` |
+| `state`           | The state of the sorting                      | `TableSortingState`             | -       |
+| `defaultState`    | The default state of the sorting              | `TableSortingState`             | -       |
+| `onSortingChange` | The function to call when the sorting changes | `OnChangeFn<TableSortingState>` | -       |
+
+---
+
+[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/table.mdx)

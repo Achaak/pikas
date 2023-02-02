@@ -19,7 +19,7 @@ export type InfoDialogProps = DialogProps & {
 export const InfoDialog: FC<InfoDialogProps> = ({
   onClose,
   validateButtonLabel = 'Ok',
-  validateButtonColorName = 'PRIMARY',
+  validateButtonColorName = 'primary',
   validateButtonDisabled,
   validateButtonLoading,
   onValidate,

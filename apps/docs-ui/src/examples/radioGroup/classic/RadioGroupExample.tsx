@@ -12,16 +12,16 @@ export const RadioGroupExample: FC = () => (
       data={[
         {
           label: 'Radio Group item 1',
-          value: 'Radio Group item 1',
+          value: 'radio-group-item-1',
         },
         {
           label: 'Radio Group item 2',
-          value: 'Radio Group item 2',
+          value: 'radio-group-item-2',
           required: true,
         },
         {
           label: 'Radio Group item 3',
-          value: 'Radio Group item 3',
+          value: 'radio-group-item-3',
           disabled: true,
         },
       ]}

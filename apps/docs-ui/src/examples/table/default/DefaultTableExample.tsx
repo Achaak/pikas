@@ -1,54 +1,61 @@
 import { ExampleContainer } from '@pikas/docs-ui';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Table } from '@pikas-ui/table';
-import { dataTable } from '../data';
+import { makeData, Person } from '../data';
+import { BottomTools } from '../bottomTools';
 
-export const DefaultTableExample: FC = () => (
-  <ExampleContainer>
-    <Table
-      data={dataTable}
-      emptyMessage="No data found"
-      columns={[
-        {
-          header: 'Age',
-          accessorKey: 'age',
-          id: 'age',
-          cell: (props) => props.getValue<string>(),
-        },
-        {
-          header: 'First Name',
-          accessorKey: 'firstName',
-          id: 'firstName',
-        },
-        {
-          header: 'Last Name',
-          accessorKey: 'lastName',
-          id: 'lastName',
-        },
-        {
-          header: 'Email',
-          accessorKey: 'email',
-          id: 'email',
-        },
-        {
-          header: 'Number',
-          accessorKey: 'number',
-          id: 'number',
-        },
-      ]}
-      selection={{
-        enabled: true,
-      }}
-      sorting={{
-        enabled: true,
-      }}
-      resizing={{
-        enabled: true,
-        mode: 'onChange',
-      }}
-      columnOrder={{
-        enabled: true,
-      }}
-    />
-  </ExampleContainer>
-);
+export const DefaultTableExample: FC = () => {
+  const [data, setData] = useState<Person[]>([]);
+
+  useEffect(() => {
+    setData(() => makeData(5));
+  }, []);
+
+  const refreshData = () => setData(() => makeData(5));
+
+  return (
+    <ExampleContainer>
+      <Table
+        data={data}
+        variant="default"
+        emptyMessage="No data found"
+        columns={[
+          {
+            header: 'First Name',
+            accessorKey: 'firstName',
+            id: 'firstName',
+          },
+          {
+            header: 'Last Name',
+            accessorKey: 'lastName',
+            id: 'lastName',
+          },
+          {
+            header: 'Age',
+            accessorKey: 'age',
+            id: 'age',
+          },
+          {
+            header: 'Visits',
+            accessorKey: 'visits',
+            id: 'visits',
+          },
+          {
+            header: 'Status',
+            accessorKey: 'status',
+            id: 'status',
+          },
+          {
+            header: 'Progress',
+            accessorKey: 'progress',
+            id: 'progress',
+            cell: ({ getValue }) =>
+              `${Math.round(getValue<number>() * 100) / 100}%`,
+          },
+        ]}
+      />
+
+      <BottomTools refreshData={refreshData} nbRows={data.length} />
+    </ExampleContainer>
+  );
+};

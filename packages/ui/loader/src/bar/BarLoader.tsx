@@ -15,7 +15,7 @@ export type BarLoaderProps = {
 export const BarLoader: FC<BarLoaderProps> = ({
   width,
   height,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

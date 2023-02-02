@@ -65,12 +65,12 @@ const Example: React.FC = () => {
 | `max`                   | The max value of the progress.                 | `number or string`                       | `100`                                                           |
 | `width`                 | The width of the progress.                     | `number or string`                       | `280`                                                           |
 | `height`                | The height of the progress.                    | `number or string`                       | `16`                                                            |
-| `colorName`             | The color of the progress.                     | `PikasColors`                            | `"PRIMARY"`                                                     |
-| `backgroundColorName`   | The background color of the progress.          | `PikasColors`                            | `"GRAY"`                                                        |
+| `colorName`             | The color of the progress.                     | `PikasColors`                            | `"primary"`                                                     |
+| `backgroundColorName`   | The background color of the progress.          | `PikasColors`                            | `"gray"`                                                        |
 | `loading`               | The loading state of the progress.             | `boolean`                                | `false`                                                         |
-| `boxShadow`             | The box shadow of the progress.                | `PikasShadow or 'none"`                  | `"DIMINUTION_1"`                                                |
-| `borderRadius`          | The border radius of the progress.             | `BorderRadius`                           | `"round"`                                                       |
-| `borderRadiusIndicator` | The border radius of the indicator.            | `BorderRadius`                           | `"none"`                                                        |
+| `boxShadow`             | The box shadow of the progress.                | `PikasShadow or 'none"`                  | `"inner-md"`                                                    |
+| `borderRadius`          | The border radius of the progress.             | `PikasRadius`                            | `"full"`                                                        |
+| `borderRadiusIndicator` | The border radius of the indicator.            | `PikasRadius`                            | `"none"`                                                        |
 | `getValueLabel`         | The function to get the label of the progress. | `(value: number, max: number) => string` | `(value, max): string => Math.round((value / max) * 100) + "%"` |
 | `css`                   | The css of the progress.                       | `ProgressCSS`                            | -                                                               |
 | `content`               | The content of the progress.                   | `string`                                 | -                                                               |

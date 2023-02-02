@@ -1,5 +1,5 @@
 import type {
-  BorderRadius,
+  PikasRadius,
   PikasColor,
   PikasCSS,
   PikasFontSize,
@@ -37,12 +37,10 @@ const Range = styled(SliderPrimitive.Range, {
 const Thumb = styled(SliderPrimitive.Thumb, {
   all: 'unset',
   display: 'block',
-  boxShadow: '$ELEVATION_1',
+  boxShadow: '$bottom-md',
   transition: 'all 0.2s ease-in-out',
   cursor: 'pointer',
-  br: 'round',
-
-  '&:focus': { boxShadow: 'ELEVATION_2' },
+  borderRadius: '$xl',
 });
 
 const Item = styled('div', {
@@ -106,12 +104,12 @@ export type SliderProps = {
   thumbBorderColorNameHover?: PikasColor;
   thumbBorderColorHoverHex?: string;
   thumbBorderWidth?: number;
-  thumbBorderRadius?: BorderRadius;
+  thumbBorderRadius?: PikasRadius;
   trackColorName?: PikasColor;
   trackColorHex?: string;
   rangeColorName?: PikasColor;
   rangeColorHex?: string;
-  sliderBorderRadius?: BorderRadius;
+  sliderBorderRadius?: PikasRadius;
   css?: SliderCSS;
   inverted?: boolean;
   onValueCommit?: (value: number[]) => void;
@@ -121,7 +119,7 @@ export const Slider: FC<SliderProps> = ({
   id,
   label,
   textError,
-  fontSize = 'EM-MEDIUM',
+  fontSize = 'em-base',
   className,
   description,
   defaultValue,
@@ -140,17 +138,17 @@ export const Slider: FC<SliderProps> = ({
   minSize,
   size = '100%',
   thumbSize = 16,
-  thumbColorName = 'WHITE_FIX',
+  thumbColorName = 'white-fixed',
   thumbColorHex,
   thumbBorderColorName,
   thumbBorderColorHex,
-  thumbBorderColorNameHover = 'GRAY_LIGHTER',
+  thumbBorderColorNameHover = 'gray-lighter',
   thumbBorderColorHoverHex,
   thumbBorderWidth,
   thumbBorderRadius,
-  trackColorName = 'GRAY_LIGHTER',
+  trackColorName = 'gray-lighter',
   trackColorHex,
-  rangeColorName = 'PRIMARY',
+  rangeColorName = 'primary',
   rangeColorHex,
   sliderBorderRadius,
   css,
@@ -232,7 +230,9 @@ export const Slider: FC<SliderProps> = ({
       >
         <Track
           css={{
-            br: sliderBorderRadius,
+            borderRadius: sliderBorderRadius
+              ? `$${sliderBorderRadius}`
+              : undefined,
             backgroundColor: trackColorHex ?? `$${trackColorName}`,
 
             '&[data-orientation="horizontal"]': { height: weight },
@@ -243,7 +243,9 @@ export const Slider: FC<SliderProps> = ({
         >
           <Range
             css={{
-              br: sliderBorderRadius,
+              borderRadius: sliderBorderRadius
+                ? `$${sliderBorderRadius}`
+                : undefined,
               backgroundColor: rangeColorHex ?? `$${rangeColorName}`,
               ...css?.range,
             }}
@@ -251,7 +253,9 @@ export const Slider: FC<SliderProps> = ({
         </Track>
         <Thumb
           css={{
-            br: thumbBorderRadius,
+            borderRadius: thumbBorderRadius
+              ? `$${thumbBorderRadius}`
+              : undefined,
             width: thumbSize,
             height: thumbSize,
             backgroundColor: thumbColorHex ?? `$${thumbColorName}`,
@@ -259,7 +263,6 @@ export const Slider: FC<SliderProps> = ({
               thumbBorderColorHex ??
               (thumbBorderColorName ? `$${thumbBorderColorName}` : undefined),
             borderWidth: thumbBorderWidth,
-            borderRadius: thumbBorderRadius,
 
             '&:hover': {
               backgroundColor:

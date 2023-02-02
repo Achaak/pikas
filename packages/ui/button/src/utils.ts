@@ -44,7 +44,7 @@ export const getColors = ({
     return colors;
   } else {
     const colors: PikasCSS = {
-      backgroundColor: '$TRANSPARENT',
+      backgroundColor: '$transparent',
       borderColor: colorHex,
       color: getContentColor({
         contentColorHex,

@@ -18,7 +18,7 @@ export const FadeLoader: FC<FadeLoaderProps> = ({
   width,
   radius,
   margin,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
 }) => {

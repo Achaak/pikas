@@ -20,7 +20,7 @@ export type PacmanLoaderProps = {
 
 export const PacmanLoader: FC<PacmanLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   colorBubble,
   colorBubbleHex,

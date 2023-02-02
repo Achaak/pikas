@@ -21,16 +21,16 @@ export const ProgressExample: FC = () => {
         flexDirection: 'column',
       }}
     >
-      <Progress progress={value1} borderRadiusIndicator="round" />
+      <Progress progress={value1} borderRadiusIndicator="full" />
       <Progress
         progress={value2}
-        colorName="SECONDARY"
+        colorName="secondary"
         content={`${value2}%`}
         height={24}
       />
       <Progress
         progress={value3}
-        colorName="TERTIARY"
+        colorName="tertiary"
         height={32}
         borderRadius="md"
         content={`${value3}/100`}

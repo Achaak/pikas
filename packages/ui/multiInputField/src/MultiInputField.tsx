@@ -1,6 +1,6 @@
 import { IconByName, IconCSS, IconProps } from '@pikas-ui/icons';
 import {
-  BorderRadius,
+  PikasRadius,
   PikasColor,
   PikasCSS,
   PikasFontSize,
@@ -43,26 +43,26 @@ const InputContainer = styled('div', {
     focus: {
       true: {
         outline: 'solid',
-        outlineColor: '$PRIMARY',
+        outlineColor: '$primary',
         outlineWidth: 2,
       },
     },
 
     gap: {
       xs: {
-        customColumnGap: 2,
+        columnGap: 2,
       },
       sm: {
-        customColumnGap: 4,
+        columnGap: 4,
       },
       md: {
-        customColumnGap: 8,
+        columnGap: 8,
       },
       lg: {
-        customColumnGap: 16,
+        columnGap: 16,
       },
       xl: {
-        customColumnGap: 32,
+        columnGap: 32,
       },
     },
   },
@@ -95,19 +95,19 @@ const InputContent = styled('div', {
 
     gap: {
       xs: {
-        customGap: 2,
+        gap: 2,
       },
       sm: {
-        customGap: 4,
+        gap: 4,
       },
       md: {
-        customGap: 8,
+        gap: 8,
       },
       lg: {
-        customGap: 16,
+        gap: 16,
       },
       xl: {
-        customGap: 32,
+        gap: 32,
       },
     },
   },
@@ -117,10 +117,10 @@ const Input = styled('input', {
   width: 'initial',
   minWidth: 120,
   outline: 'none',
-  fontSize: '$EM-SMALL',
+  fontSize: '$em-small',
   border: 'none',
   fontFamily: '$roboto',
-  backgroundColor: '$TRANSPARENT',
+  backgroundColor: '$transparent',
   flex: 1,
 });
 
@@ -182,7 +182,7 @@ const LabelContainer = styled('div', {
 });
 
 const Required = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 
@@ -245,7 +245,7 @@ export type MultiInputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   id?: string;
   label?: ReactNode | string;
   boxShadow?: PikasShadow | 'none';
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   padding?: MultiInputFieldPadding;
   gap?: MultiInputFieldGap;
   fontSize?: PikasFontSize;
@@ -301,7 +301,7 @@ const getColor = ({
     return `$${colorName}`;
   } else if (theme) {
     return new Color(
-      theme.colors[backgroundColorName ?? 'WHITE'].value
+      theme.colors[backgroundColorName ?? 'white'].value
     ).getContrast();
   } else {
     return '';
@@ -317,14 +317,14 @@ export const MultiInputField = forwardRef<
       id,
       type = 'text',
       onChange,
-      boxShadow = 'DIMINUTION_1',
+      boxShadow = 'inner-md',
       borderRadius = 'md',
       padding = 'md',
-      fontSize = 'EM-MEDIUM',
+      fontSize = 'em-base',
       textError,
       label,
       css,
-      borderColorName = 'TRANSPARENT',
+      borderColorName = 'transparent',
       borderWidth = 0,
       autoComplete,
       min,
@@ -333,7 +333,7 @@ export const MultiInputField = forwardRef<
       RightIcon,
       leftChildren,
       rightChildren,
-      backgroundColorName = 'GRAY_LIGHTEST_1',
+      backgroundColorName = 'gray-lightest-1',
       outline = true,
       description,
       gap = 'sm',
@@ -344,7 +344,7 @@ export const MultiInputField = forwardRef<
       borderColorHex,
       colorName,
       colorHex,
-      placeholderColorName = 'BLACK_LIGHT',
+      placeholderColorName = 'black-light',
       placeholderColorHex,
       leftIconColorName,
       leftIconColorHex,
@@ -444,7 +444,7 @@ export const MultiInputField = forwardRef<
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
+                  colorName="black-light"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -476,7 +476,7 @@ export const MultiInputField = forwardRef<
           gap={gap}
           onBlur={(): void => setFocus(false)}
           css={{
-            br: borderRadius,
+            borderRadius: `$${borderRadius}`,
             borderColor: borderColorHex ?? `$${borderColorName}`,
             backgroundColor: backgroundColorHex ?? `$${backgroundColorName}`,
             boxShadow: `$${boxShadow}`,

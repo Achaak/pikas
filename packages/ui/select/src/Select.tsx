@@ -1,5 +1,5 @@
 import type {
-  BorderRadius,
+  PikasRadius,
   PikasCSS,
   PikasColor,
   PikasShadow,
@@ -39,7 +39,7 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   cursor: 'pointer',
   borderStyle: 'solid',
   width: '100%',
-  color: '$BLACK',
+  color: '$black',
 
   variants: {
     padding: {
@@ -62,7 +62,7 @@ const Trigger = styled(SelectPrimitive.Trigger, {
     focus: {
       true: {
         outline: 'solid',
-        outlineColor: '$PRIMARY',
+        outlineColor: '$primary',
         outlineWidth: 2,
       },
     },
@@ -76,10 +76,10 @@ const Icon = styled(SelectPrimitive.Icon, {
 });
 
 const Content = styled(SelectPrimitive.Content, {
-  backgroundColor: '$WHITE',
-  boxShadow: '$ELEVATION_1',
-  br: 'sm',
-  zIndex: '$XXX-HIGH',
+  backgroundColor: '$white',
+  boxShadow: '$bottom-md',
+  borderRadius: '$sm',
+  zIndex: '$3x-high',
 });
 
 const Viewport = styled(SelectPrimitive.Viewport, {
@@ -113,15 +113,15 @@ const ItemIndicator = styled(SelectPrimitive.ItemIndicator, {
 
 const Separator = styled(SelectPrimitive.Separator, {
   height: 1,
-  backgroundColor: '$GRAY_LIGHTER',
+  backgroundColor: '$gray-lighter',
   margin: 8,
 });
 
 const GroupLabel = styled(SelectPrimitive.Label, {
   padding: '4px 16px 4px 24px',
-  fontWeight: '$MEDIUM',
-  fontSize: '$EM-SMALL',
-  color: '$BLACK',
+  fontWeight: '$medium',
+  fontSize: '$em-small',
+  color: '$black',
 });
 
 const Item = styled(SelectPrimitive.Item, {
@@ -131,7 +131,7 @@ const Item = styled(SelectPrimitive.Item, {
   position: 'relative',
   userSelect: 'none',
   padding: '4px 16px 4px 24px',
-  br: 'sm',
+  borderRadius: '$sm',
   cursor: 'pointer',
   transition: 'all 100ms',
 
@@ -141,15 +141,15 @@ const Item = styled(SelectPrimitive.Item, {
   },
 
   '&:focus': {
-    backgroundColor: '$PRIMARY_LIGHTER',
-    color: '$WHITE',
-    fill: '$WHITE',
+    backgroundColor: '$primary-lighter',
+    color: '$white',
+    fill: '$white',
   },
 });
 
 const ItemText = styled('span', {
-  fontSize: '$EM-SMALL',
-  color: '$BLACK',
+  fontSize: '$em-small',
+  color: '$black',
 });
 
 const SearchContainer = styled('div', {
@@ -159,11 +159,11 @@ const SearchContainer = styled('div', {
 const LabelContainer = styled('div', {
   display: 'flex',
   marginBottom: 4,
-  color: '$BLACK',
+  color: '$black',
 });
 
 const Required = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 
@@ -214,7 +214,7 @@ export type SelectProps = {
   searchPlaceholder?: string;
 
   label?: ReactNode | string;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   padding?: SelectPadding;
   fontSize?: PikasFontSize;
   borderColorName?: PikasColor;
@@ -262,11 +262,11 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       direction,
       onOpenChange,
       defaultOpen,
-      borderColorName = 'TRANSPARENT',
+      borderColorName = 'transparent',
       borderWidth = 0,
-      fontSize = 'EM-MEDIUM',
-      boxShadow = 'DIMINUTION_1',
-      backgroundColorName = 'GRAY_LIGHTEST_1',
+      fontSize = 'em-base',
+      boxShadow = 'inner-sm',
+      backgroundColorName = 'gray-lightest-1',
       outline = true,
       description,
       maxWidth = '100%',
@@ -375,7 +375,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                       <ItemText>{item.label}</ItemText>
                     </SelectPrimitive.ItemText>
                     <ItemIndicator>
-                      <IconByName name="bx:check" size={20} colorName="BLACK" />
+                      <IconByName name="bx:check" size={20} colorName="black" />
                     </ItemIndicator>
                   </Item>
                 ))}
@@ -424,7 +424,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
+                  colorName="black-light"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -471,7 +471,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
             css={{
-              br: borderRadius,
+              borderRadius: `$${borderRadius}`,
               borderColor: `$${borderColorName}`,
               borderWidth,
               boxShadow: `$${boxShadow}`,
@@ -481,7 +481,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
           >
             <SelectValue />
             <Icon>
-              <IconByName name="bx:chevron-down" size="1em" colorName="BLACK" />
+              <IconByName name="bx:chevron-down" size="1em" colorName="black" />
             </Icon>
           </Trigger>
 
@@ -495,9 +495,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                         setSearchValue(e.target.value);
                       }}
                       placeholder={searchPlaceholder}
-                      borderRadius="round"
+                      borderRadius="full"
                       padding="sm"
-                      fontSize="EM-SMALL"
+                      fontSize="em-small"
                     />
                   </SearchContainer>
                   <Separator />
@@ -505,14 +505,14 @@ export const Select = forwardRef<SelectRef, SelectProps>(
               ) : null}
 
               <ScrollUpButton>
-                <IconByName name="bx:chevron-up" size={20} colorName="BLACK" />
+                <IconByName name="bx:chevron-up" size={20} colorName="black" />
               </ScrollUpButton>
               {viewport}
               <ScrollDownButton>
                 <IconByName
                   name="bx:chevron-down"
                   size={20}
-                  colorName="BLACK"
+                  colorName="black"
                 />
               </ScrollDownButton>
             </Content>

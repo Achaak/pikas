@@ -1,15 +1,15 @@
 export const pikasZIndices = {
-  MIN: -2147483647,
-  'XXX-LOW': -1000,
-  'XX-LOW': -100,
-  'X-LOW': -10,
-  LOW: -1,
-  MEDIUM: 0,
-  HIGH: 1,
-  'X-HIGH': 10,
-  'XX-HIGH': 100,
-  'XXX-HIGH': 1000,
-  MAX: 2147483647,
+  min: -2147483647,
+  '3x-low': -1000,
+  '2x-low': -100,
+  'x-low': -10,
+  low: -1,
+  base: 0,
+  high: 1,
+  'x-high': 10,
+  '2x-high': 100,
+  '3x-high': 1000,
+  max: 2147483647,
 };
 
 export type PikasZIndices = typeof pikasZIndices;

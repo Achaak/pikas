@@ -1,4 +1,11 @@
-export const pikasBorderStyles = {};
+export const pikasBorderStyles = {
+  solid: 'solid',
+  dashed: 'dashed',
+  dotted: 'dotted',
+  double: 'double',
+  hidden: 'hidden',
+  none: 'none',
+};
 
 export type PikasBorderStyles = typeof pikasBorderStyles;
 export type PikasBorderStyle = keyof PikasBorderStyles;

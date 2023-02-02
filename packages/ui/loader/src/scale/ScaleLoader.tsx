@@ -18,7 +18,7 @@ export const ScaleLoader: FC<ScaleLoaderProps> = ({
   height,
   width,
   radius,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   margin,

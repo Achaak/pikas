@@ -11,18 +11,18 @@ import { ClipLoader } from '@pikas-ui/loader';
 import { getColorByExtension } from '@pikas-utils/file';
 
 const Container = styled('div', {
-  borderBottomColor: '$GRAY',
+  borderBottomColor: '$gray',
   borderBottomStyle: 'solid',
   borderBottomWidth: 2,
   display: 'flex',
   alignItems: 'stretch',
-  backgroundColor: '$WHITE2',
+  backgroundColor: '$white2',
   width: '100%',
 
   variants: {
     selected: {
       true: {
-        backgroundColor: '$PRIMARY_LIGHTER',
+        backgroundColor: '$primary-lighter',
       },
     },
   },
@@ -30,7 +30,7 @@ const Container = styled('div', {
 
 const TextElement = styled('span', {
   fontSize: '$SMALL',
-  color: '$BLACK',
+  color: '$black',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
@@ -77,7 +77,7 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
 
   const getIcon = useCallback(() => {
     if (item.type === 'folder') {
-      return <IconByName name="bx:folder" size={32} colorName="BLACK" />;
+      return <IconByName name="bx:folder" size={32} colorName="black" />;
     }
 
     return (
@@ -85,7 +85,7 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
         name="bx:file"
         size={32}
         colorHex={extension ? getColorByExtension(extension) : undefined}
-        colorName={extension ? undefined : 'BLACK'}
+        colorName={extension ? undefined : 'black'}
       />
     );
   }, [item]);
@@ -111,7 +111,7 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
                 void handleFavoriteClick();
               }}
             >
-              <IconByName name="bxs:star" size={24} colorName="WARNING" />
+              <IconByName name="bxs:star" size={24} colorName="warning" />
             </Favorite>
           )}
 
@@ -121,13 +121,13 @@ export const ListItem: FC<ListItemProps> = ({ item }) => {
                 void handleFavoriteClick();
               }}
             >
-              <IconByName name="bx:star" size={24} colorName="WARNING" />
+              <IconByName name="bx:star" size={24} colorName="warning" />
             </Favorite>
           )}
 
           {showFavorite && favoriteLoading && (
             <Favorite>
-              <ClipLoader size={24} colorName="WARNING" />
+              <ClipLoader size={24} colorName="warning" />
             </Favorite>
           )}
         </ListItemColumn>

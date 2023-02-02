@@ -13,24 +13,24 @@ const Content = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  customRowGap: 8,
+  rowGap: 8,
 });
 
 const Title = styled(ToastPrimitive.Title, {
-  fontWeight: '$BOLD',
-  color: '$BLACK',
-  fontSize: '$EM-MEDIUM',
+  fontWeight: '$bold',
+  color: '$black',
+  fontSize: '$em-base',
 });
 
 const Description = styled(ToastPrimitive.Description, {
   margin: 0,
-  color: '$BLACK',
-  fontSize: '$EM-SMALL',
+  color: '$black',
+  fontSize: '$em-small',
 });
 
 const Container = styled('div', {
   display: 'flex',
-  customColumnGap: 16,
+  columnGap: 16,
   alignItems: 'center',
 });
 
@@ -56,7 +56,7 @@ export const DefaultToast: FC<DefaultToastProps> = ({
 }) => (
   <CustomToast {...props} css={css}>
     <Container>
-      {Icon && <Icon size={24} colorName="BLACK" css={css?.icon} />}
+      {Icon && <Icon size={24} colorName="black" css={css?.icon} />}
       {title || description ? (
         <Content>
           {title && <Title css={css?.title}>{title}</Title>}
