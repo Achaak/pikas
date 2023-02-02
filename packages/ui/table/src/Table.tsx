@@ -36,15 +36,13 @@ import { styled } from '@pikas-ui/styles';
 import type { PaginationCSS } from './pagination/index.js';
 import { Pagination } from './pagination/index.js';
 import { Checkbox } from '@pikas-ui/checkbox';
-import { Thead } from './thead/index.js';
-import { Tfoot } from './tfoot/index.js';
 import { ButtonIcon } from '@pikas-ui/button';
 import {
   ChevronDownIcon,
   ChevronRightIcon,
   RadioCircleMarkedIcon,
-} from './icons.js';
-import { Tbody } from './tbody/Tbody.js';
+} from './Icons.js';
+import { TableElement } from './table/Table.js';
 
 const DEFAULT_PAGE_SIZES = [5, 10, 25, 50, 100];
 
@@ -57,19 +55,8 @@ const Container = styled('div', {
 const Content = styled('div', {
   width: '100%',
   overflow: 'auto',
-});
-
-const TableStyled = styled('table', {
-  borderCollapse: 'collapse',
-  borderRadius: '$sm',
-  color: '$black',
-
-  variants: {
-    variant: {
-      default: {},
-      light: {},
-    },
-  },
+  display: 'flex',
+  columnGap: 16,
 });
 
 export const tableVariant = {
@@ -180,6 +167,7 @@ export type TableColumnPinning = {
   state?: TableColumnPinningState;
   defaultState?: TableColumnPinningState;
   onColumnPinningChange?: OnChangeFn<TableColumnPinningState>;
+  isSplit?: boolean;
 };
 
 export type TablePadding = {
@@ -225,6 +213,10 @@ type TableContext<T extends Data> = {
   table: TanstackTable<T>;
   emptyMessage?: ReactNode;
   hoverEffect?: boolean;
+  hasTfoot?: boolean;
+  columnOrderState: TableColumnOrderState;
+  onColumnOrderChange: OnChangeFn<TableColumnOrderState>;
+  columnOrder?: TableColumnOrder;
 };
 
 const createStateContext = once(<T extends Data>() =>
@@ -496,6 +488,10 @@ export const Table = <T extends Data>({
               id: 'select',
               enableResizing: false,
               enableSorting: false,
+              enableGrouping: false,
+              enablePinning: false,
+              enableColumnFilter: false,
+              enableHiding: false,
               size: 20,
               header: ({ table }) => (
                 <Checkbox
@@ -523,6 +519,19 @@ export const Table = <T extends Data>({
                   id={`select-${row.id}`}
                 />
               ),
+              aggregatedCell: ({ row }) => (
+                <Checkbox
+                  size={20}
+                  borderRadius="sm"
+                  checked={
+                    row.getIsSomeSelected()
+                      ? 'indeterminate'
+                      : row.getIsSelected()
+                  }
+                  onChangeEvent={row.getToggleSelectedHandler()}
+                  id={`select-${row.id}`}
+                />
+              ),
             },
           ] as Array<ColumnDef<T>>)
         : []),
@@ -532,6 +541,10 @@ export const Table = <T extends Data>({
               id: 'expand',
               enableResizing: false,
               enableSorting: false,
+              enableGrouping: false,
+              enablePinning: false,
+              enableColumnFilter: false,
+              enableHiding: false,
               size: 20,
               header: ({ table }) => (
                 <ButtonIcon
@@ -634,6 +647,7 @@ export const Table = <T extends Data>({
         ? {
             columnOrder: [
               ...(rowSelection?.enabled ? ['select'] : []),
+              ...(expanding?.enabled ? ['expand'] : []),
               ...columnOrderState,
             ],
           }
@@ -753,30 +767,23 @@ export const Table = <T extends Data>({
         grouping,
         emptyMessage,
         hoverEffect,
+        hasTfoot,
+        columnOrderState,
+        onColumnOrderChange: handleColumnOrderChange,
+        columnOrder,
       }}
     >
       <Container css={css?.container}>
         <Content css={css?.content}>
-          <TableStyled
-            variant={variant}
-            css={{ width: table.getCenterTotalSize(), ...css?.table }}
-          >
-            <Thead
-              columnOrderState={columnOrderState}
-              onColumnOrderState={handleColumnOrderChange}
-              columnOrderEnabled={columnOrder?.enabled}
-            />
-
-            <Tbody rows={table.getRowModel().rows} />
-
-            {hasTfoot ? (
-              <Tfoot
-                columnOrderState={columnOrderState}
-                onColumnOrderState={handleColumnOrderChange}
-                columnOrderEnabled={columnOrder?.enabled}
-              />
-            ) : null}
-          </TableStyled>
+          {columnPinning?.enabled && columnPinning.isSplit ? (
+            <>
+              <TableElement visibleCell="left" />
+              <TableElement visibleCell="center" />
+              <TableElement visibleCell="right" />
+            </>
+          ) : (
+            <TableElement visibleCell="all" />
+          )}
         </Content>
 
         {pagination?.enabled ? (

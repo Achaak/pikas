@@ -10,7 +10,7 @@ import {
   ChevronRightIcon,
   ChevronsLeftIcon,
   ChevronsRightIcon,
-} from '../icons';
+} from '../Icons';
 
 const Footer = styled('div', {
   display: 'flex',

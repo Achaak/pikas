@@ -4,7 +4,6 @@ import { Tr } from '../tr/index.js';
 import { Cell, flexRender, Row } from '@tanstack/react-table';
 import { ButtonIcon } from '@pikas-ui/button';
 import { ChevronDownIcon, ChevronRightIcon } from '../Icons.js';
-import { VisibleCell } from '../table/Table.js';
 
 const TbodyStyled = styled('tbody', {
   variants: {
@@ -39,14 +38,8 @@ const Td = styled('td', {
   },
 });
 
-const TdContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-});
-
 const TdContent = styled('div', {
   display: 'flex',
-  alignItems: 'center',
 
   variants: {
     variant: {
@@ -56,15 +49,11 @@ const TdContent = styled('div', {
   },
 });
 
-const SubRowLength = styled('span', {
-  marginLeft: '$1',
-});
-
-type TbodyProps = {
-  visibleCell: VisibleCell;
+type TbodyProps<T extends Data> = {
+  visibleCell: "center" | "left" | "right";
 };
 
-export const Tbody = <T extends Data>({ visibleCell }: TbodyProps) => {
+export const Tbody = <T extends Data>({visibleCell}: TbodyProps<T>) => {
   const { variant, css, padding, table, hoverEffect, emptyMessage } =
     useStateContext<T>();
 
@@ -90,34 +79,16 @@ export const Tbody = <T extends Data>({ visibleCell }: TbodyProps) => {
               },
             }}
           />
-          <TdContent
-            variant={variant}
-            css={{
-              ...css?.tdContent,
-              ...css?.column?.[cell.column.id as keyof T]?.tdContent,
-            }}
-          >
-            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-          </TdContent>
-          <SubRowLength>({row.subRows.length})</SubRowLength>
+          {flexRender(cell.column.columnDef.cell, cell.getContext())} (
+          {row.subRows.length})
         </>
       );
     }
 
     if (cell.getIsAggregated()) {
-      return (
-        <TdContent
-          variant={variant}
-          css={{
-            ...css?.tdContent,
-            ...css?.column?.[cell.column.id as keyof T]?.tdContent,
-          }}
-        >
-          {flexRender(
-            cell.column.columnDef.aggregatedCell ?? cell.column.columnDef.cell,
-            cell.getContext()
-          )}
-        </TdContent>
+      return flexRender(
+        cell.column.columnDef.aggregatedCell ?? cell.column.columnDef.cell,
+        cell.getContext()
       );
     }
 
@@ -125,30 +96,17 @@ export const Tbody = <T extends Data>({ visibleCell }: TbodyProps) => {
       return null;
     }
 
-    return (
-      <TdContent
-        variant={variant}
-        css={{
-          ...css?.tdContent,
-          ...css?.column?.[cell.column.id as keyof T]?.tdContent,
-        }}
-      >
-        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-      </TdContent>
-    );
+    return flexRender(cell.column.columnDef.cell, cell.getContext());
   };
 
   const getRowCells = (row: Row<T>) => {
     switch (visibleCell) {
-      case 'center':
+      case "center":
         return row.getCenterVisibleCells();
-      case 'left':
+      case "left":
         return row.getLeftVisibleCells();
-      case 'right':
+      case "right":
         return row.getRightVisibleCells();
-      case 'all':
-      default:
-        return row.getVisibleCells();
     }
   };
 
@@ -180,7 +138,15 @@ export const Tbody = <T extends Data>({ visibleCell }: TbodyProps) => {
               }}
               padding={padding.td}
             >
-              <TdContainer>{getCellContent({ cell, row })}</TdContainer>
+              <TdContent
+                variant={variant}
+                css={{
+                  ...css?.tdContent,
+                  ...css?.column?.[cell.column.id as keyof T]?.tdContent,
+                }}
+              >
+                {getCellContent({ cell, row })}
+              </TdContent>
             </Td>
           ))}
         </Tr>
@@ -196,18 +162,16 @@ export const Tbody = <T extends Data>({ visibleCell }: TbodyProps) => {
             padding={padding.td}
             variant={variant}
           >
-            <TdContainer>
-              <TdContent
-                css={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  ...css?.tdContentEmptyMessage,
-                }}
-                variant={variant}
-              >
-                {emptyMessage}
-              </TdContent>
-            </TdContainer>
+            <TdContent
+              css={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                ...css?.tdContentEmptyMessage,
+              }}
+              variant={variant}
+            >
+              {emptyMessage}
+            </TdContent>
           </Td>
         </Tr>
       ) : null}

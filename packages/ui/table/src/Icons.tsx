@@ -14,7 +14,7 @@ export const ChevronRightIcon: FC<IconProps> = (props) => (
 );
 
 export const ChevronsRightIcon: FC<IconProps> = (props) => (
-  <IconByName name="bx:chevron-right" {...props} />
+  <IconByName name="bx:chevrons-right" {...props} />
 );
 
 export const ChevronUpIcon: FC<IconProps> = (props) => (
@@ -33,10 +33,14 @@ export const RadioCircleMarkedIcon: FC<IconProps> = (props) => (
   <IconByName name="bx:radio-circle-marked" {...props} />
 );
 
-export const CollapseAltIcon: FC<IconProps> = (props) => (
+export const PlusIcon: FC<IconProps> = (props) => (
   <IconByName name="bx:plus" {...props} />
 );
 
-export const ExpandAltIcon: FC<IconProps> = (props) => (
+export const MinusIcon: FC<IconProps> = (props) => (
   <IconByName name="bx:minus" {...props} />
+);
+
+export const XIcon: FC<IconProps> = (props) => (
+  <IconByName name="bx:x" {...props} />
 );

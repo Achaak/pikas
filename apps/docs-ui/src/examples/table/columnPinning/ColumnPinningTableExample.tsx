@@ -3,19 +3,27 @@ import { FC, useEffect, useState } from 'react';
 import { Table, TableColumnPinningState } from '@pikas-ui/table';
 import { makeData, Person } from '../data';
 import { BottomTools } from '../bottomTools';
+import { Switch } from '@pikas-ui/switch';
 
 export const ColumnPinningTableExample: FC = () => {
   const [data, setData] = useState<Person[]>([]);
   const [columnPin, setColumnPin] = useState<TableColumnPinningState>({});
+  const [isSplit, setIsSplit] = useState(false);
 
   useEffect(() => {
-    setData(() => makeData(10000));
+    setData(() => makeData(100, 5, 3));
   }, []);
 
-  const refreshData = () => setData(() => makeData(10000));
+  const refreshData = () => setData(() => makeData(100, 5, 3));
 
   return (
     <ExampleContainer>
+      <Switch
+        label="Split columns"
+        checked={isSplit}
+        onCheckedChange={setIsSplit}
+      />
+
       <Table
         data={data}
         variant="light"
@@ -57,8 +65,28 @@ export const ColumnPinningTableExample: FC = () => {
         columnPinning={{
           enabled: true,
           onColumnPinningChange: setColumnPin,
+          isSplit,
         }}
         pagination={{
+          enabled: true,
+        }}
+        rowSelection={{
+          enabled: true,
+        }}
+        columnOrder={{
+          enabled: true,
+        }}
+        columnSizing={{
+          enabled: true,
+          resizeMode: 'onChange',
+        }}
+        expanding={{
+          enabled: true,
+        }}
+        grouping={{
+          enabled: true,
+        }}
+        sorting={{
           enabled: true,
         }}
       />

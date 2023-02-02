@@ -2,7 +2,6 @@ import { useTheme, styled } from '@pikas-ui/styles';
 import { Color } from '@pikas-utils/color';
 import { Data, useStateContext } from '../index.js';
 import { Tr } from '../tr/index.js';
-import { ColumnOrderState, OnChangeFn } from '@tanstack/react-table';
 import {
   closestCenter,
   DndContext,
@@ -16,19 +15,21 @@ import {
   SortableContext,
 } from '@dnd-kit/sortable';
 import { Th } from './th/index.js';
+import { VisibleCell } from '../table/Table.js';
 
 export type TheadProps = {
-  onColumnOrderState?: OnChangeFn<ColumnOrderState>;
-  columnOrderState?: ColumnOrderState;
-  columnOrderEnabled?: boolean;
+  visibleCell: VisibleCell;
 };
 
-export const Thead = <T extends Data>({
-  columnOrderState,
-  onColumnOrderState,
-  columnOrderEnabled,
-}: TheadProps) => {
-  const { variant, css, table } = useStateContext<T>();
+export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
+  const {
+    variant,
+    css,
+    table,
+    columnOrder,
+    columnOrderState,
+    onColumnOrderChange,
+  } = useStateContext<T>();
   const theme = useTheme();
 
   const TheadStyled = styled('thead', {
@@ -92,7 +93,21 @@ export const Thead = <T extends Data>({
   const sensors = useSensors(mouseSensor, touchSensor);
 
   const columnOrderDisabled =
-    !columnOrderEnabled || table.getHeaderGroups().length > 1;
+    !columnOrder?.enabled || table.getHeaderGroups().length > 1;
+
+  const getRowCells = () => {
+    switch (visibleCell) {
+      case 'center':
+        return table.getCenterHeaderGroups();
+      case 'left':
+        return table.getLeftHeaderGroups();
+      case 'right':
+        return table.getRightHeaderGroups();
+      case 'all':
+      default:
+        return table.getHeaderGroups();
+    }
+  };
 
   return (
     <DndContext
@@ -101,7 +116,7 @@ export const Thead = <T extends Data>({
       autoScroll={false}
       onDragEnd={({ active, over }) => {
         if (active.id !== over?.id) {
-          onColumnOrderState?.((prev) => {
+          onColumnOrderChange?.((prev) => {
             const prevIndex = prev.indexOf(String(active.id));
             const nextIndex = prev.indexOf(String(over?.id) || '');
 
@@ -119,7 +134,7 @@ export const Thead = <T extends Data>({
       }}
     >
       <TheadStyled variant={variant} css={css?.thead}>
-        {table.getHeaderGroups().map((headerGroup) => (
+        {getRowCells().map((headerGroup) => (
           <Tr key={headerGroup.id}>
             <SortableContext
               items={headerGroup.headers.map((i) => i.id)}

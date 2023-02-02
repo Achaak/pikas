@@ -6,11 +6,14 @@ import { CSS } from '@dnd-kit/utilities';
 import { useState } from 'react';
 import {
   ChevronDownIcon,
+  ChevronsLeftIcon,
+  ChevronsRightIcon,
   ChevronUpIcon,
-  CollapseAltIcon,
-  ExpandAltIcon,
+  PlusIcon,
+  MinusIcon,
   MenuIcon,
-} from '../../icons.js';
+  XIcon,
+} from '../../Icons.js';
 import { ButtonIcon } from '@pikas-ui/button';
 
 const ThStyled = styled('th', {
@@ -144,6 +147,13 @@ const GroupIconContainer = styled('div', {
   display: 'flex',
 });
 
+const PinContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  marginLeft: 'auto',
+  columnGap: '$1',
+});
+
 type ThProps<T extends Data> = {
   id: string;
   header: Header<T, unknown>;
@@ -205,11 +215,7 @@ export const Th = <T extends Data>({
               <GroupIconContainer>
                 <ButtonIcon
                   onClick={header.column.getToggleGroupingHandler()}
-                  Icon={
-                    header.column.getIsGrouped()
-                      ? ExpandAltIcon
-                      : CollapseAltIcon
-                  }
+                  Icon={header.column.getIsGrouped() ? MinusIcon : PlusIcon}
                   colorName={
                     header.column.getIsGrouped() ? 'danger' : 'primary'
                   }
@@ -224,40 +230,6 @@ export const Th = <T extends Data>({
                 />
               </GroupIconContainer>
             ) : null}
-            {!header.isPlaceholder && header.column.getCanPin() && (
-              <div className="flex gap-1 justify-center">
-                {header.column.getIsPinned() !== 'left' ? (
-                  <button
-                    className="border rounded px-2"
-                    onClick={() => {
-                      header.column.pin('left');
-                    }}
-                  >
-                    {'<='}
-                  </button>
-                ) : null}
-                {header.column.getIsPinned() ? (
-                  <button
-                    className="border rounded px-2"
-                    onClick={() => {
-                      header.column.pin(false);
-                    }}
-                  >
-                    X
-                  </button>
-                ) : null}
-                {header.column.getIsPinned() !== 'right' ? (
-                  <button
-                    className="border rounded px-2"
-                    onClick={() => {
-                      header.column.pin('right');
-                    }}
-                  >
-                    {'=>'}
-                  </button>
-                ) : null}
-              </div>
-            )}
             <ThSpan
               css={{
                 ...css?.thSpan,
@@ -275,6 +247,7 @@ export const Th = <T extends Data>({
                 asc: (
                   <ChevronUpIcon
                     size="1em"
+                    colorName="black"
                     css={{
                       container: {
                         marginLeft: 4,
@@ -285,6 +258,7 @@ export const Th = <T extends Data>({
                 desc: (
                   <ChevronDownIcon
                     size="1em"
+                    colorName="black"
                     css={{
                       container: {
                         marginLeft: 4,
@@ -294,6 +268,44 @@ export const Th = <T extends Data>({
                 ),
               }[header.column.getIsSorted() as string] ?? null}
             </ThSpan>
+            {!header.isPlaceholder && header.column.getCanPin() && (
+              <PinContainer>
+                {header.column.getIsPinned() !== 'left' ? (
+                  <ButtonIcon
+                    onClick={() => {
+                      header.column.pin('left');
+                    }}
+                    Icon={ChevronsLeftIcon}
+                    size={3.5}
+                    padding="none"
+                    borderRadius="sm"
+                  />
+                ) : null}
+                {header.column.getIsPinned() ? (
+                  <ButtonIcon
+                    onClick={() => {
+                      header.column.pin(false);
+                    }}
+                    Icon={XIcon}
+                    size={3.5}
+                    padding="none"
+                    borderRadius="sm"
+                    colorName="danger"
+                  />
+                ) : null}
+                {header.column.getIsPinned() !== 'right' ? (
+                  <ButtonIcon
+                    onClick={() => {
+                      header.column.pin('right');
+                    }}
+                    Icon={ChevronsRightIcon}
+                    size={3.5}
+                    padding="none"
+                    borderRadius="sm"
+                  />
+                ) : null}
+              </PinContainer>
+            )}
             {columnOrderEnabled && (
               <ColumnOrderButton
                 isDragging={isDragging}
