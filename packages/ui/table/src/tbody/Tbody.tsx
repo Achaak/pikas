@@ -27,13 +27,13 @@ const Td = styled('td', {
     },
     padding: {
       sm: {
-        padding: 8,
+        padding: '$1 $2',
       },
       md: {
-        padding: 12,
+        padding: '$2 $4',
       },
       lg: {
-        padding: 16,
+        padding: '$3 $6',
       },
     },
   },
@@ -196,18 +196,16 @@ export const Tbody = <T extends Data>({ visibleCell }: TbodyProps) => {
             padding={padding.td}
             variant={variant}
           >
-            <TdContainer>
-              <TdContent
-                css={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  ...css?.tdContentEmptyMessage,
-                }}
-                variant={variant}
-              >
-                {emptyMessage}
-              </TdContent>
-            </TdContainer>
+            <TdContent
+              css={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                ...css?.tdContentEmptyMessage,
+              }}
+              variant={variant}
+            >
+              {emptyMessage}
+            </TdContent>
           </Td>
         </Tr>
       ) : null}

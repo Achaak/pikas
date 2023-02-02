@@ -21,14 +21,21 @@ export const DefaultTableExample: FC = () => {
         emptyMessage="No data found"
         columns={[
           {
-            header: 'First Name',
-            accessorKey: 'firstName',
-            id: 'firstName',
-          },
-          {
-            header: 'Last Name',
-            accessorKey: 'lastName',
-            id: 'lastName',
+            header: 'Name',
+            accessorKey: 'name',
+            id: 'name',
+            columns: [
+              {
+                header: 'First Name',
+                accessorKey: 'firstName',
+                id: 'firstName',
+              },
+              {
+                header: 'Last Name',
+                accessorKey: 'lastName',
+                id: 'lastName',
+              },
+            ],
           },
           {
             header: 'Age',

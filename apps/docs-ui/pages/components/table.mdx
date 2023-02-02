@@ -260,21 +260,17 @@ const Example: React.FC = () => {
       variant="light"
       emptyMessage="No data found"
       columns={[ ... ]}
-      // columnSizing={{
-      //   enabled: true,
-      //   resizeMode: 'onChange',
-      //   defaultState: {
-      //     firstName: 200,
-      //     lastName: 200,
-      //     age: 100,
-      //     visits: 100,
-      //     status: 100,
-      //     progress: 100,
-      //   }
-      //   onColumnSizeChange: (state) => {
-      //     console.log(state);
-      //   },
-      // }}
+      columnPinning={{
+        enabled: true,
+        defaultState: {
+          left: ['firstName', 'lastName'],
+          right: ['progress'],
+        }
+        onColumnPinningChange: (state) => {
+          console.log(state);
+        },
+        isSplit: true,
+      }}
     />
   );
 };
@@ -282,9 +278,13 @@ const Example: React.FC = () => {
 
 #### Parameters
 
-| Prop           | Description                                    | Type                                 | Default |
-| :------------- | :--------------------------------------------- | :----------------------------------- | :------ |
-| `enabled`      | If the resizing is enabled                     | `boolean`                            | `false` |
+| Prop                    | Description                                          | Type                                  | Default |
+| :---------------------- | :--------------------------------------------------- | :------------------------------------ | :------ |
+| `enabled`               | If the column pinning is enabled                     | `boolean`                             | `false` |
+| `state`                 | The state of the column pinning                      | `TableColumnPinningState`             | -       |
+| `defaultState`          | The default state of the column pinning              | `TableColumnPinningState`             | -       |
+| `onColumnPinningChange` | The function to call when the column pinning changes | `OnChangeFn<TableColumnPinningState>` | -       |
+| `isSplit`               | If the column pinning is split                       | `boolean`                             | `false` |
 
 ---
 
@@ -486,12 +486,13 @@ const Example: React.FC = () => {
 
 #### Parameters
 
-| Prop                   | Description                                         | Type                                 | Default |
-| :--------------------- | :-------------------------------------------------- | :----------------------------------- | :------ |
-| `enabled`              | If the row selection is enabled                     | `boolean`                            | `false` |
-| `state`                | The state of the row selection                      | `TableRowSelectionState`             | -       |
-| `defaultState`         | The default state of the row selection              | `TableRowSelectionState`             | -       |
-| `onRowSelectionChange` | The function to call when the row selection changes | `OnChangeFn<TableRowSelectionState>` | -       |
+| Prop                    | Description                                         | Type                                 | Default |
+| :---------------------- | :-------------------------------------------------- | :----------------------------------- | :------ |
+| `enabled`               | If the row selection is enabled                     | `boolean`                            | `false` |
+| `enableSubRowSelection` | If the sub row selection is enabled                 | `boolean`                            | `false` |
+| `state`                 | The state of the row selection                      | `TableRowSelectionState`             | -       |
+| `defaultState`          | The default state of the row selection              | `TableRowSelectionState`             | -       |
+| `onRowSelectionChange`  | The function to call when the row selection changes | `OnChangeFn<TableRowSelectionState>` | -       |
 
 ---
 

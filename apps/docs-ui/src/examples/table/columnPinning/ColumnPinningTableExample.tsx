@@ -7,7 +7,10 @@ import { Switch } from '@pikas-ui/switch';
 
 export const ColumnPinningTableExample: FC = () => {
   const [data, setData] = useState<Person[]>([]);
-  const [columnPin, setColumnPin] = useState<TableColumnPinningState>({});
+  const [columnPin, setColumnPin] = useState<TableColumnPinningState>({
+    left: ['firstName', 'lastName'],
+    right: ['progress'],
+  });
   const [isSplit, setIsSplit] = useState(false);
 
   useEffect(() => {
@@ -64,29 +67,11 @@ export const ColumnPinningTableExample: FC = () => {
         ]}
         columnPinning={{
           enabled: true,
+          defaultState: columnPin,
           onColumnPinningChange: setColumnPin,
           isSplit,
         }}
         pagination={{
-          enabled: true,
-        }}
-        rowSelection={{
-          enabled: true,
-        }}
-        columnOrder={{
-          enabled: true,
-        }}
-        columnSizing={{
-          enabled: true,
-          resizeMode: 'onChange',
-        }}
-        expanding={{
-          enabled: true,
-        }}
-        grouping={{
-          enabled: true,
-        }}
-        sorting={{
           enabled: true,
         }}
       />

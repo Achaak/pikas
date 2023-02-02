@@ -18,6 +18,7 @@ import { ButtonIcon } from '@pikas-ui/button';
 
 const ThStyled = styled('th', {
   position: 'relative',
+  userSelect: 'none',
 
   variants: {
     isDragging: {
@@ -39,13 +40,13 @@ const ThStyled = styled('th', {
     },
     padding: {
       sm: {
-        padding: '4px 8px',
+        padding: '$1 $2',
       },
       md: {
-        padding: '8px 12px',
+        padding: '$2 $4',
       },
       lg: {
-        padding: '16px 16px',
+        padding: '$3 $6',
       },
     },
   },
@@ -55,12 +56,14 @@ const ThContent = styled('div', {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
+  columnGap: '$2',
 });
 
 const ThSpan = styled('span', {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
+  whiteSpace: 'nowrap',
 
   variants: {
     variant: {
@@ -84,7 +87,6 @@ const Resizer = styled('div', {
   width: 6,
   background: '$primary-dark',
   cursor: 'col-resize',
-  userSelect: 'none',
   touchAction: 'none',
   opacity: 0,
   transition: 'all 0.2s ease',
@@ -165,8 +167,16 @@ export const Th = <T extends Data>({
   header,
   columnOrderEnabled,
 }: ThProps<T>) => {
-  const { variant, css, columnSizing, padding, table, sorting, grouping } =
-    useStateContext<T>();
+  const {
+    variant,
+    css,
+    columnSizing,
+    padding,
+    table,
+    sorting,
+    grouping,
+    columnPinning,
+  } = useStateContext<T>();
   const [isFocused, setIsFocused] = useState(false);
 
   const {
@@ -222,11 +232,6 @@ export const Th = <T extends Data>({
                   size={3.5}
                   padding="none"
                   borderRadius="sm"
-                  css={{
-                    button: {
-                      marginRight: '$2',
-                    },
-                  }}
                 />
               </GroupIconContainer>
             ) : null}
@@ -244,31 +249,11 @@ export const Th = <T extends Data>({
             >
               {flexRender(header.column.columnDef.header, header.getContext())}
               {{
-                asc: (
-                  <ChevronUpIcon
-                    size="1em"
-                    colorName="black"
-                    css={{
-                      container: {
-                        marginLeft: 4,
-                      },
-                    }}
-                  />
-                ),
-                desc: (
-                  <ChevronDownIcon
-                    size="1em"
-                    colorName="black"
-                    css={{
-                      container: {
-                        marginLeft: 4,
-                      },
-                    }}
-                  />
-                ),
+                asc: <ChevronUpIcon size="1em" colorName="black" />,
+                desc: <ChevronDownIcon size="1em" colorName="black" />,
               }[header.column.getIsSorted() as string] ?? null}
             </ThSpan>
-            {!header.isPlaceholder && header.column.getCanPin() && (
+            {columnPinning?.enabled && header.column.getCanPin() && (
               <PinContainer>
                 {header.column.getIsPinned() !== 'left' ? (
                   <ButtonIcon
@@ -314,7 +299,7 @@ export const Th = <T extends Data>({
                 {...attributes}
                 {...listeners}
               >
-                <MenuIcon size={20} colorName="black" />
+                <MenuIcon size={20} />
               </ColumnOrderButton>
             )}
           </ThContent>

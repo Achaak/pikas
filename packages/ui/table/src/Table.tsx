@@ -107,6 +107,7 @@ export type TablePaginationProps = {
 export type TableRowSelectionState = RowSelectionState;
 export type TableRowSelection = {
   enabled: boolean;
+  enableSubRowSelection?: boolean;
   state?: TableRowSelectionState;
   defaultState?: TableRowSelectionState;
   onRowSelectionChange?: OnChangeFn<TableRowSelectionState>;
@@ -217,6 +218,7 @@ type TableContext<T extends Data> = {
   columnOrderState: TableColumnOrderState;
   onColumnOrderChange: OnChangeFn<TableColumnOrderState>;
   columnOrder?: TableColumnOrder;
+  columnPinning?: TableColumnPinning;
 };
 
 const createStateContext = once(<T extends Data>() =>
@@ -571,7 +573,7 @@ export const Table = <T extends Data>({
                     borderRadius="sm"
                     css={{
                       button: {
-                        marginLeft: `${row.depth * 2}rem`,
+                        marginLeft: `${row.depth}rem`,
                       },
                     }}
                   />
@@ -579,7 +581,7 @@ export const Table = <T extends Data>({
                   <RadioCircleMarkedIcon
                     css={{
                       container: {
-                        marginLeft: `${row.depth * 2}rem`,
+                        marginLeft: `${row.depth}rem`,
                       },
                     }}
                     size={20}
@@ -590,7 +592,7 @@ export const Table = <T extends Data>({
                 <RadioCircleMarkedIcon
                   css={{
                     container: {
-                      marginLeft: `${row.depth * 2}rem`,
+                      marginLeft: `${row.depth}rem`,
                     },
                   }}
                   size={20}
@@ -608,8 +610,6 @@ export const Table = <T extends Data>({
   const table = useReactTable({
     data,
     columns: columnsMemo,
-    columnResizeMode: columnSizing?.resizeMode,
-    enableColumnResizing: columnSizing?.enabled,
     state: {
       // Pagination
       ...(pagination?.enabled
@@ -748,6 +748,16 @@ export const Table = <T extends Data>({
         }
       : {}),
 
+    columnResizeMode: columnSizing?.resizeMode,
+
+    enableColumnResizing: columnSizing?.enabled ?? false,
+    enableRowSelection: rowSelection?.enabled ?? false,
+    enableSubRowSelection: rowSelection?.enableSubRowSelection ?? false,
+    enableExpanding: expanding?.enabled ?? false,
+    enablePinning: columnPinning?.enabled ?? false,
+    enableSorting: sorting?.enabled ?? false,
+    enableGrouping: grouping?.enabled ?? false,
+    enableHiding: columnVisibility?.enabled ?? false,
     getSubRows: (row) => row.subRows as T[] | undefined,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
@@ -771,6 +781,7 @@ export const Table = <T extends Data>({
         columnOrderState,
         onColumnOrderChange: handleColumnOrderChange,
         columnOrder,
+        columnPinning,
       }}
     >
       <Container css={css?.container}>

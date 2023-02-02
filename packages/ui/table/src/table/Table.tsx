@@ -5,6 +5,10 @@ import { Tfoot } from '../tfoot/Tfoot.js';
 import { Tbody } from '../tbody/Tbody.js';
 import { useMemo } from 'react';
 
+const Container = styled('div', {
+  display: 'inline-block',
+});
+
 const TableStyled = styled('table', {
   borderCollapse: 'collapse',
   borderRadius: '$sm',
@@ -12,7 +16,10 @@ const TableStyled = styled('table', {
 
   variants: {
     variant: {
-      default: {},
+      default: {
+        borderRadius: '$sm',
+        overflow: 'hidden',
+      },
       light: {},
     },
   },
@@ -49,15 +56,17 @@ export const TableElement = <T extends Data>({ visibleCell }: TbodyProps) => {
     }
 
     return table.getTotalSize();
-  }, [table, visibleCell]);
+  }, [table.getTotalSize(), visibleCell]);
 
   return (
-    <TableStyled variant={variant} css={{ width: tableSize, ...css?.table }}>
-      <Thead visibleCell={visibleCell} />
+    <Container>
+      <TableStyled variant={variant} css={{ width: tableSize, ...css?.table }}>
+        <Thead visibleCell={visibleCell} />
 
-      <Tbody visibleCell={visibleCell} />
+        <Tbody visibleCell={visibleCell} />
 
-      {hasTfoot ? <Tfoot visibleCell={visibleCell} /> : null}
-    </TableStyled>
+        {hasTfoot ? <Tfoot visibleCell={visibleCell} /> : null}
+      </TableStyled>
+    </Container>
   );
 };

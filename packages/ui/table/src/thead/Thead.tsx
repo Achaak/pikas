@@ -44,9 +44,11 @@ export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
           },
 
           tr: {
-            borderTop: '1px solid',
-            borderBottom: '1px solid',
-            borderColor: '$primary-light',
+            borderTopStyle: '$solid',
+            borderTopWidth: '$2',
+            borderBottomStyle: '$solid',
+            borderBottomWidth: '$2',
+            borderColor: '$primary-lighter',
 
             '&:first-child': {
               borderTop: 'none',
@@ -56,9 +58,11 @@ export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
             },
 
             th: {
-              borderLeft: '1px solid',
-              borderRight: '1px solid',
-              borderColor: '$primary-light',
+              borderLeftStyle: '$solid',
+              borderLeftWidth: '$2',
+              borderRightStyle: '$solid',
+              borderRightWidth: '$2',
+              borderColor: '$primary-lighter',
               textTransform: 'capitalize',
 
               '&:first-child': {
@@ -71,7 +75,8 @@ export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
           },
         },
         light: {
-          borderBottom: '1px solid',
+          borderBottomStyle: '$solid',
+          borderBottomWidth: '$2',
           borderColor: '$gray-light',
         },
       },
