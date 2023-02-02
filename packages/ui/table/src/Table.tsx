@@ -20,16 +20,14 @@ import {
   Table as TanstackTable,
   Updater,
   VisibilityState,
-  flexRender,
   useReactTable,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  Cell,
-  Row,
   ExpandedState,
   getGroupedRowModel,
+  ColumnPinningState,
 } from '@tanstack/react-table';
 import once from 'lodash.once';
 
@@ -40,13 +38,13 @@ import { Pagination } from './pagination/index.js';
 import { Checkbox } from '@pikas-ui/checkbox';
 import { Thead } from './thead/index.js';
 import { Tfoot } from './tfoot/index.js';
-import { Tr } from './tr/index.js';
 import { ButtonIcon } from '@pikas-ui/button';
 import {
   ChevronDownIcon,
   ChevronRightIcon,
   RadioCircleMarkedIcon,
 } from './icons.js';
+import { Tbody } from './tbody/Tbody.js';
 
 const DEFAULT_PAGE_SIZES = [5, 10, 25, 50, 100];
 
@@ -65,50 +63,6 @@ const TableStyled = styled('table', {
   borderCollapse: 'collapse',
   borderRadius: '$sm',
   color: '$black',
-
-  variants: {
-    variant: {
-      default: {},
-      light: {},
-    },
-  },
-});
-
-const Tbody = styled('tbody', {
-  variants: {
-    variant: {
-      default: {
-        'tr:nth-child(2n)': {
-          backgroundColor: '$gray-lighter',
-        },
-      },
-      light: {},
-    },
-  },
-});
-
-const Td = styled('td', {
-  variants: {
-    variant: {
-      default: {},
-      light: {},
-    },
-    padding: {
-      sm: {
-        padding: 8,
-      },
-      md: {
-        padding: 12,
-      },
-      lg: {
-        padding: 16,
-      },
-    },
-  },
-});
-
-const TdContent = styled('div', {
-  display: 'flex',
 
   variants: {
     variant: {
@@ -220,6 +174,14 @@ export type TableExpanding = {
   onExpandedChange?: OnChangeFn<TableExpandedState>;
 };
 
+export type TableColumnPinningState = ColumnPinningState;
+export type TableColumnPinning = {
+  enabled: boolean;
+  state?: TableColumnPinningState;
+  defaultState?: TableColumnPinningState;
+  onColumnPinningChange?: OnChangeFn<TableColumnPinningState>;
+};
+
 export type TablePadding = {
   th?: 'lg' | 'md' | 'sm';
   td?: 'lg' | 'md' | 'sm';
@@ -241,6 +203,7 @@ export type TableProps<T extends Data> = {
   debug?: boolean;
 
   columnOrder?: TableColumnOrder;
+  columnPinning?: TableColumnPinning;
   columnSizing?: TableColumnSizing;
   columnVisibility?: TableVisibility;
   pagination?: TablePaginationProps;
@@ -260,6 +223,8 @@ type TableContext<T extends Data> = {
   padding: TablePadding;
   grouping?: TableGrouping;
   table: TanstackTable<T>;
+  emptyMessage?: ReactNode;
+  hoverEffect?: boolean;
 };
 
 const createStateContext = once(<T extends Data>() =>
@@ -289,6 +254,7 @@ export const Table = <T extends Data>({
   grouping,
   debug = false,
   expanding,
+  columnPinning,
 }: TableProps<T>): JSX.Element => {
   const Context = createStateContext<T>();
 
@@ -492,6 +458,36 @@ export const Table = <T extends Data>({
   };
   /* Expanded */
 
+  /* Column Pinning */
+  const [columnPinningState, setColumnPinningState] =
+    useState<TableColumnPinningState>(
+      columnPinning?.defaultState ?? columnPinning?.state ?? {}
+    );
+
+  useEffect(() => {
+    columnPinning?.onColumnPinningChange?.(columnPinningState);
+  }, [columnPinningState]);
+
+  useEffect(() => {
+    if (!columnPinning) {
+      return;
+    }
+    if (!columnPinning.enabled) {
+      return;
+    }
+    if (!columnPinning.state) {
+      return;
+    }
+    setColumnPinningState(columnPinning.state);
+  }, [columnPinning?.state]);
+
+  const handleColumnPinningChange = (
+    state: Updater<TableColumnPinningState>
+  ): void => {
+    setColumnPinningState(state);
+  };
+  /* Column Pinning */
+
   const columnsMemo = useMemo<Array<ColumnDef<T>>>(
     () => [
       ...(rowSelection?.enabled
@@ -663,6 +659,13 @@ export const Table = <T extends Data>({
             expanded: expandedState,
           }
         : {}),
+
+      // Column Pinning
+      ...(columnPinning?.enabled
+        ? {
+            columnPinning: columnPinningState,
+          }
+        : {}),
     },
 
     // Row Selection
@@ -724,54 +727,19 @@ export const Table = <T extends Data>({
         }
       : {}),
 
+    // Column Pinning
+    ...(columnPinning?.enabled
+      ? {
+          onColumnPinningChange: handleColumnPinningChange,
+        }
+      : {}),
+
     getSubRows: (row) => row.subRows as T[] | undefined,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     debugTable: debug,
   });
-
-  const getCellContent = ({
-    cell,
-    row,
-  }: {
-    cell: Cell<T, unknown>;
-    row: Row<T>;
-  }) => {
-    if (cell.getIsGrouped()) {
-      return (
-        <>
-          <ButtonIcon
-            onClick={row.getToggleExpandedHandler()}
-            Icon={row.getIsExpanded() ? ChevronDownIcon : ChevronRightIcon}
-            size={3.5}
-            padding="none"
-            borderRadius="sm"
-            css={{
-              button: {
-                marginRight: '$2',
-              },
-            }}
-          />
-          {flexRender(cell.column.columnDef.cell, cell.getContext())} (
-          {row.subRows.length})
-        </>
-      );
-    }
-
-    if (cell.getIsAggregated()) {
-      return flexRender(
-        cell.column.columnDef.aggregatedCell ?? cell.column.columnDef.cell,
-        cell.getContext()
-      );
-    }
-
-    if (cell.getIsPlaceholder()) {
-      return null;
-    }
-
-    return flexRender(cell.column.columnDef.cell, cell.getContext());
-  };
 
   return (
     <Context.Provider
@@ -783,6 +751,8 @@ export const Table = <T extends Data>({
         padding,
         table,
         grouping,
+        emptyMessage,
+        hoverEffect,
       }}
     >
       <Container css={css?.container}>
@@ -796,72 +766,9 @@ export const Table = <T extends Data>({
               onColumnOrderState={handleColumnOrderChange}
               columnOrderEnabled={columnOrder?.enabled}
             />
-            <Tbody variant={variant} css={css?.tbody}>
-              {table.getRowModel().rows.map((row) => (
-                <Tr
-                  key={row.id}
-                  css={{
-                    ...(hoverEffect && {
-                      transition: 'all 0.2s ease-in-out',
 
-                      '&:hover': {
-                        td: {
-                          color: '$primary',
-                          fontWeight: '$medium',
-                        },
-                      },
-                    }),
-                  }}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <Td
-                      key={cell.id}
-                      variant={variant}
-                      css={{
-                        ...css?.td,
-                        ...css?.column?.[cell.column.id as keyof T]?.td,
-                      }}
-                      padding={padding.td}
-                    >
-                      <TdContent
-                        variant={variant}
-                        css={{
-                          ...css?.tdContent,
-                          ...css?.column?.[cell.column.id as keyof T]
-                            ?.tdContent,
-                        }}
-                      >
-                        {getCellContent({ cell, row })}
-                      </TdContent>
-                    </Td>
-                  ))}
-                </Tr>
-              ))}
+            <Tbody rows={table.getRowModel().rows} />
 
-              {!table.getRowModel().rows.length && emptyMessage ? (
-                <Tr key="empty">
-                  <Td
-                    colSpan={1000}
-                    css={{
-                      ...css?.tdEmptyMessage,
-                    }}
-                    padding={padding.td}
-                    variant={variant}
-                  >
-                    <TdContent
-                      css={{
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        ...css?.tdContentEmptyMessage,
-                      }}
-                      variant={variant}
-                    >
-                      {emptyMessage}
-                    </TdContent>
-                  </Td>
-                </Tr>
-              ) : null}
-            </Tbody>
             {hasTfoot ? (
               <Tfoot
                 columnOrderState={columnOrderState}
