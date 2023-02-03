@@ -16,7 +16,7 @@ const Container = styled('div', {
   borderBottomWidth: 2,
   display: 'flex',
   alignItems: 'stretch',
-  backgroundColor: '$white2',
+  backgroundColor: '$white-2',
   width: '100%',
 
   variants: {

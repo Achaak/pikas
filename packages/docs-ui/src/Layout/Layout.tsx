@@ -9,7 +9,7 @@ const Container = styled('div', {
   position: 'fixed',
   width: '100vw',
   height: '100vh',
-  backgroundColor: '$white2',
+  backgroundColor: '$white-2',
 });
 
 const Center = styled('div', {
@@ -20,12 +20,12 @@ const Center = styled('div', {
 
   '@md': {
     paddingLeft: 250,
-    marginTop: '$10',
+    marginTop: '$12',
   },
 });
 
 const Content = styled('div', {
-  padding: 16,
+  padding: '$4',
   display: 'flex',
   justifyContent: 'center',
 });
@@ -35,55 +35,59 @@ const ContentChild = styled('div', {
   maxWidth: '100%',
 
   '& > *': {
-    marginBottom: 40,
+    marginBottom: '$11',
   },
   '& > a': {
     color: '$primary',
   },
   '& > p': {
-    marginTop: 12,
-    marginBottom: 12,
+    marginBottom: '$2',
+    marginTop: '$2',
+    fontSize: '$rem-base',
+    lineHeight: '$rem-large',
     color: '$black',
 
     '& > code': {
       all: 'unset',
       color: '$warning',
       backgroundColor: '$warning-lightest-2',
-      padding: '4px 8px',
-      margin: '1px 0',
+      padding: '$1 $2',
+      margin: '$1 $0',
       display: 'inline-block',
       borderRadius: '$sm',
     },
   },
   '& > hr': {
-    marginTop: 40,
-    marginBottom: 40,
+    marginTop: '$11',
+    marginBottom: '$11',
     display: 'block',
     border: 'none',
-    borderTop: '1px solid $gray-light',
+    borderTopColor: '$gray-light',
+    borderTopWidth: '$1',
+    borderTopStyle: 'solid',
   },
   '& > h1': {
-    marginTop: 32,
-    marginBottom: 32,
+    marginTop: '$10',
+    marginBottom: '$7',
     color: '$black',
   },
   '& > h2': {
-    marginTop: 32,
-    marginBottom: 24,
+    marginTop: '$9',
+    marginBottom: '$6',
     color: '$black',
   },
   '& > h3': {
-    marginTop: 24,
-    marginBottom: 24,
+    marginTop: '$8',
+    marginBottom: '$5',
     color: '$black',
   },
   '& > h4': {
-    marginTop: 24,
-    marginBottom: 16,
+    marginTop: '$7',
+    marginBottom: '$4',
     color: '$black',
   },
   '& > ul': {
-    paddingLeft: 20,
+    paddingLeft: '$5',
   },
   '& > ul li': {
     color: '$black',
@@ -109,23 +113,24 @@ const ContentChild = styled('div', {
 
     '& th': {
       color: '$primary',
-      padding: '8px 16px',
-      borderBottom: '1px solid',
-      borderColor: '$gray-light',
+      padding: '$2 $4',
+      borderBottomColor: '$gray-light',
+      borderBottomWidth: '$1',
+      borderBottomStyle: 'solid',
 
       '&:nth-child(2)': {
         width: '100%',
       },
     },
     '& td': {
-      padding: '8px 16px',
+      padding: '$2 $4',
     },
     '& code': {
       all: 'unset',
       color: '$warning',
       backgroundColor: '$warning-lightest-2',
-      padding: '4px 8px',
-      margin: '1px 0',
+      padding: '$1 $2',
+      margin: '$0.25 $0',
       display: 'inline-block',
       borderRadius: '$sm',
     },

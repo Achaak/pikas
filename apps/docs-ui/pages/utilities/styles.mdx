@@ -66,17 +66,17 @@ const globalCssCustom = globalCss({
   },
 
   '::-webkit-scrollbar': {
-    width: '7px',
-    height: '7px',
-    borderRadius: '10px',
+    width: '$2',
+    height: '$2',
+    borderRadius: '$lg',
   },
   '::-webkit-scrollbar-track': {
-    borderRadius: '10px',
-    backgroundColor: '$white',
+    borderRadius: '$lg',
+    backgroundColor: '$gray-fixed',
   },
   '::-webkit-scrollbar-thumb': {
-    background: '$gray',
-    borderRadius: '10px',
+    background: '$gray-fixed-dark',
+    borderRadius: '$lg',
   },
 })
 
@@ -150,293 +150,70 @@ const themeDark = createTheme({
 
 ## Theme Variables
 
----
-
-### BorderRadius
-
-Properties for border radius.
-
-```bash
-'none'
-'xs'
-'sm'
-'md'
-'lg'
-'xl'
-'round'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  borderRadius: '$sm',
-})
-```
+- [Border Styles](#border-styles)
+- [Border Widths](#border-widths)
+- [Colors](#colors)
+- [Fonts](#fonts)
+- [Font Sizes](#font-sizes)
+- [Font Weights](#font-weights)
+- [Letter Spacings](#letter-spacings)
+- [Line Heights](#line-heights)
+- [Radii](#radii)
+- [Shadows](#shadows)
+- [Sizes](#sizes)
+- [Space](#space)
+- [Z-Indices](#z-indices)
 
 ---
 
-### FontSize
+### Border Styles <a id="border-styles"></a>
 
-Properties for font size.
-
-```bash
-'em-3x-small'
-'em-2x-small'
-'em-x-small'
-'em-small'
-'em-base'
-'em-large'
-'em-x-large'
-'em-2x-large'
-'em-3x-large'
-
-'rem-3x-small'
-'rem-2x-small'
-'rem-x-small'
-'rem-small'
-'rem-base'
-'rem-large'
-'rem-x-large'
-'rem-2x-large'
-'rem-3x-large'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  fontSize: '$em-small',
-})
-```
-
----
-
-### FontWeight
-
-Properties for font weight.
-
-```bash
-'thin'
-'extra-light'
-'light'
-'normal'
-'medium'
-'semi-bold'
-'bold'
-'extra-bold'
-'black'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  fontWeight: '$bold',
-})
-```
-
----
-
-### LetterSpacing
-
-Properties for letter spacing.
-
-```bash
-'XX-SMALL'
-'X-SMALL'
-'SMALL'
-'medium'
-'LARGE'
-'X-LARGE'
-'XX-LARGE'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  letterSpacing: '$XX-SMALL',
-})
-```
-
----
-
-### LineHeight
-
-Properties for line height.
-
-```bash
-'em-3x-small'
-'em-2x-small'
-'em-x-small'
-'em-small'
-'em-base'
-'em-large'
-'em-x-large'
-'em-2x-large'
-'em-3x-large'
-
-'rem-3x-small'
-'rem-2x-small'
-'rem-x-small'
-'rem-small'
-'rem-base'
-'rem-large'
-'rem-x-large'
-'rem-2x-large'
-'rem-3x-large'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  lineHeight: '$em-small',
-})
-```
-
----
-
-### BoxShadow
-
-Properties for box shadow.
-
-```bash
-'xs'
-'sm'
-'md'
-'lg'
-'xl'
-'2xl'
-
-'top-xs'
-'top-sm'
-'top-md'
-'top-lg'
-'top-xl'
-'top-2xl'
-
-'bottom-xs'
-'bottom-sm'
-'bottom-md'
-'bottom-lg'
-'bottom-xl'
-'bottom-2xl'
-
-'inner-sm'
-'inner-md'
-'inner-md'
-'inner-lg'
-'inner-xl'
-'inner-2xl'
-
-'inset-top-sm'
-'inset-top-md'
-'inset-top-md'
-'inset-top-lg'
-'inset-top-xl'
-'inset-top-2xl'
-
-'inset-bottom-sm'
-'inset-bottom-md'
-'inset-bottom-md'
-'inset-bottom-lg'
-'inset-bottom-xl'
-'inset-bottom-2xl'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  boxShadow: '$xs',
-})
-```
-
----
-
-### Size
-
-Properties for size.
-
-```bash
-'XXX-SMALL'
-'XX-SMALL'
-'X-SMALL'
-'SMALL'
-'medium'
-'LARGE'
-'X-LARGE'
-'XX-LARGE'
-'XXX-LARGE'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  size: '$XXX-SMALL',
-})
-```
-
----
-
-### ZIndeces
-
-Properties for z-index.
-
-```bash
-'3x-low'
-'2x-low'
-'x-low'
-'low'
-'medium'
-'high'
-'x-high'
-'2x-high'
-'3x-high'
-```
-
-#### Example
-
-```tsx
-import { styled } from '@pikas-ui/styles'
-
-const Div = styled('div', {
-  zIndex: '$3x-low',
-})
-```
-
----
-
-### Custom Gap
-
-Properties for custom gap for resolve Safari gap issue.
+Properties for border-style.
 
 ```ts
+export const pikasBorderStyles = {
+  solid: 'solid',
+  dashed: 'dashed',
+  dotted: 'dotted',
+  double: 'double',
+  hidden: 'hidden',
+  none: 'none',
+};
+```
+
+#### Example
+
+```tsx
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  gap: 8,
-  // or
-  columnGap: 8,
-  // or
-  rowGap: 8,
+  borderStyle: '$solid',
+})
+```
+
+---
+
+### Border Widths <a id="border-widths"></a>
+
+Properties for border-width.
+
+```ts
+export const pikasBorderWidths = {
+  0: '0px',
+  1: '1px',
+  2: '2px',
+  4: '4px',
+  8: '8px',
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  borderWidth: '$1',
 })
 ```
 
@@ -456,6 +233,14 @@ Properties for color.
 'primary-lighter'
 'primary-lightest-2'
 'primary-lightest-1'
+
+'primary-fixed-darker'
+'primary-fixed-dark'
+'primary-fixed'
+'primary-fixed-light'
+'primary-fixed-lighter'
+'primary-fixed-lightest-2'
+'primary-fixed-lightest-1'
 ```
 
 #### Secondary
@@ -468,6 +253,14 @@ Properties for color.
 'secondary-lighter'
 'secondary-lightest-2'
 'secondary-lightest-1'
+
+'secondary-fixed-darker'
+'secondary-fixed-dark'
+'secondary-fixed'
+'secondary-fixed-light'
+'secondary-fixed-lighter'
+'secondary-fixed-lightest-2'
+'secondary-fixed-lightest-1'
 ```
 
 #### Tertiary
@@ -480,21 +273,26 @@ Properties for color.
 'tertiary-lighter'
 'tertiary-lightest-2'
 'tertiary-lightest-1'
+
+'tertiary-fixed-darker'
+'tertiary-fixed-dark'
+'tertiary-fixed'
+'tertiary-fixed-light'
+'tertiary-fixed-lighter'
+'tertiary-fixed-lightest-2'
+'tertiary-fixed-lightest-1'
 ```
 
 #### Black
 
 ```bash
 'black'
+'black-2'
 'black-light'
 'black-lighter'
 'black-lightest-2'
 'black-lightest-1'
-```
 
-#### Black fix
-
-```bash
 'black-fixed'
 'black-fixed-light'
 'black-fixed-lighter'
@@ -506,15 +304,12 @@ Properties for color.
 
 ```bash
 'white'
+'white-2'
 'white-light'
 'white-lighter'
 'white-lightest-2'
 'white-lightest-1'
-```
 
-#### White fix
-
-```bash
 'white-fixed'
 'white-fixed-light'
 'white-fixed-lighter'
@@ -532,6 +327,14 @@ Properties for color.
 'gray-lighter'
 'gray-lightest-2'
 'gray-lightest-1'
+
+'gray-fixed-darker'
+'gray-fixed-dark'
+'gray-fixed'
+'gray-fixed-light'
+'gray-fixed-lighter'
+'gray-fixed-lightest-2'
+'gray-fixed-lightest-1'
 ```
 
 #### Success
@@ -544,6 +347,14 @@ Properties for color.
 'success-lighter'
 'success-lightest-2'
 'success-lightest-1'
+
+'success-fixed-darker'
+'success-fixed-dark'
+'success-fixed'
+'success-fixed-light'
+'success-fixed-lighter'
+'success-fixed-lightest-2'
+'success-fixed-lightest-1'
 ```
 
 #### Warning
@@ -556,6 +367,14 @@ Properties for color.
 'warning-lighter'
 'warning-lightest-2'
 'warning-lightest-1'
+
+'warning-fixed-darker'
+'warning-fixed-dark'
+'warning-fixed'
+'warning-fixed-light'
+'warning-fixed-lighter'
+'warning-fixed-lightest-2'
+'warning-fixed-lightest-1'
 ```
 
 #### Danger
@@ -568,12 +387,40 @@ Properties for color.
 'danger-lighter'
 'danger-lightest-2'
 'danger-lightest-1'
+
+'danger-fixed-darker'
+'danger-fixed-dark'
+'danger-fixed'
+'danger-fixed-light'
+'danger-fixed-lighter'
+'danger-fixed-lightest-2'
+'danger-fixed-lightest-1'
+```
+
+#### Background
+
+```bash
+'background-darker'
+'background-dark'
+'background'
+'background-light'
+'background-lighter'
+'background-lightest-2'
+'background-lightest-1'
+
+'background-fixed-darker'
+'background-fixed-dark'
+'background-fixed'
+'background-fixed-light'
+'background-fixed-lighter'
+'background-fixed-lightest-2'
+'background-fixed-lightest-1'
 ```
 
 #### Other
 
 ```bash
-'transparent' | 'background'
+'transparent'
 ```
 
 #### Example
@@ -587,6 +434,430 @@ const Div = styled('div', {
   borderColor: '$primary',
   borderWidth: 1,
   borderStyle: 'solid',
+})
+```
+
+---
+
+### Fonts <a id="fonts"></a>
+
+Properties for fonts.
+
+```ts
+export const pikasFonts = {
+  roboto: 'Roboto',
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  fontFamily: '$roboto',
+})
+```
+
+---
+
+### Font Sizes <a id="font-sizes"></a>
+
+Properties for font size.
+
+```ts
+export const pikasFontSizes = {
+  'em-3x-small': '0.5em',
+  'em-2x-small': '0.625em',
+  'em-x-small': '0.75em',
+  'em-small': '0.875em',
+  'em-base': '1em',
+  'em-large': '1.125em',
+  'em-x-large': '1.25em',
+  'em-2x-large': '1.5em',
+  'em-3x-large': '1.875em',
+  'em-4x-large': '2.25em',
+  'em-5x-large': '3em',
+  'em-6x-large': '3.75em',
+  'em-7x-large': '4.5em',
+  'em-8x-large': '6em',
+  'em-9x-large': '8em',
+
+  'rem-3x-small': '0.5rem', // 8px
+  'rem-2x-small': '0.625rem', // 10px
+  'rem-x-small': '0.75rem', // 12px
+  'rem-small': '0.875rem', // 14px
+  'rem-base': '1rem', // 16px
+  'rem-large': '1.125rem', // 18px
+  'rem-x-large': '1.25rem', // 20px
+  'rem-2x-large': '1.5rem', // 24px
+  'rem-3x-large': '1.875rem', // 30px
+  'rem-4x-large': '2.25rem', // 36px
+  'rem-5x-large': '3rem', // 48px
+  'rem-6x-large': '3.75rem', // 60px
+  'rem-7x-large': '4.5rem', // 72px
+  'rem-8x-large': '6rem', // 96px
+  'rem-9x-large': '8rem', // 120px
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  fontSize: '$em-small',
+})
+```
+
+---
+
+### Font Weights <a id="font-weights"></a>
+
+Properties for font weight.
+
+```ts
+export const pikasFontWeights = {
+  'thin': 100,
+  'extra-thin': 200,
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'black': 900,
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  fontWeight: '$bold',
+})
+```
+
+---
+
+### Letter Spacing <a id="letter-spacings"></a>
+
+Properties for letter spacing.
+
+```ts
+export const pikasLetterSpacings = {
+  tightest: '-0.1em',
+  tighter: '-0.05em',
+  tight: '-0.025em',
+  normal: '0em',
+  wide: '0.025em',
+  wider: '0.05em',
+  widest: '0.1em',
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  letterSpacing: '$XX-SMALL',
+})
+```
+
+---
+
+### Line Height <a id="line-heights"></a>
+
+Properties for line height.
+
+```ts
+export const pikasLineHeights = {
+  'EM-3x-small': '0.5em',
+  'EM-2x-small': '0.625em',
+  'EM-x-small': '0.75em',
+  'EM-small': '0.875em',
+  'EM-base': '1em',
+  'EM-large': '1.125em',
+  'EM-x-large': '1.25em',
+  'EM-2x-large': '1.5em',
+  'EM-3x-large': '1.875em',
+  'EM-4x-large': '2.25em',
+  'EM-5x-large': '3em',
+  'EM-6x-large': '3.75em',
+  'EM-7x-large': '4.5em',
+  'EM-8x-large': '6em',
+  'EM-9x-large': '8em',
+
+  'rem-3x-small': '0.5rem', // 8px
+  'rem-2x-small': '0.625rem', // 10px
+  'rem-x-small': '0.75rem', // 12px
+  'rem-small': '0.875rem', // 14px
+  'rem-base': '1rem', // 16px
+  'rem-large': '1.125rem', // 18px
+  'rem-x-large': '1.25rem', // 20px
+  'rem-2x-large': '1.5rem', // 24px
+  'rem-3x-large': '1.875rem', // 30px
+  'rem-4x-large': '2.25rem', // 36px
+  'rem-5x-large': '3rem', // 48px
+  'rem-6x-large': '3.75rem', // 60px
+  'rem-7x-large': '4.5rem', // 72px
+  'rem-8x-large': '6rem', // 96px
+  'rem-9x-large': '8rem', // 120px
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  lineHeight: '$em-small',
+})
+```
+
+---
+
+### Radii <a id="radii"></a>
+
+Properties for border radius.
+
+```ts
+export const pikasRadii = {
+  'none': '0px',
+  'xs': '0.125rem', // 2px
+  'sm': '0.25rem', // 4px
+  'md': '0.375rem', // 6px
+  'lg': '0.5rem', // 8px
+  'xl': '0.75rem', // 12px
+  '2xl': '1rem', // 16px
+  '3xl': '1.5rem', // 24px
+  'full': '9999px',
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  borderRadius: '$sm',
+})
+```
+
+---
+
+### Shadows <a id="shadows"></a>
+
+Properties for box shadow.
+
+```ts
+export const pikasShadows = {
+  'none': 'none',
+
+  'xs': '0 0 2px 0 rgb(0, 0, 0, 0.05)',
+  'sm': '0 0 3px 0 rgb(0, 0, 0, 0.1), 0 0 2px -1px rgb(0, 0, 0, 0.1)',
+  'md': '0 0 6px -1px rgb(0, 0, 0, 0.1), 0 0 4px -2px rgb(0, 0, 0, 0.1)',
+  'lg': '0 0 15px -3px rgb(0, 0, 0, 0.1), 0 0 6px -4px rgb(0, 0, 0, 0.1)',
+  'xl': '0 0 25px -5px rgb(0, 0, 0, 0.1), 0 0 10px -6px rgb(0, 0, 0, 0.1)',
+  '2xl': '0 0 50px -12px rgb(0, 0, 0, 0.25)',
+
+  'top-xs': '0 -1px 2px 0 rgb(0, 0, 0, 0.05)',
+  'top-sm': '0 -1px 3px 0 rgb(0, 0, 0, 0.1), 0 -1px 2px -1px rgb(0, 0, 0, 0.1)',
+  'top-md': '0 -4px 6px -1px rgb(0, 0, 0, 0.1), 0 -2px 4px -2px rgb(0, 0, 0, 0.1)',
+  'top-lg': '0 -10px 15px -3px rgb(0, 0, 0, 0.1), 0 -4px 6px -4px rgb(0, 0, 0, 0.1)',
+  'top-xl': '0 -20px 25px -5px rgb(0, 0, 0, 0.1), 0 -8px 10px -6px rgb(0, 0, 0, 0.1)',
+  'top-2xl': '0 -25px 50px -12px rgb(0, 0, 0, 0.25)',
+
+  'bottom-xs': '0 1px 2px 0 rgb(0, 0, 0, 0.05)',
+  'bottom-sm': '0 1px 3px 0 rgb(0, 0, 0, 0.1), 0 1px 2px -1px rgb(0, 0, 0, 0.1)',
+  'bottom-md': '0 4px 6px -1px rgb(0, 0, 0, 0.1), 0 2px 4px -2px rgb(0, 0, 0, 0.1)',
+  'bottom-lg': '0 10px 15px -3px rgb(0, 0, 0, 0.1), 0 4px 6px -4px rgb(0, 0, 0, 0.1)',
+  'bottom-xl': '0 20px 25px -5px rgb(0, 0, 0, 0.1), 0 8px 10px -6px rgb(0, 0, 0, 0.1)',
+  'bottom-2xl': '0 25px 50px -12px rgb(0, 0, 0, 0.25)',
+
+  'inner-xs': 'inset 0 0 2px 0 rgb(0, 0, 0, 0.05)',
+  'inner-sm': 'inset 0 0 3px 0 rgb(0, 0, 0, 0.1), inset 0 0 2px -1px rgb(0, 0, 0, 0.1)',
+  'inner-md': 'inset 0 0 6px -1px rgb(0, 0, 0, 0.1), inset 0 0 4px -2px rgb(0, 0, 0, 0.1)',
+  'inner-lg': 'inset 0 0 15px -3px rgb(0, 0, 0, 0.1), inset 0 0 6px -4px rgb(0, 0, 0, 0.1)',
+  'inner-xl': 'inset 0 0 25px -5px rgb(0, 0, 0, 0.1), inset 0 0 10px -6px rgb(0, 0, 0, 0.1)',
+  'inner-2xl': 'inset 0 0 50px -12px rgb(0, 0, 0, 0.25)',
+
+  'inner-top-xs': 'inset 0 -1px 2px 0 rgb(0, 0, 0, 0.05)',
+  'inner-top-sm': 'inset 0 -1px 3px 0 rgb(0, 0, 0, 0.1), inset 0 -1px 2px -1px rgb(0, 0, 0, 0.1)',
+  'inner-top-md': 'inset 0 -4px 6px -1px rgb(0, 0, 0, 0.1), inset 0 -2px 4px -2px rgb(0, 0, 0, 0.1)',
+  'inner-top-lg': 'inset 0 -10px 15px -3px rgb(0, 0, 0, 0.1), inset 0 -4px 6px -4px rgb(0, 0, 0, 0.1)',
+  'inner-top-xl': 'inset 0 -20px 25px -5px rgb(0, 0, 0, 0.1), inset 0 -8px 10px -6px rgb(0, 0, 0, 0.1)',
+  'inner-top-2xl': 'inset 0 -25px 50px -12px rgb(0, 0, 0, 0.25)',
+
+  'inner-bottom-xs': 'inset 0 1px 2px 0 rgb(0, 0, 0, 0.05)',
+  'inner-bottom-sm': 'inset 0 1px 3px 0 rgb(0, 0, 0, 0.1), inset 0 1px 2px -1px rgb(0, 0, 0, 0.1)',
+  'inner-bottom-md': 'inset 0 4px 6px -1px rgb(0, 0, 0, 0.1), inset 0 2px 4px -2px rgb(0, 0, 0, 0.1)',
+  'inner-bottom-lg': 'inset 0 10px 15px -3px rgb(0, 0, 0, 0.1), inset 0 4px 6px -4px rgb(0, 0, 0, 0.1)',
+  'inner-bottom-xl': 'inset 0 20px 25px -5px rgb(0, 0, 0, 0.1), inset 0 8px 10px -6px rgb(0, 0, 0, 0.1)',
+  'inner-bottom-2xl': 'inset 0 25px 50px -12px rgb(0, 0, 0, 0.25)',
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  boxShadow: '$xs',
+})
+```
+
+---
+
+### Sizes <a id="sizes"></a>
+
+Properties for size.
+
+```ts
+export const pikasSizes = {
+  0: '0px',
+  0.25: '1px',
+  0.5: '0.125rem', // 2px
+  1: '0.25rem', // 4px
+  1.5: '0.375rem', // 6px
+  2: '0.5rem', // 8px
+  2.5: '0.625rem', // 10px
+  3: '0.75rem', // 12px
+  3.5: '0.875', // 14px
+  4: '1rem', // 16px
+  5: '1.25rem', // 20px
+  6: '1.5rem', // 24px
+  7: '1.75rem', // 28px
+  8: '2rem', // 32px
+  9: '2.25rem', // 36px
+  10: '2.5rem', // 40px
+  11: '2.75rem', // 44px
+  12: '3rem', // 48px
+  14: '3.5rem', // 56px
+  16: '4rem', // 64px
+  20: '5rem', // 80px
+  24: '6rem', // 96px
+  28: '7rem', // 112px
+  32: '8rem', // 128px
+  36: '9rem', // 144px
+  40: '10rem', // 160px
+  44: '11rem', // 176px
+  48: '12rem', // 192px
+  52: '13rem', // 208px
+  56: '14rem', // 224px
+  60: '15rem', // 240px
+  64: '16rem', // 256px
+  72: '18rem', // 288px
+  80: '20rem', // 320px
+  96: '24rem', // 384px
+  auto: 'auto',
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  size: '$XXX-SMALL',
+})
+```
+
+---
+
+### space <a id="space"></a>
+
+Properties for space.
+
+```ts
+export const pikasSpaces = {
+  0: '0px',
+  0.25: '1px',
+  0.5: '0.125rem', // 2px
+  1: '0.25rem', // 4px
+  1.5: '0.375rem', // 6px
+  2: '0.5rem', // 8px
+  2.5: '0.625rem', // 10px
+  3: '0.75rem', // 12px
+  3.5: '0.875', // 14px
+  4: '1rem', // 16px
+  5: '1.25rem', // 20px
+  6: '1.5rem', // 24px
+  7: '1.75rem', // 28px
+  8: '2rem', // 32px
+  9: '2.25rem', // 36px
+  10: '2.5rem', // 40px
+  11: '2.75rem', // 44px
+  12: '3rem', // 48px
+  14: '3.5rem', // 56px
+  16: '4rem', // 64px
+  20: '5rem', // 80px
+  24: '6rem', // 96px
+  28: '7rem', // 112px
+  32: '8rem', // 128px
+  36: '9rem', // 144px
+  40: '10rem', // 160px
+  44: '11rem', // 176px
+  48: '12rem', // 192px
+  52: '13rem', // 208px
+  56: '14rem', // 224px
+  60: '15rem', // 240px
+  64: '16rem', // 256px
+  72: '18rem', // 288px
+  80: '20rem', // 320px
+  96: '24rem', // 384px
+  auto: 'auto',
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  margin: '$XXX-SMALL',
+})
+```
+
+---
+
+### Z-Indices <a id="z-indices"></a>
+
+Properties for z-index.
+
+```ts
+export const pikasZIndices = {
+  'min': -2147483647,
+  '3x-low': -1000,
+  '2x-low': -100,
+  'x-low': -10,
+  'low': -1,
+  'base': 0,
+  'high': 1,
+  'x-high': 10,
+  '2x-high': 100,
+  '3x-high': 1000,
+  'max': 2147483647,
+};
+```
+
+#### Example
+
+```tsx
+import { styled } from '@pikas-ui/styles'
+
+const Div = styled('div', {
+  zIndex: '$3x-low',
 })
 ```
 

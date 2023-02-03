@@ -22,7 +22,7 @@ const Container = styled('div', {
   borderStyle: 'solid',
   borderWidth: 2,
   borderRadius: '$md',
-  backgroundColor: '$white2',
+  backgroundColor: '$white-2',
   display: 'flex',
   position: 'relative',
 

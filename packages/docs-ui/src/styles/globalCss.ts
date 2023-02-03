@@ -20,16 +20,16 @@ export const customGlobalCss = globalCss({
   },
 
   '::-webkit-scrollbar': {
-    width: '10px',
-    height: '10px',
+    width: '$2',
+    height: '$2',
     borderRadius: '$lg',
   },
   '::-webkit-scrollbar-track': {
     borderRadius: '$lg',
-    backgroundColor: '$gray',
+    backgroundColor: '$gray-fixed',
   },
   '::-webkit-scrollbar-thumb': {
-    background: '$gray-dark',
+    background: '$gray-fixed-dark',
     borderRadius: '$lg',
   },
 });

@@ -84,7 +84,7 @@ const Resizer = styled('div', {
   right: 0,
   top: 0,
   height: '100%',
-  width: 6,
+  width: '$1.5',
   background: '$primary-dark',
   cursor: 'col-resize',
   touchAction: 'none',
