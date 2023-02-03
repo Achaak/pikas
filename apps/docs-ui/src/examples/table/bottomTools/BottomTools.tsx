@@ -24,6 +24,7 @@ const Bottom = styled('div', {
 const NbRows = styled('span', {
   fontSize: '$em-small',
   fontWeight: '$medium',
+  color: '$black',
 });
 
 const Pre = styled('pre', {
@@ -33,6 +34,8 @@ const Pre = styled('pre', {
   borderRadius: '$sm',
   maxHeight: 200,
   overflow: 'auto',
+  color: '$black',
+  backgroundColor: '$white',
 });
 
 type BottomToolsProps = {

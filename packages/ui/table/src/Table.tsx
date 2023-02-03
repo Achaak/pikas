@@ -1,8 +1,11 @@
 import {
   createContext,
+  forwardRef,
   ReactNode,
+  Ref,
   useContext,
   useEffect,
+  useImperativeHandle,
   useMemo,
   useState,
 } from 'react';
@@ -28,6 +31,11 @@ import {
   ExpandedState,
   getGroupedRowModel,
   ColumnPinningState,
+  ColumnFiltersState,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFacetedMinMaxValues,
+  FilterFn,
 } from '@tanstack/react-table';
 import once from 'lodash.once';
 
@@ -43,6 +51,7 @@ import {
   RadioCircleMarkedIcon,
 } from './Icons.js';
 import { TableElement } from './table/Table.js';
+export * from '@tanstack/match-sorter-utils';
 
 const DEFAULT_PAGE_SIZES = [5, 10, 25, 50, 100];
 
@@ -92,6 +101,8 @@ export type TableCSS<T> = {
     >
   >;
 };
+
+export type { OnChangeFn };
 
 export type TablePaginationState = PaginationState;
 export type TablePaginationProps = {
@@ -171,38 +182,24 @@ export type TableColumnPinning = {
   isSplit?: boolean;
 };
 
+export type TableColumnFiltersState = ColumnFiltersState;
+export type { FilterFn };
+export type TableFilters<T extends Data> = {
+  enabled: boolean;
+  columnFilters?: TableColumnFiltersState;
+  onColumnFiltersChange?: OnChangeFn<TableColumnFiltersState>;
+  globalFilter?: string;
+  onGlobalFilterChange?: OnChangeFn<string>;
+  globalFilterFn?: FilterFn<T>;
+  filterFns?: Record<string, FilterFn<T>>;
+};
+
 export type TablePadding = {
   th?: 'lg' | 'md' | 'sm';
   td?: 'lg' | 'md' | 'sm';
 };
 
-export type Data<T extends Record<string, unknown> = Record<string, unknown>> =
-  T & {
-    subRows?: T[];
-  };
-
-export type TableProps<T extends Data> = {
-  data: T[];
-  columns: Array<ColumnDef<T>>;
-  variant?: TableVariant;
-  emptyMessage?: ReactNode;
-  padding?: TablePadding;
-  hasTfoot?: boolean;
-  hoverEffect?: boolean;
-  debug?: boolean;
-
-  columnOrder?: TableColumnOrder;
-  columnPinning?: TableColumnPinning;
-  columnSizing?: TableColumnSizing;
-  columnVisibility?: TableVisibility;
-  pagination?: TablePaginationProps;
-  expanding?: TableExpanding;
-  grouping?: TableGrouping;
-  sorting?: TableSorting;
-  rowSelection?: TableRowSelection;
-
-  css?: TableCSS<T>;
-};
+export type Data = Record<string, unknown>;
 
 type TableContext<T extends Data> = {
   variant?: TableVariant;
@@ -219,6 +216,7 @@ type TableContext<T extends Data> = {
   onColumnOrderChange: OnChangeFn<TableColumnOrderState>;
   columnOrder?: TableColumnOrder;
   columnPinning?: TableColumnPinning;
+  filters?: TableFilters<T>;
 };
 
 const createStateContext = once(<T extends Data>() =>
@@ -227,29 +225,83 @@ const createStateContext = once(<T extends Data>() =>
 export const useStateContext = <T extends Data>() =>
   useContext(createStateContext<T>());
 
-export const Table = <T extends Data>({
-  data,
-  hasTfoot,
-  pagination,
-  columns,
-  rowSelection,
-  sorting,
-  variant = 'default',
-  css,
-  padding = {
-    th: 'md',
-    td: 'md',
-  },
-  emptyMessage,
-  hoverEffect = false,
-  columnVisibility,
-  columnOrder,
-  columnSizing,
-  grouping,
-  debug = false,
-  expanding,
-  columnPinning,
-}: TableProps<T>): JSX.Element => {
+export type TableProps<T extends Data> = {
+  data: Array<T & { subRows?: T[] }>;
+  columns: Array<ColumnDef<T>>;
+  variant?: TableVariant;
+  emptyMessage?: ReactNode;
+  padding?: TablePadding;
+  hasTfoot?: boolean;
+  hoverEffect?: boolean;
+  debug?: {
+    rows?: boolean;
+    all?: boolean;
+    table?: boolean;
+    headers?: boolean;
+    columns?: boolean;
+  };
+
+  columnOrder?: TableColumnOrder;
+  columnPinning?: TableColumnPinning;
+  columnSizing?: TableColumnSizing;
+  columnVisibility?: TableVisibility;
+  pagination?: TablePaginationProps;
+  expanding?: TableExpanding;
+  grouping?: TableGrouping;
+  sorting?: TableSorting;
+  rowSelection?: TableRowSelection;
+  filters?: TableFilters<T>;
+
+  css?: TableCSS<T>;
+};
+
+export type TableRef<T extends Data> = {
+  table: TanstackTable<T>;
+};
+
+export const Test = () => (
+  <Table
+    data={[
+      {
+        id: 1,
+        name: 'test',
+        subRows: [{ id: 2, name: 'test' }],
+      },
+    ]}
+    columns={[]}
+    css={{
+      column: {},
+    }}
+  />
+);
+
+const FRefInputTable = <T extends Data>(
+  {
+    data,
+    hasTfoot,
+    pagination,
+    columns,
+    rowSelection,
+    sorting,
+    variant = 'default',
+    css,
+    padding = {
+      th: 'md',
+      td: 'md',
+    },
+    emptyMessage,
+    hoverEffect = false,
+    columnVisibility,
+    columnOrder,
+    columnSizing,
+    grouping,
+    debug,
+    expanding,
+    filters,
+    columnPinning,
+  }: TableProps<T>,
+  ref: Ref<TableRef<T>>
+): JSX.Element => {
   const Context = createStateContext<T>();
 
   /* Pagination */
@@ -680,6 +732,16 @@ export const Table = <T extends Data>({
             columnPinning: columnPinningState,
           }
         : {}),
+
+      // Filters
+      ...(filters?.enabled
+        ? {
+            ...(filters.columnFilters && filters.columnFilters.length > 0 // TODO: waiting fix
+              ? { columnFilters: filters.columnFilters }
+              : {}),
+            globalFilter: filters.globalFilter ?? '',
+          }
+        : {}),
     },
 
     // Row Selection
@@ -693,7 +755,6 @@ export const Table = <T extends Data>({
     ...(sorting?.enabled
       ? {
           onSortingChange: setSortingState,
-          getSortedRowModel: getSortedRowModel(),
         }
       : {}),
 
@@ -701,7 +762,6 @@ export const Table = <T extends Data>({
     ...(pagination?.enabled
       ? {
           onPaginationChange: handlePaginationChange,
-          getPaginationRowModel: getPaginationRowModel(),
         }
       : {}),
 
@@ -723,7 +783,6 @@ export const Table = <T extends Data>({
     ...(grouping?.enabled
       ? {
           onGroupingChange: handleGroupingChange,
-          getGroupedRowModel: getGroupedRowModel(),
         }
       : {}),
 
@@ -731,6 +790,7 @@ export const Table = <T extends Data>({
     ...(columnSizing?.enabled
       ? {
           onColumnSizingChange: handleColumnSizingChange,
+          columnResizeMode: columnSizing?.resizeMode,
         }
       : {}),
 
@@ -748,7 +808,16 @@ export const Table = <T extends Data>({
         }
       : {}),
 
-    columnResizeMode: columnSizing?.resizeMode,
+    // Filters
+    ...(filters?.enabled
+      ? {
+          filterFns: filters.filterFns,
+          globalFilterFn: filters.globalFilterFn,
+
+          onColumnFiltersChange: filters.onColumnFiltersChange,
+          onGlobalFilterChange: filters.onGlobalFilterChange,
+        }
+      : {}),
 
     enableColumnResizing: columnSizing?.enabled ?? false,
     enableRowSelection: rowSelection?.enabled ?? false,
@@ -758,12 +827,28 @@ export const Table = <T extends Data>({
     enableSorting: sorting?.enabled ?? false,
     enableGrouping: grouping?.enabled ?? false,
     enableHiding: columnVisibility?.enabled ?? false,
+
     getSubRows: (row) => row.subRows as T[] | undefined,
-    getCoreRowModel: getCoreRowModel(),
-    getExpandedRowModel: getExpandedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    debugTable: debug,
+    getCoreRowModel: getCoreRowModel<T>(),
+    getExpandedRowModel: getExpandedRowModel<T>(),
+    getFilteredRowModel: getFilteredRowModel<T>(),
+    getFacetedRowModel: getFacetedRowModel<T>(),
+    getFacetedUniqueValues: getFacetedUniqueValues<T>(),
+    getFacetedMinMaxValues: getFacetedMinMaxValues<T>(),
+    getSortedRowModel: getSortedRowModel<T>(),
+    getPaginationRowModel: getPaginationRowModel<T>(),
+    getGroupedRowModel: getGroupedRowModel<T>(),
+
+    debugTable: debug?.table,
+    debugColumns: debug?.columns,
+    debugHeaders: debug?.headers,
+    debugRows: debug?.rows,
+    debugAll: debug?.all,
   });
+
+  useImperativeHandle(ref, () => ({
+    table: table,
+  }));
 
   return (
     <Context.Provider
@@ -782,6 +867,7 @@ export const Table = <T extends Data>({
         onColumnOrderChange: handleColumnOrderChange,
         columnOrder,
         columnPinning,
+        filters,
       }}
     >
       <Container css={css?.container}>
@@ -818,3 +904,7 @@ export const Table = <T extends Data>({
     </Context.Provider>
   );
 };
+
+export const Table = forwardRef(FRefInputTable) as <T extends Data>(
+  props: TableProps<T> & { ref?: Ref<TableRef<T>> }
+) => JSX.Element;

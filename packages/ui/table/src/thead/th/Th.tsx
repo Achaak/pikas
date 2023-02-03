@@ -15,6 +15,7 @@ import {
   XIcon,
 } from '../../Icons.js';
 import { ButtonIcon } from '@pikas-ui/button';
+import { Filter } from '../../filter/Filter.js';
 
 const ThStyled = styled('th', {
   position: 'relative',
@@ -54,7 +55,20 @@ const ThStyled = styled('th', {
 
 const ThContent = styled('div', {
   display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  rowGap: '$2',
+});
+
+const ThContentTop = styled('div', {
+  display: 'flex',
   alignItems: 'center',
+  width: '100%',
+  columnGap: '$2',
+});
+
+const ThContentBottom = styled('div', {
+  display: 'flex',
   width: '100%',
   columnGap: '$2',
 });
@@ -176,6 +190,7 @@ export const Th = <T extends Data>({
     sorting,
     grouping,
     columnPinning,
+    filters,
   } = useStateContext<T>();
   const [isFocused, setIsFocused] = useState(false);
 
@@ -221,87 +236,98 @@ export const Th = <T extends Data>({
       {header.isPlaceholder ? null : (
         <>
           <ThContent>
-            {header.column.getCanGroup() && grouping?.enabled ? (
-              <GroupIconContainer>
-                <ButtonIcon
-                  onClick={header.column.getToggleGroupingHandler()}
-                  Icon={header.column.getIsGrouped() ? MinusIcon : PlusIcon}
-                  colorName={
-                    header.column.getIsGrouped() ? 'danger' : 'primary'
-                  }
-                  size={3.5}
-                  padding="none"
-                  borderRadius="sm"
-                />
-              </GroupIconContainer>
-            ) : null}
-            <ThSpan
-              css={{
-                ...css?.thSpan,
-                ...css?.column?.[header.id as keyof T]?.thSpan,
-              }}
-              sortable={header.column.getCanSort() && sorting?.enabled}
-              onClick={
-                header.column.getCanSort() && sorting?.enabled
-                  ? header.column.getToggleSortingHandler()
-                  : undefined
-              }
-            >
-              {flexRender(header.column.columnDef.header, header.getContext())}
-              {{
-                asc: <ChevronUpIcon size="1em" colorName="black" />,
-                desc: <ChevronDownIcon size="1em" colorName="black" />,
-              }[header.column.getIsSorted() as string] ?? null}
-            </ThSpan>
-            {columnPinning?.enabled && header.column.getCanPin() && (
-              <PinContainer>
-                {header.column.getIsPinned() !== 'left' ? (
+            <ThContentTop>
+              {header.column.getCanGroup() && grouping?.enabled ? (
+                <GroupIconContainer>
                   <ButtonIcon
-                    onClick={() => {
-                      header.column.pin('left');
-                    }}
-                    Icon={ChevronsLeftIcon}
+                    onClick={header.column.getToggleGroupingHandler()}
+                    Icon={header.column.getIsGrouped() ? MinusIcon : PlusIcon}
+                    colorName={
+                      header.column.getIsGrouped() ? 'danger' : 'primary'
+                    }
                     size={3.5}
                     padding="none"
                     borderRadius="sm"
                   />
-                ) : null}
-                {header.column.getIsPinned() ? (
-                  <ButtonIcon
-                    onClick={() => {
-                      header.column.pin(false);
-                    }}
-                    Icon={XIcon}
-                    size={3.5}
-                    padding="none"
-                    borderRadius="sm"
-                    colorName="danger"
-                  />
-                ) : null}
-                {header.column.getIsPinned() !== 'right' ? (
-                  <ButtonIcon
-                    onClick={() => {
-                      header.column.pin('right');
-                    }}
-                    Icon={ChevronsRightIcon}
-                    size={3.5}
-                    padding="none"
-                    borderRadius="sm"
-                  />
-                ) : null}
-              </PinContainer>
-            )}
-            {columnOrderEnabled && (
-              <ColumnOrderButton
-                isDragging={isDragging}
-                ref={setActivatorNodeRef}
-                isVisible={isFocused}
-                {...attributes}
-                {...listeners}
+                </GroupIconContainer>
+              ) : null}
+              <ThSpan
+                css={{
+                  ...css?.thSpan,
+                  ...css?.column?.[header.id as keyof T]?.thSpan,
+                }}
+                sortable={header.column.getCanSort() && sorting?.enabled}
+                onClick={
+                  header.column.getCanSort() && sorting?.enabled
+                    ? header.column.getToggleSortingHandler()
+                    : undefined
+                }
               >
-                <MenuIcon size={20} />
-              </ColumnOrderButton>
-            )}
+                {flexRender(
+                  header.column.columnDef.header,
+                  header.getContext()
+                )}
+                {{
+                  asc: <ChevronUpIcon size="1em" colorName="black" />,
+                  desc: <ChevronDownIcon size="1em" colorName="black" />,
+                }[header.column.getIsSorted() as string] ?? null}
+              </ThSpan>
+              {columnPinning?.enabled && header.column.getCanPin() && (
+                <PinContainer>
+                  {header.column.getIsPinned() !== 'left' ? (
+                    <ButtonIcon
+                      onClick={() => {
+                        header.column.pin('left');
+                      }}
+                      Icon={ChevronsLeftIcon}
+                      size={3.5}
+                      padding="none"
+                      borderRadius="sm"
+                    />
+                  ) : null}
+                  {header.column.getIsPinned() ? (
+                    <ButtonIcon
+                      onClick={() => {
+                        header.column.pin(false);
+                      }}
+                      Icon={XIcon}
+                      size={3.5}
+                      padding="none"
+                      borderRadius="sm"
+                      colorName="danger"
+                    />
+                  ) : null}
+                  {header.column.getIsPinned() !== 'right' ? (
+                    <ButtonIcon
+                      onClick={() => {
+                        header.column.pin('right');
+                      }}
+                      Icon={ChevronsRightIcon}
+                      size={3.5}
+                      padding="none"
+                      borderRadius="sm"
+                    />
+                  ) : null}
+                </PinContainer>
+              )}
+              {columnOrderEnabled && (
+                <ColumnOrderButton
+                  isDragging={isDragging}
+                  ref={setActivatorNodeRef}
+                  isVisible={isFocused}
+                  {...attributes}
+                  {...listeners}
+                >
+                  <MenuIcon size={20} />
+                </ColumnOrderButton>
+              )}
+            </ThContentTop>
+
+            {header.column.getCanFilter() && filters?.enabled ? (
+              <ThContentBottom>
+                <Filter column={header.column} />
+              </ThContentBottom>
+            ) : null}
           </ThContent>
           {header.column.getCanResize() && columnSizing?.enabled && (
             <Resizer

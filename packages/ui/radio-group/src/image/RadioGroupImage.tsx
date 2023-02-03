@@ -90,12 +90,6 @@ export const RadioGroupImage: FC<RadioGroupImageProps> = ({
     }
   }, [value]);
 
-  useEffect(() => {
-    if (defaultValue) {
-      setCurrentValue(defaultValue);
-    }
-  }, [defaultValue]);
-
   return (
     <Container
       className={className}

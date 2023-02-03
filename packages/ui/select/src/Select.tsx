@@ -21,7 +21,6 @@ import {
 } from 'react';
 import type { TooltipCSS } from '@pikas-ui/tooltip';
 import { Tooltip } from '@pikas-ui/tooltip';
-import { Textfield } from '@pikas-ui/textfield';
 
 const Container = styled('div', {
   display: 'flex',
@@ -41,21 +40,28 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   width: '100%',
   color: '$black',
 
+  '&[data-placeholder]': {
+    color: '$gray-dark',
+  },
+
   variants: {
     padding: {
       none: {
         padding: 0,
       },
       xs: {
-        padding: '2px 4px',
+        padding: '4px 8px',
       },
       sm: {
-        padding: '4px 8px',
+        padding: '6px 12px',
       },
       md: {
         padding: '8px 16px',
       },
       lg: {
+        padding: '12px 24px',
+      },
+      xl: {
         padding: '16px 32px',
       },
     },
@@ -134,6 +140,8 @@ const Item = styled(SelectPrimitive.Item, {
   borderRadius: '$sm',
   cursor: 'pointer',
   transition: 'all 100ms',
+  fontSize: '$em-small',
+  color: '$black',
 
   '&[data-disabled]': {
     opacity: 0.5,
@@ -145,15 +153,6 @@ const Item = styled(SelectPrimitive.Item, {
     color: '$white',
     fill: '$white',
   },
-});
-
-const ItemText = styled('span', {
-  fontSize: '$em-small',
-  color: '$black',
-});
-
-const SearchContainer = styled('div', {
-  padding: 8,
 });
 
 const LabelContainer = styled('div', {
@@ -187,6 +186,7 @@ export const selectPadding = {
   sm: true,
   md: true,
   lg: true,
+  xl: true,
 } as const;
 export type SelectPadding = keyof typeof selectPadding;
 
@@ -210,9 +210,6 @@ export type SelectData = Array<{
 
 export type SelectProps = {
   css?: SelectCSS;
-  hasSearch?: boolean;
-  searchPlaceholder?: string;
-
   label?: ReactNode | string;
   borderRadius?: PikasRadius;
   padding?: SelectPadding;
@@ -222,7 +219,8 @@ export type SelectProps = {
   data: SelectData;
   id?: string;
   onChange?: (value: string) => void;
-  defaultValue: string;
+  value?: string;
+  defaultValue?: string;
   ariaLabel?: string;
   textError?: string;
   direction?: SelectDirections;
@@ -238,6 +236,7 @@ export type SelectProps = {
   info?: ReactNode;
   required?: boolean;
   disabled?: boolean;
+  placeholder?: string;
 };
 
 export type SelectRef = {
@@ -252,8 +251,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       onChange,
       defaultValue,
       label,
-      hasSearch,
-      searchPlaceholder,
       id,
       ariaLabel,
       borderRadius = 'md',
@@ -275,54 +272,26 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       info,
       required = false,
       disabled = false,
+      value,
+      placeholder,
     },
     ref
   ) => {
-    const [searchValue, setSearchValue] = useState('');
-    const [value, setValue] = useState(defaultValue || '');
-    const [formattedData, setFormattedData] = useState(data);
+    const [valueState, setValueState] = useState<string | undefined>(
+      defaultValue ?? undefined
+    );
     const [focus, setFocus] = useState(false);
     const theme = useTheme();
 
     useEffect(() => {
-      setFormattedData(
-        data.map((group) => {
-          const items = group.items.map((item) => {
-            let hidden = item.hidden ?? false;
-
-            if (searchValue.length > 0) {
-              if (
-                item.searchValue &&
-                !item.searchValue
-                  .toLowerCase()
-                  .includes(searchValue.toLowerCase())
-              ) {
-                hidden = false;
-              }
-            }
-
-            return {
-              ...item,
-              hidden,
-            };
-          });
-
-          return {
-            ...group,
-            hidden: !items.some((item) => !item.hidden),
-            items,
-          };
-        })
-      );
-    }, [data, searchValue]);
-
-    useEffect(() => {
-      setValue(defaultValue);
-    }, [defaultValue]);
+      if (value) {
+        setValueState(value);
+      }
+    }, [value]);
 
     const handleChange = (newValue: string): void => {
       onChange?.(newValue);
-      setValue(newValue);
+      setValueState(newValue);
     };
 
     useImperativeHandle(ref, () => ({
@@ -333,24 +302,16 @@ export const Select = forwardRef<SelectRef, SelectProps>(
 
     const handleOpenChange = (open: boolean): void => {
       onOpenChange?.(open);
-
-      if (!open) {
-        setSearchValue('');
-      }
     };
 
     const viewport = useMemo(
       () => (
         <Viewport>
-          {formattedData.map((group, groupIndex) => {
+          {data.map((group, groupIndex) => {
             const res = [];
             const hidden = !group.items.some((item) => !item.hidden);
 
-            if (
-              groupIndex > 0 &&
-              !hidden &&
-              !formattedData[groupIndex - 1]?.hidden
-            ) {
+            if (groupIndex > 0 && !hidden && !data[groupIndex - 1]?.hidden) {
               res.push(<Separator key={`separator-${groupIndex}`} />);
             }
 
@@ -372,7 +333,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                     }}
                   >
                     <SelectPrimitive.ItemText>
-                      <ItemText>{item.label}</ItemText>
+                      {item.label}
                     </SelectPrimitive.ItemText>
                     <ItemIndicator>
                       <IconByName name="bx:check" size={20} colorName="black" />
@@ -386,7 +347,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
           })}
         </Viewport>
       ),
-      [formattedData]
+      [data]
     );
 
     return (
@@ -457,7 +418,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
           dir={direction}
           onOpenChange={handleOpenChange}
           defaultOpen={defaultOpen}
-          value={value}
+          value={valueState}
           css={{
             ...css?.container,
           }}
@@ -479,7 +440,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
               ...css?.trigger,
             }}
           >
-            <SelectValue />
+            <SelectValue placeholder={placeholder} />
             <Icon>
               <IconByName name="bx:chevron-down" size="1em" colorName="black" />
             </Icon>
@@ -487,27 +448,12 @@ export const Select = forwardRef<SelectRef, SelectProps>(
 
           <SelectPrimitive.Portal>
             <Content css={css?.content} className={theme}>
-              {hasSearch ? (
-                <>
-                  <SearchContainer>
-                    <Textfield
-                      onChange={(e): void => {
-                        setSearchValue(e.target.value);
-                      }}
-                      placeholder={searchPlaceholder}
-                      borderRadius="full"
-                      padding="sm"
-                      fontSize="em-small"
-                    />
-                  </SearchContainer>
-                  <Separator />
-                </>
-              ) : null}
-
               <ScrollUpButton>
                 <IconByName name="bx:chevron-up" size={20} colorName="black" />
               </ScrollUpButton>
+
               {viewport}
+
               <ScrollDownButton>
                 <IconByName
                   name="bx:chevron-down"

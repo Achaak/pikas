@@ -8,6 +8,7 @@ import { ColumnOrderTableExample } from './../../src/examples/table/columnOrder'
 import { ColumnSizingTableExample } from './../../src/examples/table/columnSizing';
 import { GroupingTableExample } from './../../src/examples/table/grouping';
 import { ExpandingTableExample } from './../../src/examples/table/expanding';
+import { FiltersTableExample } from './../../src/examples/table/filters';
 import { ColumnPinningTableExample } from './../../src/examples/table/columnPinning';
 import { docsUIRoutes } from '@pikas/docs-routes';
 import { Alert } from '@pikas-ui/alert';
@@ -130,6 +131,7 @@ const Example: React.FC = () => {
 | `columnSizing`     | The column sizing of the table              | `TableColumnSizing`    | -           |
 | `columnVisibility` | The column visibility of the table          | `TableVisibility`      | -           |
 | `expanding`        | The expanding of the table                  | `TableExpanding`       | -           |
+| `filters`          | The filters of the table                    | `TableFilters`         | -           |
 | `grouping`         | The grouping of the table                   | `TableGrouping`        | -           |
 | `pagination`       | The pagination of the table                 | `TablePaginationProps` | -           |
 | `rowSelection`     | The row selection of the table              | `TableRowSelection`    | -           |
@@ -148,6 +150,7 @@ const Example: React.FC = () => {
 -  [Column Sizing](#column-sizing)
 -  [Column Visibility](#column-visibility)
 -  [Expanding](#expanding)
+-  [Filters](#filters)
 -  [Grouping](#grouping)
 -  [Pagination](#pagination)
 -  [Row Selection](#row-selection)
@@ -353,7 +356,30 @@ import { Table } from '@pikas-ui/table';
 const Example: React.FC = () => {
   return (
     <Table
-      data={data}
+      data={[
+        {
+          id: 1,
+          firstName: 'John',
+          lastName: 'Doe',
+          age: 32,
+          visits: 320,
+          status: 'complicated',
+          progress: 66,
+          subRows: [
+            {
+              id: 11,
+              firstName: 'John',
+              lastName: 'Doe',
+              age: 32,
+              visits: 320,
+              status: 'complicated',
+              progress: 66,
+            },
+            ...
+          ],
+        },
+        ...
+      ]}
       variant="light"
       emptyMessage="No data found"
       columns={[ ... ]}
@@ -383,6 +409,46 @@ const Example: React.FC = () => {
 
 ---
 
+### Filters <a id="filters"></a>
+Allows you to activate the data filtering.
+
+More information about the expanding can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/filters).
+
+<FiltersTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      // expanding={{
+      //   enabled: true,
+      //   defaultState: {
+      //     1: true,
+      //     2: true,
+      //   }
+      //   onExpandedChange: (state) => {
+      //     console.log(state);
+      //   },
+      // }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop      | Description                | Type      | Default |
+| :-------- | :------------------------- | :-------- | :------ |
+| `enabled` | If the filters are enabled | `boolean` | `false` |
+
+---
+
 ### Grouping <a id="grouping"></a>
 Allows you to activate the data grouping.
 
@@ -399,7 +465,47 @@ const Example: React.FC = () => {
       data={data}
       variant="light"
       emptyMessage="No data found"
-      columns={[ ... ]}
+      columns={[
+        {
+          header: 'First Name',
+          accessorKey: 'firstName',
+          id: 'firstName',
+        },
+        {
+          header: 'Last Name',
+          accessorKey: 'lastName',
+          id: 'lastName',
+        },
+        {
+          header: 'Age',
+          accessorKey: 'age',
+          id: 'age',
+          aggregatedCell: ({ getValue }) =>
+            Math.round(getValue<number>() * 100) / 100,
+          aggregationFn: 'median',
+        },
+        {
+          header: 'Visits',
+          accessorKey: 'visits',
+          id: 'visits',
+          aggregationFn: 'sum',
+        },
+        {
+          header: 'Status',
+          accessorKey: 'status',
+          id: 'status',
+        },
+        {
+          header: 'Progress',
+          accessorKey: 'progress',
+          id: 'progress',
+          cell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
+          aggregationFn: 'mean',
+          aggregatedCell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
+        },
+      ]}
       grouping={{
         enabled: true,
         defaultState: ['firstName', 'lastName']

@@ -32,17 +32,18 @@ const Right = styled('div', {
 
 const PageNumber = styled('button', {
   all: 'unset',
-  marginLeft: 2,
-  marginRight: 2,
+  marginLeft: '$0.5',
+  marginRight: '$0.5',
   fontSize: '$em-small',
   borderRadius: '$full',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  height: 24,
-  minWidth: 16,
-  padding: '0 4px',
+  height: '$6',
+  minWidth: '$4',
+  padding: '$0 $1',
   cursor: 'pointer',
+  color: '$black',
 });
 
 const ButtonArrow = styled('button', {

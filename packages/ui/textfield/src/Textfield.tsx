@@ -68,15 +68,22 @@ const InputContainer = styled('div', {
 });
 
 const Input = styled('input', {
+  all: 'unset',
   width: '100%',
   outline: 'none',
-  fontSize: '$em-small',
   border: 'none',
   fontFamily: '$roboto',
   backgroundColor: '$transparent',
 
+  '&::placeholder': {
+    color: '$gray-dark',
+  },
+
   variants: {
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: '4px 8px',
       },
@@ -103,6 +110,9 @@ const LeftContainer = styled(LabelPrimitive.Root, {
 
   variants: {
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: 2,
       },
@@ -129,6 +139,9 @@ const RightContainer = styled(LabelPrimitive.Root, {
 
   variants: {
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: 2,
       },
@@ -177,6 +190,7 @@ export const textfieldType = {
 export type TextfieldType = keyof typeof textfieldType;
 
 export const textfieldPadding = {
+  none: true,
   xs: true,
   sm: true,
   md: true,

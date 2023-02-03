@@ -29,20 +29,32 @@ const TextareaStyled = styled('textarea', {
   alignItems: 'center',
   borderStyle: 'solid',
   outline: 'none',
-  fontSize: '$em-small',
   border: 'none',
   fontFamily: '$roboto',
   backgroundColor: '$transparent',
 
+  '&::placeholder': {
+    color: '$gray-dark',
+  },
+
   variants: {
     padding: {
-      sm: {
+      none: {
+        padding: 0,
+      },
+      xs: {
         padding: '4px 8px',
+      },
+      sm: {
+        padding: '6px 12px',
       },
       md: {
         padding: '8px 16px',
       },
       lg: {
+        padding: '12px 24px',
+      },
+      xl: {
         padding: '16px 32px',
       },
     },
@@ -67,9 +79,12 @@ const Required = styled('div', {
 });
 
 export const textareaPadding = {
+  none: true,
+  xs: true,
   sm: true,
   md: true,
   lg: true,
+  xl: true,
 } as const;
 export type TextareaPadding = keyof typeof textareaPadding;
 

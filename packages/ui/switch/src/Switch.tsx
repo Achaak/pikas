@@ -124,12 +124,6 @@ export const Switch: FC<SwitchProps> = ({
     setCheckedState(checked);
   }, [checked]);
 
-  useEffect(() => {
-    if (defaultChecked) {
-      setCheckedState(defaultChecked);
-    }
-  }, [defaultChecked]);
-
   const onChangeInput = (val: boolean): void => {
     onCheckedChange?.(val);
 
