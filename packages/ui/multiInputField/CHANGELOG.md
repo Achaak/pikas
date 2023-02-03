@@ -1,5 +1,25 @@
 # @pikas-ui/multi-input-field
 
+## 3.0.0
+
+### Major Changes
+
+- 31d1402f: Update props values based on new design system
+
+### Patch Changes
+
+- 1252b10e: Upgrade dependencies
+- Updated dependencies [31d1402f]
+- Updated dependencies [1252b10e]
+- Updated dependencies [31d1402f]
+  - @pikas-utils/color@2.0.0
+  - @pikas-utils/hooks@2.0.0
+  - @pikas-ui/tooltip@4.0.0
+  - @pikas-ui/badge@2.0.0
+  - @pikas-ui/icons@4.0.0
+  - @pikas-ui/text@5.0.0
+  - @pikas-ui/styles@4.0.0
+
 ## 2.3.33
 
 ### Patch Changes

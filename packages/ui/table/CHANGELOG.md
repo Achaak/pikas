@@ -1,5 +1,36 @@
 # @pikas-ui/table
 
+## 4.0.0
+
+### Major Changes
+
+- 31d1402f: Update props values based on new design system
+- 31d1402f: Add many features
+  - Update padding values
+  - Update of ui components
+  - Add debug props
+  - Fix resizing
+  - Rename selection props to rowSelection
+  - Rename resizing props to columnResizing
+  - Add pinning feature
+  - Add expanding feature
+  - Add grouping feature
+  - Update row selection feature
+
+### Patch Changes
+
+- 1252b10e: Upgrade dependencies
+- Updated dependencies [31d1402f]
+- Updated dependencies [1252b10e]
+- Updated dependencies [31d1402f]
+  - @pikas-ui/checkbox@4.0.0
+  - @pikas-utils/color@2.0.0
+  - @pikas-ui/button@4.0.0
+  - @pikas-ui/loader@4.0.0
+  - @pikas-ui/select@5.0.0
+  - @pikas-ui/icons@4.0.0
+  - @pikas-ui/styles@4.0.0
+
 ## 3.3.2
 
 ### Patch Changes

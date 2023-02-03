@@ -1,5 +1,20 @@
 # @pikas-ui/menu
 
+## 4.0.0
+
+### Major Changes
+
+- 31d1402f: Update props values based on new design system
+
+### Patch Changes
+
+- 1252b10e: Upgrade dependencies
+- Updated dependencies [31d1402f]
+- Updated dependencies [1252b10e]
+- Updated dependencies [31d1402f]
+  - @pikas-ui/icons@4.0.0
+  - @pikas-ui/styles@4.0.0
+
 ## 3.3.35
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/skeleton",
-  "version": "2.2.30",
+  "version": "3.0.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "3.5.30"
+    "@pikas-ui/styles": "4.0.0"
   },
   "peerDependencies": {
     "react": "18.2.0",
