@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 4.1.0
+
+### Minor Changes
+
+- Add fullWidth props
+
 ## 4.0.4
 
 ### Patch Changes

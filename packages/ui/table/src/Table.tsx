@@ -218,6 +218,7 @@ type TableContext<T extends Data> = {
   columnOrder?: TableColumnOrder;
   columnPinning?: TableColumnPinning;
   filters?: TableFilters<T>;
+  fullWidth?: boolean;
 };
 
 const createStateContext = once(<T extends Data>() =>
@@ -252,6 +253,7 @@ export type TableProps<T extends Data> = {
   sorting?: TableSorting;
   rowSelection?: TableRowSelection;
   filters?: TableFilters<T>;
+  fullWidth?: boolean;
 
   css?: TableCSS<T>;
 };
@@ -300,6 +302,7 @@ const FRefInputTable = <T extends Data>(
     expanding,
     filters,
     columnPinning,
+    fullWidth,
   }: TableProps<T>,
   ref: Ref<TableRef<T>>
 ): JSX.Element => {
@@ -869,6 +872,7 @@ const FRefInputTable = <T extends Data>(
         columnOrder,
         columnPinning,
         filters,
+        fullWidth,
       }}
     >
       <Container css={css?.container}>

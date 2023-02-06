@@ -7,6 +7,7 @@ import { useMemo } from 'react';
 
 const Container = styled('div', {
   display: 'inline-block',
+  width: '100%',
 });
 
 const TableStyled = styled('table', {
@@ -32,7 +33,7 @@ type TbodyProps = {
 };
 
 export const TableElement = <T extends Data>({ visibleCell }: TbodyProps) => {
-  const { variant, css, hasTfoot, table } = useStateContext<T>();
+  const { variant, css, hasTfoot, table, fullWidth } = useStateContext<T>();
 
   if (
     (visibleCell === 'left' && table.getLeftTotalSize() === 0) ||
@@ -59,8 +60,25 @@ export const TableElement = <T extends Data>({ visibleCell }: TbodyProps) => {
   }, [table.getTotalSize(), visibleCell]);
 
   return (
-    <Container>
-      <TableStyled variant={variant} css={{ width: tableSize, ...css?.table }}>
+    <Container
+      css={{
+        width:
+          (visibleCell === 'all' || visibleCell === 'center') && fullWidth
+            ? '100%'
+            : 'auto',
+      }}
+    >
+      <TableStyled
+        variant={variant}
+        css={{
+          width:
+            (visibleCell === 'all' || visibleCell === 'center') && fullWidth
+              ? '100%'
+              : 'auto',
+          minWidth: tableSize,
+          ...css?.table,
+        }}
+      >
         <Thead visibleCell={visibleCell} />
 
         <Tbody visibleCell={visibleCell} />
