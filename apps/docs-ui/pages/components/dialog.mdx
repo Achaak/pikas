@@ -15,7 +15,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/dialog
 
-This package contains a dialog component.
+This package contains a dialog component that can be used to show a modal.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -48,6 +48,8 @@ pnpm add @pikas-ui/dialog
 ## Usage
 
 ### DefaultDialog
+
+This is the default dialog component. It can be used to show a modal with a title, a content, and a validate button.
 
 <DefaultDialogExample />
 
@@ -95,6 +97,8 @@ const Example: React.FC = () => {
 
 ### SuccessDialog
 
+This is the success dialog component. It can be used to show a modal with a title, a content, and a validate button.
+
 <SuccessDialogExample />
 
 ```tsx
@@ -139,6 +143,8 @@ const Example: React.FC = () => {
 ---
 
 ### ValidateDialog
+
+This is the validate dialog component. It can be used to show a modal with a title, a content, a validate button, and a cancel button.
 
 <ValidateDialogExample />
 
@@ -190,6 +196,8 @@ const Example: React.FC = () => {
 
 ### ErrorDialog
 
+This is the error dialog component. It can be used to show a modal with a title, a content, and a validate button.
+
 <ErrorDialogExample />
 
 ```tsx
@@ -235,6 +243,8 @@ const Example: React.FC = () => {
 
 ### InfoDialog
 
+This is the info dialog component. It can be used to show a modal with a title, a content, and a validate button.
+
 <InfoDialogExample />
 
 ```tsx
@@ -279,6 +289,8 @@ const Example: React.FC = () => {
 ---
 
 ### CustomDialog
+
+This is the custom dialog component. It can be used to show a modal with a custom header, content, and footer.
 
 <CustomDialogExample />
 
@@ -337,6 +349,8 @@ const Example: React.FC = () => {
 | `footer`              | Sets the footer of the dialog                      | `ReactNode`           | -        |
 
 ### SelectImageDialog
+
+This is the select image dialog component. You can use it to select an image from your computer. It will return the image as a base64 string compressed.
 
 <SelectImageDialogExample />
 

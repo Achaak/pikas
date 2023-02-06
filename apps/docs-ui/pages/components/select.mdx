@@ -10,7 +10,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/select
 
-This package contains a select component.
+This package contains a select component that can be used to select an option from a list of options.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -43,6 +43,8 @@ pnpm add @pikas-ui/select
 ## Usage
 
 ### Select
+
+This component is used to select an option from a list of options.
 
 <SelectExample />
 
@@ -121,6 +123,8 @@ const Example: React.FC = () => {
 | `placeholder`         | The placeholder of the select.                | `string`                  | -        |
 
 #### Reference
+
+You can use the `ref` prop to get the select reference.
 
 <SelectRefExample />
 

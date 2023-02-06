@@ -11,7 +11,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/toast
 
-This package contains a toast component.
+This package contains a toast component that can be used to display notifications.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -45,6 +45,8 @@ pnpm add @pikas-ui/toast
 
 ### ToastProvider
 
+This component is used to provide the toast context.
+
 #### Props
 
 | Prop             | Description                           | Type                    | Default                                                 |
@@ -62,6 +64,8 @@ pnpm add @pikas-ui/toast
 ---
 
 ### Toast
+
+This component is used to display a toast. It is used by the `useToast` hook.
 
 <ToastExample />
 
@@ -118,6 +122,8 @@ const Parent: React.FC = () => {
 ---
 
 ### DefaultToast
+
+This component is used to display a default toast. It is used by the `useToast` hook.
 
 <DefaultToastExample />
 
@@ -184,6 +190,8 @@ const Parent: React.FC = () => {
 ---
 
 ### CustomToast
+
+This component is used to display a custom toast. It is used by the `useToast` hook.
 
 <CustomToastExample />
 
