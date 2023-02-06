@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 4.0.1
+
+### Patch Changes
+
+- Fix new design system
+
 ## 4.0.0
 
 ### Major Changes

@@ -1,5 +1,18 @@
 # @pikas-ui/explorer
 
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@4.0.1
+  - @pikas-ui/context-menu@4.0.1
+  - @pikas-ui/dropdown-menu@4.0.1
+  - @pikas-ui/grid@2.0.1
+  - @pikas-ui/icons@4.0.1
+  - @pikas-ui/loader@4.0.1
+  - @pikas-ui/menu@4.0.1
+
 ## 2.0.0
 
 ### Major Changes

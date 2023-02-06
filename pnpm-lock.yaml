@@ -339,8 +339,8 @@ importers:
 
   packages/ui/alert:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -374,8 +374,8 @@ importers:
 
   packages/ui/avatar:
     specifiers:
-      '@pikas-ui/skeleton': 3.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/skeleton': 3.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-avatar': 1.0.1
@@ -409,8 +409,8 @@ importers:
 
   packages/ui/badge:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -444,9 +444,9 @@ importers:
 
   packages/ui/button:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/loader': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/loader': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -481,9 +481,9 @@ importers:
 
   packages/ui/checkbox:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -520,11 +520,11 @@ importers:
 
   packages/ui/color-picker:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
-      '@pikas-ui/textfield': 4.0.0
-      '@pikas-ui/tooltip': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
+      '@pikas-ui/textfield': 4.0.1
+      '@pikas-ui/tooltip': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -559,10 +559,10 @@ importers:
 
   packages/ui/context-menu:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/loader': 4.0.0
-      '@pikas-ui/menu': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/loader': 4.0.1
+      '@pikas-ui/menu': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-context-menu': 2.1.1
@@ -598,12 +598,12 @@ importers:
 
   packages/ui/dialog:
     specifiers:
-      '@pikas-ui/button': 4.0.0
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/loader': 4.0.0
-      '@pikas-ui/slider': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/title': 2.0.0
+      '@pikas-ui/button': 4.0.1
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/loader': 4.0.1
+      '@pikas-ui/slider': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/title': 2.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-dialog': 1.0.2
@@ -647,9 +647,9 @@ importers:
 
   packages/ui/drawer:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/title': 2.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/title': 2.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -684,10 +684,10 @@ importers:
 
   packages/ui/dropdown-menu:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/loader': 4.0.0
-      '@pikas-ui/menu': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/loader': 4.0.1
+      '@pikas-ui/menu': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-dropdown-menu': 2.0.2
@@ -723,8 +723,8 @@ importers:
 
   packages/ui/dropzone:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -763,13 +763,13 @@ importers:
       '@dnd-kit/core': ^6.0.7
       '@dnd-kit/modifiers': ^6.0.1
       '@dnd-kit/utilities': ^3.2.1
-      '@pikas-ui/context-menu': 4.0.0
-      '@pikas-ui/dropdown-menu': 4.0.0
-      '@pikas-ui/grid': 2.0.0
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/loader': 4.0.0
-      '@pikas-ui/menu': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/context-menu': 4.0.1
+      '@pikas-ui/dropdown-menu': 4.0.1
+      '@pikas-ui/grid': 2.0.1
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/loader': 4.0.1
+      '@pikas-ui/menu': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas-utils/file': 2.0.0
       '@pikas-utils/keyboard': 2.0.0
@@ -819,7 +819,7 @@ importers:
 
   packages/ui/grid:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -851,7 +851,7 @@ importers:
   packages/ui/icons:
     specifiers:
       '@iconify/react': 4.1.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -883,7 +883,7 @@ importers:
 
   packages/ui/loader:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -916,8 +916,8 @@ importers:
 
   packages/ui/menu:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -949,11 +949,11 @@ importers:
 
   packages/ui/multiInputField:
     specifiers:
-      '@pikas-ui/badge': 2.0.0
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
-      '@pikas-ui/tooltip': 4.0.0
+      '@pikas-ui/badge': 2.0.1
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
+      '@pikas-ui/tooltip': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas-utils/hooks': 2.0.0
       '@pikas/prettier': workspace:*
@@ -994,8 +994,8 @@ importers:
 
   packages/ui/progress:
     specifiers:
-      '@pikas-ui/skeleton': 3.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/skeleton': 3.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -1031,10 +1031,10 @@ importers:
 
   packages/ui/radio-group:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
-      '@pikas-ui/tooltip': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
+      '@pikas-ui/tooltip': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-label': 2.0.0
@@ -1072,12 +1072,12 @@ importers:
 
   packages/ui/searchbar:
     specifiers:
-      '@pikas-ui/button': 4.0.0
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/loader': 4.0.0
-      '@pikas-ui/separator': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/textfield': 4.0.0
+      '@pikas-ui/button': 4.0.1
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/loader': 4.0.1
+      '@pikas-ui/separator': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/textfield': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -1115,11 +1115,11 @@ importers:
 
   packages/ui/select:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
-      '@pikas-ui/textfield': 4.0.0
-      '@pikas-ui/tooltip': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
+      '@pikas-ui/textfield': 4.0.1
+      '@pikas-ui/tooltip': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-select': 1.2.0
@@ -1156,7 +1156,7 @@ importers:
 
   packages/ui/separator:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-separator': 1.0.1
@@ -1189,7 +1189,7 @@ importers:
 
   packages/ui/skeleton:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -1220,9 +1220,9 @@ importers:
 
   packages/ui/slider:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-slider': 1.1.0
@@ -1300,10 +1300,10 @@ importers:
 
   packages/ui/switch:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
-      '@pikas-ui/tooltip': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
+      '@pikas-ui/tooltip': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-switch': 1.0.1
@@ -1343,13 +1343,13 @@ importers:
       '@dnd-kit/modifiers': ^6.0.1
       '@dnd-kit/sortable': ^7.0.2
       '@dnd-kit/utilities': ^3.2.1
-      '@pikas-ui/button': 4.0.0
-      '@pikas-ui/checkbox': 4.0.0
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/loader': 4.0.0
-      '@pikas-ui/select': 5.1.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/textfield': workspace:^4.0.0
+      '@pikas-ui/button': 4.0.1
+      '@pikas-ui/checkbox': 4.0.1
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/loader': 4.0.1
+      '@pikas-ui/select': 5.1.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/textfield': workspace:^4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -1400,7 +1400,7 @@ importers:
 
   packages/ui/tabs:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-tabs': 1.0.2
@@ -1433,7 +1433,7 @@ importers:
 
   packages/ui/text:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-label': 2.0.0
@@ -1466,10 +1466,10 @@ importers:
 
   packages/ui/textarea:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
-      '@pikas-ui/tooltip': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
+      '@pikas-ui/tooltip': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
@@ -1505,10 +1505,10 @@ importers:
 
   packages/ui/textfield:
     specifiers:
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
-      '@pikas-ui/text': 5.0.0
-      '@pikas-ui/tooltip': 4.0.0
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
+      '@pikas-ui/text': 5.0.1
+      '@pikas-ui/tooltip': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas-utils/hooks': 2.0.0
       '@pikas/prettier': workspace:*
@@ -1548,7 +1548,7 @@ importers:
 
   packages/ui/title:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@types/node': 18.11.19
@@ -1579,9 +1579,9 @@ importers:
 
   packages/ui/toast:
     specifiers:
-      '@pikas-ui/button': 4.0.0
-      '@pikas-ui/icons': 4.0.0
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/button': 4.0.1
+      '@pikas-ui/icons': 4.0.1
+      '@pikas-ui/styles': 4.0.1
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*
       '@radix-ui/react-toast': 1.1.2
@@ -1616,7 +1616,7 @@ importers:
 
   packages/ui/tooltip:
     specifiers:
-      '@pikas-ui/styles': 4.0.0
+      '@pikas-ui/styles': 4.0.1
       '@pikas-utils/color': 2.0.0
       '@pikas/prettier': workspace:*
       '@pikas/tsconfig': workspace:*

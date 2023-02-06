@@ -1,5 +1,12 @@
 # @pikas-ui/tabs
 
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@4.0.1
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/color-picker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,11 +42,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "4.0.0",
-    "@pikas-ui/styles": "4.0.0",
-    "@pikas-ui/text": "5.0.0",
-    "@pikas-ui/textfield": "4.0.0",
-    "@pikas-ui/tooltip": "4.0.0"
+    "@pikas-ui/icons": "4.0.1",
+    "@pikas-ui/styles": "4.0.1",
+    "@pikas-ui/text": "5.0.1",
+    "@pikas-ui/textfield": "4.0.1",
+    "@pikas-ui/tooltip": "4.0.1"
   },
   "peerDependencies": {
     "react": "18.2.0",
