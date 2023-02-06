@@ -53,7 +53,7 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.11.18",
+    "@types/node": "18.11.19",
     "cross-env": "7.0.3",
     "eslint": "8.33.0",
     "eslint-config-custom": "workspace:*",
