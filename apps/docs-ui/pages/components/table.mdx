@@ -29,25 +29,21 @@ This library is based on [TanStack Table](https://tanstack.com/table/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/table
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/table
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/table
@@ -417,7 +413,20 @@ More information about the expanding can be found in the [TanStack Table documen
 <FiltersTableExample />
 
 ```tsx
-import { Table } from '@pikas-ui/table';
+import { Table, rankItem, addMeta } from '@pikas-ui/table';
+
+const fuzzyFilter: FilterFn<Person> = (row, columnId, value, addMeta) => {
+  // Rank the item
+  const itemRank = rankItem(row.getValue(columnId), value);
+
+  // Store the itemRank info
+  addMeta({
+    itemRank,
+  });
+
+  // Return if the item should be filtered in/out
+  return itemRank.passed;
+};
 
 const Example: React.FC = () => {
   return (
@@ -425,17 +434,55 @@ const Example: React.FC = () => {
       data={data}
       variant="light"
       emptyMessage="No data found"
-      columns={[ ... ]}
-      // expanding={{
-      //   enabled: true,
-      //   defaultState: {
-      //     1: true,
-      //     2: true,
-      //   }
-      //   onExpandedChange: (state) => {
-      //     console.log(state);
-      //   },
-      // }}
+      columns={[
+        {
+          header: 'First Name',
+          accessorKey: 'firstName',
+          id: 'firstName',
+          filterFn: fuzzyFilter,
+        },
+        {
+          header: 'Last Name',
+          accessorKey: 'lastName',
+          id: 'lastName',
+        },
+        {
+          header: 'Age',
+          accessorKey: 'age',
+          id: 'age',
+        },
+        {
+          header: 'Visits',
+          accessorKey: 'visits',
+          id: 'visits',
+        },
+        {
+          header: 'Status',
+          accessorKey: 'status',
+          id: 'status',
+        },
+        {
+          header: 'Progress',
+          accessorKey: 'progress',
+          id: 'progress',
+          cell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
+        },
+      ]}
+      filters={{
+        enabled: true,
+        globalFilter: 'John'',
+        globalFilterFn: fuzzyFilter,
+        columnFilters: [
+          {
+            id: 'lastName',
+            value: 'Doe',
+          }
+        ],
+        filterFns: {
+          fuzzy: fuzzyFilter,
+        },
+      }}
     />
   );
 };
@@ -443,9 +490,16 @@ const Example: React.FC = () => {
 
 #### Parameters
 
-| Prop      | Description                | Type      | Default |
-| :-------- | :------------------------- | :-------- | :------ |
-| `enabled` | If the filters are enabled | `boolean` | `false` |
+| Prop                    | Description                                         | Type                                  | Default |
+| :---------------------- | :-------------------------------------------------- | :------------------------------------ | :------ |
+| `enabled`               | If the filters are enabled                          | `boolean`                             | `false` |
+| `columnFilters`         | The state of the column filters                     | `TableColumnFiltersState`             | -       |
+| `onColumnFiltersChange` | The function to call when the column filters change | `OnChangeFn<TableColumnFiltersState>` | -       |
+| `globalFilter`          | The global filter                                   | `string`                              | -       |
+| `onGlobalFilterChange`  | The function to call when the global filter change  | `OnChangeFn<string>`                  | -       |
+| `globalFilterFn`        | The global filter function                          | `FilterFn<T>`                         | -       |
+| `filterFns`             | The filter functions                                | `Record<string, FilterFn<T>>`         | -       |
+
 
 ---
 
@@ -663,4 +717,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/table.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/table.mdx)

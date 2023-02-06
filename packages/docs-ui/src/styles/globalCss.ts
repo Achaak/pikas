@@ -20,8 +20,8 @@ export const customGlobalCss = globalCss({
   },
 
   '::-webkit-scrollbar': {
-    width: '$2',
-    height: '$2',
+    width: '$8',
+    height: '$8',
     borderRadius: '$lg',
   },
   '::-webkit-scrollbar-track': {

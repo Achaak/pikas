@@ -7,7 +7,7 @@
     "progress",
     "react"
   ],
-  "description": "Components for creating tabs",
+  "description": "A UI library that offers a progress components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

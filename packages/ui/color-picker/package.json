@@ -7,7 +7,7 @@
     "color-picker",
     "react"
   ],
-  "description": "Components for displaying color-pickers",
+  "description": "A UI library that offers a color picker components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

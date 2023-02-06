@@ -7,7 +7,7 @@
     "explorer",
     "react"
   ],
-  "description": "Components for displaying explorers",
+  "description": "A UI library that offers a explorer components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

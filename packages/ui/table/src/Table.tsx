@@ -608,7 +608,7 @@ const FRefInputTable = <T extends Data>(
                       ? ChevronDownIcon
                       : ChevronRightIcon
                   }
-                  size={3.5}
+                  size={14}
                   padding="none"
                   borderRadius="sm"
                 />
@@ -620,7 +620,7 @@ const FRefInputTable = <T extends Data>(
                     Icon={
                       row.getIsExpanded() ? ChevronDownIcon : ChevronRightIcon
                     }
-                    size={3.5}
+                    size={14}
                     padding="none"
                     borderRadius="sm"
                     css={{

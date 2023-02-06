@@ -7,7 +7,7 @@
     "dialog",
     "react"
   ],
-  "description": "Components for creating dialogs",
+  "description": "A UI library that offers a dialog components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

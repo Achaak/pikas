@@ -7,7 +7,7 @@
     "select",
     "react"
   ],
-  "description": "Components for creating select elements",
+  "description": "A UI library that offers a select components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

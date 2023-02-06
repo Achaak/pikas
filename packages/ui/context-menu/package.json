@@ -7,7 +7,7 @@
     "context-menu",
     "react"
   ],
-  "description": "Components for creating context menus",
+  "description": "A UI library that offers a context menu components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

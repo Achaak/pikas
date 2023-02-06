@@ -343,7 +343,7 @@ export const Searchbar = <T,>({
               Icon={SearchIcon}
               borderRadius="full"
               type="submit"
-              size={3.5}
+              size={14}
               padding="xs"
             />
           ) : undefined

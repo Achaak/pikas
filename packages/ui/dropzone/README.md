@@ -1,28 +1,22 @@
 # @pikas-ui/dropzone
 
-This package contains a dropzone component.
+A UI library that offers a dropzone components for React.
 
-This library is based on [Radix Ui](https://www.radix-ui.com/).
+## Requirements
 
-## Getting Started
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+## Installation
 
-### Installation
-
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/dropzone
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/dropzone
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/dropzone

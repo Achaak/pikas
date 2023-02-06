@@ -11,13 +11,13 @@ const Container = styled('header', {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  padding: '$0 $4',
+  padding: '$0 $16',
   borderBottomStyle: '$solid',
-  borderBottomWidth: '$1',
+  borderBottomWidth: '$4',
   borderBottomColor: '$gray-light',
   backgroundColor: '$white',
   zIndex: '$x-high',
-  height: '$12',
+  height: '$48',
 });
 
 const Left = styled('div', {
@@ -27,7 +27,7 @@ const Left = styled('div', {
 const Right = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  columnGap: '$4',
+  columnGap: '$16',
   flex: 1,
   justifyContent: 'flex-end',
 });
@@ -39,7 +39,7 @@ const H1 = styled('h1', {
 
 const Nav = styled('nav', {
   display: 'none',
-  columnGap: '$4',
+  columnGap: '$16',
   alignItems: 'center',
 
   '@sm': {
@@ -55,7 +55,7 @@ const NavItem = styled('span', {
 const TitleContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  columnGap: '$2',
+  columnGap: '$8',
 });
 
 const BxsSun: FC<IconProps> = (props) => (

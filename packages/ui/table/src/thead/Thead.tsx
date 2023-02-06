@@ -16,6 +16,53 @@ import {
 } from '@dnd-kit/sortable';
 import { Th } from './th/index.js';
 import { VisibleCell } from '../table/Table.js';
+import { useMemo } from 'react';
+
+const TheadStyled = styled('thead', {
+  variants: {
+    variant: {
+      default: {
+        backgroundColor: '$primary',
+
+        tr: {
+          borderTopStyle: '$solid',
+          borderTopWidth: '$2',
+          borderBottomStyle: '$solid',
+          borderBottomWidth: '$2',
+          borderColor: '$primary-lighter',
+
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
+
+          th: {
+            borderLeftStyle: '$solid',
+            borderLeftWidth: '$2',
+            borderRightStyle: '$solid',
+            borderRightWidth: '$2',
+            borderColor: '$primary-lighter',
+            textTransform: 'capitalize',
+
+            '&:first-child': {
+              borderLeft: 'none',
+            },
+            '&:last-child': {
+              borderRight: 'none',
+            },
+          },
+        },
+      },
+      light: {
+        borderBottomStyle: '$solid',
+        borderBottomWidth: '$2',
+        borderColor: '$gray-light',
+      },
+    },
+  },
+});
 
 export type TheadProps = {
   visibleCell: VisibleCell;
@@ -31,57 +78,6 @@ export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
     onColumnOrderChange,
   } = useStateContext<T>();
   const theme = useTheme();
-
-  const TheadStyled = styled('thead', {
-    variants: {
-      variant: {
-        default: {
-          backgroundColor: '$primary',
-          color: theme && new Color(theme.colors.primary.value).getContrast(),
-
-          svg: {
-            fill: theme && new Color(theme.colors.primary.value).getContrast(),
-          },
-
-          tr: {
-            borderTopStyle: '$solid',
-            borderTopWidth: '$2',
-            borderBottomStyle: '$solid',
-            borderBottomWidth: '$2',
-            borderColor: '$primary-lighter',
-
-            '&:first-child': {
-              borderTop: 'none',
-            },
-            '&:last-child': {
-              borderBottom: 'none',
-            },
-
-            th: {
-              borderLeftStyle: '$solid',
-              borderLeftWidth: '$2',
-              borderRightStyle: '$solid',
-              borderRightWidth: '$2',
-              borderColor: '$primary-lighter',
-              textTransform: 'capitalize',
-
-              '&:first-child': {
-                borderLeft: 'none',
-              },
-              '&:last-child': {
-                borderRight: 'none',
-              },
-            },
-          },
-        },
-        light: {
-          borderBottomStyle: '$solid',
-          borderBottomWidth: '$2',
-          borderColor: '$gray-light',
-        },
-      },
-    },
-  });
 
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
@@ -100,7 +96,7 @@ export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
   const columnOrderDisabled =
     !columnOrder?.enabled || table.getHeaderGroups().length > 1;
 
-  const getRowCells = () => {
+  const headerGroups = useMemo(() => {
     switch (visibleCell) {
       case 'center':
         return table.getCenterHeaderGroups();
@@ -112,7 +108,7 @@ export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
       default:
         return table.getHeaderGroups();
     }
-  };
+  }, [visibleCell]);
 
   return (
     <DndContext
@@ -138,8 +134,21 @@ export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
         container: typeof document !== 'undefined' ? document.body : undefined,
       }}
     >
-      <TheadStyled variant={variant} css={css?.thead}>
-        {getRowCells().map((headerGroup) => (
+      <TheadStyled
+        variant={variant}
+        css={{
+          ...(variant === 'default' && {
+            color: theme && new Color(theme.colors.primary.value).getContrast(),
+
+            svg: {
+              fill:
+                theme && new Color(theme.colors.primary.value).getContrast(),
+            },
+          }),
+          ...css?.thead,
+        }}
+      >
+        {headerGroups.map((headerGroup) => (
           <Tr key={headerGroup.id}>
             <SortableContext
               items={headerGroup.headers.map((i) => i.id)}

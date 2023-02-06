@@ -7,7 +7,7 @@
     "multi-input-field",
     "react"
   ],
-  "description": "Components for displaying multi-input-field",
+  "description": "A UI library that offers a multi input field components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

@@ -6,7 +6,7 @@ import { Data, useStateContext } from '../index.js';
 const TextfieldContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  columnGap: '$2',
+  columnGap: '$8',
 });
 
 export const Filter = <T extends Data>({
@@ -21,7 +21,6 @@ export const Filter = <T extends Data>({
     .flatRows[0]?.getValue(column.id);
 
   const columnFilterValue = column.getFilterValue();
-  console.log(column);
 
   return typeof firstValue === 'number' ? (
     <TextfieldContainer>
@@ -44,6 +43,7 @@ export const Filter = <T extends Data>({
         padding="sm"
         borderRadius="sm"
         fontSize="em-small"
+        minWidth={64}
       />
       <Textfield
         type="number"
@@ -64,6 +64,7 @@ export const Filter = <T extends Data>({
         padding="sm"
         borderRadius="sm"
         fontSize="em-small"
+        minWidth={64}
       />
     </TextfieldContainer>
   ) : (
@@ -75,6 +76,7 @@ export const Filter = <T extends Data>({
       padding="sm"
       borderRadius="sm"
       fontSize="em-small"
+      minWidth={128}
     />
   );
 };

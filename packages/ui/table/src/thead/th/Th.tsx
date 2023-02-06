@@ -41,13 +41,13 @@ const ThStyled = styled('th', {
     },
     padding: {
       sm: {
-        padding: '$1 $2',
+        padding: '$4 $8',
       },
       md: {
-        padding: '$2 $4',
+        padding: '$8 $16',
       },
       lg: {
-        padding: '$3 $6',
+        padding: '$12 $24',
       },
     },
   },
@@ -57,20 +57,20 @@ const ThContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
-  rowGap: '$2',
+  rowGap: '$8',
 });
 
 const ThContentTop = styled('div', {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  columnGap: '$2',
+  columnGap: '$8',
 });
 
 const ThContentBottom = styled('div', {
   display: 'flex',
   width: '100%',
-  columnGap: '$2',
+  columnGap: '$8',
 });
 
 const ThSpan = styled('span', {
@@ -98,7 +98,7 @@ const Resizer = styled('div', {
   right: 0,
   top: 0,
   height: '100%',
-  width: '$1.5',
+  width: '$6',
   background: '$primary-dark',
   cursor: 'col-resize',
   touchAction: 'none',
@@ -167,7 +167,7 @@ const PinContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   marginLeft: 'auto',
-  columnGap: '$1',
+  columnGap: '$4',
 });
 
 type ThProps<T extends Data> = {
@@ -245,7 +245,7 @@ export const Th = <T extends Data>({
                     colorName={
                       header.column.getIsGrouped() ? 'danger' : 'primary'
                     }
-                    size={3.5}
+                    size={14}
                     padding="none"
                     borderRadius="sm"
                   />
@@ -280,7 +280,7 @@ export const Th = <T extends Data>({
                         header.column.pin('left');
                       }}
                       Icon={ChevronsLeftIcon}
-                      size={3.5}
+                      size={14}
                       padding="none"
                       borderRadius="sm"
                     />
@@ -291,7 +291,7 @@ export const Th = <T extends Data>({
                         header.column.pin(false);
                       }}
                       Icon={XIcon}
-                      size={3.5}
+                      size={14}
                       padding="none"
                       borderRadius="sm"
                       colorName="danger"
@@ -303,7 +303,7 @@ export const Th = <T extends Data>({
                         header.column.pin('right');
                       }}
                       Icon={ChevronsRightIcon}
-                      size={3.5}
+                      size={14}
                       padding="none"
                       borderRadius="sm"
                     />

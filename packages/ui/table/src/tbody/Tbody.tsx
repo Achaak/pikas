@@ -27,13 +27,13 @@ const Td = styled('td', {
     },
     padding: {
       sm: {
-        padding: '$1 $2',
+        padding: '$4 $8',
       },
       md: {
-        padding: '$2 $4',
+        padding: '$8 $16',
       },
       lg: {
-        padding: '$3 $6',
+        padding: '$12 $24',
       },
     },
   },
@@ -57,7 +57,7 @@ const TdContent = styled('div', {
 });
 
 const SubRowLength = styled('span', {
-  marginLeft: '$1',
+  marginLeft: '$4',
 });
 
 type TbodyProps = {
@@ -81,12 +81,12 @@ export const Tbody = <T extends Data>({ visibleCell }: TbodyProps) => {
           <ButtonIcon
             onClick={row.getToggleExpandedHandler()}
             Icon={row.getIsExpanded() ? ChevronDownIcon : ChevronRightIcon}
-            size={3.5}
+            size={14}
             padding="none"
             borderRadius="sm"
             css={{
               button: {
-                marginRight: '$2',
+                marginRight: '$8',
               },
             }}
           />

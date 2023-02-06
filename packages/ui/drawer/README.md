@@ -1,28 +1,22 @@
 # @pikas-ui/drawer
 
-This package contains a drawer component.
+A UI library that offers a drawer components for React.
 
-This library is based on [Radix Ui](https://www.radix-ui.com/).
+## Requirements
 
-## Getting Started
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+## Installation
 
-### Installation
-
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/drawer
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/drawer
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/drawer

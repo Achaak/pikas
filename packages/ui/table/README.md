@@ -1,28 +1,24 @@
 # @pikas-ui/table
 
-This package contains a table component.
+A UI library that offers a table components for React.
 
 This library is based on [TanStack Table](https://tanstack.com/table/).
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/table
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/table
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/table

@@ -1,28 +1,22 @@
 # @pikas-ui/styles
 
-This package contains a styles parameters.
+A library that provides the styling parameters for the components in [Pikas UI](https://pikas-ui.vercel.app).
 
 The library is based on [Stitches](https://stitches.dev/).
 
-## Getting Started
-
 ---
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/styles
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/styles
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/styles

@@ -7,7 +7,7 @@
     "dropzone",
     "react"
   ],
-  "description": "Components for displaying dropzone",
+  "description": "A UI library that offers a dropzone components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

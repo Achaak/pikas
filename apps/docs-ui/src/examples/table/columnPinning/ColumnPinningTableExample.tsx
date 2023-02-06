@@ -11,7 +11,7 @@ export const ColumnPinningTableExample: FC = () => {
     left: ['firstName', 'lastName'],
     right: ['progress'],
   });
-  const [isSplit, setIsSplit] = useState(false);
+  const [isSplit, setIsSplit] = useState(true);
 
   useEffect(() => {
     setData(() => makeData(100, 5, 3));

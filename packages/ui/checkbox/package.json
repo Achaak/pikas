@@ -7,7 +7,7 @@
     "checkbox",
     "react"
   ],
-  "description": "Components for creating checkboxes",
+  "description": "A UI library that offers a checkbox components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

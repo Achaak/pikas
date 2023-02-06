@@ -7,7 +7,7 @@
     "text",
     "react"
   ],
-  "description": "Components for creating text elements",
+  "description": "A UI library that offers a text components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

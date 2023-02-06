@@ -16,16 +16,16 @@ const Center = styled('div', {
   position: 'relative',
   overflow: 'auto',
   flex: 1,
-  marginTop: 'calc($10 + $9)',
+  marginTop: 'calc($40 + $36)',
 
   '@md': {
     paddingLeft: 250,
-    marginTop: '$12',
+    marginTop: '$48',
   },
 });
 
 const Content = styled('div', {
-  padding: '$4',
+  padding: '$16',
   display: 'flex',
   justifyContent: 'center',
 });
@@ -35,14 +35,18 @@ const ContentChild = styled('div', {
   maxWidth: '100%',
 
   '& > *': {
-    marginBottom: '$11',
+    marginBottom: '$44',
   },
   '& > a': {
     color: '$primary',
   },
+  '& > div.remark-highlight': {
+    marginTop: '$24',
+    marginBottom: '$24',
+  },
   '& > p': {
-    marginBottom: '$2',
-    marginTop: '$2',
+    marginBottom: '$8',
+    marginTop: '$8',
     fontSize: '$rem-base',
     lineHeight: '$rem-large',
     color: '$black',
@@ -51,47 +55,49 @@ const ContentChild = styled('div', {
       all: 'unset',
       color: '$warning',
       backgroundColor: '$warning-lightest-2',
-      padding: '$1 $2',
+      padding: '$4 $8',
       margin: '$1 $0',
       display: 'inline-block',
       borderRadius: '$sm',
     },
   },
   '& > hr': {
-    marginTop: '$11',
-    marginBottom: '$11',
+    marginTop: '$44',
+    marginBottom: '$44',
     display: 'block',
     border: 'none',
     borderTopColor: '$gray-light',
-    borderTopWidth: '$1',
+    borderTopWidth: '$4',
     borderTopStyle: 'solid',
   },
   '& > h1': {
-    marginTop: '$10',
-    marginBottom: '$7',
+    marginTop: '$40',
+    marginBottom: '$28',
     color: '$black',
   },
   '& > h2': {
-    marginTop: '$9',
-    marginBottom: '$6',
+    marginTop: '$36',
+    marginBottom: '$24',
     color: '$black',
   },
   '& > h3': {
-    marginTop: '$8',
-    marginBottom: '$5',
+    marginTop: '$32',
+    marginBottom: '$20',
     color: '$black',
   },
   '& > h4': {
-    marginTop: '$7',
-    marginBottom: '$4',
+    marginTop: '$28',
+    marginBottom: '$16',
     color: '$black',
   },
   '& > ul': {
-    paddingLeft: '$5',
+    paddingLeft: '$20',
   },
   '& > ul li': {
     color: '$black',
     listStyle: 'disc',
+    marginTop: '$4',
+    marginBottom: '$4',
   },
   '& > ul li a, & > p a': {
     color: '$primary',
@@ -113,9 +119,9 @@ const ContentChild = styled('div', {
 
     '& th': {
       color: '$primary',
-      padding: '$2 $4',
+      padding: '$8 $16',
       borderBottomColor: '$gray-light',
-      borderBottomWidth: '$1',
+      borderBottomWidth: '$4',
       borderBottomStyle: 'solid',
 
       '&:nth-child(2)': {
@@ -123,13 +129,13 @@ const ContentChild = styled('div', {
       },
     },
     '& td': {
-      padding: '$2 $4',
+      padding: '$8 $16',
     },
     '& code': {
       all: 'unset',
       color: '$warning',
       backgroundColor: '$warning-lightest-2',
-      padding: '$1 $2',
+      padding: '$4 $8',
       margin: '$0.25 $0',
       display: 'inline-block',
       borderRadius: '$sm',

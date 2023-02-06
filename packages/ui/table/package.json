@@ -7,7 +7,7 @@
     "table",
     "react"
   ],
-  "description": "Components for creating tables",
+  "description": "A UI library that offers a table components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

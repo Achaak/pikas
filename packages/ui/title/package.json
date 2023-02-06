@@ -7,7 +7,7 @@
     "title",
     "react"
   ],
-  "description": "Components for creating titles",
+  "description": "A UI library that offers a title components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

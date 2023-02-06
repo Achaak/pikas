@@ -7,7 +7,7 @@
     "drawer",
     "react"
   ],
-  "description": "Components for displaying drawers",
+  "description": "A UI library that offers a drawer components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

@@ -7,7 +7,7 @@
     "styles",
     "react"
   ],
-  "description": "Styles for Pikas UI",
+  "description": "A library that provides the styling parameters for the components in the pikas-ui library.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

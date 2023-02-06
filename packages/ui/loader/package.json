@@ -2,7 +2,7 @@
   "name": "@pikas-ui/loader",
   "version": "4.0.0",
   "private": false,
-  "description": "Components for creating loading indicators",
+  "description": "A UI library that offers a loader components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

@@ -7,7 +7,7 @@
     "tooltip",
     "react"
   ],
-  "description": "Components for creating tooltips",
+  "description": "A UI library that offers a tooltip components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

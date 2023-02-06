@@ -7,7 +7,7 @@
     "switch",
     "react"
   ],
-  "description": "Components for creating a switch",
+  "description": "A UI library that offers a switch components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

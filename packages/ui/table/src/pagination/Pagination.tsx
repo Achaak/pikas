@@ -32,16 +32,16 @@ const Right = styled('div', {
 
 const PageNumber = styled('button', {
   all: 'unset',
-  marginLeft: '$0.5',
-  marginRight: '$0.5',
+  marginLeft: '$2',
+  marginRight: '$2',
   fontSize: '$em-small',
   borderRadius: '$full',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '$6',
-  minWidth: '$4',
-  padding: '$0 $1',
+  height: '$24',
+  minWidth: '$16',
+  padding: '$0 $4',
   cursor: 'pointer',
   color: '$black',
 });

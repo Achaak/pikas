@@ -1,28 +1,24 @@
 # @pikas-ui/slider
 
-This package contains a slider component.
+A UI library that offers a slider components for React.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/slider
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/slider
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/slider

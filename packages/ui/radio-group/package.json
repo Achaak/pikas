@@ -7,7 +7,7 @@
     "radio-group",
     "react"
   ],
-  "description": "Components for creating a radio-group",
+  "description": "A UI library that offers a radio group components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

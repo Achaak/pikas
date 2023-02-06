@@ -7,7 +7,7 @@
     "toast",
     "react"
   ],
-  "description": "Components for creating toast elements",
+  "description": "A UI library that offers a toast components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

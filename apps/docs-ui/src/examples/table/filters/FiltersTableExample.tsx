@@ -46,7 +46,7 @@ export const FiltersTableExample: FC = () => {
         placeholder="Search..."
         css={{
           container: {
-            marginBottom: '$4',
+            marginBottom: '$16',
           },
         }}
       />
@@ -59,6 +59,7 @@ export const FiltersTableExample: FC = () => {
             header: 'First Name',
             accessorKey: 'firstName',
             id: 'firstName',
+            filterFn: fuzzyFilter,
           },
           {
             header: 'Last Name',
@@ -92,6 +93,12 @@ export const FiltersTableExample: FC = () => {
           enabled: true,
           globalFilter: globalFilter,
           globalFilterFn: fuzzyFilter,
+          columnFilters: columnFilters,
+          filterFns: {
+            fuzzy: fuzzyFilter,
+          },
+          onColumnFiltersChange: (newFilters) => setFilters(newFilters),
+          onGlobalFilterChange: (newFilter) => setGlobalFilter(newFilter),
         }}
         sorting={{
           enabled: true,
@@ -104,7 +111,10 @@ export const FiltersTableExample: FC = () => {
       <BottomTools
         refreshData={refreshData}
         nbRows={data.length}
-        code={columnFilters}
+        code={{
+          global: globalFilter,
+          columns: columnFilters,
+        }}
       />
     </ExampleContainer>
   );

@@ -7,7 +7,7 @@
     "separator",
     "react"
   ],
-  "description": "Components for creating separators",
+  "description": "A UI library that offers a separator components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

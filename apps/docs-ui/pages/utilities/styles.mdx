@@ -8,25 +8,19 @@ This package contains a styles parameters.
 
 The library is based on [Stitches](https://stitches.dev/).
 
-## Getting Started
-
 ---
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/styles
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/styles
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/styles
@@ -66,8 +60,8 @@ const globalCssCustom = globalCss({
   },
 
   '::-webkit-scrollbar': {
-    width: '$2',
-    height: '$2',
+    width: '$8',
+    height: '$8',
     borderRadius: '$lg',
   },
   '::-webkit-scrollbar-track': {
@@ -213,7 +207,7 @@ export const pikasBorderWidths = {
 import { styled } from '@pikas-ui/styles'
 
 const Div = styled('div', {
-  borderWidth: '$1',
+  borderWidth: '$4',
 })
 ```
 
@@ -724,41 +718,40 @@ Properties for size.
 ```ts
 export const pikasSizes = {
   0: '0px',
-  0.25: '1px',
-  0.5: '0.125rem', // 2px
-  1: '0.25rem', // 4px
-  1.5: '0.375rem', // 6px
-  2: '0.5rem', // 8px
-  2.5: '0.625rem', // 10px
-  3: '0.75rem', // 12px
-  3.5: '0.875rem', // 14px
-  4: '1rem', // 16px
-  5: '1.25rem', // 20px
-  6: '1.5rem', // 24px
-  7: '1.75rem', // 28px
-  8: '2rem', // 32px
-  9: '2.25rem', // 36px
-  10: '2.5rem', // 40px
-  11: '2.75rem', // 44px
-  12: '3rem', // 48px
-  14: '3.5rem', // 56px
-  16: '4rem', // 64px
-  20: '5rem', // 80px
-  24: '6rem', // 96px
-  28: '7rem', // 112px
-  32: '8rem', // 128px
-  36: '9rem', // 144px
-  40: '10rem', // 160px
-  44: '11rem', // 176px
-  48: '12rem', // 192px
-  52: '13rem', // 208px
-  56: '14rem', // 224px
-  60: '15rem', // 240px
-  64: '16rem', // 256px
-  72: '18rem', // 288px
-  80: '20rem', // 320px
-  96: '24rem', // 384px
-  auto: 'auto',
+  1: '1px',
+  2: '0.125rem', // 2px
+  4: '0.25rem', // 4px
+  6: '0.375rem', // 6px
+  8: '0.5rem', // 8px
+  10: '0.625rem', // 10px
+  12: '0.75rem', // 12px
+  14: '0.875rem', // 14px
+  16: '1rem', // 16px
+  20: '1.25rem', // 20px
+  24: '1.5rem', // 24px
+  28: '1.75rem', // 28px
+  32: '2rem', // 32px
+  36: '2.25rem', // 36px
+  40: '2.5rem', // 40px
+  44: '2.75rem', // 44px
+  48: '3rem', // 48px
+  56: '3.5rem', // 56px
+  64: '4rem', // 64px
+  80: '5rem', // 80px
+  96: '6rem', // 96px
+  112: '7rem', // 112px
+  128: '8rem', // 128px
+  144: '9rem', // 144px
+  160: '10rem', // 160px
+  176: '11rem', // 176px
+  192: '12rem', // 192px
+  208: '13rem', // 208px
+  224: '14rem', // 224px
+  240: '15rem', // 240px
+  256: '16rem', // 256px
+  288: '18rem', // 288px
+  320: '20rem', // 320px
+  384: '24rem', // 384px
 };
 ```
 
@@ -781,41 +774,40 @@ Properties for space.
 ```ts
 export const pikasSpaces = {
   0: '0px',
-  0.25: '1px',
-  0.5: '0.125rem', // 2px
-  1: '0.25rem', // 4px
-  1.5: '0.375rem', // 6px
-  2: '0.5rem', // 8px
-  2.5: '0.625rem', // 10px
-  3: '0.75rem', // 12px
-  3.5: '0.875rem', // 14px
-  4: '1rem', // 16px
-  5: '1.25rem', // 20px
-  6: '1.5rem', // 24px
-  7: '1.75rem', // 28px
-  8: '2rem', // 32px
-  9: '2.25rem', // 36px
-  10: '2.5rem', // 40px
-  11: '2.75rem', // 44px
-  12: '3rem', // 48px
-  14: '3.5rem', // 56px
-  16: '4rem', // 64px
-  20: '5rem', // 80px
-  24: '6rem', // 96px
-  28: '7rem', // 112px
-  32: '8rem', // 128px
-  36: '9rem', // 144px
-  40: '10rem', // 160px
-  44: '11rem', // 176px
-  48: '12rem', // 192px
-  52: '13rem', // 208px
-  56: '14rem', // 224px
-  60: '15rem', // 240px
-  64: '16rem', // 256px
-  72: '18rem', // 288px
-  80: '20rem', // 320px
-  96: '24rem', // 384px
-  auto: 'auto',
+  1: '1px',
+  2: '0.125rem', // 2px
+  4: '0.25rem', // 4px
+  6: '0.375rem', // 6px
+  8: '0.5rem', // 8px
+  10: '0.625rem', // 10px
+  12: '0.75rem', // 12px
+  14: '0.875rem', // 14px
+  16: '1rem', // 16px
+  20: '1.25rem', // 20px
+  24: '1.5rem', // 24px
+  28: '1.75rem', // 28px
+  32: '2rem', // 32px
+  36: '2.25rem', // 36px
+  40: '2.5rem', // 40px
+  44: '2.75rem', // 44px
+  48: '3rem', // 48px
+  56: '3.5rem', // 56px
+  64: '4rem', // 64px
+  80: '5rem', // 80px
+  96: '6rem', // 96px
+  112: '7rem', // 112px
+  128: '8rem', // 128px
+  144: '9rem', // 144px
+  160: '10rem', // 160px
+  176: '11rem', // 176px
+  192: '12rem', // 192px
+  208: '13rem', // 208px
+  224: '14rem', // 224px
+  240: '15rem', // 240px
+  256: '16rem', // 256px
+  288: '18rem', // 288px
+  320: '20rem', // 320px
+  384: '24rem', // 384px
 };
 ```
 
@@ -869,4 +861,6 @@ You can find the change log [here](https://github.com/Achaak/pikas/releases).
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/utilities/styles.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/utilities/styles.mdx)

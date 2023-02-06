@@ -7,7 +7,7 @@
     "avatar",
     "react"
   ],
-  "description": "Components for displaying avatars",
+  "description": "A UI library that offers an avatar components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

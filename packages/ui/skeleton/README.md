@@ -1,26 +1,22 @@
 # @pikas-ui/skeleton
 
-This package contains a skeleton component.
+A UI library that offers a skeleton components for React.
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/skeleton
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/skeleton
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/skeleton

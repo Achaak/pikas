@@ -7,7 +7,7 @@
     "textfield",
     "react"
   ],
-  "description": "Components for creating text fields",
+  "description": "A UI library that offers a textfield components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

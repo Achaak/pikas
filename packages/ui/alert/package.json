@@ -7,7 +7,7 @@
     "alert",
     "react"
   ],
-  "description": "Components for displaying alerts",
+  "description": "A UI library that offers an alert components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

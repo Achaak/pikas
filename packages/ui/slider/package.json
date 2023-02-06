@@ -7,7 +7,7 @@
     "slider",
     "react"
   ],
-  "description": "Components for creating a slider",
+  "description": "A UI library that offers a slider components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

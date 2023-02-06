@@ -1,28 +1,24 @@
 # @pikas-ui/checkbox
 
-This package contains a checkbox component.
+A UI library that offers a checkbox components for React.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/checkbox
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/checkbox
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/checkbox
