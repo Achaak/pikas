@@ -1,5 +1,13 @@
 # @pikas-ui/select
 
+## 5.1.0
+
+### Minor Changes
+
+- 0c909fc0: Add placeholder props
+- 0c909fc0: Add value props
+- 0c909fc0: Remove search
+
 ## 5.0.0
 
 ### Major Changes

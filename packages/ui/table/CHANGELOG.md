@@ -1,5 +1,14 @@
 # @pikas-ui/table
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [0c909fc0]
+- Updated dependencies [0c909fc0]
+- Updated dependencies [0c909fc0]
+  - @pikas-ui/select@5.1.0
+
 ## 4.0.0
 
 ### Major Changes
