@@ -155,6 +155,7 @@ export type ContextMenuProps = MenuProps & {
   alignOffset?: number;
   avoidCollisions?: boolean;
   collisionPadding?: number;
+  disabled?: boolean;
 };
 
 export const ContextMenu: FC<ContextMenuProps> = ({
@@ -173,13 +174,16 @@ export const ContextMenu: FC<ContextMenuProps> = ({
   alignOffset,
   avoidCollisions = true,
   collisionPadding,
+  disabled,
 }) => (
   <ContextMenuPrimitive.Root
     onOpenChange={onOpenChange}
     modal={modal}
     dir={direction}
   >
-    <ContextMenuPrimitive.Trigger>{children}</ContextMenuPrimitive.Trigger>
+    <ContextMenuPrimitive.Trigger disabled={disabled}>
+      {children}
+    </ContextMenuPrimitive.Trigger>
 
     <Content
       css={css?.content}

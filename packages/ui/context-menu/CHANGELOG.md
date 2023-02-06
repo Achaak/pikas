@@ -1,5 +1,11 @@
 # @pikas-ui/context-menu
 
+## 4.1.0
+
+### Minor Changes
+
+- Add disabled props
+
 ## 4.0.1
 
 ### Patch Changes

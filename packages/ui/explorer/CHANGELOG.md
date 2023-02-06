@@ -1,5 +1,13 @@
 # @pikas-ui/explorer
 
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/dropdown-menu@4.1.0
+  - @pikas-ui/context-menu@4.1.0
+
 ## 2.0.1
 
 ### Patch Changes

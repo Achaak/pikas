@@ -21,6 +21,17 @@ import { DropdownMenuRadio } from './Radio/index.js';
 import { DropdownMenuCheckbox } from './Checkbox/index.js';
 import { DropdownMenuItem } from './Item/index.js';
 
+const Trigger = styled(DropdownMenuPrimitive.Trigger, {
+  '&[data-disabled]': {
+    cursor: 'not-allowed',
+    opacity: 0.5,
+
+    '& > *': {
+      pointerEvents: 'none',
+    },
+  },
+});
+
 const Content = styled(DropdownMenuPrimitive.Content, {
   ...MenuContentCSS,
 });
@@ -189,6 +200,7 @@ export type DropdownMenuProps = MenuProps & {
   alignOffset?: number;
   avoidCollisions?: boolean;
   collisionPadding?: number;
+  disabled?: boolean;
 };
 
 export const DropdownMenu: FC<DropdownMenuProps> = ({
@@ -214,6 +226,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
   alignOffset,
   avoidCollisions = true,
   collisionPadding,
+  disabled = false,
 }) => {
   const theme = useTheme();
 
@@ -227,11 +240,11 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
         defaultOpen={defaultOpen}
       >
         {triggerContent ? (
-          <DropdownMenuPrimitive.Trigger asChild>
+          <Trigger asChild disabled={disabled}>
             <IconButton>{triggerContent}</IconButton>
-          </DropdownMenuPrimitive.Trigger>
+          </Trigger>
         ) : (
-          <DropdownMenuPrimitive.Trigger asChild>
+          <Trigger asChild disabled={disabled}>
             <IconButton>
               <IconByName
                 name="bx:dots-vertical-rounded"
@@ -239,7 +252,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
                 colorName={iconColorName ?? 'black-light'}
               />
             </IconButton>
-          </DropdownMenuPrimitive.Trigger>
+          </Trigger>
         )}
 
         <DropdownMenuPrimitive.Portal>
