@@ -42,11 +42,13 @@ const Td = styled('td', {
 const TdContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
+  width: '100%',
 });
 
 const TdContent = styled('div', {
   display: 'flex',
   alignItems: 'center',
+  width: '100%',
 
   variants: {
     variant: {
