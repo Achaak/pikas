@@ -13,13 +13,10 @@ export * from './theme/space.js';
 export * from './theme/transitions.js';
 export * from './theme/zIndices.js';
 
-export * from './utils/index.js';
-export * from './utils/gap.js';
-export * from './utils/borderRadius.js';
-
 export * from './hooks/index.js';
 
 export * from './PikasUIProvider/index.js';
 export * from './medias.js';
 export * from './css.js';
+export * from './default_theme.js';
 export * from './dark_theme.js';

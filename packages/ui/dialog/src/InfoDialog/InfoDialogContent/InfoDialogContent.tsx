@@ -6,7 +6,7 @@ const Container = styled('div', {
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-  color: '$BLACK',
+  color: '$black',
   textAlign: 'center',
 
   padding: '0px 32px',

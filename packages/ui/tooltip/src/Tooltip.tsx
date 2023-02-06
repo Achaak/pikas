@@ -1,9 +1,9 @@
 import type {
-  BorderRadius,
   PikasColor,
   PikasCSS,
   PikasFontSize,
   PikasFontWeight,
+  PikasRadius,
   PikasShadow,
 } from '@pikas-ui/styles';
 import { Color } from '@pikas-utils/color';
@@ -32,7 +32,7 @@ const slideLeftAndFade = keyframes({
 });
 
 const StyledContent = styled(TooltipPrimitive.Content, {
-  color: '$BLACK',
+  color: '$black',
 
   variants: {
     padding: {
@@ -121,7 +121,7 @@ export type TooltipProps = {
   alignOffset?: number;
   avoidCollisions?: boolean;
   collisionPadding?: number;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   fontSize?: PikasFontSize;
   fontWeight?: PikasFontWeight;
   boxShadow?: PikasShadow;
@@ -132,7 +132,7 @@ export type TooltipProps = {
 export const Tooltip: FC<TooltipProps> = ({
   content,
   children,
-  backgroundColorName = 'WHITE',
+  backgroundColorName = 'white',
   open,
   onOpenChange,
   delayDuration,
@@ -146,10 +146,10 @@ export const Tooltip: FC<TooltipProps> = ({
   sideOffset,
   avoidCollisions = true,
   collisionPadding,
-  borderRadius = 'md' as BorderRadius,
-  fontSize = 'EM-SMALL',
+  borderRadius = 'md' as PikasRadius,
+  fontSize = 'em-small',
   fontWeight,
-  boxShadow = 'ELEVATION_2',
+  boxShadow = 'bottom-md',
   hasArrow = true,
   padding = 'md' as TooltipPadding,
   css,
@@ -182,7 +182,7 @@ export const Tooltip: FC<TooltipProps> = ({
             collisionPadding={collisionPadding}
             padding={padding}
             css={{
-              br: borderRadius,
+              borderRadius: `$${borderRadius}`,
               backgroundColor: `$${backgroundColorName}`,
               fontSize: `$${fontSize}`,
               fontWeight: fontWeight && `$${fontWeight}`,

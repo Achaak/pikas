@@ -9,7 +9,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/progress
 
-This package contains a progress component.
+This package contains a progress component that can be used to display a progress bar.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -17,25 +17,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/progress
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/progress
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/progress
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/progress
 ## Usage
 
 ### Progress
+
+The progress component is used to display a progress bar.
 
 <ProgressExample />
 
@@ -65,16 +63,18 @@ const Example: React.FC = () => {
 | `max`                   | The max value of the progress.                 | `number or string`                       | `100`                                                           |
 | `width`                 | The width of the progress.                     | `number or string`                       | `280`                                                           |
 | `height`                | The height of the progress.                    | `number or string`                       | `16`                                                            |
-| `colorName`             | The color of the progress.                     | `PikasColors`                            | `"PRIMARY"`                                                     |
-| `backgroundColorName`   | The background color of the progress.          | `PikasColors`                            | `"GRAY"`                                                        |
+| `colorName`             | The color of the progress.                     | `PikasColors`                            | `"primary"`                                                     |
+| `backgroundColorName`   | The background color of the progress.          | `PikasColors`                            | `"gray"`                                                        |
 | `loading`               | The loading state of the progress.             | `boolean`                                | `false`                                                         |
-| `boxShadow`             | The box shadow of the progress.                | `PikasShadow or 'none"`                  | `"DIMINUTION_1"`                                                |
-| `borderRadius`          | The border radius of the progress.             | `BorderRadius`                           | `"round"`                                                       |
-| `borderRadiusIndicator` | The border radius of the indicator.            | `BorderRadius`                           | `"none"`                                                        |
+| `boxShadow`             | The box shadow of the progress.                | `PikasShadow or 'none"`                  | `"inner-md"`                                                    |
+| `borderRadius`          | The border radius of the progress.             | `PikasRadius`                            | `"full"`                                                        |
+| `borderRadiusIndicator` | The border radius of the indicator.            | `PikasRadius`                            | `"none"`                                                        |
 | `getValueLabel`         | The function to get the label of the progress. | `(value: number, max: number) => string` | `(value, max): string => Math.round((value / max) * 100) + "%"` |
 | `css`                   | The css of the progress.                       | `ProgressCSS`                            | -                                                               |
 | `content`               | The content of the progress.                   | `string`                                 | -                                                               |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/progress.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/progress.mdx)

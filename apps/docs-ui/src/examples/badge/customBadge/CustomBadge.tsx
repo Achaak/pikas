@@ -6,25 +6,25 @@ export const CustomBadgeExample: FC = () => (
   <ExampleContainer>
     <CustomBadge
       css={{
-        fontSize: '$EM-SMALL',
+        fontSize: '$em-small',
         padding: '8px 16px',
       }}
     >
       Hello world
     </CustomBadge>
     <CustomBadge
-      colorName="SECONDARY"
+      colorName="secondary"
       css={{
-        fontSize: '$EM-SMALL',
+        fontSize: '$em-small',
         padding: '8px 16px',
       }}
     >
       Hello world
     </CustomBadge>
     <CustomBadge
-      colorName="TERTIARY"
+      colorName="tertiary"
       css={{
-        fontSize: '$EM-SMALL',
+        fontSize: '$em-small',
         padding: '8px 16px',
       }}
     >

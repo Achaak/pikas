@@ -1,5 +1,15 @@
 import { DefaultTableExample } from './../../src/examples/table/default';
 import { LightTableExample } from './../../src/examples/table/light';
+import { PaginationTableExample } from './../../src/examples/table/pagination';
+import { RowSelectionTableExample } from './../../src/examples/table/rowSelection';
+import { SortingTableExample } from './../../src/examples/table/sorting';
+import { ColumnVisibilityTableExample } from './../../src/examples/table/columnVisibility';
+import { ColumnOrderTableExample } from './../../src/examples/table/columnOrder';
+import { ColumnSizingTableExample } from './../../src/examples/table/columnSizing';
+import { GroupingTableExample } from './../../src/examples/table/grouping';
+import { ExpandingTableExample } from './../../src/examples/table/expanding';
+import { FiltersTableExample } from './../../src/examples/table/filters';
+import { ColumnPinningTableExample } from './../../src/examples/table/columnPinning';
 import { docsUIRoutes } from '@pikas/docs-routes';
 import { Alert } from '@pikas-ui/alert';
 export const { getLink } = docsUIRoutes;
@@ -11,7 +21,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/table
 
-This package contains a table component.
+This package contains a table component that can be used to display data in a tabular format.
 
 This library is based on [TanStack Table](https://tanstack.com/table/).
 
@@ -19,25 +29,21 @@ This library is based on [TanStack Table](https://tanstack.com/table/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/table
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/table
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/table
@@ -48,6 +54,8 @@ pnpm add @pikas-ui/table
 ## Usage
 
 ### Table
+
+The table component is used to display data in a tabular format.
 
 #### Default
 
@@ -60,73 +68,46 @@ pnpm add @pikas-ui/table
 ```tsx
 import { Table } from '@pikas-ui/table';
 
-const data = [
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    email: 'tanner@email.com',
-    number: 1234567890,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    email: 'tandy@email.com',
-    number: 1234567890,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    email: 'joe@email.com',
-    number: 1234567890,
-  },
-];
-
 const Example: React.FC = () => {
   return (
     <Table
       data={data}
+      variant="default"
       emptyMessage="No data found"
       columns={[
+        {
+          header: 'First Name',
+          accessorKey: 'firstName',
+          id: 'firstName',
+          cell: info => info.getValue(),
+        },
+        {
+          header: 'Last Name',
+          accessorKey: 'lastName',
+          id: 'lastName',
+          cell: info => info.getValue(),
+        },
         {
           header: 'Age',
           accessorKey: 'age',
           id: 'age',
-          cell: (props) => props.getValue<string>(),
         },
         {
-          header: 'Name',
-          id: 'name',
-          columns: [
-            {
-              header: 'First Name',
-              id: 'firstName',
-              accessorKey: 'firstName',
-            },
-            {
-              header: 'Last Name',
-              id: 'lastName',
-              accessorKey: 'lastName',
-            },
-          ],
+          header: 'Visits',
+          accessorKey: 'visits',
+          id: 'age',
         },
         {
-          header: 'Data',
-          id: 'data',
-          columns: [
-            {
-              header: 'Email',
-              accessorKey: 'email',
-              id: 'email',
-            },
-            {
-              header: 'Number',
-              accessorKey: 'number',
-              id: 'number',
-            },
-          ],
+          header: 'Status',
+          accessorKey: 'status',
+          id: 'status',
+        },
+        {
+          header: 'Progress',
+          accessorKey: 'progress',
+          id: 'progress',
+          cell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
         },
       ]}
     />
@@ -143,83 +124,601 @@ const Example: React.FC = () => {
 | `variant`          | The variant of the table                    | `TableVariant`         | `"default"` |
 | `emptyMessage`     | The message to show when the table is empty | `ReactNode`            | -           |
 | `hasTfoot`         | If the table has a tfoot                    | `boolean`              | `false`     |
-| `pagination`       | The pagination of the table                 | `TablePaginationProps` | -           |
-| `selection`        | The selection of the table                  | `TableSelection`       | -           |
 | `columnOrder`      | The column order of the table               | `TableColumnOrder`     | -           |
+| `columnPinning`    | The column pinning of the table             | `TableColumnPinning`   | -           |
+| `columnSizing`     | The column sizing of the table              | `TableColumnSizing`    | -           |
 | `columnVisibility` | The column visibility of the table          | `TableVisibility`      | -           |
-| `resizing`         | The resizing of the table                   | `TableResize`          | -           |
+| `expanding`        | The expanding of the table                  | `TableExpanding`       | -           |
+| `filters`          | The filters of the table                    | `TableFilters`         | -           |
+| `grouping`         | The grouping of the table                   | `TableGrouping`        | -           |
+| `pagination`       | The pagination of the table                 | `TablePaginationProps` | -           |
+| `rowSelection`     | The row selection of the table              | `TableRowSelection`    | -           |
 | `sorting`          | The sorting of the table                    | `TableSorting`         | -           |
 | `css`              | The css of the table                        | `TableCSS<T>`          | -           |
 | `padding`          | The padding of the table                    | `TablePadding`         | -           |
-| `hoverEffect`      | If the table has a hover effect             | `boolean`              | `true`      |
+| `hoverEffect`      | If the table has a hover effect             | `boolean`              | `false`     |
+| `debug`            | If the table is in debug mode               | `boolean`              | `false`     |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/table.mdx)
+## Features
 
+-  [Column Order](#column-order)
+-  [Column Pinning](#column-pinning)
+-  [Column Sizing](#column-sizing)
+-  [Column Visibility](#column-visibility)
+-  [Expanding](#expanding)
+-  [Filters](#filters)
+-  [Grouping](#grouping)
+-  [Pagination](#pagination)
+-  [Row Selection](#row-selection)
+-  [Sorting](#sorting)
 
+---
 
-#### Pagination
-Allows you to activate the data pagination.
-
-| Prop                 | Description                                      | Type                          | Default |
-| :------------------- | :----------------------------------------------- | :---------------------------- | :------ |
-| `enabled`            | If the pagination is enabled                     | `boolean`                     | `false` |
-| `state`              | The state of the pagination                      | `PaginationState`             | -       |
-| `selectValue`        | The select value of the pagination               | `number[]`                    | -       |
-| `onPaginationChange` | The function to call when the pagination changes | `OnChangeFn<PaginationState>` | -       |
-
-#### Selection
-Enable data selection by adding checkboxes.
-
-| Prop                   | Description                                     | Type                            | Default |
-| :--------------------- | :---------------------------------------------- | :------------------------------ | :------ |
-| `enabled`              | If the selection is enabled                     | `boolean`                       | `false` |
-| `state`                | The state of the selection                      | `RowSelectionState`             | -       |
-| `defaultState`         | The default state of the selection              | `RowSelectionState`             | -       |
-| `onRowSelectionChange` | The function to call when the selection changes | `OnChangeFn<RowSelectionState>` | -       |
-
-#### Sorting
-Allows you to activate the data sorting.
-
-| Prop              | Description                                   | Type                       | Default |
-| :---------------- | :-------------------------------------------- | :------------------------- | :------ |
-| `enabled`         | If the sorting is enabled                     | `boolean`                  | `false` |
-| `state`           | The state of the sorting                      | `SortingState`             | -       |
-| `defaultState`    | The default state of the sorting              | `SortingState`             | -       |
-| `onSortingChange` | The function to call when the sorting changes | `OnChangeFn<SortingState>` | -       |
-
-
-#### Column Visibility
-Allows you to activate the display or not of columns.
-
-| Prop                 | Description                                             | Type                          | Default |
-| :------------------- | :------------------------------------------------------ | :---------------------------- | :------ |
-| `enabled`            | If the column visibility is enabled                     | `boolean`                     | `false` |
-| `state`              | The state of the column visibility                      | `VisibilityState`             | -       |
-| `onVisibilityChange` | The function to call when the column visibility changes | `OnChangeFn<VisibilityState>` | -       |
-
-
-
-#### Column Order
+### Column Order <a id="column-order"></a>
 Allows to activate the moving of the columns.
 
-| Prop                  | Description                                        | Type                           | Default |
-| :-------------------- | :------------------------------------------------- | :----------------------------- | :------ |
-| `enabled`             | If the column order is enabled                     | `boolean`                      | `false` |
-| `defaultState`        | The default state of the column order              | `ColumnOrderState`             | -       |
-| `onColumnOrderChange` | The function to call when the column order changes | `OnChangeFn<ColumnOrderState>` | -       |
+More information about the column order can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/column-ordering).
 
 <Alert variant="warning">
   Column order is not enabled if you have a nested column.  
 </Alert>
 
-#### Resizing
+<ColumnOrderTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      columnOrder={{
+        enabled: true,
+        defaultState: ['firstName', 'lastName', 'age', 'visits', 'status', 'progress']
+        onColumnOrderChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                  | Description                                        | Type                                | Default |
+| :-------------------- | :------------------------------------------------- | :---------------------------------- | :------ |
+| `enabled`             | If the column order is enabled                     | `boolean`                           | `false` |
+| `state`               | The state of the column order                      | `TableColumnOrderState`             | -       |
+| `defaultState`        | The default state of the column order              | `TableColumnOrderState`             | -       |
+| `onColumnOrderChange` | The function to call when the column order changes | `OnChangeFn<TableColumnOrderState>` | -       |
+
+
+---
+
+### Column Sizing <a id="column-sizing"></a>
 Enables changing the width of the columns.
 
-| Prop       | Description                                    | Type                            | Default |
-| :--------- | :--------------------------------------------- | :------------------------------ | :------ |
-| `enabled`  | If the resizing is enabled                     | `boolean`                       | `false` |
-| `mode`     | The mode of the resizing                       | `ColumnResizeMode`              | -       |
-| `onResize` | The function to call when the resizing changes | `OnChangeFn<ColumnSizingState>` | -       |
+More information about the column sizing can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/column-sizing).
 
+<ColumnSizingTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      columnSizing={{
+        enabled: true,
+        resizeMode: 'onChange',
+        defaultState: {
+          firstName: 200,
+          lastName: 200,
+          age: 100,
+          visits: 100,
+          status: 100,
+          progress: 100,
+        }
+        onColumnSizeChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop           | Description                                    | Type                                 | Default |
+| :------------- | :--------------------------------------------- | :----------------------------------- | :------ |
+| `enabled`      | If the resizing is enabled                     | `boolean`                            | `false` |
+| `mode`         | The mode of the resizing                       | `TableResizeMode`                    | -       |
+| `state`        | The state of the resizing                      | `TableColumnSizingState`             | -       |
+| `defaultState` | The default state of the resizing              | `TableColumnSizingState`             | -       |
+| `onResize`     | The function to call when the resizing changes | `OnChangeFn<TableColumnSizingState>` | -       |
+
+---
+
+### Column Pinning <a id="column-pinning"></a>
+Enables changing the width of the columns.
+
+More information about the column pinning can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/column-pinning).
+
+<ColumnPinningTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      columnPinning={{
+        enabled: true,
+        defaultState: {
+          left: ['firstName', 'lastName'],
+          right: ['progress'],
+        }
+        onColumnPinningChange: (state) => {
+          console.log(state);
+        },
+        isSplit: true,
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                    | Description                                          | Type                                  | Default |
+| :---------------------- | :--------------------------------------------------- | :------------------------------------ | :------ |
+| `enabled`               | If the column pinning is enabled                     | `boolean`                             | `false` |
+| `state`                 | The state of the column pinning                      | `TableColumnPinningState`             | -       |
+| `defaultState`          | The default state of the column pinning              | `TableColumnPinningState`             | -       |
+| `onColumnPinningChange` | The function to call when the column pinning changes | `OnChangeFn<TableColumnPinningState>` | -       |
+| `isSplit`               | If the column pinning is split                       | `boolean`                             | `false` |
+
+---
+
+### Column Visibility <a id="column-visibility"></a>
+Allows you to activate the display or not of columns.
+
+More information about the column visibility can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/column-visibility).
+
+<ColumnVisibilityTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      columnVisibility={{
+        enabled: true,
+        state: {
+          firstName: true,
+          lastName: true,
+          age: true,
+          visits: true,
+          status: true,
+          progress: true,
+        },
+        onVisibilityChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                 | Description                                             | Type                               | Default |
+| :------------------- | :------------------------------------------------------ | :--------------------------------- | :------ |
+| `enabled`            | If the column visibility is enabled                     | `boolean`                          | `false` |
+| `state`              | The state of the column visibility                      | `TableVisibilityState`             | -       |
+| `onVisibilityChange` | The function to call when the column visibility changes | `OnChangeFn<TableVisibilityState>` | -       |
+
+---
+
+### Expanding <a id="expanding"></a>
+Allows you to activate the data grouping.
+
+More information about the expanding can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/expanding).
+
+<ExpandingTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={[
+        {
+          id: 1,
+          firstName: 'John',
+          lastName: 'Doe',
+          age: 32,
+          visits: 320,
+          status: 'complicated',
+          progress: 66,
+          subRows: [
+            {
+              id: 11,
+              firstName: 'John',
+              lastName: 'Doe',
+              age: 32,
+              visits: 320,
+              status: 'complicated',
+              progress: 66,
+            },
+            ...
+          ],
+        },
+        ...
+      ]}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      expanding={{
+        enabled: true,
+        defaultState: {
+          1: true,
+          2: true,
+        }
+        onExpandedChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop               | Description                                     | Type                             | Default |
+| :----------------- | :---------------------------------------------- | :------------------------------- | :------ |
+| `enabled`          | If the expanding is enabled                     | `boolean`                        | `false` |
+| `state`            | The state of the expanding                      | `TableExpandedState`             | -       |
+| `defaultState`     | The default state of the expanding              | `TableExpandedState`             | -       |
+| `onExpandedChange` | The function to call when the expanding changes | `OnChangeFn<TableExpandedState>` | -       |
+
+---
+
+### Filters <a id="filters"></a>
+Allows you to activate the data filtering.
+
+More information about the expanding can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/filters).
+
+<FiltersTableExample />
+
+```tsx
+import { Table, rankItem, addMeta } from '@pikas-ui/table';
+
+const fuzzyFilter: FilterFn<Person> = (row, columnId, value, addMeta) => {
+  // Rank the item
+  const itemRank = rankItem(row.getValue(columnId), value);
+
+  // Store the itemRank info
+  addMeta({
+    itemRank,
+  });
+
+  // Return if the item should be filtered in/out
+  return itemRank.passed;
+};
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[
+        {
+          header: 'First Name',
+          accessorKey: 'firstName',
+          id: 'firstName',
+          filterFn: fuzzyFilter,
+        },
+        {
+          header: 'Last Name',
+          accessorKey: 'lastName',
+          id: 'lastName',
+        },
+        {
+          header: 'Age',
+          accessorKey: 'age',
+          id: 'age',
+        },
+        {
+          header: 'Visits',
+          accessorKey: 'visits',
+          id: 'visits',
+        },
+        {
+          header: 'Status',
+          accessorKey: 'status',
+          id: 'status',
+        },
+        {
+          header: 'Progress',
+          accessorKey: 'progress',
+          id: 'progress',
+          cell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
+        },
+      ]}
+      filters={{
+        enabled: true,
+        globalFilter: 'John'',
+        globalFilterFn: fuzzyFilter,
+        columnFilters: [
+          {
+            id: 'lastName',
+            value: 'Doe',
+          }
+        ],
+        filterFns: {
+          fuzzy: fuzzyFilter,
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                    | Description                                         | Type                                  | Default |
+| :---------------------- | :-------------------------------------------------- | :------------------------------------ | :------ |
+| `enabled`               | If the filters are enabled                          | `boolean`                             | `false` |
+| `columnFilters`         | The state of the column filters                     | `TableColumnFiltersState`             | -       |
+| `onColumnFiltersChange` | The function to call when the column filters change | `OnChangeFn<TableColumnFiltersState>` | -       |
+| `globalFilter`          | The global filter                                   | `string`                              | -       |
+| `onGlobalFilterChange`  | The function to call when the global filter change  | `OnChangeFn<string>`                  | -       |
+| `globalFilterFn`        | The global filter function                          | `FilterFn<T>`                         | -       |
+| `filterFns`             | The filter functions                                | `Record<string, FilterFn<T>>`         | -       |
+
+
+---
+
+### Grouping <a id="grouping"></a>
+Allows you to activate the data grouping.
+
+More information about the grouping can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/grouping).
+
+<GroupingTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[
+        {
+          header: 'First Name',
+          accessorKey: 'firstName',
+          id: 'firstName',
+        },
+        {
+          header: 'Last Name',
+          accessorKey: 'lastName',
+          id: 'lastName',
+        },
+        {
+          header: 'Age',
+          accessorKey: 'age',
+          id: 'age',
+          aggregatedCell: ({ getValue }) =>
+            Math.round(getValue<number>() * 100) / 100,
+          aggregationFn: 'median',
+        },
+        {
+          header: 'Visits',
+          accessorKey: 'visits',
+          id: 'visits',
+          aggregationFn: 'sum',
+        },
+        {
+          header: 'Status',
+          accessorKey: 'status',
+          id: 'status',
+        },
+        {
+          header: 'Progress',
+          accessorKey: 'progress',
+          id: 'progress',
+          cell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
+          aggregationFn: 'mean',
+          aggregatedCell: ({ getValue }) =>
+            `${Math.round(getValue<number>() * 100) / 100}%`,
+        },
+      ]}
+      grouping={{
+        enabled: true,
+        defaultState: ['firstName', 'lastName']
+        onGroupingChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop              | Description                                   | Type                            | Default |
+| :---------------- | :-------------------------------------------- | :------------------------------ | :------ |
+| `enabled`         | If the grouping is enabled                    | `boolean`                       | `false` |
+| `state`           | The state of the grouping                     | `TableGroupingState`            | -       |
+| `defaultState`    | The default state of the grouping             | `TableGroupingState`            | -       |
+| `onGroupingChange`| The function to call when the grouping changes| `OnChangeFn<TableGroupingState>`| -       |
+
+---
+
+### Pagination <a id="pagination"></a>
+Allows you to activate the data pagination.
+
+More information about the pagination can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/pagination).
+
+<PaginationTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      pagination={{
+        enabled: true,
+        pageSizes: [10, 20, 30, 40, 50],
+        defaultPageIndex: 2,
+        defaultPageSize: 0,
+        onPaginationChange: ({ pageSize, pageIndex }) => {
+          console.log({ pageSize, pageIndex });
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                 | Description                                      | Type                               | Default |
+| :------------------- | :----------------------------------------------- | :--------------------------------- | :------ |
+| `enabled`            | If the pagination is enabled                     | `boolean`                          | `false` |
+| `pageSize`           | The size of the page                             | `number`                           | -       |
+| `pageSizes`          | The sizes of the page                            | `number[]`                         | -       |
+| `pageIndex`          | The index of the page                            | `number`                           | -       |
+| `defaultPageSize`    | The default size of the page                     | `number`                           | -       |
+| `defaultPageIndex`   | The default index of the page                    | `number`                           | -       |
+| `onPaginationChange` | The function to call when the pagination changes | `OnChangeFn<TablePaginationState>` | -       |
+
+---
+
+### Row Selection <a id="row-selection"></a>
+Enable data selection by adding checkboxes.
+
+More information about the row selection can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/row-selection).
+
+<RowSelectionTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      rowSelection={{
+        enabled: true,
+        defaultState: {
+          '1': true,
+          '2': true,
+        },
+        onRowSelectionChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop                    | Description                                         | Type                                 | Default |
+| :---------------------- | :-------------------------------------------------- | :----------------------------------- | :------ |
+| `enabled`               | If the row selection is enabled                     | `boolean`                            | `false` |
+| `enableSubRowSelection` | If the sub row selection is enabled                 | `boolean`                            | `false` |
+| `state`                 | The state of the row selection                      | `TableRowSelectionState`             | -       |
+| `defaultState`          | The default state of the row selection              | `TableRowSelectionState`             | -       |
+| `onRowSelectionChange`  | The function to call when the row selection changes | `OnChangeFn<TableRowSelectionState>` | -       |
+
+---
+
+### Sorting <a id="sorting"></a>
+Allows you to activate the data sorting.
+
+More information about the sorting can be found in the [TanStack Table documentation](https://tanstack.com/table/v8/docs/api/features/sorting).
+
+<SortingTableExample />
+
+```tsx
+import { Table } from '@pikas-ui/table';
+
+const Example: React.FC = () => {
+  return (
+    <Table
+      data={data}
+      variant="light"
+      emptyMessage="No data found"
+      columns={[ ... ]}
+      sorting={{
+        enabled: true,
+        defaultState: [
+          {
+            id: 'firstName',
+            desc: false,
+          },
+        ],
+        onSortingChange: (state) => {
+          console.log(state);
+        },
+      }}
+    />
+  );
+};
+```
+
+#### Parameters
+
+| Prop              | Description                                   | Type                            | Default |
+| :---------------- | :-------------------------------------------- | :------------------------------ | :------ |
+| `enabled`         | If the sorting is enabled                     | `boolean`                       | `false` |
+| `state`           | The state of the sorting                      | `TableSortingState`             | -       |
+| `defaultState`    | The default state of the sorting              | `TableSortingState`             | -       |
+| `onSortingChange` | The function to call when the sorting changes | `OnChangeFn<TableSortingState>` | -       |
+
+---
+
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/table.mdx)

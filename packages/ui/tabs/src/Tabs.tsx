@@ -21,11 +21,11 @@ const List = styled(TabsPrimitive.List, {
 
   '&[aria-orientation="horizontal"]': {
     flexDirection: 'column',
-    customRowGap: 8,
+    rowGap: 8,
   },
   '&[aria-orientation="vertical"]': {
     flexDirection: 'row',
-    customColumnGap: 8,
+    columnGap: 8,
   },
 
   variants: {
@@ -54,12 +54,12 @@ const Trigger = styled(TabsPrimitive.Trigger, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '$BLACK',
+  color: '$black',
   userSelect: 'none',
   cursor: 'pointer',
 
   '&[data-state="active"]': {
-    color: '$PRIMARY',
+    color: '$primary',
     boxShadow: 'inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor',
   },
 
@@ -94,7 +94,7 @@ const TriggerExtremities = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '$BLACK',
+  color: '$black',
 
   variants: {
     padding: {
@@ -127,7 +127,7 @@ const Content = styled(TabsPrimitive.Content, {
   borderBottomLeftRadius: 6,
   borderBottomRightRadius: 6,
   outline: 'none',
-  color: '$BLACK',
+  color: '$black',
   display: 'none',
 
   '&[data-state="active"]': {

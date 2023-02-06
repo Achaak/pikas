@@ -13,7 +13,7 @@ export type RingLoaderProps = {
 
 export const RingLoader: FC<RingLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

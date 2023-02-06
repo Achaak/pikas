@@ -1,13 +1,13 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "2.4.40",
+  "version": "3.0.0",
   "private": false,
   "keywords": [
     "pikas-ui",
     "dialog",
     "react"
   ],
-  "description": "Components for creating dialogs",
+  "description": "A UI library that offers a dialog components for React.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -42,12 +42,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "3.3.31",
-    "@pikas-ui/icons": "3.3.30",
-    "@pikas-ui/loader": "3.3.31",
-    "@pikas-ui/slider": "3.3.32",
-    "@pikas-ui/styles": "3.5.30",
-    "@pikas-ui/title": "1.2.32",
+    "@pikas-ui/button": "4.0.0",
+    "@pikas-ui/icons": "4.0.0",
+    "@pikas-ui/loader": "4.0.0",
+    "@pikas-ui/slider": "4.0.0",
+    "@pikas-ui/styles": "4.0.0",
+    "@pikas-ui/title": "2.0.0",
     "@radix-ui/react-dialog": "1.0.2",
     "compressorjs": "1.1.1",
     "get-orientation": "1.1.2",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.11.18",
+    "@types/node": "18.11.19",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "cross-env": "7.0.3",
@@ -69,7 +69,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tsup": "6.5.0",
-    "typescript": "4.9.4"
+    "typescript": "4.9.5"
   },
   "node": "12.20.0 || 14.13.1 || >=16.0.0"
 }

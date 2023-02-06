@@ -16,7 +16,7 @@ const Container = styled('div', {
 
 const SwitchContainer = styled('div', {
   width: '100%',
-  br: 'lg',
+  borderRadius: '$2xl',
   display: 'flex',
   alignItems: 'center',
 });
@@ -25,18 +25,18 @@ const SwitchStyle = styled(SwitchPrimitive.Root, {
   all: 'unset',
   width: 48,
   height: 24,
-  backgroundColor: '$GRAY',
-  br: 'round',
+  backgroundColor: '$gray',
+  borderRadius: '$full',
   position: 'relative',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
   transition: 'all 500ms',
   cursor: 'pointer',
 
   '&:focus': {
-    boxShadow: '$ELEVATION_BOTTOM_1',
+    boxShadow: '$bottom-md',
   },
   '&[data-state="checked"]': {
-    backgroundColor: '$PRIMARY',
+    backgroundColor: '$primary',
   },
 });
 
@@ -46,15 +46,15 @@ const SwitchThumb = styled(SwitchPrimitive.Thumb, {
   justifyContent: 'center',
   width: 20,
   height: 20,
-  backgroundColor: '$WHITE',
-  br: 'round',
-  boxShadow: '$ELEVATION_BOTTOM_1',
+  backgroundColor: '$white',
+  borderRadius: '$full',
+  boxShadow: '$bottom-sm',
   transition: 'all 100ms',
   transform: 'translateX(2px)',
   willChange: 'transform',
 
   '&[data-state="checked"]': {
-    backgroundColor: '$WHITE_FIX',
+    backgroundColor: '$white-fixed',
     transform: 'translateX(26px)',
   },
 });
@@ -64,7 +64,7 @@ const LabelContainer = styled('div', {
 });
 
 const Required = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 
@@ -105,7 +105,7 @@ export const Switch: FC<SwitchProps> = ({
   id,
   name,
   onCheckedChange,
-  fontSize = 'EM-MEDIUM',
+  fontSize = 'em-base',
   textError,
   label,
   css,
@@ -124,12 +124,6 @@ export const Switch: FC<SwitchProps> = ({
     setCheckedState(checked);
   }, [checked]);
 
-  useEffect(() => {
-    if (defaultChecked) {
-      setCheckedState(defaultChecked);
-    }
-  }, [defaultChecked]);
-
   const onChangeInput = (val: boolean): void => {
     onCheckedChange?.(val);
 
@@ -142,9 +136,9 @@ export const Switch: FC<SwitchProps> = ({
     }
 
     if (checkedState) {
-      return <Icons.checked size={14} colorName="BLACK_FIX" />;
+      return <Icons.checked size={14} colorName="black-fixed" />;
     } else {
-      return <Icons.unchecked size={14} colorName="BLACK_FIX" />;
+      return <Icons.unchecked size={14} colorName="black-fixed" />;
     }
   };
 
@@ -191,7 +185,7 @@ export const Switch: FC<SwitchProps> = ({
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
+                  colorName="black-light"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -246,7 +240,7 @@ export const Switch: FC<SwitchProps> = ({
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
+                  colorName="black-light"
                   css={{
                     container: {
                       marginLeft: 4,

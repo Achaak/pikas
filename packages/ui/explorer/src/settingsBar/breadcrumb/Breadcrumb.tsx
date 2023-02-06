@@ -6,7 +6,7 @@ import { BreadcrumbItem } from './breadcrumbItem/BreadcrumbItem.js';
 
 const Container = styled('div', {
   display: 'none',
-  customColumnGap: 4,
+  columnGap: 4,
   flex: 1,
   alignItems: 'center',
   justifyContent: 'flex-start',
@@ -14,8 +14,8 @@ const Container = styled('div', {
 });
 
 const TooManyItems = styled('div', {
-  fontWeight: '$MEDIUM',
-  color: '$GRAY_DARKER',
+  fontWeight: '$medium',
+  color: '$gray-darker',
   width: 16,
   display: 'flex',
   alignItems: 'center',
@@ -57,7 +57,7 @@ export const Breadcrumb: FC = () => {
               name="bx:chevron-right"
               key={`${index}-next`}
               size={16}
-              colorName="GRAY_DARKER"
+              colorName="gray-darker"
               onClick={(event): void => {
                 event.stopPropagation();
               }}

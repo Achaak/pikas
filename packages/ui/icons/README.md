@@ -1,28 +1,24 @@
 # @pikas-ui/icons
 
-This package contains a icon components.
+A UI library that offers an icon components for React.
 
 This library is based on [Iconify](https://iconify.design/).
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={cssLink}>@pikas-ui/css</a> package to use this package.
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/icons
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/icons
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/icons

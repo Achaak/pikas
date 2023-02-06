@@ -3,13 +3,13 @@ import { ExampleContainer, styled } from '@pikas/docs-ui';
 import { FC } from 'react';
 
 const Block = styled('div', {
-  backgroundColor: '$PRIMARY',
+  backgroundColor: '$primary',
   width: '100%',
   height: 100,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '$WHITE_FIX',
+  color: '$white-fixed',
 });
 
 export const GridExample: FC = () => (

@@ -1,5 +1,4 @@
+import { FC } from 'react';
 import { Thead, TheadProps } from '../thead/index.js';
 
-export const Tfoot = <T extends Record<string, unknown>>(
-  props: TheadProps<T>
-) => <Thead {...props} />;
+export const Tfoot: FC<TheadProps> = (props) => <Thead {...props} />;

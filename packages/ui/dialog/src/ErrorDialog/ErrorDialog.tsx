@@ -18,7 +18,7 @@ export type ErrorDialogProps = DialogProps & {
 
 export const ErrorDialog: FC<ErrorDialogProps> = ({
   validateButtonLabel = 'Ok',
-  validateButtonColorName = 'DANGER',
+  validateButtonColorName = 'danger',
   validateButtonDisabled,
   validateButtonLoading,
   title = 'Oops ! A error occurred...',

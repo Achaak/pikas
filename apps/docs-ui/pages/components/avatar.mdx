@@ -9,7 +9,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/avatar
 
-This package contains a avatar component.
+This package contains a avatar component that can be used to show a user's profile picture.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -17,25 +17,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/avatar
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/avatar
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/avatar
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/avatar
 ## Usage
 
 ### Avatar
+
+The avatar component is used to show a user's profile picture.
 
 <AvatarExample />
 
@@ -67,20 +65,22 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                          | Description                                           | Type                                   | Default                |
-| :---------------------------- | :---------------------------------------------------- | :------------------------------------- | :--------------------- |
-| `alt`                         | The alt text for the image.                           | `string`                               | -                      |
-| `src`                         | The image source.                                     | `string`                               | -                      |
+| Prop                          | Description                                           | Type                                         | Default                |
+| :---------------------------- | :---------------------------------------------------- | :------------------------------------------- | :--------------------- |
+| `alt`                         | The alt text for the image.                           | `string`                                     | -                      |
+| `src`                         | The image source.                                     | `string`                                     | -                      |
 | `onLoadingStatusChange`       | Callback when the image loading status changes.       | `(status: AvatarImageLoadingStatus) => void` | -                      |
-| `delayMs`                     | The delay in milliseconds before the image is loaded. | `number`                               | -                      |
-| `fallback`                    | The fallback text.                                    | `string`                               | -                      |
-| `fallbackColorName`           | The fallback text color.                              | `string`                               | `"PRIMARY"`            |
-| `fallbackBackgroundColorName` | The fallback background color.                        | `string`                               | `"PRIMARY_LIGHTEST_2"` |
-| `css`                         | The css.                                              | `AvatarCSS`                            | -                      |
-| `size`                        | The size of the avatar.                               | `number`                               | `80`                   |
-| `borderRadius`                | The border radius of the avatar.                      | `BorderRadius`                         | `"round"`              |
-| `loading`                     | The loading status of the avatar.                     | `boolean`                              | `false`                |
+| `delayMs`                     | The delay in milliseconds before the image is loaded. | `number`                                     | -                      |
+| `fallback`                    | The fallback text.                                    | `string`                                     | -                      |
+| `fallbackColorName`           | The fallback text color.                              | `string`                                     | `"primary"`            |
+| `fallbackBackgroundColorName` | The fallback background color.                        | `string`                                     | `"primary-lightest-2"` |
+| `css`                         | The css.                                              | `AvatarCSS`                                  | -                      |
+| `size`                        | The size of the avatar.                               | `number`                                     | `80`                   |
+| `borderRadius`                | The border radius of the avatar.                      | `PikasRadius`                                | `"full"`               |
+| `loading`                     | The loading status of the avatar.                     | `boolean`                                    | `false`                |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/avatar.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/avatar.mdx)

@@ -31,7 +31,7 @@ export const stylesLink = getLink('styles')
 
 # @pikas-ui/loader
 
-This package contains a loader components.
+This package contains a loader components that can be used to show a loading state.
 
 This library is based on [React Spinners](https://www.davidhu.io/react-spinners/)
 
@@ -39,25 +39,21 @@ This library is based on [React Spinners](https://www.davidhu.io/react-spinners/
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/loader
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/loader
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/loader
@@ -83,7 +79,7 @@ const Example: React.FC = () => <BarLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `height`          | Height of the loader           | `number`  | `4`         |
 | `width`           | Width of the loader            | `number`  | `100`       |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -104,7 +100,7 @@ const Example: React.FC = () => <BeatLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -124,7 +120,7 @@ const Example: React.FC = () => <BounceLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `60`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -144,7 +140,7 @@ const Example: React.FC = () => <CircleLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `50`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -164,7 +160,7 @@ const Example: React.FC = () => <ClimbingBoxLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -184,7 +180,7 @@ const Example: React.FC = () => <ClipLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `35`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -204,7 +200,7 @@ const Example: React.FC = () => <ClockLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `50`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -224,7 +220,7 @@ const Example: React.FC = () => <DotLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `60`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -247,7 +243,7 @@ const Example: React.FC = () => <FadeLoader />
 | `width`           | Width of the loader            | `number`  | `5`         |
 | `radius`          | Radius of the loader           | `number`  | `2`         |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -268,7 +264,7 @@ const Example: React.FC = () => <GridLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -288,7 +284,7 @@ const Example: React.FC = () => <HashLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `50`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -308,7 +304,7 @@ const Example: React.FC = () => <MoonLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `60`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -329,7 +325,7 @@ const Example: React.FC = () => <PacmanLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `60`        |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `colorBubble`     | Color of the bubble            | `string`  | -           |
 | `colorBubbleHex`  | Color of the bubble            | `string`  | -           |
@@ -351,7 +347,7 @@ const Example: React.FC = () => <PropagateLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -371,7 +367,7 @@ const Example: React.FC = () => <PuffLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `60`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -392,7 +388,7 @@ const Example: React.FC = () => <PulseLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -412,7 +408,7 @@ const Example: React.FC = () => <RingLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `60`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -433,7 +429,7 @@ const Example: React.FC = () => <RiseLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -454,7 +450,7 @@ const Example: React.FC = () => <RotateLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -477,7 +473,7 @@ const Example: React.FC = () => <ScaleLoader />
 | `width`           | Width of the loader            | `number`  | `4`         |
 | `radius`          | Radius of the loader           | `number`  | `2`         |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -497,7 +493,7 @@ const Example: React.FC = () => <SkewLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `20`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -517,7 +513,7 @@ const Example: React.FC = () => <SquareLoader />
 | Prop              | Description                    | Type      | Default     |
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `50`        |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
@@ -538,11 +534,13 @@ const Example: React.FC = () => <SyncLoader />
 | :---------------- | :----------------------------- | :-------- | :---------- |
 | `size`            | Size of the loader             | `number`  | `15`        |
 | `margin`          | Margin of the loader           | `number`  | `2`         |
-| `colorName`       | Color of the loader            | `string`  | `"PRIMARY"` |
+| `colorName`       | Color of the loader            | `string`  | `"primary"` |
 | `colorHex`        | Color of the loader            | `string`  | -           |
 | `loading`         | Show the loader                | `boolean` | `true`      |
 | `speedMultiplier` | Speed multiplier of the loader | `number`  | `1`         |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/loader.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/loader.mdx)

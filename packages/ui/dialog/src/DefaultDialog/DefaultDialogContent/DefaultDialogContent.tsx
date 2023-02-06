@@ -6,7 +6,7 @@ const Container = styled('div', {
   justifyContent: 'flex-start',
   alignItems: 'center',
   width: '100%',
-  color: '$BLACK',
+  color: '$black',
 });
 
 export type DefaultDialogContentProps = {

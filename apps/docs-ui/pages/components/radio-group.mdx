@@ -10,7 +10,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/radio-group
 
-This package contains a radio-group component.
+This package contains a radio group component that can be used to select one option from a list of options.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -18,25 +18,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/radio-group
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/radio-group
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/radio-group
@@ -47,6 +43,8 @@ pnpm add @pikas-ui/radio-group
 ## Usage
 
 ### RadioGroup
+
+This component is used to create a radio group.
 
 <RadioGroupExample />
 
@@ -63,15 +61,15 @@ const Example: React.FC = () => {
       data={[
         {
           label: 'Radio Group item 1',
-          value: 'Radio Group item 1',
+          value: 'radio-group-item-1',
         },
         {
           label: 'Radio Group item 2',
-          value: 'Radio Group item 2',
+          value: 'radio-group-item-2',
         },
         {
           label: 'Radio Group item 3',
-          value: 'Radio Group item 3',
+          value: 'radio-group-item-3',
           disabled: true,
         },
       ]}
@@ -88,7 +86,7 @@ const Example: React.FC = () => {
 | `id`           | The id of the radio group            | `string`                                   | -            |
 | `label`        | The label of the radio group         | `ReactNode or string`                      | -            |
 | `textError`    | The error text of the radio group    | `string`                                   | -            |
-| `fontSize`     | The font size of the radio group     | `PikasFontSize`                            | `EM-MEDIUM`  |
+| `fontSize`     | The font size of the radio group     | `PikasFontSize`                            | `em-base`  |
 | `className`    | The class name of the radio group    | `string`                                   | -            |
 | `description`  | The description of the radio group   | `string`                                   | -            |
 | `css`          | The css of the radio group           | `RadioGroupCSS`                            | -            |
@@ -106,6 +104,8 @@ const Example: React.FC = () => {
 ---
 
 ### RadioGroupImage
+
+This component is used to create a radio group with images.
 
 <RadioGroupImageExample />
 
@@ -150,7 +150,7 @@ const Example: React.FC = () => {
 | `id`           | The id of the radio group            | `string`                                   | -            |
 | `label`        | The label of the radio group         | `ReactNode or string`                      | -            |
 | `textError`    | The error text of the radio group    | `string`                                   | -            |
-| `fontSize`     | The font size of the radio group     | `PikasFontSize`                            | `EM-MEDIUM`  |
+| `fontSize`     | The font size of the radio group     | `PikasFontSize`                            | `em-base`  |
 | `className`    | The class name of the radio group    | `string`                                   | -            |
 | `description`  | The description of the radio group   | `string`                                   | -            |
 | `css`          | The css of the radio group           | `RadioGroupImageCSS`                       | -            |
@@ -164,10 +164,12 @@ const Example: React.FC = () => {
 | `orientation`  | The orientation of the radio group   | `RadioGroupOrientation`                    | `"vertical"` |
 | `dir`          | The direction of the radio group     | `RadioGroupDirection`                      | `"ltr"`      |
 | `loop`         | The loop of the radio group          | `boolean`                                  | `false`      |
-| `borderRadius` | The border radius of the radio group | `BorderRadius`                             | `"md"`       |
+| `borderRadius` | The border radius of the radio group | `PikasRadius`                               | `"md"`       |
 | `imageWidth`   | The image width of the radio group   | `number or string`                         | `40`         |
 | `imageHeight`  | The image height of the radio group  | `number or string`                         | `40`         |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/radio-group.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/radio-group.mdx)

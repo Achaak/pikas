@@ -137,7 +137,7 @@ const DropdownMenuDataElement: FC<DropdownMenuDataProps> = ({ data, css }) => (
                     color:
                       item.colorHex ??
                       (item.colorName ? `$${item.colorName}` : undefined) ??
-                      'GRAY_DARKER',
+                      'gray-darker',
                     ...item.css?.container,
                   }}
                 >
@@ -146,7 +146,7 @@ const DropdownMenuDataElement: FC<DropdownMenuDataProps> = ({ data, css }) => (
                     <IconByName
                       name="bxs:chevron-right"
                       colorName={
-                        item.iconColorName ?? item.colorName ?? 'GRAY_DARKER'
+                        item.iconColorName ?? item.colorName ?? 'gray-darker'
                       }
                       colorHex={item.iconColorHex ?? item.colorHex}
                       size={20}
@@ -236,7 +236,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
               <IconByName
                 name="bx:dots-vertical-rounded"
                 size={iconSize}
-                colorName={iconColorName ?? 'BLACK_LIGHT'}
+                colorName={iconColorName ?? 'black-light'}
               />
             </IconButton>
           </DropdownMenuPrimitive.Trigger>

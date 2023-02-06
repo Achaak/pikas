@@ -1,5 +1,5 @@
 import type {
-  BorderRadius,
+  PikasRadius,
   PikasColor,
   PikasCSS,
   PikasShadow,
@@ -12,8 +12,8 @@ import { FC } from 'react';
 
 const Root = styled(ProgressPrimitive.Root, {
   position: 'relative',
-  background: '$BLACK',
-  zIndex: '$HIGH',
+  background: '$black',
+  zIndex: '$high',
 
   // Fix overflow clipping in Safari
   // https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0
@@ -54,7 +54,7 @@ const Content = styled('span', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '$WHITE',
+  color: '$white',
   transition: '660ms cubic-bezier(0.65, 0, 0.35, 1)',
 });
 
@@ -77,8 +77,8 @@ export type ProgressProps = {
   backgroundColorName?: PikasColor;
   loading?: boolean;
   boxShadow?: PikasShadow | 'none';
-  borderRadius?: BorderRadius;
-  borderRadiusIndicator?: BorderRadius;
+  borderRadius?: PikasRadius;
+  borderRadiusIndicator?: PikasRadius;
   getValueLabel?: (value: number, max: number) => string;
   content?: string;
   css?: ProgressCSS;
@@ -88,12 +88,12 @@ export const Progress: FC<ProgressProps> = ({
   progress = 0,
   height = 16,
   width = 280,
-  backgroundColorName = 'GRAY',
-  colorName = 'PRIMARY',
+  backgroundColorName = 'gray',
+  colorName = 'primary',
   max = 100,
   loading = false,
-  boxShadow = 'DIMINUTION_1',
-  borderRadius = 'round',
+  boxShadow = 'inner-md',
+  borderRadius = 'full',
   borderRadiusIndicator = 'none',
   getValueLabel = (value, maxRes): string =>
     `${Math.round((value / maxRes) * 100)}%`,
@@ -110,10 +110,10 @@ export const Progress: FC<ProgressProps> = ({
         width,
         height,
         backgroundColor: `$${backgroundColorName}`,
-        br: borderRadius,
+        borderRadius: `$${borderRadius}`,
 
         '&:after': {
-          br: borderRadius,
+          borderRadius: `$${borderRadius}`,
           boxShadow: `$${boxShadow}`,
         },
 
@@ -123,7 +123,7 @@ export const Progress: FC<ProgressProps> = ({
     >
       <ProgressContent
         css={{
-          br: borderRadius,
+          borderRadius: `$${borderRadius}`,
         }}
       >
         {loading ? (
@@ -135,7 +135,7 @@ export const Progress: FC<ProgressProps> = ({
                 100 - Math.round((progress / (max || 100)) * 100)
               }%)`,
               backgroundColor: `$${colorName}`,
-              br: borderRadiusIndicator,
+              borderRadius: `$${borderRadiusIndicator}`,
 
               ...css?.indicator,
             }}

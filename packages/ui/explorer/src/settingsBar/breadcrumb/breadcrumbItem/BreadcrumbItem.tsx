@@ -6,21 +6,21 @@ import { ExplorerContext } from '../../../Explorer.js';
 
 const Container = styled('span', {
   padding: '4px 8px',
-  borderColor: '$GRAY',
+  borderColor: '$gray',
   borderWidth: 1,
   borderStyle: 'solid',
-  br: 'md',
-  fontSize: '$EM-SMALL',
+  borderRadius: '$md',
+  fontSize: '$em-small',
   maxWidth: 100,
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
-  color: '$BLACK',
+  color: '$black',
   cursor: 'pointer',
   transition: 'background-color 0.2s ease-in-out',
 
   '&:hover': {
-    backgroundColor: '$PRIMARY_LIGHTER',
+    backgroundColor: '$primary-lighter',
   },
 });
 

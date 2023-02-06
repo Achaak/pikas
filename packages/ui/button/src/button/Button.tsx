@@ -1,6 +1,6 @@
 import type {
   PikasColor,
-  BorderRadius,
+  PikasRadius,
   PikasCSS,
   PikasFontSize,
   PikasFontWeight,
@@ -95,6 +95,9 @@ const ButtonDOM = styled('button', {
       },
     },
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: '4px 20px',
       },
@@ -129,13 +132,13 @@ const Content = styled('div', {
   variants: {
     gap: {
       sm: {
-        customGap: 4,
+        gap: 4,
       },
       md: {
-        customGap: 8,
+        gap: 8,
       },
       lg: {
-        customGap: 16,
+        gap: 16,
       },
     },
   },
@@ -198,7 +201,7 @@ export type ButtonDefaultProps = {
   width?: number | string;
   maxWidth?: number | string;
   minWidth?: number | string;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   borderWidth?: number;
   boxShadow?: PikasShadow | 'none';
 };
@@ -248,7 +251,7 @@ const getContent = ({
     <>
       <LoadingContainer>
         <BeatLoader
-          size={theme.fontSizes['EM-XX-SMALL'].value}
+          size={theme.fontSizes['em-2x-small'].value}
           colorHex={contentColor}
           loading={loading}
         />
@@ -275,7 +278,7 @@ const getContent = ({
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      colorName = 'PRIMARY',
+      colorName = 'primary',
       colorHex,
       css,
       loading = false,
@@ -290,12 +293,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       width = '100%',
       maxWidth = '100%',
       minWidth,
-      fontSize = 'EM-MEDIUM',
+      fontSize = 'em-base',
       textTransform = 'default',
-      fontWeight = 'NORMAL',
+      fontWeight = 'normal',
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1',
+      boxShadow = 'bottom-sm',
       contentColorName,
       contentColorHex,
       padding = 'md',
@@ -333,7 +336,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         effect={disabled ? undefined : effect}
         padding={padding}
         css={{
-          br: borderRadius,
+          borderRadius: `$${borderRadius}`,
           fontWeight: `$${fontWeight}`,
           borderWidth,
           fontSize: `$${fontSize}`,
@@ -376,12 +379,12 @@ Button.displayName = 'Button';
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   (
     {
-      colorName = 'PRIMARY',
+      colorName = 'primary',
       colorHex,
       css,
       loading = false,
       disabled = false,
-      fontSize = 'EM-MEDIUM',
+      fontSize = 'em-base',
       effect = 'opacity',
       onClick,
       children,
@@ -393,10 +396,10 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       maxWidth = '100%',
       minWidth,
       textTransform = 'default',
-      fontWeight = 'NORMAL',
+      fontWeight = 'normal',
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1',
+      boxShadow = 'bottom-sm',
       contentColorName,
       contentColorHex,
       padding = 'md',
@@ -435,7 +438,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         effect={disabled ? undefined : effect}
         padding={padding}
         css={{
-          br: borderRadius,
+          borderRadius: `$${borderRadius}`,
           fontWeight: `$${fontWeight}`,
           borderWidth,
           fontSize: `$${fontSize}`,

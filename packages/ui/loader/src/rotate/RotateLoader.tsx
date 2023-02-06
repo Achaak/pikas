@@ -14,7 +14,7 @@ export type RotateLoaderProps = {
 
 export const RotateLoader: FC<RotateLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   margin,

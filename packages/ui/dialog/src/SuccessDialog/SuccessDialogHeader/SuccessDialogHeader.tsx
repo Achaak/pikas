@@ -22,7 +22,7 @@ export const SuccessDialogHeader: FC<SuccessDialogHeaderProps> = ({
   <Container>
     <DialogIconContainer
       iconName="bx:check-circle"
-      backgroundColorName="SUCCESS"
+      backgroundColorName="success"
     />
     <DialogTitle
       css={{

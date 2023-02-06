@@ -1,5 +1,15 @@
 # @pikas-utils/file
 
+## 2.0.0
+
+### Major Changes
+
+- 31d1402f: Update props values based on new design system
+
+### Patch Changes
+
+- 1252b10e: Upgrade dependencies
+
 ## 1.0.17
 
 ### Patch Changes

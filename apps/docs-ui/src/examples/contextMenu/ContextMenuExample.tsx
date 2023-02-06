@@ -20,7 +20,7 @@ export const ContextMenuExample: FC = () => (
             label: 'Item 1-2',
             // eslint-disable-next-line no-console
             onCheckedChange: console.log,
-            colorName: 'PRIMARY',
+            colorName: 'primary',
           },
           {
             type: 'radio',
@@ -62,7 +62,7 @@ export const ContextMenuExample: FC = () => (
     <ExampleContainer
       css={{
         height: 200,
-        border: '1px solid $GRAY',
+        border: '1px solid $gray',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

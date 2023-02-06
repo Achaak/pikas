@@ -10,11 +10,11 @@ const IconExample: FC<IconProps> = (props) => (
 
 export const ButtonIconExample: FC = () => (
   <ExampleContainer>
-    <ButtonIcon Icon={IconExample} colorName="PRIMARY" />
-    <ButtonIcon Icon={IconExample} colorName="PRIMARY" outlined />
-    <ButtonIcon Icon={IconExample} colorName="SECONDARY" />
-    <ButtonIcon Icon={IconExample} colorName="SECONDARY" outlined />
-    <ButtonIcon Icon={IconExample} colorName="TERTIARY" />
-    <ButtonIcon Icon={IconExample} colorName="TERTIARY" outlined />
+    <ButtonIcon Icon={IconExample} colorName="primary" />
+    <ButtonIcon Icon={IconExample} colorName="primary" outlined />
+    <ButtonIcon Icon={IconExample} colorName="secondary" />
+    <ButtonIcon Icon={IconExample} colorName="secondary" outlined />
+    <ButtonIcon Icon={IconExample} colorName="tertiary" />
+    <ButtonIcon Icon={IconExample} colorName="tertiary" outlined />
   </ExampleContainer>
 );

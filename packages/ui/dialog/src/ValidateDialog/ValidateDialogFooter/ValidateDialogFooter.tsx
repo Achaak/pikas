@@ -7,7 +7,7 @@ const Container = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  customColumnGap: 16,
+  columnGap: 16,
   width: '100%',
 });
 

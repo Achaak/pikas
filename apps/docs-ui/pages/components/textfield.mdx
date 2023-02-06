@@ -9,31 +9,27 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/textfield
 
-This package contains a textfield component.
+This package contains a textfield component that can be used in your React application.
 
 <a href="https://github.com/Achaak/pikas/blob/main/packages/ui/textfield/CHANGELOG.md">
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/textfield
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/textfield
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/textfield
@@ -44,6 +40,8 @@ pnpm add @pikas-ui/textfield
 ## Usage
 
 ### Textfield
+
+With the `Textfield` component, you can create a textfield.
 
 <TextfieldExample />
 
@@ -69,19 +67,19 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | :--------------------- | :------------------------------------------ | :------------------------------------------- | :------------------ |
 | `type`                 | The type of the textfield.                  | `TextfieldType`                              | `"text"`            |
 | `label`                | The label of the textfield.                 | `string` or `ReactNode`                      | -                   |
-| `boxShadow`            | The box shadow of the textfield.            | `PikasShadow`                                | `"DIMINUTION_1"`    |
-| `borderRadius`         | The border radius of the textfield.         | `BorderRadius`                               | `"md"`              |
+| `boxShadow`            | The box shadow of the textfield.            | `PikasShadow`                                | `"inner-md"`    |
+| `borderRadius`         | The border radius of the textfield.         | `PikasRadius`                                 | `"md"`              |
 | `padding`              | The padding of the textfield.               | `TextfieldPadding`                           | `"md"`              |
 | `gap`                  | The gap of the textfield.                   | `TextfieldGap`                               | -                   |
-| `fontSize`             | The font size of the textfield.             | `PikasFontSize`                              | `"EM-MEDIUM"`       |
+| `fontSize`             | The font size of the textfield.             | `PikasFontSize`                              | `"em-base"`       |
 | `colorName`            | The color of the textfield.                 | `PikasColors`                                | -                   |
 | `colorHex`             | The color hex of the textfield.             | `string`                                     | -                   |
-| `placeholderColorName` | The placeholder color of the textfield.     | `PikasColors`                                | `"BLACK_LIGHT"`     |
+| `placeholderColorName` | The placeholder color of the textfield.     | `PikasColors`                                | `"black-light"`     |
 | `placeholderColorHex`  | The placeholder color hex of the textfield. | `string`                                     | -                   |
-| `borderColorName`      | The border color of the textfield.          | `PikasColors`                                | `"TRANSPARENT"`     |
+| `borderColorName`      | The border color of the textfield.          | `PikasColors`                                | `"transparent"`     |
 | `borderColorHex`       | The border color hex of the textfield.      | `string`                                     | -                   |
 | `borderWidth`          | The border width of the textfield.          | `number`                                     | `0`                 |
-| `backgroundColorName`  | The background color of the textfield.      | `PikasColors`                                | `"GRAY_LIGHTEST_1"` |
+| `backgroundColorName`  | The background color of the textfield.      | `PikasColors`                                | `"gray-lightest-1"` |
 | `backgroundColorHex`   | The background color hex of the textfield.  | `string`                                     | -                   |
 | `textError`            | The error text of the textfield.            | `string`                                     | -                   |
 | `onChange`             | The onChange event of the textfield.        | `(e: ChangeEvent<HTMLInputElement>) => void` | -                   |
@@ -109,4 +107,6 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/textfield.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/textfield.mdx)

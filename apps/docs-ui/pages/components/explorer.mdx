@@ -9,33 +9,29 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/explorer
 
-This package contains a explorer component.
+This package contains a explorer component that can be used to show a list of files and folders.
 
-This library is based on [dndkit](https://dndkit.com).
+This library is based on [Dnd-kit](https://dndkit.com).
 
 <a href="https://github.com/Achaak/pikas/blob/main/packages/ui/explorer/CHANGELOG.md">
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/explorer
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/explorer
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/explorer
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/explorer
 ## Usage
 
 ### Explorer
+
+This component is used to show a list of files and folders. You can use the `showType` prop to change the view type. And you can drag and drop items to move them to another folder.
 
 #### With grid view
 
@@ -102,7 +100,7 @@ const Example: React.FC = () => {
                 onClick: (): void => {
                   alert(`Delete item id: ${item.id}`);
                 },
-                colorName: 'DANGER',
+                colorName: 'danger',
                 Icon: TrashIcon,
               },
             ],
@@ -182,4 +180,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/explorer.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/explorer.mdx)

@@ -3,9 +3,9 @@ import { FC } from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
 
 const RadioGroupItemLabelStyled = styled(LabelPrimitive.Label, {
-  fontSize: '$EM-SMALL',
+  fontSize: '$em-small',
   cursor: 'unset',
-  color: '$BLACK',
+  color: '$black',
 });
 
 export type RadioGroupItemLabelProps = LabelPrimitive.LabelProps & {

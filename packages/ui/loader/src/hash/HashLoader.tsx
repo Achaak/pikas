@@ -13,7 +13,7 @@ export type HashLoaderProps = {
 
 export const HashLoader: FC<HashLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

@@ -9,31 +9,28 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/multi-input-field
 
-This package contains a multi-input-field component.
+This package contains a multi input field component that can be used to put multiple values in a single input field.
+
 
 <a href="https://github.com/Achaak/pikas/blob/main/packages/ui/multi-input-field/CHANGELOG.md">
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/multi-input-field
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/multi-input-field
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/multi-input-field
@@ -44,6 +41,8 @@ pnpm add @pikas-ui/multi-input-field
 ## Usage
 
 ### MultiInputField
+
+This component is used to put multiple values in a single input field.
 
 <MultiInputFieldExample />
 
@@ -73,19 +72,19 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 | `css`                  | The css of the component                    | `MultiInputFieldCSS`         | -                   |
 | `id`                   | The id of the component                     | `string`                     | -                   |
 | `label`                | The label of the component                  | `string` or `ReactNode`      | -                   |
-| `boxShadow`            | The box-shadow of the component             | `PikasShadow or 'none'`      | `"DIMINUTION_1"`    |
-| `borderRadius`         | The border-radius of the component          | `BorderRadius`               | `"md"`              |
+| `boxShadow`            | The box-shadow of the component             | `PikasShadow or 'none'`      | `"inner-md"`    |
+| `borderRadius`         | The border-radius of the component          | `PikasRadius`                 | `"md"`              |
 | `padding`              | The padding of the component                | `MultiInputFieldPadding`     | `"md"`              |
 | `gap`                  | The gap of the component                    | `MultiInputFieldGap`         | `"sm"`              |
-| `fontSize`             | The font-size of the component              | `PikasFontSize`              | `"EM-MEDIUM"`       |
-| `borderColorName`      | The border-color-name of the component      | `PikasColor`                 | `"TRANSPARENT"`     |
+| `fontSize`             | The font-size of the component              | `PikasFontSize`              | `"em-base"`       |
+| `borderColorName`      | The border-color-name of the component      | `PikasColor`                 | `"transparent"`     |
 | `borderColorHex`       | The border-color-hex of the component       | `string`                     | -                   |
 | `borderWidth`          | The border-width of the component           | `number`                     | `0`                 |
 | `colorName`            | The color-name of the component             | `PikasColor`                 | -                   |
 | `colorHex`             | The color-hex of the component              | `string`                     | -                   |
-| `placeholderColorName` | The placeholder-color-name of the component | `PikasColor`                 | `"BLACK_LIGHT"`     |
+| `placeholderColorName` | The placeholder-color-name of the component | `PikasColor`                 | `"black-light"`     |
 | `placeholderColorHex`  | The placeholder-color-hex of the component  | `string`                     | -                   |
-| `backgroundColorName`  | The background-color-name of the component  | `PikasColor`                 | `"GRAY_LIGHTEST_1"` |
+| `backgroundColorName`  | The background-color-name of the component  | `PikasColor`                 | `"gray-lightest-1"` |
 | `backgroundColorHex`   | The background-color-hex of the component   | `string`                     | -                   |
 | `textError`            | The text-error of the component             | `string`                     | -                   |
 | `onChange`             | The on-change of the component              | `(values: string[]) => void` | -                   |
@@ -113,4 +112,6 @@ Props extends `InputHTMLAttributes<HTMLInputElement>`
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/multi-input-field.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/multi-input-field.mdx)

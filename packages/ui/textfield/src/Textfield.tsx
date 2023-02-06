@@ -2,7 +2,7 @@ import type { IconProps, IconCSS } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import type {
   PikasColor,
-  BorderRadius,
+  PikasRadius,
   PikasCSS,
   PikasShadow,
   PikasFontSize,
@@ -42,41 +42,48 @@ const InputContainer = styled('div', {
     focus: {
       true: {
         outline: 'solid',
-        outlineColor: '$PRIMARY',
+        outlineColor: '$primary',
         outlineWidth: 2,
       },
     },
 
     gap: {
       xs: {
-        customColumnGap: 2,
+        columnGap: 2,
       },
       sm: {
-        customColumnGap: 4,
+        columnGap: 4,
       },
       md: {
-        customColumnGap: 8,
+        columnGap: 8,
       },
       lg: {
-        customColumnGap: 16,
+        columnGap: 16,
       },
       xl: {
-        customColumnGap: 32,
+        columnGap: 32,
       },
     },
   },
 });
 
 const Input = styled('input', {
+  all: 'unset',
   width: '100%',
   outline: 'none',
-  fontSize: '$EM-SMALL',
   border: 'none',
   fontFamily: '$roboto',
-  backgroundColor: '$TRANSPARENT',
+  backgroundColor: '$transparent',
+
+  '&::placeholder': {
+    color: '$gray-dark',
+  },
 
   variants: {
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: '4px 8px',
       },
@@ -103,6 +110,9 @@ const LeftContainer = styled(LabelPrimitive.Root, {
 
   variants: {
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: 2,
       },
@@ -129,6 +139,9 @@ const RightContainer = styled(LabelPrimitive.Root, {
 
   variants: {
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: 2,
       },
@@ -154,7 +167,7 @@ const LabelContainer = styled('div', {
 });
 
 const Required = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 
@@ -177,6 +190,7 @@ export const textfieldType = {
 export type TextfieldType = keyof typeof textfieldType;
 
 export const textfieldPadding = {
+  none: true,
   xs: true,
   sm: true,
   md: true,
@@ -215,7 +229,7 @@ export type TextfieldProps = InputHTMLAttributes<HTMLInputElement> & {
   id?: string;
   label?: ReactNode | string;
   boxShadow?: PikasShadow | 'none';
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   padding?: TextfieldPadding;
   gap?: TextfieldGap;
   fontSize?: PikasFontSize;
@@ -270,7 +284,7 @@ const getColor = ({
     return `$${colorName}`;
   } else if (theme) {
     return new Color(
-      theme.colors[backgroundColorName ?? 'WHITE'].value
+      theme.colors[backgroundColorName ?? 'white'].value
     ).getContrast();
   } else {
     return '';
@@ -283,14 +297,14 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       id,
       type = 'text',
       onChange,
-      boxShadow = 'DIMINUTION_1',
+      boxShadow = 'inner-md',
       borderRadius = 'md',
       padding = 'md',
-      fontSize = 'EM-MEDIUM',
+      fontSize = 'em-base',
       textError,
       label,
       css,
-      borderColorName = 'TRANSPARENT',
+      borderColorName = 'transparent',
       borderWidth = 0,
       autoComplete,
       min,
@@ -299,7 +313,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       RightIcon,
       leftChildren,
       rightChildren,
-      backgroundColorName = 'GRAY_LIGHTEST_1',
+      backgroundColorName = 'gray-lightest-1',
       outline = true,
       description,
       gap,
@@ -310,7 +324,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       borderColorHex,
       colorName,
       colorHex,
-      placeholderColorName = 'BLACK_LIGHT',
+      placeholderColorName = 'black-light',
       placeholderColorHex,
       leftIconColorName,
       leftIconColorHex,
@@ -373,7 +387,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
+                  colorName="black-light"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -404,7 +418,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
           focus={outline ? focus : undefined}
           gap={gap}
           css={{
-            br: borderRadius,
+            borderRadius: `$${borderRadius}`,
             borderColor: borderColorHex ?? `$${borderColorName}`,
             backgroundColor: backgroundColorHex ?? `$${backgroundColorName}`,
             boxShadow: `$${boxShadow}`,

@@ -9,7 +9,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/slider
 
-This package contains a slider component.
+This package contains a slider component that can be used to select a value from a range.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -17,25 +17,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/slider
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/slider
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/slider
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/slider
 ## Usage
 
 ### Slider
+
+This component is used to select a value from a range. It can be used as a single slider or as a range slider.
 
 <SliderExample />
 
@@ -72,7 +70,7 @@ const Example: React.FC = () => {
 | `id`                        | The id of the slider.                                           | `string`                    | -                |
 | `label`                     | The label of the slider.                                        | `string or ReactNode`       | -                |
 | `textError`                 | The error text of the slider.                                   | `string`                    | -                |
-| `fontSize`                  | The font size of the slider.                                    | `PikasFontSize`             | `EM-MEDIUM`      |
+| `fontSize`                  | The font size of the slider.                                    | `PikasFontSize`             | `em-base`        |
 | `className`                 | The class name of the slider.                                   | `string`                    | -                |
 | `description`               | The description of the slider.                                  | `string`                    | -                |
 | `value`                     | The value of the slider.                                        | `number[]`                  | -                |
@@ -89,23 +87,25 @@ const Example: React.FC = () => {
 | `minSize`                   | The min size of the slider.                                     | `string or number`          | -                |
 | `weight`                    | The weight of the slider.                                       | `number`                    | `4`              |
 | `thumbSize`                 | The size of the thumb.                                          | `number`                    | `16`             |
-| `thumbColorName`            | The color of the thumb.                                         | `PikasColors`               | `"WHITE"`        |
+| `thumbColorName`            | The color of the thumb.                                         | `PikasColors`               | `"white"`        |
 | `thumbColorHex`             | The hex color of the thumb.                                     | `string`                    | -                |
 | `thumbBorderColorName`      | The color of the thumb border.                                  | `PikasColors`               | -                |
 | `thumbBorderColorHex`       | The color of the thumb border in hexadecimal                    | `string`                    | -                |
-| `thumbBorderColorNameHover` | The color of the thumb border on hover.                         | `PikasColors`               | `"GRAY_LIGHTER"` |
+| `thumbBorderColorNameHover` | The color of the thumb border on hover.                         | `PikasColors`               | `"gray-lighter"` |
 | `thumbBorderColorHoverHex`  | The color of the thumb border on hover in hexadecimal.          | `string`                    | -                |
 | `thumbBorderWidth`          | The width of the thumb border.                                  | `number`                    | -                |
-| `thumbBorderRadius`         | The radius of the thumb border.                                 | `BorderRadius`              | `"round"`        |
-| `trackColorName`            | The color of the track.                                         | `PikasColors`               | `"GRAY_LIGHTER"` |
+| `thumbBorderRadius`         | The radius of the thumb border.                                 | `PikasRadius`               | `"full"`         |
+| `trackColorName`            | The color of the track.                                         | `PikasColors`               | `"gray-lighter"` |
 | `trackColorHex`             | The color of the track in hexadecimal.                          | `string`                    | -                |
 | `rangeColorName`            | The color of the range.                                         | `PikasColors`               | -                |
 | `rangeColorHex`             | The color of the range in hexadecimal.                          | `string`                    | -                |
-| `sliderBorderRadius`        | The radius of the slider border.                                | `BorderRadius`              | `"round"`        |
+| `sliderBorderRadius`        | The radius of the slider border.                                | `PikasRadius`               | `"full"`         |
 | `css`                       | The css of the slider.                                          | `SliderCSS`                 | -                |
 | `inverted`                  | If the slider is inverted.                                      | `boolean`                   | -                |
 | `onValueCommit`             | Callback function that is called when the slider value changes. | `(value: number[]) => void` | -                |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/slider.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/slider.mdx)

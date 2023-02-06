@@ -18,13 +18,13 @@ const LabelContainer = styled('div', {
 });
 
 const Required = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 
 const InputContainer = styled('div', {
   display: 'flex',
-  customColumnGap: 8,
+  columnGap: 8,
   alignItems: 'center',
 });
 
@@ -32,9 +32,9 @@ const ColorInputWrapper = styled('div', {
   display: 'flex',
   height: 32,
   width: 32,
-  br: 'sm',
+  borderRadius: '$sm',
   cursor: 'pointer',
-  boxShadow: '$DIMINUTION_1',
+  boxShadow: '$inner-md',
 });
 
 const ColorInput = styled('input', {
@@ -80,7 +80,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
   description,
   info,
   label,
-  fontSize = 'EM-MEDIUM',
+  fontSize = 'em-base',
   width = '100%',
   maxWidth = '100%',
   minWidth,
@@ -135,7 +135,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
             <Tooltip content={info} css={css?.infoTooltip}>
               <IconByName
                 name="bx:info-circle"
-                colorName="BLACK_LIGHT"
+                colorName="black-light"
                 css={{
                   container: {
                     marginLeft: 4,

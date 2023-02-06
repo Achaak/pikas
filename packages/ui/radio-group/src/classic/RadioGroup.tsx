@@ -25,8 +25,8 @@ const Indicator = styled(RadioGroupPrimitive.Indicator, {
     content: '""',
     width: 8,
     height: 8,
-    br: 'round',
-    backgroundColor: '$PRIMARY',
+    borderRadius: '$full',
+    backgroundColor: '$primary',
   },
 });
 
@@ -46,7 +46,7 @@ export const RadioGroup: FC<RadioGroupProps> = ({
   id,
   label,
   textError,
-  fontSize = 'EM-MEDIUM',
+  fontSize = 'em-base',
   className,
   description,
   css,
@@ -76,12 +76,6 @@ export const RadioGroup: FC<RadioGroupProps> = ({
     }
   }, [value]);
 
-  useEffect(() => {
-    if (defaultValue) {
-      setCurrentValue(defaultValue);
-    }
-  }, [defaultValue]);
-
   return (
     <Container
       className={className}
@@ -102,7 +96,7 @@ export const RadioGroup: FC<RadioGroupProps> = ({
             <Tooltip content={info} css={css?.infoTooltip}>
               <IconByName
                 name="bx:info-circle"
-                colorName="BLACK_LIGHT"
+                colorName="black-light"
                 css={{
                   container: {
                     marginLeft: 4,
@@ -160,7 +154,7 @@ export const RadioGroup: FC<RadioGroupProps> = ({
                 css={{
                   width: 16,
                   height: 16,
-                  br: 'round',
+                  borderRadius: '$full',
                   ...css?.radioGroupItem,
                 }}
               >

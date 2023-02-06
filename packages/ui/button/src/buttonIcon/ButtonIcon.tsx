@@ -1,5 +1,5 @@
 import type {
-  BorderRadius,
+  PikasRadius,
   PikasColor,
   PikasSize,
   PikasCSS,
@@ -35,9 +35,9 @@ const ButtonIconDOM = styled('button', {
   position: 'relative',
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
-  br: 'md',
+  borderRadius: '$lg',
   borderWidth: 2,
-  boxShadow: '$ELEVATION_BOTTOM_1',
+  boxShadow: '$bottom-sm',
 
   variants: {
     effect: {
@@ -93,6 +93,9 @@ const ButtonIconDOM = styled('button', {
       },
     },
     padding: {
+      none: {
+        padding: 0,
+      },
       xs: {
         padding: 2,
       },
@@ -154,7 +157,7 @@ export type ButtonIconDefaultProps = {
   contentColorName?: PikasColor;
   contentColorHex?: string;
   disabled?: boolean;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   borderWidth?: number;
   boxShadow?: PikasShadow | 'none';
 };
@@ -222,7 +225,7 @@ const getContent = ({
 export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   (
     {
-      colorName = 'PRIMARY',
+      colorName = 'primary',
       colorHex,
       css,
       loading = false,
@@ -234,7 +237,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       size = 6,
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1',
+      boxShadow = 'bottom-sm',
       contentColorName,
       contentColorHex,
       padding = 'md',
@@ -272,7 +275,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
         effect={disabled ? undefined : effect}
         padding={padding}
         css={{
-          br: borderRadius,
+          borderRadius: `$${borderRadius}`,
           borderWidth,
           boxShadow: `$${boxShadow}`,
 
@@ -310,7 +313,7 @@ export const ButtonIconLink = forwardRef<
 >(
   (
     {
-      colorName = 'PRIMARY',
+      colorName = 'primary',
       colorHex,
       css,
       loading = false,
@@ -322,7 +325,7 @@ export const ButtonIconLink = forwardRef<
       disabled,
       borderRadius = 'md',
       borderWidth = 2,
-      boxShadow = 'ELEVATION_BOTTOM_1',
+      boxShadow = 'bottom-sm',
       contentColorName,
       contentColorHex,
       padding = 'md',
@@ -361,7 +364,7 @@ export const ButtonIconLink = forwardRef<
         effect={disabled ? undefined : effect}
         padding={padding}
         css={{
-          br: borderRadius,
+          borderRadius: `$${borderRadius}`,
           borderWidth,
           boxShadow: `$${boxShadow}`,
 

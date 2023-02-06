@@ -13,7 +13,7 @@ export type ClimbingBoxLoaderProps = {
 
 export const ClimbingBoxLoader: FC<ClimbingBoxLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

@@ -44,7 +44,7 @@ export const DropdownMenuCheckbox: FC<CheckboxItem> = ({
     onCheckedChange={onCheckedChange}
     css={{
       color:
-        colorHex ?? (colorName ? `$${colorName}` : undefined) ?? 'GRAY_DARKER',
+        colorHex ?? (colorName ? `$${colorName}` : undefined) ?? 'gray-darker',
       ...css?.container,
     }}
   >
@@ -52,7 +52,7 @@ export const DropdownMenuCheckbox: FC<CheckboxItem> = ({
       <IconByName
         name="bx:check"
         size={16}
-        colorName={iconColorName ?? colorName ?? 'GRAY_DARKER'}
+        colorName={iconColorName ?? colorName ?? 'gray-darker'}
         colorHex={iconColorHex ?? colorHex}
       />
     </ItemIndicator>

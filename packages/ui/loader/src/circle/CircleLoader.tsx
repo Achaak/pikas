@@ -13,7 +13,7 @@ export type CircleLoaderProps = {
 
 export const CircleLoader: FC<CircleLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

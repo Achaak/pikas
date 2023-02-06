@@ -10,7 +10,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/select
 
-This package contains a select component.
+This package contains a select component that can be used to select an option from a list of options.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -18,25 +18,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/select
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/select
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/select
@@ -47,6 +43,8 @@ pnpm add @pikas-ui/select
 ## Usage
 
 ### Select
+
+This component is used to select an option from a list of options.
 
 <SelectExample />
 
@@ -122,8 +120,11 @@ const Example: React.FC = () => {
 | `required`            | The required of the select.                   | `boolean`                 | `false`  |
 | `info`                | Add a info icon with a tooltip.               | `string`                  | -        |
 | `disabled`            | If the select is disabled.                    | `boolean`                 | `false`  |
+| `placeholder`         | The placeholder of the select.                | `string`                  | -        |
 
 #### Reference
+
+You can use the `ref` prop to get the select reference.
 
 <SelectRefExample />
 
@@ -181,4 +182,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/select.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/select.mdx)

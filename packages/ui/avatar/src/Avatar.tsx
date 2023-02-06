@@ -1,5 +1,5 @@
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
+import type { PikasRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import { Skeleton } from '@pikas-ui/skeleton';
 import { FC } from 'react';
@@ -28,7 +28,7 @@ const Fallback = styled(AvatarPrimitive.Fallback, {
   alignItems: 'center',
   justifyContent: 'center',
   lineHeight: 1,
-  fontWeight: '$BOLD',
+  fontWeight: '$bold',
 });
 
 export type AvatarCSS = {
@@ -49,7 +49,7 @@ export type AvatarProps = {
   fallbackBackgroundColorName?: PikasColor;
   css?: AvatarCSS;
   size?: number;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   loading?: boolean;
 };
 
@@ -59,11 +59,11 @@ export const Avatar: FC<AvatarProps> = ({
   onLoadingStatusChange,
   delayMs,
   fallback,
-  fallbackBackgroundColorName = 'PRIMARY_LIGHTEST_2',
-  fallbackColorName = 'PRIMARY',
+  fallbackBackgroundColorName = 'primary-lightest-2',
+  fallbackColorName = 'primary',
   css,
   size = 80,
-  borderRadius = 'round',
+  borderRadius = 'full',
   loading = false,
 }) => (
   <Root
@@ -72,7 +72,7 @@ export const Avatar: FC<AvatarProps> = ({
       minHeight: size,
       width: size,
       minWidth: size,
-      br: borderRadius,
+      borderRadius: `$${borderRadius}`,
       ...css?.container,
     }}
   >

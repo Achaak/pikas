@@ -15,7 +15,7 @@ export type GridLoaderProps = {
 export const GridLoader: FC<GridLoaderProps> = ({
   size,
   margin,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

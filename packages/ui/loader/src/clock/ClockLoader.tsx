@@ -13,7 +13,7 @@ export type ClockLoaderProps = {
 
 export const ClockLoader: FC<ClockLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

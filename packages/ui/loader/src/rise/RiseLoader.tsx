@@ -14,7 +14,7 @@ export type RiseLoaderProps = {
 
 export const RiseLoader: FC<RiseLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   margin,

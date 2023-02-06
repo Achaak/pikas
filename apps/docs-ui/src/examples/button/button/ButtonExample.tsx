@@ -4,22 +4,22 @@ import { FC } from 'react';
 
 export const ButtonExample: FC = () => (
   <ExampleContainer>
-    <Button colorName="PRIMARY" width="auto">
+    <Button colorName="primary" width="auto">
       Primary
     </Button>
-    <Button colorName="PRIMARY" width="auto" outlined>
+    <Button colorName="primary" width="auto" outlined>
       Button
     </Button>
-    <Button colorName="SECONDARY" width="auto">
+    <Button colorName="secondary" width="auto">
       Secondary
     </Button>
-    <Button colorName="SECONDARY" width="auto" outlined>
+    <Button colorName="secondary" width="auto" outlined>
       Secondary
     </Button>
-    <Button colorName="TERTIARY" width="auto">
+    <Button colorName="tertiary" width="auto">
       Tertiary
     </Button>
-    <Button colorName="TERTIARY" width="auto" outlined>
+    <Button colorName="tertiary" width="auto" outlined>
       Tertiary
     </Button>
   </ExampleContainer>

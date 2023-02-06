@@ -1,4 +1,10 @@
-export const pikasBorderWidths = {};
+export const pikasBorderWidths = {
+  0: '0px',
+  1: '1px',
+  2: '2px',
+  4: '4px',
+  8: '8px',
+};
 
 export type PikasBorderWidths = typeof pikasBorderWidths;
 export type PikasBorderWidth = keyof PikasBorderWidths;

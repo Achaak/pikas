@@ -9,7 +9,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/tooltip
 
-This package contains a tooltip component.
+This package contains a tooltip component that can be used to display a tooltip on hover or focus.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -17,25 +17,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/tooltip
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/tooltip
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/tooltip
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/tooltip
 ## Usage
 
 ### Tooltip
+
+The tooltip component is used to display a tooltip on hover or focus.
 
 <TooltipExample />
 
@@ -64,32 +62,34 @@ const Example: React.FC = () => {
 
 #### Props
 
-| Prop                  | Description                        | Type                      | Default         |
-| :-------------------- | :--------------------------------- | :------------------------ | :-------------- |
-| `content`             | Tooltip content                    | `string or ReactNode`     | -               |
-| `children`            | Trigger element                    | `ReactNode`               | -               |
-| `backgroundColorName` | Background color                   | `PikasColors`             | `"WHITE"`       |
-| `open`                | Open state                         | `boolean`                 | -               |
-| `defaultOpen`         | Default open                       | `boolean`                 | -               |
-| `onOpenChange`        | Event handler                      | `(open: boolean) => void` | -               |
-| `delayDuration`       | Delay duration                     | `number`                  | -               |
-| `skipDelayDuration`   | Skip delay duration                | `number`                  | -               |
-| `hasArrow`            | Has arrow indicator                | `boolean`                 | `true`          |
-| `arrowSize`           | Arrow size                         | `number`                  | `10`            |
-| `arrowOffset`         | Arrow offset                       | `number`                  | `8`             |
-| `side`                | Side of the tooltip                | `TooltipSide`             | -               |
-| `sideOffset`          | Side offset of the tooltip         | `number`                  | -               |
-| `align`               | Align of content                   | `TooltipAlign`            | -               |
-| `alignOffset`         | Align offset                       | `number`                  | -               |
-| `avoidCollisions`     | Avoid collisions                   | `boolean`                 | `true`          |
-| `collisionPadding`    | Collision tolerance of the tooltip | `number`                  | -               |
-| `borderRadius`        | Border radius of the tooltip       | `BorderRadius`            | `"md"`          |
-| `fontSize`            | Font size of content               | `PikasFontSize`           | `"EM-SMALL"`    |
-| `fontWeight`          | Font weight of content             | `PikasFontWeight`         | -               |
-| `boxShadow`           | Box shadow of the tooltip          | `PikasShadow`             | `"ELEVATION_2"` |
-| `padding`             | Padding of the tooltip             | `TooltipPadding`          | `"md"`          |
-| `css`                 | Custom css                         | `TooltipCSS`              | -               |
+| Prop                  | Description                        | Type                      | Default       |
+| :-------------------- | :--------------------------------- | :------------------------ | :------------ |
+| `content`             | Tooltip content                    | `string or ReactNode`     | -             |
+| `children`            | Trigger element                    | `ReactNode`               | -             |
+| `backgroundColorName` | Background color                   | `PikasColors`             | `"white"`     |
+| `open`                | Open state                         | `boolean`                 | -             |
+| `defaultOpen`         | Default open                       | `boolean`                 | -             |
+| `onOpenChange`        | Event handler                      | `(open: boolean) => void` | -             |
+| `delayDuration`       | Delay duration                     | `number`                  | -             |
+| `skipDelayDuration`   | Skip delay duration                | `number`                  | -             |
+| `hasArrow`            | Has arrow indicator                | `boolean`                 | `true`        |
+| `arrowSize`           | Arrow size                         | `number`                  | `10`          |
+| `arrowOffset`         | Arrow offset                       | `number`                  | `8`           |
+| `side`                | Side of the tooltip                | `TooltipSide`             | -             |
+| `sideOffset`          | Side offset of the tooltip         | `number`                  | -             |
+| `align`               | Align of content                   | `TooltipAlign`            | -             |
+| `alignOffset`         | Align offset                       | `number`                  | -             |
+| `avoidCollisions`     | Avoid collisions                   | `boolean`                 | `true`        |
+| `collisionPadding`    | Collision tolerance of the tooltip | `number`                  | -             |
+| `borderRadius`        | Border radius of the tooltip       | `PikasRadius`             | `"md"`        |
+| `fontSize`            | Font size of content               | `PikasFontSize`           | `"em-small"`  |
+| `fontWeight`          | Font weight of content             | `PikasFontWeight`         | -             |
+| `boxShadow`           | Box shadow of the tooltip          | `PikasShadow`             | `"bottom-md"` |
+| `padding`             | Padding of the tooltip             | `TooltipPadding`          | `"md"`        |
+| `css`                 | Custom css                         | `TooltipCSS`              | -             |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/tooltip.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/tooltip.mdx)

@@ -1,4 +1,4 @@
-import type { BorderRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
+import type { PikasRadius, PikasColor, PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import { FC } from 'react';
@@ -15,14 +15,14 @@ export type SeparatorProps = {
   size?: number;
   css?: PikasCSS;
   colorName?: PikasColor;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
 };
 
 export const Separator: FC<SeparatorProps> = ({
   orientation = 'horizontal',
   css,
   className,
-  colorName = 'GRAY_LIGHT',
+  colorName = 'gray-light',
   size = 2,
   borderRadius,
 }) => (
@@ -31,7 +31,7 @@ export const Separator: FC<SeparatorProps> = ({
     className={className}
     css={{
       backgroundColor: `$${colorName}`,
-      br: borderRadius,
+      borderRadius: borderRadius ? `$${borderRadius}` : undefined,
 
       '&[data-orientation=horizontal]': {
         minHeight: size,

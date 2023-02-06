@@ -1,6 +1,6 @@
 import type {
   PikasColor,
-  BorderRadius,
+  PikasRadius,
   PikasCSS,
   PikasShadow,
   PikasFontSize,
@@ -29,27 +29,39 @@ const TextareaStyled = styled('textarea', {
   alignItems: 'center',
   borderStyle: 'solid',
   outline: 'none',
-  fontSize: '$EM-SMALL',
   border: 'none',
   fontFamily: '$roboto',
-  backgroundColor: '$TRANSPARENT',
+  backgroundColor: '$transparent',
+
+  '&::placeholder': {
+    color: '$gray-dark',
+  },
 
   variants: {
     padding: {
-      sm: {
+      none: {
+        padding: 0,
+      },
+      xs: {
         padding: '4px 8px',
+      },
+      sm: {
+        padding: '6px 12px',
       },
       md: {
         padding: '8px 16px',
       },
       lg: {
+        padding: '12px 24px',
+      },
+      xl: {
         padding: '16px 32px',
       },
     },
     focus: {
       true: {
         outline: 'solid',
-        outlineColor: '$PRIMARY',
+        outlineColor: '$primary',
         outlineWidth: 2,
       },
     },
@@ -62,14 +74,17 @@ const LabelContainer = styled('div', {
 });
 
 const Required = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 
 export const textareaPadding = {
+  none: true,
+  xs: true,
   sm: true,
   md: true,
   lg: true,
+  xl: true,
 } as const;
 export type TextareaPadding = keyof typeof textareaPadding;
 
@@ -96,7 +111,7 @@ export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   id?: string;
   label?: ReactNode | string;
   boxShadow?: PikasShadow | 'none';
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   padding?: TextareaPadding;
   fontSize?: PikasFontSize;
   textError?: string;
@@ -141,7 +156,7 @@ const getColor = ({
     return `$${colorName}`;
   } else if (theme) {
     return new Color(
-      theme.colors[backgroundColorName ?? 'WHITE'].value
+      theme.colors[backgroundColorName ?? 'white'].value
     ).getContrast();
   } else {
     return '';
@@ -153,16 +168,16 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     {
       id,
       onChange,
-      boxShadow = 'DIMINUTION_1',
+      boxShadow = 'inner-md',
       borderRadius = 'md',
       padding = 'md',
-      fontSize = 'EM-MEDIUM',
+      fontSize = 'em-base',
       textError,
       label,
       css,
-      borderColorName = 'TRANSPARENT',
+      borderColorName = 'transparent',
       borderWidth = 0,
-      backgroundColorName = 'GRAY_LIGHTEST_1',
+      backgroundColorName = 'gray-lightest-1',
       outline = true,
       resize,
       description,
@@ -176,7 +191,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       borderColorHex,
       colorName,
       colorHex,
-      placeholderColorName = 'BLACK_LIGHT',
+      placeholderColorName = 'black-light',
       placeholderColorHex,
       info,
       required,
@@ -222,7 +237,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
+                  colorName="black-light"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -260,7 +275,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           required={required}
           disabled={disabled}
           css={{
-            br: borderRadius,
+            borderRadius: `$${borderRadius}`,
             borderColor: borderColorHex ?? `$${borderColorName}`,
             backgroundColor: backgroundColorHex ?? `$${backgroundColorName}`,
             boxShadow: `$${boxShadow}`,

@@ -9,31 +9,27 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/textarea
 
-This package contains a textarea component.
+This package contains a textarea component that can be used in your application.
 
 <a href="https://github.com/Achaak/pikas/blob/main/packages/ui/textarea/CHANGELOG.md">
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/textarea
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/textarea
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/textarea
@@ -44,6 +40,8 @@ pnpm add @pikas-ui/textarea
 ## Usage
 
 ### Textarea
+
+With the `Textarea` component, you can create a textarea.
 
 <TextareaExample />
 
@@ -69,15 +67,15 @@ Props extends `TextareaHTMLAttributes<HTMLTextAreaElement>`
 | Prop                   | Description                                | Type                    | Default          |
 | :--------------------- | :----------------------------------------- | :---------------------- | :--------------- |
 | `label`                | The label of the textarea.                 | `string` or `ReactNode` | -                |
-| `boxShadow`            | The box shadow of the textarea.            | `PikasShadow`           | `"DIMINUTION_1"` |
-| `borderRadius`         | The border radius of the textarea.         | `BorderRadius`          | `"md"`           |
+| `boxShadow`            | The box shadow of the textarea.            | `PikasShadow`           | `"inner-md"` |
+| `borderRadius`         | The border radius of the textarea.         | `PikasRadius`            | `"md"`           |
 | `padding`              | The padding of the textarea.               | `TextareaPadding`       | `"md"`           |
-| `fontSize`             | The font size of the textarea.             | `PikasFontSize`         | `"EM-MEDIUM"`    |
+| `fontSize`             | The font size of the textarea.             | `PikasFontSize`         | `"em-base"`    |
 | `colorName`            | The color of the textarea.                 | `PikasColors`           | -                |
 | `colorHex`             | The color hex of the textarea.             | `string`                | -                |
-| `placeholderColorName` | The placeholder color of the textarea.     | `PikasColors`           | `"BLACK_LIGHT"`  |
+| `placeholderColorName` | The placeholder color of the textarea.     | `PikasColors`           | `"black-light"`  |
 | `placeholderColorHex`  | The placeholder color hex of the textarea. | `string`                | -                |
-| `borderColorName`      | The border color of the textarea.          | `PikasColors`           | `"TRANSPARENT"`  |
+| `borderColorName`      | The border color of the textarea.          | `PikasColors`           | `"transparent"`  |
 | `borderColorHex`       | The border color hex of the textarea.      | `string`                | -                |
 | `borderWidth`          | The border width of the textarea.          | `number`                | `0`              |
 | `textError`            | The error text of the textarea.            | `string`                | -                |
@@ -97,4 +95,6 @@ Props extends `TextareaHTMLAttributes<HTMLTextAreaElement>`
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/textarea.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/textarea.mdx)

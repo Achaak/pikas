@@ -1,11 +1,11 @@
 export const pikasLetterSpacings = {
-  'XX-SMALL': '0.2px',
-  'X-SMALL': '0.3px',
-  SMALL: '0.5px',
-  MEDIUM: '1px',
-  LARGE: '1.5px',
-  'X-LARGE': '2px',
-  'XX-LARGE': '3px',
+  tightest: '-0.1em',
+  tighter: '-0.05em',
+  tight: '-0.025em',
+  normal: '0em',
+  wide: '0.025em',
+  wider: '0.05em',
+  widest: '0.1em',
 };
 
 export type PikasLetterSpacings = typeof pikasLetterSpacings;

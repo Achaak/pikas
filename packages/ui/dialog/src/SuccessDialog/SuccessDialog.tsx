@@ -18,7 +18,7 @@ export type SuccessDialogProps = DialogProps & {
 
 export const SuccessDialog: FC<SuccessDialogProps> = ({
   validateButtonLabel = 'Ok',
-  validateButtonColorName = 'SUCCESS',
+  validateButtonColorName = 'success',
   validateButtonDisabled,
   validateButtonLoading,
   onClose,

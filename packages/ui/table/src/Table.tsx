@@ -1,33 +1,59 @@
-import { ReactNode, useEffect, useMemo, useState } from 'react';
-import type {
+import {
+  createContext,
+  forwardRef,
+  ReactNode,
+  Ref,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useState,
+} from 'react';
+import {
   ColumnDef,
   ColumnOrderState,
   ColumnResizeMode,
   ColumnSizingState,
+  getExpandedRowModel,
+  GroupingState,
   OnChangeFn,
   PaginationState,
   RowSelectionState,
   SortingState,
+  Table as TanstackTable,
   Updater,
   VisibilityState,
-} from '@tanstack/react-table';
-import {
-  flexRender,
   useReactTable,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  ExpandedState,
+  getGroupedRowModel,
+  ColumnPinningState,
+  ColumnFiltersState,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFacetedMinMaxValues,
+  FilterFn,
 } from '@tanstack/react-table';
+import once from 'lodash.once';
 
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import type { PaginationCSS } from './pagination/index.js';
 import { Pagination } from './pagination/index.js';
 import { Checkbox } from '@pikas-ui/checkbox';
-import { Thead } from './thead/index.js';
-import { Tfoot } from './tfoot/index.js';
-import { Tr } from './tr/index.js';
+import { ButtonIcon } from '@pikas-ui/button';
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+  RadioCircleMarkedIcon,
+} from './Icons.js';
+import { TableElement } from './table/Table.js';
+export * from '@tanstack/match-sorter-utils';
+
+const DEFAULT_PAGE_SIZES = [5, 10, 25, 50, 100];
 
 const Container = styled('div', {
   display: 'flex',
@@ -38,63 +64,8 @@ const Container = styled('div', {
 const Content = styled('div', {
   width: '100%',
   overflow: 'auto',
-});
-
-const TableStyled = styled('table', {
-  borderCollapse: 'collapse',
-  br: 'sm',
-  color: '$BLACK',
-
-  variants: {
-    variant: {
-      default: {},
-      light: {},
-    },
-  },
-});
-
-const Tbody = styled('tbody', {
-  variants: {
-    variant: {
-      default: {
-        'tr:nth-child(2n)': {
-          backgroundColor: '$GRAY_LIGHTER',
-        },
-      },
-      light: {},
-    },
-  },
-});
-
-const Td = styled('td', {
-  variants: {
-    variant: {
-      default: {},
-      light: {},
-    },
-    padding: {
-      sm: {
-        padding: 8,
-      },
-      md: {
-        padding: 16,
-      },
-      lg: {
-        padding: 24,
-      },
-    },
-  },
-});
-
-const TdContent = styled('div', {
   display: 'flex',
-
-  variants: {
-    variant: {
-      default: {},
-      light: {},
-    },
-  },
+  columnGap: 16,
 });
 
 export const tableVariant = {
@@ -131,43 +102,96 @@ export type TableCSS<T> = {
   >;
 };
 
+export type { OnChangeFn };
+
+export type TablePaginationState = PaginationState;
 export type TablePaginationProps = {
   enabled: boolean;
-  state?: PaginationState;
-  selectValue?: number[];
-  onPaginationChange?: OnChangeFn<PaginationState>;
+  pageSize?: number;
+  pageSizes?: number[];
+  pageIndex?: number;
+  defaultPageSize?: number;
+  defaultPageIndex?: number;
+  onPaginationChange?: OnChangeFn<TablePaginationState>;
 };
 
-export type TableSelection = {
+export type TableRowSelectionState = RowSelectionState;
+export type TableRowSelection = {
   enabled: boolean;
-  state?: RowSelectionState;
-  defaultState?: RowSelectionState;
-  onRowSelectionChange?: OnChangeFn<RowSelectionState>;
+  enableSubRowSelection?: boolean;
+  state?: TableRowSelectionState;
+  defaultState?: TableRowSelectionState;
+  onRowSelectionChange?: OnChangeFn<TableRowSelectionState>;
 };
 
+export type TableSortingState = SortingState;
 export type TableSorting = {
   enabled: boolean;
-  state?: SortingState;
-  defaultState?: SortingState;
-  onSortingChange?: OnChangeFn<SortingState>;
+  state?: TableSortingState;
+  defaultState?: TableSortingState;
+  onSortingChange?: OnChangeFn<TableSortingState>;
 };
 
+export type TableVisibilityState = VisibilityState;
 export type TableVisibility = {
   enabled: boolean;
-  state?: VisibilityState;
-  onVisibilityChange?: OnChangeFn<VisibilityState>;
+  state?: TableVisibilityState;
+  onVisibilityChange?: OnChangeFn<TableVisibilityState>;
 };
 
-export type TableResize = {
+export type TableColumnSizingState = ColumnSizingState;
+export type TableColumnResizeMode = ColumnResizeMode;
+export type TableColumnSizing = {
   enabled: boolean;
-  mode: ColumnResizeMode;
-  onResize?: OnChangeFn<ColumnSizingState>;
+  resizeMode: TableColumnResizeMode;
+  onColumnSizeChange?: OnChangeFn<TableColumnSizingState>;
+  state?: TableColumnSizingState;
+  defaultState?: TableColumnSizingState;
 };
 
+export type TableColumnOrderState = ColumnOrderState;
 export type TableColumnOrder = {
   enabled: boolean;
-  defaultState?: ColumnOrderState;
-  onColumnOrderChange?: OnChangeFn<ColumnOrderState>;
+  defaultState?: TableColumnOrderState;
+  state?: TableColumnOrderState;
+  onColumnOrderChange?: OnChangeFn<TableColumnOrderState>;
+};
+
+export type TableGroupingState = GroupingState;
+export type TableGrouping = {
+  enabled: boolean;
+  state?: TableGroupingState;
+  defaultState?: TableGroupingState;
+  onGroupingChange?: OnChangeFn<TableGroupingState>;
+};
+
+export type TableExpandedState = ExpandedState;
+export type TableExpanding = {
+  enabled: boolean;
+  state?: TableExpandedState;
+  defaultState?: TableExpandedState;
+  onExpandedChange?: OnChangeFn<TableExpandedState>;
+};
+
+export type TableColumnPinningState = ColumnPinningState;
+export type TableColumnPinning = {
+  enabled: boolean;
+  state?: TableColumnPinningState;
+  defaultState?: TableColumnPinningState;
+  onColumnPinningChange?: OnChangeFn<TableColumnPinningState>;
+  isSplit?: boolean;
+};
+
+export type TableColumnFiltersState = ColumnFiltersState;
+export type { FilterFn };
+export type TableFilters<T extends Data> = {
+  enabled: boolean;
+  columnFilters?: TableColumnFiltersState;
+  onColumnFiltersChange?: OnChangeFn<TableColumnFiltersState>;
+  globalFilter?: string;
+  onGlobalFilterChange?: OnChangeFn<string>;
+  globalFilterFn?: FilterFn<T>;
+  filterFns?: Record<string, FilterFn<T>>;
 };
 
 export type TablePadding = {
@@ -175,98 +199,354 @@ export type TablePadding = {
   td?: 'lg' | 'md' | 'sm';
 };
 
-export type TableProps<T extends Record<string, unknown>> = {
+export type Data = Record<string, unknown>;
+
+type TableContext<T extends Data> = {
   variant?: TableVariant;
-  data: T[];
-  emptyMessage?: ReactNode;
-  hasTfoot?: boolean;
-  pagination?: TablePaginationProps;
-  selection?: TableSelection;
-  sorting?: TableSorting;
-  columnVisibility?: TableVisibility;
-  columnOrder?: TableColumnOrder;
-  resizing?: TableResize;
-  columns: Array<ColumnDef<T>>;
   css?: TableCSS<T>;
-  padding?: TablePadding;
+  columnSizing?: TableColumnSizing;
+  sorting?: TableSorting;
+  padding: TablePadding;
+  grouping?: TableGrouping;
+  table: TanstackTable<T>;
+  emptyMessage?: ReactNode;
   hoverEffect?: boolean;
+  hasTfoot?: boolean;
+  columnOrderState: TableColumnOrderState;
+  onColumnOrderChange: OnChangeFn<TableColumnOrderState>;
+  columnOrder?: TableColumnOrder;
+  columnPinning?: TableColumnPinning;
+  filters?: TableFilters<T>;
 };
 
-export const Table = <T extends Record<string, unknown>>({
-  data,
-  hasTfoot,
-  pagination,
-  columns,
-  selection,
-  sorting,
-  variant = 'default',
-  css,
-  padding = {
-    th: 'md',
-    td: 'md',
-  },
-  emptyMessage,
-  hoverEffect = true,
-  columnVisibility,
-  columnOrder,
-  resizing,
-}: TableProps<T>): JSX.Element => {
-  const [selectionState, setSelectionState] = useState(
-    selection?.defaultState ?? selection?.state ?? {}
-  );
-  const [sortingState, setSortingState] = useState<SortingState>(
-    sorting?.defaultState ?? sorting?.state ?? []
-  );
-  const [columnOrderState, setColumnOrderState] = useState<ColumnOrderState>(
-    columnOrder?.defaultState ?? columns.map((column) => column.id as string)
-  );
+const createStateContext = once(<T extends Data>() =>
+  createContext({} as TableContext<T>)
+);
+export const useStateContext = <T extends Data>() =>
+  useContext(createStateContext<T>());
+
+export type TableProps<T extends Data> = {
+  data: Array<T & { subRows?: T[] }>;
+  columns: Array<ColumnDef<T>>;
+  variant?: TableVariant;
+  emptyMessage?: ReactNode;
+  padding?: TablePadding;
+  hasTfoot?: boolean;
+  hoverEffect?: boolean;
+  debug?: {
+    rows?: boolean;
+    all?: boolean;
+    table?: boolean;
+    headers?: boolean;
+    columns?: boolean;
+  };
+
+  columnOrder?: TableColumnOrder;
+  columnPinning?: TableColumnPinning;
+  columnSizing?: TableColumnSizing;
+  columnVisibility?: TableVisibility;
+  pagination?: TablePaginationProps;
+  expanding?: TableExpanding;
+  grouping?: TableGrouping;
+  sorting?: TableSorting;
+  rowSelection?: TableRowSelection;
+  filters?: TableFilters<T>;
+
+  css?: TableCSS<T>;
+};
+
+export type TableRef<T extends Data> = {
+  table: TanstackTable<T>;
+};
+
+export const Test = () => (
+  <Table
+    data={[
+      {
+        id: 1,
+        name: 'test',
+        subRows: [{ id: 2, name: 'test' }],
+      },
+    ]}
+    columns={[]}
+    css={{
+      column: {},
+    }}
+  />
+);
+
+const FRefInputTable = <T extends Data>(
+  {
+    data,
+    hasTfoot,
+    pagination,
+    columns,
+    rowSelection,
+    sorting,
+    variant = 'default',
+    css,
+    padding = {
+      th: 'md',
+      td: 'md',
+    },
+    emptyMessage,
+    hoverEffect = false,
+    columnVisibility,
+    columnOrder,
+    columnSizing,
+    grouping,
+    debug,
+    expanding,
+    filters,
+    columnPinning,
+  }: TableProps<T>,
+  ref: Ref<TableRef<T>>
+): JSX.Element => {
+  const Context = createStateContext<T>();
 
   /* Pagination */
-  const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>(
-    pagination?.state ?? {
-      pageIndex: 0,
-      pageSize: 5,
-    }
-  );
-
-  const paginationMemo = useMemo(
-    () => ({
-      pageIndex,
-      pageSize,
-    }),
-    [pageIndex, pageSize]
-  );
+  const [{ pageIndex, pageSize }, setPagination] =
+    useState<TablePaginationState>({
+      pageIndex: pagination?.defaultPageIndex ?? 0,
+      pageSize: pagination?.defaultPageSize ?? pagination?.pageSizes?.[0] ?? 5,
+    });
 
   useEffect(() => {
-    if (pagination?.state) {
-      setPagination(pagination.state);
+    if (!pagination) {
+      return;
     }
-  }, [pagination?.state]);
+    if (!pagination.enabled) {
+      return;
+    }
+    setPagination((current) => ({
+      pageIndex: pagination.pageIndex ?? current.pageIndex,
+      pageSize: pagination.pageSize ?? current.pageSize,
+    }));
+  }, [pagination?.pageIndex, pagination?.pageSize]);
 
-  const handlePaginationChange = (state: Updater<PaginationState>): void => {
-    pagination?.onPaginationChange?.(state);
+  const handlePaginationChange = (
+    state: Updater<TablePaginationState>
+  ): void => {
     setPagination(state);
   };
+
+  useEffect(() => {
+    pagination?.onPaginationChange?.({
+      pageIndex,
+      pageSize,
+    });
+  }, [pageIndex, pageSize]);
   /* Pagination */
 
-  /* Selection */
+  /* Row Selection */
+  const [rowSelectionState, setRowSelectionState] = useState(
+    rowSelection?.defaultState ?? rowSelection?.state ?? {}
+  );
+
   const handleRowSelectionChange = (
-    state: Updater<RowSelectionState>
+    state: Updater<TableRowSelectionState>
   ): void => {
-    setSelectionState(state);
+    setRowSelectionState(state);
   };
 
   useEffect(() => {
-    selection?.onRowSelectionChange?.(selectionState);
-  }, [selectionState]);
-  /* Selection */
+    rowSelection?.onRowSelectionChange?.(rowSelectionState);
+  }, [rowSelectionState]);
+
+  useEffect(() => {
+    if (!rowSelection) {
+      return;
+    }
+    if (!rowSelection.enabled) {
+      return;
+    }
+    if (!rowSelection.state) {
+      return;
+    }
+    setRowSelectionState(rowSelection.state);
+  }, [rowSelection?.state]);
+  /* Row Selection */
+
+  /* Grouping */
+  const [groupingState, setGroupingState] = useState<TableGroupingState>(
+    grouping?.defaultState ?? grouping?.state ?? []
+  );
+
+  useEffect(() => {
+    if (!grouping) {
+      return;
+    }
+    if (!grouping.enabled) {
+      return;
+    }
+    if (!grouping.state) {
+      return;
+    }
+    setGroupingState(grouping.state);
+  }, [grouping?.state]);
+
+  const handleGroupingChange = (state: Updater<TableGroupingState>): void => {
+    setGroupingState(state);
+  };
+
+  useEffect(() => {
+    grouping?.onGroupingChange?.(groupingState);
+  }, [groupingState]);
+  /* Grouping */
+
+  /* Sorting */
+  const [sortingState, setSortingState] = useState<TableSortingState>(
+    sorting?.defaultState ?? sorting?.state ?? []
+  );
+
+  useEffect(() => {
+    sorting?.onSortingChange?.(sortingState);
+  }, [sortingState]);
+
+  useEffect(() => {
+    if (!sorting) {
+      return;
+    }
+    if (!sorting.enabled) {
+      return;
+    }
+    if (!sorting.state) {
+      return;
+    }
+    setSortingState(sorting.state);
+  }, [sorting?.state]);
+  /* Sorting */
+
+  /* Column Order */
+  const [columnOrderState, setColumnOrderState] =
+    useState<TableColumnOrderState>(
+      columnOrder?.defaultState ?? columns.map((column) => column.id as string)
+    );
+
+  useEffect(() => {
+    columnOrder?.onColumnOrderChange?.(columnOrderState);
+  }, [columnOrderState]);
+
+  useEffect(() => {
+    if (!columnOrder) {
+      return;
+    }
+    if (!columnOrder.enabled) {
+      return;
+    }
+    if (!columnOrder.state) {
+      return;
+    }
+    setColumnOrderState(columnOrder.state);
+  }, [columnOrder?.state]);
+
+  const handleColumnOrderChange = (
+    state: Updater<TableColumnOrderState>
+  ): void => {
+    setColumnOrderState(state);
+  };
+  /* Column Order */
+
+  /* Column Sizing */
+  const [columnSizingState, setColumnSizingState] =
+    useState<TableColumnSizingState>(
+      columnSizing?.defaultState ?? columnSizing?.state ?? {}
+    );
+
+  useEffect(() => {
+    columnSizing?.onColumnSizeChange?.(columnSizingState);
+  }, [columnSizingState]);
+
+  useEffect(() => {
+    if (!columnSizing) {
+      return;
+    }
+    if (!columnSizing.enabled) {
+      return;
+    }
+    if (!columnSizing.state) {
+      return;
+    }
+    setColumnSizingState(columnSizing.state);
+  }, [columnSizing?.state]);
+
+  const handleColumnSizingChange = (
+    state: Updater<TableColumnSizingState>
+  ): void => {
+    setColumnSizingState(state);
+  };
+  /* Column Sizing */
+
+  /* Expanded */
+  const [expandedState, setExpandedState] = useState<TableExpandedState>(
+    expanding?.defaultState ?? expanding?.state ?? {}
+  );
+
+  useEffect(() => {
+    expanding?.onExpandedChange?.(expandedState);
+  }, [expandedState]);
+
+  useEffect(() => {
+    if (!expanding) {
+      return;
+    }
+    if (!expanding.enabled) {
+      return;
+    }
+    if (!expanding.state) {
+      return;
+    }
+    setExpandedState(expanding.state);
+  }, [expanding?.state]);
+
+  const handleExpandedChange = (state: Updater<TableExpandedState>): void => {
+    setExpandedState(state);
+  };
+  /* Expanded */
+
+  /* Column Pinning */
+  const [columnPinningState, setColumnPinningState] =
+    useState<TableColumnPinningState>(
+      columnPinning?.defaultState ?? columnPinning?.state ?? {}
+    );
+
+  useEffect(() => {
+    columnPinning?.onColumnPinningChange?.(columnPinningState);
+  }, [columnPinningState]);
+
+  useEffect(() => {
+    if (!columnPinning) {
+      return;
+    }
+    if (!columnPinning.enabled) {
+      return;
+    }
+    if (!columnPinning.state) {
+      return;
+    }
+    setColumnPinningState(columnPinning.state);
+  }, [columnPinning?.state]);
+
+  const handleColumnPinningChange = (
+    state: Updater<TableColumnPinningState>
+  ): void => {
+    setColumnPinningState(state);
+  };
+  /* Column Pinning */
 
   const columnsMemo = useMemo<Array<ColumnDef<T>>>(
     () => [
-      ...(selection?.enabled
+      ...(rowSelection?.enabled
         ? ([
             {
               id: 'select',
+              enableResizing: false,
+              enableSorting: false,
+              enableGrouping: false,
+              enablePinning: false,
+              enableColumnFilter: false,
+              enableHiding: false,
+              size: 20,
               header: ({ table }) => (
                 <Checkbox
                   size={20}
@@ -293,31 +573,110 @@ export const Table = <T extends Record<string, unknown>>({
                   id={`select-${row.id}`}
                 />
               ),
+              aggregatedCell: ({ row }) => (
+                <Checkbox
+                  size={20}
+                  borderRadius="sm"
+                  checked={
+                    row.getIsSomeSelected()
+                      ? 'indeterminate'
+                      : row.getIsSelected()
+                  }
+                  onChangeEvent={row.getToggleSelectedHandler()}
+                  id={`select-${row.id}`}
+                />
+              ),
+            },
+          ] as Array<ColumnDef<T>>)
+        : []),
+      ...(expanding?.enabled
+        ? ([
+            {
+              id: 'expand',
+              enableResizing: false,
+              enableSorting: false,
+              enableGrouping: false,
+              enablePinning: false,
+              enableColumnFilter: false,
+              enableHiding: false,
+              size: 20,
+              header: ({ table }) => (
+                <ButtonIcon
+                  onClick={table.getToggleAllRowsExpandedHandler()}
+                  Icon={
+                    table.getIsAllRowsExpanded()
+                      ? ChevronDownIcon
+                      : ChevronRightIcon
+                  }
+                  size={14}
+                  padding="none"
+                  borderRadius="sm"
+                />
+              ),
+              aggregatedCell: ({ row }) =>
+                row.getCanExpand() ? (
+                  <ButtonIcon
+                    onClick={row.getToggleExpandedHandler()}
+                    Icon={
+                      row.getIsExpanded() ? ChevronDownIcon : ChevronRightIcon
+                    }
+                    size={14}
+                    padding="none"
+                    borderRadius="sm"
+                    css={{
+                      button: {
+                        marginLeft: `${row.depth}rem`,
+                      },
+                    }}
+                  />
+                ) : (
+                  <RadioCircleMarkedIcon
+                    css={{
+                      container: {
+                        marginLeft: `${row.depth}rem`,
+                      },
+                    }}
+                    size={20}
+                    colorName="primary"
+                  />
+                ),
+              cell: ({ row }) => (
+                <RadioCircleMarkedIcon
+                  css={{
+                    container: {
+                      marginLeft: `${row.depth}rem`,
+                    },
+                  }}
+                  size={20}
+                  colorName="primary"
+                />
+              ),
             },
           ] as Array<ColumnDef<T>>)
         : []),
       ...columns,
     ],
-    [columns, selection?.enabled]
+    [columns, rowSelection?.enabled, expanding?.enabled]
   );
 
   const table = useReactTable({
     data,
     columns: columnsMemo,
-    columnResizeMode: resizing?.mode,
-    enableColumnResizing: resizing?.enabled,
     state: {
       // Pagination
       ...(pagination?.enabled
         ? {
-            pagination: paginationMemo,
+            pagination: {
+              pageIndex,
+              pageSize,
+            },
           }
         : {}),
 
-      // Selection
-      ...(selection?.enabled
+      // Row Selection
+      ...(rowSelection?.enabled
         ? {
-            rowSelection: selectionState,
+            rowSelection: rowSelectionState,
           }
         : {}),
 
@@ -339,15 +698,54 @@ export const Table = <T extends Record<string, unknown>>({
       ...(columnOrder?.enabled
         ? {
             columnOrder: [
-              ...(selection?.enabled ? ['select'] : []),
+              ...(rowSelection?.enabled ? ['select'] : []),
+              ...(expanding?.enabled ? ['expand'] : []),
               ...columnOrderState,
             ],
           }
         : {}),
+
+      // Grouping
+      ...(grouping?.enabled
+        ? {
+            grouping: groupingState,
+          }
+        : {}),
+
+      // Column Sizing
+      ...(columnSizing?.enabled
+        ? {
+            columnSizing: columnSizingState,
+          }
+        : {}),
+
+      // Expanded
+      ...(expanding?.enabled
+        ? {
+            expanded: expandedState,
+          }
+        : {}),
+
+      // Column Pinning
+      ...(columnPinning?.enabled
+        ? {
+            columnPinning: columnPinningState,
+          }
+        : {}),
+
+      // Filters
+      ...(filters?.enabled
+        ? {
+            ...(filters.columnFilters && filters.columnFilters.length > 0 // TODO: waiting fix
+              ? { columnFilters: filters.columnFilters }
+              : {}),
+            globalFilter: filters.globalFilter ?? '',
+          }
+        : {}),
     },
 
-    // Selection
-    ...(selection?.enabled
+    // Row Selection
+    ...(rowSelection?.enabled
       ? {
           onRowSelectionChange: handleRowSelectionChange,
         }
@@ -357,7 +755,6 @@ export const Table = <T extends Record<string, unknown>>({
     ...(sorting?.enabled
       ? {
           onSortingChange: setSortingState,
-          getSortedRowModel: getSortedRowModel(),
         }
       : {}),
 
@@ -365,7 +762,6 @@ export const Table = <T extends Record<string, unknown>>({
     ...(pagination?.enabled
       ? {
           onPaginationChange: handlePaginationChange,
-          getPaginationRowModel: getPaginationRowModel(),
         }
       : {}),
 
@@ -383,160 +779,132 @@ export const Table = <T extends Record<string, unknown>>({
         }
       : {}),
 
-    getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
+    // Grouping
+    ...(grouping?.enabled
+      ? {
+          onGroupingChange: handleGroupingChange,
+        }
+      : {}),
+
+    // Column Sizing
+    ...(columnSizing?.enabled
+      ? {
+          onColumnSizingChange: handleColumnSizingChange,
+          columnResizeMode: columnSizing?.resizeMode,
+        }
+      : {}),
+
+    // Expanded
+    ...(expanding?.enabled
+      ? {
+          onExpandedChange: handleExpandedChange,
+        }
+      : {}),
+
+    // Column Pinning
+    ...(columnPinning?.enabled
+      ? {
+          onColumnPinningChange: handleColumnPinningChange,
+        }
+      : {}),
+
+    // Filters
+    ...(filters?.enabled
+      ? {
+          filterFns: filters.filterFns,
+          globalFilterFn: filters.globalFilterFn,
+
+          onColumnFiltersChange: filters.onColumnFiltersChange,
+          onGlobalFilterChange: filters.onGlobalFilterChange,
+        }
+      : {}),
+
+    enableColumnResizing: columnSizing?.enabled ?? false,
+    enableRowSelection: rowSelection?.enabled ?? false,
+    enableSubRowSelection: rowSelection?.enableSubRowSelection ?? false,
+    enableExpanding: expanding?.enabled ?? false,
+    enablePinning: columnPinning?.enabled ?? false,
+    enableSorting: sorting?.enabled ?? false,
+    enableGrouping: grouping?.enabled ?? false,
+    enableHiding: columnVisibility?.enabled ?? false,
+
+    getSubRows: (row) => row.subRows as T[] | undefined,
+    getCoreRowModel: getCoreRowModel<T>(),
+    getExpandedRowModel: getExpandedRowModel<T>(),
+    getFilteredRowModel: getFilteredRowModel<T>(),
+    getFacetedRowModel: getFacetedRowModel<T>(),
+    getFacetedUniqueValues: getFacetedUniqueValues<T>(),
+    getFacetedMinMaxValues: getFacetedMinMaxValues<T>(),
+    getSortedRowModel: getSortedRowModel<T>(),
+    getPaginationRowModel: getPaginationRowModel<T>(),
+    getGroupedRowModel: getGroupedRowModel<T>(),
+
+    debugTable: debug?.table,
+    debugColumns: debug?.columns,
+    debugHeaders: debug?.headers,
+    debugRows: debug?.rows,
+    debugAll: debug?.all,
   });
 
-  useEffect(() => {
-    if (sorting?.enabled && sorting.onSortingChange) {
-      sorting.onSortingChange(sortingState);
-    }
-  }, [sortingState]);
-
-  useEffect(() => {
-    if (!sorting) {
-      return;
-    }
-    if (!sorting.enabled) {
-      return;
-    }
-    setSortingState(sorting.state ?? []);
-  }, [sorting?.state]);
-
-  useEffect(() => {
-    if (!sorting) {
-      return;
-    }
-    if (!sorting.enabled) {
-      return;
-    }
-    setSortingState(sorting.defaultState ?? []);
-  }, [sorting?.defaultState]);
-
-  useEffect(() => {
-    if (!selection) {
-      return;
-    }
-    if (!selection.enabled) {
-      return;
-    }
-    setSelectionState(selection.state ?? {});
-  }, [selection?.state]);
-
-  useEffect(() => {
-    if (!selection) {
-      return;
-    }
-    if (!selection.enabled) {
-      return;
-    }
-    setSelectionState(selection.defaultState ?? {});
-  }, [selection?.defaultState]);
+  useImperativeHandle(ref, () => ({
+    table: table,
+  }));
 
   return (
-    <Container css={css?.container}>
-      <Content css={css?.content}>
-        <TableStyled
-          variant={variant}
-          css={{ width: table.getCenterTotalSize(), ...css?.table }}
-        >
-          <Thead
-            variant={variant}
-            css={css}
-            resizing={resizing}
-            sorting={sorting}
-            selection={selection}
-            table={table}
-            hoverEffect={hoverEffect}
-            padding={padding}
-            columnOrderState={columnOrderState}
-            setColumnOrderState={setColumnOrderState}
-            columnOrderEnabled={columnOrder?.enabled}
+    <Context.Provider
+      value={{
+        variant,
+        css,
+        columnSizing,
+        sorting,
+        padding,
+        table,
+        grouping,
+        emptyMessage,
+        hoverEffect,
+        hasTfoot,
+        columnOrderState,
+        onColumnOrderChange: handleColumnOrderChange,
+        columnOrder,
+        columnPinning,
+        filters,
+      }}
+    >
+      <Container css={css?.container}>
+        <Content css={css?.content}>
+          {columnPinning?.enabled && columnPinning.isSplit ? (
+            <>
+              <TableElement visibleCell="left" />
+              <TableElement visibleCell="center" />
+              <TableElement visibleCell="right" />
+            </>
+          ) : (
+            <TableElement visibleCell="all" />
+          )}
+        </Content>
+
+        {pagination?.enabled ? (
+          <Pagination
+            canNextPage={table.getCanNextPage()}
+            canPreviousPage={table.getCanPreviousPage()}
+            nextPage={table.nextPage}
+            pageCount={table.getPageCount()}
+            pageIndex={table.getState().pagination.pageIndex}
+            previousPage={table.previousPage}
+            pageSizes={pagination.pageSizes ?? DEFAULT_PAGE_SIZES}
+            setPageSize={table.setPageSize}
+            setPageIndex={table.setPageIndex}
+            defaultPageSize={
+              pagination.defaultPageSize ?? DEFAULT_PAGE_SIZES[0]
+            }
+            css={css?.pagination}
           />
-          <Tbody variant={variant} css={css?.tbody}>
-            {table.getRowModel().rows.map((row, rowIndex) => (
-              <Tr key={rowIndex} variant={variant} css={css?.tr}>
-                {row.getVisibleCells().map((cell, cellIndex) => (
-                  <Td
-                    key={cellIndex}
-                    variant={variant}
-                    css={{
-                      ...css?.td,
-                      ...css?.column?.[cell.column.id as keyof T]?.td,
-                    }}
-                    padding={padding.td}
-                  >
-                    <TdContent
-                      variant={variant}
-                      css={{
-                        ...css?.tdContent,
-                        ...css?.column?.[cell.column.id as keyof T]?.tdContent,
-                      }}
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TdContent>
-                  </Td>
-                ))}
-              </Tr>
-            ))}
-
-            {!table.getRowModel().rows.length && emptyMessage ? (
-              <Tr key="empty">
-                <Td
-                  colSpan={1000}
-                  css={{
-                    ...css?.tdEmptyMessage,
-                  }}
-                  padding={padding.td}
-                  variant={variant}
-                >
-                  <TdContent
-                    css={{
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      ...css?.tdContentEmptyMessage,
-                    }}
-                    variant={variant}
-                  >
-                    {emptyMessage}
-                  </TdContent>
-                </Td>
-              </Tr>
-            ) : null}
-          </Tbody>
-          {hasTfoot ? (
-            <Tfoot
-              variant={variant}
-              css={css}
-              resizing={resizing}
-              sorting={sorting}
-              selection={selection}
-              table={table}
-              hoverEffect={hoverEffect}
-              padding={padding}
-            />
-          ) : null}
-        </TableStyled>
-      </Content>
-
-      {pagination?.enabled ? (
-        <Pagination
-          canNextPage={table.getCanNextPage()}
-          canPreviousPage={table.getCanPreviousPage()}
-          nextPage={table.nextPage}
-          pageCount={table.getPageCount()}
-          pageIndex={table.getState().pagination.pageIndex}
-          previousPage={table.previousPage}
-          selectValue={pagination.selectValue ?? [5, 10, 25, 50, 100]}
-          setPageSize={table.setPageSize}
-          setPageIndex={table.setPageIndex}
-          defaultPageSize={5}
-          css={css?.pagination}
-        />
-      ) : null}
-    </Container>
+        ) : null}
+      </Container>
+    </Context.Provider>
   );
 };
+
+export const Table = forwardRef(FRefInputTable) as <T extends Data>(
+  props: TableProps<T> & { ref?: Ref<TableRef<T>> }
+) => JSX.Element;

@@ -11,23 +11,23 @@ const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   minWidth: 200,
-  customRowGap: 8,
+  rowGap: 8,
   padding: '16px 0px',
 });
 
 const ColorResultContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  customRowGap: 4,
+  rowGap: 4,
 });
 
 const ColorResultContent = styled('div', {
   height: 32,
-  br: 'sm',
+  borderRadius: '$sm',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontSize: '$EM-SMALL',
+  fontSize: '$em-small',
   cursor: 'pointer',
 });
 

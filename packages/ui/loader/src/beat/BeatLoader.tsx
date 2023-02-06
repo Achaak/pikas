@@ -15,7 +15,7 @@ export type BeatLoaderProps = {
 export const BeatLoader: FC<BeatLoaderProps> = ({
   size,
   margin,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

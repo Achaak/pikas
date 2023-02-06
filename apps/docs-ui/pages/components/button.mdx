@@ -12,31 +12,27 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/button
 
-This package contains a button components.
+This package contains a button components and a button link components.
 
 <a href="https://github.com/Achaak/pikas/blob/main/packages/ui/button/CHANGELOG.md">
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/button
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/button
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/button
@@ -47,6 +43,8 @@ pnpm add @pikas-ui/button
 ## Usage
 
 ### Button
+
+This component is a button component that can be used to trigger an action. You can put an icon inside the button using the `LeftIcon` or `RightIcon` props.
 
 <ButtonExample />
 
@@ -64,7 +62,7 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
 | `children`         | The content of the button.                        | `ReactNode`             | -                      |
 | `type`             | The type of the button.                           | `ButtonTarget`          | `"button"`             |
-| `colorName`        | The color of the button.                          | `PikasColors`           | `"PRIMARY"`            |
+| `colorName`        | The color of the button.                          | `PikasColors`           | `"primary"`            |
 | `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
 | `contentColorName` | The color of the content of the button.           | `PikasColors`           | -                      |
 | `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
@@ -72,10 +70,10 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
 | `loading`          | If the button is loading.                         | `boolean`               | `false`                |
 | `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
-| `fontSize`         | The font size of the button.                      | `PikasFontSize`         | `"EM-MEDIUM"`          |
+| `borderRadius`     | The border radius of the button.                  | `PikasRadius`            | `"md"`                 |
+| `fontSize`         | The font size of the button.                      | `PikasFontSize`         | `"em-base"`          |
 | `textTransform`    | The text transform of the button.                 | `ButtonTextTransform`   | `"default"`            |
-| `fontWeight`       | The font weight of the button.                    | `PikasFontWeight`       | `"NORMAL"`             |
+| `fontWeight`       | The font weight of the button.                    | `PikasFontWeight`       | `"normal"`             |
 | `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
 | `onClick`          | The function to call on click.                    | `function`              | -                      |
 | `gap`              | The gap of the button.                            | `ButtonGap`             | `"md"`                 |
@@ -86,11 +84,13 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | `width`            | The width of the button.                          | `string or number`      | `"100%"`               |
 | `maxWidth`         | The max width of the button.                      | `string or number`      | `"100%"`               |
 | `minWidth`         | The min width of the button.                      | `string or number`      | -                      |
-| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"bottom-sm"` |
 
 ---
 
 ### ButtonLink
+
+This component is a button link component that can be used to trigger an action. You can put an icon inside the button using the `LeftIcon` or `RightIcon` props.
 
 <ButtonLinkExample />
 
@@ -107,7 +107,7 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | Prop               | Description                                       | Type                    | Default                |
 | :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
 | `children`         | The content of the button.                        | `ReactNode`             | -                      |
-| `colorName`        | The color of the button.                          | `PikasColors`           | `"PRIMARY"`            |
+| `colorName`        | The color of the button.                          | `PikasColors`           | `"primary"`            |
 | `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
 | `contentColorName` | The color of the content of the button.           | `PikasColors`           | -                      |
 | `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
@@ -115,10 +115,10 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
 | `loading`          | If the button is loading.                         | `boolean`               | `false`                |
 | `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
-| `fontSize`         | The font size of the button.                      | `PikasFontSize`         | `"EM-MEDIUM"`          |
+| `borderRadius`     | The border radius of the button.                  | `PikasRadius`            | `"md"`                 |
+| `fontSize`         | The font size of the button.                      | `PikasFontSize`         | `"em-base"`          |
 | `textTransform`    | The text transform of the button.                 | `ButtonTextTransform`   | `"default"`            |
-| `fontWeight`       | The font weight of the button.                    | `PikasFontWeight`       | `"NORMAL"`             |
+| `fontWeight`       | The font weight of the button.                    | `PikasFontWeight`       | `"normal"`             |
 | `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
 | `onClick`          | The function to call on click.                    | `function`              | -                      |
 | `gap`              | The gap of the button.                            | `ButtonGap`             | `"md"`                 |
@@ -131,11 +131,13 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | `width`            | The width of the button.                          | `string or number`      | `"100%"`               |
 | `maxWidth`         | The max width of the button.                      | `string or number`      | `"100%"`               |
 | `minWidth`         | The min width of the button.                      | `string or number`      | -                      |
-| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"bottom-sm"` |
 
 ---
 
 ### ButtonIcon
+
+This component is a button icon component that can be used to trigger an action.
 
 <ButtonIconExample />
 
@@ -157,7 +159,7 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | Prop               | Description                                       | Type                    | Default                |
 | :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
 | `type`             | The type of the button.                           | `ButtonTarget`          | `"button"`             |
-| `colorName`        | The color of the button.                          | `PikasColors`           | `"PRIMARY"`            |
+| `colorName`        | The color of the button.                          | `PikasColors`           | `"primary"`            |
 | `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
 | `contentColorName` | The color of the content of the button.           | `PikasColors`           | -                      |
 | `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
@@ -165,17 +167,19 @@ Props extends `ButtonHTMLAttributes<HTMLButtonElement>`
 | `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
 | `loading`          | If the button is loading.                         | `boolean`               | `false`                |
 | `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
+| `borderRadius`     | The border radius of the button.                  | `PikasRadius`            | `"md"`                 |
 | `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
 | `onClick`          | The function to call on click.                    | `function`              | -                      |
 | `outlined`         | If the button is outlined.                        | `boolean`               | `false`                |
 | `borderWidth`      | The border width of the button.                   | `number`                | `2`                    |
 | `size`             | The size of the button.                           | `Sizes`                 | `6`                    |
-| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"bottom-sm"` |
 
 ---
 
 ### ButtonIconLink
+
+This component is a button icon link component that can be used to trigger an action.
 
 <ButtonIconLinkExample />
 
@@ -196,7 +200,7 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 
 | Prop               | Description                                       | Type                    | Default                |
 | :----------------- | :------------------------------------------------ | :---------------------- | :--------------------- |
-| `colorName`        | The color of the button.                          | `PikasColors`           | `"PRIMARY"`            |
+| `colorName`        | The color of the button.                          | `PikasColors`           | `"primary"`            |
 | `colorHex`         | The color of the button (hex).                    | `string`                | -                      |
 | `contentColorName` | The color of the content of the button.           | `PikasColors`           | -                      |
 | `contentColorHex`  | The color of the content of the button (hex).     | `string`                | -                      |
@@ -204,7 +208,7 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | `padding`          | The padding of the button.                        | `ButtonPadding`         | `"md"`                 |
 | `loading`          | If the button is loading.                         | `boolean`               | `false`                |
 | `disabled`         | If the button is disabled.                        | `boolean`               | `false`                |
-| `borderRadius`     | The border radius of the button.                  | `BorderRadius`          | `"md"`                 |
+| `borderRadius`     | The border radius of the button.                  | `PikasRadius`            | `"md"`                 |
 | `effect`           | The effect of the button when hovered or clicked. | `ButtonEffect`          | `"opacity"`            |
 | `onClick`          | The function to call on click.                    | `function`              | -                      |
 | `href`             | The href of the button.                           | `string`                | -                      |
@@ -212,8 +216,10 @@ Props extends `AnchorHTMLAttributes<HTMLAnchorElement>`
 | `borderWidth`      | The border width of the button.                   | `number`                | `2`                    |
 | `size`             | The size of the button.                           | `Sizes`                 | `6`                    |
 | `target`           | The target of the button.                         | `ButtonTarget`          | `"_self"`              |
-| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"ELEVATION_BOTTOM_1"` |
+| `boxShadow`        | The box shadow of the button.                     | `PikasShadow or 'none"` | `"bottom-sm"` |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/button.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/button.mdx)

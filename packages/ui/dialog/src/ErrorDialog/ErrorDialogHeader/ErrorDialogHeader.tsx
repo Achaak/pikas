@@ -18,7 +18,7 @@ export type ErrorDialogHeaderProps = {
 
 export const ErrorDialogHeader: FC<ErrorDialogHeaderProps> = ({ title }) => (
   <Container>
-    <DialogIconContainer iconName="bx:x-circle" backgroundColorName="DANGER" />
+    <DialogIconContainer iconName="bx:x-circle" backgroundColorName="danger" />
     <DialogTitle
       css={{
         padding: '0px 32px',

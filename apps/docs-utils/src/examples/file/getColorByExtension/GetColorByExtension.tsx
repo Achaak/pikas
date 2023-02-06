@@ -7,10 +7,10 @@ const ExtensionStyled = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontWeight: '$BOLD',
-  br: 'sm',
+  fontWeight: '$bold',
+  borderRadius: '$sm',
   padding: 8,
-  color: '$WHITE_FIX',
+  color: '$white-fixed',
 });
 
 export const GetColorByExtension: FC = () => (

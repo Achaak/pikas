@@ -9,31 +9,27 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/color-picker
 
-This package contains a color-picker component.
+This package contains a color-picker component that can be used to pick a color.
 
 <a href="https://github.com/Achaak/pikas/blob/main/packages/ui/color-picker/CHANGELOG.md">
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/color-picker
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/color-picker
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/color-picker
@@ -44,6 +40,8 @@ pnpm add @pikas-ui/color-picker
 ## Usage
 
 ### ColorPicker
+
+The color picker component is a component that can be used to pick a color. You can select a color by clicking on the color picker or by typing a color in the textfield.
 
 <ColorPickerExample />
 
@@ -73,7 +71,7 @@ const Example: React.FC = () => {
 | `description`   | The description of the color picker       | `string`                  | -             |
 | `info`          | The info of the color picker              | `ReactNode`               | -             |
 | `label`         | The label of the color picker             | `string` or `ReactNode`   | -             |
-| `fontSize`      | The font size of the color picker         | `PikasFontSize`           | `"EM-MEDIUM'` |
+| `fontSize`      | The font size of the color picker         | `PikasFontSize`           | `"em-base'` |
 | `width`         | The width of the color picker             | `number or string`        | `"100%'`      |
 | `maxWidth`      | The max width of the color picker         | `number or string`        | `"100%'`      |
 | `minWidth`      | The min width of the color picker         | `number or string`        | -             |
@@ -86,4 +84,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/color-picker.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/color-picker.mdx)

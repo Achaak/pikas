@@ -10,19 +10,19 @@ const BadgeStyled = styled(CustomBadge, {
   variants: {
     gap: {
       xs: {
-        customColumnGap: 1,
+        columnGap: 1,
       },
       sm: {
-        customColumnGap: 2,
+        columnGap: 2,
       },
       md: {
-        customColumnGap: 4,
+        columnGap: 4,
       },
       lg: {
-        customColumnGap: 8,
+        columnGap: 8,
       },
       xl: {
-        customColumnGap: 16,
+        columnGap: 16,
       },
     },
     padding: {
@@ -66,7 +66,7 @@ export type BadgeProps = CustomBadgeProps & {
 
 export const Badge: FC<BadgeProps> = ({
   children,
-  fontSize = 'EM-MEDIUM',
+  fontSize = 'em-base',
   LeftIcon,
   RightIcon,
   padding = 'md',

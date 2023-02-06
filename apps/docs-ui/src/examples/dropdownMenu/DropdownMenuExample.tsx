@@ -1,7 +1,11 @@
 import { DropdownMenu } from '@pikas-ui/dropdown-menu';
-import { ExampleContainer } from '@pikas/docs-ui';
+import { ExampleContainer, styled } from '@pikas/docs-ui';
 import { FC } from 'react';
 import { Button } from '@pikas-ui/button';
+
+const Or = styled('span', {
+  color: '$black',
+});
 
 export const DropdownMenuExample: FC = () => (
   <ExampleContainer
@@ -26,7 +30,7 @@ export const DropdownMenuExample: FC = () => (
               label: 'Item 1-2',
               // eslint-disable-next-line no-console
               onCheckedChange: console.log,
-              colorName: 'PRIMARY',
+              colorName: 'primary',
             },
             {
               type: 'radio',
@@ -65,10 +69,10 @@ export const DropdownMenuExample: FC = () => (
         },
       ]}
     />
-    <span>or</span>
+    <Or>or</Or>
     <DropdownMenu
       triggerContent={
-        <Button padding="sm" fontSize="EM-SMALL">
+        <Button padding="sm" fontSize="em-small">
           With trigger content
         </Button>
       }
@@ -88,7 +92,7 @@ export const DropdownMenuExample: FC = () => (
               label: 'Item 1-2',
               // eslint-disable-next-line no-console
               onCheckedChange: console.log,
-              colorName: 'PRIMARY',
+              colorName: 'primary',
             },
             {
               type: 'radio',

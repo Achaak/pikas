@@ -11,12 +11,13 @@ const Container = styled('header', {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  padding: '0 16px',
-  borderBottom: '1px solid',
-  borderColor: '$GRAY_LIGHT',
-  backgroundColor: '$WHITE',
-  zIndex: '$X-HIGH',
-  height: '$10',
+  padding: '$0 $16',
+  borderBottomStyle: '$solid',
+  borderBottomWidth: '$4',
+  borderBottomColor: '$gray-light',
+  backgroundColor: '$white',
+  zIndex: '$x-high',
+  height: '$48',
 });
 
 const Left = styled('div', {
@@ -26,19 +27,19 @@ const Left = styled('div', {
 const Right = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  customColumnGap: 16,
+  columnGap: '$16',
   flex: 1,
   justifyContent: 'flex-end',
 });
 
 const H1 = styled('h1', {
-  fontSize: '$EM-XX-LARGE',
-  color: '$BLACK',
+  fontSize: '$em-2x-large',
+  color: '$black',
 });
 
 const Nav = styled('nav', {
   display: 'none',
-  customColumnGap: 16,
+  columnGap: '$16',
   alignItems: 'center',
 
   '@sm': {
@@ -48,13 +49,13 @@ const Nav = styled('nav', {
 
 const NavItem = styled('span', {
   display: 'flex',
-  color: '$BLACK',
+  color: '$black',
 });
 
 const TitleContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  customColumnGap: 8,
+  columnGap: '$8',
 });
 
 const BxsSun: FC<IconProps> = (props) => (
@@ -120,7 +121,7 @@ export const Header: FC<CustomProps> = ({
               <IconByName
                 name="ant-design:github-filled"
                 size={32}
-                colorName="BLACK"
+                colorName="black"
               />
             </NavItem>
           </Link>

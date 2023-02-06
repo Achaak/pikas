@@ -3,7 +3,7 @@ import { useMediaScreenValid } from '@pikas-utils/screen';
 import { FC } from 'react';
 
 const Content = styled('div', {
-  color: '$BLACK',
+  color: '$black',
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',

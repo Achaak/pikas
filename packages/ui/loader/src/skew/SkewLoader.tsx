@@ -13,7 +13,7 @@ export type SkewLoaderProps = {
 
 export const SkewLoader: FC<SkewLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

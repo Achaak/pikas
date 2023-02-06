@@ -1,5 +1,5 @@
 import type {
-  BorderRadius,
+  PikasRadius,
   PikasColor,
   PikasCSS,
   PikasFontSize,
@@ -31,7 +31,7 @@ const CheckboxStyled = styled(CheckboxPrimitive.Root, {
     focus: {
       true: {
         outline: 'solid',
-        outlineColor: '$PRIMARY',
+        outlineColor: '$primary',
         outlineWidth: 2,
       },
     },
@@ -74,7 +74,7 @@ export type CheckboxProps = {
   boxShadow?: PikasShadow | 'none';
   borderColorName?: PikasColor;
   borderWidth?: number;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   fontSize?: PikasFontSize;
   size?: number;
   checked?: CheckboxValue;
@@ -99,10 +99,10 @@ export const Checkbox: FC<CheckboxProps> = ({
   disabled = false,
   required = false,
   name,
-  backgroundColorName = 'WHITE_FIX',
-  backgroundColorNameChecked = 'PRIMARY',
+  backgroundColorName = 'white-fixed',
+  backgroundColorNameChecked = 'primary',
   borderRadius = 'md',
-  boxShadow = 'DIMINUTION_1',
+  boxShadow = 'inner-md',
   borderColorName,
   borderWidth = 0,
   size = 24,
@@ -153,7 +153,7 @@ export const Checkbox: FC<CheckboxProps> = ({
             htmlFor={id}
             css={{
               marginRight: 8,
-              fontWeight: '$NORMAL',
+              fontWeight: '$normal',
               ...css?.label,
             }}
           >
@@ -185,7 +185,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           onBlur={(): void => setFocus(false)}
           css={{
             backgroundColor: `$${backgroundColorName}`,
-            br: borderRadius,
+            borderRadius: `$${borderRadius}`,
             boxShadow: `$${boxShadow}`,
             borderColor: borderColorName && `$${borderColorName}`,
             borderWidth,
@@ -245,7 +245,7 @@ export const Checkbox: FC<CheckboxProps> = ({
             htmlFor={id}
             css={{
               marginLeft: 8,
-              fontWeight: '$NORMAL',
+              fontWeight: '$normal',
               ...css?.label,
             }}
           >

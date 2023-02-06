@@ -13,7 +13,7 @@ export type ClipLoaderProps = {
 
 export const ClipLoader: FC<ClipLoaderProps> = ({
   size,
-  colorName = 'PRIMARY',
+  colorName = 'primary',
   colorHex,
   loading = true,
   speedMultiplier,

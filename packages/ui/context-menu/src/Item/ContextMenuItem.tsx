@@ -57,7 +57,7 @@ export const ContextMenuItem: FC<DefaultItem> = ({
         color:
           colorHex ??
           (colorName ? `$${colorName}` : undefined) ??
-          'GRAY_DARKER',
+          'gray-darker',
         ...css?.container,
       }}
     >
@@ -65,7 +65,7 @@ export const ContextMenuItem: FC<DefaultItem> = ({
         <ItemIndicator forceMount css={css?.indicator}>
           <ClipLoader
             size={16}
-            colorName={iconColorName ?? colorName ?? 'GRAY_DARKER'}
+            colorName={iconColorName ?? colorName ?? 'gray-darker'}
             colorHex={iconColorHex ?? colorHex}
           />
         </ItemIndicator>
@@ -74,7 +74,7 @@ export const ContextMenuItem: FC<DefaultItem> = ({
           <ItemIndicator forceMount css={css?.indicator}>
             <Icon
               size={16}
-              colorName={iconColorName ?? colorName ?? 'GRAY_DARKER'}
+              colorName={iconColorName ?? colorName ?? 'gray-darker'}
               colorHex={iconColorHex ?? colorHex}
             />
           </ItemIndicator>

@@ -1,28 +1,24 @@
 # @pikas-ui/loader
 
-This package contains a loader components.
+A UI library that offers a loader components for React.
 
 This library is based on [React Spinners](https://www.davidhu.io/react-spinners/)
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the [@pikas-ui/styles](https://pikas-ui.vercel.app/utilities/styles) package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/loader
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/loader
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/loader

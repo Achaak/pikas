@@ -17,25 +17,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/checkbox
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/checkbox
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/checkbox
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/checkbox
 ## Usage
 
 ### Checkbox
+
+This component is a checkbox.
 
 <CheckboxExample />
 
@@ -64,14 +62,14 @@ const Example: React.FC = () => <Checkbox />;
 | `onChangeEvent`              | The callback when the checkbox is changed.         | `(event: ChangeEvent<HTMLInputElement>) => void` | -                |
 | `id`                         | The id of the checkbox.                            | `string`                                         | -                |
 | `label`                      | The label of the checkbox.                         | `string` or `ReactNode`                          | -                |
-| `backgroundColorName`        | The background color of the checkbox.              | `PikasColors`                                    | `"WHITE_FIX"`    |
-| `backgroundColorNameChecked` | The background color of the checkbox when checked. | `PikasColors`                                    | `"PRIMARY"`      |
+| `backgroundColorName`        | The background color of the checkbox.              | `PikasColors`                                    | `"white-fixed"`    |
+| `backgroundColorNameChecked` | The background color of the checkbox when checked. | `PikasColors`                                    | `"primary"`      |
 | `textError`                  | The error text of the checkbox.                    | `string`                                         | -                |
-| `boxShadow`                  | The box shadow of the checkbox.                    | `PikasShadow` or `"none"`                        | `"DIMINUTION_1"` |
+| `boxShadow`                  | The box shadow of the checkbox.                    | `PikasShadow` or `"none"`                        | `"inner-md"` |
 | `borderColorName`            | The border color of the checkbox.                  | `PikasColors`                                    | -                |
 | `borderWidth`                | The border width of the checkbox.                  | `number`                                         | `0`              |
-| `borderRadius`               | The border radius of the checkbox.                 | `BorderRadius`                                   | `"md"`           |
-| `fontSize`                   | The font size of the checkbox.                     | `PikasFontSize`                                  | `"EM-MEDIUM"`    |
+| `borderRadius`               | The border radius of the checkbox.                 | `PikasRadius`                                     | `"md"`           |
+| `fontSize`                   | The font size of the checkbox.                     | `PikasFontSize`                                  | `"em-base"`    |
 | `size`                       | The size of the checkbox.                          | `number`                                         | `24`             |
 | `checked`                    | The checked of the checkbox.                       | `CheckboxValue`                                  | -                |
 | `className`                  | The class name of the checkbox.                    | `string`                                         | -                |
@@ -84,4 +82,6 @@ const Example: React.FC = () => <Checkbox />;
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/checkbox.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/checkbox.mdx)

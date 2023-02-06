@@ -4,13 +4,13 @@ import { docsUIRoutes } from '@pikas/docs-routes';
 export const { getLink } = docsUIRoutes;
 import { NextSeo } from 'next-seo';
 
-export const cssLink = getLink('css');
+export const stylesLink = getLink('styles')
 
 <NextSeo title="Icons" />
 
 # @pikas-ui/icons
 
-This package contains a icon components.
+This package contains a icon components that can be used to show a icon from a icon library or a custom icon.
 
 This library is based on [Iconify](https://iconify.design/).
 
@@ -18,25 +18,21 @@ This library is based on [Iconify](https://iconify.design/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={cssLink}>@pikas-ui/css</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/icons
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/icons
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/icons
@@ -48,6 +44,8 @@ pnpm add @pikas-ui/icons
 
 ### CustomIcon
 
+This component can be used to show a custom icon. You can put the svg code inside the component.
+
 <CustomIconExample />
 
 ```tsx
@@ -55,7 +53,7 @@ import { CustomIcon } from '@pikas-ui/icons';
 
 const Example: React.FC = () => {
   return (
-    <CustomIcon size={40} colorName="PRIMARY">
+    <CustomIcon size={40} colorName="primary">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={24}
@@ -89,13 +87,15 @@ const Example: React.FC = () => {
 
 ### IconByName
 
+This component can be used to show a icon from a icon library. You can use the name of the icon to show it.
+
 <IconByNameExample />
 
 ```tsx
 import { IconByName } from '@pikas-ui/icons';
 
 const Example: React.FC = () => {
-  return <IconByName size={40} name="bx:baguette" colorName="PRIMARY" />;
+  return <IconByName size={40} name="bx:baguette" colorName="primary" />;
 };
 ```
 
@@ -112,4 +112,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/icons.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/icons.mdx)

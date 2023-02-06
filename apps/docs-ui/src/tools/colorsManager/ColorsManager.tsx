@@ -19,7 +19,7 @@ const BxsMoon: FC<IconProps> = (props) => (
 const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  customRowGap: 16,
+  rowGap: 16,
 });
 
 export const ColorsManager: FC = () => {
@@ -148,7 +148,7 @@ export const ColorsManager: FC = () => {
         >
           <ColorsManagerColumn
             title="Primary"
-            defaultColor={theme.colors.PRIMARY.value}
+            defaultColor={theme.colors.primary.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}
@@ -158,7 +158,7 @@ export const ColorsManager: FC = () => {
           />
           <ColorsManagerColumn
             title="Secondary"
-            defaultColor={theme.colors.SECONDARY.value}
+            defaultColor={theme.colors.secondary.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}
@@ -168,7 +168,7 @@ export const ColorsManager: FC = () => {
           />
           <ColorsManagerColumn
             title="Tertiary"
-            defaultColor={theme.colors.TERTIARY.value}
+            defaultColor={theme.colors.tertiary.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}
@@ -178,7 +178,7 @@ export const ColorsManager: FC = () => {
           />
           <ColorsManagerColumn
             title="Gray"
-            defaultColor={theme.colors.GRAY.value}
+            defaultColor={theme.colors.gray.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}
@@ -188,7 +188,7 @@ export const ColorsManager: FC = () => {
           />
           <ColorsManagerColumn
             title="Success"
-            defaultColor={theme.colors.SUCCESS.value}
+            defaultColor={theme.colors.success.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}
@@ -198,7 +198,7 @@ export const ColorsManager: FC = () => {
           />
           <ColorsManagerColumn
             title="Warning"
-            defaultColor={theme.colors.WARNING.value}
+            defaultColor={theme.colors.warning.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}
@@ -208,7 +208,7 @@ export const ColorsManager: FC = () => {
           />
           <ColorsManagerColumn
             title="Danger"
-            defaultColor={theme.colors.DANGER.value}
+            defaultColor={theme.colors.danger.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}
@@ -218,7 +218,7 @@ export const ColorsManager: FC = () => {
           />
           <ColorsManagerColumn
             title="Info"
-            defaultColor={theme.colors.INFO.value}
+            defaultColor={theme.colors.info.value}
             darkerOpacity={darkerOpacity}
             darkOpacity={darkOpacity}
             lightOpacity={lightOpacity}

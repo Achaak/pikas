@@ -8,7 +8,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/separator
 
-This package contains a separator component.
+This package contains a separator component that can be used to separate content in your application.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -16,25 +16,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/separator
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/separator
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/separator
@@ -45,6 +41,8 @@ pnpm add @pikas-ui/separator
 ## Usage
 
 ### Separator
+
+The separator component is used to separate content in your application. It can be used horizontally or vertically.
 
 ```tsx
 import { Separator } from '@pikas-ui/separator';
@@ -60,9 +58,11 @@ const Example: React.FC = () => {
 | `className`    | The class name of the separator.    | `string`               | -              |
 | `size`         | The size of the separator.          | `number`               | `2`            |
 | `css`          | The css of the separator.           | `PikasCSS`             | -              |
-| `colorName`    | The color of the separator.         | `PikasColors`          | `"GRAY_LIGHT"` |
-| `borderRadius` | The border radius of the separator. | `BorderRadius`         | -              |
+| `colorName`    | The color of the separator.         | `PikasColors`          | `"gray-light"` |
+| `borderRadius` | The border radius of the separator. | `PikasRadius`           | -              |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/separator.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/separator.mdx)

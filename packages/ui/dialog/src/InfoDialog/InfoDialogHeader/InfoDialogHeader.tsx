@@ -20,7 +20,7 @@ export const InfoDialogHeader: FC<InfoDialogHeaderProps> = ({ title }) => (
   <Container>
     <DialogIconContainer
       iconName="bx:info-circle"
-      backgroundColorName="PRIMARY"
+      backgroundColorName="primary"
     />
     <DialogTitle
       css={{

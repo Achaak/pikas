@@ -1,5 +1,5 @@
 import type {
-  BorderRadius,
+  PikasRadius,
   PikasCSS,
   PikasColor,
   PikasShadow,
@@ -21,7 +21,6 @@ import {
 } from 'react';
 import type { TooltipCSS } from '@pikas-ui/tooltip';
 import { Tooltip } from '@pikas-ui/tooltip';
-import { Textfield } from '@pikas-ui/textfield';
 
 const Container = styled('div', {
   display: 'flex',
@@ -39,7 +38,11 @@ const Trigger = styled(SelectPrimitive.Trigger, {
   cursor: 'pointer',
   borderStyle: 'solid',
   width: '100%',
-  color: '$BLACK',
+  color: '$black',
+
+  '&[data-placeholder]': {
+    color: '$gray-dark',
+  },
 
   variants: {
     padding: {
@@ -47,22 +50,25 @@ const Trigger = styled(SelectPrimitive.Trigger, {
         padding: 0,
       },
       xs: {
-        padding: '2px 4px',
+        padding: '4px 8px',
       },
       sm: {
-        padding: '4px 8px',
+        padding: '6px 12px',
       },
       md: {
         padding: '8px 16px',
       },
       lg: {
+        padding: '12px 24px',
+      },
+      xl: {
         padding: '16px 32px',
       },
     },
     focus: {
       true: {
         outline: 'solid',
-        outlineColor: '$PRIMARY',
+        outlineColor: '$primary',
         outlineWidth: 2,
       },
     },
@@ -76,10 +82,10 @@ const Icon = styled(SelectPrimitive.Icon, {
 });
 
 const Content = styled(SelectPrimitive.Content, {
-  backgroundColor: '$WHITE',
-  boxShadow: '$ELEVATION_1',
-  br: 'sm',
-  zIndex: '$XXX-HIGH',
+  backgroundColor: '$white',
+  boxShadow: '$bottom-md',
+  borderRadius: '$sm',
+  zIndex: '$3x-high',
 });
 
 const Viewport = styled(SelectPrimitive.Viewport, {
@@ -113,15 +119,15 @@ const ItemIndicator = styled(SelectPrimitive.ItemIndicator, {
 
 const Separator = styled(SelectPrimitive.Separator, {
   height: 1,
-  backgroundColor: '$GRAY_LIGHTER',
+  backgroundColor: '$gray-lighter',
   margin: 8,
 });
 
 const GroupLabel = styled(SelectPrimitive.Label, {
   padding: '4px 16px 4px 24px',
-  fontWeight: '$MEDIUM',
-  fontSize: '$EM-SMALL',
-  color: '$BLACK',
+  fontWeight: '$medium',
+  fontSize: '$em-small',
+  color: '$black',
 });
 
 const Item = styled(SelectPrimitive.Item, {
@@ -131,9 +137,11 @@ const Item = styled(SelectPrimitive.Item, {
   position: 'relative',
   userSelect: 'none',
   padding: '4px 16px 4px 24px',
-  br: 'sm',
+  borderRadius: '$sm',
   cursor: 'pointer',
   transition: 'all 100ms',
+  fontSize: '$em-small',
+  color: '$black',
 
   '&[data-disabled]': {
     opacity: 0.5,
@@ -141,29 +149,20 @@ const Item = styled(SelectPrimitive.Item, {
   },
 
   '&:focus': {
-    backgroundColor: '$PRIMARY_LIGHTER',
-    color: '$WHITE',
-    fill: '$WHITE',
+    backgroundColor: '$primary-lighter',
+    color: '$white',
+    fill: '$white',
   },
-});
-
-const ItemText = styled('span', {
-  fontSize: '$EM-SMALL',
-  color: '$BLACK',
-});
-
-const SearchContainer = styled('div', {
-  padding: 8,
 });
 
 const LabelContainer = styled('div', {
   display: 'flex',
   marginBottom: 4,
-  color: '$BLACK',
+  color: '$black',
 });
 
 const Required = styled('div', {
-  color: '$WARNING',
+  color: '$warning',
   marginLeft: 4,
 });
 
@@ -187,6 +186,7 @@ export const selectPadding = {
   sm: true,
   md: true,
   lg: true,
+  xl: true,
 } as const;
 export type SelectPadding = keyof typeof selectPadding;
 
@@ -210,11 +210,8 @@ export type SelectData = Array<{
 
 export type SelectProps = {
   css?: SelectCSS;
-  hasSearch?: boolean;
-  searchPlaceholder?: string;
-
   label?: ReactNode | string;
-  borderRadius?: BorderRadius;
+  borderRadius?: PikasRadius;
   padding?: SelectPadding;
   fontSize?: PikasFontSize;
   borderColorName?: PikasColor;
@@ -222,7 +219,8 @@ export type SelectProps = {
   data: SelectData;
   id?: string;
   onChange?: (value: string) => void;
-  defaultValue: string;
+  value?: string;
+  defaultValue?: string;
   ariaLabel?: string;
   textError?: string;
   direction?: SelectDirections;
@@ -238,6 +236,7 @@ export type SelectProps = {
   info?: ReactNode;
   required?: boolean;
   disabled?: boolean;
+  placeholder?: string;
 };
 
 export type SelectRef = {
@@ -252,8 +251,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       onChange,
       defaultValue,
       label,
-      hasSearch,
-      searchPlaceholder,
       id,
       ariaLabel,
       borderRadius = 'md',
@@ -262,11 +259,11 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       direction,
       onOpenChange,
       defaultOpen,
-      borderColorName = 'TRANSPARENT',
+      borderColorName = 'transparent',
       borderWidth = 0,
-      fontSize = 'EM-MEDIUM',
-      boxShadow = 'DIMINUTION_1',
-      backgroundColorName = 'GRAY_LIGHTEST_1',
+      fontSize = 'em-base',
+      boxShadow = 'inner-sm',
+      backgroundColorName = 'gray-lightest-1',
       outline = true,
       description,
       maxWidth = '100%',
@@ -275,54 +272,26 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       info,
       required = false,
       disabled = false,
+      value,
+      placeholder,
     },
     ref
   ) => {
-    const [searchValue, setSearchValue] = useState('');
-    const [value, setValue] = useState(defaultValue || '');
-    const [formattedData, setFormattedData] = useState(data);
+    const [valueState, setValueState] = useState<string | undefined>(
+      defaultValue ?? undefined
+    );
     const [focus, setFocus] = useState(false);
     const theme = useTheme();
 
     useEffect(() => {
-      setFormattedData(
-        data.map((group) => {
-          const items = group.items.map((item) => {
-            let hidden = item.hidden ?? false;
-
-            if (searchValue.length > 0) {
-              if (
-                item.searchValue &&
-                !item.searchValue
-                  .toLowerCase()
-                  .includes(searchValue.toLowerCase())
-              ) {
-                hidden = false;
-              }
-            }
-
-            return {
-              ...item,
-              hidden,
-            };
-          });
-
-          return {
-            ...group,
-            hidden: !items.some((item) => !item.hidden),
-            items,
-          };
-        })
-      );
-    }, [data, searchValue]);
-
-    useEffect(() => {
-      setValue(defaultValue);
-    }, [defaultValue]);
+      if (value) {
+        setValueState(value);
+      }
+    }, [value]);
 
     const handleChange = (newValue: string): void => {
       onChange?.(newValue);
-      setValue(newValue);
+      setValueState(newValue);
     };
 
     useImperativeHandle(ref, () => ({
@@ -333,24 +302,16 @@ export const Select = forwardRef<SelectRef, SelectProps>(
 
     const handleOpenChange = (open: boolean): void => {
       onOpenChange?.(open);
-
-      if (!open) {
-        setSearchValue('');
-      }
     };
 
     const viewport = useMemo(
       () => (
         <Viewport>
-          {formattedData.map((group, groupIndex) => {
+          {data.map((group, groupIndex) => {
             const res = [];
             const hidden = !group.items.some((item) => !item.hidden);
 
-            if (
-              groupIndex > 0 &&
-              !hidden &&
-              !formattedData[groupIndex - 1]?.hidden
-            ) {
+            if (groupIndex > 0 && !hidden && !data[groupIndex - 1]?.hidden) {
               res.push(<Separator key={`separator-${groupIndex}`} />);
             }
 
@@ -372,10 +333,10 @@ export const Select = forwardRef<SelectRef, SelectProps>(
                     }}
                   >
                     <SelectPrimitive.ItemText>
-                      <ItemText>{item.label}</ItemText>
+                      {item.label}
                     </SelectPrimitive.ItemText>
                     <ItemIndicator>
-                      <IconByName name="bx:check" size={20} colorName="BLACK" />
+                      <IconByName name="bx:check" size={20} colorName="black" />
                     </ItemIndicator>
                   </Item>
                 ))}
@@ -386,7 +347,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
           })}
         </Viewport>
       ),
-      [formattedData]
+      [data]
     );
 
     return (
@@ -424,7 +385,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
               <Tooltip content={info} css={css?.infoTooltip}>
                 <IconByName
                   name="bx:info-circle"
-                  colorName="BLACK_LIGHT"
+                  colorName="black-light"
                   css={{
                     container: {
                       marginLeft: 4,
@@ -457,7 +418,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
           dir={direction}
           onOpenChange={handleOpenChange}
           defaultOpen={defaultOpen}
-          value={value}
+          value={valueState}
           css={{
             ...css?.container,
           }}
@@ -471,7 +432,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             onFocus={(): void => setFocus(true)}
             onBlur={(): void => setFocus(false)}
             css={{
-              br: borderRadius,
+              borderRadius: `$${borderRadius}`,
               borderColor: `$${borderColorName}`,
               borderWidth,
               boxShadow: `$${boxShadow}`,
@@ -479,40 +440,25 @@ export const Select = forwardRef<SelectRef, SelectProps>(
               ...css?.trigger,
             }}
           >
-            <SelectValue />
+            <SelectValue placeholder={placeholder} />
             <Icon>
-              <IconByName name="bx:chevron-down" size="1em" colorName="BLACK" />
+              <IconByName name="bx:chevron-down" size="1em" colorName="black" />
             </Icon>
           </Trigger>
 
           <SelectPrimitive.Portal>
             <Content css={css?.content} className={theme}>
-              {hasSearch ? (
-                <>
-                  <SearchContainer>
-                    <Textfield
-                      onChange={(e): void => {
-                        setSearchValue(e.target.value);
-                      }}
-                      placeholder={searchPlaceholder}
-                      borderRadius="round"
-                      padding="sm"
-                      fontSize="EM-SMALL"
-                    />
-                  </SearchContainer>
-                  <Separator />
-                </>
-              ) : null}
-
               <ScrollUpButton>
-                <IconByName name="bx:chevron-up" size={20} colorName="BLACK" />
+                <IconByName name="bx:chevron-up" size={20} colorName="black" />
               </ScrollUpButton>
+
               {viewport}
+
               <ScrollDownButton>
                 <IconByName
                   name="bx:chevron-down"
                   size={20}
-                  colorName="BLACK"
+                  colorName="black"
                 />
               </ScrollDownButton>
             </Content>

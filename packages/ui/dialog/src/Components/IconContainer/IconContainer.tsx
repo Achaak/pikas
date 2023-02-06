@@ -28,6 +28,6 @@ export const DialogIconContainer: FC<InfoDialogProps> = ({
       backgroundColor: `$${backgroundColorName}`,
     }}
   >
-    <IconByName name={iconName} size={100} colorName="WHITE" />
+    <IconByName name={iconName} size={100} colorName="white" />
   </Container>
 );

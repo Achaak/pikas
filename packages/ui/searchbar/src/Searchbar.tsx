@@ -20,12 +20,12 @@ const Result = styled('div', {
   position: 'absolute',
   left: 0,
   right: 0,
-  backgroundColor: '$WHITE',
+  backgroundColor: '$white',
   borderStyle: 'solid',
   borderWidth: 1,
-  borderColor: '$GRAY',
-  br: 'md',
-  boxShadow: '$ELEVATION_1',
+  borderColor: '$gray',
+  borderRadius: '$lg',
+  boxShadow: '$xs',
   opacity: 0,
   pointerEvents: 'none',
   transition: 'opacity 0.2s ease-in-out',
@@ -59,25 +59,25 @@ const SearchResultContainer = styled('div', {
 const ResultGroupStyled = styled('div', {});
 
 const ResultGroupTitle = styled('span', {
-  fontWeight: '$BOLD',
+  fontWeight: '$bold',
   padding: '16px 16px 8px 16px',
-  color: '$BLACK',
+  color: '$black',
 });
 
 const ResultItemStyled = styled('div', {
   padding: '8px 16px',
   cursor: 'pointer',
-  color: '$BLACK',
+  color: '$black',
   transition: 'background-color 0.2s ease-in-out',
 
   '&:hover': {
-    backgroundColor: '$GRAY_LIGHTER',
+    backgroundColor: '$gray-lighter',
   },
 
   variants: {
     selected: {
       true: {
-        backgroundColor: '$GRAY_LIGHTER',
+        backgroundColor: '$gray-lighter',
       },
     },
   },
@@ -88,7 +88,7 @@ const NoResult = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  color: '$BLACK',
+  color: '$black',
 });
 
 const ResultLoading = styled('div', {
@@ -99,7 +99,7 @@ const ResultLoading = styled('div', {
 });
 
 const DirectResultValue = styled('span', {
-  color: '$BLACK',
+  color: '$black',
 });
 
 const SearchIcon: FC<IconProps> = ({ ...props }) => (
@@ -341,9 +341,9 @@ export const Searchbar = <T,>({
           searchType === 'button' ? (
             <ButtonIcon
               Icon={SearchIcon}
-              borderRadius="round"
+              borderRadius="full"
               type="submit"
-              size={5}
+              size={14}
               padding="xs"
             />
           ) : undefined
@@ -426,7 +426,7 @@ export const Searchbar = <T,>({
         <SearchResultContainer>
           {loading ? (
             <ResultLoading>
-              <ClipLoader size={40} colorName="PRIMARY" />
+              <ClipLoader size={40} colorName="primary" />
             </ResultLoading>
           ) : null}
           {!loading && (

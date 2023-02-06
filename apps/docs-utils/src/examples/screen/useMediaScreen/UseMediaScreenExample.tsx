@@ -3,7 +3,7 @@ import { useMediaScreen } from '@pikas-utils/screen';
 import { FC } from 'react';
 
 const Content = styled('div', {
-  color: '$BLACK',
+  color: '$black',
 });
 
 export const UseMediaScreenExample: FC = () => {

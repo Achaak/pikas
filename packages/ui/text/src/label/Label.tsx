@@ -4,10 +4,10 @@ import * as LabelPrimitive from '@radix-ui/react-label';
 import { FC } from 'react';
 
 const LabelStyled = styled(LabelPrimitive.Label, {
-  fontSize: '$EM-SMALL',
-  fontWeight: '$BOLD',
+  fontSize: '$em-small',
+  fontWeight: '$bold',
   display: 'block',
-  color: '$BLACK',
+  color: '$black',
 });
 
 export type LabelProps = LabelPrimitive.PrimitiveLabelProps & {

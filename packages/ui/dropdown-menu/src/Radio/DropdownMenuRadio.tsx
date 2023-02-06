@@ -41,7 +41,7 @@ export const DropdownMenuRadio: FC<RadioItem> = ({
     value={value}
     css={{
       color:
-        colorHex ?? (colorName ? `$${colorName}` : undefined) ?? 'GRAY_DARKER',
+        colorHex ?? (colorName ? `$${colorName}` : undefined) ?? 'gray-darker',
       ...css?.container,
     }}
     onValueChange={onValueChange}
@@ -57,7 +57,7 @@ export const DropdownMenuRadio: FC<RadioItem> = ({
           <IconByName
             name="bxs:circle"
             size={8}
-            colorName={iconColorName ?? colorName ?? 'GRAY_DARKER'}
+            colorName={iconColorName ?? colorName ?? 'gray-darker'}
             colorHex={iconColorHex ?? colorHex}
           />
         </ItemIndicator>

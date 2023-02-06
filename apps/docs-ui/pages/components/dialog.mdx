@@ -15,7 +15,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/dialog
 
-This package contains a dialog component.
+This package contains a dialog component that can be used to show a modal.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -23,25 +23,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/dialog
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/dialog
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/dialog
@@ -52,6 +48,8 @@ pnpm add @pikas-ui/dialog
 ## Usage
 
 ### DefaultDialog
+
+This is the default dialog component. It can be used to show a modal with a title, a content, and a validate button.
 
 <DefaultDialogExample />
 
@@ -91,13 +89,15 @@ const Example: React.FC = () => {
 | `content`                 | Sets the content of the dialog                 | `ReactNode`   | -           |
 | `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`      |
 | `onValidate`              | Callback when the dialog is validated          | `() => void`  | -           |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"PRIMARY"` |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"primary"` |
 | `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -           |
 | `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -           |
 
 ---
 
 ### SuccessDialog
+
+This is the success dialog component. It can be used to show a modal with a title, a content, and a validate button.
 
 <SuccessDialogExample />
 
@@ -136,13 +136,15 @@ const Example: React.FC = () => {
 | `content`                 | Sets the content of the dialog                 | `ReactNode`   | required                |
 | `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`                  |
 | `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                       |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"PRIMARY"`             |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"primary"`             |
 | `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                       |
 | `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                       |
 
 ---
 
 ### ValidateDialog
+
+This is the validate dialog component. It can be used to show a modal with a title, a content, a validate button, and a cancel button.
 
 <ValidateDialogExample />
 
@@ -183,8 +185,8 @@ const Example: React.FC = () => {
 | `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                  |
 | `cancelButtonLabel`       | Sets the label of the cancel button            | `string`      | `"Cancel"`         |
 | `onCancel`                | Callback when the dialog is canceled           | `() => void`  | -                  |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"SUCCESS"`        |
-| `cancelButtonColorName`   | Sets the color of the cancel button            | `PikasColors` | `"DANGER"`         |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"success"`        |
+| `cancelButtonColorName`   | Sets the color of the cancel button            | `PikasColors` | `"danger"`         |
 | `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                  |
 | `cancelButtonDisabled`    | Sets the disabled state of the cancel button   | `boolean`     | -                  |
 | `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                  |
@@ -193,6 +195,8 @@ const Example: React.FC = () => {
 ---
 
 ### ErrorDialog
+
+This is the error dialog component. It can be used to show a modal with a title, a content, and a validate button.
 
 <ErrorDialogExample />
 
@@ -231,13 +235,15 @@ const Example: React.FC = () => {
 | `content`                 | Sets the content of the dialog                 | `ReactNode`   | required                       |
 | `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`                         |
 | `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                              |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"DANGER"`                     |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"danger"`                     |
 | `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                              |
 | `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                              |
 
 ---
 
 ### InfoDialog
+
+This is the info dialog component. It can be used to show a modal with a title, a content, and a validate button.
 
 <InfoDialogExample />
 
@@ -276,13 +282,15 @@ const Example: React.FC = () => {
 | `content`                 | Sets the content of the dialog                 | `ReactNode`   | required                            |
 | `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Ok"`                              |
 | `onValidate`              | Callback when the dialog is validated          | `() => void`  | -                                   |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"PRIMARY"`                         |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"primary"`                         |
 | `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                                   |
 | `validateButtonLoading`   | Sets the loading state of the validate button  | `boolean`     | -                                   |
 
 ---
 
 ### CustomDialog
+
+This is the custom dialog component. It can be used to show a modal with a custom header, content, and footer.
 
 <CustomDialogExample />
 
@@ -342,6 +350,8 @@ const Example: React.FC = () => {
 
 ### SelectImageDialog
 
+This is the select image dialog component. You can use it to select an image from your computer. It will return the image as a base64 string compressed.
+
 <SelectImageDialogExample />
 
 ```tsx
@@ -378,8 +388,8 @@ const Example: React.FC = () => {
 | `defaultImageFull`        | Sets the default image (full)                  | `string`      | -                   |
 | `cancelButtonLabel`       | Sets the label of the cancel button            | `string`      | `"Cancel"`          |
 | `validateButtonLabel`     | Sets the label of the validate button          | `string`      | `"Validate"`        |
-| `cancelButtonColorName`   | Sets the color of the cancel button            | `PikasColors` | `"DANGER"`          |
-| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"SUCCESS"`         |
+| `cancelButtonColorName`   | Sets the color of the cancel button            | `PikasColors` | `"danger"`          |
+| `validateButtonColorName` | Sets the color of the validate button          | `PikasColors` | `"success"`         |
 | `cancelButtonDisabled`    | Sets the disabled state of the cancel button   | `boolean`     | -                   |
 | `validateButtonDisabled`  | Sets the disabled state of the validate button | `boolean`     | -                   |
 | `cancelButtonLoading`     | Sets the loading state of the cancel button    | `boolean`     | -                   |
@@ -395,4 +405,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/dialog.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/dialog.mdx)

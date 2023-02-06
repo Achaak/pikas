@@ -18,7 +18,7 @@ export const CheckboxExample: FC = () => {
         defaultChecked={checked}
         label={checked ? 'Checked' : 'Unchecked'}
         onChange={setChecked}
-        backgroundColorNameChecked="SECONDARY"
+        backgroundColorNameChecked="secondary"
         disabled
         id="checkbox-disabled"
       />

@@ -9,7 +9,7 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/dropdown-menu
 
-This package contains a dropdown menu component.
+This package contains a dropdown menu component that can be used to create a menu that opens when a user clicks on a trigger element.
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -17,25 +17,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/dropdown-menu
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/dropdown-menu
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/dropdown-menu
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/dropdown-menu
 ## Usage
 
 ### DropdownMenu
+
+The component is used to create a menu that opens when a user clicks on a trigger element.
 
 <DropdownMenuExample />
 
@@ -69,7 +67,7 @@ const Example: React.FC = () => {
               checked: true,
               label: 'Item 1-2',
               onCheckedChange: console.log,
-              colorName: 'PRIMARY',
+              colorName: 'primary',
             },
             {
               type: 'radio',
@@ -139,4 +137,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/dropdown-menu.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/dropdown-menu.mdx)

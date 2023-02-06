@@ -4,7 +4,7 @@ import { ExplorerContext } from '../../Explorer.js';
 
 const Container = styled('div', {
   display: 'none',
-  customColumnGap: 4,
+  columnGap: 4,
   flex: 1,
   alignItems: 'center',
   justifyContent: 'flex-end',
@@ -13,8 +13,8 @@ const Container = styled('div', {
 
 const Icon = styled('div', {
   padding: 4,
-  br: 'round',
-  borderColor: '$GRAY',
+  borderRadius: '$full',
+  borderColor: '$gray',
   borderStyle: 'solid',
   borderWidth: 1,
   display: 'flex',
@@ -24,7 +24,7 @@ const Icon = styled('div', {
   transition: 'background-color 0.2s ease-in-out',
 
   '&:hover': {
-    backgroundColor: '$PRIMARY_LIGHTER',
+    backgroundColor: '$primary-lighter',
   },
 });
 

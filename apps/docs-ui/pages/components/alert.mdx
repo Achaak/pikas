@@ -10,7 +10,8 @@ export const stylesLink = getLink('styles')
 
 # @pikas-ui/alert
 
-This package contains a alert component.
+This package contains a Alert component that can be used to show a message to make the user aware of something.
+
 
 This library is based on [Radix Ui](https://www.radix-ui.com/).
 
@@ -18,25 +19,21 @@ This library is based on [Radix Ui](https://www.radix-ui.com/).
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/alert
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/alert
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/alert
@@ -47,6 +44,8 @@ pnpm add @pikas-ui/alert
 ## Usage
 
 ### Alert
+
+This component is used to show a message to make the user aware of something.
 
 <AlertExample />
 
@@ -68,9 +67,9 @@ const Example: React.FC = () => {
 | :------------- | :----------------------------------- | :---------------- | :----------- |
 | `variant`      | Alert variant of the alert component | `AlertVariant`    | `"info"`     |
 | `children`     | Alert content                        | `ReactNode`       | -            |
-| `fontSize`     | Font size of the alert component     | `PikasFontSize`   | `"EM-SMALL"` |
-| `fontWeight`   | Font weight of the alert component   | `PikasFontWeight` | `"NORMAL"`   |
-| `borderRadius` | Border radius of the alert component | `BorderRadius`    | `"md"`       |
+| `fontSize`     | Font size of the alert component     | `PikasFontSize`   | `"em-small"` |
+| `fontWeight`   | Font weight of the alert component   | `PikasFontWeight` | `"normal"`   |
+| `borderRadius` | Border radius of the alert component | `PikasRadius`      | `"md"`       |
 | `iconSize`     | Icon size of the alert component     | `number`          | `24`         |
 | `padding`      | Padding of the alert component       | `AlertPadding`    | `"md"`       |
 | `gap`          | Gap of the alert component           | `AlertGap`        | `"sm"`       |
@@ -80,6 +79,8 @@ const Example: React.FC = () => {
 ---
 
 ### CustomAlert
+
+You can use this component to create a custom alert component.
 
 <CustomAlertExample />
 
@@ -95,8 +96,8 @@ const Example: React.FC = () => {
   return (
     <CustomAlert
       Icon={IconExample}
-      colorName="WHITE"
-      backgroundColorName="SECONDARY"
+      colorName="white"
+      backgroundColorName="secondary"
     >
       This is an error alert.
     </CustomAlert>
@@ -109,9 +110,9 @@ const Example: React.FC = () => {
 | Prop                  | Description                             | Type              | Default      |
 | :-------------------- | :-------------------------------------- | :---------------- | :----------- |
 | `children`            | Alert content                           | `ReactNode`       | -            |
-| `fontSize`            | Font size of the alert component        | `PikasFontSize`   | `"EM-SMALL"` |
-| `fontWeight`          | Font weight of the alert component      | `PikasFontWeight` | `"NORMAL"`   |
-| `borderRadius`        | Border radius of the alert component    | `BorderRadius`    | `"md"`       |
+| `fontSize`            | Font size of the alert component        | `PikasFontSize`   | `"em-small"` |
+| `fontWeight`          | Font weight of the alert component      | `PikasFontWeight` | `"normal"`   |
+| `borderRadius`        | Border radius of the alert component    | `PikasRadius`      | `"md"`       |
 | `iconSize`            | Icon size of the alert component        | `number`          | `24`         |
 | `padding`             | Padding of the alert component          | `AlertPadding`    | `"md"`       |
 | `gap`                 | Gap of the alert component              | `AlertGap`        | `"sm"`       |
@@ -123,4 +124,6 @@ const Example: React.FC = () => {
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/alert.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/alert.mdx)

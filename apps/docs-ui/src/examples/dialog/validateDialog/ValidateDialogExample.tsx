@@ -9,7 +9,7 @@ export const ValidateDialogExample: FC = () => {
   return (
     <ExampleContainer
       css={{
-        customRowGap: !visible ? 0 : 8,
+        rowGap: !visible ? 0 : 8,
         transition: `all ${visible ? '500ms' : '1000ms'} ease-in-out`,
       }}
     >

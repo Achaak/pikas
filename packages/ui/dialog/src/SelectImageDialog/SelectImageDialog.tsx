@@ -1,5 +1,5 @@
 import type { PikasColor } from '@pikas-ui/styles';
-import { useCallback, useEffect, useState, FC } from 'react';
+import { useCallback, useState, FC } from 'react';
 import type { DialogProps } from '../CustomDialog/index.js';
 import { CustomDialog } from '../CustomDialog/index.js';
 import { SelectImageDialogContent } from './SelectImageDialogContent/index.js';
@@ -35,8 +35,8 @@ export const SelectImageDialog: FC<SelectImageDialogProps> = ({
   onClose,
   cancelButtonLabel = 'Cancel',
   validateButtonLabel = 'Validate',
-  cancelButtonColorName = 'DANGER',
-  validateButtonColorName = 'SUCCESS',
+  cancelButtonColorName = 'danger',
+  validateButtonColorName = 'success',
   cancelButtonDisabled,
   validateButtonDisabled,
   cancelButtonLoading,
@@ -62,14 +62,6 @@ export const SelectImageDialog: FC<SelectImageDialogProps> = ({
   const [rotation, setRotation] = useState(0);
   const [croppedAreaPixels, setCroppedAreaPixels] =
     useState<CroppedImageType | null>(null);
-
-  useEffect(() => {
-    setImage(defaultImage);
-  }, [defaultImage]);
-
-  useEffect(() => {
-    setImageFull(defaultImageFull);
-  }, [defaultImageFull]);
 
   const validateCroppedImage = useCallback(async () => {
     if (!croppedAreaPixels) {

@@ -41,15 +41,15 @@ export const Toast: FC<ToastProps> = ({ variant = 'info', css, ...props }) => {
     {
       switch (variant) {
         case 'success':
-          return 'SUCCESS';
+          return 'success';
         case 'warning':
-          return 'WARNING';
+          return 'warning';
         case 'danger':
-          return 'DANGER';
+          return 'danger';
         case 'info':
-          return 'PRIMARY';
+          return 'primary';
         default:
-          return 'PRIMARY';
+          return 'primary';
       }
     }
   }, [variant]);

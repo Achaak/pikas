@@ -1,7 +1,7 @@
 import type { PikasCSS } from '@pikas-ui/styles';
 import { styled } from '@pikas-ui/styles';
 import { forwardRef, HTMLAttributes } from 'react';
-import { TableVariant } from '../index.js';
+import { useStateContext } from '../index.js';
 
 const TrStyled = styled('tr', {
   variants: {
@@ -12,12 +12,23 @@ const TrStyled = styled('tr', {
   },
 });
 export type TrProps = HTMLAttributes<HTMLTableRowElement> & {
-  variant?: TableVariant;
   css?: PikasCSS;
 };
 
-export const Tr = forwardRef<HTMLTableRowElement, TrProps>((props, ref) => (
-  <TrStyled ref={ref} {...props} />
-));
+export const Tr = forwardRef<HTMLTableRowElement, TrProps>((props, ref) => {
+  const { variant, css } = useStateContext();
+
+  return (
+    <TrStyled
+      ref={ref}
+      variant={variant}
+      css={{
+        ...props.css,
+        ...css?.tr,
+      }}
+      {...props}
+    />
+  );
+});
 
 Tr.displayName = 'Tr';

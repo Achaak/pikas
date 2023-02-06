@@ -1,15 +1,7 @@
 import { useTheme, styled } from '@pikas-ui/styles';
 import { Color } from '@pikas-utils/color';
-import {
-  TableCSS,
-  TablePadding,
-  TableResize,
-  TableSelection,
-  TableSorting,
-  TableVariant,
-} from '../index.js';
+import { Data, useStateContext } from '../index.js';
 import { Tr } from '../tr/index.js';
-import { ColumnOrderState, OnChangeFn, Table } from '@tanstack/react-table';
 import {
   closestCenter,
   DndContext,
@@ -23,82 +15,69 @@ import {
   SortableContext,
 } from '@dnd-kit/sortable';
 import { Th } from './th/index.js';
+import { VisibleCell } from '../table/Table.js';
+import { useMemo } from 'react';
 
-export type TheadProps<T extends Record<string, unknown>> = {
-  variant?: TableVariant;
-  css?: TableCSS<T>;
-  resizing?: TableResize;
-  sorting?: TableSorting;
-  selection?: TableSelection;
-  table: Table<T>;
-  hoverEffect?: boolean;
-  padding: TablePadding;
+const TheadStyled = styled('thead', {
+  variants: {
+    variant: {
+      default: {
+        backgroundColor: '$primary',
 
-  setColumnOrderState?: OnChangeFn<ColumnOrderState>;
-  columnOrderState?: ColumnOrderState;
-  columnOrderEnabled?: boolean;
-};
+        tr: {
+          borderTopStyle: '$solid',
+          borderTopWidth: '$2',
+          borderBottomStyle: '$solid',
+          borderBottomWidth: '$2',
+          borderColor: '$primary-lighter',
 
-export const Thead = <T extends Record<string, unknown>>({
-  variant,
-  css,
-  resizing,
-  sorting,
-  selection,
-  table,
-  hoverEffect,
-  padding,
-  columnOrderState,
-  setColumnOrderState,
-  columnOrderEnabled,
-}: TheadProps<T>) => {
-  const theme = useTheme();
-
-  const TheadStyled = styled('thead', {
-    variants: {
-      variant: {
-        default: {
-          backgroundColor: '$PRIMARY',
-          color: theme && new Color(theme.colors.PRIMARY.value).getContrast(),
-
-          svg: {
-            fill: theme && new Color(theme.colors.PRIMARY.value).getContrast(),
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
           },
 
-          tr: {
-            borderTop: '1px solid',
-            borderBottom: '1px solid',
-            borderColor: '$PRIMARY_LIGHT',
+          th: {
+            borderLeftStyle: '$solid',
+            borderLeftWidth: '$2',
+            borderRightStyle: '$solid',
+            borderRightWidth: '$2',
+            borderColor: '$primary-lighter',
+            textTransform: 'capitalize',
 
             '&:first-child': {
-              borderTop: 'none',
+              borderLeft: 'none',
             },
             '&:last-child': {
-              borderBottom: 'none',
-            },
-
-            th: {
-              borderLeft: '1px solid',
-              borderRight: '1px solid',
-              borderColor: '$PRIMARY_LIGHT',
-              textTransform: 'capitalize',
-
-              '&:first-child': {
-                borderLeft: 'none',
-              },
-              '&:last-child': {
-                borderRight: 'none',
-              },
+              borderRight: 'none',
             },
           },
         },
-        light: {
-          borderBottom: '1px solid',
-          borderColor: '$GRAY_LIGHT',
-        },
+      },
+      light: {
+        borderBottomStyle: '$solid',
+        borderBottomWidth: '$2',
+        borderColor: '$gray-light',
       },
     },
-  });
+  },
+});
+
+export type TheadProps = {
+  visibleCell: VisibleCell;
+};
+
+export const Thead = <T extends Data>({ visibleCell }: TheadProps) => {
+  const {
+    variant,
+    css,
+    table,
+    columnOrder,
+    columnOrderState,
+    onColumnOrderChange,
+  } = useStateContext<T>();
+  const theme = useTheme();
 
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
@@ -115,7 +94,21 @@ export const Thead = <T extends Record<string, unknown>>({
   const sensors = useSensors(mouseSensor, touchSensor);
 
   const columnOrderDisabled =
-    !columnOrderEnabled || table.getHeaderGroups().length > 1;
+    !columnOrder?.enabled || table.getHeaderGroups().length > 1;
+
+  const headerGroups = useMemo(() => {
+    switch (visibleCell) {
+      case 'center':
+        return table.getCenterHeaderGroups();
+      case 'left':
+        return table.getLeftHeaderGroups();
+      case 'right':
+        return table.getRightHeaderGroups();
+      case 'all':
+      default:
+        return table.getHeaderGroups();
+    }
+  }, [visibleCell]);
 
   return (
     <DndContext
@@ -124,7 +117,7 @@ export const Thead = <T extends Record<string, unknown>>({
       autoScroll={false}
       onDragEnd={({ active, over }) => {
         if (active.id !== over?.id) {
-          setColumnOrderState?.((prev) => {
+          onColumnOrderChange?.((prev) => {
             const prevIndex = prev.indexOf(String(active.id));
             const nextIndex = prev.indexOf(String(over?.id) || '');
 
@@ -141,42 +134,31 @@ export const Thead = <T extends Record<string, unknown>>({
         container: typeof document !== 'undefined' ? document.body : undefined,
       }}
     >
-      <TheadStyled variant={variant} css={css?.thead}>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <Tr
-            key={headerGroup.id}
-            variant={variant}
-            css={{
-              ...(hoverEffect && {
-                transition: 'all 0.2s ease-in-out',
+      <TheadStyled
+        variant={variant}
+        css={{
+          ...(variant === 'default' && {
+            color: theme && new Color(theme.colors.primary.value).getContrast(),
 
-                '&:hover': {
-                  td: {
-                    color: '$PRIMARY',
-                    fontWeight: '$MEDIUM',
-                  },
-                },
-              }),
-              ...css?.tr,
-            }}
-          >
+            svg: {
+              fill:
+                theme && new Color(theme.colors.primary.value).getContrast(),
+            },
+          }),
+          ...css?.thead,
+        }}
+      >
+        {headerGroups.map((headerGroup) => (
+          <Tr key={headerGroup.id}>
             <SortableContext
               items={headerGroup.headers.map((i) => i.id)}
               strategy={horizontalListSortingStrategy}
               disabled={columnOrderDisabled}
             >
-              {headerGroup.headers.map((header, headerIndex) => (
+              {headerGroup.headers.map((header) => (
                 <Th
                   key={header.id}
                   header={header}
-                  variant={variant}
-                  css={css}
-                  resizing={resizing}
-                  sorting={sorting}
-                  selection={selection}
-                  table={table}
-                  padding={padding}
-                  headerIndex={headerIndex}
                   id={header.id}
                   columnOrderEnabled={
                     (!columnOrderDisabled &&

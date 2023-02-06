@@ -11,31 +11,27 @@ export const stylesLink = getLink('styles');
 
 # @pikas-ui/badge
 
-This package contains a badge component.
+This package contains a badge component that can be used to show a notification or a label.
 
 <a href="https://github.com/Achaak/pikas/blob/main/packages/ui/badge/CHANGELOG.md">
   Change Log
 </a>
 
-## Getting Started
+## Requirements
 
-You need to install the <a href={stylesLink}>@pikas-ui/styles</a> package to use this package.
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
 
-### Installation
+## Installation
 
-With npm:
+You can install this package using npm, yarn, or pnpm.
 
 ```
 npm install @pikas-ui/badge
 ```
 
-With yarn:
-
 ```
 yarn add @pikas-ui/badge
 ```
-
-With pnpm:
 
 ```
 pnpm add @pikas-ui/badge
@@ -46,6 +42,8 @@ pnpm add @pikas-ui/badge
 ## Usage
 
 ### Badge
+
+The badge component can be used to show a notification or a label.
 
 <BadgeExample />
 
@@ -69,12 +67,12 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 | Prop             | Description                     | Type            | Default                |
 | :--------------- | :------------------------------ | :-------------- | :--------------------- |
 | `children`       | The content of the badge.       | `ReactNode`     | -                      |
-| `colorName`      | The color of the badge.         | `PikasColors`   | `"PRIMARY"`            |
+| `colorName`      | The color of the badge.         | `PikasColors`   | `"primary"`            |
 | `colorHex`       | The color of the badge.         | `string`        | -                      |
-| `boxShadow`      | The shadow of the badge.        | `PikasShadow`   | `"ELEVATION_BOTTOM_1"` |
-| `borderRadius`   | The border radius of the badge. | `BorderRadius`  | `"round"`              |
+| `boxShadow`      | The shadow of the badge.        | `PikasShadow`   | `"bottom-sm"` |
+| `borderRadius`   | The border radius of the badge. | `PikasRadius`   | `"full"`               |
 | `css`            | The css of the badge.           | `PikasCSS`      | -                      |
-| `fontSize`       | The font size of the badge.     | `PikasFontSize` | `"EM-MEDIUM"`          |
+| `fontSize`       | The font size of the badge.     | `PikasFontSize` | `"em-base"`            |
 | `LeftIcon`       | The left icon of the badge.     | `FC<IconProps>` | -                      |
 | `RightIcon`      | The right icon of the badge.    | `FC<IconProps>` | -                      |
 | `leftIconProps`  | The left icon props.            | `IconProps`     | -                      |
@@ -85,6 +83,8 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 ---
 
 ### BadgeIcon
+
+The badge icon component can be used to show a notification or a label with an icon.
 
 <BadgeIconExample />
 
@@ -110,10 +110,10 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 | `Icon`         | The icon of the badge.          | `LeftIcon`     | required               |
 | `iconProps`    | The icon props of the badge.    | `IconProps`    | -                      |
 | `children`     | The content of the badge.       | `ReactNode`    | -                      |
-| `colorName`    | The color of the badge.         | `PikasColors`  | `"PRIMARY"`            |
+| `colorName`    | The color of the badge.         | `PikasColors`  | `"primary"`            |
 | `colorHex`     | The color of the badge.         | `string`       | -                      |
-| `boxShadow`    | The shadow of the badge.        | `PikasShadow`  | `"ELEVATION_BOTTOM_1"` |
-| `borderRadius` | The border radius of the badge. | `BorderRadius` | `"round"`              |
+| `boxShadow`    | The shadow of the badge.        | `PikasShadow`  | `"bottom-sm"` |
+| `borderRadius` | The border radius of the badge. | `PikasRadius`  | `"full"`               |
 | `css`          | The css of the badge.           | `PikasCSS`     | -                      |
 | `size`         | The size of the badge.          | `number`       | `24`                   |
 | `padding`      | The padding of the badge.       | `BadgePadding` | `"md"`                 |
@@ -121,6 +121,8 @@ Props extends `HTMLAttributes<HTMLDivElement>`.
 ---
 
 ### CustomBadge
+
+You can use the custom badge component to create your own badge.
 
 <CustomBadgeExample />
 
@@ -131,7 +133,7 @@ const Example: React.FC = () => {
   return (
     <CustomBadge
       css={{
-        fontSize: '$EM-SMALL',
+        fontSize: '$em-small',
         padding: '8px 16px',
       }}
     >
@@ -145,15 +147,17 @@ const Example: React.FC = () => {
 
 Props extends `HTMLAttributes<HTMLDivElement>`.
 
-| Prop           | Description                     | Type           | Default                |
-| :------------- | :------------------------------ | :------------- | :--------------------- |
-| `children`     | The content of the badge.       | `ReactNode`    | -                      |
-| `colorName`    | The color of the badge.         | `PikasColors`  | `"PRIMARY"`            |
-| `colorHex`     | The color of the badge.         | `string`       | -                      |
-| `boxShadow`    | The shadow of the badge.        | `PikasShadow`  | `"ELEVATION_BOTTOM_1"` |
-| `borderRadius` | The border radius of the badge. | `BorderRadius` | `"round"`              |
-| `css`          | The css of the badge.           | `PikasCSS`     | -                      |
+| Prop           | Description                     | Type          | Default                |
+| :------------- | :------------------------------ | :------------ | :--------------------- |
+| `children`     | The content of the badge.       | `ReactNode`   | -                      |
+| `colorName`    | The color of the badge.         | `PikasColors` | `"primary"`            |
+| `colorHex`     | The color of the badge.         | `string`      | -                      |
+| `boxShadow`    | The shadow of the badge.        | `PikasShadow` | `"bottom-sm"` |
+| `borderRadius` | The border radius of the badge. | `PikasRadius` | `"full"`               |
+| `css`          | The css of the badge.           | `PikasCSS`    | -                      |
 
 ---
 
-[Edit this page on GitHub](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/badge.mdx)
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/badge.mdx)
