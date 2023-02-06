@@ -66,6 +66,7 @@ const Content = styled('div', {
   overflow: 'auto',
   display: 'flex',
   columnGap: 16,
+  flex: 1,
 });
 
 export const tableVariant = {

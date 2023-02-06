@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 4.0.3
+
+### Patch Changes
+
+- Fix ui
+
 ## 4.0.2
 
 ### Patch Changes
