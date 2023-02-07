@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 4.1.4
+
+### Patch Changes
+
+- Fix tableRef type
+
 ## 4.1.3
 
 ### Patch Changes

@@ -258,7 +258,7 @@ export type TableProps<T extends Data> = {
   css?: TableCSS<T>;
 };
 
-export type TableRef<T extends Data = Data> = {
+export type TableRef<T extends Data> = {
   table: TanstackTable<T>;
 };
 
@@ -894,6 +894,6 @@ const FRefInputTable = <T extends Data>(
   );
 };
 
-export const Table = forwardRef(FRefInputTable) as <T extends Data = Data>(
+export const Table = forwardRef(FRefInputTable) as <T extends Data>(
   props: TableProps<T> & { ref?: Ref<TableRef<T>> }
 ) => JSX.Element;
