@@ -258,7 +258,7 @@ export type TableProps<T extends Data> = {
   css?: TableCSS<T>;
 };
 
-export type TableRef<T extends Data> = {
+export type TableRef<T extends Data = Data> = {
   table: TanstackTable<T>;
 };
 
