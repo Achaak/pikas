@@ -1,5 +1,11 @@
 # @pikas-ui/table
 
+## 4.1.1
+
+### Patch Changes
+
+- Clear export
+
 ## 4.1.0
 
 ### Minor Changes

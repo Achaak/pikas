@@ -262,22 +262,6 @@ export type TableRef<T extends Data> = {
   table: TanstackTable<T>;
 };
 
-export const Test = () => (
-  <Table
-    data={[
-      {
-        id: 1,
-        name: 'test',
-        subRows: [{ id: 2, name: 'test' }],
-      },
-    ]}
-    columns={[]}
-    css={{
-      column: {},
-    }}
-  />
-);
-
 const FRefInputTable = <T extends Data>(
   {
     data,
