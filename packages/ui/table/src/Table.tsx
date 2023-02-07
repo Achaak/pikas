@@ -894,6 +894,6 @@ const FRefInputTable = <T extends Data>(
   );
 };
 
-export const Table = forwardRef(FRefInputTable) as <T extends Data>(
+export const Table = forwardRef(FRefInputTable) as <T extends Data = Data>(
   props: TableProps<T> & { ref?: Ref<TableRef<T>> }
 ) => JSX.Element;
