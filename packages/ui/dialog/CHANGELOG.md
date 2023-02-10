@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 3.0.3
+
+### Patch Changes
+
+- Fix border radius
+
 ## 3.0.2
 
 ### Patch Changes

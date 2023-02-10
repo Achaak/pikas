@@ -100,6 +100,7 @@ const Container = styled(DialogPrimitive.Content, {
     bottom: 'initial',
     right: 'initial',
     borderRadius: '$lg',
+    overflow: 'hidden',
   },
 
   '&[data-state="open"]': {
