@@ -1,24 +1,77 @@
 import type { IconCSS } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
-import type { PikasCSS } from '@pikas-ui/styles';
-import { useTheme, styled } from '@pikas-ui/styles';
+import { keyframes, PikasCSS, useTheme, styled } from '@pikas-ui/styles';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { useEffect, useState, ReactNode, FC } from 'react';
+import { ReactNode, FC } from 'react';
+
+const overlayOpen = keyframes({
+  from: { opacity: 0 },
+  to: { opacity: 0.5 },
+});
+
+const overlayClosed = keyframes({
+  from: { opacity: 0.5 },
+  to: { opacity: 0 },
+});
 
 const Overlay = styled(DialogPrimitive.Overlay, {
   position: 'fixed',
   backgroundColor: '$gray-light',
   opacity: 0,
   inset: 0,
-  transition: 'all 500ms',
   zIndex: '$2x-high',
 
-  variants: {
-    visible: {
-      true: {
-        opacity: 0.5,
-      },
-    },
+  '&[data-state="open"]': {
+    animation: `${overlayOpen} 200ms ease-out forwards`,
+  },
+
+  '&[data-state="closed"]': {
+    animation: `${overlayClosed} 200ms ease-out forwards`,
+  },
+});
+
+const containerOpen = keyframes({
+  from: {
+    opacity: 0,
+    transform: 'scale(0.8)',
+  },
+  to: {
+    opacity: 1,
+    transform: 'scale(1)',
+  },
+});
+
+const containerClosed = keyframes({
+  from: {
+    opacity: 1,
+    transform: 'scale(1)',
+  },
+  to: {
+    opacity: 0,
+    transform: 'scale(0.8)',
+  },
+});
+
+const containerOpenSm = keyframes({
+  from: {
+    opacity: 0,
+    transformOrigin: '0% 0%',
+    transform: 'scale(0.8) translate(-50%, -50%)',
+  },
+  to: {
+    opacity: 1,
+    transform: 'scale(1) translate(-50%, -50%)',
+  },
+});
+
+const containerClosedSm = keyframes({
+  from: {
+    opacity: 1,
+    transform: 'scale(1) translate(-50%, -50%)',
+  },
+  to: {
+    opacity: 0,
+    transform: 'scale(0.8) translate(-50%, -50%)',
   },
 });
 
@@ -34,9 +87,6 @@ const Container = styled(DialogPrimitive.Content, {
   backgroundColor: '$white',
   maxWidth: '100vw',
   maxHeight: '100vh',
-  transition: 'all 500ms',
-  transform: 'scale(0.8)',
-  opacity: 0,
   zIndex: '$2x-high',
 
   display: 'flex',
@@ -50,21 +100,27 @@ const Container = styled(DialogPrimitive.Content, {
     bottom: 'initial',
     right: 'initial',
     borderRadius: '$lg',
-    transformOrigin: '0% 0%',
-    transform: 'scale(0.8) translate(-50%, -50%)',
+  },
+
+  '&[data-state="open"]': {
+    animation: `${containerOpen} 500ms ease-out forwards`,
+
+    '@sm': {
+      transformOrigin: '0% 0%',
+      animation: `${containerOpenSm} 500ms ease-out forwards`,
+    },
+  },
+
+  '&[data-state="closed"]': {
+    animation: `${containerClosed} 500ms ease-out forwards`,
+
+    '@sm': {
+      transformOrigin: '0% 0%',
+      animation: `${containerClosedSm} 500ms ease-out forwards`,
+    },
   },
 
   variants: {
-    visible: {
-      true: {
-        opacity: 1,
-        transform: 'scale(1)',
-
-        '@sm': {
-          transform: 'scale(1) translate(-50%, -50%)',
-        },
-      },
-    },
     padding: {
       'no-padding': {
         padding: 0,
@@ -227,25 +283,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
   content,
   gap,
 }) => {
-  const [visibleStyle, setVisibleStyle] = useState(false);
-  const [visibleDOM, setVisibleDOM] = useState(false);
   const theme = useTheme();
-
-  useEffect(() => {
-    if (visible) {
-      setVisibleDOM(visible);
-
-      setTimeout(() => {
-        setVisibleStyle(visible);
-      }, 100);
-    } else {
-      setVisibleStyle(visible);
-
-      setTimeout(() => {
-        setVisibleDOM(visible);
-      }, 500);
-    }
-  }, [visible]);
 
   const handleClose = (): void => {
     if (onClose) {
@@ -255,7 +293,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
 
   return (
     <DialogPrimitive.Root
-      open={visibleDOM}
+      open={visible}
       modal={true}
       onOpenChange={(open): void => {
         if (open) {
@@ -266,7 +304,6 @@ export const CustomDialog: FC<CustomDialogProps> = ({
       <DialogPrimitive.Portal>
         <Overlay
           className={theme}
-          visible={visibleStyle}
           css={{
             pointerEvents: 'initial',
             ...css?.overlay,
@@ -275,7 +312,6 @@ export const CustomDialog: FC<CustomDialogProps> = ({
 
         <Container
           className={theme}
-          visible={visibleStyle}
           onInteractOutside={(): void => {
             if (closeIfClickOutside) {
               handleClose();

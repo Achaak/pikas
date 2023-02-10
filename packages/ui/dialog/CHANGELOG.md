@@ -1,5 +1,11 @@
 # @pikas-ui/dialog
 
+## 3.0.2
+
+### Patch Changes
+
+- Fix clip when the dialog is open and closed too fast
+
 ## 3.0.1
 
 ### Patch Changes
