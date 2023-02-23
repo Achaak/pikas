@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 4.0.3
+
+### Patch Changes
+
+- Add textfield type
+
 ## 4.0.2
 
 ### Patch Changes
