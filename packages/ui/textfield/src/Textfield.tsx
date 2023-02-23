@@ -19,6 +19,8 @@ import {
   useState,
   ReactNode,
   FC,
+  ForwardRefExoticComponent,
+  RefAttributes,
 } from 'react';
 import type { TooltipCSS } from '@pikas-ui/tooltip';
 import { Tooltip } from '@pikas-ui/tooltip';
@@ -291,7 +293,11 @@ const getColor = ({
   }
 };
 
-export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
+export const Textfield: ForwardRefExoticComponent<
+  InputHTMLAttributes<HTMLInputElement> &
+    RefAttributes<HTMLInputElement> &
+    TextfieldProps
+> = forwardRef<HTMLInputElement, TextfieldProps>(
   (
     {
       id,
