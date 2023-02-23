@@ -20,6 +20,7 @@ import {
   ReactNode,
   FC,
   ForwardRefExoticComponent,
+  RefAttributes,
 } from 'react';
 import type { TooltipCSS } from '@pikas-ui/tooltip';
 import { Tooltip } from '@pikas-ui/tooltip';
@@ -293,7 +294,9 @@ const getColor = ({
 };
 
 export const Textfield: ForwardRefExoticComponent<
-  InputHTMLAttributes<HTMLInputElement> & TextfieldProps
+  InputHTMLAttributes<HTMLInputElement> &
+    RefAttributes<HTMLInputElement> &
+    TextfieldProps
 > = forwardRef<HTMLInputElement, TextfieldProps>(
   (
     {
