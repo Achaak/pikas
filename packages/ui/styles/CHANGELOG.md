@@ -1,5 +1,11 @@
 # @pikas-ui/styles
 
+## 4.0.2
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 4.0.1
 
 ### Patch Changes

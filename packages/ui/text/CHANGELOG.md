@@ -1,5 +1,13 @@
 # @pikas-ui/text
 
+## 5.0.2
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/styles@4.0.2
+
 ## 5.0.1
 
 ### Patch Changes

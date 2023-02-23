@@ -1,5 +1,16 @@
 # @pikas-ui/context-menu
 
+## 4.1.1
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/loader@4.0.2
+  - @pikas-ui/styles@4.0.2
+  - @pikas-ui/icons@4.0.2
+  - @pikas-ui/menu@4.0.2
+
 ## 4.1.0
 
 ### Minor Changes
