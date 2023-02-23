@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 4.0.4
+
+### Patch Changes
+
+- upgrade dependencies
+
 ## 4.0.3
 
 ### Patch Changes

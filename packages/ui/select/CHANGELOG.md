@@ -1,5 +1,13 @@
 # @pikas-ui/select
 
+## 5.1.4
+
+### Patch Changes
+
+- upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/textfield@4.0.4
+
 ## 5.1.3
 
 ### Patch Changes
