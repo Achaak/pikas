@@ -1,5 +1,11 @@
 # @pikas-ui/grid
 
+## 2.1.0
+
+### Minor Changes
+
+- Add 2xl media option
+
 ## 2.0.2
 
 ### Patch Changes

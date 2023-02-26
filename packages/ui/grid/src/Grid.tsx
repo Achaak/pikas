@@ -141,6 +141,7 @@ export type GridContainerRowGap =
       md?: number | string;
       lg?: number | string;
       xl?: number | string;
+      '2xl'?: number | string;
     };
 
 export type GridContainerColumnGap =
@@ -157,6 +158,7 @@ export type GridContainerColumnGap =
       md?: number | string;
       lg?: number | string;
       xl?: number | string;
+      '2xl'?: number | string;
     };
 
 export type GridContainerCols = {
@@ -166,6 +168,7 @@ export type GridContainerCols = {
   md?: number;
   lg?: number;
   xl?: number;
+  '2xl'?: number;
 };
 
 export type GridContainerDirection =
@@ -201,6 +204,7 @@ export type GridItemCols = {
   md?: number;
   lg?: number;
   xl?: number;
+  '2xl'?: number;
 };
 
 export type GridItemStart = {
@@ -210,6 +214,7 @@ export type GridItemStart = {
   md?: number;
   lg?: number;
   xl?: number;
+  '2xl'?: number;
 };
 
 export type GridItemEnd = {
@@ -219,6 +224,7 @@ export type GridItemEnd = {
   md?: number;
   lg?: number;
   xl?: number;
+  '2xl'?: number;
 };
 
 export type GridItemOrder = {
@@ -228,6 +234,7 @@ export type GridItemOrder = {
   md?: number;
   lg?: number;
   xl?: number;
+  '2xl'?: number;
 };
 
 export type GridItemProps = GridBaseProps & {
@@ -475,6 +482,41 @@ export const Grid: FC<GridProps> = (
           }),
 
           ...css?.['@xl'],
+        },
+
+        '@2xl': {
+          // CONTAINER
+          ...(type === 'container' && {
+            ...(props.cols['2xl'] && {
+              gridTemplateColumns: `repeat(${props.cols['2xl']}, 1fr)`,
+            }),
+            ...(typeof props.rowGap === 'object' &&
+              props.rowGap['2xl'] && {
+                rowGap: props.rowGap['2xl'],
+              }),
+            ...(typeof props.columnGap === 'object' &&
+              props.columnGap['2xl'] && {
+                columnGap: props.columnGap['2xl'],
+              }),
+          }),
+
+          // ITEM
+          ...(type === 'item' && {
+            ...(props.cols?.['2xl'] && {
+              gridColumn: `span ${props.cols['2xl']} / span ${props.cols['2xl']}`,
+            }),
+            ...(props.start?.['2xl'] && {
+              gridColumnStart: props.start['2xl'],
+            }),
+            ...(props.end?.['2xl'] && {
+              gridColumnEnd: props.end['2xl'],
+            }),
+            ...(props.order?.['2xl'] && {
+              order: props.order['2xl'],
+            }),
+          }),
+
+          ...css?.['@2xl'],
         },
       }}
     >

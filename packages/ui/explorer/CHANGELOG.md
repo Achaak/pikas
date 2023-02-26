@@ -1,5 +1,12 @@
 # @pikas-ui/explorer
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/grid@2.1.0
+
 ## 2.0.3
 
 ### Patch Changes
