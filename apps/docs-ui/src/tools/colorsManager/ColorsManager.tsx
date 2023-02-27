@@ -2,11 +2,11 @@ import { Grid } from '@pikas-ui/grid';
 import { IconByName, IconProps } from '@pikas-ui/icons';
 import { ToastProvider } from '@pikas-ui/toast';
 import { Switch } from '@pikas-ui/switch';
-import { styled, useTernaryDarkMode, useTheme } from '@pikas/docs-ui';
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { ColorsManagerColumn } from './colorsManagerColumn';
 import { Slider } from '@pikas-ui/slider';
 import { Title } from '@pikas-ui/title';
+import { styled, useTernaryDarkMode, useTheme } from '@pikas-ui/styles';
 
 const BxsSun: FC<IconProps> = (props) => (
   <IconByName name="bxs:sun" {...props} />
