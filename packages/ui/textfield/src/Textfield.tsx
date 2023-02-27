@@ -74,6 +74,7 @@ const Input = styled('input', {
   border: 'none',
   fontFamily: '$roboto',
   backgroundColor: '$transparent',
+  fontSize: '$em-small',
 
   '&::placeholder': {
     color: '$gray-dark',

@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 4.0.5
+
+### Patch Changes
+
+- Fix font size
+
 ## 4.0.4
 
 ### Patch Changes

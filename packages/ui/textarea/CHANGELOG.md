@@ -1,5 +1,11 @@
 # @pikas-ui/textarea
 
+## 4.0.3
+
+### Patch Changes
+
+- Fix font size
+
 ## 4.0.2
 
 ### Patch Changes

@@ -22,6 +22,7 @@ const Container = styled('div', {
 });
 
 const TextareaStyled = styled('textarea', {
+  all: 'unset',
   width: '100%',
   maxWidth: '100%',
   overflow: 'hidden',
@@ -32,6 +33,7 @@ const TextareaStyled = styled('textarea', {
   border: 'none',
   fontFamily: '$roboto',
   backgroundColor: '$transparent',
+  fontSize: '$em-small',
 
   '&::placeholder': {
     color: '$gray-dark',
