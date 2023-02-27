@@ -68,7 +68,6 @@ const InputContainer = styled('div', {
 });
 
 const Input = styled('input', {
-  all: 'unset',
   width: '100%',
   outline: 'none',
   border: 'none',

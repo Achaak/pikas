@@ -1,5 +1,11 @@
 # @pikas-ui/textfield
 
+## 4.0.6
+
+### Patch Changes
+
+- Fix CSS
+
 ## 4.0.5
 
 ### Patch Changes

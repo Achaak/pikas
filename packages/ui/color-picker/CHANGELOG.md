@@ -1,5 +1,12 @@
 # @pikas-ui/color-picker
 
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/textfield@4.0.6
+
 ## 2.0.5
 
 ### Patch Changes

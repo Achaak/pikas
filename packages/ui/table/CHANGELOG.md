@@ -1,5 +1,13 @@
 # @pikas-ui/table
 
+## 4.1.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/textfield@4.0.6
+  - @pikas-ui/select@5.1.6
+
 ## 4.1.8
 
 ### Patch Changes

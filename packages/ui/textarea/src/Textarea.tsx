@@ -22,7 +22,6 @@ const Container = styled('div', {
 });
 
 const TextareaStyled = styled('textarea', {
-  all: 'unset',
   width: '100%',
   maxWidth: '100%',
   overflow: 'hidden',

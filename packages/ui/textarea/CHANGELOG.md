@@ -1,5 +1,11 @@
 # @pikas-ui/textarea
 
+## 4.0.4
+
+### Patch Changes
+
+- Fix CSS
+
 ## 4.0.3
 
 ### Patch Changes
