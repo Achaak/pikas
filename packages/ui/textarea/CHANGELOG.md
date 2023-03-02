@@ -1,5 +1,17 @@
 # @pikas-ui/textarea
 
+## 4.0.5
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-utils/color@2.0.2
+  - @pikas-ui/tooltip@4.0.3
+  - @pikas-ui/styles@4.0.3
+  - @pikas-ui/icons@4.0.3
+  - @pikas-ui/text@5.0.3
+
 ## 4.0.4
 
 ### Patch Changes

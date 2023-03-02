@@ -3,7 +3,7 @@ import * as usehooks from 'usehooks-ts';
 
 export const useWindowSize = usehooks.useWindowSize;
 
-export type Medias = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
+export type Medias = '2xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
 export const getMediaByScreenSize = (screenSize: number): Medias => {
   if (screenSize < 480) {
@@ -14,8 +14,10 @@ export const getMediaByScreenSize = (screenSize: number): Medias => {
     return 'md';
   } else if (screenSize < 1024) {
     return 'lg';
-  } else {
+  } else if (screenSize < 1280) {
     return 'xl';
+  } else {
+    return '2xl';
   }
 };
 
@@ -31,6 +33,8 @@ export const getScreenSizeByMedia = (media: Medias): number => {
       return 1024;
     case 'xl':
       return 1280;
+    case '2xl':
+      return 1536;
     default:
       return 0;
   }

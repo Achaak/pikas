@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/alert",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,9 +42,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "4.0.2",
-    "@pikas-ui/styles": "4.0.2",
-    "@pikas-utils/color": "2.0.1"
+    "@pikas-ui/icons": "4.0.3",
+    "@pikas-ui/styles": "4.0.3",
+    "@pikas-utils/color": "2.0.2"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -53,11 +53,11 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.14.1",
+    "@types/node": "18.14.4",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "cross-env": "7.0.3",
-    "eslint": "8.34.0",
+    "eslint": "8.35.0",
     "eslint-config-custom": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",

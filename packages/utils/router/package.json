@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/router",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -43,9 +43,9 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.14.1",
+    "@types/node": "18.14.4",
     "cross-env": "7.0.3",
-    "eslint": "8.34.0",
+    "eslint": "8.35.0",
     "eslint-config-custom": "workspace:*",
     "tsup": "6.6.3",
     "typescript": "4.9.5"

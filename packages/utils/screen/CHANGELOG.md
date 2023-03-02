@@ -1,5 +1,15 @@
 # @pikas-utils/screen
 
+## 2.1.0
+
+### Minor Changes
+
+- Add 2xl media
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @pikas-utils/hooks
 
+## 2.0.2
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 2.0.1
 
 ### Patch Changes
