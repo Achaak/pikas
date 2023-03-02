@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "4.1.10",
+  "version": "4.1.11",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -46,7 +46,7 @@
     "@dnd-kit/modifiers": "^6.0.1",
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
-    "@pikas-ui/button": "4.0.3",
+    "@pikas-ui/button": "4.0.4",
     "@pikas-ui/checkbox": "4.0.3",
     "@pikas-ui/icons": "4.0.3",
     "@pikas-ui/loader": "4.0.3",

@@ -1,5 +1,12 @@
 # @pikas-ui/table
 
+## 4.1.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/button@4.0.4
+
 ## 4.1.10
 
 ### Patch Changes

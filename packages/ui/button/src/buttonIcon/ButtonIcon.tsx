@@ -189,7 +189,7 @@ const getContent = ({
   loading?: boolean;
   css?: ButtonIconCSS;
   contentColor?: string;
-  size?: PikasSize;
+  size: PikasSize;
   Icon: FC<IconProps>;
 }): ReactNode => {
   const theme = useTheme();
@@ -201,7 +201,7 @@ const getContent = ({
     <>
       <LoadingContainer>
         <ClipLoader
-          size={theme.sizes[size ?? 6].value}
+          size={theme.sizes[size].value}
           colorHex={contentColor}
           loading={loading}
         />
@@ -213,7 +213,7 @@ const getContent = ({
         }}
       >
         <Icon
-          size={theme.sizes[size ?? 6].value}
+          size={theme.sizes[size].value}
           colorHex={contentColor}
           css={css?.icon}
         />
@@ -234,7 +234,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       onClick,
       outlined,
       Icon,
-      size = 6,
+      size = 24,
       borderRadius = 'md',
       borderWidth = 2,
       boxShadow = 'bottom-sm',
@@ -321,7 +321,7 @@ export const ButtonIconLink = forwardRef<
       onClick,
       outlined,
       Icon,
-      size = 6,
+      size = 24,
       disabled,
       borderRadius = 'md',
       borderWidth = 2,

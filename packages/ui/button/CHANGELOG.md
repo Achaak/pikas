@@ -1,5 +1,11 @@
 # @pikas-ui/button
 
+## 4.0.4
+
+### Patch Changes
+
+- fix icon size
+
 ## 4.0.3
 
 ### Patch Changes

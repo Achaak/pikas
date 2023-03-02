@@ -598,7 +598,7 @@ importers:
 
   packages/ui/dialog:
     specifiers:
-      '@pikas-ui/button': 4.0.3
+      '@pikas-ui/button': 4.0.4
       '@pikas-ui/icons': 4.0.3
       '@pikas-ui/loader': 4.0.3
       '@pikas-ui/slider': 4.0.3
@@ -1072,7 +1072,7 @@ importers:
 
   packages/ui/searchbar:
     specifiers:
-      '@pikas-ui/button': 4.0.3
+      '@pikas-ui/button': 4.0.4
       '@pikas-ui/icons': 4.0.3
       '@pikas-ui/loader': 4.0.3
       '@pikas-ui/separator': 4.0.3
@@ -1343,7 +1343,7 @@ importers:
       '@dnd-kit/modifiers': ^6.0.1
       '@dnd-kit/sortable': ^7.0.2
       '@dnd-kit/utilities': ^3.2.1
-      '@pikas-ui/button': 4.0.3
+      '@pikas-ui/button': 4.0.4
       '@pikas-ui/checkbox': 4.0.3
       '@pikas-ui/icons': 4.0.3
       '@pikas-ui/loader': 4.0.3
@@ -1579,7 +1579,7 @@ importers:
 
   packages/ui/toast:
     specifiers:
-      '@pikas-ui/button': 4.0.3
+      '@pikas-ui/button': 4.0.4
       '@pikas-ui/icons': 4.0.3
       '@pikas-ui/styles': 4.0.3
       '@pikas/prettier': workspace:*
