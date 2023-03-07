@@ -4,7 +4,7 @@
   "private": false,
   "keywords": [
     "pikas-ui",
-    "toggleGroup",
+    "toggle-group",
     "react"
   ],
   "description": "A UI library that offers a toggle group components for React.",
