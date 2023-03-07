@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/dialog",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,16 +42,16 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "4.0.4",
-    "@pikas-ui/icons": "4.0.3",
-    "@pikas-ui/loader": "4.0.3",
-    "@pikas-ui/slider": "4.0.3",
-    "@pikas-ui/styles": "4.0.3",
-    "@pikas-ui/title": "2.0.3",
+    "@pikas-ui/button": "4.0.5",
+    "@pikas-ui/icons": "4.0.4",
+    "@pikas-ui/loader": "4.0.4",
+    "@pikas-ui/slider": "4.0.4",
+    "@pikas-ui/styles": "4.0.4",
+    "@pikas-ui/title": "2.0.4",
     "@radix-ui/react-dialog": "1.0.2",
     "compressorjs": "1.2.1",
     "get-orientation": "1.1.2",
-    "react-easy-crop": "4.7.3"
+    "react-easy-crop": "4.7.4"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.14.4",
+    "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "cross-env": "7.0.3",

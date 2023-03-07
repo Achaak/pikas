@@ -1,0 +1,9 @@
+{
+  "extends": "@pikas/tsconfig/package-react.json",
+  "include": ["src", "tsup.config.ts"],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist"
+  }
+}

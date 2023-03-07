@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/avatar",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -42,8 +42,8 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/skeleton": "3.0.3",
-    "@pikas-ui/styles": "4.0.3",
+    "@pikas-ui/skeleton": "3.0.4",
+    "@pikas-ui/styles": "4.0.4",
     "@radix-ui/react-avatar": "1.0.1"
   },
   "peerDependencies": {
@@ -53,7 +53,7 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.14.4",
+    "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "cross-env": "7.0.3",

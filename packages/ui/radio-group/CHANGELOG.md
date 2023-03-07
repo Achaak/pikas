@@ -1,5 +1,16 @@
 # @pikas-ui/radio-group
 
+## 4.0.4
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/tooltip@4.0.4
+  - @pikas-ui/styles@4.0.4
+  - @pikas-ui/icons@4.0.4
+  - @pikas-ui/text@5.0.4
+
 ## 4.0.3
 
 ### Patch Changes

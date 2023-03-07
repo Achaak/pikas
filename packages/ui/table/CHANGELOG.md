@@ -1,5 +1,20 @@
 # @pikas-ui/table
 
+## 4.1.12
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/textfield@4.0.8
+  - @pikas-ui/checkbox@4.0.4
+  - @pikas-utils/color@2.0.3
+  - @pikas-ui/button@4.0.5
+  - @pikas-ui/loader@4.0.4
+  - @pikas-ui/select@5.1.8
+  - @pikas-ui/styles@4.0.4
+  - @pikas-ui/icons@4.0.4
+
 ## 4.1.11
 
 ### Patch Changes

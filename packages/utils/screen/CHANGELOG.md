@@ -1,5 +1,11 @@
 # @pikas-utils/screen
 
+## 2.1.1
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 2.1.0
 
 ### Minor Changes

@@ -37,6 +37,7 @@ export const docsUIRoutes = routes({
     radioGroup: '/components/radio-group',
     colorPicker: '/components/color-picker',
     multiInputField: '/components/multi-input-field',
+    toggleGroup: '/components/toggle-group',
     badge: '/components/badge',
     colorsManager: '/tools/colors-manager',
     styles: '/utilities/styles',

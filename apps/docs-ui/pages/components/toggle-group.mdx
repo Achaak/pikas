@@ -1,0 +1,126 @@
+import { ToggleGroupExample } from './../../src/examples/toggleGroup';
+import { docsUIRoutes } from '@pikas/docs-routes';
+export const { getLink } = docsUIRoutes;
+import { NextSeo } from 'next-seo';
+
+export const stylesLink = getLink('styles');
+
+<NextSeo title="ToggleGroup" />
+
+# @pikas-ui/toggle-group
+
+This package contains a toggle group component that can be used to display a group of clickable items.
+
+This library is based on [Radix Ui](https://www.radix-ui.com/).
+
+<a href="https://github.com/Achaak/pikas/blob/main/packages/ui/toggle-group/CHANGELOG.md">
+  Change Log
+</a>
+
+## Requirements
+
+To use this package, you must install the <a href={stylesLink}>@pikas-ui/styles</a> package.
+
+## Installation
+
+You can install this package using npm, yarn, or pnpm.
+
+```
+npm install @pikas-ui/toggle-group
+```
+
+```
+yarn add @pikas-ui/toggle-group
+```
+
+```
+pnpm add @pikas-ui/toggle-group
+```
+
+---
+
+## Usage
+
+### ToggleGroup
+
+This component is used to create a toggleGroup component.
+
+<ToggleGroupExample />
+
+```tsx
+import { ToggleGroup, ToggleGroupData } from '@pikas-ui/toggle-group';
+import { IconByName, IconProps } from '@pikas-ui/icons';
+import { FC } from 'react';
+
+const IconBaguetteExample: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:baguette" />
+);
+
+const IconBowlRiceExample: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:bowl-rice" />
+);
+
+const IconCookieExample: FC<IconProps> = (props) => (
+  <IconByName {...props} name="bx:cookie" />
+);
+
+const data: ToggleGroupData[] = [
+  {
+    value: 'baguette',
+    Icon: IconBaguetteExample,
+  },
+  {
+    value: 'bowl-rice',
+    Icon: IconBowlRiceExample,
+  },
+  {
+    value: 'cookie',
+    Icon: IconCookieExample,
+    disabled: true,
+  },
+]
+
+const Example: React.FC = () => {
+  return (
+    <ToggleGroup
+      type="single"
+      data={data}
+      defaultValue="baguette"
+      onValueChange={(value) => console.log(value)}
+    />
+  );
+};
+```
+
+#### Props
+
+| Prop               | Description                                                                      | Type                                  | Default        |
+| :----------------- | :------------------------------------------------------------------------------- | :------------------------------------ | :------------- |
+| `type`             | The type of the toggle group.                                                    | `ToggleGroupType`                     | -              |
+| `data`             | The data of the toggle group.                                                    | `ToggleGroupData[]`                   | -              |
+| `defaultValue`     | The default value of the toggle group.                                           | `string or string[]`                  | -              |
+| `onValueChange`    | The callback function that is called when the value of the toggle group changes. | `(value: string or string[]) => void` | -              |
+| `css`              | The css of the toggle group.                                                     | `PikasCSS`                            | -              |
+| `size`             | The size of the toggle group.                                                    | `PikasSize`                           | `24`           |
+| `padding`          | The padding of the toggle group.                                                 | `ToggleGroupPadding`                  | `"md"`         |
+| `borderRadius`     | The border radius of the toggle group.                                           | `PikasRadius`                         | `"md"`         |
+| `borderWidth`      | The border width of the toggle group.                                            | `number`                              | `2`            |
+| `boxShadow`        | The box shadow of the toggle group.                                              | `PikasShadow or "none"`               | `"bottom-sm"`  |
+| `colorName`        | The color name of the toggle group.                                              | `PikasColor`                          | `"primary"`    |
+| `colorHex`         | The color hex of the toggle group.                                               | `string`                              | -              |
+| `contentColorName` | The content color name of the toggle group.                                      | `PikasColor`                          | -              |
+| `contentColorHex`  | The content color hex of the toggle group.                                       | `string`                              | -              |
+| `orientation`      | The orientation of the toggle group.                                             | `ToggleGroupOrientation`              | `"horizontal"` |
+| `outlined`         | The outlined of the toggle group.                                                | `boolean`                             | `false`        |
+| `disabled`         | The disabled of the toggle group.                                                | `boolean`                             | -              |
+| `rovingFocus`      | The roving focus of the toggle group.                                            | `boolean`                             | `true`         |
+| `direction`        | The direction of the toggle group.                                               | `ToggleGroupDirection`                | `"ltr"`        |
+| `loop`             | The loop of the toggle group.                                                    | `boolean`                             | `true`         |
+
+
+
+---
+
+## Contributing
+
+This documentation can be edited on GitHub [here](https://github.com/Achaak/pikas/blob/main/apps/docs-ui/pages/components/toggle-group.mdx)

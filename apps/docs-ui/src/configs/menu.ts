@@ -148,6 +148,10 @@ export const menu: LayoutMenu = [
         href: getLinkUI('toast'),
       },
       {
+        label: 'Toggle Group',
+        href: getLinkUI('toggleGroup'),
+      },
+      {
         label: 'Tooltip',
         href: getLinkUI('tooltip'),
       },
