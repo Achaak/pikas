@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/explorer",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -45,17 +45,17 @@
     "@dnd-kit/core": "^6.0.8",
     "@dnd-kit/modifiers": "^6.0.1",
     "@dnd-kit/utilities": "^3.2.1",
-    "@pikas-ui/context-menu": "4.1.3",
-    "@pikas-ui/dropdown-menu": "4.1.3",
-    "@pikas-ui/grid": "2.1.2",
-    "@pikas-ui/icons": "4.0.4",
-    "@pikas-ui/loader": "4.0.4",
-    "@pikas-ui/menu": "4.0.4",
-    "@pikas-ui/styles": "4.0.4",
-    "@pikas-utils/color": "2.0.3",
-    "@pikas-utils/file": "2.0.3",
-    "@pikas-utils/keyboard": "2.0.3",
-    "@pikas-utils/screen": "2.1.1",
+    "@pikas-ui/context-menu": "4.1.4",
+    "@pikas-ui/dropdown-menu": "4.1.4",
+    "@pikas-ui/grid": "2.1.3",
+    "@pikas-ui/icons": "4.0.5",
+    "@pikas-ui/loader": "4.0.5",
+    "@pikas-ui/menu": "4.0.5",
+    "@pikas-ui/styles": "4.0.5",
+    "@pikas-utils/color": "2.0.4",
+    "@pikas-utils/file": "2.0.4",
+    "@pikas-utils/keyboard": "2.0.4",
+    "@pikas-utils/screen": "2.1.2",
     "usehooks-ts": "2.9.1"
   },
   "peerDependencies": {
@@ -65,16 +65,16 @@
   "devDependencies": {
     "@pikas/prettier": "workspace:*",
     "@pikas/tsconfig": "workspace:*",
-    "@types/node": "18.14.6",
+    "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "cross-env": "7.0.3",
-    "eslint": "8.35.0",
+    "eslint": "8.36.0",
     "eslint-config-custom": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tsup": "6.6.3",
-    "typescript": "4.9.5"
+    "typescript": "5.0.2"
   },
   "node": "12.20.0 || 14.13.1 || >=16.0.0"
 }

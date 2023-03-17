@@ -1,5 +1,20 @@
 # @pikas-ui/multi-input-field
 
+## 3.0.5
+
+### Patch Changes
+
+- Upgrade dependencies
+- Fix stop propagation when press enter
+- Updated dependencies
+  - @pikas-utils/color@2.0.4
+  - @pikas-utils/hooks@2.0.4
+  - @pikas-ui/tooltip@4.0.5
+  - @pikas-ui/styles@4.0.5
+  - @pikas-ui/badge@2.0.5
+  - @pikas-ui/icons@4.0.5
+  - @pikas-ui/text@5.0.5
+
 ## 3.0.4
 
 ### Patch Changes

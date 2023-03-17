@@ -1,5 +1,18 @@
 # @pikas-ui/textfield
 
+## 4.0.9
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-utils/color@2.0.4
+  - @pikas-utils/hooks@2.0.4
+  - @pikas-ui/tooltip@4.0.5
+  - @pikas-ui/styles@4.0.5
+  - @pikas-ui/icons@4.0.5
+  - @pikas-ui/text@5.0.5
+
 ## 4.0.8
 
 ### Patch Changes

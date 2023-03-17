@@ -1,5 +1,15 @@
 # @pikas-ui/toggle-group
 
+## 1.0.2
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-utils/color@2.0.4
+  - @pikas-ui/styles@4.0.5
+  - @pikas-ui/icons@4.0.5
+
 ## 1.0.1
 
 ### Patch Changes

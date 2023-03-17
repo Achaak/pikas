@@ -398,6 +398,8 @@ export const MultiInputField = forwardRef<
       if (e.key === 'Enter' && !!e.currentTarget.value) {
         setCurrentValues((currentState) => [...currentState, inputValue]);
         e.currentTarget.value = '';
+        e.preventDefault();
+        e.stopPropagation();
       }
     };
 

@@ -1,5 +1,16 @@
 # @pikas-ui/switch
 
+## 3.0.5
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @pikas-ui/tooltip@4.0.5
+  - @pikas-ui/styles@4.0.5
+  - @pikas-ui/icons@4.0.5
+  - @pikas-ui/text@5.0.5
+
 ## 3.0.4
 
 ### Patch Changes
