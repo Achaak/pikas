@@ -404,6 +404,11 @@ export const MultiInputField = forwardRef<
     };
 
     const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
       if (
         e.key === 'Backspace' &&
         !e.currentTarget.value &&
