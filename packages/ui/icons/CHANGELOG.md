@@ -1,5 +1,11 @@
 # @pikas-ui/icons
 
+## 4.1.0
+
+### Minor Changes
+
+- Add export
+
 ## 4.0.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @pikas-ui/switch
 
+## 3.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/icons@4.1.0
+
 ## 3.0.5
 
 ### Patch Changes

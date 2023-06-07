@@ -1,5 +1,12 @@
 # @pikas-ui/dropzone
 
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/icons@4.1.0
+
 ## 2.0.5
 
 ### Patch Changes

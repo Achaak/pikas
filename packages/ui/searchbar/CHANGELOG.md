@@ -1,5 +1,14 @@
 # @pikas-ui/searchbar
 
+## 4.0.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/icons@4.1.0
+  - @pikas-ui/button@4.0.7
+  - @pikas-ui/textfield@4.0.10
+
 ## 4.0.10
 
 ### Patch Changes
