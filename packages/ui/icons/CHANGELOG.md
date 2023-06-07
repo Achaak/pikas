@@ -1,5 +1,12 @@
 # @pikas-ui/icons
 
+## 4.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@4.1.0
+
 ## 4.1.0
 
 ### Minor Changes

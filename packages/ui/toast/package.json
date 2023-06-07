@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/toast",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -17,6 +17,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
     }
   },
   "files": [
@@ -42,9 +47,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/button": "4.0.7",
-    "@pikas-ui/icons": "4.1.0",
-    "@pikas-ui/styles": "4.0.5",
+    "@pikas-ui/button": "4.1.0",
+    "@pikas-ui/icons": "4.1.1",
+    "@pikas-ui/styles": "4.1.0",
     "@radix-ui/react-toast": "1.1.4"
   },
   "peerDependencies": {

@@ -1,5 +1,11 @@
 # @pikas-utils/screen
 
+## 2.2.0
+
+### Minor Changes
+
+- Add export
+
 ## 2.1.2
 
 ### Patch Changes

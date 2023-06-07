@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/table",
-  "version": "4.1.14",
+  "version": "4.2.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -17,6 +17,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
     }
   },
   "files": [
@@ -46,14 +51,14 @@
     "@dnd-kit/modifiers": "^6.0.1",
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
-    "@pikas-ui/button": "4.0.7",
-    "@pikas-ui/checkbox": "4.0.6",
-    "@pikas-ui/icons": "4.1.0",
-    "@pikas-ui/loader": "4.0.5",
-    "@pikas-ui/select": "5.1.10",
-    "@pikas-ui/styles": "4.0.5",
-    "@pikas-ui/textfield": "workspace:^4.0.10",
-    "@pikas-utils/color": "2.0.4",
+    "@pikas-ui/button": "4.1.0",
+    "@pikas-ui/checkbox": "4.1.0",
+    "@pikas-ui/icons": "4.1.1",
+    "@pikas-ui/loader": "4.1.0",
+    "@pikas-ui/select": "5.2.0",
+    "@pikas-ui/styles": "4.1.0",
+    "@pikas-ui/textfield": "workspace:^4.1.0",
+    "@pikas-utils/color": "2.1.0",
     "@tanstack/match-sorter-utils": "^8.8.4",
     "@tanstack/react-table": "8.9.1",
     "lodash.once": "^4.1.1"

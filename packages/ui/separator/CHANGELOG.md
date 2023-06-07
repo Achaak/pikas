@@ -1,5 +1,16 @@
 # @pikas-ui/separator
 
+## 4.1.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@4.1.0
+
 ## 4.0.5
 
 ### Patch Changes

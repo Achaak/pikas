@@ -1,6 +1,6 @@
 {
   "name": "@pikas-utils/screen",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "private": false,
   "keywords": [
     "pikas-utils",
@@ -16,6 +16,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
     }
   },
   "files": [

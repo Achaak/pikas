@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/text",
-  "version": "5.0.5",
+  "version": "5.1.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -17,6 +17,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
     }
   },
   "files": [
@@ -42,7 +47,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "4.0.5",
+    "@pikas-ui/styles": "4.1.0",
     "@radix-ui/react-label": "2.0.2"
   },
   "peerDependencies": {

@@ -1,5 +1,17 @@
 # @pikas-ui/avatar
 
+## 3.1.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/skeleton@3.1.0
+  - @pikas-ui/styles@4.1.0
+
 ## 3.0.5
 
 ### Patch Changes

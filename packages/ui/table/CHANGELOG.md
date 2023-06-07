@@ -1,5 +1,23 @@
 # @pikas-ui/table
 
+## 4.2.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/textfield@4.1.0
+  - @pikas-ui/checkbox@4.1.0
+  - @pikas-utils/color@2.1.0
+  - @pikas-ui/button@4.1.0
+  - @pikas-ui/loader@4.1.0
+  - @pikas-ui/select@5.2.0
+  - @pikas-ui/styles@4.1.0
+  - @pikas-ui/icons@4.1.1
+
 ## 4.1.14
 
 ### Patch Changes

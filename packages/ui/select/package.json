@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/select",
-  "version": "5.1.10",
+  "version": "5.2.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -17,6 +17,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
     }
   },
   "files": [
@@ -42,11 +47,11 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "4.1.0",
-    "@pikas-ui/styles": "4.0.5",
-    "@pikas-ui/text": "5.0.5",
-    "@pikas-ui/textfield": "4.0.10",
-    "@pikas-ui/tooltip": "4.0.5",
+    "@pikas-ui/icons": "4.1.1",
+    "@pikas-ui/styles": "4.1.0",
+    "@pikas-ui/text": "5.1.0",
+    "@pikas-ui/textfield": "4.1.0",
+    "@pikas-ui/tooltip": "4.1.0",
     "@radix-ui/react-select": "1.2.2"
   },
   "peerDependencies": {

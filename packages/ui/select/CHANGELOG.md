@@ -1,5 +1,20 @@
 # @pikas-ui/select
 
+## 5.2.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/textfield@4.1.0
+  - @pikas-ui/tooltip@4.1.0
+  - @pikas-ui/styles@4.1.0
+  - @pikas-ui/text@5.1.0
+  - @pikas-ui/icons@4.1.1
+
 ## 5.1.10
 
 ### Patch Changes

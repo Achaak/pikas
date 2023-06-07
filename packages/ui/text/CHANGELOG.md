@@ -1,5 +1,16 @@
 # @pikas-ui/text
 
+## 5.1.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@4.1.0
+
 ## 5.0.5
 
 ### Patch Changes

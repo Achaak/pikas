@@ -1,5 +1,18 @@
 # @pikas-ui/toast
 
+## 2.1.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/button@4.1.0
+  - @pikas-ui/styles@4.1.0
+  - @pikas-ui/icons@4.1.1
+
 ## 2.0.7
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @pikas-ui/drawer
 
+## 2.1.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-ui/styles@4.1.0
+  - @pikas-ui/title@2.1.0
+  - @pikas-ui/icons@4.1.1
+
 ## 2.0.6
 
 ### Patch Changes

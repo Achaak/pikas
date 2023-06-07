@@ -1,5 +1,17 @@
 # @pikas-ui/tooltip
 
+## 4.1.0
+
+### Minor Changes
+
+- Add export
+
+### Patch Changes
+
+- Updated dependencies
+  - @pikas-utils/color@2.1.0
+  - @pikas-ui/styles@4.1.0
+
 ## 4.0.5
 
 ### Patch Changes
