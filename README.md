@@ -4,11 +4,13 @@
 <img src="images/pikas-logo.png" width="200" height="200" />
 
 Pikas is an open source project that aims to provide a simple and easy to use to create a simple and fast web application.
+
+! As Stitches is no longer available, this bookshop will probably not be maintained ! https://github.com/stitchesjs/stitches/discussions/1149
 </div>
 
 <div align="center"> 
 
-  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Achaak/pikas/graphs/commit-activity)
+  [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/Achaak/pikas/graphs/commit-activity)
   [![GitHub license](https://img.shields.io/github/license/Achaak/pikas)](https://github.com/Achaak/pikas/blob/master/LICENSE)
   ![npm](https://img.shields.io/npm/dw/@pikas-ui/styles) 
 
