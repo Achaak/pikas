@@ -4,6 +4,8 @@
 <img src="images/pikas-logo.png" width="200" height="200" />
 
 Pikas is an open source project that aims to provide a simple and easy to use to create a simple and fast web application.
+
+! As Stitches is no longer available, this bookshop will probably not be maintained ! https://github.com/stitchesjs/stitches/discussions/1149
 </div>
 
 <div align="center"> 
