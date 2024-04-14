@@ -1,5 +1,26 @@
 # @pikas-ui/explorer
 
+## 3.0.0
+
+### Major Changes
+
+- a7e6f0b: upgrade deps
+
+### Patch Changes
+
+- Updated dependencies [a7e6f0b]
+  - @pikas-ui/context-menu@5.0.0
+  - @pikas-ui/dropdown-menu@5.0.0
+  - @pikas-ui/grid@3.0.0
+  - @pikas-ui/icons@5.0.0
+  - @pikas-ui/loader@5.0.0
+  - @pikas-ui/menu@5.0.0
+  - @pikas-ui/styles@5.0.0
+  - @pikas-utils/color@3.0.0
+  - @pikas-utils/file@3.0.0
+  - @pikas-utils/keyboard@3.0.0
+  - @pikas-utils/screen@3.0.0
+
 ## 2.1.0
 
 ### Minor Changes

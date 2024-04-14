@@ -36,6 +36,7 @@ export type PikasLineHeights = typeof pikasLineHeights;
 export type PikasLineHeight = keyof PikasLineHeights;
 
 export type LineHeightsRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type LineHeightsRecordKey = PikasLineHeight | number | string;
 export type LineHeightsRecord = Record<
   LineHeightsRecordKey,
@@ -52,4 +53,4 @@ export const loadLineHeights = <T extends LineHeightsRecord>(
   ({
     ...pikasLineHeights,
     ...values,
-  } as PikasLineHeights & T);
+  }) as PikasLineHeights & T;

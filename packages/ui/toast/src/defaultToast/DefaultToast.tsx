@@ -57,7 +57,7 @@ export const DefaultToast: FC<DefaultToastProps> = ({
   <CustomToast {...props} css={css}>
     <Container>
       {Icon && <Icon size={24} colorName="black" css={css?.icon} />}
-      {title || description ? (
+      {title ?? description ? (
         <Content>
           {title && <Title css={css?.title}>{title}</Title>}
           {description && (

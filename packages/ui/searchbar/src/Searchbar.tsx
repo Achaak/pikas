@@ -8,7 +8,11 @@ import { styled } from '@pikas-ui/styles';
 import type { TextfieldProps, TextfieldCSS } from '@pikas-ui/textfield';
 import { Textfield } from '@pikas-ui/textfield';
 import { useEffect, useState, useRef, ReactNode, FC } from 'react';
-import * as usehooks from 'usehooks-ts';
+import {
+  useDebounceValue,
+  useOnClickOutside,
+  useWindowSize,
+} from 'usehooks-ts';
 
 const Form = styled('form', {
   display: 'flex',
@@ -184,14 +188,14 @@ export const Searchbar = <T,>({
   const [loading, setLoading] = useState(loadingProp);
   const [direction, setDirection] = useState(directionProp);
   const [selectionId, setSelectionId] = useState(0);
-  const debouncedValue = usehooks.useDebounce(textfieldValue, debounceDelay);
+  const debouncedValue = useDebounceValue(textfieldValue, debounceDelay);
   const refContainer = useRef<HTMLFormElement | null>(null);
   const refTextfield = useRef<HTMLInputElement | null>(null);
   const refResult = useRef<HTMLDivElement | null>(null);
   const refItem = useRef<Array<HTMLDivElement | null>>([]);
-  usehooks.useOnClickOutside(refContainer, () => setIsOpen(false));
+  useOnClickOutside(refContainer, () => setIsOpen(false));
   const [outerHeight, setOuterHeight] = useState<number>();
-  const windowSize = usehooks.useWindowSize();
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -400,9 +404,9 @@ export const Searchbar = <T,>({
         isOpen={isOpen}
         css={css?.resultContainer}
         direction={
-          direction ||
+          direction ??
           (outerHeight &&
-            outerHeight / 2 < (refContainer.current?.offsetTop || 0))
+            outerHeight / 2 < (refContainer.current?.offsetTop ?? 0))
             ? 'up'
             : 'down'
         }

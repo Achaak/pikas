@@ -12,6 +12,7 @@ export type PikasLetterSpacings = typeof pikasLetterSpacings;
 export type PikasLetterSpacing = keyof PikasLetterSpacings;
 
 export type LetterSpacingsRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type LetterSpacingsRecordKey = PikasLetterSpacing | number | string;
 export type LetterSpacingsRecord = Record<
   LetterSpacingsRecordKey,
@@ -28,4 +29,4 @@ export const loadLetterSpacings = <T extends LetterSpacingsRecord>(
   ({
     ...pikasLetterSpacings,
     ...values,
-  } as PikasLetterSpacings & T);
+  }) as PikasLetterSpacings & T;

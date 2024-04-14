@@ -20,7 +20,7 @@ const newPerson = (): Person => ({
     'relationship',
     'complicated',
     'single',
-  ])[0]!,
+  ])[0],
 });
 
 const range = (len: number) => {
@@ -33,7 +33,7 @@ const range = (len: number) => {
 
 export const makeData = (...lens: number[]) => {
   const makeDataLevel = (depth = 0): Person[] => {
-    const len = lens[depth]!;
+    const len = lens[depth];
     return range(len).map(
       (): Person => ({
         ...newPerson(),

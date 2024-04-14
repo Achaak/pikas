@@ -16,6 +16,7 @@ export type PikasZIndices = typeof pikasZIndices;
 export type PikasZIndex = keyof PikasZIndices;
 
 export type ZIndicesRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type ZIndicesRecordKey = PikasZIndex | number | string;
 export type ZIndicesRecord = Record<ZIndicesRecordKey, ZIndicesRecordValue>;
 
@@ -29,4 +30,4 @@ export const loadZIndices = <T extends ZIndicesRecord>(
   ({
     ...pikasZIndices,
     ...values,
-  } as PikasZIndices & T);
+  }) as PikasZIndices & T;

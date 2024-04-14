@@ -188,7 +188,7 @@ export const ToggleGroup: FC<ToggleGroupProps> = ({
 
   const colorHexFinal = colorHex ?? theme.colors[colorName].value;
   const contentColorHexFinal =
-    contentColorHex ||
+    contentColorHex ??
     (contentColorName && theme.colors[contentColorName].value);
 
   return (

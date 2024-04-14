@@ -11,6 +11,7 @@ export type PikasBorderStyles = typeof pikasBorderStyles;
 export type PikasBorderStyle = keyof PikasBorderStyles;
 
 export type BorderStylesRecordValue = string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type BorderStylesRecordKey = PikasBorderStyle | number | string;
 export type BorderStylesRecord = Record<
   BorderStylesRecordKey,
@@ -27,4 +28,4 @@ export const loadBorderStyles = <T extends BorderStylesRecord>(
   ({
     ...pikasBorderStyles,
     ...values,
-  } as PikasBorderStyles & T);
+  }) as PikasBorderStyles & T;

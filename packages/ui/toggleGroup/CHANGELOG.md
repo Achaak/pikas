@@ -1,5 +1,18 @@
 # @pikas-ui/toggle-group
 
+## 2.0.0
+
+### Major Changes
+
+- a7e6f0b: upgrade deps
+
+### Patch Changes
+
+- Updated dependencies [a7e6f0b]
+  - @pikas-ui/icons@5.0.0
+  - @pikas-ui/styles@5.0.0
+  - @pikas-utils/color@3.0.0
+
 ## 1.1.0
 
 ### Minor Changes

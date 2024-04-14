@@ -1,5 +1,23 @@
 # @pikas-ui/table
 
+## 5.0.0
+
+### Major Changes
+
+- a7e6f0b: upgrade deps
+
+### Patch Changes
+
+- Updated dependencies [a7e6f0b]
+  - @pikas-ui/button@5.0.0
+  - @pikas-ui/checkbox@5.0.0
+  - @pikas-ui/icons@5.0.0
+  - @pikas-ui/loader@5.0.0
+  - @pikas-ui/select@6.0.0
+  - @pikas-ui/styles@5.0.0
+  - @pikas-ui/textfield@5.0.0
+  - @pikas-utils/color@3.0.0
+
 ## 4.2.0
 
 ### Minor Changes

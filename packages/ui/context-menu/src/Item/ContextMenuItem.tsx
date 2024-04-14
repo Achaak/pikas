@@ -61,7 +61,7 @@ export const ContextMenuItem: FC<DefaultItem> = ({
         ...css?.container,
       }}
     >
-      {loading || isLoading ? (
+      {loading ?? isLoading ? (
         <ItemIndicator forceMount css={css?.indicator}>
           <ClipLoader
             size={16}

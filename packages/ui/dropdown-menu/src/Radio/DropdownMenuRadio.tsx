@@ -44,7 +44,7 @@ export const DropdownMenuRadio: FC<RadioItem> = ({
         colorHex ?? (colorName ? `$${colorName}` : undefined) ?? 'gray-darker',
       ...css?.container,
     }}
-    onValueChange={onValueChange}
+    onValueChange={(v) => void onValueChange?.(v)}
   >
     {radios.map((radio, radioIndex) => (
       <RadioItemStyled

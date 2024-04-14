@@ -41,6 +41,7 @@ export type PikasSizes = typeof pikasSizes;
 export type PikasSize = keyof PikasSizes;
 
 export type SizesRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type SizesRecordKey = PikasSize | number | string;
 export type SizesRecord = Record<SizesRecordKey, SizesRecordValue>;
 
@@ -54,4 +55,4 @@ export const loadSizes = <T extends SizesRecord>(
   ({
     ...pikasSizes,
     ...values,
-  } as PikasSizes & T);
+  }) as PikasSizes & T;

@@ -176,6 +176,7 @@ export type PikasColors = typeof pikasColors;
 export type PikasColor = keyof PikasColors;
 
 export type ColorsRecordValue = string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type ColorsRecordKey = PikasColor | number | string;
 export type ColorsRecord = Record<ColorsRecordKey, ColorsRecordValue>;
 
@@ -189,4 +190,4 @@ export const loadColors = <T extends ColorsRecord>(
   ({
     ...pikasColors,
     ...values,
-  } as PikasColors & T);
+  }) as PikasColors & T;

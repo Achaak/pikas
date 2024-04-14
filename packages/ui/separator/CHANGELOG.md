@@ -1,5 +1,16 @@
 # @pikas-ui/separator
 
+## 5.0.0
+
+### Major Changes
+
+- a7e6f0b: upgrade deps
+
+### Patch Changes
+
+- Updated dependencies [a7e6f0b]
+  - @pikas-ui/styles@5.0.0
+
 ## 4.1.0
 
 ### Minor Changes

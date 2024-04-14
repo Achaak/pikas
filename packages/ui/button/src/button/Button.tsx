@@ -325,7 +325,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
-      contentColorHex ||
+      contentColorHex ??
       (contentColorName && theme.colors[contentColorName].value);
 
     return (
@@ -426,7 +426,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 
     const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
-      contentColorHex ||
+      contentColorHex ??
       (contentColorName && theme.colors[contentColorName].value);
 
     return (

@@ -1,5 +1,19 @@
 # @pikas-ui/switch
 
+## 4.0.0
+
+### Major Changes
+
+- a7e6f0b: upgrade deps
+
+### Patch Changes
+
+- Updated dependencies [a7e6f0b]
+  - @pikas-ui/icons@5.0.0
+  - @pikas-ui/styles@5.0.0
+  - @pikas-ui/text@6.0.0
+  - @pikas-ui/tooltip@5.0.0
+
 ## 3.1.0
 
 ### Minor Changes

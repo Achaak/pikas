@@ -14,6 +14,7 @@ export type PikasRadii = typeof pikasRadii;
 export type PikasRadius = keyof PikasRadii;
 
 export type RadiiRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type RadiiRecordKey = PikasRadius | number | string;
 export type RadiiRecord = Record<RadiiRecordKey, RadiiRecordValue>;
 
@@ -27,4 +28,4 @@ export const loadRadii = <T extends RadiiRecord>(
   ({
     ...pikasRadii,
     ...values,
-  } as PikasRadii & T);
+  }) as PikasRadii & T;

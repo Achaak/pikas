@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2022: true,
@@ -10,10 +11,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    // "plugin:@typescript-eslint/strict",
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:github/typescript',
     'plugin:import/recommended',
     'plugin:import/typescript',
@@ -25,7 +24,8 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     // Use relative project path to avoid issues with monorepos
-    project: ['./tsconfig.json', './*/tsconfig.json'],
+    // project: ['./tsconfig.json', './*/tsconfig.json'],
+    EXPERIMENTAL_useProjectService: true,
     sourceType: 'module',
   },
   plugins: [
@@ -128,7 +128,6 @@ module.exports = {
     '@typescript-eslint/prefer-ts-expect-error': 'error',
     // "@typescript-eslint/promise-function-async": "error",
     '@typescript-eslint/require-array-sort-compare': 'error',
-    '@typescript-eslint/sort-type-union-intersection-members': 'error',
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/type-annotation-spacing': 'error',
     '@typescript-eslint/unified-signatures': 'error',
