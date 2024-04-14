@@ -12,7 +12,7 @@ import { Textfield } from '@pikas-ui/textfield';
 
 const fuzzyFilter: FilterFn<Person> = (row, columnId, value, addMeta) => {
   // Rank the item
-  const itemRank = rankItem(row.getValue(columnId), value);
+  const itemRank = rankItem(row.getValue(columnId), value as string);
 
   // Store the itemRank info
   addMeta({
