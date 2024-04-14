@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/tabs",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "4.1.0",
+    "@pikas-ui/styles": "5.0.0",
     "@radix-ui/react-tabs": "1.0.4"
   },
   "peerDependencies": {

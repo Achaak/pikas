@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/loader",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "private": false,
   "description": "A UI library that offers a loader components for React.",
   "license": "MIT",
@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/styles": "4.1.0",
+    "@pikas-ui/styles": "5.0.0",
     "react-spinners": "0.13.8"
   },
   "peerDependencies": {

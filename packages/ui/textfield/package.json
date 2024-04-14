@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/textfield",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -47,12 +47,12 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/icons": "4.1.1",
-    "@pikas-ui/styles": "4.1.0",
-    "@pikas-ui/text": "5.1.0",
-    "@pikas-ui/tooltip": "4.1.0",
-    "@pikas-utils/color": "2.1.0",
-    "@pikas-utils/hooks": "2.1.0",
+    "@pikas-ui/icons": "5.0.0",
+    "@pikas-ui/styles": "5.0.0",
+    "@pikas-ui/text": "6.0.0",
+    "@pikas-ui/tooltip": "5.0.0",
+    "@pikas-utils/color": "3.0.0",
+    "@pikas-utils/hooks": "3.0.0",
     "@radix-ui/react-label": "2.0.2"
   },
   "peerDependencies": {

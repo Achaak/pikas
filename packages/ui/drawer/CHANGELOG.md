@@ -1,5 +1,18 @@
 # @pikas-ui/drawer
 
+## 3.0.0
+
+### Major Changes
+
+- a7e6f0b: upgrade deps
+
+### Patch Changes
+
+- Updated dependencies [a7e6f0b]
+  - @pikas-ui/icons@5.0.0
+  - @pikas-ui/styles@5.0.0
+  - @pikas-ui/title@3.0.0
+
 ## 2.1.0
 
 ### Minor Changes

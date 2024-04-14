@@ -1,6 +1,6 @@
 {
   "name": "@pikas-ui/progress",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "private": false,
   "keywords": [
     "pikas-ui",
@@ -47,9 +47,9 @@
   },
   "homepage": "https://github.com/Achaak/pikas#readme",
   "dependencies": {
-    "@pikas-ui/skeleton": "3.1.0",
-    "@pikas-ui/styles": "4.1.0",
-    "@pikas-utils/color": "2.1.0",
+    "@pikas-ui/skeleton": "4.0.0",
+    "@pikas-ui/styles": "5.0.0",
+    "@pikas-utils/color": "3.0.0",
     "@radix-ui/react-progress": "1.0.3"
   },
   "peerDependencies": {

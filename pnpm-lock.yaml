@@ -492,13 +492,13 @@ importers:
   packages/ui/alert:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
     devDependencies:
       '@pikas/prettier':
@@ -541,10 +541,10 @@ importers:
   packages/ui/avatar:
     dependencies:
       '@pikas-ui/skeleton':
-        specifier: 3.1.0
+        specifier: 4.0.0
         version: link:../skeleton
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@radix-ui/react-avatar':
         specifier: 1.0.4
@@ -590,13 +590,13 @@ importers:
   packages/ui/badge:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
     devDependencies:
       '@pikas/prettier':
@@ -639,16 +639,16 @@ importers:
   packages/ui/button:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/loader':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../loader
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
     devDependencies:
       '@pikas/prettier':
@@ -691,16 +691,16 @@ importers:
   packages/ui/checkbox:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@radix-ui/react-checkbox':
         specifier: 1.0.4
@@ -746,19 +746,19 @@ importers:
   packages/ui/color-picker:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-ui/textfield':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../textfield
       '@pikas-ui/tooltip':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../tooltip
     devDependencies:
       '@pikas/prettier':
@@ -801,16 +801,16 @@ importers:
   packages/ui/context-menu:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/loader':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../loader
       '@pikas-ui/menu':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../menu
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@radix-ui/react-context-menu':
         specifier: 2.1.5
@@ -856,22 +856,22 @@ importers:
   packages/ui/dialog:
     dependencies:
       '@pikas-ui/button':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../button
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/loader':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../loader
       '@pikas-ui/slider':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../slider
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/title':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../title
       '@radix-ui/react-dialog':
         specifier: 1.0.5
@@ -926,13 +926,13 @@ importers:
   packages/ui/drawer:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/title':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../title
       usehooks-ts:
         specifier: 3.1.0
@@ -978,16 +978,16 @@ importers:
   packages/ui/dropdown-menu:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/loader':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../loader
       '@pikas-ui/menu':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../menu
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@radix-ui/react-dropdown-menu':
         specifier: 2.0.6
@@ -1033,10 +1033,10 @@ importers:
   packages/ui/dropzone:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       file-selector:
         specifier: ^0.6.0
@@ -1094,37 +1094,37 @@ importers:
         specifier: ^3.2.2
         version: 3.2.2(react@18.2.0)
       '@pikas-ui/context-menu':
-        specifier: 4.2.0
+        specifier: 5.0.0
         version: link:../context-menu
       '@pikas-ui/dropdown-menu':
-        specifier: 4.2.0
+        specifier: 5.0.0
         version: link:../dropdown-menu
       '@pikas-ui/grid':
-        specifier: 2.2.0
+        specifier: 3.0.0
         version: link:../grid
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/loader':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../loader
       '@pikas-ui/menu':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../menu
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@pikas-utils/file':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/file
       '@pikas-utils/keyboard':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/keyboard
       '@pikas-utils/screen':
-        specifier: 2.2.0
+        specifier: 3.0.0
         version: link:../../utils/screen
       usehooks-ts:
         specifier: 3.1.0
@@ -1170,7 +1170,7 @@ importers:
   packages/ui/grid:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
     devDependencies:
       '@pikas/prettier':
@@ -1216,7 +1216,7 @@ importers:
         specifier: 4.1.1
         version: 4.1.1(react@18.2.0)
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
     devDependencies:
       '@pikas/prettier':
@@ -1259,7 +1259,7 @@ importers:
   packages/ui/loader:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       react-spinners:
         specifier: 0.13.8
@@ -1305,10 +1305,10 @@ importers:
   packages/ui/menu:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
     devDependencies:
       '@pikas/prettier':
@@ -1351,25 +1351,25 @@ importers:
   packages/ui/multiInputField:
     dependencies:
       '@pikas-ui/badge':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../badge
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-ui/tooltip':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../tooltip
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@pikas-utils/hooks':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/hooks
       '@radix-ui/react-label':
         specifier: 2.0.2
@@ -1415,13 +1415,13 @@ importers:
   packages/ui/progress:
     dependencies:
       '@pikas-ui/skeleton':
-        specifier: 3.1.0
+        specifier: 4.0.0
         version: link:../skeleton
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@radix-ui/react-progress':
         specifier: 1.0.3
@@ -1467,16 +1467,16 @@ importers:
   packages/ui/radio-group:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-ui/tooltip':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../tooltip
       '@radix-ui/react-label':
         specifier: 2.0.2
@@ -1525,22 +1525,22 @@ importers:
   packages/ui/searchbar:
     dependencies:
       '@pikas-ui/button':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../button
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/loader':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../loader
       '@pikas-ui/separator':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../separator
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/textfield':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../textfield
       usehooks-ts:
         specifier: 3.1.0
@@ -1586,19 +1586,19 @@ importers:
   packages/ui/select:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-ui/textfield':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../textfield
       '@pikas-ui/tooltip':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../tooltip
       '@radix-ui/react-select':
         specifier: 2.0.0
@@ -1644,7 +1644,7 @@ importers:
   packages/ui/separator:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@radix-ui/react-separator':
         specifier: 1.0.3
@@ -1690,7 +1690,7 @@ importers:
   packages/ui/skeleton:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
     devDependencies:
       '@pikas/prettier':
@@ -1733,13 +1733,13 @@ importers:
   packages/ui/slider:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@radix-ui/react-slider':
         specifier: 1.1.2
@@ -1846,16 +1846,16 @@ importers:
   packages/ui/switch:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-ui/tooltip':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../tooltip
       '@radix-ui/react-switch':
         specifier: 1.0.3
@@ -1913,28 +1913,28 @@ importers:
         specifier: ^3.2.2
         version: 3.2.2(react@18.2.0)
       '@pikas-ui/button':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../button
       '@pikas-ui/checkbox':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../checkbox
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/loader':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../loader
       '@pikas-ui/select':
-        specifier: 5.2.0
+        specifier: 6.0.0
         version: link:../select
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/textfield':
-        specifier: workspace:^4.1.0
+        specifier: workspace:^5.0.0
         version: link:../textfield
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@tanstack/match-sorter-utils':
         specifier: ^8.15.1
@@ -1989,7 +1989,7 @@ importers:
   packages/ui/tabs:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@radix-ui/react-tabs':
         specifier: 1.0.4
@@ -2035,7 +2035,7 @@ importers:
   packages/ui/text:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@radix-ui/react-label':
         specifier: 2.0.2
@@ -2081,19 +2081,19 @@ importers:
   packages/ui/textarea:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-ui/tooltip':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../tooltip
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
     devDependencies:
       '@pikas/prettier':
@@ -2136,22 +2136,22 @@ importers:
   packages/ui/textfield:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-ui/text':
-        specifier: 5.1.0
+        specifier: 6.0.0
         version: link:../text
       '@pikas-ui/tooltip':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../tooltip
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@pikas-utils/hooks':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/hooks
       '@radix-ui/react-label':
         specifier: 2.0.2
@@ -2197,7 +2197,7 @@ importers:
   packages/ui/title:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
     devDependencies:
       '@pikas/prettier':
@@ -2240,13 +2240,13 @@ importers:
   packages/ui/toast:
     dependencies:
       '@pikas-ui/button':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../button
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@radix-ui/react-toast':
         specifier: 1.1.5
@@ -2292,13 +2292,13 @@ importers:
   packages/ui/toggleGroup:
     dependencies:
       '@pikas-ui/icons':
-        specifier: 4.1.1
+        specifier: 5.0.0
         version: link:../icons
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@radix-ui/react-toggle-group':
         specifier: ^1.0.4
@@ -2344,10 +2344,10 @@ importers:
   packages/ui/tooltip:
     dependencies:
       '@pikas-ui/styles':
-        specifier: 4.1.0
+        specifier: 5.0.0
         version: link:../styles
       '@pikas-utils/color':
-        specifier: 2.1.0
+        specifier: 3.0.0
         version: link:../../utils/color
       '@radix-ui/react-tooltip':
         specifier: 1.0.7

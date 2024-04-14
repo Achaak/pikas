@@ -1,5 +1,11 @@
 # @pikas-utils/screen
 
+## 3.0.0
+
+### Major Changes
+
+- a7e6f0b: upgrade deps
+
 ## 2.2.0
 
 ### Minor Changes
