@@ -6,8 +6,8 @@
     "declaration": true,
     "declarationMap": true,
     "lib": ["ES2021"],
-    "module": "NodeNext",
-    "moduleResolution": "node",
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
     "target": "ES2021"
   }
 }

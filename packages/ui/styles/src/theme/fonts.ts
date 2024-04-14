@@ -6,6 +6,7 @@ export type PikasFonts = typeof pikasFonts;
 export type PikasFont = keyof PikasFonts;
 
 export type FontsRecordValue = string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type FontsRecordKey = PikasFont | number | string;
 export type FontsRecord = Record<FontsRecordKey, FontsRecordValue>;
 
@@ -19,4 +20,4 @@ export const loadFonts = <T extends FontsRecord>(
   ({
     ...pikasFonts,
     ...values,
-  } as PikasFonts & T);
+  }) as PikasFonts & T;

@@ -14,6 +14,7 @@ export type PikasFontWeights = typeof pikasFontWeights;
 export type PikasFontWeight = keyof PikasFontWeights;
 
 export type FontWeightsRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type FontWeightsRecordKey = PikasFontWeight | number | string;
 export type FontWeightsRecord = Record<
   FontWeightsRecordKey,
@@ -30,4 +31,4 @@ export const loadFontWeights = <T extends FontWeightsRecord>(
   ({
     ...pikasFontWeights,
     ...values,
-  } as PikasFontWeights & T);
+  }) as PikasFontWeights & T;

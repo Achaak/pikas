@@ -41,7 +41,7 @@ export const ContextMenuCheckbox: FC<CheckboxItem> = ({
   <CheckboxItemStyled
     disabled={disabled}
     checked={checked}
-    onCheckedChange={onCheckedChange}
+    onCheckedChange={(c) => void onCheckedChange?.(c)}
     css={{
       color:
         colorHex ?? (colorName ? `$${colorName}` : undefined) ?? 'gray-darker',

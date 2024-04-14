@@ -22,10 +22,12 @@ const Overlay = styled(DialogPrimitive.Overlay, {
   zIndex: '$2x-high',
 
   '&[data-state="open"]': {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     animation: `${overlayOpen} 200ms ease-out forwards`,
   },
 
   '&[data-state="closed"]': {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     animation: `${overlayClosed} 200ms ease-out forwards`,
   },
 });
@@ -104,19 +106,23 @@ const Container = styled(DialogPrimitive.Content, {
   },
 
   '&[data-state="open"]': {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     animation: `${containerOpen} 500ms ease-out forwards`,
 
     '@sm': {
       transformOrigin: '0% 0%',
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       animation: `${containerOpenSm} 500ms ease-out forwards`,
     },
   },
 
   '&[data-state="closed"]': {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     animation: `${containerClosed} 500ms ease-out forwards`,
 
     '@sm': {
       transformOrigin: '0% 0%',
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       animation: `${containerClosedSm} 500ms ease-out forwards`,
     },
   },

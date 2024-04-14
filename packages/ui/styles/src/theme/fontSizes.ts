@@ -36,6 +36,7 @@ export type PikasFontSizes = typeof pikasFontSizes;
 export type PikasFontSize = keyof PikasFontSizes;
 
 export type FontSizesRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type FontSizesRecordKey = PikasFontSize | number | string;
 export type FontSizesRecord = Record<FontSizesRecordKey, FontSizesRecordValue>;
 
@@ -49,4 +50,4 @@ export const loadFontSizes = <T extends FontSizesRecord>(
   ({
     ...pikasFontSizes,
     ...values,
-  } as PikasFontSizes & T);
+  }) as PikasFontSizes & T;

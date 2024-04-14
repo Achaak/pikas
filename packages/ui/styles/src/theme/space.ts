@@ -41,6 +41,7 @@ export type PikasSpaces = typeof pikasSpaces;
 export type PikasSpace = keyof PikasSpaces;
 
 export type SpacesRecordValue = number | string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type SpacesRecordKey = PikasSpace | number | string;
 export type SpacesRecord = Record<SpacesRecordKey, SpacesRecordValue>;
 
@@ -54,4 +55,4 @@ export const loadSpaces = <T extends SpacesRecord>(
   ({
     ...pikasSpaces,
     ...values,
-  } as PikasSpaces & T);
+  }) as PikasSpaces & T;

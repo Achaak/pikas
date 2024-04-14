@@ -2,7 +2,7 @@ import type { IconProps } from '@pikas-ui/icons';
 import { IconByName } from '@pikas-ui/icons';
 import { styled, useTernaryDarkMode } from '@pikas-ui/styles';
 import { Switch } from '@pikas-ui/switch';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 import { FC, ReactNode, useEffect, useState } from 'react';
 
@@ -106,7 +106,7 @@ export const Header: FC<CustomProps> = ({
       <Left>
         <Link href="/">
           <TitleContainer>
-            <Image src={logoUrl} alt={title} height={40} width={40} />
+            <img src={logoUrl} alt={title} height={40} width={40} />
             <H1>{title}</H1>
           </TitleContainer>
         </Link>

@@ -11,6 +11,7 @@ export type PikasMedias = typeof pikasMedias;
 export type PikasMedia = keyof PikasMedias;
 
 export type MediasRecordValue = string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type MediasRecordKey = PikasMedia | number | string;
 export type MediasRecord = Record<MediasRecordKey, MediasRecordValue>;
 
@@ -24,4 +25,4 @@ export const loadMedias = <T extends MediasRecord>(
   ({
     ...pikasMedias,
     ...values,
-  } as PikasMedias & T);
+  }) as PikasMedias & T;

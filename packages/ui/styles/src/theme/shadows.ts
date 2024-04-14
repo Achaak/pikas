@@ -67,6 +67,7 @@ export type PikasShadows = typeof pikasShadows;
 export type PikasShadow = keyof PikasShadows;
 
 export type ShadowsRecordValue = string;
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type ShadowsRecordKey = PikasShadow | number | string;
 export type ShadowsRecord = Record<ShadowsRecordKey, ShadowsRecordValue>;
 
@@ -80,4 +81,4 @@ export const loadShadows = <T extends ShadowsRecord>(
   ({
     ...pikasShadows,
     ...values,
-  } as PikasShadows & T);
+  }) as PikasShadows & T;

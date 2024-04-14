@@ -408,7 +408,7 @@ const FRefInputTable = <T extends Data>(
   /* Column Order */
   const [columnOrderState, setColumnOrderState] =
     useState<TableColumnOrderState>(
-      columnOrder?.defaultState ?? columns.map((column) => column.id as string)
+      columnOrder?.defaultState ?? columns.map((column) => column.id!)
     );
 
   useEffect(() => {

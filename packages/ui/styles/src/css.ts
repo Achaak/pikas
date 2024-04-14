@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react';
+import { createStitches } from '@secrecy/stitches-react';
 import { loadBorderStyles } from './theme/borderStyles.js';
 import { loadBorderWidths } from './theme/borderWidths.js';
 import { loadColors } from './theme/colors.js';
@@ -12,7 +12,7 @@ import { loadSizes } from './theme/sizes.js';
 import { loadSpaces } from './theme/space.js';
 import { loadTransitions } from './theme/transitions.js';
 import { loadZIndices } from './theme/zIndices.js';
-import type { CSS } from '@stitches/react';
+import type { CSS } from '@secrecy/stitches-react';
 import { loadFonts } from './theme/fonts.js';
 import { loadMedias } from './medias.js';
 import { loadUtils } from './utils/index.js';

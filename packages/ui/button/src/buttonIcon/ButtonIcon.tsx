@@ -264,7 +264,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
 
     const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
-      contentColorHex ||
+      contentColorHex ??
       (contentColorName && theme.colors[contentColorName].value);
 
     return (
@@ -337,7 +337,7 @@ export const ButtonIconLink = forwardRef<
 
     const handleClick = useCallback(
       (e: MouseEvent<HTMLAnchorElement>): void => {
-        if (disabled || loading) {
+        if (disabled ?? loading) {
           return;
         }
 
@@ -352,7 +352,7 @@ export const ButtonIconLink = forwardRef<
 
     const colorHexFinal = colorHex ?? theme.colors[colorName].value;
     const contentColorHexFinal =
-      contentColorHex ||
+      contentColorHex ??
       (contentColorName && theme.colors[contentColorName].value);
 
     return (
